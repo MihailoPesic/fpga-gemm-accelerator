@@ -1,0 +1,39 @@
+# Normalize line endings: LF in the repo, LF in the working tree.
+# Vivado, XSim and the Xilinx toolchain all read LF fine on Windows, so there
+# is no reason to let CRLF into the history.
+* text=auto eol=lf
+
+# Source
+*.v      text
+*.vh     text
+*.sv     text
+*.svh    text
+*.vhd    text
+*.vhdl   text
+*.xdc    text
+*.tcl    text
+*.do     text
+*.md     text
+*.mem    text
+*.coe    text
+
+# IP configuration - text, but the XML is machine-written. Keep it tracked so
+# IP is reproducible; do not hand-edit.
+*.xci    text
+*.bd     text
+*.prj    text
+
+# Windows-only scripts must keep CRLF or cmd.exe misparses them
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+
+# Binary - never diff or merge these
+*.bit    binary
+*.bin    binary
+*.dcp    binary
+*.xsa    binary
+*.mcs    binary
+*.wdb    binary
+*.png    binary
+*.jpg    binary
+*.pdf    binary
