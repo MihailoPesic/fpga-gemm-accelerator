@@ -113,8 +113,8 @@ MIG first on purpose — it's the schedule risk, and testing it needs only an LE
 | # | Stage | State |
 |---|---|---|
 | 1 | MIG generated + synthesised | **done** |
-| 2 | `init_calib_complete` lights on board | **now** |
-| 3 | UART echo, all 256 byte values | |
+| 2 | `init_calib_complete` lights on board | **done** |
+| 3 | UART echo, all 256 byte values | **now** |
 | 4 | DDR2 write/read from Python | |
 | 5 | MAC array + tile buffer, simulated | |
 | 6 | Full path vs NumPy | |
@@ -136,16 +136,50 @@ Stage 2 uses two LEDs: `LED[15]=mmcm_locked` dark → clocking problem.
 
 Predictions written before measuring. Explaining a gap beats reporting a number.
 
-## 9. Risks
+**Stage 2 baseline** — MIG + clk_wiz only, everything else tied off. Subtract
+this from final figures to get the accelerator's own cost.
 
-- Calibration unproven until stage 2 passes.
+| | Value |
+|---|---|
+| LUT | 3,150 / 32,600 (9.7%) |
+| FF | 2,834 / 65,200 (4.3%) |
+| WNS / WHS | +2.363 ns / +0.005 ns |
+| Failing endpoints | 0 of 8,956 |
+| Total power | 0.967 W |
+
+MIG synthesised standalone at 3,697 LUT; implementation trimmed it to 3,150
+because the tied-off `app_*` inputs let the optimiser delete the unused write
+path. That logic returns once commands are issued.
+
+## 9. Known warnings
+
+**38 × `TIMING-6` critical warnings**, "no common primary clock between related
+clocks", naming `clk_out2_clk_wiz_0` / `clk_out2_clk_wiz_0_1` and
+`clk_pll_i` / `clk_pll_i_1`.
+
+Cause: choosing "No Buffer" for MIG's clocks leaves its own `create_clock` lines
+commented out, so Vivado auto-derives through the MMCM → MIG-PLL cascade and
+cannot prove the two clock objects are the same physical net.
+
+**Not fixed, deliberately.** The design times clean (0 failing endpoints of 8,956,
+WNS +2.363 ns) and DDR2 calibrated on hardware first try, which settles
+empirically what the static analysis could not prove. Digilent's alternative —
+`sys_clk_i` Single-Ended straight from pin E3 — avoids the cascade, and is the
+fallback if the interface ever proves flaky.
+
+`XDCB-5` is a `get_pins` efficiency nag inside MIG's own XDC. Ignore.
+
+## 10. Risks
+
+- DDR2 calibration proven on hardware 2026-07-28, first attempt. Remaining risk
+  is all downstream of the controller.
 - UART is **14,500× slower than compute** (11.4 s load vs 0.786 ms maths).
   Design is "load once, multiply many" by necessity. LFSR fast-fill command
   planned so regressions skip the load.
 - Byte order inside the 128-bit word must match NumPy. Mismatch = wrong answers,
   no error. Check with a small case before the full matrix.
 
-## 10. Likely questions
+## 11. Likely questions
 
 | Asked | Answer |
 |---|---|
