@@ -73,12 +73,50 @@ if {[file exists $proj_path]} {
 }
 
 #-----------------------------------------------------------------------------
-# Board file. Installed per-user under %APPDATA%/Xilinx (Windows) or
-# ~/.Xilinx (Linux), so a fresh machine will not have it. Try to fetch it.
+# Board file. XHub installs board files per-user, under %APPDATA%/Xilinx on
+# Windows or ~/.Xilinx on Linux -- NOT into the Vivado installation. A freshly
+# created project does not scan that location by default, so board_part_repo_paths
+# has to be pointed at it explicitly or set_property board_part silently
+# resolves to nothing.
 #-----------------------------------------------------------------------------
+proc board_store_paths {} {
+    set ver  [version -short]
+    set tail [list xhub board_store xilinx_board_store]
+    set candidates {}
+    if {[info exists ::env(APPDATA)]} {
+        lappend candidates [file join $::env(APPDATA) Xilinx Vivado $ver {*}$tail]
+    }
+    foreach var {HOME USERPROFILE} {
+        if {[info exists ::env($var)]} {
+            lappend candidates [file join $::env($var) .Xilinx Vivado $ver {*}$tail]
+        }
+    }
+    set found {}
+    foreach c $candidates {
+        if {[file isdirectory $c]} { lappend found [file normalize $c] }
+    }
+    return [lsort -unique $found]
+}
+
+proc register_board_repos {} {
+    set repos [board_store_paths]
+    if {[llength $repos] == 0} { return 0 }
+    set cur [get_property board_part_repo_paths [current_project]]
+    set changed 0
+    foreach r $repos {
+        if {[lsearch -exact $cur $r] < 0} { lappend cur $r ; set changed 1 }
+    }
+    if {$changed} {
+        set_property board_part_repo_paths $cur [current_project]
+        puts "INFO: board repo paths: $cur"
+    }
+    return 1
+}
+
 proc ensure_board_part {board_part board_xhub} {
+    register_board_repos
     if {[llength [get_board_parts -quiet $board_part]] > 0} {
-        puts "INFO: board part '$board_part' already available"
+        puts "INFO: board part '$board_part' available"
         return 1
     }
     puts "INFO: board part '$board_part' not found, attempting install from Xilinx Board Store"
@@ -88,7 +126,10 @@ proc ensure_board_part {board_part board_xhub} {
     } err]} {
         puts "WARNING: board store install failed: $err"
     }
+    # The install may have just created the directory, so re-register.
+    register_board_repos
     if {[llength [get_board_parts -quiet $board_part]] > 0} {
+        puts "INFO: board part '$board_part' installed"
         return 1
     }
     puts "WARNING: proceeding without a board part. Board-aware IP configuration"
@@ -106,6 +147,12 @@ create_project $proj_name $proj_path -part $part_name
 set have_board [ensure_board_part $board_part $board_xhub]
 if {$have_board} {
     set_property board_part $board_part [current_project]
+    # set_property does not error when the board part cannot be resolved, it
+    # just leaves the property empty. Check that it actually took.
+    if {[get_property board_part [current_project]] ne $board_part} {
+        return -code error "Failed to apply board part '$board_part' (property is empty after set_property)."
+    }
+    puts "INFO: board part applied: [get_property board_part [current_project]]"
 }
 
 set_property target_language        $target_language [current_project]
