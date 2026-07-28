@@ -1,252 +1,158 @@
-# DDR2-Backed INT8 Matrix-Vector Accelerator — Design Record
+# DDR2 INT8 Matrix-Vector Accelerator — Design Record
 
-Nexys A7-50T (`xc7a50ticsg324-1L`), Vivado 2026.1.
+Nexys A7-50T `xc7a50ticsg324-1L`, Vivado 2026.1.
+`y = A·x`, A = 1024×1024 INT8, x = 1024 INT8, y = 1024 INT32, exact vs NumPy.
 
-This document records **why** each decision was made. What changed and when is in
-the git log; the MIG configuration is in `mig_7series_0.xci`; the pin assignments
-are in MIG's generated XDC. None of those record reasoning, so that is what lives
-here.
+Git log = what changed. `.xci` = MIG settings. MIG's XDC = pinout.
+**This file = why.**
 
 ---
 
-## 1. The problem
+## 1. Numbers
 
-Compute `y = A·x` where `A` is 1024×1024 signed INT8, `x` is 1024 signed INT8, and
-`y` is 1024 signed INT32. `A` lives in DDR2. Host is Python over USB-UART. Results
-must match NumPy exactly.
-
-## 2. The governing insight
-
-Matrix-vector multiply touches **each matrix byte exactly once**. Arithmetic
-intensity is therefore **1 MAC per byte** — the lowest useful ratio there is.
-
-That single fact determines the whole architecture: this design is **memory-bound
-by construction**, not compute-bound. Matrix-*matrix* multiply reuses each byte N
-times and would be compute-bound; GEMV never is.
-
-Consequence: **lane count is set by memory bandwidth, not by DSP availability.**
-
-## 3. Why DDR2 is genuinely required
-
-| | |
-|---|---|
-| Matrix size | 1024 × 1024 × 1 B = **1 MiB** |
-| XC7A50T block RAM | 75 × 36 Kb = **337.5 KiB** |
-
-The matrix is **3.1× larger than all on-chip memory**. It physically cannot be
-held in BRAM. This is not a contrived use of external memory — at this matrix
-size there is no alternative.
-
-## 4. Lane count = 16
-
-The MIG user interface delivers **128 bits = 16 bytes per `ui_clk` cycle**. That
-number is not a choice; it falls out of the hardware:
-
-```
-16-bit DDR2 bus  x  burst length 8  =  128 bits per user transaction
-4:1 PHY ratio    ->  one transaction per ui_clk cycle
-```
-
-At an arithmetic intensity of 1 MAC/byte, consuming 16 bytes per cycle requires
-exactly **16 MAC lanes**. A 17th lane would starve; only 16 bytes arrive.
-
-**The XC7A50T has 120 DSP48E1. This design uses 16.** The other 104 sit idle on
-purpose — adding lanes cannot help, because the bottleneck is the memory feed.
-Being able to explain that is the point of the project.
-
-## 5. Memory clock: 200 MHz, not 333 MHz
-
-MIG *permitted* a 3000 ps clock period (333.33 MHz) for this part — the allowed
-range it offered was 3000–5000 ps.
-
-Digilent's own validated configuration, shipped as `mig.prj` inside the board
-support files, uses **5000 ps (200 MHz)**. Digilent designed the PCB and know its
-DDR2 routing quality; they deliberately left the tool's maximum on the table.
-
-**Decision: match Digilent at 200 MHz.**
-
-Reasoning: signal integrity on the board is not under our control, and a marginal
-calibration fails intermittently and temperature-dependently — the most expensive
-class of bug possible on a fixed deadline. 1.67× bandwidth is not worth that risk,
-especially when the qualitative result (memory-bound, perfectly balanced) is
-identical at either clock.
-
-A copy of Digilent's file is kept at `doc/digilent_nexys_a7_mig.prj`.
-
-## 6. Resulting numbers
-
-| Quantity | Value | Derivation |
+| | Value | From |
 |---|---|---|
 | Memory clock | 200 MHz | 5000 ps, vendor-validated |
-| `ui_clk` | **50 MHz** | 200 MHz ÷ 4 (PHY ratio) |
-| User-interface word | **128 bit = 16 B** | 16-bit bus × BL8 |
+| `ui_clk` | **50 MHz** | 200 ÷ 4 (PHY ratio) |
+| UI word | **128 bit = 16 B** | 16-bit bus × BL8 |
 | Peak bandwidth | **800 MB/s** | 16 B × 50 MHz |
-| MAC lanes | **16** | = 16 B/cycle × 1 MAC/B |
-| Compute cycles | **65,536** | 1024 columns × 64 row-blocks |
+| MAC lanes | **16** | 16 B/cycle × 1 MAC/B |
+| Compute cycles | **65,536** | 1024 col × 64 row-blocks |
 | Compute time | **1.311 ms** | 65,536 ÷ 50 MHz |
 | DDR2 stream time | **1.311 ms** | 1 MiB ÷ 800 MB/s |
-| Throughput | **800 MMAC/s** (1.6 GOP/s) | |
+| Throughput | **800 MMAC/s** = 1.6 GOP/s | |
+| DSP used | **16 / 120** | |
+| BRAM | ~10 / 75 | 8 tile ping-pong + vec + result |
+| UART | 921600 baud, div 54 @ 50 MHz, +0.47% err | |
 
-Compute time and transfer time are **identical**, because both move 16 B/cycle.
-With ping-pong tile buffers the DDR2 transfer is completely hidden behind compute.
-The design sits exactly on its roofline balance point.
+Device: 32,600 LUT · 65,200 FF · 120 DSP48E1 · 75 BRAM36 (337.5 KiB).
 
-Side benefit: at 50 MHz, timing closure is not a concern.
+## 2. The one insight
 
-## 7. Data layout — the host pre-tiles the matrix
+GEMV touches each matrix byte **once**. Arithmetic intensity = **1 MAC/byte**.
+→ memory-bound by construction. Lane count set by bandwidth, not DSP count.
 
-Naive row-major storage would force the accelerator to gather 16 rows at one
-column, i.e. 16 strided DDR2 reads per cycle. That destroys bandwidth.
+- Matrix 1 MiB vs BRAM 337.5 KiB → **3.1× too big** → DDR2 mandatory, not decorative.
+- 16 B arrive per cycle → **16 lanes**. Lane 17 starves. 104 DSPs idle on purpose.
+- Compute time == transfer time (both 16 B/cycle) → ping-pong hides DDR2 entirely.
+  Design sits exactly on its roofline balance point.
 
-Instead **Python rearranges the matrix before sending it**. Host-side shuffling
-costs nothing; hardware-side shuffling costs logic and cycles.
+## 3. Decisions
 
-For row-block `RB` (0..63) and column `j` (0..1023), 16 bytes are stored at:
+| Decision | Choice | Why |
+|---|---|---|
+| Memory clock | **200 MHz**, not the permitted 333 | Digilent designed the PCB and validate 200. Marginal calibration fails intermittently — worst bug class on a deadline. 1.67× BW not worth it |
+| Interface | **Native**, not AXI4 | AXI4 means writing an AXI *master* for a pattern needing none of it. Native = ~10 signals, exposes real DRAM behaviour |
+| Ordering | **Strict** | Access is purely sequential → nothing to reorder. Guarantees in-order read return → tile fill is a plain counter |
+| Address map | **ROW_BANK_COLUMN** | Column-block crossing hits next bank → activate ahead, hide `tRC`. Digilent uses BANK_ROW_COLUMN but that's a demo default. Perf only, never correctness |
+| Internal Vref | **enabled** | Required; Digilent sets it. Legal at 400 Mbps (limit 800) |
+| Matrix layout | **host pre-tiles** | Host shuffling is free, RTL shuffling costs logic + cycles |
+| Clock domain | **everything on `ui_clk`** | Only CDC left is inside MIG, already timed by Xilinx. None to design, none to debug |
+| Lanes | **16** | See §2 |
+
+## 4. Data layout
+
+Row-block `RB` 0..63, column `j` 0..1023:
 
 ```
 byte_addr = RB*16384 + j*16
 bytes[0..15] = A[RB*16+0][j] ... A[RB*16+15][j]
+bit [7:0] = LOWEST row index,  [127:120] = highest
 ```
 
-Bit `[7:0]` of the 128-bit word is the **lowest** row index; `[127:120]` is the
-highest. This must match what NumPy packs, or results are silently wrong.
+- row-block = contiguous **16 KiB** → one sequential burst, no striding
+- one 128-bit read = 16 rows at column `j` → feeds all lanes in one cycle
+- `x[j]` broadcast; lane *k* accumulates `y[RB*16+k]`
+- zero shuffle logic in RTL
 
-Consequences:
+Naive row-major would need 16 strided reads per cycle. That is the whole reason
+for tiling.
 
-- each row-block is a **contiguous 16 KiB region** → one sequential DDR2 burst,
-  no strided access
-- one 128-bit read yields 16 different rows at the same column → feeds all 16
-  lanes in one cycle
-- `x[j]` is broadcast to every lane; lane *k* accumulates `y[RB*16+k]`
-- **zero shuffle logic in RTL**
+## 5. `app_addr`
 
-## 8. `app_addr` mapping
-
-Read from the generated RTL (`ADDR_WIDTH = 27`, `ROW_WIDTH = 13`,
-`BANK_WIDTH = 3`, `COL_WIDTH = 10`, `MEM_ADDR_ORDER = ROW_BANK_COLUMN`):
+From generated RTL: `ADDR_WIDTH=27`, `ROW=13`, `BANK=3`, `COL=10`,
+`MEM_ADDR_ORDER=ROW_BANK_COLUMN`.
 
 ```
 app_addr[26:0] = { rank[0], row[12:0], bank[2:0], col[9:0] }
 ```
 
-The column address counts **16-bit words**, so one `app_addr` unit = 2 bytes.
-Burst length 8 covers 8 columns = 16 bytes per transaction. Therefore:
+Column counts **16-bit words** → 1 unit = 2 B. BL8 covers 8 columns = 16 B.
 
-> **Consecutive 128-bit transactions are 8 apart in `app_addr`** — not 1, not 16.
+> **Stride = 8 per 128-bit transaction.** Not 1, not 16.
 
-Check: 2²⁶ units × 2 B = 134,217,728 B = exactly 128 MiB, matching the chip.
-
-Address formula for the tiled layout:
+Check: 2²⁶ × 2 B = 134,217,728 = exactly 128 MiB. ✓
 
 ```
 app_addr = byte_addr >> 1 = RB*8192 + j*8
 ```
 
-The full matrix spans 524,288 units (2¹⁹), 0.8% of the address space.
+Matrix spans 524,288 units (2¹⁹) = 0.8% of address space.
 
-## 9. Controller options
-
-**ORDERING = Strict.** Normal mode lets the controller reorder commands to reduce
-row activations. Our access pattern is purely sequential, so there is nothing to
-reorder and Normal buys almost nothing. Strict guarantees **in-order read return**,
-which reduces tile-fill logic to a plain counter — every `app_rd_data_valid` pulse
-is the next word. Under Normal we would have to be certain the interface restores
-request order; out-of-order returns would scramble tiles silently.
-
-**Address map = ROW_BANK_COLUMN** (Digilent's file uses BANK_ROW_COLUMN). Crossing
-a column block moves to the *next bank*, so the controller can activate the next
-bank's row while still reading the current one, hiding the `tRC` penalty. This is a
-performance knob only — it cannot affect correctness or calibration. Digilent's
-choice is a demo default, not a tuned one. Revisit if measured bandwidth
-disappoints.
-
-**Native interface, not AXI4.** AXI4 would require writing an AXI *master* —
-burst handshakes, ID tracking, response channels — for a streaming pattern that
-needs none of it. The native interface is ~10 signals and is the one that actually
-exposes DRAM behaviour: refresh stalls, `app_rdy` deasserting, bank conflicts.
-
-**Internal Vref enabled.** Required — Digilent's configuration sets it. Legal here
-because the data rate is 400 Mbps, inside the 800 Mbps limit for internal Vref.
-
-## 10. Clocking
+## 6. Clocking
 
 ```
-CLK100MHZ (pin E3)
-    |
-    v
-clk_wiz_0  (MMCM, VCO 1000 MHz)
-    +-- clk_out1 = 100 MHz (/10) --> mig sys_clk_i   ("No Buffer")
-    +-- clk_out2 = 200 MHz (/5)  --> mig clk_ref_i   ("No Buffer")
-    +-- locked                   --> sys_rst = locked & CPU_RESETN
-              |
-    MIG internal PLL: 100 MHz x 8 / 1 = 800 MHz VCO -> 200 MHz memory clock
-                                                    -> ui_clk = 50 MHz
+CLK100MHZ (E3)
+  └─ clk_wiz_0  MMCM, VCO 1000 MHz
+       ├─ clk_out1 100 MHz (/10) → mig sys_clk_i   "No Buffer"
+       ├─ clk_out2 200 MHz (/5)  → mig clk_ref_i   "No Buffer"
+       └─ locked                 → sys_rst = locked & CPU_RESETN
+
+  MIG PLL: 100 × 8 / 1 = 800 MHz VCO → 200 MHz mem → ui_clk 50 MHz
 ```
 
-**Why a Clocking Wizard is unavoidable:** Artix-7's `IDELAYCTRL`, which calibrates
-input delay taps during DDR2 training, requires a **200 MHz** reference. That is a
-silicon requirement. The board provides only 100 MHz, so something must synthesise
-200 MHz.
+- **Wizard unavoidable**: `IDELAYCTRL` needs 200 MHz (silicon requirement), board gives 100.
+- **Both MIG clocks "No Buffer"**: wizard owns the E3 input buffer; two IBUFs can't share a pin.
+- **`sys_rst = locked & CPU_RESETN`**: MIG must stay in reset until MMCM locks. Releasing against an unlocked clock fails calibration and looks like broken hardware.
+- Both outputs are integer dividers off one VCO → zero frequency error.
 
-**Why both MIG clocks are "No Buffer":** the wizard owns the input buffer on pin
-E3. Two input buffers cannot share one physical pin, so MIG must take its clocks
-as internal nets.
+## 7. Status
 
-**Why `sys_rst = locked & CPU_RESETN`:** MIG must stay in reset until the MMCM has
-locked. Releasing it against an unlocked clock fails calibration in a way that
-looks like a hardware fault.
+MIG first on purpose — it's the schedule risk, and testing it needs only an LED.
 
-Both wizard outputs use integer dividers off a single VCO, so there is no
-frequency error.
-
-## 11. Everything runs on `ui_clk`
-
-UART, control FSM, MAC array and tile buffers are all clocked by MIG's `ui_clk`
-(50 MHz). The only clock-domain crossing left in the design is inside MIG, which
-Xilinx has already timed. **No CDC to design and none to debug.**
-
-UART baud divisor at 50 MHz for 921600 baud: 50e6/921600 = 54.25 → 54, giving
-925,926 baud, **+0.47% error**. Well inside the ~2% tolerance of 8N1 framing.
-
-## 12. Bring-up order
-
-MIG deliberately came first. It is the schedule risk, and testing calibration
-needs nothing but an LED on `init_calib_complete` — so a failure surfaces early
-with time to recover, rather than on the last afternoon.
-
-| Stage | Proves | State |
+| # | Stage | State |
 |---|---|---|
-| 1 | MIG generated and synthesised | **done** |
-| 2 | `init_calib_complete` lights on hardware | in progress |
-| 3 | UART echo round-trips all 256 byte values | |
-| 4 | DDR2 write/read test driven from Python | |
+| 1 | MIG generated + synthesised | **done** |
+| 2 | `init_calib_complete` lights on board | **now** |
+| 3 | UART echo, all 256 byte values | |
+| 4 | DDR2 write/read from Python | |
 | 5 | MAC array + tile buffer, simulated | |
-| 6 | Full path, verified against NumPy | |
-| 7 | Timing closure, measurements | |
+| 6 | Full path vs NumPy | |
+| 7 | Timing + measurements | |
 
-Two LEDs during stage 2, because the failures differ: `LED[15] = mmcm_locked`
-dark means a clocking problem; `LED[15]` lit with `LED[0]` dark means clocks are
-fine and DDR2 calibration itself failed.
+Stage 2 uses two LEDs: `LED[15]=mmcm_locked` dark → clocking problem.
+`LED[15]` lit, `LED[0]` dark → clocks fine, DDR2 calibration failed.
 
-## 13. Measurements
-
-To be filled in from hardware.
+## 8. Measurements
 
 | Metric | Predicted | Measured |
 |---|---|---|
 | DDR2 read bandwidth | 800 MB/s | |
-| Compute latency (1024×1024) | 1.311 ms | |
-| Cycles stalled on DDR2 | ~0 (ping-pong) | |
-| UART matrix load time | 11.4 s @ 921600 | |
-| LUT / FF / DSP / BRAM | 16 DSP, ~10 BRAM36 | |
+| Compute latency 1024² | 1.311 ms | |
+| Cycles stalled on DDR2 | ~0 | |
+| UART matrix load | 11.4 s | |
+| LUT / FF / DSP / BRAM | — / — / 16 / ~10 | |
 | WNS | | |
 
-## 14. Known risks
+Predictions written before measuring. Explaining a gap beats reporting a number.
 
-- DDR2 calibration on hardware is unproven until stage 2 passes.
-- UART is ~14,500× slower than compute (11.4 s load vs 0.786 ms of maths). The
-  design is "load once, multiply many" by necessity. An LFSR fast-fill command is
-  planned so regression runs do not pay the load cost.
-- Byte ordering inside the 128-bit word must match between Python and RTL. A
-  mismatch produces wrong answers with no error, so it is checked explicitly with
-  a small case before the full matrix.
+## 9. Risks
+
+- Calibration unproven until stage 2 passes.
+- UART is **14,500× slower than compute** (11.4 s load vs 0.786 ms maths).
+  Design is "load once, multiply many" by necessity. LFSR fast-fill command
+  planned so regressions skip the load.
+- Byte order inside the 128-bit word must match NumPy. Mismatch = wrong answers,
+  no error. Check with a small case before the full matrix.
+
+## 10. Likely questions
+
+| Asked | Answer |
+|---|---|
+| Why only 16 of 120 DSPs? | GEMV is intensity-1, memory-bound. 16 B/cycle arrive; 16 lanes consume them. More lanes starve |
+| Why not run DDR2 at 333 MHz? | Tool permitted it, board vendor validates 200. Chose the validated point over the maximum |
+| Why is the matrix pre-tiled? | Row-major needs 16 strided reads/cycle. Tiling makes each row-block one sequential 16 KiB burst and removes all shuffle logic |
+| Why Strict ordering? | Sequential access has nothing to reorder. Strict guarantees in-order return, so tile fill is a counter |
+| How do you know DDR2 is needed? | 1 MiB matrix, 337.5 KiB BRAM. 3.1× short |
+| What limits performance? | Memory bandwidth. Compute and transfer are both 1.311 ms — the design is exactly balanced |
+| How is correctness proven? | Bit-exact vs NumPy INT32 on the full 1024×1024, not a tolerance check |
