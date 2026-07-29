@@ -114,8 +114,8 @@ MIG first on purpose — it's the schedule risk, and testing it needs only an LE
 |---|---|---|
 | 1 | MIG generated + synthesised | **done** |
 | 2 | `init_calib_complete` lights on board | **done** |
-| 3 | UART echo, all 256 byte values | **now** |
-| 4 | DDR2 write/read from Python | |
+| 3 | UART echo, all 256 byte values | **done** |
+| 4 | DDR2 write/read from Python | **now** |
 | 5 | MAC array + tile buffer, simulated | |
 | 6 | Full path vs NumPy | |
 | 7 | Timing + measurements | |

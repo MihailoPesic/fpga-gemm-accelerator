@@ -15,6 +15,12 @@ create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports { C
 ## Reset push button (active low)
 set_property -dict { PACKAGE_PIN C12 IOSTANDARD LVCMOS33 } [get_ports { CPU_RESETN }]
 
+## USB-UART. Names are from the HOST's point of view:
+##   UART_TXD_IN  = host transmits -> FPGA INPUT
+##   UART_RXD_OUT = FPGA transmits -> FPGA OUTPUT
+set_property -dict { PACKAGE_PIN C4  IOSTANDARD LVCMOS33 } [get_ports { UART_TXD_IN  }]
+set_property -dict { PACKAGE_PIN D4  IOSTANDARD LVCMOS33 } [get_ports { UART_RXD_OUT }]
+
 ## LEDs
 set_property -dict { PACKAGE_PIN H17 IOSTANDARD LVCMOS33 } [get_ports { LED[0]  }]
 set_property -dict { PACKAGE_PIN K15 IOSTANDARD LVCMOS33 } [get_ports { LED[1]  }]

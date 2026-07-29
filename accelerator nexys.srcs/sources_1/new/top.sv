@@ -1,23 +1,31 @@
 `timescale 1ns / 1ps
 //=============================================================================
-// top.sv  --  Stage 2: DDR2 calibration test
+// top.sv  --  Stage 3: DDR2 calibration + UART echo
 //
-// Does nothing but bring up the memory controller. Every app_* input is tied
-// off, so MIG initialises the DRAM, runs write-levelling and read training,
-// then sits idle.
+// Everything runs on ui_clk (50 MHz) from MIG. That is deliberate: the only
+// clock-domain crossing left in the design is inside MIG, which Xilinx has
+// already timed. Nothing for us to design, nothing for us to debug.
 //
-//   LED[15] = mmcm_locked          MMCM produced its clocks
-//   LED[0]  = init_calib_complete  DDR2 calibrated and ready for commands
+// The UART is reset from ui_clk_sync_rst only, NOT gated on
+// init_calib_complete. So the link comes up even if DDR2 never calibrates,
+// which keeps a debug channel alive in exactly the case you would need one.
 //
-// LED[15] dark             -> clocking problem, DDR2 never got a chance
-// LED[15] lit, LED[0] dark -> clocks fine, DDR2 calibration itself failed
-// both lit                 -> stage 2 passed
+//   LED[15] = mmcm_locked           MMCM produced its clocks
+//   LED[14] = frame_err             stop bit was low -> baud is wrong
+//   LED[1]  = heartbeat (~1.5 Hz)   design is alive on ui_clk
+//   LED[0]  = init_calib_complete   DDR2 calibrated
 //=============================================================================
 
 module top (
   input  logic        CLK100MHZ,
   input  logic        CPU_RESETN,     // active low push button
   output logic [15:0] LED,
+
+  // USB-UART. Names are from the HOST's point of view:
+  //   UART_TXD_IN  = host transmits -> our receiver
+  //   UART_RXD_OUT = our transmitter -> host receives
+  input  logic        UART_TXD_IN,
+  output logic        UART_RXD_OUT,
 
   // DDR2 -- names must match MIG's generated XDC exactly
   output logic [12:0] ddr2_addr,
@@ -35,6 +43,9 @@ module top (
   inout  wire  [1:0]  ddr2_dqs_p,
   inout  wire  [1:0]  ddr2_dqs_n
 );
+
+  localparam int UI_CLK_HZ = 50_000_000;   // 200 MHz memory clock / 4
+  localparam int BAUD      = 921_600;      // divisor 54, +0.47% error
 
   //---------------------------------------------------------------------------
   // Clocking
@@ -57,10 +68,10 @@ module top (
   assign sys_rst_n = mmcm_locked & CPU_RESETN;
 
   //---------------------------------------------------------------------------
-  // MIG outputs -- declared, unused at this stage
+  // Memory controller. app_* still tied off -- no commands issued yet.
   //---------------------------------------------------------------------------
   logic         init_calib_complete;
-  logic         ui_clk;              // 50 MHz, will clock the whole design later
+  logic         ui_clk;
   logic         ui_clk_sync_rst;
   logic         app_rdy;
   logic         app_wdf_rdy;
@@ -71,12 +82,7 @@ module top (
   logic         app_ref_ack;
   logic         app_zq_ack;
 
-  //---------------------------------------------------------------------------
-  // Memory controller. Every app_* input is tied off -- an undriven input can
-  // latch X and hang the controller's state machine.
-  //---------------------------------------------------------------------------
   mig_7series_0 u_mig (
-    // DDR2 pins straight through
     .ddr2_addr           (ddr2_addr),
     .ddr2_ba             (ddr2_ba),
     .ddr2_cas_n          (ddr2_cas_n),
@@ -94,25 +100,21 @@ module top (
 
     .init_calib_complete (init_calib_complete),
 
-    // Command path -- idle
     .app_addr            (27'd0),
     .app_cmd             (3'd0),
     .app_en              (1'b0),
     .app_rdy             (app_rdy),
 
-    // Write data path -- idle
     .app_wdf_data        (128'd0),
     .app_wdf_mask        (16'd0),
     .app_wdf_wren        (1'b0),
     .app_wdf_end         (1'b0),
     .app_wdf_rdy         (app_wdf_rdy),
 
-    // Read data path -- unused
     .app_rd_data         (app_rd_data),
     .app_rd_data_end     (app_rd_data_end),
     .app_rd_data_valid   (app_rd_data_valid),
 
-    // Self-refresh / refresh / ZQ-calibrate are handled automatically
     .app_sr_req          (1'b0),
     .app_ref_req         (1'b0),
     .app_zq_req          (1'b0),
@@ -120,21 +122,77 @@ module top (
     .app_ref_ack         (app_ref_ack),
     .app_zq_ack          (app_zq_ack),
 
-    // User interface clock, 200 MHz / 4 = 50 MHz
     .ui_clk              (ui_clk),
     .ui_clk_sync_rst     (ui_clk_sync_rst),
 
-    // Both "No Buffer": these arrive from the MMCM, not from pins
     .sys_clk_i           (clk100),
     .clk_ref_i           (clk200),
     .sys_rst             (sys_rst_n)
   );
 
   //---------------------------------------------------------------------------
+  // UART, clocked by ui_clk
+  //---------------------------------------------------------------------------
+  logic [7:0] rx_data, tx_data;
+  logic       rx_valid, frame_err;
+  logic       tx_send, tx_busy;
+
+  uart_rx #(.CLK_HZ(UI_CLK_HZ), .BAUD(BAUD)) u_rx (
+    .clk       (ui_clk),
+    .rst       (ui_clk_sync_rst),
+    .rx_pin    (UART_TXD_IN),
+    .data      (rx_data),
+    .valid     (rx_valid),
+    .frame_err (frame_err)
+  );
+
+  uart_tx #(.CLK_HZ(UI_CLK_HZ), .BAUD(BAUD)) u_tx (
+    .clk       (ui_clk),
+    .rst       (ui_clk_sync_rst),
+    .data      (tx_data),
+    .send      (tx_send),
+    .busy      (tx_busy),
+    .tx_pin    (UART_RXD_OUT)
+  );
+
+  //---------------------------------------------------------------------------
+  // Echo, with one byte of skid.
+  //
+  // Receiver asserts valid at the centre of the stop bit; the transmitter needs
+  // a full 10 bit-times to drain. Those rates are equal, so exactly one byte can
+  // ever be waiting -- one holding register is provably enough, no FIFO needed.
+  //---------------------------------------------------------------------------
+  logic [7:0] hold;
+  logic       pending;
+
+  always_ff @(posedge ui_clk) begin
+    tx_send <= 1'b0;                       // default: one-cycle pulse
+
+    if (ui_clk_sync_rst) begin
+      pending <= 1'b0;
+    end else begin
+      if (rx_valid) hold <= rx_data;
+
+      if (pending && !tx_busy && !tx_send) begin
+        tx_data <= hold;
+        tx_send <= 1'b1;
+        pending <= rx_valid;               // byte arriving this cycle stays queued
+      end else if (rx_valid) begin
+        pending <= 1'b1;
+      end
+    end
+  end
+
+  //---------------------------------------------------------------------------
   // Status
   //---------------------------------------------------------------------------
-  assign LED[0]    = init_calib_complete;
-  assign LED[15]   = mmcm_locked;
-  assign LED[14:1] = '0;
+  logic [24:0] heartbeat;
+  always_ff @(posedge ui_clk) heartbeat <= heartbeat + 1'b1;
+
+  assign LED[0]     = init_calib_complete;
+  assign LED[1]     = heartbeat[24];       // ~1.5 Hz at 50 MHz
+  assign LED[13:2]  = '0;
+  assign LED[14]    = frame_err;
+  assign LED[15]    = mmcm_locked;
 
 endmodule
