@@ -179,7 +179,68 @@ fallback if the interface ever proves flaky.
 - Byte order inside the 128-bit word must match NumPy. Mismatch = wrong answers,
   no error. Check with a small case before the full matrix.
 
-## 11. Likely questions
+## 11. Rebuild from scratch
+
+Everything below is reproducible from this repo plus the Digilent board files.
+
+**1. Board files** (per-user, not in the repo, not in the Vivado install):
+Tools → XHub Stores → Board Store → Digilent → **Nexys A7-50T 1.3**, or
+
+```tcl
+xhub::install [xhub::get_xitems digilentinc.com:xilinx_board_store:nexys-a7-50t:1.3]
+```
+
+Lands in `%APPDATA%\Xilinx\Vivado\<ver>\xhub\board_store\xilinx_board_store\`.
+
+**2. Project**: part `xc7a50ticsg324-1L`, then
+`set_property board_part digilentinc.com:nexys-a7-50t:part0:1.3 [current_project]`
+
+**3. Pinout.** The board package ships Digilent's validated MIG config at
+`.../boards/Digilent/nexys-a7-50t/1.3/1.3/mig.prj`. It is XML, not a UCF —
+`doc/nexys_a7_ddr2_pinout.ucf` was derived from it with:
+
+```bash
+grep -oE 'IOSTANDARD="[^"]*" PADName="[^"]*"[^>]*name="[^"]*"' mig.prj \
+ | sed -E 's/IOSTANDARD="([^"]*)" PADName="([^"]*)".*name="([^"]*)"/NET "\3" LOC = "\2" | IOSTANDARD = \1 ;/' \
+ | sort > nexys_a7_ddr2_pinout.ucf
+```
+
+A copy of the original is kept at `doc/digilent_nexys_a7_mig.prj`. **Read it
+before trusting the wizard's defaults** — it is the authority on memory clock,
+memory part and Internal Vref, and the wizard defaults disagree with it.
+
+**4. MIG wizard** (`mig_7series_0`), page by page:
+
+| Page | Setting |
+|---|---|
+| User Options | Create Design, 1 controller, **AXI4 unchecked** |
+| Pin Compatible FPGAs | none |
+| Memory Selection | DDR2 SDRAM |
+| Controller Options | **5000 ps (200 MHz)**, 4:1, Components, **MT47H64M16HR-25E**, width **16**, ECC off, Data Mask on, 4 bank machines, **Strict** |
+| Memory Options | Input clock **10000 ps (100 MHz)**, Sequential, Fullstrength, 75 ohm, CS Enable, **ROW_BANK_COLUMN** |
+| FPGA Options | System Clock **No Buffer**, Reference Clock **No Buffer**, **ACTIVE LOW**, Debug OFF, **Internal Vref checked**, IO Power Reduction ON, XADC Enabled |
+| Extended FPGA | 50 Ohms |
+| IO Planning | **Fixed Pin Out** |
+| Pin Selection | **Read XDC/UCF** → the file from step 3 → **Validate** ("Current Pinout is valid") |
+| System Signals | all three **No connect** |
+
+Verify Memory Details reads `1Gb, x16, row:13, col:10, bank:3`. If it says 2Gb
+or row:14, the memory part is wrong.
+
+**5. Clocking Wizard** (`clk_wiz_0`): MMCM, input 100 MHz **Single ended clock
+capable pin**, `clk_out1` 100 MHz, `clk_out2` 200 MHz, `locked` on, `reset` off.
+Actual frequencies must read exactly 100.00000 / 200.00000.
+
+**6. Sources**: `top.sv` and `top.xdc` are in the repo. Generate both IPs
+out-of-context, then synth → impl → bitstream.
+
+**7. Program**: MODE jumper on **JTAG**, USB in **PROG UART**. Hardware Manager
+→ Open Target → Auto Connect → Program Device → `impl_1/top.bit`.
+
+Configuration is SRAM-based, so the bitstream is lost on power-off. Reprogram
+each session; no rebuild needed.
+
+## 12. Likely questions
 
 | Asked | Answer |
 |---|---|
