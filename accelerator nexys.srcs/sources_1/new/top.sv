@@ -1,17 +1,13 @@
 `timescale 1ns / 1ps
 //=============================================================================
-// top.sv  --  Stage 3: DDR2 calibration + UART echo
+// top.sv  --  Stage 4: DDR2 read/write driven from Python over UART
 //
-// Everything runs on ui_clk (50 MHz) from MIG. That is deliberate: the only
-// clock-domain crossing left in the design is inside MIG, which Xilinx has
-// already timed. Nothing for us to design, nothing for us to debug.
-//
-// The UART is reset from ui_clk_sync_rst only, NOT gated on
-// init_calib_complete. So the link comes up even if DDR2 never calibrates,
-// which keeps a debug channel alive in exactly the case you would need one.
+// Everything runs on ui_clk (50 MHz) from MIG. The only clock-domain crossing
+// left in the design is inside MIG, which Xilinx has already timed.
 //
 //   LED[15] = mmcm_locked           MMCM produced its clocks
 //   LED[14] = frame_err             stop bit was low -> baud is wrong
+//   LED[2]  = bridge busy           a command is in flight
 //   LED[1]  = heartbeat (~1.5 Hz)   design is alive on ui_clk
 //   LED[0]  = init_calib_complete   DDR2 calibrated
 //=============================================================================
@@ -50,9 +46,7 @@ module top (
   //---------------------------------------------------------------------------
   // Clocking
   //---------------------------------------------------------------------------
-  logic clk100;        // -> MIG sys_clk_i
-  logic clk200;        // -> MIG clk_ref_i, IDELAYCTRL requires exactly this
-  logic mmcm_locked;
+  logic clk100, clk200, mmcm_locked;
 
   clk_wiz_0 u_clk (
     .clk_in1  (CLK100MHZ),
@@ -61,26 +55,25 @@ module top (
     .locked   (mmcm_locked)
   );
 
-  // MIG's sys_rst is ACTIVE LOW. Holding it low until the MMCM locks matters:
-  // releasing MIG against an unlocked clock fails calibration in a way that
-  // looks like broken hardware.
+  // MIG must stay in reset until the MMCM locks: releasing it against an
+  // unlocked clock fails calibration in a way that looks like dead hardware.
   logic sys_rst_n;
   assign sys_rst_n = mmcm_locked & CPU_RESETN;
 
   //---------------------------------------------------------------------------
-  // Memory controller. app_* still tied off -- no commands issued yet.
+  // Memory controller
   //---------------------------------------------------------------------------
   logic         init_calib_complete;
-  logic         ui_clk;
-  logic         ui_clk_sync_rst;
-  logic         app_rdy;
-  logic         app_wdf_rdy;
+  logic         ui_clk, ui_clk_sync_rst;
+  logic [26:0]  app_addr;
+  logic [2:0]   app_cmd;
+  logic         app_en, app_rdy;
+  logic [127:0] app_wdf_data;
+  logic [15:0]  app_wdf_mask;
+  logic         app_wdf_wren, app_wdf_end, app_wdf_rdy;
   logic [127:0] app_rd_data;
-  logic         app_rd_data_end;
-  logic         app_rd_data_valid;
-  logic         app_sr_active;
-  logic         app_ref_ack;
-  logic         app_zq_ack;
+  logic         app_rd_data_end, app_rd_data_valid;
+  logic         app_sr_active, app_ref_ack, app_zq_ack;
 
   mig_7series_0 u_mig (
     .ddr2_addr           (ddr2_addr),
@@ -100,15 +93,15 @@ module top (
 
     .init_calib_complete (init_calib_complete),
 
-    .app_addr            (27'd0),
-    .app_cmd             (3'd0),
-    .app_en              (1'b0),
+    .app_addr            (app_addr),
+    .app_cmd             (app_cmd),
+    .app_en              (app_en),
     .app_rdy             (app_rdy),
 
-    .app_wdf_data        (128'd0),
-    .app_wdf_mask        (16'd0),
-    .app_wdf_wren        (1'b0),
-    .app_wdf_end         (1'b0),
+    .app_wdf_data        (app_wdf_data),
+    .app_wdf_mask        (app_wdf_mask),
+    .app_wdf_wren        (app_wdf_wren),
+    .app_wdf_end         (app_wdf_end),
     .app_wdf_rdy         (app_wdf_rdy),
 
     .app_rd_data         (app_rd_data),
@@ -131,57 +124,51 @@ module top (
   );
 
   //---------------------------------------------------------------------------
-  // UART, clocked by ui_clk
+  // UART, clocked by ui_clk. Reset from ui_clk_sync_rst only -- deliberately
+  // NOT gated on calibration, so the link is alive even if DDR2 is not.
   //---------------------------------------------------------------------------
   logic [7:0] rx_data, tx_data;
   logic       rx_valid, frame_err;
   logic       tx_send, tx_busy;
 
   uart_rx #(.CLK_HZ(UI_CLK_HZ), .BAUD(BAUD)) u_rx (
-    .clk       (ui_clk),
-    .rst       (ui_clk_sync_rst),
-    .rx_pin    (UART_TXD_IN),
-    .data      (rx_data),
-    .valid     (rx_valid),
-    .frame_err (frame_err)
-  );
+    .clk(ui_clk), .rst(ui_clk_sync_rst), .rx_pin(UART_TXD_IN),
+    .data(rx_data), .valid(rx_valid), .frame_err(frame_err));
 
   uart_tx #(.CLK_HZ(UI_CLK_HZ), .BAUD(BAUD)) u_tx (
-    .clk       (ui_clk),
-    .rst       (ui_clk_sync_rst),
-    .data      (tx_data),
-    .send      (tx_send),
-    .busy      (tx_busy),
-    .tx_pin    (UART_RXD_OUT)
+    .clk(ui_clk), .rst(ui_clk_sync_rst), .data(tx_data),
+    .send(tx_send), .busy(tx_busy), .tx_pin(UART_RXD_OUT));
+
+  //---------------------------------------------------------------------------
+  // Command processor
+  //---------------------------------------------------------------------------
+  logic bridge_busy;
+
+  uart_ddr_bridge u_bridge (
+    .clk               (ui_clk),
+    .rst               (ui_clk_sync_rst),
+    .calib_done        (init_calib_complete),
+
+    .rx_data           (rx_data),
+    .rx_valid          (rx_valid),
+    .tx_data           (tx_data),
+    .tx_send           (tx_send),
+    .tx_busy           (tx_busy),
+
+    .app_addr          (app_addr),
+    .app_cmd           (app_cmd),
+    .app_en            (app_en),
+    .app_rdy           (app_rdy),
+    .app_wdf_data      (app_wdf_data),
+    .app_wdf_mask      (app_wdf_mask),
+    .app_wdf_wren      (app_wdf_wren),
+    .app_wdf_end       (app_wdf_end),
+    .app_wdf_rdy       (app_wdf_rdy),
+    .app_rd_data       (app_rd_data),
+    .app_rd_data_valid (app_rd_data_valid),
+
+    .busy_led          (bridge_busy)
   );
-
-  //---------------------------------------------------------------------------
-  // Echo, with one byte of skid.
-  //
-  // Receiver asserts valid at the centre of the stop bit; the transmitter needs
-  // a full 10 bit-times to drain. Those rates are equal, so exactly one byte can
-  // ever be waiting -- one holding register is provably enough, no FIFO needed.
-  //---------------------------------------------------------------------------
-  logic [7:0] hold;
-  logic       pending;
-
-  always_ff @(posedge ui_clk) begin
-    tx_send <= 1'b0;                       // default: one-cycle pulse
-
-    if (ui_clk_sync_rst) begin
-      pending <= 1'b0;
-    end else begin
-      if (rx_valid) hold <= rx_data;
-
-      if (pending && !tx_busy && !tx_send) begin
-        tx_data <= hold;
-        tx_send <= 1'b1;
-        pending <= rx_valid;               // byte arriving this cycle stays queued
-      end else if (rx_valid) begin
-        pending <= 1'b1;
-      end
-    end
-  end
 
   //---------------------------------------------------------------------------
   // Status
@@ -191,7 +178,8 @@ module top (
 
   assign LED[0]     = init_calib_complete;
   assign LED[1]     = heartbeat[24];       // ~1.5 Hz at 50 MHz
-  assign LED[13:2]  = '0;
+  assign LED[2]     = bridge_busy;
+  assign LED[13:3]  = '0;
   assign LED[14]    = frame_err;
   assign LED[15]    = mmcm_locked;
 

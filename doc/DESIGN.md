@@ -80,6 +80,9 @@ app_addr[26:0] = { rank[0], row[12:0], bank[2:0], col[9:0] }
 Column counts **16-bit words** → 1 unit = 2 B. BL8 covers 8 columns = 16 B.
 
 > **Stride = 8 per 128-bit transaction.** Not 1, not 16.
+> Confirmed on hardware 2026-07-29: 8 adjacent words written with
+> distinct data all read back correctly, so they neither overlap nor
+> leave holes.
 
 Check: 2²⁶ × 2 B = 134,217,728 = exactly 128 MiB. ✓
 
@@ -115,8 +118,8 @@ MIG first on purpose — it's the schedule risk, and testing it needs only an LE
 | 1 | MIG generated + synthesised | **done** |
 | 2 | `init_calib_complete` lights on board | **done** |
 | 3 | UART echo, all 256 byte values | **done** |
-| 4 | DDR2 write/read from Python | **now** |
-| 5 | MAC array + tile buffer, simulated | |
+| 4 | DDR2 write/read from Python | **done** |
+| 5 | MAC array + tile buffer, simulated | **now** |
 | 6 | Full path vs NumPy | |
 | 7 | Timing + measurements | |
 
