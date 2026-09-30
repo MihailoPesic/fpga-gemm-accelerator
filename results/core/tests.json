@@ -1,0 +1,27 @@
+{
+  "python": "3.12.3",
+  "cocotb": "2.0.1",
+  "simulator": "Icarus Verilog version 12.0 (stable) ()",
+  "source_sha256": {
+    "gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3"
+  },
+  "results": [
+    {
+      "case": "pe",
+      "tests": 1,
+      "result": "PASS"
+    },
+    {
+      "case": "p4",
+      "tests": 1,
+      "result": "PASS"
+    },
+    {
+      "case": "p8",
+      "tests": 1,
+      "result": "PASS"
+    }
+  ]
+}

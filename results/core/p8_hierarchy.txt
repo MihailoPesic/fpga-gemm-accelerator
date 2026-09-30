@@ -1,0 +1,35 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Sep 14 14:08:23 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file p8_hierarchy.txt
+| Design       : gemm_core_timing_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++--------------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+|         Instance         |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++--------------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+| gemm_core_timing_top     |          (top) |        808 |        770 |       0 |   38 | 1192 |      0 |      0 |         64 |
+|   (gemm_core_timing_top) |          (top) |          0 |          0 |       0 |    0 |  428 |      0 |      0 |          0 |
+|   core                   | gemm_microtile |        808 |        770 |       0 |   38 |  764 |      0 |      0 |         64 |
+|     (core)               | gemm_microtile |         89 |         51 |       0 |   38 |  308 |      0 |      0 |          0 |
+|     array                |     gemm_array |        719 |        719 |       0 |    0 |  456 |      0 |      0 |         64 |
+|       rows[0].cols[0].pe |        gemm_pe |         56 |         56 |       0 |    0 |    3 |      0 |      0 |          1 |
+|       rows[0].cols[4].pe |      gemm_pe_3 |         51 |         51 |       0 |    0 |   11 |      0 |      0 |          1 |
++--------------------------+----------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

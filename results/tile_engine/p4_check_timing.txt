@@ -1,0 +1,456 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Wed Sep 30 11:45:39 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : check_timing -verbose -file p4_check_timing.txt
+| Design       : gemm_tile_timing_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (114)
+6. checking no_output_delay (242)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (114)
+--------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 114 input ports with no input delay but user has a false path constraint. (MEDIUM)
+
+input_buf
+k[0]
+k[1]
+k[2]
+k[3]
+k[4]
+k[5]
+k[6]
+k[7]
+k[8]
+load_bt
+load_buf
+load_data[0]
+load_data[10]
+load_data[11]
+load_data[12]
+load_data[13]
+load_data[14]
+load_data[15]
+load_data[16]
+load_data[17]
+load_data[18]
+load_data[19]
+load_data[1]
+load_data[20]
+load_data[21]
+load_data[22]
+load_data[23]
+load_data[24]
+load_data[25]
+load_data[26]
+load_data[27]
+load_data[28]
+load_data[29]
+load_data[2]
+load_data[30]
+load_data[31]
+load_data[32]
+load_data[33]
+load_data[34]
+load_data[35]
+load_data[36]
+load_data[37]
+load_data[38]
+load_data[39]
+load_data[3]
+load_data[40]
+load_data[41]
+load_data[42]
+load_data[43]
+load_data[44]
+load_data[45]
+load_data[46]
+load_data[47]
+load_data[48]
+load_data[49]
+load_data[4]
+load_data[50]
+load_data[51]
+load_data[52]
+load_data[53]
+load_data[54]
+load_data[55]
+load_data[56]
+load_data[57]
+load_data[58]
+load_data[59]
+load_data[5]
+load_data[60]
+load_data[61]
+load_data[62]
+load_data[63]
+load_data[6]
+load_data[7]
+load_data[8]
+load_data[9]
+load_q[0]
+load_q[1]
+load_q[2]
+load_q[3]
+load_q[4]
+load_valid
+load_word[0]
+load_word[1]
+load_word[2]
+load_word[3]
+load_word[4]
+m[0]
+m[1]
+m[2]
+m[3]
+m[4]
+m[5]
+n[0]
+n[1]
+n[2]
+n[3]
+n[4]
+n[5]
+output_buf
+read_buf
+read_pair[0]
+read_pair[1]
+read_pair[2]
+read_pair[3]
+read_row[0]
+read_row[1]
+read_row[2]
+read_row[3]
+read_row[4]
+read_valid
+response_ready
+rst
+start
+
+
+6. checking no_output_delay (242)
+---------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 242 ports with no output delay but user has a false path constraint (MEDIUM)
+
+busy
+cmd_error
+compute_cycles[0]
+compute_cycles[10]
+compute_cycles[11]
+compute_cycles[12]
+compute_cycles[13]
+compute_cycles[14]
+compute_cycles[15]
+compute_cycles[16]
+compute_cycles[17]
+compute_cycles[18]
+compute_cycles[19]
+compute_cycles[1]
+compute_cycles[20]
+compute_cycles[21]
+compute_cycles[22]
+compute_cycles[23]
+compute_cycles[24]
+compute_cycles[25]
+compute_cycles[26]
+compute_cycles[27]
+compute_cycles[28]
+compute_cycles[29]
+compute_cycles[2]
+compute_cycles[30]
+compute_cycles[31]
+compute_cycles[32]
+compute_cycles[33]
+compute_cycles[34]
+compute_cycles[35]
+compute_cycles[36]
+compute_cycles[37]
+compute_cycles[38]
+compute_cycles[39]
+compute_cycles[3]
+compute_cycles[40]
+compute_cycles[41]
+compute_cycles[42]
+compute_cycles[43]
+compute_cycles[44]
+compute_cycles[45]
+compute_cycles[46]
+compute_cycles[47]
+compute_cycles[48]
+compute_cycles[49]
+compute_cycles[4]
+compute_cycles[50]
+compute_cycles[51]
+compute_cycles[52]
+compute_cycles[53]
+compute_cycles[54]
+compute_cycles[55]
+compute_cycles[56]
+compute_cycles[57]
+compute_cycles[58]
+compute_cycles[59]
+compute_cycles[5]
+compute_cycles[60]
+compute_cycles[61]
+compute_cycles[62]
+compute_cycles[63]
+compute_cycles[6]
+compute_cycles[7]
+compute_cycles[8]
+compute_cycles[9]
+done
+job_cycles[0]
+job_cycles[10]
+job_cycles[11]
+job_cycles[12]
+job_cycles[13]
+job_cycles[14]
+job_cycles[15]
+job_cycles[16]
+job_cycles[17]
+job_cycles[18]
+job_cycles[19]
+job_cycles[1]
+job_cycles[20]
+job_cycles[21]
+job_cycles[22]
+job_cycles[23]
+job_cycles[24]
+job_cycles[25]
+job_cycles[26]
+job_cycles[27]
+job_cycles[28]
+job_cycles[29]
+job_cycles[2]
+job_cycles[30]
+job_cycles[31]
+job_cycles[32]
+job_cycles[33]
+job_cycles[34]
+job_cycles[35]
+job_cycles[36]
+job_cycles[37]
+job_cycles[38]
+job_cycles[39]
+job_cycles[3]
+job_cycles[40]
+job_cycles[41]
+job_cycles[42]
+job_cycles[43]
+job_cycles[44]
+job_cycles[45]
+job_cycles[46]
+job_cycles[47]
+job_cycles[48]
+job_cycles[49]
+job_cycles[4]
+job_cycles[50]
+job_cycles[51]
+job_cycles[52]
+job_cycles[53]
+job_cycles[54]
+job_cycles[55]
+job_cycles[56]
+job_cycles[57]
+job_cycles[58]
+job_cycles[59]
+job_cycles[5]
+job_cycles[60]
+job_cycles[61]
+job_cycles[62]
+job_cycles[63]
+job_cycles[6]
+job_cycles[7]
+job_cycles[8]
+job_cycles[9]
+load_ready
+microtiles[0]
+microtiles[10]
+microtiles[11]
+microtiles[12]
+microtiles[13]
+microtiles[14]
+microtiles[15]
+microtiles[16]
+microtiles[17]
+microtiles[18]
+microtiles[19]
+microtiles[1]
+microtiles[20]
+microtiles[21]
+microtiles[22]
+microtiles[23]
+microtiles[24]
+microtiles[25]
+microtiles[26]
+microtiles[27]
+microtiles[28]
+microtiles[29]
+microtiles[2]
+microtiles[30]
+microtiles[31]
+microtiles[3]
+microtiles[4]
+microtiles[5]
+microtiles[6]
+microtiles[7]
+microtiles[8]
+microtiles[9]
+read_ready
+response_data[0]
+response_data[10]
+response_data[11]
+response_data[12]
+response_data[13]
+response_data[14]
+response_data[15]
+response_data[16]
+response_data[17]
+response_data[18]
+response_data[19]
+response_data[1]
+response_data[20]
+response_data[21]
+response_data[22]
+response_data[23]
+response_data[24]
+response_data[25]
+response_data[26]
+response_data[27]
+response_data[28]
+response_data[29]
+response_data[2]
+response_data[30]
+response_data[31]
+response_data[32]
+response_data[33]
+response_data[34]
+response_data[35]
+response_data[36]
+response_data[37]
+response_data[38]
+response_data[39]
+response_data[3]
+response_data[40]
+response_data[41]
+response_data[42]
+response_data[43]
+response_data[44]
+response_data[45]
+response_data[46]
+response_data[47]
+response_data[48]
+response_data[49]
+response_data[4]
+response_data[50]
+response_data[51]
+response_data[52]
+response_data[53]
+response_data[54]
+response_data[55]
+response_data[56]
+response_data[57]
+response_data[58]
+response_data[59]
+response_data[5]
+response_data[60]
+response_data[61]
+response_data[62]
+response_data[63]
+response_data[6]
+response_data[7]
+response_data[8]
+response_data[9]
+response_error
+response_strb[0]
+response_strb[1]
+response_strb[2]
+response_strb[3]
+response_strb[4]
+response_strb[5]
+response_strb[6]
+response_strb[7]
+response_valid
+result_valid[0]
+result_valid[1]
+start_ready
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+

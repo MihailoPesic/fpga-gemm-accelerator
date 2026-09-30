@@ -1,0 +1,19 @@
+{
+  "p": 4,
+  "t": 32,
+  "seed": 20260966,
+  "jobs": 227,
+  "reset_edges": [
+    1,
+    2,
+    3,
+    4,
+    10,
+    28,
+    31
+  ],
+  "bank_groups_checked": 128,
+  "active_buffer_blocks": 864,
+  "concurrent_other_buffer_writes": 864,
+  "invalid_commands": 6
+}

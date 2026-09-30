@@ -1,0 +1,43 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Wed Sep 30 11:45:33 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file p4_hierarchy.txt
+| Design       : gemm_tile_timing_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+|           Instance           |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+| gemm_tile_timing_top         |               (top) |       1342 |       1342 |       0 |    0 | 1882 |      8 |      4 |         16 |
+|   (gemm_tile_timing_top)     |               (top) |          0 |          0 |       0 |    0 |  350 |      0 |      0 |          0 |
+|   engine                     |    gemm_tile_engine |       1342 |       1342 |       0 |    0 | 1532 |      8 |      4 |         16 |
+|     (engine)                 |    gemm_tile_engine |        144 |        144 |       0 |    0 |  299 |      0 |      0 |          0 |
+|     compute                  | gemm_bram_microtile |       1135 |       1135 |       0 |    0 | 1232 |      8 |      0 |         16 |
+|       (compute)              | gemm_bram_microtile |         13 |         13 |       0 |    0 | 1056 |      0 |      0 |          0 |
+|       core                   |      gemm_microtile |        593 |        593 |       0 |    0 |  176 |      0 |      0 |         16 |
+|         (core)               |      gemm_microtile |        143 |        143 |       0 |    0 |  104 |      0 |      0 |          0 |
+|         array                |          gemm_array |        457 |        457 |       0 |    0 |   72 |      0 |      0 |         16 |
+|           rows[0].cols[0].pe |             gemm_pe |         80 |         80 |       0 |    0 |   11 |      0 |      0 |          1 |
+|           rows[0].cols[2].pe |           gemm_pe_1 |         53 |         53 |       0 |    0 |   11 |      0 |      0 |          1 |
+|           rows[1].cols[1].pe |           gemm_pe_4 |         51 |         51 |       0 |    0 |    3 |      0 |      0 |          1 |
+|           rows[2].cols[0].pe |           gemm_pe_7 |         63 |         63 |       0 |    0 |    3 |      0 |      0 |          1 |
+|       operands               |  gemm_operand_banks |        529 |        529 |       0 |    0 |    0 |      8 |      0 |          0 |
+|     results                  |   gemm_result_banks |         65 |         65 |       0 |    0 |    1 |      0 |      4 |          0 |
++------------------------------+---------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

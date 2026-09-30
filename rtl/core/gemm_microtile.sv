@@ -1,0 +1,145 @@
+`timescale 1ns/1ps
+// Contract and edge convention: docs/compute.md.
+// The caller reserves destination space BEFORE start. There is deliberately
+// no operand or drain backpressure inside an accepted microtile.
+module gemm_microtile #(
+    parameter integer P = 4,
+    parameter integer COUNT_W = $clog2(P+1),
+    parameter integer ROW_W = $clog2(P)
+) (
+    input wire clk, rst,
+    input wire start,
+    input wire [8:0] k,
+    input wire [COUNT_W-1:0] rows, cols,
+    output wire start_ready,
+    output logic busy, done, cmd_error,
+    // Present A[row,k] and BT[col,k] BEFORE each edge with feed_valid.
+    output wire feed_valid,
+    output wire [7:0] feed_index,
+    input wire [P*8-1:0] a_vector, bt_vector,
+    // A downstream bank captures these signals on the rising drain edge.
+    output wire drain_valid,
+    output wire [ROW_W-1:0] drain_row,
+    output wire [P-1:0] drain_mask,
+    output wire [P*32-1:0] drain_data
+);
+    logic [8:0] k_q, elapsed, drain_trigger;
+    logic draining;
+    logic [ROW_W-1:0] row_q;
+    logic [COUNT_W-1:0] rows_q, cols_q;
+    wire legal = k >= 9'd1 && k <= 9'd256 &&
+                 rows >= 1 && rows <= P && cols >= 1 && cols <= P;
+    assign start_ready = !rst && !busy;
+    wire launch = start && start_ready && legal;
+    wire clear = rst || launch;
+    assign feed_valid = !rst && busy && elapsed < k_q;
+    assign feed_index = feed_valid ? elapsed[7:0] : 8'd0;
+
+    // Arm the registered drain state on the last commit edge. Keeping the
+    // K arithmetic off the output mux path preserves the original schedule
+    // while shortening the path from control registers to the C-bank inputs.
+    assign drain_valid = !rst && draining;
+    assign drain_row = drain_valid ? row_q : '0;
+
+    always_ff @(posedge clk) begin
+        done <= 1'b0;
+        cmd_error <= 1'b0;
+        if (rst) begin
+            busy <= 1'b0;
+            elapsed <= '0;
+            k_q <= '0;
+            rows_q <= '0;
+            cols_q <= '0;
+            drain_trigger <= '0;
+            draining <= 1'b0;
+            row_q <= '0;
+        end else begin
+            if (start && (!start_ready || !legal)) cmd_error <= 1'b1;
+            if (launch) begin
+                busy <= 1'b1;
+                elapsed <= '0;
+                k_q <= k;
+                rows_q <= rows;
+                cols_q <= cols;
+                drain_trigger <= k + 9'(2*P-2);
+                draining <= 1'b0;
+                row_q <= '0;
+            end else if (busy) begin
+                elapsed <= elapsed + 1'b1;
+                if (elapsed == drain_trigger) draining <= 1'b1;
+                if (drain_valid) row_q <= row_q + 1'b1;
+                if (drain_valid && drain_row == ROW_W'(P-1)) begin
+                    busy <= 1'b0;
+                    draining <= 1'b0;
+                    done <= 1'b1;
+                end
+            end
+        end
+    end
+
+    wire [P*8-1:0] a_edge, b_edge;
+    wire [P-1:0] av_edge, bv_edge;
+    wire [P*P*32-1:0] sums;
+`ifndef SYNTHESIS
+    wire [P*8-1:0] a_tags, b_tags;
+    initial begin
+        if (P != 4 && P != 8) $fatal(1, "P must be 4 or 8");
+    end
+`endif
+    for (genvar q=0; q<P; q=q+1) begin : skew
+        wire av = feed_valid && q < rows_q;
+        wire bv = feed_valid && q < cols_q;
+        if (q == 0) begin : direct
+            assign a_edge[q*8 +: 8] = a_vector[q*8 +: 8];
+            assign b_edge[q*8 +: 8] = bt_vector[q*8 +: 8];
+            assign av_edge[q] = av;
+            assign bv_edge[q] = bv;
+`ifndef SYNTHESIS
+            assign a_tags[q*8 +: 8] = feed_index;
+            assign b_tags[q*8 +: 8] = feed_index;
+`endif
+        end else begin : delayed
+            logic [7:0] ad [0:q-1], bd [0:q-1];
+            logic [q-1:0] avd, bvd;
+`ifndef SYNTHESIS
+            logic [7:0] tags [0:q-1];
+`endif
+            always_ff @(posedge clk) begin
+                ad[0] <= a_vector[q*8 +: 8];
+                bd[0] <= bt_vector[q*8 +: 8];
+                avd[0] <= !clear && av;
+                bvd[0] <= !clear && bv;
+`ifndef SYNTHESIS
+                tags[0] <= feed_index;
+`endif
+                for (integer d=1; d<q; d=d+1) begin
+                    ad[d] <= ad[d-1];
+                    bd[d] <= bd[d-1];
+                    avd[d] <= !clear && avd[d-1];
+                    bvd[d] <= !clear && bvd[d-1];
+`ifndef SYNTHESIS
+                    tags[d] <= tags[d-1];
+`endif
+                end
+            end
+            assign a_edge[q*8 +: 8] = ad[q-1];
+            assign b_edge[q*8 +: 8] = bd[q-1];
+            assign av_edge[q] = avd[q-1];
+            assign bv_edge[q] = bvd[q-1];
+`ifndef SYNTHESIS
+            assign a_tags[q*8 +: 8] = tags[q-1];
+            assign b_tags[q*8 +: 8] = tags[q-1];
+`endif
+        end
+        assign drain_mask[q] = drain_valid && drain_row < rows_q && q < cols_q;
+        assign drain_data[q*32 +: 32] = drain_mask[q] ?
+            sums[(drain_row*P+q)*32 +: 32] : 32'd0;
+    end
+    gemm_array #(.P(P)) array (
+        .clk(clk), .clear(clear), .a_edge(a_edge), .b_edge(b_edge),
+        .a_valid(av_edge), .b_valid(bv_edge), .sums(sums)
+`ifndef SYNTHESIS
+        , .a_tags(a_tags), .b_tags(b_tags)
+`endif
+    );
+endmodule

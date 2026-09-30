@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-30",
+  "recorded_utc": "2026-09-30T09:03:56.473498+00:00",
+  "result": "PASS",
+  "scope": "Historical native UART/DDR2 smoke test; no GEMM; not a full memory qualification",
+  "device": {
+    "jtag_name": "xc7a50t_0",
+    "idcode": "0362C093",
+    "evidence": "User supplied Vivado Hardware Manager screenshot after programming",
+    "physical_revision_verified": false
+  },
+  "leds": {
+    "source": "User observation",
+    "led15_clock_locked": true,
+    "led0_calibration": true,
+    "led1_heartbeat_blinking": true
+  },
+  "serial": {
+    "port": "COM11",
+    "baud": 921600,
+    "vid": "0403",
+    "pid": "6010"
+  },
+  "python": "3.13.0",
+  "pyserial": "3.5",
+  "bitstream_sha256": "5280552d062cdf91f33dd617de16442ed004332ebbf325a617e978eb572a77bf",
+  "bitstream_scope": "July native baseline, before G1 XDC/ASYNC_REG changes",
+  "historical_source_reference": "0b1538337693c73ef95560db4551f2812241d849",
+  "driver": "host/legacy/nexys.py",
+  "driver_sha256_utf8_lf": "2eeb063cd6bae5e8e940c7d21e0547d6b2b1555a1d5984e2034ec47087a30d7c",
+  "command": "build/host-venv/Scripts/python.exe -u host/legacy/nexys.py COM11",
+  "exit_code": 0,
+  "ping": "NXA7",
+  "single_word": "PASS",
+  "adjacent_words": {
+    "passed": 8,
+    "total": 8
+  },
+  "scattered_words": {
+    "passed": 7,
+    "total": 7,
+    "byte_addresses": [
+      0,
+      16,
+      16368,
+      16384,
+      1048560,
+      1048576,
+      16777216
+    ]
+  },
+  "log": "2026-09-30.txt",
+  "log_sha256": "0dee77b0251533c002815d7b3a45077f343184e7c5473e741710e67acdf3f1fc"
+}

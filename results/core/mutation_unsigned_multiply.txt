@@ -1,0 +1,30 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1789387648
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_pe.arithmetic_and_pipeline (1/1)
+    50.00ns WARNING  ..pipeline.arithmetic_and_pipeline (4, -128, -126, 32896, 32640)
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_pe.py", line 40, in arithmetic_and_pipeline
+                                                            await step(a, b, 1, 1)
+                                                          File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_pe.py", line 29, in step
+                                                            assert actual == accumulated, (cycles, a, b, actual, accumulated)
+                                                                   ^^^^^^^^^^^^^^^^^^^^^
+                                                        AssertionError: (4, -128, -126, 32896, 32640)
+    50.00ns WARNING  cocotb.regression                  test_pe.arithmetic_and_pipeline failed
+    50.00ns INFO     cocotb.regression                  *****************************************************************************************
+                                                        ** TEST                             STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *****************************************************************************************
+                                                        ** test_pe.arithmetic_and_pipeline   FAIL          50.00           0.01       7090.24  **
+                                                        *****************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                    50.00           0.02       3152.66  **
+                                                        *****************************************************************************************
+Traceback (most recent call last):
+  File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/scripts/test.py", line 64, in <module>
+    main()
+  File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/scripts/test.py", line 48, in main
+    raise RuntimeError(f"{name} failed; inspect {result_xml}")
+RuntimeError: pe failed; inspect /mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/mutations/1789387646594525024/unsigned_multiply/test/pe/results.xml

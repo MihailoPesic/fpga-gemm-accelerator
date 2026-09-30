@@ -1,0 +1,102 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790759337
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_bram_microtile.banked_microtile_contract (1/1)
+134680.00ns INFO     cocotb.gemm_bram_microtile         PASS: banked P=4 T=8, 107 completed microtiles
+134680.00ns INFO     cocotb.regression                  test_bram_microtile.banked_microtile_contract passed
+134680.00ns INFO     cocotb.regression                  *******************************************************************************************************
+                                                        ** TEST                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************
+                                                        ** test_bram_microtile.banked_microtile_contract   PASS      134680.00           1.71      78965.35  **
+                                                        *******************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              134680.00           1.71      78751.62  **
+                                                        *******************************************************************************************************
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790759339
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_bram_microtile.banked_microtile_contract (1/1)
+481750.00ns INFO     cocotb.gemm_bram_microtile         PASS: banked P=4 T=32, 227 completed microtiles
+481750.00ns INFO     cocotb.regression                  test_bram_microtile.banked_microtile_contract passed
+481750.00ns INFO     cocotb.regression                  *******************************************************************************************************
+                                                        ** TEST                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************
+                                                        ** test_bram_microtile.banked_microtile_contract   PASS      481750.00           7.57      63630.05  **
+                                                        *******************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              481750.00           7.58      63584.37  **
+                                                        *******************************************************************************************************
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790759347
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_bram_microtile.banked_microtile_contract (1/1)
+133660.00ns INFO     cocotb.gemm_bram_microtile         PASS: banked P=8 T=8, 149 completed microtiles
+133660.00ns INFO     cocotb.regression                  test_bram_microtile.banked_microtile_contract passed
+133660.00ns INFO     cocotb.regression                  *******************************************************************************************************
+                                                        ** TEST                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************
+                                                        ** test_bram_microtile.banked_microtile_contract   PASS      133660.00           9.87      13537.66  **
+                                                        *******************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              133660.00           9.88      13531.91  **
+                                                        *******************************************************************************************************
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1790759357
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_bram_microtile.banked_microtile_contract (1/1)
+255080.00ns INFO     cocotb.gemm_bram_microtile         PASS: banked P=8 T=32, 179 completed microtiles
+255080.00ns INFO     cocotb.regression                  test_bram_microtile.banked_microtile_contract passed
+255080.00ns INFO     cocotb.regression                  *******************************************************************************************************
+                                                        ** TEST                                           STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************************
+                                                        ** test_bram_microtile.banked_microtile_contract   PASS      255080.00          29.61       8613.40  **
+                                                        *******************************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              255080.00          29.62       8612.00  **
+                                                        *******************************************************************************************************
+{
+  "results": [
+    {
+      "p": 4,
+      "t": 8,
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "result": "PASS"
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "tb/test_bram_microtile.py": "44498ef76948ae3cff19b55132e61d247983c25584d55f37b3348194690e1361",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_memory.py": "663a9e413ecc09fc208d04a7262e4f858d1e889cf3e7e491096042e107aeefcb"
+  }
+}

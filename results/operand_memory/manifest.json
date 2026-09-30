@@ -1,0 +1,67 @@
+{
+  "results": [
+    {
+      "p": 4,
+      "t": 8,
+      "result": "PASS",
+      "completed_microtiles": 107
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "result": "PASS",
+      "completed_microtiles": 227
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "result": "PASS",
+      "completed_microtiles": 149
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "result": "PASS",
+      "completed_microtiles": 179
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "tb/test_bram_microtile.py": "44498ef76948ae3cff19b55132e61d247983c25584d55f37b3348194690e1361",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_memory.py": "663a9e413ecc09fc208d04a7262e4f858d1e889cf3e7e491096042e107aeefcb",
+    "scripts/synth_memory.tcl": "5d3ef47f1aac1a1ca5a88ba7b9cb413e91ae26879d7a69215d1ff88ebf2cc336"
+  },
+  "date": "2026-09-30",
+  "scope": "Operand buffers, prefetch and existing compute; simulation and synthesis only",
+  "tools": {
+    "vivado": "2026.1 build 6511674",
+    "iverilog": "12.0",
+    "cocotb": "2.0.1",
+    "embedded_python_reported": "3.12.4"
+  },
+  "evidence_sha256_utf8_lf": {
+    "p4_t8_coverage.json": "a164a0ce521c699044b2bdead266c3bfb4ff2752b629181a2e726342ab079d6d",
+    "p4_t8_results.xml": "943fb4f1ed8b24bcdd2404f78524f9e44a48a7197ca3df128634f6ec15942f9d",
+    "p4_t8_utilization.txt": "d7dc180b7034273a1b02403c256f5fe420f4f906a9bd3f76cb58a3c12dac6b78",
+    "p4_t8_hierarchy.txt": "f0f5a85102b37b7310aae7a1fc7d5dfe366a1a812fa67e48fbdf16fdbfb2a108",
+    "p4_t32_coverage.json": "fb2e90b2f807414953a06b0a444c57c23d9638c02a36d1aa1e39c62502d497cc",
+    "p4_t32_results.xml": "2a4fcab2e2083893546af5c75715a2ea7e803a686c41a00551fb57579664614a",
+    "p4_t32_utilization.txt": "6c5585d698d23acbb9c02409749c89e1a2e203f71ccc87873dead6fc7a812f21",
+    "p4_t32_hierarchy.txt": "5090c94816d3f2b3d383216ac4c2846d573a56e5b2bc922d3d2535f6503adba8",
+    "p8_t8_coverage.json": "04c249a29f1f2905e23843593e14b8c4c455f94b9b0d452a784941d32c8f249c",
+    "p8_t8_results.xml": "0b3739ffced2fe7751051c06154cce45101f5218dc640c088442dcce655917aa",
+    "p8_t8_utilization.txt": "4e9bf964b79d012ac1a80f9924da07a1c4affca99aa6478c03a034df69f80dfe",
+    "p8_t8_hierarchy.txt": "cfd7cdd157c658000d68aa803c21a1fde2da8aa16be32558b66c81019f06ed81",
+    "p8_t32_coverage.json": "26b4f38fd8e876948ac3b17c2b996622cc6e62ebcec78db83a5a80e95f7d41cf",
+    "p8_t32_results.xml": "5b2e4a700e3e26f85dcc26e97cf3ca6490bf1eb07feaee19b00bb98a7acf18fc",
+    "p8_t32_utilization.txt": "3a5e61e42052ba8c7d76814b1d757adbed129d7777c455ff22a4847efcc1c0c1",
+    "p8_t32_hierarchy.txt": "a4f323f5d09978b4d937e6a7c83337f5385946a20fbb0edf6cbd728db5a21441",
+    "synthesis_summary.txt": "c33e385af66a7669900d8017c2d7e105293ca1ae096a92112af5e1223184f095",
+    "simulation.txt": "e5e5e58e6707b87bebb513e7f0513e5948b8e716e8e561a70043c919985a2baa"
+  }
+}

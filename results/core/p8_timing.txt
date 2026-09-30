@@ -1,0 +1,1391 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Sep 14 14:08:23 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -delay_type min_max -report_unconstrained -max_paths 5 -file p8_timing.txt
+| Design       : gemm_core_timing_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (147)
+6. checking no_output_delay (281)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (147)
+--------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 147 input ports with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (281)
+---------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 281 ports with no output delay but user has a false path constraint (MEDIUM)
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      1.621        0.000                      0                 4419        0.001        0.000                      0                 4419        4.020        0.000                       0                  1326  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock  Waveform(ns)       Period(ns)      Frequency(MHz)
+-----  ------------       ----------      --------------
+core   {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+core                1.621        0.000                      0                 4419        0.001        0.000                      0                 4419        4.020        0.000                       0                  1326  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)        core                        
+(none)                      core          
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  core
+  To Clock:  core
+
+Setup :            0  Failing Endpoints,  Worst Slack        1.621ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.001ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             1.621ns  (required time - arrival time)
+  Source:                 rst_q_reg/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/array/rows[4].cols[2].pe/sum_reg/RSTP
+                            (rising edge-triggered cell DSP48E1 clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (core rise@10.000ns - core rise@0.000ns)
+  Data Path Delay:        7.576ns  (logic 0.856ns (11.299%)  route 6.720ns (88.701%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.526ns = ( 11.526 - 10.000 ) 
+    Source Clock Delay      (SCD):    1.552ns
+    Clock Pessimism Removal (CPR):    0.008ns
+  Clock Uncertainty:      0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.552     1.552    clk
+    SLICE_X47Y93         FDRE                                         r  rst_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y93         FDRE (Prop_fdre_C_Q)         0.456     2.008 f  rst_q_reg/Q
+                         net (fo=119, routed)         1.266     3.274    core/array/rows[6].cols[6].pe/rst_q
+    SLICE_X51Y85         LUT6 (Prop_lut6_I4_O)        0.124     3.398 f  core/array/rows[6].cols[6].pe/sum_reg_i_5/O
+                         net (fo=1, routed)           0.903     4.301    core/array/rows[6].cols[6].pe/sum_reg_i_5_n_0
+    SLICE_X52Y90         LUT6 (Prop_lut6_I5_O)        0.124     4.425 r  core/array/rows[6].cols[6].pe/sum_reg_i_2/O
+                         net (fo=72, routed)          1.311     5.735    core/array/rows[4].cols[2].pe/sum_reg_33
+    SLICE_X40Y95         LUT3 (Prop_lut3_I1_O)        0.152     5.887 r  core/array/rows[4].cols[2].pe/sum_reg_i_1__1/O
+                         net (fo=10, routed)          3.241     9.128    core/array/rows[4].cols[2].pe/rst_q_reg
+    DSP48_X0Y23          DSP48E1                                      r  core/array/rows[4].cols[2].pe/sum_reg/RSTP
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)      10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=1325, unset)         1.526    11.526    core/array/rows[4].cols[2].pe/clk
+    DSP48_X0Y23          DSP48E1                                      r  core/array/rows[4].cols[2].pe/sum_reg/CLK
+                         clock pessimism              0.008    11.534    <hidden>
+                         clock uncertainty           -0.235    11.298    <hidden>
+    DSP48_X0Y23          DSP48E1 (Setup_dsp48e1_CLK_RSTP)
+                                                     -0.549    10.749    core/array/rows[4].cols[2].pe/sum_reg
+  -------------------------------------------------------------------
+                         required time                         10.749    <hidden>
+                         arrival time                          -9.128    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.621    <hidden>
+
+Slack (MET) :             1.760ns  (required time - arrival time)
+  Source:                 rst_q_reg/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/array/rows[5].cols[2].pe/sum_reg/RSTP
+                            (rising edge-triggered cell DSP48E1 clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (core rise@10.000ns - core rise@0.000ns)
+  Data Path Delay:        7.435ns  (logic 0.856ns (11.513%)  route 6.579ns (88.487%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.524ns = ( 11.524 - 10.000 ) 
+    Source Clock Delay      (SCD):    1.552ns
+    Clock Pessimism Removal (CPR):    0.008ns
+  Clock Uncertainty:      0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.552     1.552    clk
+    SLICE_X47Y93         FDRE                                         r  rst_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y93         FDRE (Prop_fdre_C_Q)         0.456     2.008 f  rst_q_reg/Q
+                         net (fo=119, routed)         1.266     3.274    core/array/rows[6].cols[6].pe/rst_q
+    SLICE_X51Y85         LUT6 (Prop_lut6_I4_O)        0.124     3.398 f  core/array/rows[6].cols[6].pe/sum_reg_i_5/O
+                         net (fo=1, routed)           0.903     4.301    core/array/rows[6].cols[6].pe/sum_reg_i_5_n_0
+    SLICE_X52Y90         LUT6 (Prop_lut6_I5_O)        0.124     4.425 r  core/array/rows[6].cols[6].pe/sum_reg_i_2/O
+                         net (fo=72, routed)          1.311     5.735    core/array/rows[4].cols[2].pe/sum_reg_33
+    SLICE_X40Y95         LUT3 (Prop_lut3_I1_O)        0.152     5.887 r  core/array/rows[4].cols[2].pe/sum_reg_i_1__1/O
+                         net (fo=10, routed)          3.100     8.987    core/array/rows[5].cols[2].pe/sum_reg_1
+    DSP48_X0Y24          DSP48E1                                      r  core/array/rows[5].cols[2].pe/sum_reg/RSTP
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)      10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=1325, unset)         1.524    11.524    core/array/rows[5].cols[2].pe/clk
+    DSP48_X0Y24          DSP48E1                                      r  core/array/rows[5].cols[2].pe/sum_reg/CLK
+                         clock pessimism              0.008    11.532    <hidden>
+                         clock uncertainty           -0.235    11.296    <hidden>
+    DSP48_X0Y24          DSP48E1 (Setup_dsp48e1_CLK_RSTP)
+                                                     -0.549    10.747    core/array/rows[5].cols[2].pe/sum_reg
+  -------------------------------------------------------------------
+                         required time                         10.747    <hidden>
+                         arrival time                          -8.987    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.760    <hidden>
+
+Slack (MET) :             1.934ns  (required time - arrival time)
+  Source:                 rst_q_reg/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/array/rows[7].cols[4].pe/sum_reg/RSTP
+                            (rising edge-triggered cell DSP48E1 clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (core rise@10.000ns - core rise@0.000ns)
+  Data Path Delay:        7.430ns  (logic 0.856ns (11.520%)  route 6.574ns (88.480%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        0.155ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.699ns = ( 11.699 - 10.000 ) 
+    Source Clock Delay      (SCD):    1.552ns
+    Clock Pessimism Removal (CPR):    0.008ns
+  Clock Uncertainty:      0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.552     1.552    clk
+    SLICE_X47Y93         FDRE                                         r  rst_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y93         FDRE (Prop_fdre_C_Q)         0.456     2.008 f  rst_q_reg/Q
+                         net (fo=119, routed)         1.266     3.274    core/array/rows[6].cols[6].pe/rst_q
+    SLICE_X51Y85         LUT6 (Prop_lut6_I4_O)        0.124     3.398 f  core/array/rows[6].cols[6].pe/sum_reg_i_5/O
+                         net (fo=1, routed)           0.903     4.301    core/array/rows[6].cols[6].pe/sum_reg_i_5_n_0
+    SLICE_X52Y90         LUT6 (Prop_lut6_I5_O)        0.124     4.425 r  core/array/rows[6].cols[6].pe/sum_reg_i_2/O
+                         net (fo=72, routed)          1.153     5.577    core/array/rows[6].cols[6].pe/k_q_reg[0]
+    SLICE_X40Y95         LUT3 (Prop_lut3_I1_O)        0.152     5.729 r  core/array/rows[6].cols[6].pe/sum_reg_i_1/O
+                         net (fo=10, routed)          3.253     8.982    core/array/rows[7].cols[4].pe/sum_reg_1
+    DSP48_X0Y55          DSP48E1                                      r  core/array/rows[7].cols[4].pe/sum_reg/RSTP
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)      10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=1325, unset)         1.699    11.699    core/array/rows[7].cols[4].pe/clk
+    DSP48_X0Y55          DSP48E1                                      r  core/array/rows[7].cols[4].pe/sum_reg/CLK
+                         clock pessimism              0.008    11.707    <hidden>
+                         clock uncertainty           -0.235    11.471    <hidden>
+    DSP48_X0Y55          DSP48E1 (Setup_dsp48e1_CLK_RSTP)
+                                                     -0.555    10.916    core/array/rows[7].cols[4].pe/sum_reg
+  -------------------------------------------------------------------
+                         required time                         10.916    <hidden>
+                         arrival time                          -8.982    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.934    <hidden>
+
+Slack (MET) :             1.979ns  (required time - arrival time)
+  Source:                 rst_q_reg/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/array/rows[3].cols[2].pe/sum_reg/RSTP
+                            (rising edge-triggered cell DSP48E1 clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (core rise@10.000ns - core rise@0.000ns)
+  Data Path Delay:        7.421ns  (logic 0.828ns (11.158%)  route 6.593ns (88.842%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.527ns = ( 11.527 - 10.000 ) 
+    Source Clock Delay      (SCD):    1.552ns
+    Clock Pessimism Removal (CPR):    0.008ns
+  Clock Uncertainty:      0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.552     1.552    clk
+    SLICE_X47Y93         FDRE                                         r  rst_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y93         FDRE (Prop_fdre_C_Q)         0.456     2.008 f  rst_q_reg/Q
+                         net (fo=119, routed)         1.266     3.274    core/array/rows[6].cols[6].pe/rst_q
+    SLICE_X51Y85         LUT6 (Prop_lut6_I4_O)        0.124     3.398 f  core/array/rows[6].cols[6].pe/sum_reg_i_5/O
+                         net (fo=1, routed)           0.903     4.301    core/array/rows[6].cols[6].pe/sum_reg_i_5_n_0
+    SLICE_X52Y90         LUT6 (Prop_lut6_I5_O)        0.124     4.425 r  core/array/rows[6].cols[6].pe/sum_reg_i_2/O
+                         net (fo=72, routed)          1.311     5.735    core/array/rows[3].cols[0].pe/sum_reg_3
+    SLICE_X40Y95         LUT3 (Prop_lut3_I1_O)        0.124     5.859 r  core/array/rows[3].cols[0].pe/sum_reg_i_1__2/O
+                         net (fo=10, routed)          3.114     8.973    core/array/rows[3].cols[2].pe/sum_reg_1
+    DSP48_X0Y22          DSP48E1                                      r  core/array/rows[3].cols[2].pe/sum_reg/RSTP
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)      10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=1325, unset)         1.527    11.527    core/array/rows[3].cols[2].pe/clk
+    DSP48_X0Y22          DSP48E1                                      r  core/array/rows[3].cols[2].pe/sum_reg/CLK
+                         clock pessimism              0.008    11.535    <hidden>
+                         clock uncertainty           -0.235    11.299    <hidden>
+    DSP48_X0Y22          DSP48E1 (Setup_dsp48e1_CLK_RSTP)
+                                                     -0.347    10.952    core/array/rows[3].cols[2].pe/sum_reg
+  -------------------------------------------------------------------
+                         required time                         10.952    <hidden>
+                         arrival time                          -8.973    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.979    <hidden>
+
+Slack (MET) :             1.995ns  (required time - arrival time)
+  Source:                 rst_q_reg/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/array/rows[7].cols[2].pe/sum_reg/RSTP
+                            (rising edge-triggered cell DSP48E1 clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (core rise@10.000ns - core rise@0.000ns)
+  Data Path Delay:        7.190ns  (logic 0.856ns (11.905%)  route 6.334ns (88.095%))
+  Logic Levels:           3  (LUT3=1 LUT6=2)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.520ns = ( 11.520 - 10.000 ) 
+    Source Clock Delay      (SCD):    1.552ns
+    Clock Pessimism Removal (CPR):    0.008ns
+  Clock Uncertainty:      0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.552     1.552    clk
+    SLICE_X47Y93         FDRE                                         r  rst_q_reg/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y93         FDRE (Prop_fdre_C_Q)         0.456     2.008 f  rst_q_reg/Q
+                         net (fo=119, routed)         1.266     3.274    core/array/rows[6].cols[6].pe/rst_q
+    SLICE_X51Y85         LUT6 (Prop_lut6_I4_O)        0.124     3.398 f  core/array/rows[6].cols[6].pe/sum_reg_i_5/O
+                         net (fo=1, routed)           0.903     4.301    core/array/rows[6].cols[6].pe/sum_reg_i_5_n_0
+    SLICE_X52Y90         LUT6 (Prop_lut6_I5_O)        0.124     4.425 r  core/array/rows[6].cols[6].pe/sum_reg_i_2/O
+                         net (fo=72, routed)          1.153     5.577    core/array/rows[6].cols[6].pe/k_q_reg[0]
+    SLICE_X40Y95         LUT3 (Prop_lut3_I1_O)        0.152     5.729 r  core/array/rows[6].cols[6].pe/sum_reg_i_1/O
+                         net (fo=10, routed)          3.013     8.742    core/array/rows[7].cols[2].pe/sum_reg_1
+    DSP48_X0Y26          DSP48E1                                      r  core/array/rows[7].cols[2].pe/sum_reg/RSTP
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)      10.000    10.000 r  <hidden>
+                                                      0.000    10.000 r  clk
+                         net (fo=1325, unset)         1.520    11.520    core/array/rows[7].cols[2].pe/clk
+    DSP48_X0Y26          DSP48E1                                      r  core/array/rows[7].cols[2].pe/sum_reg/CLK
+                         clock pessimism              0.008    11.528    <hidden>
+                         clock uncertainty           -0.235    11.292    <hidden>
+    DSP48_X0Y26          DSP48E1 (Setup_dsp48e1_CLK_RSTP)
+                                                     -0.555    10.737    core/array/rows[7].cols[2].pe/sum_reg
+  -------------------------------------------------------------------
+                         required time                         10.737    <hidden>
+                         arrival time                          -8.742    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.995    <hidden>
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.001ns  (arrival time - required time)
+  Source:                 core/skew_r_3/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/skew[7].delayed.bvd_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core rise@0.000ns - core rise@0.000ns)
+  Data Path Delay:        0.323ns  (logic 0.186ns (57.594%)  route 0.137ns (42.406%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.827ns
+    Source Clock Delay      (SCD):    0.558ns
+    Clock Pessimism Removal (CPR):    0.254ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.558     0.558    core/clk
+    SLICE_X49Y87         FDRE                                         r  core/skew_r_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y87         FDRE (Prop_fdre_C_Q)         0.141     0.699 r  core/skew_r_3/Q
+                         net (fo=2, routed)           0.137     0.836    core/skew_r_3_n_0
+    SLICE_X48Y87         LUT2 (Prop_lut2_I1_O)        0.045     0.881 r  core/skew_gate__4/O
+                         net (fo=1, routed)           0.000     0.881    core/skew_gate__4_n_0
+    SLICE_X48Y87         FDRE                                         r  core/skew[7].delayed.bvd_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.827     0.827    core/clk
+    SLICE_X48Y87         FDRE                                         r  core/skew[7].delayed.bvd_reg[6]/C
+                         clock pessimism             -0.254     0.573    <hidden>
+                         clock uncertainty            0.200     0.773    <hidden>
+    SLICE_X48Y87         FDRE (Hold_fdre_C_D)         0.107     0.880    core/skew[7].delayed.bvd_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -0.880    <hidden>
+                         arrival time                           0.881    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.001    <hidden>
+
+Slack (MET) :             0.012ns  (arrival time - required time)
+  Source:                 bt_q_reg[27]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/skew[3].delayed.bd_reg[0][3]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core rise@0.000ns - core rise@0.000ns)
+  Data Path Delay:        0.280ns  (logic 0.164ns (58.537%)  route 0.116ns (41.463%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.828ns
+    Source Clock Delay      (SCD):    0.559ns
+    Clock Pessimism Removal (CPR):    0.253ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.559     0.559    clk
+    SLICE_X30Y97         FDRE                                         r  bt_q_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y97         FDRE (Prop_fdre_C_Q)         0.164     0.723 r  bt_q_reg[27]/Q
+                         net (fo=1, routed)           0.116     0.839    core/skew[3].delayed.bd_reg[0][7]_0[27]
+    SLICE_X30Y97         FDRE                                         r  core/skew[3].delayed.bd_reg[0][3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.828     0.828    core/clk
+    SLICE_X30Y97         FDRE                                         r  core/skew[3].delayed.bd_reg[0][3]/C
+                         clock pessimism             -0.253     0.575    <hidden>
+                         clock uncertainty            0.200     0.775    <hidden>
+    SLICE_X30Y97         FDRE (Hold_fdre_C_D)         0.052     0.827    core/skew[3].delayed.bd_reg[0][3]
+  -------------------------------------------------------------------
+                         required time                         -0.827    <hidden>
+                         arrival time                           0.839    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.012    <hidden>
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 a_q_reg[31]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/skew[3].delayed.ad_reg[0][7]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core rise@0.000ns - core rise@0.000ns)
+  Data Path Delay:        0.280ns  (logic 0.164ns (58.537%)  route 0.116ns (41.463%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.827ns
+    Source Clock Delay      (SCD):    0.558ns
+    Clock Pessimism Removal (CPR):    0.254ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.558     0.558    clk
+    SLICE_X14Y62         FDRE                                         r  a_q_reg[31]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y62         FDRE (Prop_fdre_C_Q)         0.164     0.722 r  a_q_reg[31]/Q
+                         net (fo=1, routed)           0.116     0.838    core/skew[3].delayed.ad_reg[0][7]_0[31]
+    SLICE_X14Y62         FDRE                                         r  core/skew[3].delayed.ad_reg[0][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.827     0.827    core/clk
+    SLICE_X14Y62         FDRE                                         r  core/skew[3].delayed.ad_reg[0][7]/C
+                         clock pessimism             -0.254     0.573    <hidden>
+                         clock uncertainty            0.200     0.773    <hidden>
+    SLICE_X14Y62         FDRE (Hold_fdre_C_D)         0.052     0.825    core/skew[3].delayed.ad_reg[0][7]
+  -------------------------------------------------------------------
+                         required time                         -0.825    <hidden>
+                         arrival time                           0.838    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.013    <hidden>
+
+Slack (MET) :             0.014ns  (arrival time - required time)
+  Source:                 bt_q_reg[31]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/skew[3].delayed.bd_reg[0][7]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core rise@0.000ns - core rise@0.000ns)
+  Data Path Delay:        0.280ns  (logic 0.164ns (58.537%)  route 0.116ns (41.463%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.014ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.824ns
+    Source Clock Delay      (SCD):    0.556ns
+    Clock Pessimism Removal (CPR):    0.254ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.556     0.556    clk
+    SLICE_X12Y83         FDRE                                         r  bt_q_reg[31]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y83         FDRE (Prop_fdre_C_Q)         0.164     0.720 r  bt_q_reg[31]/Q
+                         net (fo=1, routed)           0.116     0.836    core/skew[3].delayed.bd_reg[0][7]_0[31]
+    SLICE_X12Y83         FDRE                                         r  core/skew[3].delayed.bd_reg[0][7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.824     0.824    core/clk
+    SLICE_X12Y83         FDRE                                         r  core/skew[3].delayed.bd_reg[0][7]/C
+                         clock pessimism             -0.254     0.570    <hidden>
+                         clock uncertainty            0.200     0.770    <hidden>
+    SLICE_X12Y83         FDRE (Hold_fdre_C_D)         0.052     0.822    core/skew[3].delayed.bd_reg[0][7]
+  -------------------------------------------------------------------
+                         required time                         -0.822    <hidden>
+                         arrival time                           0.836    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.014    <hidden>
+
+Slack (MET) :             0.016ns  (arrival time - required time)
+  Source:                 core/skew_r_3/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/skew[7].delayed.avd_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             core
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core rise@0.000ns - core rise@0.000ns)
+  Data Path Delay:        0.323ns  (logic 0.186ns (57.594%)  route 0.137ns (42.406%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.827ns
+    Source Clock Delay      (SCD):    0.558ns
+    Clock Pessimism Removal (CPR):    0.254ns
+  Clock Uncertainty:      0.200ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.558     0.558    core/clk
+    SLICE_X49Y87         FDRE                                         r  core/skew_r_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y87         FDRE (Prop_fdre_C_Q)         0.141     0.699 r  core/skew_r_3/Q
+                         net (fo=2, routed)           0.137     0.836    core/skew_r_3_n_0
+    SLICE_X48Y87         LUT2 (Prop_lut2_I1_O)        0.045     0.881 r  core/skew_gate__1/O
+                         net (fo=1, routed)           0.000     0.881    core/skew_gate__1_n_0
+    SLICE_X48Y87         FDRE                                         r  core/skew[7].delayed.avd_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.827     0.827    core/clk
+    SLICE_X48Y87         FDRE                                         r  core/skew[7].delayed.avd_reg[6]/C
+                         clock pessimism             -0.254     0.573    <hidden>
+                         clock uncertainty            0.200     0.773    <hidden>
+    SLICE_X48Y87         FDRE (Hold_fdre_C_D)         0.092     0.865    core/skew[7].delayed.avd_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -0.865    <hidden>
+                         arrival time                           0.881    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.016    <hidden>
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         core
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clk }
+
+Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     DSP48E1/CLK  n/a            2.154         10.000      7.846      DSP48_X1Y21   core/array/rows[0].cols[0].pe/sum_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            2.154         10.000      7.846      DSP48_X1Y30   core/array/rows[0].cols[1].pe/sum_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            2.154         10.000      7.846      DSP48_X1Y53   core/array/rows[0].cols[2].pe/sum_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            2.154         10.000      7.846      DSP48_X1Y54   core/array/rows[0].cols[3].pe/sum_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            2.154         10.000      7.846      DSP48_X1Y55   core/array/rows[0].cols[4].pe/sum_reg/CLK
+Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][0]_srl2/CLK
+Low Pulse Width   Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][0]_srl2/CLK
+Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][1]_srl2/CLK
+Low Pulse Width   Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][1]_srl2/CLK
+Low Pulse Width   Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][2]_srl2/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][0]_srl2/CLK
+High Pulse Width  Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][0]_srl2/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][1]_srl2/CLK
+High Pulse Width  Fast    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][1]_srl2/CLK
+High Pulse Width  Slow    SRL16E/CLK   n/a            0.980         5.000       4.020      SLICE_X30Y59  core/skew[4].delayed.ad_reg[1][2]_srl2/CLK
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  core
+  To Clock:  
+
+Max Delay           281 Endpoints
+Min Delay           281 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 drain_data_reg[174]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[174]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.739     1.739    clk
+    SLICE_X14Y101        FDRE                                         r  drain_data_reg[174]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y101        FDRE (Prop_fdre_C_Q)         0.518     2.257 r  drain_data_reg[174]/Q
+                         net (fo=0)                   0.973     3.230    drain_data[174]
+                                                                      r  drain_data[174]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[194]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[194]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.739     1.739    clk
+    SLICE_X14Y100        FDRE                                         r  drain_data_reg[194]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y100        FDRE (Prop_fdre_C_Q)         0.518     2.257 r  drain_data_reg[194]/Q
+                         net (fo=0)                   0.973     3.230    drain_data[194]
+                                                                      r  drain_data[194]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[206]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[206]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.739     1.739    clk
+    SLICE_X14Y100        FDRE                                         r  drain_data_reg[206]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y100        FDRE (Prop_fdre_C_Q)         0.518     2.257 r  drain_data_reg[206]/Q
+                         net (fo=0)                   0.973     3.230    drain_data[206]
+                                                                      r  drain_data[206]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[208]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[208]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.739     1.739    clk
+    SLICE_X14Y102        FDRE                                         r  drain_data_reg[208]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y102        FDRE (Prop_fdre_C_Q)         0.518     2.257 r  drain_data_reg[208]/Q
+                         net (fo=0)                   0.973     3.230    drain_data[208]
+                                                                      r  drain_data[208]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[236]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[236]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.738     1.738    clk
+    SLICE_X14Y103        FDRE                                         r  drain_data_reg[236]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X14Y103        FDRE (Prop_fdre_C_Q)         0.518     2.256 r  drain_data_reg[236]/Q
+                         net (fo=0)                   0.973     3.229    drain_data[236]
+                                                                      r  drain_data[236]
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 drain_data_reg[77]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[77]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.545     0.545    clk
+    SLICE_X31Y74         FDRE                                         r  drain_data_reg[77]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X31Y74         FDRE (Prop_fdre_C_Q)         0.128     0.673 r  drain_data_reg[77]/Q
+                         net (fo=0)                   0.410     1.083    drain_data[77]
+                                                                      r  drain_data[77]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[89]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[89]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.545     0.545    clk
+    SLICE_X29Y74         FDRE                                         r  drain_data_reg[89]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y74         FDRE (Prop_fdre_C_Q)         0.128     0.673 r  drain_data_reg[89]/Q
+                         net (fo=0)                   0.410     1.083    drain_data[89]
+                                                                      r  drain_data[89]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[93]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[93]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.545     0.545    clk
+    SLICE_X29Y74         FDRE                                         r  drain_data_reg[93]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y74         FDRE (Prop_fdre_C_Q)         0.128     0.673 r  drain_data_reg[93]/Q
+                         net (fo=0)                   0.410     1.083    drain_data[93]
+                                                                      r  drain_data[93]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[95]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[95]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.545     0.545    clk
+    SLICE_X28Y74         FDRE                                         r  drain_data_reg[95]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y74         FDRE (Prop_fdre_C_Q)         0.128     0.673 r  drain_data_reg[95]/Q
+                         net (fo=0)                   0.410     1.083    drain_data[95]
+                                                                      r  drain_data[95]
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 drain_data_reg[75]/C
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            drain_data[75]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.546     0.546    clk
+    SLICE_X28Y73         FDRE                                         r  drain_data_reg[75]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y73         FDRE (Prop_fdre_C_Q)         0.128     0.674 r  drain_data_reg[75]/Q
+                         net (fo=0)                   0.410     1.084    drain_data[75]
+                                                                      r  drain_data[75]
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  core
+
+Max Delay           291 Endpoints
+Min Delay           291 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 a_vector[0]
+                            (input port)
+  Destination:            a_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.599ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.599ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[0]
+                         net (fo=2, unset)            0.973     0.973    a_vector[0]
+    SLICE_X55Y130        FDRE                                         r  a_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.599     1.599    clk
+    SLICE_X55Y130        FDRE                                         r  a_q_reg[0]/C
+
+Slack:                    inf
+  Source:                 a_vector[10]
+                            (input port)
+  Destination:            a_q_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.432ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.432ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[10]
+                         net (fo=1, unset)            0.973     0.973    a_vector[10]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.432     1.432    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[10]/C
+
+Slack:                    inf
+  Source:                 a_vector[11]
+                            (input port)
+  Destination:            a_q_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.432ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.432ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[11]
+                         net (fo=1, unset)            0.973     0.973    a_vector[11]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.432     1.432    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[11]/C
+
+Slack:                    inf
+  Source:                 a_vector[12]
+                            (input port)
+  Destination:            a_q_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.432ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.432ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[12]
+                         net (fo=1, unset)            0.973     0.973    a_vector[12]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.432     1.432    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[12]/C
+
+Slack:                    inf
+  Source:                 a_vector[13]
+                            (input port)
+  Destination:            a_q_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.431ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.431ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.225ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.200ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[13]
+                         net (fo=1, unset)            0.973     0.973    a_vector[13]
+    SLICE_X54Y83         FDRE                                         r  a_q_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         1.431     1.431    clk
+    SLICE_X54Y83         FDRE                                         r  a_q_reg[13]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 a_vector[0]
+                            (input port)
+  Destination:            a_q_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.907ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.907ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[0]
+                         net (fo=2, unset)            0.410     0.410    a_vector[0]
+    SLICE_X55Y130        FDRE                                         r  a_q_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.907     0.907    clk
+    SLICE_X55Y130        FDRE                                         r  a_q_reg[0]/C
+
+Slack:                    inf
+  Source:                 a_vector[10]
+                            (input port)
+  Destination:            a_q_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.826ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.826ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[10]
+                         net (fo=1, unset)            0.410     0.410    a_vector[10]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.826     0.826    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[10]/C
+
+Slack:                    inf
+  Source:                 a_vector[11]
+                            (input port)
+  Destination:            a_q_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.826ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.826ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[11]
+                         net (fo=1, unset)            0.410     0.410    a_vector[11]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.826     0.826    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[11]/C
+
+Slack:                    inf
+  Source:                 a_vector[12]
+                            (input port)
+  Destination:            a_q_reg[12]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.826ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.826ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[12]
+                         net (fo=1, unset)            0.410     0.410    a_vector[12]
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[12]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.826     0.826    clk
+    SLICE_X54Y84         FDRE                                         r  a_q_reg[12]/C
+
+Slack:                    inf
+  Source:                 a_vector[13]
+                            (input port)
+  Destination:            a_q_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by core  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.825ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.825ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  a_vector[13]
+                         net (fo=1, unset)            0.410     0.410    a_vector[13]
+    SLICE_X54Y83         FDRE                                         r  a_q_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core rise edge)       0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clk
+                         net (fo=1325, unset)         0.825     0.825    clk
+    SLICE_X54Y83         FDRE                                         r  a_q_reg[13]/C
+
+
+
+
+

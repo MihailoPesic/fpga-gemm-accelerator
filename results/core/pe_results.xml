@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1789387272" />
+    <testcase name="arithmetic_and_pipeline" classname="test_pe" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_pe.py" lineno="8" time="3.6348440647125244" sim_time_ns="693450.0" ratio_time="190778.47292875385" />
+  </testsuite>
+</testsuites>

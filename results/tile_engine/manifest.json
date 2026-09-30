@@ -1,0 +1,109 @@
+{
+  "results": [
+    {
+      "p": 4,
+      "t": 8,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "tb/test_result_banks.py": "d5bea4edcc61d97c9af373b209158e93924bf499e63ad2fa1e497dcaad65a252",
+    "tb/test_tile_engine.py": "20070deae3882be7fe5957a80603ce65334eff7209111180506a89196f9c838e",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_tile.py": "c5bae26da2cafad893e6ea6cd4f29f712dc33cd3426a4efdeecc8e5de57d953b",
+    "scripts/synth_tile.tcl": "b10a5be9f051f62c46d38907c3f4f5620d4d50e7101f77e96b6274011affee3d",
+    "tb/synth/gemm_tile_timing_top.sv": "138ea3068e7cd675229680fb77b87b081f54789db7ede3aa5b751c291453dac0"
+  },
+  "date": "2026-09-30",
+  "scope": "Serial local matrix engine and result banks; simulation passes, P4 routed hold timing fails",
+  "tools": {
+    "vivado": "2026.1 build 6511674",
+    "iverilog": "12.0",
+    "cocotb": "2.0.1"
+  },
+  "totals": {
+    "jobs": 164,
+    "output_values": 23360,
+    "microtiles": 1134,
+    "resets": 32
+  },
+  "timing": {
+    "p": 4,
+    "t": 32,
+    "clock_ns": 10,
+    "uncertainty_ns": 0.2,
+    "wns_ns": 0.642,
+    "whs_ns": -0.036,
+    "result": "FAIL_HOLD",
+    "p8": "NOT_RUN"
+  },
+  "evidence_sha256_utf8_lf": {
+    "p4_check_timing.txt": "96ddc756f2efc76017492ee009fc1472e82914e29006e9b4b233c1a742b19b9f",
+    "p4_hierarchy.txt": "3dadf5e36d720e6255c06f7d59b82c769fb7290377c605086ccfd70fbccb2a06",
+    "p4_methodology.txt": "49ee7d868ee0e07b60f136cea59c5e4dcd441804d273d59db6d8d6b8d7a25a3d",
+    "p4_t32_coverage.json": "ca15a4a8a7a87564094c4f55671bdb2b6ec5f42a62acc470bb828538fea88554",
+    "p4_t32_gemm_result_banks_results.xml": "e3c2c49b50d4608a6d47b864a5b10d9beb44ce7697ffc08c54bc7cc6a3344045",
+    "p4_t32_gemm_tile_engine_results.xml": "5a4563ca354ff930223d279c0fe438941e3ba044fa87d7c5260f37a41fd80055",
+    "p4_t8_coverage.json": "ee90ed15cbf66cc8cf09bf7331b15bec9eff7f07852416a92a3eb332b9bc77db",
+    "p4_t8_gemm_result_banks_results.xml": "189a4a52eef6cdfb58247dcbb47406019dcc34746c150c459b5423a45a57bfae",
+    "p4_t8_gemm_tile_engine_results.xml": "7dffc6e427a5034a3a54297b86dd756f81acb7ad43393fbe39931d5cc09bbdcd",
+    "p4_timing.txt": "2a35ad577cc88ae0bbd1c562fe76c414dfff4cbf1f6dfdda01080b8596dd9a7c",
+    "p4_utilization.txt": "af443c8010573b5c7c5d68d7832bd088efed4dc45c28c04fcb0aed6f498f84a1",
+    "p8_t32_coverage.json": "b0ba703082a5eb02f92897e9063554adb0ccd5dfd472d1a2d2782aee9613591a",
+    "p8_t32_gemm_result_banks_results.xml": "dfca9dcd87f0bd1fe52a5ba30660fe60a9b2e4e77e0598b4e08ab2202998c516",
+    "p8_t32_gemm_tile_engine_results.xml": "738b5a48cbf2c59039b81a1486a3354cbc977018e898018a398d2b004dbc6760",
+    "p8_t8_coverage.json": "93fcf4a76e39c05988d878abe7d0889007e1c9f18540eecb642ba277334f531f",
+    "p8_t8_gemm_result_banks_results.xml": "8690b4fd82437d4f1b9a878786fa8650b298d086012eac9a14af70e352eb5bd3",
+    "p8_t8_gemm_tile_engine_results.xml": "9eb305a7bd6a902180a6e67dfe485a445c3eb4db481c77c8c7c13cfea85acc14"
+  }
+}

@@ -1,0 +1,3 @@
+# Validated with Python 3.12 and Icarus Verilog 12.0; see docs/testing.md.
+cocotb==2.0.1
+find_libpython==0.5.1

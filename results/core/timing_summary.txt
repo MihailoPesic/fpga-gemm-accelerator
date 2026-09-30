@@ -1,0 +1,5 @@
+Vivado 2026.1; xc7a50ticsg324-1L; standalone core, 100 MHz
+Registered neighbor harness; external harness pin paths excluded; all register paths timed
+Uncertainty 0.2 ns; HD.CLK_SRC BUFGCTRL_X0Y0; NOT full board timing closure
+P=4 DSP=16 WNS=3.218 WHS=0.016
+P=8 DSP=64 WNS=1.621 WHS=0.001

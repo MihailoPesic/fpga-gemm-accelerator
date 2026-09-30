@@ -1,0 +1,30 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1789387659
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_microtile.microtile_contract (1/1)
+   190.00ns WARNING  ..tile_contract.microtile_contract (4, 1, 8, 'drain edge')
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_microtile.py", line 130, in microtile_contract
+                                                            await job(k, p, p, "extreme", busy_start=True)
+                                                          File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_microtile.py", line 94, in job
+                                                            assert valid == expected_drain, (p, k, edge, "drain edge")
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^
+                                                        AssertionError: (4, 1, 8, 'drain edge')
+   190.00ns WARNING  cocotb.regression                  test_microtile.microtile_contract failed
+   190.00ns INFO     cocotb.regression                  *******************************************************************************************
+                                                        ** TEST                               STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *******************************************************************************************
+                                                        ** test_microtile.microtile_contract   FAIL         190.00           0.01      24800.60  **
+                                                        *******************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0                     190.00           0.02      12169.28  **
+                                                        *******************************************************************************************
+Traceback (most recent call last):
+  File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/scripts/test.py", line 64, in <module>
+    main()
+  File "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/scripts/test.py", line 48, in main
+    raise RuntimeError(f"{name} failed; inspect {result_xml}")
+RuntimeError: p4 failed; inspect /mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/mutations/1789387646594525024/early_drain/test/p4/results.xml

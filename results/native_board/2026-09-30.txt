@@ -1,0 +1,8 @@
+port COM11 @ 921600
+PING ... NXA7
+word 0 write 000102030405060708090a0b0c0d0e0f
+word 0 read  000102030405060708090a0b0c0d0e0f OK
+8 adjacent words: 8/8 correct
+scattered words: 7/7 correct
+
+PASS -- DDR2 read/write verified through the full path

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790761513" />
+    <testcase name="result_addressing" classname="test_result_banks" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_result_banks.py" lineno="6" time="0.14835858345031738" sim_time_ns="11440.0" ratio_time="77110.46933682168" />
+  </testsuite>
+</testsuites>

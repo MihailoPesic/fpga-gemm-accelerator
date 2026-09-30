@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790759347" />
+    <testcase name="banked_microtile_contract" classname="test_bram_microtile" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_bram_microtile.py" lineno="12" time="9.873194932937622" sim_time_ns="133660.0" ratio_time="13537.664444778815" />
+  </testsuite>
+</testsuites>
