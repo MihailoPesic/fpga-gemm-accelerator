@@ -33,7 +33,7 @@ module uart_rx #(
 
   // rx_pin is asynchronous to clk. Two flops before any logic touches it, or
   // metastability produces rare, unreproducible corruption.
-  logic [2:0] sync;
+  (* ASYNC_REG = "TRUE" *) logic [2:0] sync;
   always_ff @(posedge clk)
     if (rst) sync <= 3'b111;               // line idles high
     else     sync <= {sync[1:0], rx_pin};

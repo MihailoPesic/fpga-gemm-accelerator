@@ -2,18 +2,14 @@
 # Vivado / Vitis generated artifacts
 #
 # Patterns are depth-agnostic on purpose: they match both a project created at
-# the repo root and one created under vivado/ by scripts/create_project.tcl.
+# the repo root and one reconstructed under build/ by the project scripts.
 #
-# NOTE: *.srcs/ is deliberately NOT ignored. If you ever add a file to the
-# project with "Copy sources into project" left CHECKED, Vivado drops it into
-# <project>.srcs/ and it would be silently lost. Leaving it visible means git
-# reports it as untracked and you notice. Always add sources with copy OFF so
-# they stay in src/ where they belong.
+# The original *.srcs/ and .xpr preserve the native-DDR baseline. New portable
+# GEMM RTL lives in rtl/. New generated projects/IP belong under build/.
 # ---------------------------------------------------------------------------
 
-# Project file is TRACKED. Work happens inside the Vivado GUI, so the .xpr and
-# the *.srcs/ tree it owns are the real sources. scripts/create_project.tcl is
-# kept as a clean-room rebuild path, not as the primary flow.
+# The historical GUI project and its sources remain tracked. The native-DDR
+# reconstruction script references those sources and imports IP into build/.
 *.xpr.orig
 *.ppr
 
@@ -44,6 +40,7 @@
 
 # Simulation output
 xsim.dir/
+*.vvp
 *.wdb
 *.wcfg
 *.vcd
@@ -85,3 +82,9 @@ Release/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# GEMM builds and local Python environments (source and evidence stay tracked).
+/build/
+/.venv/
+__pycache__/
+*.pyc

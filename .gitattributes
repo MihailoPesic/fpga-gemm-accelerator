@@ -23,6 +23,16 @@
 *.bd     text
 *.prj    text
 
+# Keep selected tool evidence in Git, but collapse generated output in GitHub
+# diffs. RTL, test code, report summaries and manifests remain normal diffs.
+# Preserve the whitespace in raw tool reports and their recorded hashes.
+results/**/*.txt linguist-generated=true -whitespace
+results/**/*.xml linguist-generated=true
+results/**/*_coverage.json linguist-generated=true
+*.xci linguist-generated=true
+*.xpr linguist-generated=true
+platform/nexys_a7/reference/** linguist-vendored=true
+
 # Windows-only scripts must keep CRLF or cmd.exe misparses them
 *.bat    text eol=crlf
 *.cmd    text eol=crlf

@@ -10,7 +10,9 @@
 
 ## 100 MHz system clock
 set_property -dict { PACKAGE_PIN E3  IOSTANDARD LVCMOS33 } [get_ports { CLK100MHZ }]
-create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports { CLK100MHZ }]
+# clk_wiz_0's generated scoped XDC owns this 100 MHz primary clock.
+# Adding another root here creates duplicate clocks on thousands of pins.
+# scripts/build.tcl checks that exactly one source clock exists after synthesis.
 
 ## Reset push button (active low)
 set_property -dict { PACKAGE_PIN C12 IOSTANDARD LVCMOS33 } [get_ports { CPU_RESETN }]

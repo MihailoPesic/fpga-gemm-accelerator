@@ -1,90 +1,73 @@
-# nexys-accelerator
+# Nexys GEMM
 
-Hardware accelerator for the **Digilent Nexys A7-50T** (Xilinx Artix-7,
-`xc7a50ticsg324-1L`), built with Vivado 2026.1.
+Signed INT8 matrix multiplication with INT32 results for the Nexys A7-50T
+(`xc7a50ticsg324-1L`). An output-stationary systolic array reuses operands from
+banked local memory to compute `C = A * B`.
 
-## Repository model
+**Status: in development.** The local matrix engine is implemented and tested
+in simulation. A separate UART/DDR2 baseline works on the FPGA. GEMM has not
+yet been run on the board.
 
-The Vivado `.xpr` is a **build artifact and is not tracked**. It embeds absolute
-paths and a machine-local board-store location, so it does not survive a clone.
-`scripts/create_project.tcl` is the single source of truth for project
-configuration; run it to materialise a working project from the tracked sources.
+## Implemented engine
 
-```
-.
-├── src/
-│   ├── hdl/            design RTL (.v .sv .vhd) — tracked
-│   ├── ip/             Vivado IP configuration (.xci .bd) — tracked
-│   └── constraints/    .xdc — tracked
-├── sim/                testbenches — tracked
-├── scripts/
-│   ├── create_project.tcl
-│   └── build.tcl
-├── doc/
-└── vivado/             generated project — ignored
+```text
+64-bit load -> A / transposed-B banks -> prefetch -> 4x4 or 8x8 array
+                                                        |
+                     tile control + cycle counters      v
+64-bit read <--------------------------------------- C banks
 ```
 
-## Quick start
+Builds support P=4/8 and T=8/32, with 1 <= M,N <= T and 1 <= K <= 256.
+The engine handles non-square shapes, masks tails, schedules microtiles and
+holds read responses under backpressure. The [RTL entry point](rtl/control/gemm_tile_engine.sv)
+and [interface contract](docs/tile-engine.md) describe the implemented design.
+
+| Check | Saved result |
+| --- | --- |
+| Arithmetic and core | All 65,536 INT8 pairs; 500 seeded random microtiles per array size; three injected defects detected |
+| Local engine | 164 matrix jobs, all 23,360 outputs checked across four P/T builds |
+| Standalone core timing | P4/P8 pass at 100 MHz with 16/64 DSPs; excludes the banks and board wrapper |
+| Integrated P4 timing | Setup +0.642 ns; hold -0.036 ns: **timing closure remains open** |
+| Physical board | Native UART/DDR2 ping and sparse memory smoke test passed on September 30; no GEMM board result |
+
+The next release is a **4x4 BRAM-backed accelerator** with host input loading,
+job control, output comparison, and cycle measurements. DDR2 integration
+follows that release. The full target adds DDR2 DMA, larger matrices and
+overlapping load/compute/store; see the [specification](docs/specification.md).
+
+## Run the tests
+
+Requires Linux/WSL, Python 3.12, make, and Icarus Verilog 12.0. No Vivado or
+vendor IP is needed for these tests.
 
 ```sh
-vivado -mode gui -source scripts/create_project.tcl
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-test.txt
+make lint test mutation PYTHON=.venv/bin/python
 ```
 
-Headless build to bitstream:
+The tests compare RTL outputs against Python integer dot products. They cover
+all signed INT8 operand pairs, seeded matrix jobs, tails, reset/restart,
+cycle timing, and three injected defects. A GitHub Actions workflow runs the
+portable checks; its first remote run is pending.
 
-```sh
-vivado -mode batch -source scripts/build.tcl -tclargs -jobs 8
-```
+## Design and evidence
 
-`build.tcl` creates the project on first run, then synthesises, implements,
-writes the bitstream, and **exits non-zero if timing is not met**.
+- [Architecture](docs/architecture.md): current blocks and integration plan
+- [Interfaces](docs/compute.md), [memory layout](docs/memory.md) and [design decisions](docs/decisions.md)
+- [Build and test commands](docs/testing.md), [board configuration](platform/nexys_a7/README.md)
+- Evidence: [compute](results/core/README.md), [operand memory](results/operand_memory/README.md), [local engine](results/tile_engine/README.md)
+- [Current status and next deliverable](docs/status.md)
 
-Useful flags:
-
-| Command | Effect |
+| Path | Purpose |
 | --- | --- |
-| `create_project.tcl -tclargs -force` | replace an existing generated project |
-| `build.tcl -tclargs -synth-only` | stop after synthesis |
-| `build.tcl -tclargs -no-bitstream` | implement, skip `write_bitstream` |
-
-## Working rules
-
-**Add sources with "Copy sources into project" UNCHECKED.** Files must stay in
-`src/` so git tracks them. If a file ends up in `<project>.srcs/` it is outside
-the tracked tree — `.gitignore` deliberately leaves `*.srcs/` visible so git
-reports it as untracked and you catch the mistake.
-
-**Re-run `create_project.tcl` after adding files** — or just add them to `src/`
-and regenerate. New `.v`/`.sv`/`.vhd`/`.xdc`/`.xci` files are picked up by glob,
-so the script needs no edit for ordinary additions.
-
-**Commit `.xci`, never the generated IP output.** IP products land in
-`*.gen/` and are reproducible from the `.xci`.
-
-## Constraints
-
-`src/constraints/Nexys-A7-50T-Master.xdc` is Digilent's master constraint file,
-shipped fully commented out. Uncomment the pins you use and rename the ports to
-match your top-level signal names.
-
-Board resources: 100 MHz clock (E3), 16 switches, 16 LEDs, 5 buttons, 2 RGB
-LEDs, 8-digit 7-segment display, USB-UART, Ethernet PHY, USB-HID host, micro-SD,
-ADXL362 accelerometer (SPI), QSPI flash, temperature sensor, microphone, mono
-audio out, 128 MiB DDR2 (MT47H64M16, via MIG 7-series), Pmod JA/JB/JC/JD and
-JXADC.
-
-## Device budget (XC7A50T)
-
-| Resource | Available |
-| --- | --- |
-| LUT | 32,600 |
-| FF | 65,200 |
-| DSP48E1 | 120 |
-| BRAM36 | 75 (2.7 Mb) |
-
-## Toolchain
-
-Vivado 2026.1 and Vitis 2026.1. The board files are installed per-user, not with
-Vivado; `create_project.tcl` fetches them from the Xilinx Board Store if they are
-missing, or install manually via **Tools → XHub Stores → Board Store → Digilent →
-Nexys A7-50T**.
+| `rtl/core/` | PE, systolic array, and microtile controller |
+| `rtl/memory/` | Banked A/BT/C buffers and synchronous word prefetch |
+| `rtl/control/` | Microtile scheduling, result ownership and cycle counters |
+| `tb/` | Automated verification and standalone timing harness |
+| `scripts/`, `Makefile` | Simulation and Vivado build entry points |
+| `platform/nexys_a7/` | Board/IP manifest and pin reference |
+| `host/legacy/` | Host tools for the retained native-DDR design |
+| `docs/`, `results/` | Design contracts and measured evidence |
+| `accelerator nexys.xpr`, `accelerator nexys.srcs/` | Existing UART/DDR2 board project and sources |
+| `build/` | Ignored generated projects, logs, and local archives |
