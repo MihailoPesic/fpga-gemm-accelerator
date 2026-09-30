@@ -1,7 +1,7 @@
 PYTHON ?= python3
 VIVADO ?= vivado
 
-.PHONY: lint test test-memory test-tile test-preview mutation synth-core synth-memory synth-tile preview-bitstream help
+.PHONY: lint test test-memory test-tile test-preview test-axi sim-vendor mutation synth-core synth-memory synth-tile preview-bitstream help
 lint:
 	"$(PYTHON)" scripts/lint.py
 test:
@@ -9,6 +9,7 @@ test:
 	"$(PYTHON)" scripts/test_memory.py
 	"$(PYTHON)" scripts/test_tile.py
 	$(MAKE) test-preview PYTHON="$(PYTHON)"
+	$(MAKE) test-axi PYTHON="$(PYTHON)"
 test-memory:
 	"$(PYTHON)" scripts/test_memory.py
 test-tile:
@@ -18,6 +19,10 @@ test-preview:
 	"$(PYTHON)" scripts/test_packet_transport.py
 	"$(PYTHON)" scripts/test_preview_controller.py
 	"$(PYTHON)" scripts/test_preview_uart.py
+test-axi:
+	"$(PYTHON)" scripts/test_axi_burst.py
+sim-vendor:
+	"$(PYTHON)" scripts/test_mig.py
 mutation:
 	"$(PYTHON)" scripts/mutation_test.py
 synth-core:
@@ -30,5 +35,6 @@ synth-tile:
 preview-bitstream:
 	"$(PYTHON)" scripts/build_preview.py --vivado "$(VIVADO)"
 help:
-	@echo "Checks: lint, test, test-memory, test-tile, test-preview, mutation. See docs/testing.md."
+	@echo "Checks: lint, test, test-memory, test-tile, test-preview, test-axi, mutation. See docs/testing.md."
+	@echo "Vendor simulation: sim-vendor (Vivado and generated MIG required)."
 	@echo "Vivado: synth-core, synth-memory, synth-tile, preview-bitstream."

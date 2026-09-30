@@ -8,7 +8,9 @@ with [design decisions](decisions.md).
 | Board baseline | September 30: xc7a50t detected/programmed, user-confirmed calibration LEDs, UART ping and 8 adjacent/7 scattered DDR words passed on COM11 | Physical revision/marking; platform reset/constraint review; repaired-source board build |
 | Compute | P4/P8 core, independent numerical/cycle tests, detected mutations; routed local-engine timing at 100 MHz with 16/64 DSPs | P8 full-board integration |
 | BRAM preview | P4/T32 board bitstream passes 100 MHz timing and full output comparisons over UART; host, transport, controller and serial-pin regressions pass | Longer board workload, faster UART validation if needed |
-| DDR system | Existing native MIG configuration is a reference | AXI MIG/conversion, DMA, scheduler, response/error handling |
+| AXI transfers | Buffered 64-bit burst primitive; independent channel stalls, all 1..16 lengths and byte strobes, response/fault regressions | Row/burst splitting, local-bank adapters and four-read concurrency |
+| DDR platform | AXI MIG generated from the saved physical configuration; vendor-model calibration and traffic simulation | Clock/width conversion, coordinated reset wrapper and physical AXI memory test |
+| DDR GEMM | Local engine and transfer primitive are separately tested | Connect matrix DMA/scheduler to the verified platform |
 | Full release | Technical contract specified | Overlap, concurrency, scoped formal checks, board endurance and controlled benchmarks |
 
 The September 27 PE/P4/P8 regressions passed on unchanged compute RTL.
@@ -37,12 +39,14 @@ July native bitstream, not the repaired sources or new GEMM memory wrapper.
 
 ## Immediate execution
 
-1. Establish a separate AXI MIG platform build and run its vendor memory test.
-   Confirm the generated user clock/width, reset sequencing and constraints.
-2. Implement and test serial AXI DMA against a behavioral RAM, including
-   independent channel stalls, response errors, burst splits and tail strobes.
-3. Connect the verified local engine to DDR and compare complete board outputs
-   before adding overlap or concurrent reads.
+1. Connect the 64-bit, 100 MHz master to the generated 128-bit, 50 MHz AXI MIG
+   through vendor clock/width conversion and coordinated reset. Simulate that
+   boundary, then build and test an isolated physical-memory diagnostic.
+2. Add matrix-row address generation, burst splitting and bank adapters around
+   the verified burst primitive; check transfers with a byte-address scoreboard.
+3. Connect the local GEMM engine and compare complete DDR-backed board outputs
+   before adding overlap or concurrent reads. See the
+   [AXI evidence](../results/axi/README.md) and [platform contract](axi-platform.md).
 
 The working BRAM preview remains the reproducible board checkpoint while the
 DDR path is developed. It is a smaller release with its own identity and

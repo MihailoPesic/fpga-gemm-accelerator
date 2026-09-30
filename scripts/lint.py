@@ -26,3 +26,7 @@ preview = sorted((root / 'rtl').rglob('*.sv')) + [
 subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_preview_uart',
                 *map(str, preview)], check=True)
 print('PASS: complete preview UART compile/warnings')
+
+subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_axi_burst',
+                str(root / 'rtl/memory/gemm_axi_burst.sv')], check=True)
+print('PASS: AXI burst primitive compile/warnings')

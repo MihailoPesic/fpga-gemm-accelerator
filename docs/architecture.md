@@ -124,8 +124,20 @@ DDR2 <-> AXI MIG <-> Vendor width/clock conversion <-> AXI DMA
                   +----------> P4/P8 compute ---------------------+
 ```
 
+The [burst primitive](axi-burst.md) now supplies independently buffered read
+and write transactions at the 64-bit master boundary. It reserves storage
+before issuing reads, collects a full write burst before AW/W, and holds
+outstanding obligations through faults. A byte-addressed AXI RAM and separate
+adversarial responders test this portable module. It does not generate matrix
+addresses or manage tile ownership.
+
+The [AXI MIG simulation](axi-platform.md) uses the saved DDR2 pin/timing
+configuration with a 128-bit interface at a measured 50 MHz model clock.
+Vendor traffic and a DDR2 model test that controller separately. The vendor
+width/clock bridge and physical reset wrapper are the next integration boundary.
+
 The scheduler will reuse operands over T-by-T macrotiles and manage the two
 operand sets plus two result sets for overlap. The RTL master is 64-bit AXI at
-100 MHz. The new AXI MIG platform, DMA, external-memory macrotiles, overlap,
+100 MHz. The integrated AXI platform, matrix DMA, external-memory macrotiles, overlap,
 and full descriptor/completion semantics remain to be implemented. The framed
 host transport is shared with the preview. See [specification.md](specification.md).
