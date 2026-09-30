@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790799567" />
+    <testcase name="ram_and_independent_channel_stalls" classname="test_axi_burst" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_burst.py" lineno="230" time="0.7192566394805908" sim_time_ns="30330.0" ratio_time="42168.536701868645" />
+    <testcase name="invalid_descriptors_and_response_faults" classname="test_axi_burst" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_burst.py" lineno="339" time="0.07346916198730469" sim_time_ns="4809.999999999996" ratio_time="65469.645629429586" />
+    <testcase name="concurrent_faults_preserve_issued_obligations" classname="test_axi_burst" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_burst.py" lineno="419" time="0.02095937728881836" sim_time_ns="1250.0" ratio_time="59639.176430440224" />
+    <testcase name="premature_responses_do_not_retire_obligations" classname="test_axi_burst" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_burst.py" lineno="510" time="0.030011892318725586" sim_time_ns="1850.0" ratio_time="61642.23103138729" />
+  </testsuite>
+</testsuites>

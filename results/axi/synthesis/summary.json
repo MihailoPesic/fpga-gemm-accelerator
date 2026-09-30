@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "scope": "Isolated synthesis only; no placement, routing or timing claim",
+  "top": "gemm_axi_burst",
+  "parameters": {
+    "TAG_W": 16
+  },
+  "part": "xc7a50ticsg324-1L",
+  "vivado": "Vivado v2026.1 (64-bit)\nSW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026\nIP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026\nTool Version Limit: 2026.06\nCopyright 1986-2022 Xilinx, Inc. All Rights Reserved.\nCopyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.\nSharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026",
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804"
+  },
+  "utilization": {
+    "luts": 332,
+    "logic_luts": 240,
+    "distributed_ram_luts": 92,
+    "flip_flops": 150,
+    "latches": 0,
+    "bram_tiles": 0,
+    "dsps": 0,
+    "black_boxes": 0
+  },
+  "warnings": {
+    "Synth 8-3917": 100
+  },
+  "warning_explanation": "Constant AXI ID/size/burst/sideband outputs and unused upper fatal-code bits. Zero errors and critical warnings.",
+  "local_console_sha256_utf8_lf": "394c7063c4a4612495200f9d351a740dc550482aadb488d3dd4fbdff00f274ce"
+}

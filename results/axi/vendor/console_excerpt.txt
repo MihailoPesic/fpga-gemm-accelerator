@@ -1,0 +1,26 @@
+Selected warning and pass lines from build/axi_mig_final/console.txt.
+Full console SHA-256 (UTF-8/LF): 8b3407665e80a41e3ca2438766fc8d52fd6c501e22eebb1e3b8e81453c21dee9
+
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+WARNING: [Vivado 12-4105] The example target will be deprecated in a future release. Instead, use open_example_project command to get the example design.
+WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v:252]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 1024 for port 'dbg_poc' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/gemm_mig_axi_mig_sim.v:1281]
+WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1671]
+WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_phase_locked_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1679]
+WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v:1339]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 1 for port 'fine_adjust_lane_cnt' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1962]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'axi_wlock' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/imports/example_top.v:500]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'axi_wd_wid' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/imports/example_top.v:507]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'axi_rlock' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/imports/example_top.v:526]
+WARNING: [VRFC 10-5021] port 'complex_oclk_prech_req' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1317]
+WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_A' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:709]
+WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_B' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:708]
+WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_C' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:707]
+WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_D' [C:/Users/mihai/Documents/continium/accelerator nexys/build/axi_mig_final/project/axi_mig.gen/sources_1/ip/gemm_mig_axi/gemm_mig_axi/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:706]
+WARNING: file design.txt could not be opened
+ *** Warning: The analog data file design.txt for XADC instance tb_mig_axi.vendor.u_ip_top.u_gemm_mig_axi.u_gemm_mig_axi_mig.temp_mon_enabled.u_tempmon.xadc_supplied_temperature.XADC_inst was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+tb_mig_axi.vendor.mem_rnk[0].mem.gen_mem[0].u_comp_ddr2.cmd_task: at time 3705335.0 ps WARNING: 200 us is required before CKE goes active.
+TEST PASSED
+MIG_AXI_MONITOR_PASS calibration_ns=163594.375 read_bursts=12 write_bursts=13 read_beats=551 write_beats=1189 write_responses=13
+MIG_AXI_ADDRESSES ar_min=0 ar_max=14380400 aw_min=0 aw_max=14380400
+MIG_AXI_FINAL_PASS

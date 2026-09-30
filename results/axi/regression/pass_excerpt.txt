@@ -1,0 +1,39 @@
+Selected result lines from the completed regression; full log hash is in summary.json.
+
+PASS: Icarus compile/warnings P=4
+PASS: banked Icarus compile/warnings P=4 T=8
+PASS: tile engine compile/warnings P=4 T=8
+PASS: banked Icarus compile/warnings P=4 T=32
+PASS: tile engine compile/warnings P=4 T=32
+PASS: Icarus compile/warnings P=8
+PASS: banked Icarus compile/warnings P=8 T=8
+PASS: tile engine compile/warnings P=8 T=8
+PASS: banked Icarus compile/warnings P=8 T=32
+PASS: tile engine compile/warnings P=8 T=32
+PASS: complete preview UART compile/warnings
+PASS: AXI burst primitive compile/warnings
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                693450.00           3.07     225871.19  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  725630.00          11.69      62057.76  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  849490.00          75.07      11316.22  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              134680.00           1.80      74682.84  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              481750.00           8.48      56820.86  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              133660.00          10.34      12926.82  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              255080.00          30.18       8453.19  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     11600.00           0.07     162984.35  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   118540.00           1.28      92442.37  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     59600.00           0.27     220013.38  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   987480.00          14.60      67635.62  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     11440.00           0.10     116998.21  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                    94650.00           3.88      24388.87  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     57040.00           0.35     164871.64  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   545960.00          34.21      15957.01  **
+Ran 20 tests in 0.071s
+OK
+                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                           1390620.00           9.49     146555.87  **
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                         751040.00           9.56      78576.11  **
+                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                  3732300.00          17.13     217850.25  **
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                              38240.00           0.86      44477.42  **
+CAUGHT unsigned_multiply
+CAUGHT product_survives_clear
+CAUGHT early_drain
+Evidence: /mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/mutations/1790799568791679861/summary.json
