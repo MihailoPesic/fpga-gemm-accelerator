@@ -20,7 +20,9 @@ The original clock wizard generates 100/200 MHz from the board's 100 MHz
 oscillator. Native MIG uses a 200 MHz memory clock and 50 MHz, 128-bit UI.
 The old UART bridge runs at 921600 baud in the UI domain. The target GEMM
 master is instead 64-bit AXI at 100 MHz, with vendor width/clock conversion
-to a separately generated AXI MIG. That transition is not implemented yet.
+to a separately generated AXI MIG. The [AXI MIG vendor simulation](../../docs/axi-platform.md)
+now generates and checks that controller; the physical wrapper and conversion
+path remain to be integrated.
 
 Two source repairs were applied after the July build: remove the duplicate primary clock
 from the board XDC (the clock wizard owns it), and mark the UART RX synchronizer
@@ -60,7 +62,7 @@ before programming. Do not regenerate IP merely to program the saved image.
 
 Remaining platform gates: physical board revision/marking, board-file commit
 or immutable content identity, cold-reset/CDC review, repaired-source board test,
-MIG example memory simulation/test, new AXI clock/width configuration and
+physical AXI memory test, clock/width conversion integration and
 full timing/constraint review. The older sparse memory test is not a full
 128 MiB memory qualification or a GEMM correctness test.
 

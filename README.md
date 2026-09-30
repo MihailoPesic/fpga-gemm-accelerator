@@ -33,12 +33,16 @@ and [interface contract](docs/tile-engine.md) describe the implemented design.
 | UART preview | Framing/retry, command-controller and serial-pin integration tests; host unit tests |
 | Physical board | Six GEMM cases x 30 repetitions: 180 jobs, all 90,510 outputs checked; no mismatches or UART retries |
 | Complete preview timing | 100 MHz: setup +0.188 ns, hold +0.005 ns; 9,166 LUTs, 6,387 registers, 16 DSPs, 10 RAMB36 equivalents |
+| AXI transfer primitive | Independent read/write bursts, full buffering, byte strobes and fault handling tested against AXI RAM and adversarial responses |
 
 The [preview interface](docs/preview.md) supports M,N up to 32 and K up to 256.
 See the [verification, timing and board measurements](results/preview/README.md)
 for the tested source/bitstream identity and measurement limits. The full
 target adds DDR2 DMA, larger matrices and overlapping load/compute/store;
 see the [specification](docs/specification.md).
+The [DDR migration work](docs/axi-platform.md) adds a generated AXI MIG vendor
+simulation and a verified [64-bit burst primitive](docs/axi-burst.md). Clock/width
+conversion and matrix DMA integration remain to be connected and tested.
 
 ## Run on the board
 
@@ -74,12 +78,16 @@ all signed INT8 operand pairs, seeded matrix jobs, tails, reset/restart,
 cycle timing, and three injected defects. A GitHub Actions workflow runs the
 portable checks. Tests also cover malformed UART frames, retries, command
 errors, internal fault handling and full serial-pin matrix transactions.
+The AXI suite covers all supported burst lengths and byte-strobe masks,
+independent channel stalls, malformed responses and outstanding obligations
+after errors. Vendor MIG simulation is a separate Vivado-dependent command.
 
 ## Design and evidence
 
 - [Architecture](docs/architecture.md): current blocks and integration plan
 - [Interfaces](docs/compute.md), [memory layout](docs/memory.md) and [design decisions](docs/decisions.md)
 - [Build and test commands](docs/testing.md), [board configuration](platform/nexys_a7/README.md)
+- [AXI transfer and vendor-model evidence](results/axi/README.md)
 - Evidence: [board preview](results/preview/README.md), [compute](results/core/README.md), [operand memory](results/operand_memory/README.md), [local engine](results/tile_engine/README.md)
 - [Current status and next deliverable](docs/status.md)
 

@@ -80,8 +80,8 @@ checks one primary clock on CLK100MHZ. Native RTL receives no GEMM modules.
 
 `-no-bitstream` additionally implements and writes reports; the default asks
 for a native baseline bitstream after timing and critical-violation checks.
-This remains the old protocol. No `make bitstream`, `make hw-test`,
-`make sim-vendor`, `make formal` or `make bench` is advertised as implemented
+This remains the old protocol. No full-release `make bitstream`, `make hw-test`,
+`make formal` or `make bench` is advertised as implemented
 for GEMM until its relevant gate is delivered. A passing native UART loopback
 is not a MIG vendor-memory simulation.
 
@@ -166,3 +166,34 @@ endurance test. All per-job counters and host timings are retained in JSON/CSV.
 See [preview.md](preview.md) for limits, packet/register semantics and the
 Vivado checkpoint to inspect. A 1 Mbaud build uses `--baud 1000000`; hardware
 validation must be repeated for that bitstream identity.
+
+## AXI transfer primitive
+
+`make test-axi PYTHON=.venv/bin/python` uses cocotbext-axi's RAM model for
+ordinary byte-addressed transfers and an independent responder for malformed
+responses. It is included in `make test`; no Vivado or DDR model is needed.
+Dependencies are pinned after a successful simulator/model smoke test.
+
+The suite exercises all 1..16 beat lengths, all 256 write-strobe masks,
+address boundaries, independent AW/W/AR stalls, delayed responses, local
+backpressure and held completions. Fault cases cover non-OKAY responses,
+incorrect IDs, early/late/missing RLAST, responses before their prerequisites,
+faults in the other direction, and new commands coincident with a fault.
+The runner removes stale success artifacts and rejects source changes during
+the run. Evidence goes under `build/test_axi_burst/`.
+
+## AXI MIG vendor simulation
+
+With native Python and Vivado 2026.1 installed:
+
+```text
+python scripts/test_mig.py
+```
+
+`make sim-vendor PYTHON=python` invokes the same runner where native Python
+and Vivado are available. This target is intentionally excluded from portable
+CI. The [platform workflow](axi-platform.md) explains the generated project,
+configuration checks, calibration/traffic monitor and limits. It verifies the
+MIG example and DDR2 model, not the custom burst engine through a bridge or a
+physical board. Source hashes, generated-IP hashes and traffic counts are saved
+under `build/axi_mig/`; selected evidence is in [results/axi](../results/axi/README.md).

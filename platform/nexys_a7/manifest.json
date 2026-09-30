@@ -5,6 +5,8 @@
   "part": "xc7a50ticsg324-1L",
   "physical_revision_verified": false,
   "latest_board_smoke": "results/native_board/2026-09-30.json",
+  "latest_gemm_board_results": "results/preview/README.md",
+  "latest_axi_mig_simulation": "results/axi/vendor/summary.json",
   "board_part": "digilentinc.com:nexys-a7-50t:part0:1.3",
   "board_repository_commit": null,
   "vivado": "2026.1 build 6511674",
@@ -33,7 +35,7 @@
   "open_gates": [
     "physical label/revision",
     "immutable board-file identity",
-    "MIG example memory test",
+    "physical AXI MIG memory test",
     "AXI platform",
     "reset/CDC/I/O constraint closure"
   ]
