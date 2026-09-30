@@ -1,0 +1,35 @@
+{
+  "scope": "compute core only; no DMA/ownership mutation claim",
+  "results": [
+    {
+      "mutation": "unsigned_multiply",
+      "status": "CAUGHT",
+      "failing_tests": [
+        "arithmetic_and_pipeline"
+      ],
+      "source_file": "gemm_pe.sv",
+      "before": "product <= a * b;",
+      "after": "product <= $unsigned(a) * $unsigned(b);"
+    },
+    {
+      "mutation": "product_survives_clear",
+      "status": "CAUGHT",
+      "failing_tests": [
+        "arithmetic_and_pipeline"
+      ],
+      "source_file": "gemm_pe.sv",
+      "before": "product_valid <= !clear && a_valid && b_valid;",
+      "after": "product_valid <= a_valid && b_valid;"
+    },
+    {
+      "mutation": "early_drain",
+      "status": "CAUGHT",
+      "failing_tests": [
+        "microtile_contract"
+      ],
+      "source_file": "gemm_microtile.sv",
+      "before": "9'(2*P-2)",
+      "after": "9'(2*P-3)"
+    }
+  ]
+}

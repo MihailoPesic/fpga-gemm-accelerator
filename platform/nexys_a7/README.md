@@ -3,11 +3,13 @@
 The GEMM BRAM preview uses `gemm_preview_top.sv` and `preview.xdc`, with no MIG
 or clock-wizard dependency. Build it with `python scripts/build_preview.py`;
 see the [preview interface and board workflow](../../docs/preview.md).
+The September 30 preview bitstream passes routed timing at 100 MHz and full
+GEMM output comparisons on the board; see the [saved evidence](../../results/preview/README.md).
 
 The current baseline is the tracked GUI project and `.srcs` tree at the
 repository root. [manifest.json](manifest.json) records the saved memory
-configuration and historical bitstream identity. It is a platform inventory,
-not a claim that the new GEMM board design exists.
+configuration and historical bitstream identity. That manifest describes the
+native-DDR baseline; the preview has a separate generated build manifest.
 
 `board.tcl` selects the exact board required by the saved XCI files. Set
 `NEXYS_BOARD_REPO` if Vivado cannot find the installed board repository.

@@ -1,0 +1,6 @@
+".venv/bin/python" -m unittest discover -s tb -p test_host_preview.py
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 0.047s
+
+OK

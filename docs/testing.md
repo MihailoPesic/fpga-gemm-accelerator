@@ -158,6 +158,11 @@ input, compares every output and saves JSON/CSV. `--repeats 30` repeats each
 case with inputs resident in BRAM; every repetition is checked. Core cycle
 throughput is reported separately from host-inclusive time.
 
+The [saved September 30 preview run](../results/preview/README.md) passed all
+180 board jobs and 90,510 output comparisons at 115200 baud. This records six
+cases repeated 30 times, not 180 distinct random matrices or a 30-minute
+endurance test. All per-job counters and host timings are retained in JSON/CSV.
+
 See [preview.md](preview.md) for limits, packet/register semantics and the
 Vivado checkpoint to inspect. A 1 Mbaud build uses `--baud 1000000`; hardware
 validation must be repeated for that bitstream identity.

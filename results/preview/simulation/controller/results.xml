@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790768048" />
+    <testcase name="preview_commands" classname="test_preview_controller" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_preview_controller.py" lineno="13" time="10.130269765853882" sim_time_ns="751040.0" ratio_time="74138.20336073694" />
+  </testsuite>
+</testsuites>

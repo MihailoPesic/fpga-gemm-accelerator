@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790768059" />
+    <testcase name="uart_preview_matrix_and_recovery" classname="test_preview_uart" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_preview_uart.py" lineno="107" time="18.501933813095093" sim_time_ns="3732300.0" ratio_time="201724.85955810707" />
+  </testsuite>
+</testsuites>

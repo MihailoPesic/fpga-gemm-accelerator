@@ -4,10 +4,11 @@ Signed INT8 matrix multiplication with INT32 results for the Nexys A7-50T
 (`xc7a50ticsg324-1L`). An output-stationary systolic array reuses operands from
 banked local memory to compute `C = A * B`.
 
-**Status: in development.** The local matrix engine and UART-controlled BRAM
-preview are implemented and tested in simulation. A separate UART/DDR2
-baseline works on the FPGA. GEMM board timing and hardware validation remain
-in progress.
+**Status: BRAM preview runs on the FPGA.** The 4x4 array accepts matrices over
+USB-UART, computes in local memory and returns fully checked results. At
+100 MHz, a 32x32x256 job takes 17,344 cycles (173.44 us), giving **3.02 useful
+GOPS with inputs resident in BRAM**. UART transfers are measured separately.
+DDR2 is not yet connected to GEMM.
 
 ## Implemented engine
 
@@ -30,13 +31,32 @@ and [interface contract](docs/tile-engine.md) describe the implemented design.
 | Standalone core timing | P4/P8 pass at 100 MHz with 16/64 DSPs; excludes the banks and board wrapper |
 | Integrated engine timing | Routed-clock harness: P4 setup/hold +0.948/+0.015 ns; P8 +0.422/+0.015 ns at 100 MHz |
 | UART preview | Framing/retry, command-controller and serial-pin integration tests; host unit tests |
-| Physical board | Native UART/DDR2 ping and sparse memory smoke test passed on September 30; no GEMM board result |
+| Physical board | Six GEMM cases x 30 repetitions: 180 jobs, all 90,510 outputs checked; no mismatches or UART retries |
+| Complete preview timing | 100 MHz: setup +0.188 ns, hold +0.005 ns; 9,166 LUTs, 6,387 registers, 16 DSPs, 10 RAMB36 equivalents |
 
-The next release is the **4x4 BRAM-backed accelerator** with host input loading,
-job control, output comparison and cycle measurements. Its [preview interface](docs/preview.md)
-supports M,N up to 32 and K up to 256. DDR2 integration follows this board
-release. The full target adds DDR2 DMA, larger matrices and overlapping
-load/compute/store; see the [specification](docs/specification.md).
+The [preview interface](docs/preview.md) supports M,N up to 32 and K up to 256.
+See the [verification, timing and board measurements](results/preview/README.md)
+for the tested source/bitstream identity and measurement limits. The full
+target adds DDR2 DMA, larger matrices and overlapping load/compute/store;
+see the [specification](docs/specification.md).
+
+## Run on the board
+
+With Vivado 2026.1, Artix-7 support, Python and the Nexys A7-50T connected:
+
+```sh
+python -m pip install -r requirements-host.txt
+python scripts/build_preview.py --baud 115200
+python scripts/program_preview.py --manifest build/preview/build.json
+python -m host.preview --port COM11 --manifest build/preview/build.json --repeats 30
+```
+
+Replace COM11 with the board's serial port. The build checks routed timing and
+writes its manifest and bitstream under `build/preview/`. The demo checks
+hardware identity and every output, then saves JSON/CSV under
+`build/preview/hw_results/`. Repetitions reuse each case's uploaded inputs.
+Use the [board workflow](docs/preview.md#build-and-inspect) to inspect the
+routed design in Vivado.
 
 ## Run the tests
 
@@ -60,7 +80,7 @@ errors, internal fault handling and full serial-pin matrix transactions.
 - [Architecture](docs/architecture.md): current blocks and integration plan
 - [Interfaces](docs/compute.md), [memory layout](docs/memory.md) and [design decisions](docs/decisions.md)
 - [Build and test commands](docs/testing.md), [board configuration](platform/nexys_a7/README.md)
-- Evidence: [compute](results/core/README.md), [operand memory](results/operand_memory/README.md), [local engine](results/tile_engine/README.md)
+- Evidence: [board preview](results/preview/README.md), [compute](results/core/README.md), [operand memory](results/operand_memory/README.md), [local engine](results/tile_engine/README.md)
 - [Current status and next deliverable](docs/status.md)
 
 | Path | Purpose |

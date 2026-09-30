@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_preview_controller.sv": "6b9f6763b56e75bfcc64db97c522fc2ae417d4dbc06122af784a5999f31c7c60",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "tb/test_preview_controller.py": "64819415fec29933e90ad207d53a076b53ee84e1c878d5e2b151fdff72088085",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_preview_controller.py": "1743466ddb4996dc4fee2bcf5ed6803e5584b5cfcc28a975ab89a26d90e45e24"
+  }
+}

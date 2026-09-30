@@ -29,6 +29,8 @@
 results/**/*.txt linguist-generated=true -whitespace
 results/**/*.xml linguist-generated=true
 results/**/*_coverage.json linguist-generated=true
+results/**/hardware/results.json linguist-generated=true
+results/**/hardware/results.csv linguist-generated=true
 *.xci linguist-generated=true
 *.xpr linguist-generated=true
 platform/nexys_a7/reference/** linguist-vendored=true

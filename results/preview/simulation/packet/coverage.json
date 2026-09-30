@@ -1,0 +1,12 @@
+{
+  "requests": 57,
+  "responses": 66,
+  "stalled_tx_cycles": 4431,
+  "stalled_request_cycles": 1168,
+  "malformed_frames": 17,
+  "resets": 5,
+  "active_duplicate": 1,
+  "collector_release_header": 1,
+  "collector_release_drop": 1,
+  "oversized_backend_response": 2
+}

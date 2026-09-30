@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790768037" />
+    <testcase name="framing_cache_and_adversarial_streams" classname="test_packet_transport" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_packet_transport.py" lineno="191" time="9.812140226364136" sim_time_ns="1390620.0" ratio_time="141724.43197087196" />
+  </testsuite>
+</testsuites>

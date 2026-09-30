@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "build_id": 2836219530,
+  "bitstream": "gemm_preview.bit",
+  "bitstream_sha256": "68b101300fbd63920271b401d4631e4eb13e728d970097a33f7944ff81a125ed",
+  "source_commit": "e915a57243f32e79aa8aaf5667d1e2762e738597",
+  "source_dirty": true,
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_preview_controller.sv": "6b9f6763b56e75bfcc64db97c522fc2ae417d4dbc06122af784a5999f31c7c60",
+    "rtl/control/gemm_preview_uart.sv": "613da57049ac188ac645f94fc5f87a9ae0d3063d168750d0aa221ac8a8bd6538",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "accelerator nexys.srcs/sources_1/new/uart_rx.sv": "d163dc2262631c2e43fc106e5717b54d04fb5077811505db69d8007474a1f9a1",
+    "accelerator nexys.srcs/sources_1/new/uart_tx.sv": "c2179f6da3806fcf77640be63f85d0df85201e9ff9f4705097cb85ecc2d16daa",
+    "platform/nexys_a7/gemm_preview_top.sv": "e53ade4d1f6156ec18e0519fef0c13e73c23c0c16ec55c2a953e26b471f80fde",
+    "platform/nexys_a7/preview.xdc": "5b38f6cf78fe537a827e2c7608195c7801b1463e43a9703baed85c9f3ba4b2c6",
+    "scripts/build_preview.py": "2b86a01ff318fc5155bd896c54ddc02dcbf63b80dc183e41ce05579062622bee",
+    "scripts/build_preview.tcl": "c58bb8a6e5518818dd57e394edbc767a5c3fbe10437299e32035f0a370467792"
+  },
+  "core_hz": 100000000,
+  "baud": 115200,
+  "part": "xc7a50ticsg324-1L",
+  "p": 4,
+  "t": 32,
+  "kmax": 256,
+  "physical_checks": {
+    "vivado": "2026.1",
+    "wns_ns": 0.188,
+    "whs_ns": 0.005,
+    "dsp": 16,
+    "clock_hz": 100000000,
+    "clock_uncertainty_ns": 0.2
+  },
+  "verified_source_commit": "3b9402abe0b20f73e0b46356452d5ee99cc537dc",
+  "source_verification": "All hashed build inputs match this commit; verified after the build. Original build checkout fields are retained."
+}

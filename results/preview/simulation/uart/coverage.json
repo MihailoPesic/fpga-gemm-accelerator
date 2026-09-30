@@ -1,0 +1,9 @@
+{
+  "rx_bytes": 1002,
+  "tx_bytes": 708,
+  "commands": 38,
+  "jobs": 1,
+  "checked_outputs": 15,
+  "corrupt_frames": 2,
+  "resets": 2
+}
