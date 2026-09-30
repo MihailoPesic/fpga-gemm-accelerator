@@ -18,6 +18,11 @@ DDR controller, DMA, overlap, watchdog, or DDR completion semantics. It is a
 separate build of the same repository and shared compute RTL. The original
 native-DDR project remains available for platform work.
 
+The [September 30 board results](../results/preview/README.md) establish
+correct outputs and 100 MHz routed timing for this P4/T32 build at 115200 baud.
+A 32x32x256 job takes 17,344 local-engine cycles (173.44 us, 3.02 useful GOPS).
+That measurement starts after upload and excludes UART and host work.
+
 ## Packets
 
 The [target transport](specification.md#host-transport-and-software-contract)
@@ -123,7 +128,8 @@ utilization, CDC and methodology reports, and `preview_routed.dcp`. A manifest
 is emitted only after the timing and critical-warning gates pass and the
 sources are checked again for changes during the build.
 
-In Vivado's Tcl Console, open the routed design with:
+In a fresh Vivado window with no project open, use the Tcl Console to open the
+routed design (substitute the repository path):
 
 ```tcl
 open_checkpoint {C:/path/to/nexys-accelerator/build/preview/preview_routed.dcp}
@@ -134,6 +140,12 @@ new `gemm_preview.bit` using Hardware Manager on the detected xc7a50t. LED0
 means reset released, LED1 busy, LED2 completed, LED3 job error. The CPU_RESET
 button invalidates the job, protocol cache and matrix-valid state. This build
 does not use the native-DDR baseline's calibration LEDs.
+
+The preview build uses Vivado's non-project flow: its scripts select the
+source files and constraints directly, so no preview `.xpr` is generated.
+The root `accelerator nexys.xpr` opens the historical native-DDR design.
+The checkpoint above contains the implemented preview netlist and placement;
+edit the tracked RTL and rebuild through the script to make design changes.
 
 The host runner verifies the manifest's bitstream file hash and compares the
 hardware BUILD_ID/geometry/clock. BUILD_ID is a 32-bit source/configuration

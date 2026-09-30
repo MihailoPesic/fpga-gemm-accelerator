@@ -72,7 +72,9 @@ loading/readback. These are BRAM-preview counters; the DDR release uses its
 separate final-write-response completion contract.
 
 For P4,T32 and M=N=32,K=256, the expected job count is 17,344 cycles.
-This is a cycle-model prediction checked in simulation, not measured board latency.
+Simulation and the [September 30 board run](../results/preview/README.md)
+match that prediction. At 100 MHz this is 173.44 us of BRAM-local execution;
+host upload and readback are separate measurements.
 
 ## Checks
 
