@@ -1,7 +1,8 @@
 # Local-engine verification - 2026-09-30
 
 Simulation passes for the complete local matrix engine and its result banks.
-The integrated engine has not passed routed timing or run on the board.
+P4 and P8 also pass 100 MHz timing in the standalone harness with a routed
+global clock. These results do not establish timing or operation of a board top.
 
 ## Functional results
 
@@ -26,40 +27,59 @@ enumerate all addresses and apply 200 random masked writes per configuration.
 
 The coverage JSON files retain seeds and shapes. The eight XML files record
 the result-bank and engine suite outcomes. [manifest.json](manifest.json)
-identifies the source files and saved evidence by SHA-256 of UTF-8/LF content.
+identifies the historical source files and saved evidence by SHA-256 of UTF-8/LF
+content. Its timing section describes the earlier failing harness below;
+the passing clocked runs have a [separate manifest](clocked/manifest.json).
 These tests do not cover UART, DDR DMA, or the future overlapping scheduler.
 
-## Open timing issue
+## Routed global-clock harness
 
-Vivado 2026.1, `xc7a50ticsg324-1L`, P4,T32, registered-neighbor harness:
+Vivado 2026.1, `xc7a50ticsg324-1L`, T32, registered input/output neighbors,
+10 ns clock period and 0.200 ns user uncertainty:
 
-| Metric | Routed result |
-| --- | ---: |
-| Target clock / uncertainty | 100 MHz / 0.200 ns |
-| DSP48E1 | 16 |
-| RAMB36E1 / RAMB18E1 | 8 / 4 |
-| LUTs / fabric registers, including harness | 1,342 / 1,882 |
-| Setup slack | +0.642 ns |
-| Hold slack | -0.036 ns: FAIL |
-| Unconstrained internal endpoints | 0 |
+| Metric | P4 | P8 |
+| --- | ---: | ---: |
+| DSP48E1 | 16 | 64 |
+| RAMB36E1 / RAMB18E1 | 8 / 4 | 16 / 8 |
+| LUTs, including harness | 1,340 | 2,361 |
+| Fabric registers, including harness | 1,882 | 3,587 |
+| BUFG | 1 | 1 |
+| Setup slack | +0.948 ns | +0.422 ns |
+| Hold slack | +0.015 ns | +0.015 ns |
+| Unconstrained internal endpoints | 0 | 0 |
+| Routing errors | 0 | 0 |
 
-The worst hold path uses dedicated DSP cascade routing from PE(1,2) to
-PE(1,3), ending at ACIN. `phys_opt_design -hold_fix` followed by routing did
-not remove the violation. Vivado warns that dedicated routing prevents the
-router from adding a delay detour. The next timing investigation must address
-DSP mapping/placement or clock skew; the failed path is not waived.
+[P4 reports](clocked/p4/summary.txt) and [P8 reports](clocked/p8/summary.txt)
+include timing, utilization, clock routing, methodology and constraint checks.
+The clock report identifies the actual BUFG at `BUFGCTRL_X0Y0`. The harness
+excludes 114 external input paths and 242 external output paths; engine and
+neighboring register paths are timed. UART, board I/O, platform reset and DDR
+are outside this boundary.
 
-The worst setup path runs from the microtile elapsed counter to a DSP B input,
-with 7.433 ns data delay, including 5.072 ns routing. Methodology reports 12
-SYNTH-6 warnings concerning BRAM output-register use and no critical warnings.
-External harness pins are deliberately excluded; all engine and neighboring
-register paths are timed. These are standalone integration results, not board
-timing constraints or a hardware performance measurement.
+P4's worst setup path runs from the reduction-length register to a PE DSP
+input: 7.131 ns data delay, including 4.877 ns routing. P8's worst path runs
+from the schedule counter to an operand-word register's clock enable:
+9.102 ns, including 5.544 ns routing. Methodology reports only SYNTH-6 warnings
+about unused BRAM output registers: 12 for P4 and 24 for P8. Neither run has
+a methodology critical warning. The narrow hold margins remain part of the
+reported result; further integration must pass its own timing checks.
 
-The saved P4 reports record a single-worker run with automatic hold repair.
-An earlier route found the same failing path. Intermediate run logs and the
-redundant snapshot remain local build artifacts. The script fails at P4, so
-no integrated P8 routing result is claimed.
+## Earlier clock model
+
+The original reports in this directory remain unchanged. They belong to
+[commit e915a57](https://github.com/MihailoPesic/nexys-accelerator/commit/e915a57243f32e79aa8aaf5667d1e2762e738597),
+whose harness used `HD.CLK_SRC` to estimate an external clock network.
+That P4 run reported +0.642 ns setup and -0.036 ns hold slack on a dedicated
+DSP cascade path; automatic hold repair did not remove the failure. P8 was
+not run because the script stopped at P4.
+
+The current harness instantiates and routes a BUFG, allowing timing analysis
+to use an implemented global clock network. This corrects the physical
+context of the standalone check. The compute, memory and engine RTL are
+unchanged; this was not an arithmetic fix, a removed timing check or a board
+performance improvement. The two sets of reports document different clock
+models and should be read with their respective source hashes.
 
 Reproduce simulation with `make test-tile` and routing with `make synth-tile`.
-The latter currently returns failure at the hold check.
+Routing launches one Vivado process per geometry; reports are written to
+`build/synth_tile/p4` and `build/synth_tile/p8`.

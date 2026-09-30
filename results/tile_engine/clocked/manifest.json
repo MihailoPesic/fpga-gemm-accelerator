@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-30",
+  "scope": "Out-of-context T32 local engine with registered neighbors and a routed global clock; not board timing or hardware measurement",
+  "tool": "Vivado 2026.1 build 6511674",
+  "part": "xc7a50ticsg324-1L",
+  "top": "gemm_tile_timing_top",
+  "historical_source_commit": "e915a57243f32e79aa8aaf5667d1e2762e738597",
+  "source_identity": "Working-tree source hashes below; unchanged engine hierarchy, updated timing harness and script",
+  "clock": {
+    "period_ns": 10,
+    "user_uncertainty_ns": 0.2,
+    "buffer": "BUFG",
+    "location": "BUFGCTRL_X0Y0"
+  },
+  "boundary": {
+    "excluded_external_input_paths": 114,
+    "excluded_external_output_paths": 242,
+    "unconstrained_internal_endpoints": 0,
+    "note": "Source hashes cover the elaborated engine hierarchy, harness and build script. Uninstantiated command/UART modules are outside this timing result."
+  },
+  "results": [
+    {
+      "p": 4,
+      "t": 32,
+      "result": "PASS",
+      "wns_ns": 0.948,
+      "whs_ns": 0.015,
+      "luts": 1340,
+      "fabric_registers": 1882,
+      "dsp48e1": 16,
+      "ramb36e1": 8,
+      "ramb18e1": 4,
+      "bufg": 1,
+      "fully_routed_nets": 3850,
+      "routing_errors": 0,
+      "methodology_synth6_warnings": 12,
+      "methodology_critical_warnings": 0
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "result": "PASS",
+      "wns_ns": 0.422,
+      "whs_ns": 0.015,
+      "luts": 2361,
+      "fabric_registers": 3587,
+      "dsp48e1": 64,
+      "ramb36e1": 16,
+      "ramb18e1": 8,
+      "bufg": 1,
+      "fully_routed_nets": 8719,
+      "routing_errors": 0,
+      "methodology_synth6_warnings": 24,
+      "methodology_critical_warnings": 0
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "tb/synth/gemm_tile_timing_top.sv": "b20675fe72a65d92d0d1e8321fc2dd88f44204756d87d5c9bc36cd4f07c3ba0d",
+    "scripts/synth_tile.tcl": "92659841768f64080094ddd1bc7468749ebdac411d348d50c4cf6cde59607e8f"
+  },
+  "evidence_sha256_utf8_lf": {
+    "p4/p4_timing.txt": "7783a78e30005876e2b060bbd60ee1faf1e01c1b4581def602909258ed7fddbb",
+    "p4/p4_utilization.txt": "ac8e90482fff74a0cc88d756aa46ca317779e0d004bcb3a95819d9cc1b5c72e6",
+    "p4/p4_methodology.txt": "01fda7ca3f66bfd7df48af48c5c92d680d7446ba60a385fe90b34d1d69d3be09",
+    "p4/p4_check_timing.txt": "a3f58c7bc3747fb0a95539ffcb202539e38d2a224bcba202c38f0821d531f1ee",
+    "p4/p4_clocks.txt": "e4a3cc9b5992919bfc290d875eee8dff963955693979c77b94c25536d87cae23",
+    "p4/p4_route.txt": "09b8c9d2b6987b258dca338d3f34d29a24708819174c12f20803bbfb79f6b348",
+    "p4/summary.txt": "ef2596c1071f8249e07763a2d4ba02a480b92e76f94d7689931ee946cb299c5f",
+    "p8/p8_timing.txt": "b6e30daeef427990331814d7680d8bcd80d5cfac7b1bf4debd1e5d9fae9a85e8",
+    "p8/p8_utilization.txt": "2cfa5f823e1d3872c1a3cc4e4847243bf807c36d0756c070da88c10c512cfce6",
+    "p8/p8_methodology.txt": "c84c75815caa7729a82aad7d05fb85cc2702931e35dda676515aecea0066a7e3",
+    "p8/p8_check_timing.txt": "8d9a8448b388df4bacbe83891dcb66ac23ddacf95d3ea0e7df32ec49c92efd47",
+    "p8/p8_clocks.txt": "f021ed8a2b2821e169d38b666777fef8fd27ab98518b39d7257465f2bfbfe468",
+    "p8/p8_route.txt": "bc4523108519827ffda93805b5ae6dc39a207bbb3d21810c0c0b939fb7ab70ce",
+    "p8/summary.txt": "07116278d0dd570cecbbc0e4f6699556cf07efe3281199f0a5dc99b6ea9b648d"
+  },
+  "original_tool_report_sha256_raw": {
+    "p4/p4_timing.txt": "355b8bdb565d94685ba7206a7bab956d35bdc38b9b4413db9326d2dc47b0767d",
+    "p4/p4_utilization.txt": "ac8e90482fff74a0cc88d756aa46ca317779e0d004bcb3a95819d9cc1b5c72e6",
+    "p4/p4_methodology.txt": "01fda7ca3f66bfd7df48af48c5c92d680d7446ba60a385fe90b34d1d69d3be09",
+    "p4/p4_check_timing.txt": "1dfd6b8f1809146b1fb2540a51c499b12ef186cedce2993b573ee6e037bd966b",
+    "p4/p4_clocks.txt": "e4a3cc9b5992919bfc290d875eee8dff963955693979c77b94c25536d87cae23",
+    "p4/p4_route.txt": "09b8c9d2b6987b258dca338d3f34d29a24708819174c12f20803bbfb79f6b348",
+    "p4/summary.txt": "f2ac3e2f04dbedc0aa9a0cc6a932095028371f719d40f6dd3862e3810a1d68cf",
+    "p8/p8_timing.txt": "e9a1fc066da036079a70f0bc0aea30ddfc671776b657ba534b4afa04a523a49d",
+    "p8/p8_utilization.txt": "2cfa5f823e1d3872c1a3cc4e4847243bf807c36d0756c070da88c10c512cfce6",
+    "p8/p8_methodology.txt": "c84c75815caa7729a82aad7d05fb85cc2702931e35dda676515aecea0066a7e3",
+    "p8/p8_check_timing.txt": "b9b27ce2f2950ed39cb2503f7904b503597f955984a582fe097af4cd4e659f8b",
+    "p8/p8_clocks.txt": "f021ed8a2b2821e169d38b666777fef8fd27ab98518b39d7257465f2bfbfe468",
+    "p8/p8_route.txt": "bc4523108519827ffda93805b5ae6dc39a207bbb3d21810c0c0b939fb7ab70ce",
+    "p8/summary.txt": "6132b4daf43246e0a91e784ed3663fd9d05e6c33b16b3afdc37cda181f3dd4ff"
+  },
+  "report_preservation": "Tool report contents preserved; stored line endings normalized to LF. Original byte hashes identify the build outputs before line-ending normalization."
+}

@@ -1,5 +1,9 @@
 # Nexys A7-50T platform
 
+The GEMM BRAM preview uses `gemm_preview_top.sv` and `preview.xdc`, with no MIG
+or clock-wizard dependency. Build it with `python scripts/build_preview.py`;
+see the [preview interface and board workflow](../../docs/preview.md).
+
 The current baseline is the tracked GUI project and `.srcs` tree at the
 repository root. [manifest.json](manifest.json) records the saved memory
 configuration and historical bitstream identity. It is a platform inventory,

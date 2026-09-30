@@ -1,7 +1,7 @@
 # Architecture
 
-The repository contains a local matrix engine and a separate native-DDR board
-baseline. They are not yet integrated on the board.
+The repository contains a local matrix engine, a UART-controlled BRAM preview,
+and a separate native-DDR board baseline. DDR2 is not yet connected to GEMM.
 
 ## Existing compute core
 
@@ -77,7 +77,7 @@ read interface holds its response stable under backpressure. The serial engine
 blocks host memory access while a job is active and freezes counters at the
 final result write. See [tile-engine.md](tile-engine.md).
 
-## Next release
+## UART-controlled BRAM preview
 
 ```text
 Python <-> UART commands <-> Preview control and cycle counters
@@ -90,11 +90,24 @@ Python <-> UART commands <-> Preview control and cycle counters
                       +----> P4 compute core -------+
 ```
 
-Start with one active job and serial load/compute/readback. Use synchronous
-64-bit operand banks and banked 32-bit results. The local memory, compute,
-scheduling and result-read interfaces are implemented. The UART command layer,
-host application and board wrapper remain. Timing must pass with those blocks.
-The preview has its own identity and documented smaller limits.
+The implemented preview runs one active job with serial load/compute/readback.
+It uses synchronous 64-bit operand banks and banked 32-bit results. COBS/CRC
+validation and a last-request replay cache protect the command boundary.
+The Python host uploads complete inputs and checks every result. The preview
+has its own identity and [documented smaller limits](preview.md); it does not
+advertise DDR readiness.
+
+Packet decoding uses a shared RAM read port, captured header/trailer fields
+and registered CRC input. The response producer holds its payload until the
+transport has buffered it, avoiding a duplicate full-packet register bank.
+These control-path choices matter to resource use and routed timing even
+though UART throughput is much lower than the compute clock.
+
+The board wrapper uses the 100 MHz oscillator through IBUF/BUFG. UART input
+and the reset button each enter a three-flop synchronizer. Button assertion
+and release are sampled synchronously so BRAM control paths remain timed;
+register INIT values hold reset at configuration. This reset choice assumes
+a free-running clock and must be reviewed when MIG/clock generation is added.
 
 ## DDR-backed target
 
@@ -113,5 +126,6 @@ DDR2 <-> AXI MIG <-> Vendor width/clock conversion <-> AXI DMA
 
 The scheduler will reuse operands over T-by-T macrotiles and manage the two
 operand sets plus two result sets for overlap. The RTL master is 64-bit AXI at
-100 MHz. The new AXI MIG platform, DMA, macrotiles, overlap, and host protocol
-remain to be implemented. See [specification.md](specification.md).
+100 MHz. The new AXI MIG platform, DMA, external-memory macrotiles, overlap,
+and full descriptor/completion semantics remain to be implemented. The framed
+host transport is shared with the preview. See [specification.md](specification.md).

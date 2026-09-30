@@ -35,7 +35,8 @@ changed configuration while busy, immediate next launch and resets during
 feed/drain. Reduction tags assert inside the simulated mesh.
 
 The `lint` target is an Icarus syntax/elaboration/warning check, not a claim
-of comprehensive static RTL lint or formal proof. Public CI is not yet run.
+of comprehensive static RTL lint or formal proof. GitHub Actions runs the
+portable checks on Ubuntu; the first published core/memory checkpoint passed.
 
 ## Vivado core check
 
@@ -113,11 +114,50 @@ matrix jobs for all four P/T combinations. `make test` includes this suite.
 Reports and source hashes go to `build/test_tile/`.
 
 `make synth-tile` runs the registered-neighbor timing harness for P4/P8,T32
-at 100 MHz, with 0.2 ns clock uncertainty. It checks setup and hold and writes
-reports to `build/synth_tile/`. External harness-pin paths are excluded;
+in separate Vivado processes, at 100 MHz with 0.2 ns clock uncertainty. An
+explicit BUFG routes the global clock inside the harness. It checks setup
+and hold and writes reports to `build/synth_tile/p4` and `p8`.
+External harness-pin paths are excluded;
 all internal register/BRAM/DSP paths must be timed. The script attempts
 [post-route hold fixing](https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/phys_opt_design)
 if needed and fails when negative setup or hold slack remains.
 See [tile-engine.md](tile-engine.md) for the interfaces and counter definitions.
-The [saved September 30 run](../results/tile_engine/README.md) fails P4 hold
-timing; P8 is not reached. Simulation success does not satisfy this timing gate.
+The [saved September 30 results](../results/tile_engine/README.md) distinguish
+the earlier estimated external-clock failure from the routed-clock checks.
+Simulation success does not satisfy the physical timing gate.
+
+## UART-controlled BRAM preview
+
+`make test-preview PYTHON=.venv/bin/python` runs the host unit tests, framed
+packet transport, command controller, and complete 8N1 UART integration.
+`make test` includes these checks. Generated coverage and source hashes are
+under `build/test_packet_transport`, `build/test_preview_controller`, and
+`build/test_preview_uart`.
+
+The transport suite rejects malformed frames before command effects and
+checks replay/conflict behavior under backpressure. Controller tests include
+maximum and non-square matrices, invalid requests, frozen snapshots and
+injected internal faults. The UART test drives and samples individual bits,
+including baud offset and bad stop bits; it does not bypass the serial PHY.
+Host tests enforce the fixed read-only address map independently of the driver.
+
+For a board build and hardware comparison, use native Python with pyserial
+and Vivado installed:
+
+```text
+python scripts/build_preview.py --baud 115200
+python scripts/program_preview.py --manifest build/preview/build.json
+python -m host.preview --port COM11 --manifest build/preview/build.json
+```
+
+Substitute the actual serial port. Build output stays under `build/preview`.
+The programming script verifies the selected bitstream hash and requires one
+connected xc7a50t target. It changes volatile configuration RAM, not flash.
+The host checks BUILD_ID, geometry, clock and fixed map, loads every required
+input, compares every output and saves JSON/CSV. `--repeats 30` repeats each
+case with inputs resident in BRAM; every repetition is checked. Core cycle
+throughput is reported separately from host-inclusive time.
+
+See [preview.md](preview.md) for limits, packet/register semantics and the
+Vivado checkpoint to inspect. A 1 Mbaud build uses `--baud 1000000`; hardware
+validation must be repeated for that bitstream identity.

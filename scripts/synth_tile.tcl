@@ -1,6 +1,12 @@
 # Registered-neighbor timing check for the complete local engine, T=32.
 set root [file normalize [file join [file dirname [info script]] ..]]
-set out [file join $root build synth_tile]
+set p 4
+if {[llength $argv] == 1 && [lindex $argv 0] in {4 8}} {
+    set p [lindex $argv 0]
+} elseif {[llength $argv] != 0} {
+    error "Usage: vivado -mode batch -source scripts/synth_tile.tcl -tclargs 4|8"
+}
+set out [file join $root build synth_tile p$p]
 file mkdir $out
 cd $out
 set_param general.maxThreads 1
@@ -8,7 +14,9 @@ set sources [concat [glob [file join $root rtl core *.sv]] \
     [glob [file join $root rtl memory *.sv]] [glob [file join $root rtl control *.sv]]]
 lappend sources [file join $root tb synth gemm_tile_timing_top.sv]
 set records [list]
-foreach p {4 8} {
+# Use a fresh Vivado process for each geometry. This also separates checkpoints
+# and logs when runs are inspected in the GUI.
+foreach p [list $p] {
     create_project -in_memory -part xc7a50ticsg324-1L
     read_verilog -sv $sources
     synth_design -top gemm_tile_timing_top -mode out_of_context -part xc7a50ticsg324-1L -generic [list P=$p T=32]
@@ -16,7 +24,7 @@ foreach p {4 8} {
     set_clock_uncertainty 0.200 [get_clocks core]
     set_false_path -from [get_ports -filter {DIRECTION == IN && NAME != clk}]
     set_false_path -to [all_outputs]
-    set_property HD.CLK_SRC BUFGCTRL_X0Y0 [get_ports clk]
+    set_property LOC BUFGCTRL_X0Y0 [get_cells clock_buffer]
     set dsp [llength [get_cells -quiet -hier -filter {REF_NAME == DSP48E1}]]
     set ram36 [llength [get_cells -quiet -hier -filter {REF_NAME == RAMB36E1}]]
     set ram18 [llength [get_cells -quiet -hier -filter {REF_NAME == RAMB18E1}]]
@@ -34,6 +42,8 @@ foreach p {4 8} {
     report_timing_summary -delay_type min_max -report_unconstrained -max_paths 5 -file p${p}_timing.txt
     report_methodology -file p${p}_methodology.txt
     check_timing -verbose -file p${p}_check_timing.txt
+    report_clock_utilization -file p${p}_clocks.txt
+    report_route_status -file p${p}_route.txt
     set setup_paths [get_timing_paths -delay_type max -max_paths 1]
     set hold_paths [get_timing_paths -delay_type min -max_paths 1]
     if {[llength $setup_paths] == 0 || [llength $hold_paths] == 0} { error "Missing timing paths" }
@@ -45,7 +55,7 @@ foreach p {4 8} {
     close_project
 }
 set fp [open summary.txt w]
-puts $fp "Vivado [version -short]; xc7a50ticsg324-1L; registered neighbors; 100 MHz, uncertainty 0.2 ns"
+puts $fp "Vivado [version -short]; xc7a50ticsg324-1L; registered neighbors and routed BUFG; 100 MHz, uncertainty 0.2 ns"
 puts $fp "External harness pin paths excluded. All engine/neighbor register paths timed. Not board timing."
 puts $fp [join $records \n]
 close $fp

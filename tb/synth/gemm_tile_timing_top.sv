@@ -23,6 +23,10 @@ module gemm_tile_timing_top #(
     output logic [63:0] response_data,
     output logic [7:0] response_strb
 );
+    // Route the real global clock inside the OOC harness. HD.CLK_SRC alone
+    // estimates an external clock network and cannot demonstrate routed skew.
+    wire core_clk;
+    BUFG clock_buffer (.I(clk), .O(core_clk));
     logic rst_q, lv_q, lbt_q, lb_q, start_q, ib_q, ob_q, rv_q, rb_q, rr_q;
     logic [QW-1:0] lq_q, row_q;
     logic [QW-2:0] pair_q;
@@ -35,7 +39,7 @@ module gemm_tile_timing_top #(
     wire [63:0] job_w, compute_w, data_w;
     wire [31:0] tiles_w;
     wire [7:0] strb_w;
-    always_ff @(posedge clk) begin
+    always_ff @(posedge core_clk) begin
         {rst_q, lv_q, lbt_q, lb_q, lq_q, word_q, data_q, start_q, ib_q, ob_q,
          m_q, n_q, k_q, rv_q, rb_q, row_q, pair_q, rr_q} <=
         {rst, load_valid, load_bt, load_buf, load_q, load_word, load_data, start,
@@ -47,7 +51,7 @@ module gemm_tile_timing_top #(
          ready_w, valid_w, rerror_w, data_w, strb_w};
     end
     gemm_tile_engine #(.P(P), .T(T)) engine (
-        .clk(clk), .rst(rst_q), .load_valid(lv_q), .load_ready(lr_w),
+        .clk(core_clk), .rst(rst_q), .load_valid(lv_q), .load_ready(lr_w),
         .load_bt(lbt_q), .load_buf(lb_q), .load_q(lq_q), .load_word(word_q), .load_data(data_q),
         .start(start_q), .start_ready(sr_w), .input_buf(ib_q), .output_buf(ob_q),
         .m(m_q), .n(n_q), .k(k_q), .busy(busy_w), .done(done_w), .cmd_error(error_w),
