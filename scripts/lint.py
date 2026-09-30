@@ -19,3 +19,10 @@ for p in (4, 8):
                         f"-Pgemm_tile_engine.P={p}", f"-Pgemm_tile_engine.T={t}",
                         *map(str, sources + memory + control)], check=True)
         print(f"PASS: tile engine compile/warnings P={p} T={t}")
+
+preview = sorted((root / 'rtl').rglob('*.sv')) + [
+    root / 'accelerator nexys.srcs/sources_1/new' / name
+    for name in ('uart_rx.sv', 'uart_tx.sv')]
+subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_preview_uart',
+                *map(str, preview)], check=True)
+print('PASS: complete preview UART compile/warnings')
