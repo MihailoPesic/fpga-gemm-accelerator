@@ -207,8 +207,8 @@ class ProfileHarness(Harness):
                 sample[name] = v(name) if sample[valid] else 0
         for name, (valid, ready, fields) in self.CHANNELS.items():
             sample[name] = (v(valid), v(ready), tuple(v(field) for field in fields) if v(valid) else ())
-        sample['job_state'] = int(d.job.state.value)
-        sample['dma_state'] = int(d.dma.state.value)
+        sample['job_state'] = int(d.serial_path.job.state.value)
+        sample['dma_state'] = int(d.serial_path.dma.state.value)
         sample['tile_state'] = int(d.tile.state.value)
         sample['prefetch_left'] = int(d.tile.prefetch_left.value)
         sample['micro_launch'] = int(d.tile.tile_start.value) and int(d.tile.micro_ready.value)
