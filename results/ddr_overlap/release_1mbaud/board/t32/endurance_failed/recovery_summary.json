@@ -1,0 +1,12 @@
+{
+  "result": "PASS_READ_ONLY_RECOVERY_REPLAY",
+  "job_id": 384,
+  "compared_outputs": 64,
+  "allocation_bytes_checked": 21120,
+  "guard_input_bytes_checked": 20864,
+  "original_endurance_outcome": "FAIL",
+  "included_in_endurance_counts": false,
+  "standby_wake_utc": "2026-10-04T17:07:39.1282092Z",
+  "timeout_site_identified": false,
+  "scope": "Retained DDR bytes after read-only reconnect; no reset, reprogramming or START replay"
+}

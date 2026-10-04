@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "backend": "Agg",
+  "matplotlib": "3.10.6",
+  "build_id": 2638998349,
+  "input_summary_sha256_bytes": "21d3d029782c4b3520cb5dfc605f44c86f93c33dbe9846f469bbc43ab97f4161",
+  "plotting_source_sha256_bytes": "ce9ce7afe5975b95f690310fb8196d9c5223eb32eff8a550247464b633f509ee",
+  "scope": "Single dense DDR-resident case; all 30 paired samples",
+  "outputs_sha256_bytes": {
+    "performance.png": "9081a925384e7008a25581f20c4e2501340fb5202eb7aec6d10f6d770a266790",
+    "performance.pdf": "bde8c9b485bc0b4670396498057097a25c9f66d323916f7779238230c4236d0a"
+  }
+}

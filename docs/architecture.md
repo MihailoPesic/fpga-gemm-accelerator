@@ -20,12 +20,85 @@ separate evidence. See [status.md](status.md) for the dated checkpoint and
 | Serial DDR GEMM board | UART/register commands and shared host/DMA access connect the complete matrix path to MIG | P4 `0x4898db67` and P8 `0x01caf61c`, T32 at 100 MHz: each passes vendor/routed gates and 48 board jobs with 49,593 outputs checked; cold start only. Original P4 also passes the maximum-shape check |
 | Concurrent read DMA board | Four validated read buffers and ordered bank metadata feed the same serial macrotile schedule | P8/T32 `0xd558a543`: vendor, routed/reset review and all 48 board jobs pass; dense median 4.529 useful GOPS at 100 MHz |
 | Selectable overlap board | Independent DMA and two operand/result sets overlap load, compute and store under tagged ownership | P8/T32 `0x2c680af7`: 156 jobs, 344,946 compared outputs; 64x64x256 overlap median 8.345 GOPS and 1.837x paired speedup at 100 MHz |
+| 1 Mbaud selectable board | Same compute/memory architecture with a separately built UART setting | P8/T32 `0x9d4beb4d`: 30 matched pairs at 256x256x256; 11.298 useful GOPS and 2.495x paired speedup; remaining qualification is recorded in status |
 
 These are build configurations of one repository, selecting top modules and
 shared RTL. Generated Vivado projects live under `build/`; integration connects
 module interfaces rather than merging generated project directories. The
 [preview](../results/preview/README.md) and
 [DDR platform](../results/ddr_platform/README.md) have separate bitstream identities.
+
+## Current system at a glance
+
+```text
+Laptop: Python A, B -> pack A and BT -> upload -> START -> wait -> read C
+                               USB-UART, 1 Mbaud
+                                      |
+                UART RX/TX -> COBS/CRC packet transport
+                                      |
+                     gemm_ddr_core, 100 MHz
+                   /                            \
+        registers and frozen counters     idle host memory commands
+                   |                            |
+        gemm_ddr_overlap_job                     |
+        descriptor validation / fatal state     |
+                   |                            |
+        gemm_tile_scheduler                     |
+        tile tags, buffer owners, load/run/store |
+           |                    |               |
+           |          gemm_tile_dma_duplex       |
+           |             operand reads / C writes
+           |                    |               |
+    gemm_tile_engine       host/DMA ownership mux+
+      two A/BT sets             |
+      two C sets          gemm_axi_burst
+      BRAM prefetch       four read slots / one writer
+           |                    |
+           |              64-bit AXI, 100 MHz
+           |                    |
+      8x8 systolic         SmartConnect
+      INT8 MAC array       width conversion + CDC
+           |                    |
+      C-bank drain         128-bit AXI, 50 MHz
+                                |
+                              MIG
+                                |
+                       DDR2, 16-bit / 200 MHz
+```
+
+The drawing separates control from the two data paths. DMA fills the A/BT
+banks and reads completed C banks; those bank ports sit inside the tile
+engine. Host memory commands share the burst engine only when no accelerator
+job owns it. UART packet validity and descriptor checks precede execution.
+The scheduler reserves a complete result set before launching compute;
+the result set remains owned until its writes receive successful B responses.
+
+For one full T32 macrotile at K=256, DMA loads 32 A rows and 32 BT rows:
+16,384 input bytes. Sixteen 8x8 launches reuse those inputs to produce 1,024
+INT32 results, which occupy 4,096 output bytes. Each launch retains the full
+reduction locally; DDR backpressure cannot interrupt its fixed PE schedule.
+Larger M/N shapes repeat this procedure, masking only the boundary tiles.
+
+```text
+MODE0:  load tile0 -> compute tile0 -> store tile0 -> load tile1 -> ...
+
+MODE1:  load tile0 -> load tile1 ---------> load tile2 -> ...
+                      compute tile0 -----> compute tile1 -> ...
+                                           store tile0 -> ...
+```
+
+This is an ownership sketch, not a cycle-exact waveform. The stages overlap
+only when their independent buffer sets and AXI channels can make progress.
+Two input sets and two result sets bound how far admission can run ahead.
+A blocked store may delay the next launch while an already launched microtile
+finishes normally. The detailed transitions are in [tile-scheduler.md](tile-scheduler.md).
+
+At 256x256x256, the measured T32 serial and overlap runs each spend 285,696
+cycles in active microtile schedules. Overlap lowers median complete-job
+cycles from 741,063.5 to 297,001 by hiding transfer/control work around those
+schedules. That counter comparison explains the observed speedup; it does
+not independently measure the DDR device's maximum bandwidth.
+See the [matched board measurements](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
 
 ## Existing compute core
 
@@ -368,7 +441,7 @@ final-B timestamp are checked in portable simulation. The
 measured median 34,637 cycles for 32x32x256 at 100 MHz across 30 resident jobs:
 1.514 useful GOPS including DDR tile transfers and final write acknowledgement.
 UART packing, upload and download are outside that counter. These measurements
-belong to that saved bitstream. The current P4/P8 images have their own
+belong to that saved bitstream. The one-read P4/P8 checkpoint has its own
 [physical scaling measurements](../results/ddr_gemm/p8_scaling/README.md):
 dense median latency is 34,103 / 21,281.5 cycles, giving 1.60x DDR-job speedup.
 The arithmetic ceiling, local-job timing and complete DDR-job timing describe

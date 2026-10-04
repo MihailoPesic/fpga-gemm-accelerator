@@ -1,0 +1,5 @@
+SCOPE Own production P8/T32 1 Mbaud checkpoint; static review only, not warm-reset qualification
+TOOL 2026.1
+DESIGN checkpoint_gemm_routed
+CHECKPOINT C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_release_p8_t32_1mbaud/gemm_routed.dcp
+No constraint/design/run changes; no bitstream or hardware access.

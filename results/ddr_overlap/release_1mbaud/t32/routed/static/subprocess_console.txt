@@ -1,0 +1,2 @@
+Read-only reset review: Own production P8/T32 1 Mbaud checkpoint; static review only, not warm-reset qualification
+PASS_PROVISIONAL_REVIEW {'async_reset_pins': 86, 'reset_like_pins': 21839} Serial board-reset endpoints identical: True

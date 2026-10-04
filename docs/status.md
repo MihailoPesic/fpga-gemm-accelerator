@@ -4,16 +4,29 @@ Updated 2026-10-04. Target: [specification](specification.md), with
 [architecture](architecture.md) and [design decisions](decisions.md).
 
 The P8/T32 DDR-backed accelerator works on the Nexys A7-50T at 100 MHz.
-Its current board-qualified image is `0x2c680af7`, with four outstanding reads
-and selectable serial/overlap scheduling. The [current board record](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
-passes 156 jobs and 344,946 output comparisons. At 64x64x256, 30 matched pairs
-measure median 25,130 cycles / 8.345 useful GOPS in overlap mode and 46,163.5
-cycles / 4.543 GOPS in serial mode; median paired speedup is 1.837x. Every
+Its 1 Mbaud image is `0x9d4beb4d`, with four outstanding reads and selectable
+serial/overlap scheduling. The [dense board record](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+passes 60 jobs and 3,932,160 output comparisons. At 256x256x256, 30 matched pairs
+measure median 297,001 cycles / 11.298 useful GOPS in overlap mode and 741,063.5
+cycles / 4.528 GOPS in serial mode; median paired speedup is 2.495x. Every
 DDR tile load, result write and final B response is inside the job interval.
 The host loads signed INT8 matrices, submits a job, reads every INT32 result
 and checks memory guards; UART movement and validation are timed separately.
 
-The preceding serial image `0xd558a543` retains its own evidence below.
+The same image also passes [maximum-size jobs in both modes](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md):
+M=N=1024,K=256, with 2,097,152 outputs checked. Complete retained DDR snapshots
+permit independent INT64 numerical replay. Overlap takes 4,664,784 cycles /
+46.64784 ms / 11.509 GOPS. This is one job per mode, not a sample distribution.
+
+The first new-image [endurance attempt](../results/ddr_overlap/release_1mbaud/board/t32/endurance_failed/README.md)
+failed after 381 validated jobs when READ_REG timed out around a recorded
+Windows Modern Standby interval. A read-only reconnect independently checked
+the pending job's 64 retained outputs and guards; this does not turn the failed
+run into a pass. Its replacement starts from zero elapsed endurance time.
+
+The 115200-baud selectable image `0x2c680af7` retains its separate 156-job,
+maximum-shape and sustained-workload records below. Those checks do not qualify
+the new image. The preceding serial image `0xd558a543` also retains its own evidence.
 The first four-read DMA revision passed portable and vendor verification,
 but its [first route](../results/ddr_gemm/read4/initial_timing/README.md)
 missed setup timing by 0.470 ns. The registered host-error response revision
@@ -45,13 +58,15 @@ preserves all seven distributions, matched workloads and source changes.
 | [P8 serial DDR GEMM](../results/ddr_gemm/p8_serial/board/README.md) | 48 jobs; 49,593 compared outputs; dense median 21,281.5 cycles, 2.464 useful GOPS |
 | [P8 four-read DDR GEMM](../results/ddr_gemm/read4/host_geometry/board/README.md) | 48 jobs; 49,593 compared outputs; dense median 11,576.5 cycles, 4.529 useful GOPS |
 | [Selectable P8 DDR GEMM](../results/ddr_overlap/timing_predicate/final_build/board/README.md) | 48 jobs per mode plus 30 matched pairs; 344,946 compared outputs; 64x64x256 overlap median 25,130 cycles, 8.345 useful GOPS |
+| [1 Mbaud P8 dense comparison](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md) | 30 matched pairs at 256x256x256; 3,932,160 outputs; overlap median 297,001 cycles / 11.298 useful GOPS; 2.495x paired speedup |
+| [1 Mbaud P8 maximum-size check](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md) | 1024x1024x256 in both modes; 2,097,152 outputs; one sample per mode and complete independent byte replay |
 | [Matched P4/P8 comparison](../results/ddr_gemm/p8_scaling/README.md) | 1.60247x dense DDR-job speedup; unchanged matrix bytes, layouts, host and RTL sources, with P changed |
-| [Current P8 maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md) | Image 0x2c680af7, MODE1: 1024x1024x256; all 1,048,576 outputs checked; one job at 11.512 useful GOPS |
+| [115200-baud P8 maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md) | Image 0x2c680af7, MODE1: 1024x1024x256; all 1,048,576 outputs checked; one job at 11.512 useful GOPS |
 | [Repeatability](../results/ddr_gemm/gather4/repeatability/README.md) | Optimized P4 image: 432 jobs over 33.32 minutes, host-paced; no mismatches |
 
 Earlier serial dense measurements use M=N=32,K=256 and include every tile load, result write
 and final successful B response. Packing, UART movement and validation are
-recorded separately. The current P8 maximum-size test has its own identity
+recorded separately. The 115200-baud P8 maximum-size test has its own identity
 and complete output comparison. The earlier extended-repeatability result
 belongs to its specified P4 image and does not qualify this P8 build.
 
@@ -170,7 +185,8 @@ The latter checks 368 jobs, 342,286 outputs and both modes with zero transport
 retries. It is a continuous host-paced repeatability check; no raw output-byte
 or UART replay is claimed for that run.
 
-1. Qualify the full-release register/version contract and 1 Mbaud UART.
+1. Finish the new T32 image's shape and sustained-workload checks and qualify
+   the T8 MODE0 baseline at 1 Mbaud. The T32 dense case already passes at this baud.
    The [FIFO and reduced scheduler proofs](../results/buffer_formal/README.md)
    now complement the bounded row-planner checks. Preserve fault/transport
    regressions on the final source and recheck image identities after changes.
@@ -179,6 +195,11 @@ or UART replay is claimed for that run.
    source/bitstream identities and host/DDR measurement boundaries.
 3. Complete the benchmark plots, remaining coverage summary and demonstration
    for the final release, retaining exact image identities and failure records.
+
+The development contract remains VERSION=0x200. The original full v1 proposal
+also requires a separately measured resident-array run, isolated read-only,
+write-only and mixed DDR bandwidth, and resolution of the warm-reset boundary.
+Job COMPUTE_CYCLES and accepted traffic counts do not substitute for those tests.
 
 ## Platform record and limits
 

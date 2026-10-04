@@ -1,0 +1,8 @@
+{
+    "tool_chunk_id":  "679880",
+    "actual_exit_code":  1,
+    "observed_utc":  "2026-10-04T17:16:35.1807621Z",
+    "session_id":  17347,
+    "execution_sha256_bytes":  "71fce2de0d3882c22430d971f91adfae8cfabb61ee09d8b06efa00be265090bb",
+    "scope":  "Actual outer process completion observed through write_stdin; failed extended qualification"
+}

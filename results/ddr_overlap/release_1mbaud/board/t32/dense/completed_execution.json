@@ -1,0 +1,111 @@
+{
+  "build_id": 2638998349,
+  "bitstream_sha256_bytes": "d187f51bac37c3682641243f1db112579ad14c8ac45a1b3df52e704bf58c8327",
+  "manifest_sha256_bytes": "b3843b33f232829180a5263150d72f1898cf42d56cb1da24f0590914e373706a",
+  "review_record_sha256_bytes": "950c3e78c4d825d1f9bfcfc6a88bd3078a2001da2fd0db64ffc1cfeb1b852bc4",
+  "helper_sha256_bytes": "3d65290a2130d59541684d934ac9db6e138d7311bc16b8bbb097b0cdda57e708",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/qualify_release.py": "fdfe9d020e3b89e565fbfb6e3246a0a93f4ba1184138c83a7c44d28dc5af7381",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "operator_confirmation": "Fresh OFF/ON complete; powered on and connected",
+  "operator_confirmation_source": "Actual user reply to the new-image cold-cycle request in this session",
+  "startup_scope": "Reported cold power cycle, JP1 JTAG, J6 connected; no reset or reprogramming after successful image load",
+  "port": "COM11",
+  "baud": 1000000,
+  "python": "3.13.0 (main, Nov 19 2024, 22:38:08) [MSC v.1929 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.3.3",
+    "pyserial": "3.5"
+  },
+  "schema_version": 1,
+  "result": "PASS_COMPLETED_STAGES",
+  "stages": [
+    {
+      "name": "program",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\program_ddr_gemm.py",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\build.json"
+      ],
+      "utc_started": "2026-10-04T15:31:26.692522+00:00",
+      "utc_finished": "2026-10-04T15:31:43.875540+00:00",
+      "actual_exit_code": 0,
+      "console_sha256_bytes": "3e95893f35ca73b8da0e7780a8ed3ab252c6f1846f9ed8f59c4ee44d80818f7c"
+    },
+    {
+      "name": "smoke",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "-m",
+        "host.gemm",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\build.json",
+        "--mode",
+        "1",
+        "--m",
+        "5",
+        "--n",
+        "3",
+        "--k",
+        "9",
+        "--repeats",
+        "1",
+        "--retries",
+        "0",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_board_t32_smoke"
+      ],
+      "utc_started": "2026-10-04T15:31:43.889288+00:00",
+      "utc_finished": "2026-10-04T15:31:45.950286+00:00",
+      "actual_exit_code": 0,
+      "console_sha256_bytes": "9599bc23c4e1418ecb7a730b3af883a28c1313b1563870e6d631e776039aeae4"
+    },
+    {
+      "name": "dense_benchmark",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\qualify_release.py",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\build.json",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_board_t32_measurements",
+        "--modes",
+        "both",
+        "--oracle",
+        "numpy",
+        "--samples",
+        "30",
+        "--duration",
+        "1800",
+        "--seed",
+        "20261004",
+        "--phase",
+        "benchmark",
+        "--cases",
+        "11"
+      ],
+      "utc_started": "2026-10-04T15:31:45.964496+00:00",
+      "utc_finished": "2026-10-04T16:19:06.185282+00:00",
+      "actual_exit_code": 0,
+      "console_sha256_bytes": "e46c61fbb45d86347b11546f80b0128570587c5f90ee8a947fd45211a263a9e5"
+    }
+  ],
+  "claimed_completed_stages": [
+    "program",
+    "smoke",
+    "dense_benchmark"
+  ],
+  "full_qualification_claimed_complete": false,
+  "original_execution_sha256_bytes": "b3eba615f779d898753422cf3cf81079525df3c2d00e921cb25414723d4c4c89",
+  "scope": "Frozen completed child-stage receipts only; no outer/full qualification exit claim"
+}

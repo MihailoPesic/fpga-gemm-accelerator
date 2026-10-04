@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "completed_units": [
+    "benchmark/case_11_256x256x256"
+  ],
+  "full_grid_benchmark_complete": false,
+  "all_requested_release_phases_complete": false,
+  "build_id": 2638998349,
+  "bitstream_sha256": "d187f51bac37c3682641243f1db112579ad14c8ac45a1b3df52e704bf58c8327",
+  "plan_sha256": "54e0916b230fce634fb750e2f175127a81a1d9e4ca344fb1c906e422d1d05854",
+  "checked_counts": {
+    "completed_jobs": 60,
+    "compared_outputs": 3932160,
+    "allocation_bytes_checked": 23616000,
+    "guard_input_bytes_checked": 7887360
+  },
+  "distributions": {
+    "0": {
+      "samples": 30,
+      "metrics": {
+        "job_cycles": {
+          "minimum": 740890,
+          "median": 741063.5,
+          "maximum": 741391
+        },
+        "compute_cycles": {
+          "minimum": 285696,
+          "median": 285696.0,
+          "maximum": 285696
+        },
+        "read_beats": {
+          "minimum": 131072,
+          "median": 131072.0,
+          "maximum": 131072
+        },
+        "write_beats": {
+          "minimum": 32768,
+          "median": 32768.0,
+          "maximum": 32768
+        },
+        "write_valid_bytes": {
+          "minimum": 262144,
+          "median": 262144.0,
+          "maximum": 262144
+        },
+        "input_wait_cycles": {
+          "minimum": 222250,
+          "median": 222368.5,
+          "maximum": 222504
+        },
+        "read_stall_cycles": {
+          "minimum": 0,
+          "median": 0.0,
+          "maximum": 0
+        },
+        "write_stall_cycles": {
+          "minimum": 4224,
+          "median": 4224.0,
+          "maximum": 4224
+        },
+        "core_seconds": {
+          "minimum": 0.0074089,
+          "median": 0.0074106350000000005,
+          "maximum": 0.00741391
+        },
+        "useful_gops": {
+          "minimum": 4.525875280385113,
+          "median": 4.527875411653289,
+          "maximum": 4.528935739448501
+        },
+        "useful_utilization": {
+          "minimum": 0.353584006280087,
+          "median": 0.3537402665354132,
+          "maximum": 0.35382310464441413
+        }
+      }
+    },
+    "1": {
+      "samples": 30,
+      "metrics": {
+        "job_cycles": {
+          "minimum": 296951,
+          "median": 297001.0,
+          "maximum": 297058
+        },
+        "compute_cycles": {
+          "minimum": 285696,
+          "median": 285696.0,
+          "maximum": 285696
+        },
+        "read_beats": {
+          "minimum": 131072,
+          "median": 131072.0,
+          "maximum": 131072
+        },
+        "write_beats": {
+          "minimum": 32768,
+          "median": 32768.0,
+          "maximum": 32768
+        },
+        "write_valid_bytes": {
+          "minimum": 262144,
+          "median": 262144.0,
+          "maximum": 262144
+        },
+        "input_wait_cycles": {
+          "minimum": 3443,
+          "median": 3471.5,
+          "maximum": 3508
+        },
+        "read_stall_cycles": {
+          "minimum": 0,
+          "median": 0.0,
+          "maximum": 0
+        },
+        "write_stall_cycles": {
+          "minimum": 4224,
+          "median": 4224.0,
+          "maximum": 4224
+        },
+        "core_seconds": {
+          "minimum": 0.00296951,
+          "median": 0.00297001,
+          "maximum": 0.00297058
+        },
+        "useful_gops": {
+          "minimum": 11.295582680823273,
+          "median": 11.297750512624537,
+          "maximum": 11.299652804671478
+        },
+        "useful_utilization": {
+          "minimum": 0.8824673969393182,
+          "median": 0.8826367587987919,
+          "maximum": 0.8827853753649592
+        }
+      }
+    }
+  },
+  "paired_cycle_speedup": {
+    "minimum": 2.4942466048572256,
+    "median": 2.4951397143216845,
+    "maximum": 2.496336182221055
+  },
+  "case_preparation": {
+    "preparation_seconds": 0.09366770001361147,
+    "oracle_seconds": 0.016498499957378954,
+    "input_upload_seconds": 9.290984400024172
+  },
+  "host_time_distributions": {
+    "0": {
+      "c_initialize_seconds": {
+        "minimum": 18.433041400043294,
+        "median": 18.475538400001824,
+        "maximum": 18.63424559996929
+      },
+      "configure_seconds": {
+        "minimum": 0.19164209999144077,
+        "median": 0.19197975000133738,
+        "maximum": 0.192791799956467
+      },
+      "job_wall_seconds": {
+        "minimum": 0.5432234000181779,
+        "median": 0.5439953000168316,
+        "maximum": 0.5601369999931194
+      },
+      "allocation_download_seconds": {
+        "minimum": 27.759025200037286,
+        "median": 27.80808754998725,
+        "maximum": 28.022246999957133
+      },
+      "validation_seconds": {
+        "minimum": 0.026309799985028803,
+        "median": 0.03186019996064715,
+        "maximum": 0.03199950000271201
+      },
+      "resident_host_seconds": {
+        "minimum": 46.92819240002427,
+        "median": 47.008623000001535,
+        "maximum": 47.35320119996322
+      }
+    },
+    "1": {
+      "c_initialize_seconds": {
+        "minimum": 18.43280650000088,
+        "median": 18.468854950013338,
+        "maximum": 18.71440120000625
+      },
+      "configure_seconds": {
+        "minimum": 0.19182169996201992,
+        "median": 0.192001249990426,
+        "maximum": 0.19213100004708394
+      },
+      "job_wall_seconds": {
+        "minimum": 0.5438082999899052,
+        "median": 0.5440111000207253,
+        "maximum": 0.5600178999593481
+      },
+      "allocation_download_seconds": {
+        "minimum": 27.758743500045966,
+        "median": 27.791141749970848,
+        "maximum": 27.99907279998297
+      },
+      "validation_seconds": {
+        "minimum": 0.03170309995766729,
+        "median": 0.03189789998577908,
+        "maximum": 0.0330738999764435
+      },
+      "resident_host_seconds": {
+        "minimum": 46.93080570001621,
+        "median": 46.991918149986304,
+        "maximum": 47.33725579996826
+      }
+    }
+  },
+  "transport": {
+    "retries": 0,
+    "rejected_frames": 0,
+    "poisoned": false
+  },
+  "timing_semantics": {
+    "job_cycles": "Frozen FPGA counter: validated START through final successful result B response",
+    "job_wall_seconds": "START, configuration readback, JOB_ID, polling and frozen counter reads",
+    "preparation_seconds": "Input generation, host B transpose, padding and guarded packing",
+    "oracle_seconds": "Independent wide-integer reference prepared once per resident input set",
+    "input_upload_seconds": "A and BT allocations uploaded once per case in this connection",
+    "c_initialize_seconds": "Complete C allocation and guards reinitialized before every job",
+    "allocation_download_seconds": "Each complete A/BT/C allocation read once; useful C and padding checked from that same snapshot",
+    "validation_seconds": "Every output byte and every input/padding/guard byte compared",
+    "resident_host_seconds": "C initialization, configuration, job command/counters and complete allocation download; excludes validation",
+    "continuous_exercise_seconds": "Continuous mixed host/FPGA work in one connection; includes transfers, preparation, validation and persistence, with no inter-session gaps"
+  }
+}

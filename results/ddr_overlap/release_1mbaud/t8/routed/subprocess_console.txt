@@ -1,0 +1,2 @@
+DDR GEMM bitstream; P8/T8; build ID 0xeed7b111; C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_release_p8_t8_1mbaud\bitstream_console.txt
+PASS: C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_release_p8_t8_1mbaud\build.json

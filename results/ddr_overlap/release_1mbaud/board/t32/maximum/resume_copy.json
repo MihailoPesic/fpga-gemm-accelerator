@@ -1,0 +1,43 @@
+{
+  "result": "PASS_BYTE_IDENTICAL_COPY",
+  "unit_was_rerun": false,
+  "recovered_parent_completion_claimed": false,
+  "original_unit": "build/release_board_t32_measurements/maximum",
+  "copied_unit": "build/release_board_t32_recovered_measurements/maximum",
+  "original_artifact_sha256_bytes": {
+    "case_000000.json": "276b3f5c8dde15969654b9ddcb787cd92e61c124aa33c1202863370b6007e054",
+    "job_000001/a_after.bin.gz": "9ba9555b9cb0b977e9d6afdb296ea5ab3ba0b20465bf47851d98dfe941792eed",
+    "job_000001/bt_after.bin.gz": "6482a04d3274520ce705c2b6a4e9e4ef389e1005723e7b3fa4897d27cd235e6d",
+    "job_000001/c_after.bin.gz": "5b828c7f522d6ea2ee2f85cfd237bebdeda0f5aa4c2220e62e1df07c09b0ea28",
+    "job_000001/c_before.bin.gz": "1b67d64a010094b508499bf42036ffbb6cf8077ee8cc8763b9e714c7c2406c76",
+    "job_000001/job.json": "5e55a0186dc65202112308eedc324119d9052f8ee4a8a2849a63c81c0db2384e",
+    "job_000001/oracle_int32.bin.gz": "d9b679218c1b25a0e9af02d9dae0012369f0e8ecb0e5347afbe46480e766dc75",
+    "job_000002/a_after.bin.gz": "9ba9555b9cb0b977e9d6afdb296ea5ab3ba0b20465bf47851d98dfe941792eed",
+    "job_000002/bt_after.bin.gz": "6482a04d3274520ce705c2b6a4e9e4ef389e1005723e7b3fa4897d27cd235e6d",
+    "job_000002/c_after.bin.gz": "5b828c7f522d6ea2ee2f85cfd237bebdeda0f5aa4c2220e62e1df07c09b0ea28",
+    "job_000002/c_before.bin.gz": "1b67d64a010094b508499bf42036ffbb6cf8077ee8cc8763b9e714c7c2406c76",
+    "job_000002/job.json": "dda846fa6b5230a664f534c54a329d6cb9b7c50d1b1a0e267389db607a123b5d",
+    "job_000002/oracle_int32.bin.gz": "d9b679218c1b25a0e9af02d9dae0012369f0e8ecb0e5347afbe46480e766dc75",
+    "results.csv": "da5ffa43bb916b82b8d7e7632e8e59a2d6d1569f51b0c8c46118a867ef48f3e7",
+    "results.json": "8fdacb51b76de51986206444a24146d2c5ecd786e7be2e2af2d6b3418aad239c",
+    "seal.json": "2edc1cb3e82e984fda649b4dadbfabacc53813bd3daf841edb852ecb65521ad9"
+  },
+  "copied_artifact_sha256_bytes": {
+    "case_000000.json": "276b3f5c8dde15969654b9ddcb787cd92e61c124aa33c1202863370b6007e054",
+    "job_000001/a_after.bin.gz": "9ba9555b9cb0b977e9d6afdb296ea5ab3ba0b20465bf47851d98dfe941792eed",
+    "job_000001/bt_after.bin.gz": "6482a04d3274520ce705c2b6a4e9e4ef389e1005723e7b3fa4897d27cd235e6d",
+    "job_000001/c_after.bin.gz": "5b828c7f522d6ea2ee2f85cfd237bebdeda0f5aa4c2220e62e1df07c09b0ea28",
+    "job_000001/c_before.bin.gz": "1b67d64a010094b508499bf42036ffbb6cf8077ee8cc8763b9e714c7c2406c76",
+    "job_000001/job.json": "5e55a0186dc65202112308eedc324119d9052f8ee4a8a2849a63c81c0db2384e",
+    "job_000001/oracle_int32.bin.gz": "d9b679218c1b25a0e9af02d9dae0012369f0e8ecb0e5347afbe46480e766dc75",
+    "job_000002/a_after.bin.gz": "9ba9555b9cb0b977e9d6afdb296ea5ab3ba0b20465bf47851d98dfe941792eed",
+    "job_000002/bt_after.bin.gz": "6482a04d3274520ce705c2b6a4e9e4ef389e1005723e7b3fa4897d27cd235e6d",
+    "job_000002/c_after.bin.gz": "5b828c7f522d6ea2ee2f85cfd237bebdeda0f5aa4c2220e62e1df07c09b0ea28",
+    "job_000002/c_before.bin.gz": "1b67d64a010094b508499bf42036ffbb6cf8077ee8cc8763b9e714c7c2406c76",
+    "job_000002/job.json": "dda846fa6b5230a664f534c54a329d6cb9b7c50d1b1a0e267389db607a123b5d",
+    "job_000002/oracle_int32.bin.gz": "d9b679218c1b25a0e9af02d9dae0012369f0e8ecb0e5347afbe46480e766dc75",
+    "results.csv": "da5ffa43bb916b82b8d7e7632e8e59a2d6d1569f51b0c8c46118a867ef48f3e7",
+    "results.json": "8fdacb51b76de51986206444a24146d2c5ecd786e7be2e2af2d6b3418aad239c",
+    "seal.json": "2edc1cb3e82e984fda649b4dadbfabacc53813bd3daf841edb852ecb65521ad9"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "scope": "Actual implementation/static metrics only; no board qualification",
+  "build_id": 4007112977,
+  "wns_ns": 0.117,
+  "whs_ns": 0.015,
+  "bus_skew_checks": 10,
+  "bus_skew_worst_slack_ns": 8.996,
+  "resources": {
+    "luts": 16956,
+    "flip_flops": 20836,
+    "bram36_equivalents": 20,
+    "dsps": 75,
+    "slices": 6787,
+    "control_sets": 1654,
+    "ramb36": 16,
+    "ramb18": 8,
+    "slices_available": 8150,
+    "luts_available": 32600,
+    "flip_flops_available": 65200,
+    "dsps_available": 120,
+    "bram36_equivalents_available": 75
+  },
+  "clock_period_ns": {
+    "CLK100MHZ": 10.0,
+    "clk_out1_axi_ddr_bd_clocks_0": 10.0,
+    "clk_out2_axi_ddr_bd_clocks_0": 5.0,
+    "clk_pll_i": 20.0,
+    "clkfbout_axi_ddr_bd_clocks_0": 10.0,
+    "freq_refclk": 2.5,
+    "iserdes_clkdiv": 20.0,
+    "iserdes_clkdiv_1": 20.0,
+    "mem_refclk": 5.0,
+    "oserdes_clk": 5.0,
+    "oserdes_clk_1": 5.0,
+    "oserdes_clk_2": 5.0,
+    "oserdes_clk_3": 5.0,
+    "oserdes_clkdiv": 10.0,
+    "oserdes_clkdiv_1": 20.0,
+    "oserdes_clkdiv_2": 10.0,
+    "oserdes_clkdiv_3": 20.0,
+    "pll_clk3_out": 20.0,
+    "pll_clkfbout": 10.0,
+    "sync_pulse": 80.0,
+    "u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clk": 5.0,
+    "u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clk": 5.0
+  },
+  "clock_interactions": {
+    "total_pairs": 24,
+    "clean": 20,
+    "ignored": 4,
+    "ignored_max_delay_datapath_only": 3,
+    "ignored_false_path": 1
+  },
+  "cdc": {
+    "CDC-3": {
+      "severity": "Info",
+      "checks": 8
+    },
+    "CDC-8": {
+      "severity": "Warning",
+      "checks": 2
+    },
+    "CDC-15": {
+      "severity": "Warning",
+      "checks": 353
+    }
+  },
+  "warning_rules": {
+    "drc": {
+      "DPIP-1": {
+        "severity": "Warning",
+        "checks": 4
+      },
+      "DPOP-1": {
+        "severity": "Warning",
+        "checks": 5
+      },
+      "DPOP-2": {
+        "severity": "Warning",
+        "checks": 11
+      },
+      "REQP-1709": {
+        "severity": "Warning",
+        "checks": 1
+      }
+    },
+    "methodology": {
+      "LUTAR-1": {
+        "severity": "Warning",
+        "checks": 1
+      },
+      "PDRC-190": {
+        "severity": "Warning",
+        "checks": 12
+      },
+      "SYNTH-4": {
+        "severity": "Warning",
+        "checks": 8
+      },
+      "SYNTH-5": {
+        "severity": "Warning",
+        "checks": 8
+      },
+      "SYNTH-6": {
+        "severity": "Warning",
+        "checks": 24
+      },
+      "ULMTCS-2": {
+        "severity": "Warning",
+        "checks": 1
+      },
+      "XDCB-5": {
+        "severity": "Warning",
+        "checks": 1
+      },
+      "REQP-1959": {
+        "severity": "Advisory",
+        "checks": 16
+      }
+    }
+  },
+  "missing_input_delay": [
+    "CPU_RESETN",
+    "UART_TXD_IN"
+  ],
+  "missing_output_delay": [
+    "LED[0]",
+    "LED[1]",
+    "LED[2]",
+    "LED[3]",
+    "UART_RXD_OUT"
+  ],
+  "reset_like_pins": 21793,
+  "async_reset_pins": 86,
+  "async_false_path_endpoints": 85,
+  "async_false_path_checks": 170,
+  "timed_async_reset_slacks_ns": [
+    2.482,
+    14.203
+  ],
+  "vendor_reset_control_pins": 101,
+  "remaining_untimed_vendor_control_pins": 55
+}

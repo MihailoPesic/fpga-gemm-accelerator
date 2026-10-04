@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scope": "Only completed T32 stages selected from the ongoing orchestration; no overall T8/parent exit claim",
+  "parent_state_at_snapshot": "RUNNING",
+  "parent_utc_started": "2026-10-04T13:22:34.797083+00:00",
+  "parent_receipt_sha256_bytes_at_snapshot": "42746fd971fe12f7b266723c1e687017f1808322570b6185fb7eae76166113dc",
+  "stages": [
+    {
+      "tile": 32,
+      "stage": "sim",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\build_ddr_gemm.py",
+        "--stage",
+        "sim",
+        "--p",
+        "8",
+        "--t",
+        "32",
+        "--read-slots",
+        "4",
+        "--overlap",
+        "--baud",
+        "1000000",
+        "--build-dir",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud"
+      ],
+      "utc_started": "2026-10-04T13:22:34.797555+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T14:18:33.927025+00:00"
+    },
+    {
+      "tile": 32,
+      "stage": "bitstream",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\build_ddr_gemm.py",
+        "--stage",
+        "bitstream",
+        "--p",
+        "8",
+        "--t",
+        "32",
+        "--read-slots",
+        "4",
+        "--overlap",
+        "--baud",
+        "1000000",
+        "--build-dir",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud"
+      ],
+      "utc_started": "2026-10-04T14:18:33.927569+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T14:34:24.297091+00:00"
+    }
+  ]
+}

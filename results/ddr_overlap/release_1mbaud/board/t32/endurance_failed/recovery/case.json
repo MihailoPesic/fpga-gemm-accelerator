@@ -1,0 +1,47 @@
+{
+  "shape": [
+    64,
+    1,
+    256
+  ],
+  "seed": 22729609,
+  "descriptor": {
+    "m": 64,
+    "n": 1,
+    "k": 256,
+    "a_base": 64,
+    "bt_base": 16576,
+    "c_base": 16960,
+    "a_stride": 256,
+    "bt_stride": 256,
+    "c_stride": 64,
+    "mode": 0,
+    "watchdog": 10000000
+  },
+  "preparation_seconds": 0.011544300010427833,
+  "oracle_seconds": 0.0008956000092439353,
+  "input_upload_seconds": 1.2279378999955952,
+  "input_a_sha256_bytes": "8d8942792eaa6bb2b56d837b5c787f2fda876981c4235f54e475209af0db1f6f",
+  "raw_b_sha256_bytes": "eefa409bff9fb7e87553aef1602742d931894c7ffb5f5c5af5f249c78e37c0a9",
+  "oracle_sha256_bytes": "66cc6ab0699bef4ff05cadfbcaedb17b6fe151cff6fe626457c25a9973be89e8",
+  "images": [
+    {
+      "name": "a",
+      "address": 0,
+      "bytes": 16512,
+      "sha256_bytes": "89e035c3f659e3f202158c2bed0843ca07b2bc5199f3c2f6d1c3d2b58dd76e2a"
+    },
+    {
+      "name": "bt",
+      "address": 16512,
+      "bytes": 384,
+      "sha256_bytes": "53373afd00cdf6888c8b7fcd65e6ac8f3d7c59c4d489e602e9651e108772ab10"
+    },
+    {
+      "name": "c",
+      "address": 16896,
+      "bytes": 4224,
+      "sha256_bytes": "6b01ebb1cfd60090da8e31458f91bcce7c2cd620c5003884531b3c1408c3f40c"
+    }
+  ]
+}

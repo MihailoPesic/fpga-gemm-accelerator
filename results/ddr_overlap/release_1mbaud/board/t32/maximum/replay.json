@@ -1,0 +1,66 @@
+{
+  "result": "PASS",
+  "scope": "Complete retained maximum-shape byte replay and independent INT64 A @ BT.T oracle; no UART replay",
+  "build_id": "0x9d4beb4d",
+  "numpy_version": "2.3.3",
+  "jobs": 2,
+  "outputs": 2097152,
+  "allocation_bytes": 9437952,
+  "guard_input_bytes": 1049344,
+  "runs": [
+    {
+      "job_id": 1,
+      "mode": 0,
+      "job_cycles": 11863408,
+      "useful_gops": 4.525435793829226
+    },
+    {
+      "job_id": 2,
+      "mode": 1,
+      "job_cycles": 4664784,
+      "useful_gops": 11.509019753111826
+    }
+  ],
+  "raw_snapshots": {
+    "job_000001/a_after.bin.gz": {
+      "bytes": 262272,
+      "sha256_bytes": "e8ad4391a269d7dfb2a0cacdbb700656dc9df6dcefcfcf4c653f5bc5407b2cf9"
+    },
+    "job_000001/bt_after.bin.gz": {
+      "bytes": 262272,
+      "sha256_bytes": "1ed627e18c9f1aa69277702767539786dba7d2d96318865248c6e52ce3ca6dac"
+    },
+    "job_000001/c_after.bin.gz": {
+      "bytes": 4194432,
+      "sha256_bytes": "edd9e206da0cdece8e63db15ce641cb9de4c8b8e729c04922fd67e87b74d4763"
+    },
+    "job_000001/c_before.bin.gz": {
+      "bytes": 4194432,
+      "sha256_bytes": "4c231ba74252f61928fe6dad3e380373b73efb85bf3ad8075892811237952398"
+    },
+    "job_000001/oracle_int32.bin.gz": {
+      "bytes": 4194304,
+      "sha256_bytes": "9bbf3f21156571052a4166ee6e161d16d578bcdc7f455fa7d4066ef9f531554d"
+    },
+    "job_000002/a_after.bin.gz": {
+      "bytes": 262272,
+      "sha256_bytes": "e8ad4391a269d7dfb2a0cacdbb700656dc9df6dcefcfcf4c653f5bc5407b2cf9"
+    },
+    "job_000002/bt_after.bin.gz": {
+      "bytes": 262272,
+      "sha256_bytes": "1ed627e18c9f1aa69277702767539786dba7d2d96318865248c6e52ce3ca6dac"
+    },
+    "job_000002/c_after.bin.gz": {
+      "bytes": 4194432,
+      "sha256_bytes": "edd9e206da0cdece8e63db15ce641cb9de4c8b8e729c04922fd67e87b74d4763"
+    },
+    "job_000002/c_before.bin.gz": {
+      "bytes": 4194432,
+      "sha256_bytes": "4c231ba74252f61928fe6dad3e380373b73efb85bf3ad8075892811237952398"
+    },
+    "job_000002/oracle_int32.bin.gz": {
+      "bytes": 4194304,
+      "sha256_bytes": "9bbf3f21156571052a4166ee6e161d16d578bcdc7f455fa7d4066ef9f531554d"
+    }
+  }
+}

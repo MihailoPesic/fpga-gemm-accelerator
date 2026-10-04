@@ -1,0 +1,148 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct  4 16:36:39 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_release_p8_t32_1mbaud/release_reset_review/utilization_hierarchical.txt}
+| Design       : gemm_ddr_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Physopt postRoute
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|                                 Instance                                |                        Module                       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| gemm_ddr_top                                                            |                                               (top) |      17026 |      15826 |    1022 |  178 | 20882 |     16 |      8 |         75 |
+|   (gemm_ddr_top)                                                        |                                               (top) |          0 |          0 |       0 |    0 |     0 |      0 |      0 |          0 |
+|   core                                                                  |                                       gemm_ddr_core |      12102 |      11658 |     422 |   22 | 15815 |     16 |      8 |         75 |
+|     transport                                                           |                               gemm_packet_transport |       3278 |       2990 |     288 |    0 |  2353 |      0 |      0 |          0 |
+|     burst                                                               |                                      gemm_axi_burst |        525 |        391 |     134 |    0 |   293 |      0 |      0 |          0 |
+|     control                                                             |                                    gemm_ddr_control |       2688 |       2688 |       0 |    0 |  5970 |      0 |      0 |          0 |
+|     overlap_path.dma                                                    |                                gemm_tile_dma_duplex |        828 |        828 |       0 |    0 |   846 |      0 |      0 |          4 |
+|       writer                                                            |                       gemm_tile_dma__parameterized0 |        393 |        393 |       0 |    0 |   401 |      0 |      0 |          2 |
+|         (writer)                                                        |                       gemm_tile_dma__parameterized0 |         97 |         97 |       0 |    0 |   133 |      0 |      0 |          0 |
+|         rows                                                            |                       gemm_dma_rows__parameterized0 |        296 |        296 |       0 |    0 |   268 |      0 |      0 |          2 |
+|       reader                                                            |                                       gemm_tile_dma |        433 |        433 |       0 |    0 |   440 |      0 |      0 |          2 |
+|         rows                                                            |                                       gemm_dma_rows |        315 |        315 |       0 |    0 |   272 |      0 |      0 |          2 |
+|         four_reads.read_queue                                           |                            gemm_tile_dma_read_queue |         80 |         80 |       0 |    0 |   157 |      0 |      0 |          0 |
+|     overlap_path.job                                                    |                                gemm_ddr_overlap_job |       2244 |       2244 |       0 |    0 |  2657 |      0 |      0 |          7 |
+|       (overlap_path.job)                                                |                                gemm_ddr_overlap_job |        603 |        603 |       0 |    0 |  1833 |      0 |      0 |          6 |
+|       scheduler                                                         |                                 gemm_tile_scheduler |       1641 |       1641 |       0 |    0 |   824 |      0 |      0 |          1 |
+|     registers                                                           |                                  gemm_ddr_registers |        298 |        298 |       0 |    0 |   482 |      0 |      0 |          0 |
+|     tile                                                                |                                    gemm_tile_engine |       2246 |       2224 |       0 |   22 |  3214 |     16 |      8 |         64 |
+|       (tile)                                                            |                                    gemm_tile_engine |         46 |         46 |       0 |    0 |   200 |      0 |      0 |          0 |
+|       compute                                                           |                                 gemm_bram_microtile |       2124 |       2102 |       0 |   22 |  3012 |     16 |      0 |         64 |
+|         (compute)                                                       |                                 gemm_bram_microtile |         31 |         31 |       0 |    0 |  2098 |      0 |      0 |          0 |
+|         core                                                            |                                      gemm_microtile |       1068 |       1046 |       0 |   22 |   914 |      0 |      0 |         64 |
+|           (core)                                                        |                                      gemm_microtile |        320 |        298 |       0 |   22 |   450 |      0 |      0 |          0 |
+|           array                                                         |                                          gemm_array |        752 |        752 |       0 |    0 |   464 |      0 |      0 |         64 |
+|         operands                                                        |                                  gemm_operand_banks |       1028 |       1028 |       0 |    0 |     0 |     16 |      0 |          0 |
+|       results                                                           |                                   gemm_result_banks |         77 |         77 |       0 |    0 |     2 |      0 |      8 |          0 |
+|   platform                                                              |                                    axi_ddr_platform |       4872 |       4116 |     600 |  156 |  5013 |      0 |      0 |          0 |
+|     platform                                                            |                                  axi_ddr_bd_wrapper |       4872 |       4116 |     600 |  156 |  5010 |      0 |      0 |          0 |
+|       axi_ddr_bd_i                                                      |                                          axi_ddr_bd |       4841 |       4085 |     600 |  156 |  5010 |      0 |      0 |          0 |
+|         bridge                                                          |                                 axi_ddr_bd_bridge_0 |        926 |        670 |     248 |    8 |  1254 |      0 |      0 |          0 |
+|           inst                                                          |                                             bd_4940 |        926 |        670 |     248 |    8 |  1254 |      0 |      0 |          0 |
+|             clk_map                                                     |                                 clk_map_imp_1QWG8NC |         41 |         38 |       0 |    3 |    90 |      0 |      0 |          0 |
+|             s00_entry_pipeline                                          |                      s00_entry_pipeline_imp_16ID9N4 |        246 |        244 |       0 |    2 |   227 |      0 |      0 |          0 |
+|               s00_mmu                                                   |                                    bd_4940_s00mmu_0 |        169 |        169 |       0 |    0 |   190 |      0 |      0 |          0 |
+|                 inst                                                    |                                  sc_mmu_v1_0_16_top |        169 |        169 |       0 |    0 |   190 |      0 |      0 |          0 |
+|                   (inst)                                                |                                  sc_mmu_v1_0_16_top |         53 |         53 |       0 |    0 |    30 |      0 |      0 |          0 |
+|                   ar_reg_stall                                          |        sc_util_v1_0_4_axi_reg_stall__parameterized0 |         42 |         42 |       0 |    0 |    68 |      0 |      0 |          0 |
+|                   aw_reg_stall                                          |     sc_util_v1_0_4_axi_reg_stall__parameterized0_26 |         43 |         43 |       0 |    0 |    72 |      0 |      0 |          0 |
+|             s00_nodes                                                   |                               s00_nodes_imp_12ZX1JE |        598 |        350 |     248 |    0 |   912 |      0 |      0 |          0 |
+|               s00_ar_node                                               |                                      bd_4940_sarn_0 |         82 |         54 |      28 |    0 |   118 |      0 |      0 |          0 |
+|                 inst                                                    |                                 sc_node_v1_0_19_top |         82 |         54 |      28 |    0 |   118 |      0 |      0 |          0 |
+|                   inst_mi_handler                                       |                          sc_node_v1_0_19_mi_handler |         77 |         49 |      28 |    0 |   109 |      0 |      0 |          0 |
+|                     gen_normal_area.inst_fifo_node_payld                |                             sc_node_v1_0_19_fifo_13 |         77 |         49 |      28 |    0 |   107 |      0 |      0 |          0 |
+|                       gen_xpm_memory_fifo.inst_fifo                     |                   sc_util_v1_0_4_xpm_memory_fifo_14 |         77 |         49 |      28 |    0 |   107 |      0 |      0 |          0 |
+|               s00_aw_node                                               |                                      bd_4940_sawn_0 |         84 |         54 |      30 |    0 |   118 |      0 |      0 |          0 |
+|                 inst                                                    |                 sc_node_v1_0_19_top__parameterized0 |         84 |         54 |      30 |    0 |   118 |      0 |      0 |          0 |
+|                   inst_mi_handler                                       |          sc_node_v1_0_19_mi_handler__parameterized0 |         79 |         49 |      30 |    0 |   109 |      0 |      0 |          0 |
+|                     gen_normal_area.inst_fifo_node_payld                |                                sc_node_v1_0_19_fifo |         79 |         49 |      30 |    0 |   107 |      0 |      0 |          0 |
+|                       gen_xpm_memory_fifo.inst_fifo                     |                      sc_util_v1_0_4_xpm_memory_fifo |         79 |         49 |      30 |    0 |   107 |      0 |      0 |          0 |
+|               s00_b_node                                                |                                       bd_4940_sbn_0 |         58 |         54 |       4 |    0 |    83 |      0 |      0 |          0 |
+|                 inst                                                    |                 sc_node_v1_0_19_top__parameterized1 |         58 |         54 |       4 |    0 |    83 |      0 |      0 |          0 |
+|                   inst_mi_handler                                       |          sc_node_v1_0_19_mi_handler__parameterized1 |         53 |         49 |       4 |    0 |    74 |      0 |      0 |          0 |
+|                     gen_normal_area.inst_fifo_node_payld                |                sc_node_v1_0_19_fifo__parameterized0 |         53 |         49 |       4 |    0 |    72 |      0 |      0 |          0 |
+|                       gen_xpm_memory_fifo.inst_fifo                     |      sc_util_v1_0_4_xpm_memory_fifo__parameterized0 |         53 |         49 |       4 |    0 |    72 |      0 |      0 |          0 |
+|               s00_r_node                                                |                                       bd_4940_srn_0 |        212 |        122 |      90 |    0 |   217 |      0 |      0 |          0 |
+|                 inst                                                    |                 sc_node_v1_0_19_top__parameterized2 |        212 |        122 |      90 |    0 |   217 |      0 |      0 |          0 |
+|                   inst_mi_handler                                       |          sc_node_v1_0_19_mi_handler__parameterized2 |        207 |        117 |      90 |    0 |   208 |      0 |      0 |          0 |
+|                     gen_normal_area.inst_fifo_node_payld                |                sc_node_v1_0_19_fifo__parameterized1 |        207 |        117 |      90 |    0 |   203 |      0 |      0 |          0 |
+|                       gen_xpm_memory_fifo.inst_fifo                     |      sc_util_v1_0_4_xpm_memory_fifo__parameterized1 |        207 |        117 |      90 |    0 |   203 |      0 |      0 |          0 |
+|                         (gen_xpm_memory_fifo.inst_fifo)                 |      sc_util_v1_0_4_xpm_memory_fifo__parameterized1 |         75 |         75 |       0 |    0 |     4 |      0 |      0 |          0 |
+|                         gen_mem_rep[0].inst_xpm_memory                  |                   xpm_memory_sdpram__parameterized1 |         90 |          0 |      90 |    0 |   133 |      0 |      0 |          0 |
+|                           xpm_memory_base_inst                          |                     xpm_memory_base__parameterized1 |         90 |          0 |      90 |    0 |   133 |      0 |      0 |          0 |
+|               s00_w_node                                                |                                       bd_4940_swn_0 |        165 |         69 |      96 |    0 |   376 |      0 |      0 |          0 |
+|                 inst                                                    |                 sc_node_v1_0_19_top__parameterized3 |        165 |         69 |      96 |    0 |   376 |      0 |      0 |          0 |
+|                   inst_mi_handler                                       |          sc_node_v1_0_19_mi_handler__parameterized3 |        160 |         64 |      96 |    0 |   367 |      0 |      0 |          0 |
+|                     gen_normal_area.inst_fifo_node_payld                |                sc_node_v1_0_19_fifo__parameterized2 |        144 |         48 |      96 |    0 |   214 |      0 |      0 |          0 |
+|                       gen_xpm_memory_fifo.inst_fifo                     |      sc_util_v1_0_4_xpm_memory_fifo__parameterized2 |        144 |         48 |      96 |    0 |   214 |      0 |      0 |          0 |
+|                         gen_mem_rep[0].inst_xpm_memory                  |                   xpm_memory_sdpram__parameterized2 |         96 |          0 |      96 |    0 |   144 |      0 |      0 |          0 |
+|                           xpm_memory_base_inst                          |                     xpm_memory_base__parameterized2 |         96 |          0 |      96 |    0 |   144 |      0 |      0 |          0 |
+|                     gen_normal_area.gen_upsizer.inst_upsizer            |                             sc_node_v1_0_19_upsizer |         15 |         15 |       0 |    0 |   149 |      0 |      0 |          0 |
+|         mig                                                             |                                    axi_ddr_bd_mig_0 |       3883 |       3385 |     352 |  146 |  3608 |      0 |      0 |          0 |
+|           u_axi_ddr_bd_mig_0_mig                                        |                                axi_ddr_bd_mig_0_mig |       3883 |       3385 |     352 |  146 |  3608 |      0 |      0 |          0 |
+|             temp_mon_enabled.u_tempmon                                  |                            mig_7series_v4_2_tempmon |         39 |         39 |       0 |    0 |   122 |      0 |      0 |          0 |
+|             u_memc_ui_top_axi                                           |                    mig_7series_v4_2_memc_ui_top_axi |       3839 |       3341 |     352 |  146 |  3443 |      0 |      0 |          0 |
+|               u_ui_top                                                  |                             mig_7series_v4_2_ui_top |        285 |        181 |     104 |    0 |   395 |      0 |      0 |          0 |
+|                 ui_cmd0                                                 |                             mig_7series_v4_2_ui_cmd |         28 |         28 |       0 |    0 |    52 |      0 |      0 |          0 |
+|                 ui_wr_data0                                             |                         mig_7series_v4_2_ui_wr_data |        247 |        143 |     104 |    0 |   333 |      0 |      0 |          0 |
+|               mem_intfc0                                                |                          mig_7series_v4_2_mem_intfc |       3017 |       2752 |     248 |   17 |  2540 |      0 |      0 |          0 |
+|                 ddr_phy_top0                                            |                        mig_7series_v4_2_ddr_phy_top |       2423 |       2164 |     244 |   15 |  2080 |      0 |      0 |          0 |
+|                   u_ddr_calib_top                                       |                      mig_7series_v4_2_ddr_calib_top |       1814 |       1801 |       0 |   13 |  1776 |      0 |      0 |          0 |
+|                     u_ddr_phy_wrcal                                     |                      mig_7series_v4_2_ddr_phy_wrcal |        142 |        137 |       0 |    5 |   297 |      0 |      0 |          0 |
+|                     ddr_phy_rdlvl_gen.u_ddr_phy_rdlvl                   |                      mig_7series_v4_2_ddr_phy_rdlvl |        536 |        536 |       0 |    0 |   872 |      0 |      0 |          0 |
+|                     ddr_phy_tempmon_0                                   |                    mig_7series_v4_2_ddr_phy_tempmon |        247 |        247 |       0 |    0 |   231 |      0 |      0 |          0 |
+|                     dqsfind_calib_left.u_ddr_phy_dqs_found_cal_hr       |           mig_7series_v4_2_ddr_phy_dqs_found_cal_hr |        140 |        139 |       0 |    1 |    87 |      0 |      0 |          0 |
+|                     u_ddr_phy_init                                      |                       mig_7series_v4_2_ddr_phy_init |        702 |        699 |       0 |    3 |   236 |      0 |      0 |          0 |
+|                   u_ddr_mc_phy_wrapper                                  |                 mig_7series_v4_2_ddr_mc_phy_wrapper |        610 |        364 |     244 |    2 |   304 |      0 |      0 |          0 |
+|                     u_ddr_mc_phy                                        |                         mig_7series_v4_2_ddr_mc_phy |        610 |        364 |     244 |    2 |   282 |      0 |      0 |          0 |
+|                       ddr_phy_4lanes_0.u_ddr_phy_4lanes                 |                     mig_7series_v4_2_ddr_phy_4lanes |        610 |        364 |     244 |    2 |   266 |      0 |      0 |          0 |
+|                         ddr_byte_lane_D.ddr_byte_lane_D                 |      mig_7series_v4_2_ddr_byte_lane__parameterized2 |         51 |         23 |      28 |    0 |    20 |      0 |      0 |          0 |
+|                           of_pre_fifo_gen.u_ddr_of_pre_fifo             |    mig_7series_v4_2_ddr_of_pre_fifo__parameterized1 |         51 |         23 |      28 |    0 |    19 |      0 |      0 |          0 |
+|                         ddr_byte_lane_A.ddr_byte_lane_A                 |                      mig_7series_v4_2_ddr_byte_lane |        187 |         95 |      92 |    0 |   104 |      0 |      0 |          0 |
+|                           (ddr_byte_lane_A.ddr_byte_lane_A)             |                      mig_7series_v4_2_ddr_byte_lane |          4 |          4 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                           dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                mig_7series_v4_2_ddr_if_post_fifo_55 |         88 |         44 |      44 |    0 |    11 |      0 |      0 |          0 |
+|                           of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_56 |         95 |         47 |      48 |    0 |    24 |      0 |      0 |          0 |
+|                         ddr_byte_lane_B.ddr_byte_lane_B                 |      mig_7series_v4_2_ddr_byte_lane__parameterized0 |         52 |         20 |      32 |    0 |    19 |      0 |      0 |          0 |
+|                           of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_54 |         51 |         19 |      32 |    0 |    19 |      0 |      0 |          0 |
+|                         ddr_byte_lane_C.ddr_byte_lane_C                 |      mig_7series_v4_2_ddr_byte_lane__parameterized1 |        317 |        224 |      92 |    1 |   112 |      0 |      0 |          0 |
+|                           (ddr_byte_lane_C.ddr_byte_lane_C)             |      mig_7series_v4_2_ddr_byte_lane__parameterized1 |          0 |          0 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                           dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo |                   mig_7series_v4_2_ddr_if_post_fifo |        221 |        177 |      44 |    0 |    17 |      0 |      0 |          0 |
+|                           of_pre_fifo_gen.u_ddr_of_pre_fifo             | mig_7series_v4_2_ddr_of_pre_fifo__parameterized1_53 |         94 |         46 |      48 |    0 |    24 |      0 |      0 |          0 |
+|                 mc0                                                     |                                 mig_7series_v4_2_mc |        600 |        594 |       4 |    2 |   460 |      0 |      0 |          0 |
+|                   (mc0)                                                 |                                 mig_7series_v4_2_mc |        104 |        104 |       0 |    0 |    69 |      0 |      0 |          0 |
+|                   bank_mach0                                            |                          mig_7series_v4_2_bank_mach |        467 |        467 |       0 |    0 |   342 |      0 |      0 |          0 |
+|                     arb_mux0                                            |                            mig_7series_v4_2_arb_mux |        163 |        163 |       0 |    0 |    34 |      0 |      0 |          0 |
+|                       arb_row_col0                                      |                        mig_7series_v4_2_arb_row_col |        163 |        163 |       0 |    0 |    32 |      0 |      0 |          0 |
+|                         col_arb0                                        |    mig_7series_v4_2_round_robin_arb__parameterized1 |         65 |         65 |       0 |    0 |     8 |      0 |      0 |          0 |
+|                     bank_cntrl[0].bank0                                 |                         mig_7series_v4_2_bank_cntrl |         75 |         75 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     bank_cntrl[1].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized0 |         65 |         65 |       0 |    0 |    71 |      0 |      0 |          0 |
+|                     bank_cntrl[2].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized1 |         66 |         66 |       0 |    0 |    74 |      0 |      0 |          0 |
+|                     bank_cntrl[3].bank0                                 |         mig_7series_v4_2_bank_cntrl__parameterized2 |         67 |         67 |       0 |    0 |    71 |      0 |      0 |          0 |
+|               u_axi_mc                                                  |                             mig_7series_v4_2_axi_mc |        566 |        437 |       0 |  129 |   506 |      0 |      0 |          0 |
+|                 axi_mc_w_channel_0                                      |                   mig_7series_v4_2_axi_mc_w_channel |        163 |        163 |       0 |    0 |   291 |      0 |      0 |          0 |
+|                 axi_mc_ar_channel_0                                     |                  mig_7series_v4_2_axi_mc_ar_channel |        107 |        107 |       0 |    0 |    81 |      0 |      0 |          0 |
+|                   ar_cmd_fsm_0                                          |                     mig_7series_v4_2_axi_mc_cmd_fsm |        101 |        101 |       0 |    0 |     1 |      0 |      0 |          0 |
+|                 axi_mc_aw_channel_0                                     |                  mig_7series_v4_2_axi_mc_aw_channel |        109 |        109 |       0 |    0 |    79 |      0 |      0 |          0 |
+|                   aw_cmd_fsm_0                                          |                  mig_7series_v4_2_axi_mc_wr_cmd_fsm |         99 |         99 |       0 |    0 |     1 |      0 |      0 |          0 |
+|                 axi_mc_r_channel_0                                      |                   mig_7series_v4_2_axi_mc_r_channel |        156 |         27 |       0 |  129 |    17 |      0 |      0 |          0 |
+|                   rd_data_fifo_0                                        |        mig_7series_v4_2_axi_mc_fifo__parameterized0 |        141 |         13 |       0 |  128 |     6 |      0 |      0 |          0 |
+|         reset_core                                                      |                             axi_ddr_bd_reset_core_0 |         14 |         13 |       0 |    1 |   111 |      0 |      0 |          0 |
+|           (U0)                                                          |                      proc_sys_reset__parameterized2 |          0 |          0 |       0 |    0 |    79 |      0 |      0 |          0 |
++-------------------------------------------------------------------------+-----------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

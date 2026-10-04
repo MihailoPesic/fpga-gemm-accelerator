@@ -1,0 +1,30 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct  4 18:24:25 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_exceptions -ignored -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_release_p8_t8_1mbaud/release_reset_review/exceptions_ignored.txt}
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Physopt postRoute
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exceptions Report
+
+Position  From                                                                              Through                                                                           To                                  Setup           Hold            Status                           
+--------  --------------------------------------------------------------------------------  --------------------------------------------------------------------------------  ----------------------------------  --------------  --------------  ---------------------------------
+50        *                                                                                 *                                                                                 [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path                
+51        *                                                                                 *                                                                                 [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path                
+52        *                                                                                 *                                                                                 [get_cells {syncstages_ff_reg[0]}]  false           false           Non-existent path                
+59        [filter [all_fanout -from [get_ports -scoped_to_current_instance -no_traverse cl  [get_pins -of_objects [get_cells -hier * -filter {PRIMITIVE_SUBGROUP==LUTRAM ||   *                                   max_dpo=10      -               Totally overridden path by DPO 60
+          ka] -flat -endpoints_only] IS_LEAF]                                               PRIMITIVE_SUBGROUP==dram || PRIMITIVE_SUBGROUP==drom}] -filter DIRECTION==OUT]                                                                        
+61        [filter [all_fanout -from [get_ports -scoped_to_current_instance -no_traverse cl  [get_pins -of_objects [get_cells -hier * -filter {PRIMITIVE_SUBGROUP==LUTRAM ||   *                                   max_dpo=10      -               Totally overridden path by DPO 62
+          ka] -flat -endpoints_only] IS_LEAF]                                               PRIMITIVE_SUBGROUP==dram || PRIMITIVE_SUBGROUP==drom}] -filter DIRECTION==OUT]                                                                        
+63        [filter [all_fanout -from [get_ports -scoped_to_current_instance -no_traverse cl  [get_pins -of_objects [get_cells -hier * -filter {PRIMITIVE_SUBGROUP==LUTRAM ||   *                                   max_dpo=20      -               Totally overridden path by DPO 64
+          ka] -flat -endpoints_only] IS_LEAF]                                               PRIMITIVE_SUBGROUP==dram || PRIMITIVE_SUBGROUP==drom}] -filter DIRECTION==OUT]                                                                        
+65        [filter [all_fanout -from [get_ports -scoped_to_current_instance -no_traverse cl  [get_pins -of_objects [get_cells -hier * -filter {PRIMITIVE_SUBGROUP==LUTRAM ||   *                                   max_dpo=20      -               Totally overridden path by DPO 66
+          ka] -flat -endpoints_only] IS_LEAF]                                               PRIMITIVE_SUBGROUP==dram || PRIMITIVE_SUBGROUP==drom}] -filter DIRECTION==OUT]                                                                        
+67        [filter [all_fanout -from [get_ports -scoped_to_current_instance -no_traverse cl  [get_pins -of_objects [get_cells -hier * -filter {PRIMITIVE_SUBGROUP==LUTRAM ||   *                                   max_dpo=10      -               Totally overridden path by DPO 68
+          ka] -flat -endpoints_only] IS_LEAF]                                               PRIMITIVE_SUBGROUP==dram || PRIMITIVE_SUBGROUP==drom}] -filter DIRECTION==OUT]                                                                        
+

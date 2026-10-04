@@ -107,15 +107,32 @@ the serial port. It never resets or programs the FPGA. The required board
 startup sequence is in [ddr-board.md](ddr-board.md).
 
 ```text
-python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase maximum --modes both
-python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase endurance --modes both --resume
-python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase benchmark --modes both --resume
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase maximum --modes both
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase endurance --modes both --resume
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase benchmark --modes both --resume
 ```
 
 Modes, seed, oracle and sample count are part of the immutable result plan.
 Use a fresh output directory when changing them.
 The combined `--phase all --modes both` command runs all three phases.
 After a reconnect, inputs for each pending case are reloaded.
+
+For a long Windows run, `scripts/keep_awake.py -- COMMAND` holds a temporary
+`ES_CONTINUOUS | ES_SYSTEM_REQUIRED` request while its child runs, preserves
+the child's output and exit status, and clears the request on exit. It changes
+no power-plan settings. Explicit Sleep, closing the lid or loss of power can
+still interrupt qualification; keep the laptop awake for the whole run.
+On other platforms the wrapper simply executes the command.
+See Microsoft's [execution-state API](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate).
+
+The [first 1 Mbaud T32 endurance attempt](../results/ddr_overlap/release_1mbaud/board/t32/endurance_failed/README.md)
+stopped with a READ_REG timeout after
+381 complete jobs. Windows recorded Modern Standby and a later keyboard wake
+during the pending job. A read-only reconnect found the same image, completed
+job ID and frozen counters, and independently checked its 64 retained outputs
+and all allocation guards. This supports host suspension as the interruption
+cause; it does not qualify the failed run or prove indefinite link recovery.
+The replacement endurance run starts from zero elapsed time in a new connection.
 
 Maximum checks every output at M=N=1024,K=256 and retains compressed complete
 memory snapshots. Endurance completes mixed workloads in both modes for at
@@ -134,7 +151,8 @@ first mismatch, transport error or changed identity stops the run. The
 runner's software tests use a synthetic device and are not board evidence.
 
 The Make equivalents are `make bench` and `make hw-release`, with `PORT`,
-`MANIFEST`, `PYTHON` and a fresh `RELEASE_OUTPUT`. `make demo` runs one small
+`MANIFEST`, `PYTHON` and a fresh `RELEASE_OUTPUT`; both use the same temporary
+sleep wrapper. `make demo` runs one small
 complete comparison. `make bitstream BOARD=nexys_a7_50t` runs both vendor
 simulation and implementation in `RELEASE_BUILD`; its defaults are P8/T32,
 four reads, selectable scheduling and 1 Mbaud. Set `VIVADO` explicitly when
@@ -303,7 +321,9 @@ padding and guard bytes. Results go to `build/test_tile_dma_duplex/`; `--only`
 and `--read-slots` select a configuration, and `--build-dir` preserves a fresh
 run. The runner requires exactly the five test names, rejects skipped/failed
 tests and checks unchanged source hashes before/after execution. CI runs both
-depths in each P/T job. Production MODE=1 remains unsupported.
+depths in each P/T job. This standalone fixture checks DMA/local-engine
+integration; MODE1 packet, vendor and board qualification use the separate
+selectable overlap suites above.
 
 `make test-tile-scheduler PYTHON=.venv/bin/python` connects the tagged
 [macrotile scheduler](tile-scheduler.md) to the duplex DMA, real local banks

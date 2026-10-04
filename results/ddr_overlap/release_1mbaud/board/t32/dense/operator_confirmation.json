@@ -1,0 +1,5 @@
+{
+  "operator_confirmation": "Fresh OFF/ON complete; powered on and connected",
+  "operator_confirmation_source": "Actual user reply to the new-image cold-cycle request in this session",
+  "startup_scope": "Reported cold power cycle, JP1 JTAG, J6 connected; no reset or reprogramming after successful image load"
+}

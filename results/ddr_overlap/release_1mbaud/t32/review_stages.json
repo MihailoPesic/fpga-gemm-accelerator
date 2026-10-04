@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "scope": "Only completed T32 stages selected from the ongoing orchestration; no overall T8/parent exit claim",
+  "parent_state_at_snapshot": "RUNNING",
+  "parent_utc_started": "2026-10-04T14:15:46.272791+00:00",
+  "parent_receipt_sha256_bytes_at_snapshot": "1c7d82f8b76e0aad90b10efc22c69454ca72eee3a1258a1fa5d4bf9c317a1dda",
+  "stages": [
+    {
+      "tile": 32,
+      "build_id": 2638998349,
+      "checkpoint_sha256_bytes": "92b67ec1910729af2824ec7221fd49a1f7101decb6561feaefd35a353e294fa7",
+      "manifest_sha256_bytes": "b3843b33f232829180a5263150d72f1898cf42d56cb1da24f0590914e373706a",
+      "actual_exit_code": 0,
+      "utc_started": "2026-10-04T14:34:24.729595+00:00",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\review_reset_clock.py",
+        "--checkpoint",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\gemm_routed.dcp",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\release_reset_review",
+        "--scope",
+        "Own production P8/T32 1 Mbaud checkpoint; static review only, not warm-reset qualification"
+      ],
+      "utc_finished": "2026-10-04T14:36:42.926394+00:00",
+      "review_record_sha256_bytes": "950c3e78c4d825d1f9bfcfc6a88bd3078a2001da2fd0db64ffc1cfeb1b852bc4"
+    }
+  ]
+}

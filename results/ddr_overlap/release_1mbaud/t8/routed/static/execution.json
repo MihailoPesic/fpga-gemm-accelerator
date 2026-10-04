@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:/AMDDesignTools/2026.1/Vivado/bin/vivado.bat",
+    "-mode",
+    "batch",
+    "-notrace",
+    "-source",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t8_1mbaud\\release_reset_review\\review.tcl",
+    "-log",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t8_1mbaud\\release_reset_review\\vivado.log",
+    "-journal",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t8_1mbaud\\release_reset_review\\vivado.jou",
+    "-tclargs",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t8_1mbaud\\gemm_routed.dcp",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t8_1mbaud\\release_reset_review",
+    "Own production P8/T8 1 Mbaud checkpoint; static review only, not warm-reset qualification"
+  ],
+  "started_utc": "2026-10-04T16:22:34.758726+00:00",
+  "finished_utc": "2026-10-04T16:24:46.961578+00:00",
+  "exit_code": 0
+}

@@ -1,0 +1,20 @@
+{
+  "recorded_outcome": "FAIL",
+  "checked_counts": {
+    "completed_jobs": 381,
+    "compared_outputs": 355056,
+    "allocation_bytes_checked": 6916736,
+    "guard_input_bytes_checked": 5496512
+  },
+  "jobs_per_mode": {
+    "0": 190,
+    "1": 191
+  },
+  "failed_job_id": 384,
+  "failed_job_stage": "DOWNLOAD",
+  "completed_mixed_cycles": 23,
+  "persisted_progress_seconds": 1145.1762048000237,
+  "endurance_qualified": false,
+  "full_grid_qualified": false,
+  "original_files": 575
+}

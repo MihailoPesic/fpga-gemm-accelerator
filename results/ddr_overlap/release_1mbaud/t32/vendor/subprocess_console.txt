@@ -1,0 +1,3 @@
+DDR GEMM prepare; P8/T32; build ID 0x9d4beb4d; C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_release_p8_t32_1mbaud\prepare_console.txt
+DDR GEMM sim; P8/T32; build ID 0x9d4beb4d; C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_release_p8_t32_1mbaud\sim_console.txt
+PASS: C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_release_p8_t32_1mbaud\simulation.json

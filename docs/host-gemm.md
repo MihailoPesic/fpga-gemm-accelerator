@@ -7,9 +7,9 @@ from the preview. ID `0x314d474e` identifies the GEMM interface. Version
 selectable serial/overlap jobs. Both remain separate from the full v1 target.
 
 The library and CLI run on the qualified P4/P8 serial images and current
-[selectable P8 image](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
-`0x2c680af7`. Both modes pass 48 board jobs; 30 matched pairs measure overlap
-at 8.345 useful GOPS for 64x64x256. Earlier images retain their original identities. The preview
+[1 Mbaud selectable P8 image](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+`0x9d4beb4d`. Thirty matched pairs measure overlap at 11.298 useful GOPS for
+256x256x256. Earlier images retain their original identities. The preview
 and diagnostic bitstreams use different interfaces.
 The [board integration workflow](ddr-board.md) supplies the UART/platform
 wrapper, manifest-gated build and cold-start programming procedure.
@@ -97,7 +97,7 @@ extra guard read/check time are reported separately.
 qualified matching bitstream loaded, select its manifest and UART port.
 
 ```text
-python -m host.gemm --port COM11 --manifest build/gemm_p8_overlap_final/build.json --mode 1 --m 5 --n 3 --k 9 --repeats 3 --retries 0 --output build/my_gemm_demo
+python -m host.gemm --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --mode 1 --m 5 --n 3 --k 9 --repeats 3 --retries 0 --output build/my_gemm_demo
 ```
 
 This existing-image command reloads inputs and checks every result, input
@@ -126,7 +126,7 @@ from host.gemm import GEMM, load_manifest, pack_inputs, validate
 
 A = [[1, -2, 3], [4, 5, -6]]       # 2 x 3
 B = [[7, 8], [-9, 10], [11, -12]]  # 3 x 2
-manifest = load_manifest("build/gemm_p8_overlap_final/build.json")
+manifest = load_manifest("build/gemm_release_p8_t32_1mbaud/build.json")
 device = GEMM.open("COM11", baud=manifest["baud"])
 try:
     device.identify(manifest)
@@ -147,7 +147,7 @@ finally:
 Pass `mode=0` to select serial scheduling on this same image. Resident matrices
 can be rerun by submitting a new job ID, with no intervening upload.
 
-This example was [checked on the current FPGA image](../results/ddr_overlap/timing_predicate/final_build/host_api/record.json)
+This example was [checked on image `0x2c680af7`](../results/ddr_overlap/timing_predicate/final_build/host_api/record.json)
 in MODE=1: all four results matched, 752 input/padding/guard bytes were intact,
 zero transport retries, and JOB_CYCLES=264. The [earlier serial check](../results/ddr_overlap/serial_host_smoke/custom_matrix/README.md)
 retains its separate image and measurements.

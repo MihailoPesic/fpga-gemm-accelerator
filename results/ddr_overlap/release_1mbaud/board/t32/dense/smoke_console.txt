@@ -1,0 +1,1 @@
+PASS job 1: 479 cycles, 0.056367 useful GOPS
