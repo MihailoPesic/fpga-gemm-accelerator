@@ -7,7 +7,16 @@ layout, packet protocol and register semantics are shared with the AXI RAM
 regression. `ENABLE_OVERLAP=1` selects VERSION=0x200 and MODE=0/1; the
 original serial hierarchy retains VERSION=0x100 and MODE=0 only.
 
-The current [P8/T32 image](../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
+The current [1 Mbaud P8/T32 image](../results/ddr_overlap/release_1mbaud/t32/README.md)
+`0x9d4beb4d` passes vendor simulation, routed 100 MHz implementation gates
+and [30 matched dense board pairs](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
+All 3,932,160 results and full guarded allocations match. At 256x256x256,
+overlap measures a median 297,001 cycles / 11.298 useful GOPS, with 2.495x
+paired speedup over serial scheduling on the same image. UART transfer and
+validation time are separate. The new shape, sustained-workload and T8 baseline
+checks remain [release gates](status.md).
+
+The 115200-baud [P8/T32 checkpoint](../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
 `0x2c680af7` passes vendor simulation and routed 100 MHz implementation gates.
 Its [cold-start board qualification](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
 passes 48 jobs per mode and 30 matched pairs, with all 344,946 useful outputs
@@ -17,7 +26,7 @@ job intervals include DDR tile loads and result completion; UART time is separat
 The same image now passes its [maximum-shape board check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md):
 all 1,048,576 outputs at 1024x1024x256. Its [sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md)
 passes 368 mixed jobs over 30.52 continuous host-paced minutes in both modes.
-Qualification of the separate 1 Mbaud images remains a release gate.
+Its maximum-shape and sustained-workload results apply to this older image.
 
 The preceding [serial P8/T32 four-read image](../results/ddr_gemm/read4/host_geometry/routed/README.md)
 passes all 100 MHz implementation gates and the complete UART/vendor-DDR test.
@@ -70,12 +79,12 @@ pin assignments.
 With native Python and Vivado 2026.1:
 
 ```text
-python scripts/build_ddr_gemm.py --stage sim --overlap --p 8 --read-slots 4 --build-dir build/gemm_p8_current
-python scripts/build_ddr_gemm.py --stage bitstream --overlap --p 8 --read-slots 4 --build-dir build/gemm_p8_current
+python scripts/build_ddr_gemm.py --stage sim --overlap --p 8 --t 32 --read-slots 4 --baud 1000000 --build-dir build/gemm_p8_current
+python scripts/build_ddr_gemm.py --stage bitstream --overlap --p 8 --t 32 --read-slots 4 --baud 1000000 --build-dir build/gemm_p8_current
 ```
 
 The Make targets `sim-gemm-ddr` and `ddr-gemm-bitstream` retain the P4/one-read
-defaults; the explicit commands above select P8/four-read with MODE=0/1.
+defaults; the explicit commands above select P8/T32/four-read at 1 Mbaud with MODE=0/1.
 Generated
 projects, vendor models, logs, routed reports and bitstreams stay under the
 selected ignored build directory. After both batch stages finish, open
@@ -83,8 +92,8 @@ selected ignored build directory. After both batch stages finish, open
 inspect the board top, block design and `tb_ddr_gemm` simulation. Routed timing
 and resource reports are also saved as text beside `build.json`.
 The existing qualified image's project is
-`build/gemm_p8_overlap_final/project/axi_platform.xpr`. Preserve its
-archive and inspect its saved reports for build `0x2c680af7`; build changed
+`build/gemm_release_p8_t32_1mbaud/project/axi_platform.xpr`. Preserve its
+archive and inspect its saved reports for build `0x9d4beb4d`; build changed
 source in a fresh directory. Source files referenced by the project can change
 with the workspace, while its old routed reports retain their recorded identity.
 During a batch run, inspect `prepare_console.txt`, `sim_console.txt` or
@@ -111,7 +120,8 @@ a fresh simulation rather than reusing the batch build's evidence.
 or settings. Use the same directory and settings for its simulation and
 bitstream stages; retain earlier results under their original identities.
 
-The physical UART build initially uses 115200 baud. The vendor fixture uses
+The commands above select a physical 1 Mbaud UART; the script's default baud
+remains 115200 for earlier builds. The vendor fixture uses
 a faster exact-divisor simulation baud to bound runtime. It still drives and
 decodes actual UART pins; this does not qualify the faster rate on a board.
 The generated DDR2 model is unmodified. FAST calibration and ideal PCB delays
@@ -122,7 +132,7 @@ make this a functional integration test, not physical memory timing evidence.
 If the qualified P8 image is already programmed and ready, run it directly:
 
 ```text
-python -m host.gemm --port COM11 --manifest build/gemm_p8_overlap_final/build.json --mode 1 --m 5 --n 3 --k 9 --repeats 3 --retries 0 --output build/gemm_p8_overlap_final/demo_small
+python -m host.gemm --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --mode 1 --m 5 --n 3 --k 9 --repeats 3 --retries 0 --output build/my_gemm_demo
 ```
 
 This reloads inputs, compares every result and checks padding/guards. It needs
@@ -155,7 +165,7 @@ python -m host.gemm --port COM11 --manifest build/gemm_p8_current/build.json --m
 ```
 
 These cold-start commands use the fresh P8 build directory from the build
-procedure above; substitute `build/gemm_p8_overlap_final/build.json` for the
+procedure above; substitute `build/gemm_release_p8_t32_1mbaud/build.json` for the
 preserved qualified local image. Replace COM11 with the board's current serial port. Close other serial terminals
 before the host test. The generated project and bitstream cannot be substituted
 with the old native design, BRAM preview or DDR diagnostic.

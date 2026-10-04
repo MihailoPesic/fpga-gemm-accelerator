@@ -5,11 +5,13 @@ The implemented builds and remaining integration work are tracked in
 the BRAM preview and AXI DDR diagnostic retain their earlier evidence.
 P4/P8 serial board images and four-read P8 DMA retain their evidence. Inter-tile
 overlap passes portable tests, vendor simulation, the
-[production implementation gates](../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
-and [156 board jobs](../results/ddr_overlap/timing_predicate/final_build/board/README.md).
-Thirty matched pairs measure 8.345 useful GOPS at 64x64x256, with a 1.837x
+[1 Mbaud implementation gates](../results/ddr_overlap/release_1mbaud/t32/README.md)
+and [60 dense board jobs](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
+Thirty matched pairs measure 11.298 useful GOPS at 256x256x256, with a 2.495x
 median paired speedup over serial mode on the same image.
-The [current maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md)
+The same image's [maximum-size checks](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md)
+compare and independently replay 2,097,152 outputs across both modes.
+The [115200-baud maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md)
 also compares all 1,048,576 outputs on that image.
 Its [sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md)
 passes 368 mixed jobs in both modes over 30.52 continuous host-paced minutes.

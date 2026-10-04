@@ -348,5 +348,15 @@ is in [results/core](../results/core/README.md); current integration status is i
     is part of the source identity and requires fresh vendor/image qualification.
     See the [measured probe](../results/ddr_overlap/timing_predicate/postroute_physopt/README.md).
 
+34. **Require uninterrupted host qualification.** A host READ_REG timeout during
+    Windows Modern Standby stops the test; elapsed sleep time cannot extend an
+    endurance result. Preserve the failed records and reconnect read-only to
+    inspect the retained identity, status and counters before considering more
+    work. Never replay an uncertain START. A new endurance run starts from zero;
+    only intact, completed sealed units may be reused. Long Windows commands
+    hold a temporary execution-state request, without changing system power
+    plans. This avoids automatic idle sleep while preserving explicit user
+    Sleep behavior. See [the qualification procedure](testing.md#release-board-measurements).
+
 RTL simulation, isolated synthesis, full platform timing and board measurements
 are recorded separately.

@@ -25,10 +25,10 @@ bitstream:
 	"$(PYTHON)" scripts/build_ddr_gemm.py --stage bitstream --overlap --p "$(RELEASE_P)" --t "$(RELEASE_T)" --read-slots "$(RELEASE_READ_SLOTS)" --baud "$(RELEASE_BAUD)" --build-dir "$(RELEASE_BUILD)" --vivado "$(VIVADO)"
 bench:
 	$(if $(strip $(PORT)),,$(error Set PORT and MANIFEST for the already programmed qualified image))
-	"$(PYTHON)" scripts/qualify_release.py --phase benchmark --modes both --port "$(PORT)" --manifest "$(MANIFEST)" --output "$(RELEASE_OUTPUT)"
+	"$(PYTHON)" scripts/keep_awake.py -- "$(PYTHON)" scripts/qualify_release.py --phase benchmark --modes both --port "$(PORT)" --manifest "$(MANIFEST)" --output "$(RELEASE_OUTPUT)"
 hw-release:
 	$(if $(strip $(PORT)),,$(error Set PORT and MANIFEST for the already programmed qualified image))
-	"$(PYTHON)" scripts/qualify_release.py --phase all --modes both --port "$(PORT)" --manifest "$(MANIFEST)" --output "$(RELEASE_OUTPUT)"
+	"$(PYTHON)" scripts/keep_awake.py -- "$(PYTHON)" scripts/qualify_release.py --phase all --modes both --port "$(PORT)" --manifest "$(MANIFEST)" --output "$(RELEASE_OUTPUT)"
 demo:
 	$(if $(strip $(PORT)),,$(error Set PORT and MANIFEST for the already programmed qualified image))
 	"$(PYTHON)" -m host.gemm --port "$(PORT)" --manifest "$(MANIFEST)" --mode "$(RELEASE_MODE)" --m 5 --n 3 --k 9 --repeats 1 --retries 0 --output "$(RELEASE_OUTPUT)"

@@ -1,12 +1,15 @@
 # Nexys A7-50T platform
 
-The current selectable DDR2 GEMM image `0x2c680af7` passes 48 jobs in each
-mode and 30 matched pairs, with all 344,946 useful outputs checked. At
-64x64x256 it measures 8.345 useful GOPS with overlap and a 1.837x paired
-speedup over serial mode. Its [board record](../../results/ddr_overlap/timing_predicate/final_build/board/README.md)
-and [routed implementation](../../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
+The 1 Mbaud selectable DDR2 GEMM image `0x9d4beb4d` passes 30 matched
+serial/overlap pairs, with all 3,932,160 useful outputs checked. At
+256x256x256 it measures 11.298 useful GOPS with overlap and a 2.495x paired
+speedup over serial mode. Its [board record](../../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+and [routed implementation](../../results/ddr_overlap/release_1mbaud/t32/README.md)
 retain the exact image and source identities. Earlier checkpoints are saved
-in the [DDR GEMM evidence](../../results/ddr_gemm/README.md).
+in the [DDR GEMM evidence](../../results/ddr_gemm/README.md) and the
+[115200-baud selectable record](../../results/ddr_overlap/timing_predicate/final_build/board/README.md).
+The new T32 route passes 100 MHz with +0.017/+0.017 ns setup/hold slack;
+its narrow control-path margin and high slice occupancy remain documented.
 
 The GEMM BRAM preview uses `gemm_preview_top.sv` and `preview.xdc`, with no MIG
 or clock-wizard dependency. Build it with `python scripts/build_preview.py`;

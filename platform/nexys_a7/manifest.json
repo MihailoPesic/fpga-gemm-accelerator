@@ -20,8 +20,10 @@
   },
   "latest_board_smoke": "results/ddr_platform/board/summary.json",
   "latest_native_board_smoke": "results/native_board/2026-09-30.json",
-  "latest_gemm_board_results": "results/ddr_overlap/timing_predicate/final_build/board/manifest.json",
-  "latest_gemm_maximum_shape_results": "results/ddr_overlap/timing_predicate/final_build/maximum/manifest.json",
+  "latest_gemm_board_results": "results/ddr_overlap/release_1mbaud/board/t32/dense/manifest.json",
+  "previous_115200_selectable_gemm_board_results": "results/ddr_overlap/timing_predicate/final_build/board/manifest.json",
+  "latest_gemm_maximum_shape_results": "results/ddr_overlap/release_1mbaud/board/t32/maximum/manifest.json",
+  "previous_115200_gemm_maximum_shape_results": "results/ddr_overlap/timing_predicate/final_build/maximum/manifest.json",
   "latest_gemm_endurance_results": "results/ddr_overlap/timing_predicate/final_build/endurance/manifest.json",
   "latest_bram_preview_board_results": "results/preview/README.md",
   "latest_serial_ddr_gemm_vendor_simulation": "results/ddr_gemm/read4/host_geometry/vendor/manifest.json",
@@ -29,9 +31,10 @@
   "latest_serial_ddr_gemm_board_results": "results/ddr_gemm/read4/host_geometry/board/manifest.json",
   "serial_ddr_gemm_board_qualified": true,
   "serial_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0xd558a543, 100 MHz, serial, 115200 baud; 48 jobs, 49593 outputs and 689628 input/padding/guard bytes checked after cold power-up; separate from selectable image 0x2c680af7",
-  "latest_selectable_ddr_gemm_implementation": "results/ddr_overlap/timing_predicate/final_build/routed/manifest.json",
+  "latest_selectable_ddr_gemm_implementation": "results/ddr_overlap/release_1mbaud/t32/manifest.json",
   "selectable_ddr_gemm_board_qualified": true,
-  "selectable_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0x2c680af7, 100 MHz, 115200 baud; 48 jobs per mode plus 30 matched pairs, one MODE1 maximum-shape job, and 368 mixed jobs over 30.52 continuous host-paced minutes; cold-start procedure; no warm-reset or full-memory qualification",
+  "selectable_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0x9d4beb4d, 100 MHz, 1000000 baud; 30 matched serial/overlap pairs at 256x256x256 with 3932160 output comparisons; one maximum-size job per mode with 2097152 outputs independently replayed; full guarded allocations and cold-start procedure; full shape grid and sustained-workload qualification pending; no warm-reset or full-memory qualification",
+  "previous_115200_selectable_gemm_qualification_scope": "P8/T32 READ4 image 0x2c680af7, 100 MHz, 115200 baud; 48 jobs per mode plus 30 matched pairs, one MODE1 maximum-shape job, and 368 mixed jobs over 30.52 continuous host-paced minutes; cold-start procedure; no warm-reset or full-memory qualification",
   "latest_axi_mig_simulation": "results/axi/vendor/summary.json",
   "latest_axi_platform_simulation": "results/ddr_platform/vendor_pipeline/summary.json",
   "latest_axi_platform_implementation": "results/ddr_platform/routed/summary.json",
@@ -71,6 +74,6 @@
     "immutable board-file identity",
     "warm-reset DDR clock/CKE qualification",
     "DDR transfer/control performance characterization",
-    "physical 1 Mbaud, controlled T8/T32 benchmark grid and final release identity"
+    "remaining 1 Mbaud T32 shapes and sustained workload, T8 baseline, controlled benchmark grid and final release identity"
   ]
 }
