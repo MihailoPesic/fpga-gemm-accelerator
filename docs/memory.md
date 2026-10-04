@@ -3,8 +3,15 @@
 `gemm_bram_microtile` wraps the existing compute core with two sets of banked
 A/BT storage. Supported builds are P=4/8 and T=8/32. K remains 1..256.
 This block computes one selected microtile. The [local matrix engine](tile-engine.md)
-adds result memory and iteration over the required microtiles. UART commands
-and a board top are still separate integration work.
+adds result memory and iteration over the required microtiles. The
+[BRAM preview](preview.md) already connects that engine to UART commands and
+a working board top. The [tile DMA adapter](tile-dma.md) connects the operand
+and result ports to AXI bursts. The [serial DDR controller](ddr-job.md)
+validates descriptors and sequences larger matrix jobs; the
+[packet subsystem](ddr-core.md) and [board wrapper](ddr-board.md) connect this
+path to UART and the [board platform](axi-platform.md). The saved physical
+GEMM baseline is build `0xed44f92e`; subsequent adapter changes require their
+own board qualification.
 
 ```
 64-bit load port -> A banks  ----> current/next words --+
@@ -28,6 +35,12 @@ word = buf * (T/P) * 32 + (q/P) * 32 + word_index
 ```
 
 Each of the P A and P BT banks has an independent synchronous read port.
+Banking supplies one operand for each array lane simultaneously: P adjacent
+rows have different `q % P` values. A 64-bit write deposits eight consecutive
+k values at once, while compute extracts byte `k % 8`. Transposing B makes
+each output column's reduction elements contiguous like an A row. Keeping
+the full K dimension locally avoids stopping the array for DDR responses.
+
 No BRAM contents are cleared on reset. The caller must load all useful words
 before starting and maintain buffer-ready ownership; this block does not track
 which addresses have been initialized. Invalid rows and columns are masked.
@@ -41,6 +54,11 @@ priority over a load to the buffer being acquired.
 Loads to the active buffer are blocked from acceptance through final drain.
 Loads to the other buffer can proceed throughout compute. At completion the
 input buffer becomes writable again; result ownership belongs to the caller.
+This is the wrapper's capability, not evidence of whole-system overlap.
+`gemm_tile_engine` currently blocks its public load/read ports during a job.
+The BRAM preview and serial DDR controller both use buffer zero. A future
+scheduler must own both input and result sets before enabling concurrent
+load/compute/store.
 Reset cancels the local operation and suppresses loads, feed and drain. This
 local reset contract is not an AXI transaction-abort mechanism.
 

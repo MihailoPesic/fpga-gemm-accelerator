@@ -1,0 +1,6 @@
+# Optional bounded-SAT toolchain; independent of simulation and host packages.
+yowasp-yosys==0.69.0.0.post1233
+yowasp-runtime==1.96
+wasmtime==47.0.1
+click==8.5.0
+platformdirs==4.12.3

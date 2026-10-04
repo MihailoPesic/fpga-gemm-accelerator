@@ -28,7 +28,7 @@ def pauses(seed):
 
 
 class Harness:
-    LOCAL_INPUTS = ('rd_cmd_valid', 'rd_cmd_addr', 'rd_cmd_beats', 'rd_cmd_tag',
+    LOCAL_INPUTS = ('rd_cancel', 'rd_cmd_valid', 'rd_cmd_addr', 'rd_cmd_beats', 'rd_cmd_tag',
                     'rd_data_ready', 'rd_done_ready', 'wr_cmd_valid', 'wr_cmd_addr',
                     'wr_cmd_beats', 'wr_cmd_tag', 'wr_data_valid', 'wr_data',
                     'wr_data_strb', 'wr_done_ready')
@@ -43,7 +43,9 @@ class Harness:
         self.reads, self.read_done, self.write_done = [], [], []
         self.ar, self.aw, self.w, self.r, self.b = [], [], [], [], []
         self.aw_pending, self.w_pending = None, []
-        self.read_outstanding = False
+        self.read_slots = int(os.environ.get('GEMM_READ_SLOTS', '1'))
+        assert self.read_slots in (1, 4), 'GEMM_READ_SLOTS must be 1 or 4'
+        self.read_outstanding = 0
         self.allow_malformed_response = False
         self.cycle = 0
 
@@ -63,7 +65,7 @@ class Harness:
         self.put(rst=0, rd_done_ready=1, wr_done_ready=1, rd_data_ready=1)
         self.held.clear()
         self.aw_pending, self.w_pending = None, []
-        self.read_outstanding = False
+        self.read_outstanding = 0
         self.allow_malformed_response = False
         for _ in range(3):
             await self.step()
@@ -97,7 +99,9 @@ class Harness:
             return values
         sample = await tick(self.dut, snapshot)
         self.cycle += 1
-        read_response_due = self.read_outstanding
+        # Only ARs accepted on earlier edges can own this edge's response.
+        # Keep the count snapshot before applying simultaneous AR/R events.
+        read_response_due = self.read_outstanding > 0
         write_response_due = (self.aw_pending is not None and
                               len(self.w_pending) == self.aw_pending['len']+1)
         held_channels = {
@@ -126,8 +130,10 @@ class Harness:
                 assert address['addr'] // 4096 == (address['addr']+8*(address['len']+1)-1) // 4096
                 log.append(address)
                 if channel == 'ar':
-                    assert not self.read_outstanding, 'More than one read burst outstanding'
-                    self.read_outstanding = True
+                    retiring_read = (read_response_due and sample['m_axi_rvalid'] and
+                                     sample['m_axi_rready'] and sample['m_axi_rlast'])
+                    assert self.read_outstanding-int(retiring_read) < self.read_slots, 'Read capacity exceeded'
+                    self.read_outstanding += 1
                 else:
                     assert self.aw_pending is None, 'More than one write burst outstanding'
                     self.aw_pending = address
@@ -144,7 +150,7 @@ class Harness:
             assert read_response_due or self.allow_malformed_response, 'R arrived before a prior AR handshake'
             self.r.append((sample['m_axi_rdata'], sample['m_axi_rresp'], sample['m_axi_rlast'], sample['m_axi_rid']))
             if sample['m_axi_rlast'] and read_response_due:
-                self.read_outstanding = False
+                self.read_outstanding -= 1
         if sample['m_axi_bvalid'] and sample['m_axi_bready']:
             assert write_response_due or self.allow_malformed_response, 'B arrived before prior AW and final W handshakes'
             if write_response_due:

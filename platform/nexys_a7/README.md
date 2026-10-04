@@ -1,15 +1,23 @@
 # Nexys A7-50T platform
 
+The current selectable DDR2 GEMM image `0x2c680af7` passes 48 jobs in each
+mode and 30 matched pairs, with all 344,946 useful outputs checked. At
+64x64x256 it measures 8.345 useful GOPS with overlap and a 1.837x paired
+speedup over serial mode. Its [board record](../../results/ddr_overlap/timing_predicate/final_build/board/README.md)
+and [routed implementation](../../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
+retain the exact image and source identities. Earlier checkpoints are saved
+in the [DDR GEMM evidence](../../results/ddr_gemm/README.md).
+
 The GEMM BRAM preview uses `gemm_preview_top.sv` and `preview.xdc`, with no MIG
 or clock-wizard dependency. Build it with `python scripts/build_preview.py`;
 see the [preview interface and board workflow](../../docs/preview.md).
 The September 30 preview bitstream passes routed timing at 100 MHz and full
 GEMM output comparisons on the board; see the [saved evidence](../../results/preview/README.md).
 
-The current baseline is the tracked GUI project and `.srcs` tree at the
+The historical native-DDR baseline is the tracked GUI project and `.srcs` tree at the
 repository root. [manifest.json](manifest.json) records the saved memory
-configuration and historical bitstream identity. That manifest describes the
-native-DDR baseline; the preview has a separate generated build manifest.
+configuration, historical bitstream identity and subsequent platform checks.
+The preview and AXI DDR diagnostic each have a separate generated build manifest.
 
 `board.tcl` selects the exact board required by the saved XCI files. Set
 `NEXYS_BOARD_REPO` if Vivado cannot find the installed board repository.
@@ -18,17 +26,45 @@ The native reconstruction flow is `scripts/create_project.tcl` and
 
 The original clock wizard generates 100/200 MHz from the board's 100 MHz
 oscillator. Native MIG uses a 200 MHz memory clock and 50 MHz, 128-bit UI.
-The old UART bridge runs at 921600 baud in the UI domain. The target GEMM
-master is instead 64-bit AXI at 100 MHz, with vendor width/clock conversion
-to a separately generated AXI MIG. The [AXI MIG vendor simulation](../../docs/axi-platform.md)
-now generates and checks that controller; the physical wrapper and conversion
-path remain to be integrated.
+The old UART bridge runs at 921600 baud in the UI domain.
+
+The saved MIG preset/model is Micron MT47H64M16HR-25E. The operator reports
+ISSI IS43DR16640C on the physical board; its speed/temperature suffix remains
+unreadable. The [DDR2 compatibility record](../../docs/ddr-memory-compatibility.md)
+separates these identities and reviews the configured command timings.
+
+The implemented [AXI platform wrapper](axi_ddr_platform.sv) connects a 64-bit,
+100 MHz AXI master through SmartConnect to a separately generated 128-bit,
+50 MHz AXI MIG. [The DDR diagnostic top](gemm_ddr_diag_top.sv) exercises this
+path with the custom burst engine and UART control. Its implementation passes
+100 MHz routed timing with +0.642 ns setup slack and +0.027 ns hold slack.
+Three seeded board runs passed after an operator-confirmed cold power-up.
+Each run initializes 4,096 bytes across 16 selected regions, checks their contents
+and masked writes, and completes 1,024 read beats and 648 write beats.
+
+See the [platform configuration](../../docs/axi-platform.md),
+[diagnostic build and board workflow](../../docs/ddr-diagnostic.md) and
+[saved verification evidence](../../results/ddr_platform/README.md).
+These results cover the bounded diagnostic. The
+[tile DMA path](../../docs/tile-dma.md) is tested separately against AXI RAM;
+its serial descriptor controller and registers are verified separately. The
+[packet subsystem](../../docs/ddr-core.md) now connects those modules with
+framed host commands and shared memory ownership against AXI RAM.
+The [complete UART/GEMM vendor test](../../results/ddr_gemm/vendor/summary.json)
+now passes two jobs with all 16 outputs compared. The matching production
+bitstream passes setup/hold at +0.097/+0.014 ns, and
+[DDR GEMM board qualification](../../results/ddr_gemm/board/README.md) passes
+48 jobs with all 49,593 outputs checked after fresh power-up. The complete
+image has its own [implementation identity](../../results/ddr_gemm/routed/README.md).
+Warm-reset clock/CKE behavior remains unqualified,
+and the diagnostic is neither a full memory sweep nor a bandwidth measurement.
 
 Two source repairs were applied after the July build: remove the duplicate primary clock
 from the board XDC (the clock wizard owns it), and mark the UART RX synchronizer
-ASYNC_REG. Synthesis checks the clock count. These source changes have not
-been revalidated on the physical board, and the old bitstream hash identifies
-the earlier source revision rather than these changes.
+ASYNC_REG. Synthesis checks the clock count. The historical native design has
+not been rebuilt and board-tested with those repairs; its old bitstream hash
+identifies the earlier source revision. The newer AXI diagnostic and GEMM
+images have their own source hashes and board evidence linked above.
 
 The fully commented [Digilent master XDC](reference/Nexys-A7-50T-Master.xdc)
 is retained for pin lookup; its [upstream source](https://github.com/Digilent/digilent-xdc/blob/master/Nexys-A7-50T-Master.xdc)
@@ -60,11 +96,14 @@ For a clean clone, reconstruct using the scripts documented in
 [testing.md](../../docs/testing.md); a new build must pass its report checks
 before programming. Do not regenerate IP merely to program the saved image.
 
-Remaining platform gates: physical board revision/marking, board-file commit
-or immutable content identity, cold-reset/CDC review, repaired-source board test,
-physical AXI memory test, clock/width conversion integration and
-full timing/constraint review. The older sparse memory test is not a full
-128 MiB memory qualification or a GEMM correctness test.
+The operator confirmed the Nexys A7 / 50T / CSG324 marking; the full device
+speed/temperature suffix and physical board revision remain unrecorded.
+The historical native flow still needs a repaired-source board test and an
+immutable board-file identity. Its sparse memory test does not qualify the full
+128 MiB or validate GEMM. The newer AXI diagnostic has separate routed timing,
+clock/reset review and board evidence linked above; warm-reset qualification,
+broader memory coverage remain outstanding. Matrix DMA now has the separate
+GEMM board record linked above.
 
 On September 30, the saved July bitstream was programmed on the detected
 `xc7a50t`. Clock-lock/calibration/heartbeat LEDs were observed on the board, and the

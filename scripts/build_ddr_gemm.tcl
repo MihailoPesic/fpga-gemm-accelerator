@@ -1,0 +1,152 @@
+# Invoked by build_ddr_gemm.py after its source/project identity checks.
+if {[llength $argv] != 1} { error "Use python scripts/build_ddr_gemm.py" }
+source [lindex $argv 0]
+set_param general.maxThreads 1
+set project_file [file join $ddr_out project axi_platform.xpr]
+set synthesis_generics [list P=$ddr_p T=$ddr_t BAUD=$ddr_baud BUILD_ID=$ddr_build_id READ_SLOTS=$ddr_read_slots ENABLE_OVERLAP=$ddr_enable_overlap]
+set simulation_generics [list P=$ddr_p T=$ddr_t SIM_BAUD=$ddr_sim_baud BUILD_ID=$ddr_build_id READ_SLOTS=$ddr_read_slots ENABLE_OVERLAP=$ddr_enable_overlap]
+if {$ddr_stage eq "prepare"} {
+    if {[file exists $project_file]} { error "Preparation requires a fresh project" }
+    source [file join $ddr_root scripts create_axi_platform.tcl]
+    foreach src $ddr_sources {
+        if {![llength [get_files -quiet [list $src]]]} { add_files -norecurse [list $src] }
+    }
+    add_files -fileset constrs_1 -norecurse [list [file join $ddr_root platform nexys_a7 gemm_ddr.xdc]]
+    set_property top gemm_ddr_top [get_filesets sources_1]
+    set_property generic $synthesis_generics [get_filesets sources_1]
+    set models [glob -nocomplain [file join $ddr_out project axi_platform.gen sources_1 bd * ip * * example_design sim ddr2_model.v]]
+    if {[llength $models] != 1} { error "Expected one generated DDR2 model; found $models" }
+    set imports [file join $ddr_out project imports]
+    file mkdir $imports
+    foreach name {ddr2_model.v ddr2_model_parameters.vh} {
+        set dst [file join $imports $name]
+        file copy [file join [file dirname [lindex $models 0]] $name] $dst
+        add_files -fileset sim_1 -norecurse [list $dst]
+    }
+    add_files -fileset sim_1 -norecurse [list [file join $ddr_root tb vendor tb_ddr_gemm.sv]]
+    set_property top tb_ddr_gemm [get_filesets sim_1]
+    set_property generic $simulation_generics [get_filesets sim_1]
+    set_property xsim.elaborate.debug_level $ddr_sim_debug [get_filesets sim_1]
+    set_property xsim.simulate.runtime 0ns [get_filesets sim_1]
+    update_compile_order -fileset sources_1
+    update_compile_order -fileset sim_1
+    # Export the compile inputs/IP copies before Python seals their hashes.
+    # UG835: scripts_only generates scripts without compiling or simulating.
+    launch_simulation -scripts_only
+    close_project
+    puts "DDR_GEMM_PREPARED"
+    return
+}
+if {$ddr_stage ni {sim bitstream}} { error "Unknown internal build stage" }
+if {![file exists $project_file]} { error "Missing prepared project" }
+open_project $project_file
+if {[get_property PART [current_project]] ne "xc7a50ticsg324-1L"} { error "Unexpected FPGA part" }
+if {[get_property top [get_filesets sources_1]] ne "gemm_ddr_top" ||
+    [lsort [get_property generic [get_filesets sources_1]]] ne [lsort $synthesis_generics] ||
+    [get_property top [get_filesets sim_1]] ne "tb_ddr_gemm" ||
+    [get_property xsim.elaborate.debug_level [get_filesets sim_1]] ne $ddr_sim_debug ||
+    [lsort [get_property generic [get_filesets sim_1]]] ne [lsort $simulation_generics]} {
+    error "Prepared source or simulation top/parameters differ from the requested build"
+}
+if {$ddr_stage eq "sim"} {
+    launch_simulation
+    run all
+    close_sim
+    set fp [open [file join $ddr_out simulation_complete.txt] w]
+    puts $fp [version]
+    close $fp
+    close_project
+    return
+}
+
+# Global synthesis keeps the generated platform and its caller in one run.
+set bd_file [get_files -all */axi_ddr_bd.bd]
+set_property synth_checkpoint_mode None $bd_file
+generate_target all $bd_file
+reset_run synth_1
+launch_runs synth_1 -jobs 1
+wait_on_run synth_1
+if {[get_property PROGRESS [get_runs synth_1]] ne "100%"} { error "DDR GEMM synthesis failed" }
+set implementation_last_step route_design
+if {$ddr_enable_overlap} {
+    # Make optimization part of the managed run. Its final timing report and
+    # the gates below assess the optimized design; the route report retains
+    # the intermediate result for comparison.
+    set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
+    set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE AggressiveExplore [get_runs impl_1]
+    set implementation_last_step {phys_opt_design (Post-Route)}
+}
+launch_runs impl_1 -to_step $implementation_last_step -jobs 1
+wait_on_run impl_1
+if {[get_property PROGRESS [get_runs impl_1]] ne "100%"} { error "DDR GEMM implementation failed" }
+open_run impl_1
+write_checkpoint -force [file join $ddr_out gemm_routed.dcp]
+foreach {command filename} {
+    report_utilization utilization.txt report_clocks clocks.txt
+    report_clock_interaction clock_interaction.txt report_clock_utilization clock_utilization.txt
+    report_route_status route.txt report_drc drc.txt report_methodology methodology.txt
+} { $command -file [file join $ddr_out $filename] }
+report_timing_summary -delay_type min_max -report_unconstrained -max_paths 5 -warn_on_violation -file [file join $ddr_out timing.txt]
+check_timing -verbose -file [file join $ddr_out check_timing.txt]
+report_cdc -name ddr_cdc -details -show_waiver -file [file join $ddr_out cdc.txt]
+# CDC report severity is independent of the message manager. Inspect its
+# objects directly; any future vendor waiver must name the actual endpoints.
+set cdc_critical [get_cdc_violations -name ddr_cdc -filter {SEVERITY == "Critical"}]
+if {[llength $cdc_critical]} { error "Unreviewed critical CDC paths: $cdc_critical" }
+
+# -all_violators covers pulse, period and skew checks across every clock.
+# A negative slack rounded to -0.000 is also caught by warn_on_violation.
+set pulse_before [get_msg_config -count -severity {CRITICAL WARNING}]
+report_pulse_width -warn_on_violation -file [file join $ddr_out pulse_width.txt]
+set pulse_after [get_msg_config -count -severity {CRITICAL WARNING}]
+set pulse_violations [report_pulse_width -all_violators -return_string]
+set pulse_fp [open [file join $ddr_out pulse_width_violations.txt] w]
+puts $pulse_fp $pulse_violations
+close $pulse_fp
+if {![string is integer -strict $pulse_before] || ![string is integer -strict $pulse_after] ||
+    $pulse_after > $pulse_before ||
+    [regexp -line {^\s*(Min Period|Max Period|Low Pulse Width|High Pulse Width|Max Skew|Min Skew)\s+} $pulse_violations]} {
+    error "Pulse-width, period or skew checks failed; see pulse_width.txt"
+}
+# SmartConnect's asynchronous FIFO pointers carry generated bus-skew
+# constraints. They require their own report; setup/hold summary excludes them.
+set bus_skew_before [get_msg_config -count -severity {CRITICAL WARNING}]
+report_bus_skew -delay_type min_max -warn_on_violation -file [file join $ddr_out bus_skew.txt]
+set bus_skew_after [get_msg_config -count -severity {CRITICAL WARNING}]
+set bus_skew_fp [open [file join $ddr_out bus_skew.txt] r]
+set bus_skew_report [read $bus_skew_fp]
+close $bus_skew_fp
+if {![string is integer -strict $bus_skew_before] || ![string is integer -strict $bus_skew_after] ||
+    $bus_skew_after > $bus_skew_before ||
+    [regexp {Slack\s+\(VIOLATED\)} $bus_skew_report] ||
+    ![regexp {Slack\s+\(MET\)} $bus_skew_report]} {
+    error "Missing or failing SmartConnect bus-skew checks; see bus_skew.txt"
+}
+if {[llength [get_clocks -of_objects [get_ports CLK100MHZ]]] != 1} { error "Missing/duplicate primary input clock" }
+if {abs([get_property PERIOD [get_clocks -of_objects [get_ports CLK100MHZ]]] - 10.0) > 0.000001} { error "Primary clock must be 100 MHz" }
+if {![report_route_status -boolean_check ROUTED_FULLY] || [report_route_status -boolean_check ERRORS_IN_ROUTES]} {
+    error "Incomplete or erroneous routing"
+}
+set setup [get_timing_paths -delay_type max -max_paths 1]
+set hold [get_timing_paths -delay_type min -max_paths 1]
+if {![llength $setup] || ![llength $hold]} { error "No timing paths" }
+set wns [get_property SLACK $setup]
+set whs [get_property SLACK $hold]
+if {$wns < 0 || $whs < 0} { error "Timing failed WNS=$wns WHS=$whs" }
+set critical [concat [get_drc_violations -quiet -filter {SEVERITY == "Error" || SEVERITY == "Critical Warning"}] \
+    [get_methodology_violations -quiet -filter {SEVERITY == "Error" || SEVERITY == "Critical Warning"}]]
+if {[llength $critical]} { error "Unresolved critical violations: $critical" }
+set fp [open [file join $ddr_out check_timing.txt] r]
+set checks [read $fp]
+close $fp
+foreach category {no_clock constant_clock unconstrained_internal_endpoints loops latch_loops} {
+    if {![regexp [format {(?m)^[0-9]+\. checking %s \(0\)\r?$} $category] $checks]} {
+        error "check_timing: $category is not zero"
+    }
+}
+write_bitstream -force [file join $ddr_out gemm_ddr.bit]
+set fp [open [file join $ddr_out timing_pass.json] w]
+puts $fp "{\"vivado\":\"[version -short]\",\"wns_ns\":$wns,\"whs_ns\":$whs,\"core_hz\":100000000}"
+close $fp
+puts "DDR_GEMM_BUILD_PASS WNS=$wns WHS=$whs"
+close_project
