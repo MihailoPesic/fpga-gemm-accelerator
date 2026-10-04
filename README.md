@@ -86,6 +86,8 @@ and [overlap ownership and counters](docs/ddr-overlap.md).
 | P8 four-read board | 48 jobs; 49,593 compared outputs; 689,628 checked input/padding/guard bytes; zero UART retries |
 | [1 Mbaud P8 dense comparison](results/ddr_overlap/release_1mbaud/board/t32/dense/README.md) | 30 matched pairs at 256x256x256 measure 11.298 GOPS with overlap and 2.495x paired speedup |
 | [1 Mbaud P8 maximum-size check](results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md) | Both 1024x1024x256 modes pass; all 2,097,152 outputs independently replayed; one overlap job at 11.509 GOPS |
+| [1 Mbaud T32 shape grid](results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md) | 960 jobs across 16 shapes, 30 samples per mode; 15,981,960 outputs and full guarded allocations checked |
+| [1 Mbaud T32 repeatability](results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md) | 592 mixed jobs, 550,634 outputs and both modes over 30.06 continuous host-paced minutes; zero mismatches or UART retries |
 | [115200-baud P8 board](results/ddr_overlap/timing_predicate/final_build/board/README.md) | Both 48-job modes pass; 30 matched pairs at 64x64x256 measure 8.345 GOPS with overlap and 1.837x paired speedup |
 | Matched P4/P8 board scaling | 1.60x dense DDR-job speedup at unchanged source, input bytes and clock |
 | [115200-baud P8 maximum-shape check](results/ddr_overlap/timing_predicate/final_build/maximum/README.md) | 1024x1024x256: all 1,048,576 outputs checked; one DDR-resident job at 11.512 useful GOPS |
@@ -97,8 +99,9 @@ and [overlap ownership and counters](docs/ddr-overlap.md).
 
 Each result belongs to its recorded source and bitstream. The 115200-baud image
 passes its maximum-shape and sustained-workload checks. The 1 Mbaud T32 image
-passes the dense and maximum-size comparisons above; its remaining shape/repeatability checks
-and the controlled T8/T32 benchmark grid remain [release gates](docs/status.md).
+passes the complete shape grid, dense and maximum-size comparisons, and a fresh
+30-minute mixed run. The controlled T8/T32 comparison remains a
+[release gate](docs/status.md).
 Board tests use
 cold power-up; warm-reset DDR timing remains open.
 

@@ -1,0 +1,3539 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "phase": "benchmark",
+  "units": [
+    "benchmark/case_00_32x32x16",
+    "benchmark/case_01_32x32x64",
+    "benchmark/case_02_32x32x256",
+    "benchmark/case_03_64x64x16",
+    "benchmark/case_04_64x64x64",
+    "benchmark/case_05_64x64x256",
+    "benchmark/case_06_128x128x16",
+    "benchmark/case_07_128x128x64",
+    "benchmark/case_08_128x128x256",
+    "benchmark/case_09_256x256x16",
+    "benchmark/case_10_256x256x64",
+    "benchmark/case_11_256x256x256",
+    "benchmark/case_12_31x33x17",
+    "benchmark/case_13_65x63x255",
+    "benchmark/case_14_1x64x256",
+    "benchmark/case_15_64x1x256"
+  ],
+  "checked_counts": {
+    "completed_jobs": 960,
+    "compared_outputs": 15981960,
+    "allocation_bytes_checked": 90981120,
+    "guard_input_bytes_checked": 27053280
+  },
+  "unit_metrics": {
+    "benchmark/case_00_32x32x16": {
+      "unit": "benchmark/case_00_32x32x16",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 61440,
+        "allocation_bytes_checked": 514560,
+        "guard_input_bytes_checked": 268800
+      },
+      "macrotiles": 60,
+      "microtiles": 960,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 5447,
+              "median": 5470.0,
+              "maximum": 5499
+            },
+            "compute_cycles": {
+              "minimum": 624,
+              "median": 624.0,
+              "maximum": 624
+            },
+            "read_beats": {
+              "minimum": 128,
+              "median": 128.0,
+              "maximum": 128
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 1194,
+              "median": 1195.0,
+              "maximum": 1222
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 5.447e-05,
+              "median": 5.47e-05,
+              "maximum": 5.499e-05
+            },
+            "useful_gops": {
+              "minimum": 0.5958901618476087,
+              "median": 0.5990500809067546,
+              "maximum": 0.6015788507435286
+            },
+            "useful_utilization": {
+              "minimum": 0.046553918894344425,
+              "median": 0.046800787570840205,
+              "maximum": 0.04699834771433817
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 5440,
+              "median": 5459.0,
+              "maximum": 5546
+            },
+            "compute_cycles": {
+              "minimum": 624,
+              "median": 624.0,
+              "maximum": 624
+            },
+            "read_beats": {
+              "minimum": 128,
+              "median": 128.0,
+              "maximum": 128
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 1194,
+              "median": 1195.0,
+              "maximum": 1222
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 5.44e-05,
+              "median": 5.459e-05,
+              "maximum": 5.546e-05
+            },
+            "useful_gops": {
+              "minimum": 0.5908402452217815,
+              "median": 0.6002564572265983,
+              "maximum": 0.6023529411764706
+            },
+            "useful_utilization": {
+              "minimum": 0.04615939415795168,
+              "median": 0.04689503572082799,
+              "maximum": 0.047058823529411764
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2889230999862775,
+              "median": 0.2965810500027146,
+              "maximum": 0.3044866000418551
+            },
+            "configure_seconds": {
+              "minimum": 0.1915850000223145,
+              "median": 0.19203590002143756,
+              "maximum": 0.19235680002020672
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436851999838836,
+              "median": 0.5439408000092953,
+              "maximum": 0.5446576999966055
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.6876882999786176,
+              "median": 0.6880086500023026,
+              "maximum": 0.6887855000095442
+            },
+            "validation_seconds": {
+              "minimum": 0.03108399995835498,
+              "median": 0.03194670003722422,
+              "maximum": 0.03222739999182522
+            },
+            "resident_host_seconds": {
+              "minimum": 1.7129402999999002,
+              "median": 1.7207490000291727,
+              "maximum": 1.7284491999889724
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2891341000213288,
+              "median": 0.2977287500107195,
+              "maximum": 0.3046444000210613
+            },
+            "configure_seconds": {
+              "minimum": 0.19160399999236688,
+              "median": 0.19194819999393076,
+              "maximum": 0.19250190001912415
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5433336999849416,
+              "median": 0.544002000009641,
+              "maximum": 0.544228800048586
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.687688399979379,
+              "median": 0.688051950011868,
+              "maximum": 0.6884298999793828
+            },
+            "validation_seconds": {
+              "minimum": 0.03164700005436316,
+              "median": 0.03192170002148487,
+              "maximum": 0.03224099997896701
+            },
+            "resident_host_seconds": {
+              "minimum": 1.7131958000245504,
+              "median": 1.7216918500198517,
+              "maximum": 1.7286331000505015
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 0.9828705373241976,
+        "median": 1.0000916590284143,
+        "maximum": 1.0091759955955222
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.001680699991993606,
+          "oracle_seconds": 0.00015919998986646533,
+          "input_upload_seconds": 0.3500323000480421
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_01_32x32x64": {
+      "unit": "benchmark/case_01_32x32x64",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 61440,
+        "allocation_bytes_checked": 514560,
+        "guard_input_bytes_checked": 268800
+      },
+      "macrotiles": 60,
+      "microtiles": 960,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 6442,
+              "median": 6490.5,
+              "maximum": 6524
+            },
+            "compute_cycles": {
+              "minimum": 1392,
+              "median": 1392.0,
+              "maximum": 1392
+            },
+            "read_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 1422,
+              "median": 1448.0,
+              "maximum": 1474
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 6.442e-05,
+              "median": 6.4905e-05,
+              "maximum": 6.524e-05
+            },
+            "useful_gops": {
+              "minimum": 2.00907418761496,
+              "median": 2.01944391033995,
+              "maximum": 2.0346476249611922
+            },
+            "useful_utilization": {
+              "minimum": 0.15695892090741875,
+              "median": 0.15776905549530856,
+              "maximum": 0.15895684570009314
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 6459,
+              "median": 6495.0,
+              "maximum": 6541
+            },
+            "compute_cycles": {
+              "minimum": 1392,
+              "median": 1392.0,
+              "maximum": 1392
+            },
+            "read_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 1433,
+              "median": 1449.0,
+              "maximum": 1473
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 6.459e-05,
+              "median": 6.495e-05,
+              "maximum": 6.541e-05
+            },
+            "useful_gops": {
+              "minimum": 2.003852621923253,
+              "median": 2.018044841082336,
+              "maximum": 2.0292924601331475
+            },
+            "useful_utilization": {
+              "minimum": 0.15655098608775417,
+              "median": 0.1576597532095575,
+              "maximum": 0.15853847344790215
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2911918999743648,
+              "median": 0.299499199987622,
+              "maximum": 0.3047190000070259
+            },
+            "configure_seconds": {
+              "minimum": 0.19174579996615648,
+              "median": 0.19200424998416565,
+              "maximum": 0.19229939999058843
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436006999807432,
+              "median": 0.5439911499852315,
+              "maximum": 0.5442964000394568
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.6876762000028975,
+              "median": 0.6880481500120368,
+              "maximum": 0.6882955000037327
+            },
+            "validation_seconds": {
+              "minimum": 0.031782399979420006,
+              "median": 0.03188980001141317,
+              "maximum": 0.032092200010083616
+            },
+            "resident_host_seconds": {
+              "minimum": 1.71517679997487,
+              "median": 1.723600749974139,
+              "maximum": 1.7287115000071935
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.28994330001296476,
+              "median": 0.2986864500271622,
+              "maximum": 0.30455280002206564
+            },
+            "configure_seconds": {
+              "minimum": 0.1913437000475824,
+              "median": 0.19198340000002645,
+              "maximum": 0.19254159997217357
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437011999893002,
+              "median": 0.5439825500070583,
+              "maximum": 0.5445554999751039
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.6873943000100553,
+              "median": 0.6880039500247221,
+              "maximum": 0.688579400011804
+            },
+            "validation_seconds": {
+              "minimum": 0.0313183999969624,
+              "median": 0.03192595002474263,
+              "maximum": 0.03238460002467036
+            },
+            "resident_host_seconds": {
+              "minimum": 1.7139333999948576,
+              "median": 1.722498999995878,
+              "maximum": 1.7285659000044689
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 0.9906742088365693,
+        "median": 0.9979934983983269,
+        "maximum": 1.00462891529085
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.0040197999915108085,
+          "oracle_seconds": 0.00043260003440082073,
+          "input_upload_seconds": 0.34699360001832247
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_02_32x32x256": {
+      "unit": "benchmark/case_02_32x32x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 61440,
+        "allocation_bytes_checked": 1251840,
+        "guard_input_bytes_checked": 1006080
+      },
+      "macrotiles": 60,
+      "microtiles": 960,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 11552,
+              "median": 11569.0,
+              "maximum": 11674
+            },
+            "compute_cycles": {
+              "minimum": 4464,
+              "median": 4464.0,
+              "maximum": 4464
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 3433,
+              "median": 3466.0,
+              "maximum": 3494
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 0.00011552,
+              "median": 0.00011569,
+              "maximum": 0.00011674
+            },
+            "useful_gops": {
+              "minimum": 4.491074181942778,
+              "median": 4.531835076497536,
+              "maximum": 4.538504155124654
+            },
+            "useful_utilization": {
+              "minimum": 0.3508651704642796,
+              "median": 0.35404961535137003,
+              "maximum": 0.3545706371191136
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 11535,
+              "median": 11584.0,
+              "maximum": 11633
+            },
+            "compute_cycles": {
+              "minimum": 4464,
+              "median": 4464.0,
+              "maximum": 4464
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_valid_bytes": {
+              "minimum": 4096,
+              "median": 4096.0,
+              "maximum": 4096
+            },
+            "input_wait_cycles": {
+              "minimum": 3440,
+              "median": 3477.5,
+              "maximum": 3503
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 66,
+              "median": 66.0,
+              "maximum": 66
+            },
+            "core_seconds": {
+              "minimum": 0.00011535,
+              "median": 0.00011584,
+              "maximum": 0.00011633
+            },
+            "useful_gops": {
+              "minimum": 4.506902776583857,
+              "median": 4.525966884557016,
+              "maximum": 4.545192891200693
+            },
+            "useful_utilization": {
+              "minimum": 0.35210177942061377,
+              "median": 0.3535911628560168,
+              "maximum": 0.3550931946250542
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2930639999685809,
+              "median": 0.29725925001548603,
+              "maximum": 0.3037358000292443
+            },
+            "configure_seconds": {
+              "minimum": 0.1916031000437215,
+              "median": 0.19195900001795962,
+              "maximum": 0.19233400002121925
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436115000047721,
+              "median": 0.5440107000176795,
+              "maximum": 0.544346000009682
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.5515121999778785,
+              "median": 1.5520032000204083,
+              "maximum": 1.5838059000088833
+            },
+            "validation_seconds": {
+              "minimum": 0.03147540002828464,
+              "median": 0.03195394997601397,
+              "maximum": 0.03239050001138821
+            },
+            "resident_host_seconds": {
+              "minimum": 2.580930600001011,
+              "median": 2.5852265500288922,
+              "maximum": 2.615639999974519
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2910442999564111,
+              "median": 0.29769959999248385,
+              "maximum": 0.3030000000144355
+            },
+            "configure_seconds": {
+              "minimum": 0.1917130000074394,
+              "median": 0.19203630002448335,
+              "maximum": 0.1923897000378929
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436395999859087,
+              "median": 0.5439887500251643,
+              "maximum": 0.5444156000157818
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.5514214999857359,
+              "median": 1.5519883999950252,
+              "maximum": 1.552432999946177
+            },
+            "validation_seconds": {
+              "minimum": 0.03161130001535639,
+              "median": 0.03194619997520931,
+              "maximum": 0.03246219997527078
+            },
+            "resident_host_seconds": {
+              "minimum": 2.5789522999548353,
+              "median": 2.5856527500145603,
+              "maximum": 2.5915138999698684
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 0.9954330030159414,
+        "median": 0.9991791200833888,
+        "maximum": 1.012050281751192
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.01268689997959882,
+          "oracle_seconds": 0.0011591000366024673,
+          "input_upload_seconds": 1.2008388999965973
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_03_64x64x16": {
+      "unit": "benchmark/case_03_64x64x16",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 245760,
+        "allocation_bytes_checked": 1497600,
+        "guard_input_bytes_checked": 514560
+      },
+      "macrotiles": 240,
+      "microtiles": 3840,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 21828,
+              "median": 21910.5,
+              "maximum": 22014
+            },
+            "compute_cycles": {
+              "minimum": 2496,
+              "median": 2496.0,
+              "maximum": 2496
+            },
+            "read_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 4779,
+              "median": 4812.5,
+              "maximum": 4858
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.00021828,
+              "median": 0.000219105,
+              "maximum": 0.00022014
+            },
+            "useful_gops": {
+              "minimum": 0.5954029254111021,
+              "median": 0.5982154677814596,
+              "maximum": 0.6004764522631483
+            },
+            "useful_utilization": {
+              "minimum": 0.04651585354774235,
+              "median": 0.04673558342042653,
+              "maximum": 0.04691222283305846
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 16189,
+              "median": 16227.0,
+              "maximum": 16253
+            },
+            "compute_cycles": {
+              "minimum": 2496,
+              "median": 2496.0,
+              "maximum": 2496
+            },
+            "read_beats": {
+              "minimum": 512,
+              "median": 512.0,
+              "maximum": 512
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 1705,
+              "median": 1709.5,
+              "maximum": 1740
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.00016189,
+              "median": 0.00016227,
+              "maximum": 0.00016253
+            },
+            "useful_gops": {
+              "minimum": 0.8064480403617793,
+              "median": 0.8077401861095705,
+              "maximum": 0.8096361727098648
+            },
+            "useful_utilization": {
+              "minimum": 0.06300375315326401,
+              "median": 0.0631047020398102,
+              "maximum": 0.06325282599295819
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1528068999759853,
+              "median": 1.1615656000212766,
+              "maximum": 1.1675155999837443
+            },
+            "configure_seconds": {
+              "minimum": 0.19157879997510463,
+              "median": 0.19199740001931787,
+              "maximum": 0.19269140000687912
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5432400000281632,
+              "median": 0.5439662499993574,
+              "maximum": 0.5445792999817058
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.8395909999962896,
+              "median": 1.8400224999932107,
+              "maximum": 1.92015999997966
+            },
+            "validation_seconds": {
+              "minimum": 0.03124709997791797,
+              "median": 0.03190734997042455,
+              "maximum": 0.03254179999930784
+            },
+            "resident_host_seconds": {
+              "minimum": 3.7287963000126183,
+              "median": 3.737879950000206,
+              "maximum": 3.8099763999925926
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1535001999582164,
+              "median": 1.1600004499778152,
+              "maximum": 1.3404462999897078
+            },
+            "configure_seconds": {
+              "minimum": 0.19155539997154847,
+              "median": 0.19199400002253242,
+              "maximum": 0.19257010001456365
+            },
+            "job_wall_seconds": {
+              "minimum": 0.543439099972602,
+              "median": 0.5439350999949966,
+              "maximum": 0.5443199999863282
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.8396193000371568,
+              "median": 1.8400276000029407,
+              "maximum": 1.8405222999863327
+            },
+            "validation_seconds": {
+              "minimum": 0.03152530000079423,
+              "median": 0.031989449984394014,
+              "maximum": 0.03260139998747036
+            },
+            "resident_host_seconds": {
+              "minimum": 3.7295851999660954,
+              "median": 3.7359724499692675,
+              "maximum": 3.9159771999693476
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.3430135974896942,
+        "median": 1.350020064222214,
+        "maximum": 1.3581444190499723
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.0040760000119917095,
+          "oracle_seconds": 0.00026290002278983593,
+          "input_upload_seconds": 0.6354472999810241
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_04_64x64x64": {
+      "unit": "benchmark/case_04_64x64x64",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 245760,
+        "allocation_bytes_checked": 1497600,
+        "guard_input_bytes_checked": 514560
+      },
+      "macrotiles": 240,
+      "microtiles": 3840,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 25851,
+              "median": 25945.5,
+              "maximum": 26075
+            },
+            "compute_cycles": {
+              "minimum": 5568,
+              "median": 5568.0,
+              "maximum": 5568
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 5736,
+              "median": 5774.0,
+              "maximum": 5831
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.00025851,
+              "median": 0.000259455,
+              "maximum": 0.00026075
+            },
+            "useful_gops": {
+              "minimum": 2.010692233940556,
+              "median": 2.020728233448997,
+              "maximum": 2.028114966539012
+            },
+            "useful_utilization": {
+              "minimum": 0.15708533077660594,
+              "median": 0.15786939323820293,
+              "maximum": 0.15844648176086032
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 17276,
+              "median": 17323.0,
+              "maximum": 17397
+            },
+            "compute_cycles": {
+              "minimum": 5568,
+              "median": 5568.0,
+              "maximum": 5568
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 1422,
+              "median": 1448.5,
+              "maximum": 1466
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.00017276,
+              "median": 0.00017323,
+              "maximum": 0.00017397
+            },
+            "useful_gops": {
+              "minimum": 3.013669023394838,
+              "median": 3.026542756722992,
+              "maximum": 3.0347765686501504
+            },
+            "useful_utilization": {
+              "minimum": 0.23544289245272174,
+              "median": 0.23644865286898376,
+              "maximum": 0.237091919425793
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1537205000058748,
+              "median": 1.15949110002839,
+              "maximum": 1.1678049999754876
+            },
+            "configure_seconds": {
+              "minimum": 0.19150059996172786,
+              "median": 0.1919435499876272,
+              "maximum": 0.1941815000027418
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5419389000162482,
+              "median": 0.5439559500082396,
+              "maximum": 0.5456010000198148
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.8385155000141822,
+              "median": 1.8400071499927435,
+              "maximum": 1.8718680000165477
+            },
+            "validation_seconds": {
+              "minimum": 0.031692300050053746,
+              "median": 0.03195229999255389,
+              "maximum": 0.03227970004081726
+            },
+            "resident_host_seconds": {
+              "minimum": 3.7297138000139967,
+              "median": 3.735492300009355,
+              "maximum": 3.775010100041982
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1531375999911688,
+              "median": 1.1590861000004224,
+              "maximum": 1.4651448000222445
+            },
+            "configure_seconds": {
+              "minimum": 0.18788130005123094,
+              "median": 0.19199029996525496,
+              "maximum": 0.2097040000371635
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5420803999877535,
+              "median": 0.5439345499908086,
+              "maximum": 0.5442243000143208
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.8397408000309952,
+              "median": 1.8400038999679964,
+              "maximum": 1.8730756999575533
+            },
+            "validation_seconds": {
+              "minimum": 0.030888100038282573,
+              "median": 0.03192829998442903,
+              "maximum": 0.032596500008367
+            },
+            "resident_host_seconds": {
+              "minimum": 3.728846399986651,
+              "median": 3.7349918500112835,
+              "maximum": 4.04119240003638
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.4888965596594177,
+        "median": 1.4969604629741986,
+        "maximum": 1.5037485582468282
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.007250399969052523,
+          "oracle_seconds": 0.0005330000421963632,
+          "input_upload_seconds": 0.6318170999875292
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_05_64x64x256": {
+      "unit": "benchmark/case_05_64x64x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 245760,
+        "allocation_bytes_checked": 2972160,
+        "guard_input_bytes_checked": 1989120
+      },
+      "macrotiles": 240,
+      "microtiles": 3840,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 46254,
+              "median": 46341.0,
+              "maximum": 46457
+            },
+            "compute_cycles": {
+              "minimum": 17856,
+              "median": 17856.0,
+              "maximum": 17856
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 13823,
+              "median": 13892.0,
+              "maximum": 13983
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.00046254,
+              "median": 0.00046341,
+              "maximum": 0.00046457
+            },
+            "useful_gops": {
+              "minimum": 4.51417870288654,
+              "median": 4.525478517943074,
+              "maximum": 4.533990573788213
+            },
+            "useful_utilization": {
+              "minimum": 0.35267021116301095,
+              "median": 0.35355300921430266,
+              "maximum": 0.3542180135772041
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 25160,
+              "median": 25209.0,
+              "maximum": 25249
+            },
+            "compute_cycles": {
+              "minimum": 17856,
+              "median": 17856.0,
+              "maximum": 17856
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_valid_bytes": {
+              "minimum": 16384,
+              "median": 16384.0,
+              "maximum": 16384
+            },
+            "input_wait_cycles": {
+              "minimum": 3449,
+              "median": 3476.0,
+              "maximum": 3504
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 264,
+              "median": 264.0,
+              "maximum": 264
+            },
+            "core_seconds": {
+              "minimum": 0.0002516,
+              "median": 0.00025209,
+              "maximum": 0.00025249
+            },
+            "useful_gops": {
+              "minimum": 8.305881421046378,
+              "median": 8.319060666032115,
+              "maximum": 8.335262321144674
+            },
+            "useful_utilization": {
+              "minimum": 0.6488969860192483,
+              "median": 0.649926614533759,
+              "maximum": 0.6511923688394277
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1532258000224829,
+              "median": 1.1587118500319775,
+              "maximum": 1.182737700000871
+            },
+            "configure_seconds": {
+              "minimum": 0.19135919999098405,
+              "median": 0.19199639998259954,
+              "maximum": 0.1923407000140287
+            },
+            "job_wall_seconds": {
+              "minimum": 0.543675200024154,
+              "median": 0.5440077500243206,
+              "maximum": 0.5443660999881104
+            },
+            "allocation_download_seconds": {
+              "minimum": 3.567283199983649,
+              "median": 3.5678833999845665,
+              "maximum": 3.583822499960661
+            },
+            "validation_seconds": {
+              "minimum": 0.03152249997947365,
+              "median": 0.031971000018529594,
+              "maximum": 0.032151399995200336
+            },
+            "resident_host_seconds": {
+              "minimum": 5.457004900032189,
+              "median": 5.462559150008019,
+              "maximum": 5.50257769995369
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1538051000097767,
+              "median": 1.1606807500356808,
+              "maximum": 1.2903941000113264
+            },
+            "configure_seconds": {
+              "minimum": 0.19145469996146858,
+              "median": 0.19202129999757744,
+              "maximum": 0.2063476000330411
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5434992000227794,
+              "median": 0.5439469499979168,
+              "maximum": 0.5468156999559142
+            },
+            "allocation_download_seconds": {
+              "minimum": 3.5634758000378497,
+              "median": 3.5679752500145696,
+              "maximum": 3.6479143000324257
+            },
+            "validation_seconds": {
+              "minimum": 0.03155940002761781,
+              "median": 0.03196505000232719,
+              "maximum": 0.03259780001826584
+            },
+            "resident_host_seconds": {
+              "minimum": 5.457658200000878,
+              "median": 5.464729750005063,
+              "maximum": 5.607033200038131
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.8337755950730723,
+        "median": 1.8391025507718517,
+        "maximum": 1.8429466835925103
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.02275280002504587,
+          "oracle_seconds": 0.0018921999726444483,
+          "input_upload_seconds": 2.357619300018996
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_06_128x128x16": {
+      "unit": "benchmark/case_06_128x128x16",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 983040,
+        "allocation_bytes_checked": 4938240,
+        "guard_input_bytes_checked": 1006080
+      },
+      "macrotiles": 960,
+      "microtiles": 15360,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 87294,
+              "median": 87503.0,
+              "maximum": 87733
+            },
+            "compute_cycles": {
+              "minimum": 9984,
+              "median": 9984.0,
+              "maximum": 9984
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 19195,
+              "median": 19225.5,
+              "maximum": 19277
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00087294,
+              "median": 0.00087503,
+              "maximum": 0.00087733
+            },
+            "useful_gops": {
+              "minimum": 0.5975949756648011,
+              "median": 0.5991657492273097,
+              "maximum": 0.6006002703507687
+            },
+            "useful_utilization": {
+              "minimum": 0.04668710747381259,
+              "median": 0.04680982415838357,
+              "maximum": 0.0469218961211538
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 59271,
+              "median": 59349.5,
+              "maximum": 59471
+            },
+            "compute_cycles": {
+              "minimum": 9984,
+              "median": 9984.0,
+              "maximum": 9984
+            },
+            "read_beats": {
+              "minimum": 2048,
+              "median": 2048.0,
+              "maximum": 2048
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 1705,
+              "median": 1709.0,
+              "maximum": 1740
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00059271,
+              "median": 0.000593495,
+              "maximum": 0.00059471
+            },
+            "useful_gops": {
+              "minimum": 0.8815859830841922,
+              "median": 0.8833907615686929,
+              "maximum": 0.884560746402119
+            },
+            "useful_utilization": {
+              "minimum": 0.06887390492845252,
+              "median": 0.06901490324755413,
+              "maximum": 0.06910630831266555
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.608893099997658,
+              "median": 4.619147849996807,
+              "maximum": 4.687537599995267
+            },
+            "configure_seconds": {
+              "minimum": 0.19068700005300343,
+              "median": 0.19201189998420887,
+              "maximum": 0.1923473000060767
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437466999865137,
+              "median": 0.5439929999993183,
+              "maximum": 0.5445065000094473
+            },
+            "allocation_download_seconds": {
+              "minimum": 5.871518999978434,
+              "median": 5.871927700005472,
+              "maximum": 5.8880212000221945
+            },
+            "validation_seconds": {
+              "minimum": 0.03143769997404888,
+              "median": 0.03189720000955276,
+              "maximum": 0.03218670003116131
+            },
+            "resident_host_seconds": {
+              "minimum": 11.217024900019169,
+              "median": 11.228018649970181,
+              "maximum": 11.29415460000746
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.610219500027597,
+              "median": 4.621049250010401,
+              "maximum": 4.655561099993065
+            },
+            "configure_seconds": {
+              "minimum": 0.1916592000052333,
+              "median": 0.19200910002109595,
+              "maximum": 0.19220819999463856
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436540999799035,
+              "median": 0.5439862000057474,
+              "maximum": 0.5937012999784201
+            },
+            "allocation_download_seconds": {
+              "minimum": 5.871494499966502,
+              "median": 5.871873400028562,
+              "maximum": 5.922768599994015
+            },
+            "validation_seconds": {
+              "minimum": 0.031643200025428087,
+              "median": 0.03190930001437664,
+              "maximum": 0.032250799995381385
+            },
+            "resident_host_seconds": {
+              "minimum": 11.217746899987105,
+              "median": 11.231179199996404,
+              "maximum": 11.293026999977883
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.4694797765663907,
+        "median": 1.4740491803113178,
+        "maximum": 1.4802011101550505
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.009774699981790036,
+          "oracle_seconds": 0.000784000032581389,
+          "input_upload_seconds": 1.2050605000113137
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_07_128x128x64": {
+      "unit": "benchmark/case_07_128x128x64",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 983040,
+        "allocation_bytes_checked": 4938240,
+        "guard_input_bytes_checked": 1006080
+      },
+      "macrotiles": 960,
+      "microtiles": 15360,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 103555,
+              "median": 103724.5,
+              "maximum": 103939
+            },
+            "compute_cycles": {
+              "minimum": 22272,
+              "median": 22272.0,
+              "maximum": 22272
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 22950,
+              "median": 23086.0,
+              "maximum": 23200
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00103555,
+              "median": 0.001037245,
+              "maximum": 0.00103939
+            },
+            "useful_gops": {
+              "minimum": 2.017675752123842,
+              "median": 2.0218482615473983,
+              "maximum": 2.0251576456955243
+            },
+            "useful_utilization": {
+              "minimum": 0.15763091813467514,
+              "median": 0.1579568954333905,
+              "maximum": 0.15821544106996283
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 60748,
+              "median": 60833.0,
+              "maximum": 60930
+            },
+            "compute_cycles": {
+              "minimum": 22272,
+              "median": 22272.0,
+              "maximum": 22272
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 1424,
+              "median": 1462.5,
+              "maximum": 1474
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00060748,
+              "median": 0.00060833,
+              "maximum": 0.0006093
+            },
+            "useful_gops": {
+              "minimum": 3.441903824060397,
+              "median": 3.4473920405043317,
+              "maximum": 3.452215710805294
+            },
+            "useful_utilization": {
+              "minimum": 0.26889873625471855,
+              "median": 0.2693275031644009,
+              "maximum": 0.26970435240666357
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.6087037999532185,
+              "median": 4.617341300006956,
+              "maximum": 4.634772700024769
+            },
+            "configure_seconds": {
+              "minimum": 0.1917558999848552,
+              "median": 0.19197800004621968,
+              "maximum": 0.19238270004279912
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436041999491863,
+              "median": 0.5439810499956366,
+              "maximum": 0.5443178999703377
+            },
+            "allocation_download_seconds": {
+              "minimum": 5.871632400027011,
+              "median": 5.871882500010543,
+              "maximum": 5.93550530000357
+            },
+            "validation_seconds": {
+              "minimum": 0.0315732000162825,
+              "median": 0.03190015000291169,
+              "maximum": 0.03239840001333505
+            },
+            "resident_host_seconds": {
+              "minimum": 11.216916099947412,
+              "median": 11.225522649998311,
+              "maximum": 11.296207199979108
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.609030599996913,
+              "median": 4.616828149999492,
+              "maximum": 4.636240000021644
+            },
+            "configure_seconds": {
+              "minimum": 0.19165829999838024,
+              "median": 0.1920281999919098,
+              "maximum": 0.20606820000102744
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5435158999753185,
+              "median": 0.5440267499652691,
+              "maximum": 0.5457863000337966
+            },
+            "allocation_download_seconds": {
+              "minimum": 5.8713928000070155,
+              "median": 5.871868900023401,
+              "maximum": 5.967800000042189
+            },
+            "validation_seconds": {
+              "minimum": 0.03133119997801259,
+              "median": 0.031910949997836724,
+              "maximum": 0.03250489995116368
+            },
+            "resident_host_seconds": {
+              "minimum": 11.216561400040518,
+              "median": 11.225963299977593,
+              "maximum": 11.313775599992368
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.699573280814049,
+        "median": 1.7047960158625466,
+        "maximum": 1.708314843120819
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.01941199996508658,
+          "oracle_seconds": 0.0019585000118240714,
+          "input_upload_seconds": 1.2096329999621958
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_08_128x128x256": {
+      "unit": "benchmark/case_08_128x128x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 983040,
+        "allocation_bytes_checked": 7887360,
+        "guard_input_bytes_checked": 3955200
+      },
+      "macrotiles": 960,
+      "microtiles": 15360,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 185226,
+              "median": 185395.0,
+              "maximum": 185685
+            },
+            "compute_cycles": {
+              "minimum": 71424,
+              "median": 71424.0,
+              "maximum": 71424
+            },
+            "read_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 55507,
+              "median": 55633.0,
+              "maximum": 55814
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00185226,
+              "median": 0.00185395,
+              "maximum": 0.00185685
+            },
+            "useful_gops": {
+              "minimum": 4.5176551686996795,
+              "median": 4.524721814928183,
+              "maximum": 4.5288501614244225
+            },
+            "useful_utilization": {
+              "minimum": 0.35294181005466246,
+              "median": 0.3534938917912643,
+              "maximum": 0.35381641886128296
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 79466,
+              "median": 79518.0,
+              "maximum": 79569
+            },
+            "compute_cycles": {
+              "minimum": 71424,
+              "median": 71424.0,
+              "maximum": 71424
+            },
+            "read_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_valid_bytes": {
+              "minimum": 65536,
+              "median": 65536.0,
+              "maximum": 65536
+            },
+            "input_wait_cycles": {
+              "minimum": 3439,
+              "median": 3477.5,
+              "maximum": 3508
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 1056,
+              "median": 1056.0,
+              "maximum": 1056
+            },
+            "core_seconds": {
+              "minimum": 0.00079466,
+              "median": 0.00079518,
+              "maximum": 0.00079569
+            },
+            "useful_gops": {
+              "minimum": 10.542558031394137,
+              "median": 10.549319650896653,
+              "maximum": 10.556222787103918
+            },
+            "useful_utilization": {
+              "minimum": 0.8236373462026668,
+              "median": 0.8241655977263009,
+              "maximum": 0.8247049052424936
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.609098399989307,
+              "median": 4.619538099999772,
+              "maximum": 4.637075000035111
+            },
+            "configure_seconds": {
+              "minimum": 0.1917692999704741,
+              "median": 0.19196629998623393,
+              "maximum": 0.19229959999211133
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437155999825336,
+              "median": 0.5439828500384465,
+              "maximum": 0.5442570999730378
+            },
+            "allocation_download_seconds": {
+              "minimum": 9.327251000038814,
+              "median": 9.327893649984617,
+              "maximum": 9.34398720000172
+            },
+            "validation_seconds": {
+              "minimum": 0.031665500020608306,
+              "median": 0.03191125000012107,
+              "maximum": 0.03209140000399202
+            },
+            "resident_host_seconds": {
+              "minimum": 14.672596399963368,
+              "median": 14.684325299982447,
+              "maximum": 14.71669730002759
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 4.616852600011043,
+              "median": 4.619730050035287,
+              "maximum": 4.648520799994003
+            },
+            "configure_seconds": {
+              "minimum": 0.19177159998798743,
+              "median": 0.19196714999270625,
+              "maximum": 0.19255170004907995
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5435027999919839,
+              "median": 0.543971649982268,
+              "maximum": 0.5442301000002772
+            },
+            "allocation_download_seconds": {
+              "minimum": 9.327366599987727,
+              "median": 9.327871949994005,
+              "maximum": 9.359815299976617
+            },
+            "validation_seconds": {
+              "minimum": 0.031560299976263195,
+              "median": 0.03195249999407679,
+              "maximum": 0.032117399969138205
+            },
+            "resident_host_seconds": {
+              "minimum": 14.680491100007202,
+              "median": 14.697091899986845,
+              "maximum": 14.71540859999368
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 2.3282811145043922,
+        "median": 2.3318512568148284,
+        "maximum": 2.3352502957239576
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.0414273000205867,
+          "oracle_seconds": 0.004481800016947091,
+          "input_upload_seconds": 4.671218500006944
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_09_256x256x16": {
+      "unit": "benchmark/case_09_256x256x16",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3932160,
+        "allocation_bytes_checked": 17717760,
+        "guard_input_bytes_checked": 1989120
+      },
+      "macrotiles": 3840,
+      "microtiles": 61440,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 349289,
+              "median": 349551.5,
+              "maximum": 349714
+            },
+            "compute_cycles": {
+              "minimum": 39936,
+              "median": 39936.0,
+              "maximum": 39936
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 76718,
+              "median": 76939.5,
+              "maximum": 77078
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.00349289,
+              "median": 0.003495515,
+              "maximum": 0.00349714
+            },
+            "useful_gops": {
+              "minimum": 0.5996763069250873,
+              "median": 0.5999550855783627,
+              "maximum": 0.6004059675512256
+            },
+            "useful_utilization": {
+              "minimum": 0.04684971147852245,
+              "median": 0.046871491060809595,
+              "maximum": 0.04690671621493949
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 231753,
+              "median": 231888.5,
+              "maximum": 232086
+            },
+            "compute_cycles": {
+              "minimum": 39936,
+              "median": 39936.0,
+              "maximum": 39936
+            },
+            "read_beats": {
+              "minimum": 8192,
+              "median": 8192.0,
+              "maximum": 8192
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 1719,
+              "median": 1729.5,
+              "maximum": 1783
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.00231753,
+              "median": 0.0023188849999999997,
+              "maximum": 0.00232086
+            },
+            "useful_gops": {
+              "minimum": 0.9036098687555475,
+              "median": 0.9043794756867019,
+              "maximum": 0.904908242827493
+            },
+            "useful_utilization": {
+              "minimum": 0.07059452099652715,
+              "median": 0.07065464653802359,
+              "maximum": 0.0706959564708979
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.43283349997364,
+              "median": 18.446639650006546,
+              "maximum": 18.52595200005453
+            },
+            "configure_seconds": {
+              "minimum": 0.19166539999423549,
+              "median": 0.1920075000380166,
+              "maximum": 0.19233210000675172
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5434773999731988,
+              "median": 0.5439856500015594,
+              "maximum": 0.5441509000374936
+            },
+            "allocation_download_seconds": {
+              "minimum": 20.847226199985016,
+              "median": 20.855734450015007,
+              "maximum": 21.1704180999659
+            },
+            "validation_seconds": {
+              "minimum": 0.031169099966064095,
+              "median": 0.03190384997287765,
+              "maximum": 0.03226219996577129
+            },
+            "resident_host_seconds": {
+              "minimum": 40.01640830002725,
+              "median": 40.0448605499696,
+              "maximum": 40.36641109996708
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.433788099966478,
+              "median": 18.46088714999496,
+              "maximum": 18.572421799995936
+            },
+            "configure_seconds": {
+              "minimum": 0.19142469996586442,
+              "median": 0.19199600000865757,
+              "maximum": 0.1921786000020802
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437261000042781,
+              "median": 0.5439516500046011,
+              "maximum": 0.5443636000272818
+            },
+            "allocation_download_seconds": {
+              "minimum": 20.84725679998519,
+              "median": 20.863406699994812,
+              "maximum": 20.9465976000065
+            },
+            "validation_seconds": {
+              "minimum": 0.03161700000055134,
+              "median": 0.031867849989794195,
+              "maximum": 0.0320631000213325
+            },
+            "resident_host_seconds": {
+              "minimum": 40.01702819997445,
+              "median": 40.06663210003171,
+              "maximum": 40.255002600024454
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.5056896061240852,
+        "median": 1.5073259594205721,
+        "maximum": 1.508994489823217
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.026812999974936247,
+          "oracle_seconds": 0.0008440000237897038,
+          "input_upload_seconds": 2.355957899999339
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_10_256x256x64": {
+      "unit": "benchmark/case_10_256x256x64",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3932160,
+        "allocation_bytes_checked": 17717760,
+        "guard_input_bytes_checked": 1989120
+      },
+      "macrotiles": 3840,
+      "microtiles": 61440,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 414373,
+              "median": 414541.0,
+              "maximum": 414818
+            },
+            "compute_cycles": {
+              "minimum": 89088,
+              "median": 89088.0,
+              "maximum": 89088
+            },
+            "read_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 92138,
+              "median": 92477.5,
+              "maximum": 92539
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.00414373,
+              "median": 0.00414541,
+              "maximum": 0.00414818
+            },
+            "useful_gops": {
+              "minimum": 2.0222381863853545,
+              "median": 2.023589464433517,
+              "maximum": 2.024409891571121
+            },
+            "useful_utilization": {
+              "minimum": 0.15798735831135582,
+              "median": 0.15809292690886853,
+              "maximum": 0.1581570227789938
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 234677,
+              "median": 234784.0,
+              "maximum": 234924
+            },
+            "compute_cycles": {
+              "minimum": 89088,
+              "median": 89088.0,
+              "maximum": 89088
+            },
+            "read_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 1422,
+              "median": 1452.5,
+              "maximum": 1478
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.00234677,
+              "median": 0.0023478400000000003,
+              "maximum": 0.00234924
+            },
+            "useful_gops": {
+              "minimum": 3.5707752294359025,
+              "median": 3.572904457899539,
+              "maximum": 3.574533507757471
+            },
+            "useful_utilization": {
+              "minimum": 0.2789668147996799,
+              "median": 0.2791331607734015,
+              "maximum": 0.2792604302935524
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.432468899991363,
+              "median": 18.440556449990254,
+              "maximum": 18.777021900052205
+            },
+            "configure_seconds": {
+              "minimum": 0.19156779994955286,
+              "median": 0.1919408499961719,
+              "maximum": 0.19216530001722276
+            },
+            "job_wall_seconds": {
+              "minimum": 0.543747199990321,
+              "median": 0.5439820499741472,
+              "maximum": 0.5442786000203341
+            },
+            "allocation_download_seconds": {
+              "minimum": 20.84711909998441,
+              "median": 20.84745244999067,
+              "maximum": 21.34025670000119
+            },
+            "validation_seconds": {
+              "minimum": 0.03146769996965304,
+              "median": 0.03188475000206381,
+              "maximum": 0.03235709998989478
+            },
+            "resident_host_seconds": {
+              "minimum": 40.016003900032956,
+              "median": 40.024011500005145,
+              "maximum": 40.85267950000707
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.432344499975443,
+              "median": 18.439779249980347,
+              "maximum": 18.597401299979538
+            },
+            "configure_seconds": {
+              "minimum": 0.19182870001532137,
+              "median": 0.19201559998327866,
+              "maximum": 0.19218189996900037
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5436183999991044,
+              "median": 0.5439635500079021,
+              "maximum": 0.5441778000094928
+            },
+            "allocation_download_seconds": {
+              "minimum": 20.84717919997638,
+              "median": 20.847395899996627,
+              "maximum": 20.863314800022636
+            },
+            "validation_seconds": {
+              "minimum": 0.03164980001747608,
+              "median": 0.03190500001073815,
+              "maximum": 0.03214819997083396
+            },
+            "resident_host_seconds": {
+              "minimum": 40.0157064999803,
+              "median": 40.02320124997641,
+              "maximum": 40.180515700019896
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.764549386184468,
+        "median": 1.7656296582765074,
+        "maximum": 1.766761525812196
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.04535349999787286,
+          "oracle_seconds": 0.004163700039498508,
+          "input_upload_seconds": 2.36327450000681
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_11_256x256x256": {
+      "unit": "benchmark/case_11_256x256x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3932160,
+        "allocation_bytes_checked": 23616000,
+        "guard_input_bytes_checked": 7887360
+      },
+      "macrotiles": 3840,
+      "microtiles": 61440,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 740890,
+              "median": 741063.5,
+              "maximum": 741391
+            },
+            "compute_cycles": {
+              "minimum": 285696,
+              "median": 285696.0,
+              "maximum": 285696
+            },
+            "read_beats": {
+              "minimum": 131072,
+              "median": 131072.0,
+              "maximum": 131072
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 222250,
+              "median": 222368.5,
+              "maximum": 222504
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.0074089,
+              "median": 0.0074106350000000005,
+              "maximum": 0.00741391
+            },
+            "useful_gops": {
+              "minimum": 4.525875280385113,
+              "median": 4.527875411653289,
+              "maximum": 4.528935739448501
+            },
+            "useful_utilization": {
+              "minimum": 0.353584006280087,
+              "median": 0.3537402665354132,
+              "maximum": 0.35382310464441413
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 296951,
+              "median": 297001.0,
+              "maximum": 297058
+            },
+            "compute_cycles": {
+              "minimum": 285696,
+              "median": 285696.0,
+              "maximum": 285696
+            },
+            "read_beats": {
+              "minimum": 131072,
+              "median": 131072.0,
+              "maximum": 131072
+            },
+            "write_beats": {
+              "minimum": 32768,
+              "median": 32768.0,
+              "maximum": 32768
+            },
+            "write_valid_bytes": {
+              "minimum": 262144,
+              "median": 262144.0,
+              "maximum": 262144
+            },
+            "input_wait_cycles": {
+              "minimum": 3443,
+              "median": 3471.5,
+              "maximum": 3508
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4224,
+              "median": 4224.0,
+              "maximum": 4224
+            },
+            "core_seconds": {
+              "minimum": 0.00296951,
+              "median": 0.00297001,
+              "maximum": 0.00297058
+            },
+            "useful_gops": {
+              "minimum": 11.295582680823273,
+              "median": 11.297750512624537,
+              "maximum": 11.299652804671478
+            },
+            "useful_utilization": {
+              "minimum": 0.8824673969393182,
+              "median": 0.8826367587987919,
+              "maximum": 0.8827853753649592
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.433041400043294,
+              "median": 18.475538400001824,
+              "maximum": 18.63424559996929
+            },
+            "configure_seconds": {
+              "minimum": 0.19164209999144077,
+              "median": 0.19197975000133738,
+              "maximum": 0.192791799956467
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5432234000181779,
+              "median": 0.5439953000168316,
+              "maximum": 0.5601369999931194
+            },
+            "allocation_download_seconds": {
+              "minimum": 27.759025200037286,
+              "median": 27.80808754998725,
+              "maximum": 28.022246999957133
+            },
+            "validation_seconds": {
+              "minimum": 0.026309799985028803,
+              "median": 0.03186019996064715,
+              "maximum": 0.03199950000271201
+            },
+            "resident_host_seconds": {
+              "minimum": 46.92819240002427,
+              "median": 47.008623000001535,
+              "maximum": 47.35320119996322
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 18.43280650000088,
+              "median": 18.468854950013338,
+              "maximum": 18.71440120000625
+            },
+            "configure_seconds": {
+              "minimum": 0.19182169996201992,
+              "median": 0.192001249990426,
+              "maximum": 0.19213100004708394
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5438082999899052,
+              "median": 0.5440111000207253,
+              "maximum": 0.5600178999593481
+            },
+            "allocation_download_seconds": {
+              "minimum": 27.758743500045966,
+              "median": 27.791141749970848,
+              "maximum": 27.99907279998297
+            },
+            "validation_seconds": {
+              "minimum": 0.03170309995766729,
+              "median": 0.03189789998577908,
+              "maximum": 0.0330738999764435
+            },
+            "resident_host_seconds": {
+              "minimum": 46.93080570001621,
+              "median": 46.991918149986304,
+              "maximum": 47.33725579996826
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 2.4942466048572256,
+        "median": 2.4951397143216845,
+        "maximum": 2.496336182221055
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.09366770001361147,
+          "oracle_seconds": 0.016498499957378954,
+          "input_upload_seconds": 9.290984400024172
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_12_31x33x17": {
+      "unit": "benchmark/case_12_31x33x17",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 61380,
+        "allocation_bytes_checked": 625920,
+        "guard_input_bytes_checked": 380400
+      },
+      "macrotiles": 120,
+      "microtiles": 1200,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 7332,
+              "median": 7369.0,
+              "maximum": 7450
+            },
+            "compute_cycles": {
+              "minimum": 800,
+              "median": 800.0,
+              "maximum": 800
+            },
+            "read_beats": {
+              "minimum": 285,
+              "median": 285.0,
+              "maximum": 285
+            },
+            "write_beats": {
+              "minimum": 527,
+              "median": 527.0,
+              "maximum": 527
+            },
+            "write_valid_bytes": {
+              "minimum": 4092,
+              "median": 4092.0,
+              "maximum": 4092
+            },
+            "input_wait_cycles": {
+              "minimum": 1911,
+              "median": 1933.0,
+              "maximum": 1962
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 124,
+              "median": 124.0,
+              "maximum": 124
+            },
+            "core_seconds": {
+              "minimum": 7.332e-05,
+              "median": 7.369000000000001e-05,
+              "maximum": 7.45e-05
+            },
+            "useful_gops": {
+              "minimum": 0.4668724832214765,
+              "median": 0.4720043512081287,
+              "maximum": 0.4743862520458265
+            },
+            "useful_utilization": {
+              "minimum": 0.03647441275167785,
+              "median": 0.03687533993813506,
+              "maximum": 0.037061425941080195
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 6476,
+              "median": 6501.0,
+              "maximum": 6549
+            },
+            "compute_cycles": {
+              "minimum": 800,
+              "median": 800.0,
+              "maximum": 800
+            },
+            "read_beats": {
+              "minimum": 285,
+              "median": 285.0,
+              "maximum": 285
+            },
+            "write_beats": {
+              "minimum": 527,
+              "median": 527.0,
+              "maximum": 527
+            },
+            "write_valid_bytes": {
+              "minimum": 4092,
+              "median": 4092.0,
+              "maximum": 4092
+            },
+            "input_wait_cycles": {
+              "minimum": 1223,
+              "median": 1235.0,
+              "maximum": 1251
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 124,
+              "median": 124.0,
+              "maximum": 124
+            },
+            "core_seconds": {
+              "minimum": 6.476e-05,
+              "median": 6.501e-05,
+              "maximum": 6.549e-05
+            },
+            "useful_gops": {
+              "minimum": 0.5311039853412735,
+              "median": 0.53502538071066,
+              "maximum": 0.5370907967881408
+            },
+            "useful_utilization": {
+              "minimum": 0.041492498854786994,
+              "median": 0.0417988578680203,
+              "maximum": 0.041960218499073505
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.4169518999988213,
+              "median": 0.4294745000079274,
+              "maximum": 0.4325675000436604
+            },
+            "configure_seconds": {
+              "minimum": 0.19183319999137893,
+              "median": 0.19201619998784736,
+              "maximum": 0.19222460000310093
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437441000249237,
+              "median": 0.5439726999902632,
+              "maximum": 0.5441866999608465
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.8158054999657907,
+              "median": 0.8159987000108231,
+              "maximum": 0.8162446999922395
+            },
+            "validation_seconds": {
+              "minimum": 0.03175959998043254,
+              "median": 0.03201124997576699,
+              "maximum": 0.03223919996526092
+            },
+            "resident_host_seconds": {
+              "minimum": 1.96893380000256,
+              "median": 1.9815123500011396,
+              "maximum": 1.984466100053396
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.4170882999897003,
+              "median": 0.43076429999200627,
+              "maximum": 0.4324981000390835
+            },
+            "configure_seconds": {
+              "minimum": 0.1915933999698609,
+              "median": 0.19197435001842678,
+              "maximum": 0.19219849997898564
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437840000377037,
+              "median": 0.543972700019367,
+              "maximum": 0.5443835000041872
+            },
+            "allocation_download_seconds": {
+              "minimum": 0.8155519000138156,
+              "median": 0.8159485999785829,
+              "maximum": 0.816130899998825
+            },
+            "validation_seconds": {
+              "minimum": 0.03178520000074059,
+              "median": 0.0319761999999173,
+              "maximum": 0.03510819998336956
+            },
+            "resident_host_seconds": {
+              "minimum": 1.9690639000036754,
+              "median": 1.9827219999860972,
+              "maximum": 1.9844500999897718
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.122764103348112,
+        "median": 1.132464879969528,
+        "maximum": 1.1441967717140662
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.0013981999945826828,
+          "oracle_seconds": 0.00015480001457035542,
+          "input_upload_seconds": 0.35048700001789257
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_13_65x63x255": {
+      "unit": "benchmark/case_13_65x63x255",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 245700,
+        "allocation_bytes_checked": 2987520,
+        "guard_input_bytes_checked": 2004720
+      },
+      "macrotiles": 360,
+      "microtiles": 4320,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 52249,
+              "median": 52343.0,
+              "maximum": 52502
+            },
+            "compute_cycles": {
+              "minimum": 20016,
+              "median": 20016.0,
+              "maximum": 20016
+            },
+            "read_beats": {
+              "minimum": 10208,
+              "median": 10208.0,
+              "maximum": 10208
+            },
+            "write_beats": {
+              "minimum": 2080,
+              "median": 2080.0,
+              "maximum": 2080
+            },
+            "write_valid_bytes": {
+              "minimum": 16380,
+              "median": 16380.0,
+              "maximum": 16380
+            },
+            "input_wait_cycles": {
+              "minimum": 17385,
+              "median": 17482.0,
+              "maximum": 17536
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 268,
+              "median": 268.0,
+              "maximum": 268
+            },
+            "core_seconds": {
+              "minimum": 0.00052249,
+              "median": 0.0005234300000000001,
+              "maximum": 0.00052502
+            },
+            "useful_gops": {
+              "minimum": 3.9778484629156985,
+              "median": 3.989931797493966,
+              "maximum": 3.997109992535742
+            },
+            "useful_utilization": {
+              "minimum": 0.31076941116528894,
+              "median": 0.3117134216792161,
+              "maximum": 0.31227421816685486
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 26403,
+              "median": 26445.5,
+              "maximum": 26559
+            },
+            "compute_cycles": {
+              "minimum": 20016,
+              "median": 20016.0,
+              "maximum": 20016
+            },
+            "read_beats": {
+              "minimum": 10208,
+              "median": 10208.0,
+              "maximum": 10208
+            },
+            "write_beats": {
+              "minimum": 2080,
+              "median": 2080.0,
+              "maximum": 2080
+            },
+            "write_valid_bytes": {
+              "minimum": 16380,
+              "median": 16380.0,
+              "maximum": 16380
+            },
+            "input_wait_cycles": {
+              "minimum": 3457,
+              "median": 3479.5,
+              "maximum": 3521
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 268,
+              "median": 268.0,
+              "maximum": 268
+            },
+            "core_seconds": {
+              "minimum": 0.00026403,
+              "median": 0.00026445500000000003,
+              "maximum": 0.00026559
+            },
+            "useful_gops": {
+              "minimum": 7.863436123348018,
+              "median": 7.897184801644798,
+              "maximum": 7.9098966026587885
+            },
+            "useful_utilization": {
+              "minimum": 0.6143309471365639,
+              "median": 0.6169675626284998,
+              "maximum": 0.6179606720827179
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1689535000477917,
+              "median": 1.1799380499869585,
+              "maximum": 1.1841406999737956
+            },
+            "configure_seconds": {
+              "minimum": 0.19177239999407902,
+              "median": 0.1920098999980837,
+              "maximum": 0.19218370004091412
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5437293000286445,
+              "median": 0.5439956500194967,
+              "maximum": 0.5442880000337027
+            },
+            "allocation_download_seconds": {
+              "minimum": 3.5836491999798454,
+              "median": 3.5839142499899026,
+              "maximum": 3.5843759000417776
+            },
+            "validation_seconds": {
+              "minimum": 0.031530599982943386,
+              "median": 0.031961050030076876,
+              "maximum": 0.03219070000341162
+            },
+            "resident_host_seconds": {
+              "minimum": 5.488865600025747,
+              "median": 5.499802599981194,
+              "maximum": 5.504201700037811
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 1.1694736999925226,
+              "median": 1.1819825500133447,
+              "maximum": 1.1842722999863327
+            },
+            "configure_seconds": {
+              "minimum": 0.19150499999523163,
+              "median": 0.19198614996275865,
+              "maximum": 0.19220940000377595
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5438040000153705,
+              "median": 0.5440076499944553,
+              "maximum": 0.5449454999761656
+            },
+            "allocation_download_seconds": {
+              "minimum": 3.583000099984929,
+              "median": 3.583883250015788,
+              "maximum": 3.5842977999709547
+            },
+            "validation_seconds": {
+              "minimum": 0.03153320000274107,
+              "median": 0.03198440000414848,
+              "maximum": 0.032243599998764694
+            },
+            "resident_host_seconds": {
+              "minimum": 5.489357199985534,
+              "median": 5.50197050004499,
+              "maximum": 5.504252100014128
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.9721059972105996,
+        "median": 1.9791579982600145,
+        "maximum": 1.9863796299799479
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.01957960001891479,
+          "oracle_seconds": 0.0012566999648697674,
+          "input_upload_seconds": 2.361471799958963
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_14_1x64x256": {
+      "unit": "benchmark/case_14_1x64x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3840,
+        "allocation_bytes_checked": 1036800,
+        "guard_input_bytes_checked": 1021440
+      },
+      "macrotiles": 120,
+      "microtiles": 480,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 6217,
+              "median": 6248.0,
+              "maximum": 6277
+            },
+            "compute_cycles": {
+              "minimum": 2232,
+              "median": 2232.0,
+              "maximum": 2232
+            },
+            "read_beats": {
+              "minimum": 2112,
+              "median": 2112.0,
+              "maximum": 2112
+            },
+            "write_beats": {
+              "minimum": 32,
+              "median": 32.0,
+              "maximum": 32
+            },
+            "write_valid_bytes": {
+              "minimum": 256,
+              "median": 256.0,
+              "maximum": 256
+            },
+            "input_wait_cycles": {
+              "minimum": 3710,
+              "median": 3742.5,
+              "maximum": 3771
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4,
+              "median": 4.0,
+              "maximum": 4
+            },
+            "core_seconds": {
+              "minimum": 6.217e-05,
+              "median": 6.248000000000001e-05,
+              "maximum": 6.277e-05
+            },
+            "useful_gops": {
+              "minimum": 0.5220328182252669,
+              "median": 0.5244558392989429,
+              "maximum": 0.5270709345343413
+            },
+            "useful_utilization": {
+              "minimum": 0.04078381392384897,
+              "median": 0.040973112445229914,
+              "maximum": 0.04117741676049542
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 4966,
+              "median": 5011.5,
+              "maximum": 5036
+            },
+            "compute_cycles": {
+              "minimum": 2232,
+              "median": 2232.0,
+              "maximum": 2232
+            },
+            "read_beats": {
+              "minimum": 2112,
+              "median": 2112.0,
+              "maximum": 2112
+            },
+            "write_beats": {
+              "minimum": 32,
+              "median": 32.0,
+              "maximum": 32
+            },
+            "write_valid_bytes": {
+              "minimum": 256,
+              "median": 256.0,
+              "maximum": 256
+            },
+            "input_wait_cycles": {
+              "minimum": 2583,
+              "median": 2623.5,
+              "maximum": 2653
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 4,
+              "median": 4.0,
+              "maximum": 4
+            },
+            "core_seconds": {
+              "minimum": 4.966e-05,
+              "median": 5.0115000000000004e-05,
+              "maximum": 5.036e-05
+            },
+            "useful_gops": {
+              "minimum": 0.6506751389992057,
+              "median": 0.6538561374075198,
+              "maximum": 0.6598469593233991
+            },
+            "useful_utilization": {
+              "minimum": 0.050833995234312944,
+              "median": 0.05108251073496249,
+              "maximum": 0.05155054369714056
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.032957299961708486,
+              "median": 0.04516725000576116,
+              "maximum": 0.04858129995409399
+            },
+            "configure_seconds": {
+              "minimum": 0.19180349999805912,
+              "median": 0.19200429998454638,
+              "maximum": 0.19290969998110086
+            },
+            "job_wall_seconds": {
+              "minimum": 0.543048599967733,
+              "median": 0.5439898500044364,
+              "maximum": 0.5442048000404611
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.3118164999759756,
+              "median": 1.3119863499887288,
+              "maximum": 1.3122026000055484
+            },
+            "validation_seconds": {
+              "minimum": 0.03175409999676049,
+              "median": 0.031961350003257394,
+              "maximum": 0.03209789999527857
+            },
+            "resident_host_seconds": {
+              "minimum": 2.0808685999945737,
+              "median": 2.0931474500102922,
+              "maximum": 2.0966155999922194
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.03278479998698458,
+              "median": 0.046373500023037195,
+              "maximum": 0.04874450003262609
+            },
+            "configure_seconds": {
+              "minimum": 0.19179720000829548,
+              "median": 0.1920068000035826,
+              "maximum": 0.19249439996201545
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5432551000267267,
+              "median": 0.544005500007188,
+              "maximum": 0.5443086000159383
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.3116143000079319,
+              "median": 1.3119667499850038,
+              "maximum": 1.3123781000031158
+            },
+            "validation_seconds": {
+              "minimum": 0.03169459995115176,
+              "median": 0.03194414998870343,
+              "maximum": 0.032164899981580675
+            },
+            "resident_host_seconds": {
+              "minimum": 2.080818000016734,
+              "median": 2.094276650022948,
+              "maximum": 2.096761900000274
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.2375844259038538,
+        "median": 1.2461514997336192,
+        "maximum": 1.2597664115988723
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.010129999951459467,
+          "oracle_seconds": 0.0004592000041157007,
+          "input_upload_seconds": 1.2204770999960601
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    },
+    "benchmark/case_15_64x1x256": {
+      "unit": "benchmark/case_15_64x1x256",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3840,
+        "allocation_bytes_checked": 1267200,
+        "guard_input_bytes_checked": 1251840
+      },
+      "macrotiles": 120,
+      "microtiles": 480,
+      "distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 8256,
+              "median": 8296.0,
+              "maximum": 8328
+            },
+            "compute_cycles": {
+              "minimum": 2232,
+              "median": 2232.0,
+              "maximum": 2232
+            },
+            "read_beats": {
+              "minimum": 2112,
+              "median": 2112.0,
+              "maximum": 2112
+            },
+            "write_beats": {
+              "minimum": 64,
+              "median": 64.0,
+              "maximum": 64
+            },
+            "write_valid_bytes": {
+              "minimum": 256,
+              "median": 256.0,
+              "maximum": 256
+            },
+            "input_wait_cycles": {
+              "minimum": 3673,
+              "median": 3712.5,
+              "maximum": 3741
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 128,
+              "median": 128.0,
+              "maximum": 128
+            },
+            "core_seconds": {
+              "minimum": 8.256e-05,
+              "median": 8.296e-05,
+              "maximum": 8.328e-05
+            },
+            "useful_gops": {
+              "minimum": 0.39346781940441883,
+              "median": 0.39498554093678456,
+              "maximum": 0.3968992248062016
+            },
+            "useful_utilization": {
+              "minimum": 0.03073967339097022,
+              "median": 0.030858245385686295,
+              "maximum": 0.031007751937984496
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "job_cycles": {
+              "minimum": 5981,
+              "median": 6029.0,
+              "maximum": 6071
+            },
+            "compute_cycles": {
+              "minimum": 2232,
+              "median": 2232.0,
+              "maximum": 2232
+            },
+            "read_beats": {
+              "minimum": 2112,
+              "median": 2112.0,
+              "maximum": 2112
+            },
+            "write_beats": {
+              "minimum": 64,
+              "median": 64.0,
+              "maximum": 64
+            },
+            "write_valid_bytes": {
+              "minimum": 256,
+              "median": 256.0,
+              "maximum": 256
+            },
+            "input_wait_cycles": {
+              "minimum": 2554,
+              "median": 2602.0,
+              "maximum": 2645
+            },
+            "read_stall_cycles": {
+              "minimum": 0,
+              "median": 0.0,
+              "maximum": 0
+            },
+            "write_stall_cycles": {
+              "minimum": 128,
+              "median": 128.0,
+              "maximum": 128
+            },
+            "core_seconds": {
+              "minimum": 5.981e-05,
+              "median": 6.029e-05,
+              "maximum": 6.071e-05
+            },
+            "useful_gops": {
+              "minimum": 0.5397463350354142,
+              "median": 0.5435063858019572,
+              "maximum": 0.5478682494566126
+            },
+            "useful_utilization": {
+              "minimum": 0.042167682424641736,
+              "median": 0.04246143639077791,
+              "maximum": 0.04280220698879786
+            }
+          }
+        }
+      },
+      "host_distributions": {
+        "0": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.28982070001075044,
+              "median": 0.30096140000387095,
+              "maximum": 0.310887300001923
+            },
+            "configure_seconds": {
+              "minimum": 0.19155579997459427,
+              "median": 0.19198235002113506,
+              "maximum": 0.19222859997535124
+            },
+            "job_wall_seconds": {
+              "minimum": 0.543746999988798,
+              "median": 0.5440075000224169,
+              "maximum": 0.5599837999907322
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.5655288999550976,
+              "median": 1.5679764499946032,
+              "maximum": 1.583895299991127
+            },
+            "validation_seconds": {
+              "minimum": 0.031831600004807115,
+              "median": 0.03196729999035597,
+              "maximum": 0.03212250000797212
+            },
+            "resident_host_seconds": {
+              "minimum": 2.5937363000120968,
+              "median": 2.605112850025762,
+              "maximum": 2.6229377000126988
+            }
+          }
+        },
+        "1": {
+          "samples": 30,
+          "metrics": {
+            "c_initialize_seconds": {
+              "minimum": 0.2889046000200324,
+              "median": 0.2992717000306584,
+              "maximum": 0.3040065999957733
+            },
+            "configure_seconds": {
+              "minimum": 0.19182099995668977,
+              "median": 0.1919880000059493,
+              "maximum": 0.1922677000402473
+            },
+            "job_wall_seconds": {
+              "minimum": 0.5435918999719433,
+              "median": 0.5440090499760117,
+              "maximum": 0.544246600009501
+            },
+            "allocation_download_seconds": {
+              "minimum": 1.567779499979224,
+              "median": 1.5679872499895282,
+              "maximum": 1.5839577000006102
+            },
+            "validation_seconds": {
+              "minimum": 0.03168450004886836,
+              "median": 0.031962100008968264,
+              "maximum": 0.0321496999822557
+            },
+            "resident_host_seconds": {
+              "minimum": 2.592765400011558,
+              "median": 2.6032886000175495,
+              "maximum": 2.6227144000004046
+            }
+          }
+        }
+      },
+      "paired_cycle_speedup": {
+        "minimum": 1.3658375885356613,
+        "median": 1.3767409364912293,
+        "maximum": 1.3924092961043304
+      },
+      "case_preparations": [
+        {
+          "preparation_seconds": 0.009293900046031922,
+          "oracle_seconds": 0.0004558999789878726,
+          "input_upload_seconds": 1.2214644000050612
+        }
+      ],
+      "original_files": 64,
+      "original_sealed_files": 63
+    }
+  },
+  "full_grid_benchmark_complete": true,
+  "parent_full_qualification_complete": true,
+  "raw_output_byte_replay": false,
+  "continuous_duration_carried_from_interrupted_run": false
+}

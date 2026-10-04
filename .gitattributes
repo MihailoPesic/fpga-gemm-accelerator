@@ -55,8 +55,17 @@ results/ddr_overlap/timing_predicate/final_build/maximum/method.py -text !eol
 results/ddr_overlap/timing_predicate/final_build/endurance/method.py -text !eol
 results/**/*.txt linguist-generated=true -whitespace
 results/**/*.xml linguist-generated=true
+# Archived methods, snapshots and validators are evidence; canonical RTL,
+# host, tests, scripts and formal sources retain normal GitHub treatment.
+results/**/*.py linguist-generated=true
+results/**/*.sv linguist-generated=true
+results/**/*.v linguist-generated=true
+results/**/*.tcl linguist-generated=true
+results/**/*.sh linguist-generated=true
 results/**/*_coverage.json linguist-generated=true
 results/**/coverage.json linguist-generated=true
+results/**/results.json linguist-generated=true
+results/**/results.csv linguist-generated=true
 results/**/hardware/results.json linguist-generated=true
 results/**/hardware/results.csv linguist-generated=true
 results/**/board/results.json linguist-generated=true

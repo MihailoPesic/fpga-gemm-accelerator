@@ -1,0 +1,110 @@
+{
+  "state": "PASS",
+  "utc_started": "2026-10-04T17:23:41.169502+00:00",
+  "utc_finished": "2026-10-04T20:23:56.071951+00:00",
+  "port": "COM11",
+  "baud": 1000000,
+  "build_id": 2638998349,
+  "bitstream_sha256_bytes": "d187f51bac37c3682641243f1db112579ad14c8ac45a1b3df52e704bf58c8327",
+  "manifest_sha256_bytes": "b3843b33f232829180a5263150d72f1898cf42d56cb1da24f0590914e373706a",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/qualify_release.py": "fdfe9d020e3b89e565fbfb6e3246a0a93f4ba1184138c83a7c44d28dc5af7381",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "helper_sha256_bytes": "0ba7362b7a46bab1eca96c4ff411a9d5bc7f00069f247dd46d0eb837176556b0",
+  "keep_awake_source_sha256_bytes": "6ccb9b49953ce444eb19ff844c32ed78cae8441f44aa545db3508283ecf37936",
+  "original_execution_sha256_bytes": "71fce2de0d3882c22430d971f91adfae8cfabb61ee09d8b06efa00be265090bb",
+  "original_native_receipt_sha256_bytes": "9f9fd86c9d649a3271f7d71f80487a6bb3736af25a819e5ea300dc7acfec6d0e",
+  "recovery_record_sha256_bytes": "a39b1310e27b3ea22b873efaeab48ebc58dd236b88224e7cc2b6c2efba3b0b29",
+  "startup_scope": "Same reported cold-loaded image; read-only reconnect confirmed retained job384 and memory; no reset/reprogramming or timed-out START replay",
+  "duration_scope": "New endurance starts from zero in one new connection; interrupted duration is never accumulated",
+  "sleep_inhibitor_scope": "Per-command ES_CONTINUOUS|ES_SYSTEM_REQUIRED; no permanent power-plan change; released by child exit",
+  "reused_completed_units": [
+    {
+      "unit": "maximum",
+      "original_seal_sha256_bytes": "2edc1cb3e82e984fda649b4dadbfabacc53813bd3daf841edb852ecb65521ad9",
+      "copied_seal_sha256_bytes": "2edc1cb3e82e984fda649b4dadbfabacc53813bd3daf841edb852ecb65521ad9",
+      "original_utc_finished": "2026-10-04T16:40:46.892417+00:00",
+      "checked_counts": {
+        "completed_jobs": 2,
+        "compared_outputs": 2097152,
+        "allocation_bytes_checked": 9437952,
+        "guard_input_bytes_checked": 1049344
+      },
+      "scope": "Exact previously sealed completed unit; not a rerun"
+    },
+    {
+      "unit": "benchmark/case_11_256x256x256",
+      "original_seal_sha256_bytes": "7089b6d629640e85275a6ac47f035781124cb295b16d3b2b4cbbf5af33ca8f07",
+      "copied_seal_sha256_bytes": "7089b6d629640e85275a6ac47f035781124cb295b16d3b2b4cbbf5af33ca8f07",
+      "original_utc_finished": "2026-10-04T16:19:05.605003+00:00",
+      "checked_counts": {
+        "completed_jobs": 60,
+        "compared_outputs": 3932160,
+        "allocation_bytes_checked": 23616000,
+        "guard_input_bytes_checked": 7887360
+      },
+      "scope": "Exact previously sealed completed unit; not a rerun"
+    }
+  ],
+  "stages": [
+    {
+      "name": "full_qualification",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\keep_awake.py",
+        "--",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\qualify_release.py",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_release_p8_t32_1mbaud\\build.json",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_board_t32_recovered_measurements",
+        "--modes",
+        "both",
+        "--oracle",
+        "numpy",
+        "--samples",
+        "30",
+        "--duration",
+        "1800",
+        "--seed",
+        "20261004",
+        "--phase",
+        "all",
+        "--resume"
+      ],
+      "utc_started": "2026-10-04T17:23:41.595234+00:00",
+      "utc_finished": "2026-10-04T20:23:56.043683+00:00",
+      "actual_exit_code": 0,
+      "console_sha256_bytes": "046d4e1ce0d3a047747fd9f72d7c50848ba4358d18b1fabdb104c163be689cc8"
+    }
+  ],
+  "summary_sha256_bytes": "c34f96fe44ccb4f3989fae4100ddc456193dbb6909adc879c0fc96f6ae9868c3",
+  "available_completed_units": [
+    "maximum",
+    "endurance",
+    "benchmark/case_00_32x32x16",
+    "benchmark/case_01_32x32x64",
+    "benchmark/case_02_32x32x256",
+    "benchmark/case_03_64x64x16",
+    "benchmark/case_04_64x64x64",
+    "benchmark/case_05_64x64x256",
+    "benchmark/case_06_128x128x16",
+    "benchmark/case_07_128x128x64",
+    "benchmark/case_08_128x128x256",
+    "benchmark/case_09_256x256x16",
+    "benchmark/case_10_256x256x64",
+    "benchmark/case_11_256x256x256",
+    "benchmark/case_12_31x33x17",
+    "benchmark/case_13_65x63x255",
+    "benchmark/case_14_1x64x256",
+    "benchmark/case_15_64x1x256"
+  ]
+}

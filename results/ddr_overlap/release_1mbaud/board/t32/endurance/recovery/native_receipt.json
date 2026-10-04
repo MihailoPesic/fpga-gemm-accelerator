@@ -1,0 +1,7 @@
+{
+  "actual_exit_code": 0,
+  "tool_chunk_id": "39a5da",
+  "observed_receipt_saved_utc": "2026-10-04T17:31:45.543127+00:00",
+  "scope": "Actual exec_command completion of inspect_after_standby.py; read-only recovery only",
+  "record_sha256_bytes": "a39b1310e27b3ea22b873efaeab48ebc58dd236b88224e7cc2b6c2efba3b0b29"
+}

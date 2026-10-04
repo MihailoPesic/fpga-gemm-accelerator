@@ -1,0 +1,20 @@
+﻿[
+    {
+        "utc":  "2026-10-04T17:07:39.1283206Z",
+        "Id":  566,
+        "ProviderName":  "Microsoft-Windows-Kernel-Power",
+        "Message":  "The system session has transitioned from 108 to 109.\r\n\r\nReason InputAccelerometer \r\n\r\nBootId: 83"
+    },
+    {
+        "utc":  "2026-10-04T17:07:39.1282092Z",
+        "Id":  507,
+        "ProviderName":  "Microsoft-Windows-Kernel-Power",
+        "Message":  "The system is exiting Modern Standby \r\n\r\nReason: Input Keyboard."
+    },
+    {
+        "utc":  "2026-10-04T16:59:58.5677019Z",
+        "Id":  566,
+        "ProviderName":  "Microsoft-Windows-Kernel-Power",
+        "Message":  "The system session has transitioned from 107 to 108.\r\n\r\nReason SessionUnlock \r\n\r\nBootId: 83"
+    }
+]

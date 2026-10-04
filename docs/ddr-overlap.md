@@ -323,7 +323,7 @@ unchanged DDR2 model. Larger two-dimensional and fault/stall workloads are
 covered by the portable suites. Vendor runtime uses an accelerated UART baud;
 physical baud and throughput require board measurements.
 
-## Measured overlap on the board
+## Measured overlap on the board at 115200 baud
 
 Build `0x2c680af7` uses P8/T32, four reads outstanding and a 100 MHz core.
 After both 48-job qualification plans passed, it ran 30 matched pairs at
@@ -365,3 +365,82 @@ response. USB-UART upload/download, host polling and validation are separate
 times; the 115200-baud host link dominates the wall time of these extensive
 readback checks. The workload does not qualify maximum dimensions, endurance,
 warm reset or the full benchmark grid.
+
+## Dense board comparison at 1 Mbaud
+
+The separately routed P8/T32 image `0x9d4beb4d` runs the same MODE0/1
+architecture at 100 MHz and uses 1 Mbaud for host transport. Its
+[dense record](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+checks 30 matched pairs at M=N=K=256, with identical operands and fresh C
+sentinels for each sample. All 3,932,160 outputs and complete allocations pass.
+
+```text
+256x256x256, same image and inputs     serial        overlap
+Job cycles, median                   741,063.5     297,001
+DDR-job time, median                 7.410635 ms   2.970010 ms
+Useful GOPS, median                  4.527875      11.297751
+Active compute cycles                285,696       285,696
+Accepted read / write beats          131,072/32,768 in both modes
+Useful result bytes written          262,144 in both modes
+Input-wait cycles, median            222,368.5     3,471.5
+```
+
+There are 64 macrotiles and 1,024 microtile launches. Each active schedule
+takes K+3P-1 = 279 cycles, giving 285,696 compute cycles. Overlap raises the
+fraction of the job occupied by these schedules from 38.6% to 96.2%, without
+changing the arithmetic or transfer volume. The measured median paired
+speedup is 2.495140x. Array fill/drain remains inside COMPUTE_CYCLES, so the
+useful arithmetic rate is still below the 12.8-GOPS ideal ceiling.
+
+The accepted payload is 1,048,576 input bytes plus 262,144 result bytes per
+job. Dividing this by complete-job time describes effective job traffic;
+it is not an isolated read/write bandwidth test or a DDR maximum. Read-channel
+stall counters measure held R beats, not the delay between AR and the first R.
+These distinctions matter when interpreting short-K workloads and tails.
+
+The same image's [maximum-size checks](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md)
+complete one 1024x1024x256 job per mode. Overlap takes 46.64784 ms / 11.509020
+GOPS; all 2,097,152 outputs across both modes are independently recomputed
+from the retained DDR input bytes. These are single samples, separate from
+the 30-pair dense distribution. Warm reset remains unqualified.
+
+## Shape grid and the remaining bottleneck
+
+The [complete T32 grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md)
+contains 30 samples per mode for 16 shapes. All 960 jobs compare every output
+and complete guarded allocations. The following medians use the same image
+and 100 MHz clock; cycle ratios compare the two series medians.
+
+```text
+Shape           Serial cycles  Overlap cycles  Cycle ratio  Overlap GOPS
+32x32x256       11,569         11,584          0.999x       4.526
+64x64x256       46,341         25,209          1.838x       8.319
+128x128x256     185,395        79,518          2.331x       10.549
+256x256x256     741,063.5      297,001         2.495x       11.298
+256x256x16      349,551.5      231,888.5       1.507x       0.904
+256x256x64      414,541        234,784         1.766x       3.573
+```
+
+A single T32 macrotile has no following tile with which to overlap work.
+At K=256, increasing the number of macrotiles from 1 to 64 raises the fraction
+of job cycles occupied by active compute schedules from 38.5% to 96.2%.
+At 256x256, however, increasing K from 16 to 64 multiplies useful arithmetic
+by four while increasing overlap latency by only 1.25%. This shows a large
+cost that is independent of the reduction length at short K.
+
+The result path is a likely contributor. Its local-bank adapter delivers one
+64-bit C word every four clock edges without stalls. The writer collects a
+complete burst before offering it and waits for its B response before
+collecting the next burst. A full T32 tile has 512 result beats: about 2,048
+collection cycles and 512 W handshakes across the tile's bursts, plus
+control/response time. Two result sets permit overlap but do not increase
+this writer's service rate. This is an inference from RTL and job counters;
+an isolated store-duration measurement is still needed to assign the limit.
+
+The skinny shapes also expose layout costs. Both 1x64x256 and 64x1x256 perform
+the same arithmetic, launch eight microtiles and write 256 useful C bytes.
+The former writes two 16-beat bursts; the latter writes 64 one-beat bursts
+with half the byte strobes enabled. Their overlap median latencies are
+50.115 us and 60.290 us. Arithmetic count alone does not predict latency:
+row ends, tail strobes and response overhead affect the memory schedule.
+These observations do not establish the DDR device's bandwidth ceiling.

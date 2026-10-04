@@ -8,26 +8,6 @@ memory boundary. The earlier BRAM preview and DDR diagnostic retain their
 separate evidence. See [status.md](status.md) for the dated checkpoint and
 [README.md](README.md) for the documentation index.
 
-| Build | Working behavior | Evidence boundary |
-| --- | --- | --- |
-| BRAM preview | UART loads A/BT, P4/T32 computes C, host compares every result | 180 board jobs, 90,510 compared outputs; no DDR |
-| AXI DDR diagnostic | UART starts pattern/compare traffic through the custom burst engine, SmartConnect and MIG | Three board runs after cold power-up; no GEMM |
-| Row burst sequencer | Plans row addresses, burst splits and final-byte masks | Four standalone metadata tests; data movement is tested in the adapter below |
-| Serial tile DMA integration | Loads A/BT, runs the production GEMM engine and stores C through AXI RAM | 20 portable tests across four builds; 108 jobs and 11,039 compared outputs; no MIG or board timing |
-| Serial DDR job integration | Validates/snapshots descriptors and iterates external macrotiles through DMA/compute/store | 154 AXI RAM jobs, 86,322 checked outputs; register unit tests are separate |
-| Serial DDR packet subsystem | Framed commands upload A/BT, configure/run jobs and download C through shared host/DMA ownership | 24 tests, 28 jobs and 5,056 checked outputs across four builds; byte transport and AXI RAM |
-| Native DDR baseline | Historical UART bridge using MIG's native application port | Retained platform history; different protocol/address interface |
-| Serial DDR GEMM board | UART/register commands and shared host/DMA access connect the complete matrix path to MIG | P4 `0x4898db67` and P8 `0x01caf61c`, T32 at 100 MHz: each passes vendor/routed gates and 48 board jobs with 49,593 outputs checked; cold start only. Original P4 also passes the maximum-shape check |
-| Concurrent read DMA board | Four validated read buffers and ordered bank metadata feed the same serial macrotile schedule | P8/T32 `0xd558a543`: vendor, routed/reset review and all 48 board jobs pass; dense median 4.529 useful GOPS at 100 MHz |
-| Selectable overlap board | Independent DMA and two operand/result sets overlap load, compute and store under tagged ownership | P8/T32 `0x2c680af7`: 156 jobs, 344,946 compared outputs; 64x64x256 overlap median 8.345 GOPS and 1.837x paired speedup at 100 MHz |
-| 1 Mbaud selectable board | Same compute/memory architecture with a separately built UART setting | P8/T32 `0x9d4beb4d`: 30 matched pairs at 256x256x256; 11.298 useful GOPS and 2.495x paired speedup; remaining qualification is recorded in status |
-
-These are build configurations of one repository, selecting top modules and
-shared RTL. Generated Vivado projects live under `build/`; integration connects
-module interfaces rather than merging generated project directories. The
-[preview](../results/preview/README.md) and
-[DDR platform](../results/ddr_platform/README.md) have separate bitstream identities.
-
 ## Current system at a glance
 
 ```text
@@ -99,6 +79,28 @@ cycles from 741,063.5 to 297,001 by hiding transfer/control work around those
 schedules. That counter comparison explains the observed speedup; it does
 not independently measure the DDR device's maximum bandwidth.
 See the [matched board measurements](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
+
+## Checkpoint history
+
+| Build | Working behavior | Evidence boundary |
+| --- | --- | --- |
+| BRAM preview | UART loads A/BT, P4/T32 computes C, host compares every result | 180 board jobs, 90,510 compared outputs; no DDR |
+| AXI DDR diagnostic | UART starts pattern/compare traffic through the custom burst engine, SmartConnect and MIG | Three board runs after cold power-up; no GEMM |
+| Row burst sequencer | Plans row addresses, burst splits and final-byte masks | Four standalone metadata tests; data movement is tested in the adapter below |
+| Serial tile DMA integration | Loads A/BT, runs the production GEMM engine and stores C through AXI RAM | 20 portable tests across four builds; 108 jobs and 11,039 compared outputs; no MIG or board timing |
+| Serial DDR job integration | Validates/snapshots descriptors and iterates external macrotiles through DMA/compute/store | 154 AXI RAM jobs, 86,322 checked outputs; register unit tests are separate |
+| Serial DDR packet subsystem | Framed commands upload A/BT, configure/run jobs and download C through shared host/DMA ownership | 24 tests, 28 jobs and 5,056 checked outputs across four builds; byte transport and AXI RAM |
+| Native DDR baseline | Historical UART bridge using MIG's native application port | Retained platform history; different protocol/address interface |
+| Serial DDR GEMM board | UART/register commands and shared host/DMA access connect the complete matrix path to MIG | P4 `0x4898db67` and P8 `0x01caf61c`, T32 at 100 MHz: each passes vendor/routed gates and 48 board jobs with 49,593 outputs checked; cold start only. Original P4 also passes the maximum-shape check |
+| Concurrent read DMA board | Four validated read buffers and ordered bank metadata feed the same serial macrotile schedule | P8/T32 `0xd558a543`: vendor, routed/reset review and all 48 board jobs pass; dense median 4.529 useful GOPS at 100 MHz |
+| Selectable overlap board | Independent DMA and two operand/result sets overlap load, compute and store under tagged ownership | P8/T32 `0x2c680af7`: 156 jobs, 344,946 compared outputs; 64x64x256 overlap median 8.345 GOPS and 1.837x paired speedup at 100 MHz |
+| 1 Mbaud selectable board | Same compute/memory architecture with a separately built UART setting | P8/T32 `0x9d4beb4d`: complete 960-job shape grid, both maximum-size modes and a fresh 592-job sustained run; dense overlap reaches 11.298 useful GOPS and 2.495x paired speedup |
+
+These are build configurations of one repository, selecting top modules and
+shared RTL. Generated Vivado projects live under `build/`; integration connects
+module interfaces rather than merging generated project directories. The
+[preview](../results/preview/README.md) and
+[DDR platform](../results/ddr_platform/README.md) have separate bitstream identities.
 
 ## Existing compute core
 
@@ -408,7 +410,7 @@ The wrapper does not assign tile identities or buffer lifetimes. The internal
 [tagged scheduler](tile-scheduler.md) supplies those owners and independent
 load, compute and store cursors. It reserves a whole result set before launch,
 retains it through successful store completion and supports both serial and
-overlap schedules. The default build uses the original serial adapter.
+overlap schedules. The `ENABLE_OVERLAP=0` build uses the original serial adapter.
 `ENABLE_OVERLAP=1` connects the duplex path and scheduler to the real packet
 and register interfaces through `gemm_ddr_overlap_job`. This shell validates
 and snapshots descriptors, acknowledges actual START acceptance, excludes

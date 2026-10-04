@@ -11,6 +11,10 @@ Thirty matched pairs measure 11.298 useful GOPS at 256x256x256, with a 2.495x
 median paired speedup over serial mode on the same image.
 The same image's [maximum-size checks](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md)
 compare and independently replay 2,097,152 outputs across both modes.
+Its [complete shape grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md)
+passes 960 jobs and 15,981,960 output comparisons across 16 shapes, with 30
+samples per mode. Its [fresh sustained run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md)
+passes 592 mixed jobs and 550,634 outputs over 30.06 host-paced minutes.
 The [115200-baud maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md)
 also compares all 1,048,576 outputs on that image.
 Its [sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md)
