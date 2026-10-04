@@ -23,6 +23,8 @@ image. [Testing](testing.md) gives reproduction commands.
 | 1 Mbaud vendor and physical integration | Three framed-UART jobs through SmartConnect/MIG/DDR model; routed setup/hold, clocks, CDC, reset selectors and bus-skew review | [Own T32 implementation](../results/ddr_overlap/release_1mbaud/t32/README.md) |
 | 1 Mbaud dense correctness | 30 matched serial/overlap pairs; 3,932,160 output comparisons and full guarded allocations | [Dense board record](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md) |
 | 1 Mbaud maximum-size correctness | One 1024x1024x256 job per mode; 2,097,152 outputs and complete allocation snapshots; independent INT64 recomputation | [Maximum-size record](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md) |
+| 1 Mbaud T32 shape grid | 960 jobs across 16 shapes, 30 samples per mode; 15,981,960 outputs and complete allocations checked | [Full benchmark grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md) |
+| 1 Mbaud T32 repeatability | Fresh 30.06-minute host-paced run; 592 mixed jobs, 550,634 outputs, both modes and zero retries | [Sustained run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md) |
 | 115200-baud checkpoint correctness | 48 jobs per mode, 30 matched benchmark pairs and a complete 1024x1024x256 MODE1 comparison; input/padding/guard checks | [Board plan and comparison](../results/ddr_overlap/timing_predicate/final_build/board/README.md), [maximum shape](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md) |
 | 115200-baud checkpoint repeatability | 368 mixed jobs, 184 per mode, 342,286 outputs and 5,319,624 input/padding/guard bytes checked over 30.52 continuous host-paced minutes | [Sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md) |
 
@@ -32,6 +34,11 @@ scheduler/job records cover modes, ownership transitions and faults. The
 corrected integrated checkpoint passes 154 tests and 1,056 complete jobs,
 including 800 seeded shell jobs. Directed cases supplement random seeds.
 Seed counts and covered bins are not exhaustive proof of the job space.
+
+The new T32 grid and sustained run compare every output and complete allocation
+during board execution. Their retained records support independent metadata,
+traffic, schedule and provenance checks; no raw per-job output or UART replay
+is claimed. The maximum-size record retains the bytes needed for numerical replay.
 
 The portable checks use behavioral AXI memory and an independent wide-integer
 oracle. Their fault injection does not model a physically failing DDR device.
@@ -48,8 +55,7 @@ margin across boards and temperatures.
 The [clock-review addendum](../results/ddr_overlap/timing_predicate/final_build/clock_review_addendum.md)
 corrects one historical derived table count without changing the sealed reports.
 
-The remaining measured-release gates are the new T32 image's complete shape
-and sustained-workload checks, the T8 baseline's physical qualification, the controlled
+The remaining measured-release gates are the T8 baseline's physical qualification, the controlled
 T8-serial/T32-serial/T32-overlap grid, and final release identity. The original
 specification also asks for a separately measured resident-array run and
 read-only/write-only/mixed DDR bandwidth. COMPUTE_CYCLES within a DDR job

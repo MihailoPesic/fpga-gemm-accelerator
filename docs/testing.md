@@ -78,7 +78,8 @@ per-phase CSV plus source and artifact hashes. Its software-driven tile-helper
 cycles are separate from the full job counter and physical DDR measurements.
 
 `make test-tile-overlap PYTHON=.venv/bin/python` checks opt-in concurrent local
-ports at P4/P8 and T8/T32. Default production ports remain serial. The tests
+ports at P4/P8 and T8/T32. The standalone tile's default ports remain serial;
+the selectable DDR build explicitly enables concurrent ports. The tests
 check other-buffer load/read during compute, independent buffer IDs, complete
 arithmetic/readback, ownership on START, response stalls and reset. Results
 go to `build/test_tile_overlap/`; choose a fresh `--build-dir` to retain runs.

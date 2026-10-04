@@ -22,7 +22,13 @@ The first new-image [endurance attempt](../results/ddr_overlap/release_1mbaud/bo
 failed after 381 validated jobs when READ_REG timed out around a recorded
 Windows Modern Standby interval. A read-only reconnect independently checked
 the pending job's 64 retained outputs and guards; this does not turn the failed
-run into a pass. Its replacement starts from zero elapsed endurance time.
+run into a pass. Its [replacement](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md)
+starts from zero elapsed endurance time and passes 592 mixed jobs, 550,634
+outputs and full allocations over 30.06 continuous host-paced minutes, with
+zero transport retries. The [complete T32 benchmark grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md)
+also passes: 16 shapes, 30 samples per mode, 960 jobs and 15,981,960 output
+comparisons. The recovered parent and child both exit zero; the reused dense
+and maximum-size units retain their original times and seals.
 
 The 115200-baud selectable image `0x2c680af7` retains its separate 156-job,
 maximum-shape and sustained-workload records below. Those checks do not qualify
@@ -60,6 +66,8 @@ preserves all seven distributions, matched workloads and source changes.
 | [Selectable P8 DDR GEMM](../results/ddr_overlap/timing_predicate/final_build/board/README.md) | 48 jobs per mode plus 30 matched pairs; 344,946 compared outputs; 64x64x256 overlap median 25,130 cycles, 8.345 useful GOPS |
 | [1 Mbaud P8 dense comparison](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md) | 30 matched pairs at 256x256x256; 3,932,160 outputs; overlap median 297,001 cycles / 11.298 useful GOPS; 2.495x paired speedup |
 | [1 Mbaud P8 maximum-size check](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md) | 1024x1024x256 in both modes; 2,097,152 outputs; one sample per mode and complete independent byte replay |
+| [1 Mbaud T32 shape grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md) | 960 jobs, 16 shapes, 30 samples per mode; 15,981,960 outputs and complete guarded allocations checked |
+| [1 Mbaud T32 repeatability](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md) | 592 mixed jobs and 550,634 outputs over 30.06 continuous host-paced minutes; both modes and zero retries |
 | [Matched P4/P8 comparison](../results/ddr_gemm/p8_scaling/README.md) | 1.60247x dense DDR-job speedup; unchanged matrix bytes, layouts, host and RTL sources, with P changed |
 | [115200-baud P8 maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md) | Image 0x2c680af7, MODE1: 1024x1024x256; all 1,048,576 outputs checked; one job at 11.512 useful GOPS |
 | [Repeatability](../results/ddr_gemm/gather4/repeatability/README.md) | Optimized P4 image: 432 jobs over 33.32 minutes, host-paced; no mismatches |
@@ -103,7 +111,7 @@ for READ1 / READ4 on 32x32x256: 1.260x. Compute and C-store cycles and all
 traffic match; 2,548 saved cycles belong to input loading. This is not the
 full register JOB_CYCLES measurement or a physical speedup.
 
-## Next gates
+## Overlap implementation
 
 The first prerequisite is now [verified in portable simulation](../results/tile_overlap_ports/README.md).
 `CONCURRENT_PORTS=1` permits disjoint operand loads and completed-result reads
@@ -112,7 +120,7 @@ and pending/stalled responses retain ownership. Twelve concurrent-port tests
 pass across all four geometries: 36 jobs and 6,817 computed outputs checked,
 with full result-matrix readbacks. The default serial engine passes its eight
 tests/164 jobs, and P8/T32 four-read packet integration passes ten tests/eight
-jobs. Three private ownership defects are detected. The default build selects
+jobs. Three private ownership defects are detected. The original serial hierarchy selects
 `CONCURRENT_PORTS=0` and rejects MODE=1. The selectable overlap build enables
 these ports in the now board-qualified image `0x2c680af7`.
 
@@ -185,13 +193,15 @@ The latter checks 368 jobs, 342,286 outputs and both modes with zero transport
 retries. It is a continuous host-paced repeatability check; no raw output-byte
 or UART replay is claimed for that run.
 
-1. Finish the new T32 image's shape and sustained-workload checks and qualify
-   the T8 MODE0 baseline at 1 Mbaud. The T32 dense case already passes at this baud.
+## Remaining release work
+
+1. Qualify the T8 MODE0 baseline at 1 Mbaud. The T32 shape grid, maximum-size
+   checks and sustained workload now pass at this baud.
    The [FIFO and reduced scheduler proofs](../results/buffer_formal/README.md)
    now complement the bounded row-planner checks. Preserve fault/transport
    regressions on the final source and recheck image identities after changes.
-2. Measure P8/T8 serial, P8/T32 serial and P8/T32 overlap at the same clock
-   across the specified benchmark shapes. Retain all outputs, raw counters,
+2. Measure P8/T8 serial at the same clock and combine it with the completed
+   P8/T32 serial and overlap grid. Compare every output; retain raw counters,
    source/bitstream identities and host/DDR measurement boundaries.
 3. Complete the benchmark plots, remaining coverage summary and demonstration
    for the final release, retaining exact image identities and failure records.

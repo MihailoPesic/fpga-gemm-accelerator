@@ -20,11 +20,13 @@
   },
   "latest_board_smoke": "results/ddr_platform/board/summary.json",
   "latest_native_board_smoke": "results/native_board/2026-09-30.json",
-  "latest_gemm_board_results": "results/ddr_overlap/release_1mbaud/board/t32/dense/manifest.json",
+  "latest_gemm_board_results": "results/ddr_overlap/release_1mbaud/board/t32/benchmark/manifest.json",
+  "latest_gemm_dense_comparison": "results/ddr_overlap/release_1mbaud/board/t32/dense/manifest.json",
   "previous_115200_selectable_gemm_board_results": "results/ddr_overlap/timing_predicate/final_build/board/manifest.json",
   "latest_gemm_maximum_shape_results": "results/ddr_overlap/release_1mbaud/board/t32/maximum/manifest.json",
   "previous_115200_gemm_maximum_shape_results": "results/ddr_overlap/timing_predicate/final_build/maximum/manifest.json",
-  "latest_gemm_endurance_results": "results/ddr_overlap/timing_predicate/final_build/endurance/manifest.json",
+  "latest_gemm_endurance_results": "results/ddr_overlap/release_1mbaud/board/t32/endurance/manifest.json",
+  "previous_115200_gemm_endurance_results": "results/ddr_overlap/timing_predicate/final_build/endurance/manifest.json",
   "latest_bram_preview_board_results": "results/preview/README.md",
   "latest_serial_ddr_gemm_vendor_simulation": "results/ddr_gemm/read4/host_geometry/vendor/manifest.json",
   "latest_serial_ddr_gemm_implementation": "results/ddr_gemm/read4/host_geometry/routed/manifest.json",
@@ -33,7 +35,7 @@
   "serial_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0xd558a543, 100 MHz, serial, 115200 baud; 48 jobs, 49593 outputs and 689628 input/padding/guard bytes checked after cold power-up; separate from selectable image 0x2c680af7",
   "latest_selectable_ddr_gemm_implementation": "results/ddr_overlap/release_1mbaud/t32/manifest.json",
   "selectable_ddr_gemm_board_qualified": true,
-  "selectable_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0x9d4beb4d, 100 MHz, 1000000 baud; 30 matched serial/overlap pairs at 256x256x256 with 3932160 output comparisons; one maximum-size job per mode with 2097152 outputs independently replayed; full guarded allocations and cold-start procedure; full shape grid and sustained-workload qualification pending; no warm-reset or full-memory qualification",
+  "selectable_ddr_gemm_board_qualification_scope": "P8/T32 READ4 image 0x9d4beb4d, 100 MHz, 1000000 baud; 960 jobs across 16 benchmark shapes with 15981960 output comparisons, including 30 matched dense serial/overlap pairs; one maximum-size job per mode with 2097152 outputs independently replayed; a fresh 592-job mixed run over 30.06 continuous host-paced minutes; full guarded allocations and cold-start procedure; T8 controlled comparison pending; no warm-reset or full-memory qualification",
   "previous_115200_selectable_gemm_qualification_scope": "P8/T32 READ4 image 0x2c680af7, 100 MHz, 115200 baud; 48 jobs per mode plus 30 matched pairs, one MODE1 maximum-shape job, and 368 mixed jobs over 30.52 continuous host-paced minutes; cold-start procedure; no warm-reset or full-memory qualification",
   "latest_axi_mig_simulation": "results/axi/vendor/summary.json",
   "latest_axi_platform_simulation": "results/ddr_platform/vendor_pipeline/summary.json",
@@ -44,6 +46,7 @@
   "axi_platform_board_qualification_scope": "Three seeded bounded DDR diagnostics after cold power-up; 4096 selected bytes across 16 locations; no full-memory, warm-reset or GEMM claim",
   "board_part": "digilentinc.com:nexys-a7-50t:part0:1.3",
   "board_repository_commit": null,
+  "board_repository_scope": "Required by preserved native-project XCI flow; current scripted AXI/GEMM flow uses explicit device, versioned pins and derived MIG settings without a board-part preset",
   "vivado": "2026.1 build 6511674",
   "native_baseline_source_commit": "0b1538337693c73ef95560db4551f2812241d849",
   "historical_bitstream_sha256": "5280552d062cdf91f33dd617de16442ed004332ebbf325a617e978eb572a77bf",
@@ -71,9 +74,9 @@
   "open_gates": [
     "physical label/revision",
     "physical DDR2 speed/temperature suffix and complete electrical timing compatibility",
-    "immutable board-file identity",
+    "immutable board-file identity for the preserved native-baseline history",
     "warm-reset DDR clock/CKE qualification",
     "DDR transfer/control performance characterization",
-    "remaining 1 Mbaud T32 shapes and sustained workload, T8 baseline, controlled benchmark grid and final release identity"
+    "1 Mbaud T8 baseline, controlled benchmark comparison and final release identity"
   ]
 }
