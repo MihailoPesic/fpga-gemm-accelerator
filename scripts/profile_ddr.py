@@ -185,13 +185,15 @@ def run_profiles(args, out, recorded, before):
             identity = 0xd1000000+4*256+t
             runner = get_runner('icarus')
             runner.build(sources=RTL, hdl_toplevel='gemm_ddr_core',
-                         parameters={'P': 4, 'T': t, 'BUILD_ID': identity, 'CORE_HZ': 100000000},
+                         parameters={'P': 4, 'T': t, 'BUILD_ID': identity, 'CORE_HZ': 100000000,
+                                     'READ_SLOTS': 1, 'ENABLE_OVERLAP': 0},
                          build_dir=build, build_args=['-g2012', '-Wall'],
                          always=True, timescale=('1ns', '1ps'))
             result = runner.test(hdl_toplevel='gemm_ddr_core', test_module='profile_ddr_core',
                                  build_dir=build, test_dir=build,
                                  extra_env={'GEMM_P': '4', 'GEMM_T': str(t),
                                             'GEMM_BUILD_ID': str(identity),
+                                            'GEMM_READ_SLOTS': '1', 'GEMM_VERSION': str(0x100),
                                             'GEMM_PROFILE_MODEL': model,
                                             'GEMM_PROFILE': str(build/'profile.json')})
             tests = list(ET.parse(result).iter('testcase'))
