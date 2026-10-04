@@ -1,0 +1,13 @@
+{
+  "console_excerpt.txt": "627b2462d9f631d884348f5b8a276729f62075595e3e92e0155a9d310ffcdfb2",
+  "oracle_baseline.sv": "18ca4ec3e8fc0910d83ea802abdb37f8098242e2d55f8e6d0110403317faa1b3",
+  "oracle_baseline_icarus.txt": "ab3398eba8985989f72162a9ba435bfa643f59bcc2c109b385351c5b7abca29d",
+  "oracle_baseline_xsim.txt": "3b183ae00a6ec658ac0b6f066d0d8d69acce546e730d5195edb8357087a37d61",
+  "oracle_intermediates.sv": "51226910d2919caa462e613693a79a64716960e5f5eb347271a556480cf53325",
+  "oracle_intermediates_icarus.txt": "ab3398eba8985989f72162a9ba435bfa643f59bcc2c109b385351c5b7abca29d",
+  "oracle_intermediates_xsim.txt": "415ee2aa6dca338c5a3459b3b08298152afd6a3b2722b47897b34cf3d179b0cc",
+  "README.md": "ca23179853752976ad5ac4da93c1aa8832639894d902c5a9a0cbed36da5e7fd9",
+  "reference_check.json": "0debc8d1e6a8ac811889830de81731fb1ffbc4c69e0bd58f10e3ff85f33cf662",
+  "summary.json": "b81bb52d863e2116908263b3dd355235ceb861473bf248a4d8b4626facb4b7ef",
+  "warnings_excerpt.txt": "e331b07847edb1aea668133918c1a320467748e45d62c34124115ff6af8c4a92"
+}

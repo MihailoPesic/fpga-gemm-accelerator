@@ -1,0 +1,60 @@
+Complete local console SHA-256 (raw bytes): 727d80dc22ee3fb4b71718e71f418d845a1f9059f246fe3745e8ef7902963108
+Selected original lines; all warnings and failure lines are retained.
+
+14: WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+43: "xvlog --incr --relax -L uvm -L axi_vip_v1_1_23 -L smartconnect_v1_0 -L xilinx_vip -prj tb_ddr_gemm_vlog.prj"
+213: WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v:252]
+339: INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v" into library xil_defaultlib
+341: INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_phy_init
+619: "xvhdl --incr --relax -prj tb_ddr_gemm_vhdl.prj"
+645: "xelab --incr --debug off --relax --mt auto -generic_top "P=4" -generic_top "T=32" -generic_top "SIM_BAUD=10000000" -generic_top "BUILD_ID=1217977191" -L xil_defaultlib -L proc_sys_reset_v5_0_17 -L smartconnect_v1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_37 -L axi_vip_v1_1_23 -L xlconstant_v1_1_11 -L util_vector_logic_v2_0_5 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_ddr_gemm_behav xil_defaultlib.tb_ddr_gemm xil_defaultlib.glbl -log elaborate.log"
+653: Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug off --relax --mt auto -generic_top P=4 -generic_top T=32 -generic_top SIM_BAUD=10000000 -generic_top BUILD_ID=1217977191 -L xil_defaultlib -L proc_sys_reset_v5_0_17 -L smartconnect_v1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_37 -L axi_vip_v1_1_23 -L xlconstant_v1_1_11 -L util_vector_logic_v2_0_5 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_ddr_gemm_behav xil_defaultlib.tb_ddr_gemm xil_defaultlib.glbl -log elaborate.log 
+661: WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 1024 for port 'dbg_poc' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/axi_ddr_bd_mig_0_mig_sim.v:1278]
+663: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1671]
+665: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_phase_locked_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1679]
+667: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v:1339]
+669: WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 1 for port 'fine_adjust_lane_cnt' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1962]
+671: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:366]
+673: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:373]
+675: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:751]
+677: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:758]
+679: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:765]
+681: WARNING: [VRFC 10-5021] port 'complex_oclk_prech_req' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1317]
+933: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_A' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:709]
+935: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_B' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:708]
+937: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_C' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:707]
+939: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_D' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_gather4/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:706]
+947: Compiling module xil_defaultlib.mig_7series_v4_2_ddr_phy_init(tC...
+1089: Built simulation snapshot tb_ddr_gemm_behav
+1096:    with args "tb_ddr_gemm_behav -key {Behavioral:sim_1:Functional:tb_ddr_gemm} -tclbatch {tb_ddr_gemm.tcl} -protoinst "protoinst_files/bd_4940.protoinst" -protoinst "protoinst_files/axi_ddr_bd.protoinst" -log {simulate.log}"
+1119: WARNING: file design.txt could not be opened
+1120:  *** Warning: The analog data file design.txt for XADC instance tb_ddr_gemm(BUILD_ID=32'b01001000100110001101101101100111).dut.platform.platform.axi_ddr_bd_i.mig.u_axi_ddr_bd_mig_0_mig.temp_mon_enabled.u_tempmon.xadc_supplied_temperature.XADC_inst was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+1174: DDR_GEMM_ORACLE_PASS jobs=2 outputs=16
+1175: DDR_GEMM_SIM_CONFIG p=4 t=32 sim_baud=10000000 build_id=4898db67
+1176: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_ddr_gemm_behav' loaded.
+1178: launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:02:46 . Memory (MB): peak = 670.816 ; gain = 50.863
+1179: tb_ddr_gemm(BUILD_ID=32'b01001000100110001101101101100111).memory.cmd_task: at time 5505335.0 ps WARNING: 200 us is required before CKE goes active.
+1180: PHY_INIT: Memory Initialization completed at 46734475.0 ps
+1181: PHY_INIT: Phaser_In Phase Locked at 52734475.0 ps
+1182: PHY_INIT: Phaser_In DQSFOUND completed at 97674475.0 ps
+1183: PHY_INIT: Read Leveling Stage 1 completed at 157934475.0 ps
+1184: PHY_INIT : PRBS/PER_BIT calibration completed at 157934475.0 ps
+1185: PHY_INIT : COMPLEX OCLKDELAY calibration completed at 157934475.0 ps
+1186: DDR_GEMM_CALIBRATED time_ns=165415000.0 ps
+1187: DDR_GEMM_JOB_BEGIN job_id=1 m=1 n=1 k=1 time_ns=446972000.0 ps
+1188: DDR_GEMM_PROGRESS packets=8 opcode=05 status=0 time_ns=531692000.0 ps
+1189: DDR_GEMM_PROGRESS packets=16 opcode=03 status=0 time_ns=826472000.0 ps
+1190: DDR_GEMM_PROGRESS packets=24 opcode=02 status=0 time_ns=1095092000.0 ps
+1191: DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=204 compute_cycles=12 read_beats=2 write_beats=1 write_bytes=4
+1192: DDR_GEMM_PROGRESS packets=32 opcode=03 status=3 time_ns=1390372000.0 ps
+1193: DDR_GEMM_JOB_BEGIN job_id=2 m=5 n=3 k=9 time_ns=1390372000.0 ps
+1194: DDR_GEMM_PROGRESS packets=40 opcode=05 status=0 time_ns=1797892000.0 ps
+1195: DDR_GEMM_PROGRESS packets=48 opcode=03 status=0 time_ns=2170592000.0 ps
+1196: DDR_GEMM_PROGRESS packets=56 opcode=02 status=0 time_ns=2439132000.0 ps
+1197: DDR_GEMM_PROGRESS packets=64 opcode=04 status=0 time_ns=2812692000.0 ps
+1198: DDR_GEMM_JOB_PASS job_id=2 m=5 n=3 k=9 outputs=15 job_cycles=850 compute_cycles=40 read_beats=16 write_beats=10 write_bytes=60
+1199: DDR_GEMM_WIRE_COUNTS tx_bytes=1392 rx_bytes=1146
+1200: DDR_GEMM_FINAL_PASS jobs=2 outputs=16 sim_baud=10000000 packets=65 read_beats=37 write_beats=48 write_responses=26
+1201: $finish called at time : 2846232 ns : File "C:/Users/mihai/Documents/continium/accelerator nexys/tb/vendor/tb_ddr_gemm.sv" Line 539
+1202: run: Time (s): cpu = 00:00:00 ; elapsed = 00:56:16 . Memory (MB): peak = 670.816 ; gain = 0.000
+1203: INFO: xsimkernel Simulation Memory Usage: 82004 KB (Peak: 82004 KB), Simulation CPU Usage: 2845061 ms

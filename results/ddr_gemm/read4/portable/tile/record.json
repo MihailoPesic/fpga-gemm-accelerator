@@ -1,0 +1,65 @@
+{
+  "result": "PASS",
+  "recorded_utc": "2026-10-03T15:20:07.173283+00:00",
+  "public_directory": "results/ddr_gemm/read4/portable/tile",
+  "totals": {
+    "tests": 56,
+    "jobs": 216,
+    "output_values": 21938,
+    "invalid_requests": 128
+  },
+  "executions": [
+    {
+      "run": "build/read_dma_cancel_tile_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 56,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "scapy": "2.7.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma.py": "108dddca1d0e59599fefab101382119c2a3a65f4ff63c9d19ba57f224aa5ef36"
+  },
+  "saved_artifact_sha256_bytes": {
+    "read1/p4_t32/coverage.json": "4f5ab72be0a8d2570c5042940ae6ee451708919164eecec47a2c178f49af0448",
+    "read1/p4_t32/results.xml": "e0ba3c5f91920a9a5845f39eda595092a3770980f8f663745cc4d084d367f12b",
+    "read1/p4_t8/coverage.json": "9a4b4ad31e7eb6a3766d37f77eb125453d6c4e76e337295117ecb121e1f76a60",
+    "read1/p4_t8/results.xml": "b006bb97e274fcc2437ca6f43a2b60342536e7838543712a31dce19f1fdcf039",
+    "read1/p8_t32/coverage.json": "dbd9c26368e566f87cae049d31a1aa65cac61053704bdd9e4f7419007532bb77",
+    "read1/p8_t32/results.xml": "5cdea371f7539afea85506870d0035e2651a423c45c764823a95646389241466",
+    "read1/p8_t8/coverage.json": "aea42c8856acfc1e5c6f3484c81534cf586f61e508b1a2ceea93232cde4795eb",
+    "read1/p8_t8/results.xml": "c2ff91298ec377e53f48be793aa8fbde05263c547860b3df0b3268dfa42f09d9",
+    "read4/p4_t32/coverage.json": "09f0625b077f6f5aa89034cabb734a39eb0a8e72c0465da5bb2a68e53edd15bb",
+    "read4/p4_t32/results.xml": "75113b2256e67aa290b76377c321ec8418a319a93b4d3d97160702e040772802",
+    "read4/p4_t8/coverage.json": "e60028bf51763102313ad9b2c044f5a415704208639799463df8ea6840e3aca9",
+    "read4/p4_t8/results.xml": "9b563e2dc5632e4c6b41c662a916b109dec9ce60795a8c708e82e70696080f39",
+    "read4/p8_t32/coverage.json": "90e61d06eeaa4b988e10a3cfc1688a330aa608ba1ee58383faf58ee09f0ed712",
+    "read4/p8_t32/results.xml": "6cb307555ebcd7afd8960c24f4cfe479909245b582544a0a96f70dfa822a86e9",
+    "read4/p8_t8/coverage.json": "42c505c391fcc37e442bb752c00271adf3a31a4fe9576ff156b8c02d2cc48aef",
+    "read4/p8_t8/results.xml": "bf00f5b4457557a572720837be81533ecd8dff31ebcf8f149f9337b5b994cd60",
+    "summary.json": "3b14b4e3e7397d3b4f196a890e31a4b52d4efdfa73a9bc425f6dabcee224ed95"
+  },
+  "scope": "Portable behavioral simulation; no new board, routed timing or physical DDR performance claim"
+}

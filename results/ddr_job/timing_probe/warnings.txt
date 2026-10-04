@@ -1,0 +1,18 @@
+Synth 8-6014: 2 occurrence(s)
+WARNING: [Synth 8-6014] Unused sequential element a_loaded_reg was removed.  [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_job_probe/gemm_ddr_job.sv:193]
+
+Synth 8-3332: 93 occurrence(s)
+WARNING: [Synth 8-3332] Sequential element (c_size_reg[47]) is unused and will be removed from module gemm_ddr_job.
+
+Netlist 29-101: 1 occurrence(s)
+WARNING: [Netlist 29-101] Netlist 'gemm_ddr_job_probe' is not ideal for floorplanning, since the cellview 'gemm_ddr_job' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+
+DRC 23-814: 3 occurrence(s)
+WARNING: [DRC 23-814] Not all possible (connectivity based) DRCs may have been run because this design is seen as Out of Context.
+
+Route 35-198: 100 occurrence(s)
+WARNING: [Route 35-198] Port "axi_bvalid" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal "axi_bvalid". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported.
+
+Constraints 18-8777: 1 occurrence(s)
+WARNING: [Constraints 18-8777] Unable to split tiles. All required files are not available.
+

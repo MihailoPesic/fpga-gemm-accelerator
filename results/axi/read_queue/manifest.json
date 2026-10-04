@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Portable gemm_axi_burst simulation for READ_SLOTS=1 and 4; four-slot integration, physical timing and formal proofs not established",
+  "observed_execution_exit_code": 0,
+  "original_directory": "build/read_queue_axi_final_20261003",
+  "original_console": "build/read_queue_axi_final_console.txt",
+  "tests": 17,
+  "configurations": [
+    {
+      "result": "PASS",
+      "read_slots": 1,
+      "tests": 4,
+      "directory": "read1"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "tests": 13,
+      "directory": "read4"
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "tb/test_axi_burst.py": "c839db97df92a7fee07f2ea0ea674df5ebb6b63534c8620036406f3420240034",
+    "tb/test_axi_read_queue.py": "9f895556f94ed48428af145ad6208c95efe879b16a919a09a31d3aec5c120b3d",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_axi_burst.py": "a610cb19b5e92dca811c8a0b35c925bb93bdaeebe62914f45f322857bf228fc2"
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.4",
+    "icarus": "12.0 (stable)"
+  },
+  "queue_coverage": {
+    "commands": 354,
+    "valid_commands": 300,
+    "invalid_commands": 54,
+    "read_beats": 1826,
+    "delivered_words": 1678,
+    "completions": 350,
+    "lengths": [
+      16,
+      15,
+      2,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14,
+      10
+    ],
+    "local_occupancy": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "axi_outstanding": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "scenarios": {
+      "four_ar_before_r_full_buffer_head_data_and_done_stalls": 1,
+      "local_idle_includes_write_collection_and_terminal": 1,
+      "valid_invalid_valid_ordered": 1,
+      "ring_wrap": 1,
+      "seeded_160_commands_144_valid_16_invalid": 1,
+      "held_ar_survives_fault_unoffered_cancels_invalid_retains_bad_desc": 1,
+      "same_edge_read_command_and_fault_cancels_without_ar": 1,
+      "shared_write_fault_preserves_issued_and_published_reads": 1,
+      "first_own_error_precedes_later_stream_poison": 1,
+      "missing_last_drain_preserves_four_distinct_obligations": 1,
+      "coordinated_reset_four_mixed_slots_then_fresh_four_reads": 1,
+      "held_successful_done_survives_later_read_protocol_fault": 1,
+      "repeated_opaque_tags_consecutive_invalids_72_commands": 1
+    },
+    "error_slots": {
+      "rresp_0": 1,
+      "rresp_1": 1,
+      "rresp_2": 1,
+      "rresp_3": 1,
+      "rid_0": 1,
+      "rid_1": 1,
+      "rid_2": 1,
+      "rid_3": 1,
+      "early_last_0": 1,
+      "early_last_1": 1,
+      "early_last_2": 1,
+      "early_last_3": 1,
+      "late_last_0": 1,
+      "late_last_1": 1,
+      "late_last_2": 1,
+      "late_last_3": 1
+    },
+    "simultaneous": {
+      "new_ar_and_old_rlast": 10,
+      "retire_and_allocate": 48
+    },
+    "reset_discarded_commands": 4
+  },
+  "queue_seed": 20261003,
+  "coverage_scope": "Queue counts cover the nine four-slot tests only; baseline coverage is saved separately for each configuration. Four accepted commands are explicitly discarded by coordinated reset.",
+  "saved_artifact_sha256_bytes": {
+    "summary.json": "ca83ec6408779ccfa4f465ca803ed19be66ecf3bdaf49b71d02994dd0d11624a",
+    "console.txt": "640f046db1ebe0369d2af0f36dffbde1c5e3c9b1c7cc870d94f5939cbe267acd",
+    "read1/summary.json": "36f2cd475ad26567bc684de0ed675d3c80840d2e3c4b1ffdc6cae952b8ee6d43",
+    "read1/results.xml": "d859358e51c400b91ccfbf31f163a05e0672c673e02114a43ac41e70aeadc862",
+    "read1/coverage.json": "795aaa5602650609901abbf3f44af608d6592096e1665bfb2828e5e162b39f96",
+    "read4/summary.json": "55a7b5e0a576e38d6f4d06ccb7665429ae6d0af69c616695f4197be49ad23c4c",
+    "read4/results.xml": "c2b09c46ddd15a554fdd816b018fd0cf256b13f7cd0f03b6a0ee1137d6d6652c",
+    "read4/coverage.json": "cf57d8c343ae638b990915d7c97a17dc63533e7559d8697ade0a42963a3acc84",
+    "read4/queue_coverage.json": "6105c683535cb0e8cac66391b826a3848dce341a6bb8aa48643632d316d0a8ec"
+  },
+  "raw_copy_policy": "All nine execution artifacts copied byte-for-byte",
+  "replaced_record": {
+    "tests": 14,
+    "manifest_sha256_bytes": "621ca1b33528a324bf39a88245d10c4db3537d83c5b242dddcfd1fd4b8bf9aed",
+    "preserved_private_directory": "build/read_queue_axi_20261003",
+    "preserved_private_console": "build/read_queue_axi_console.txt"
+  },
+  "curation": {
+    "script_sha256_bytes": "3e77b0d00663a5baeb1170559b84ab022442c41ccb12b084e87b032495768f3e",
+    "recorded_utc": "2026-10-03T13:54:46.508718+00:00"
+  },
+  "reproduction_command": "python scripts/test_axi_burst.py --build-dir build/read_queue_reproduce"
+}

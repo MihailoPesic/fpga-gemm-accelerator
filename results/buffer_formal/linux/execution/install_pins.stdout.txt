@@ -1,0 +1,20 @@
+Collecting yowasp-yosys==0.69.0.0.post1233 (from -r requirements-formal.txt (line 2))
+  Downloading yowasp_yosys-0.69.0.0.post1233-py3-none-any.whl.metadata (2.5 kB)
+Collecting yowasp-runtime==1.96 (from -r requirements-formal.txt (line 3))
+  Downloading yowasp_runtime-1.96-py3-none-any.whl.metadata (2.4 kB)
+Collecting wasmtime==47.0.1 (from -r requirements-formal.txt (line 4))
+  Downloading wasmtime-47.0.1-py3-none-manylinux1_x86_64.whl.metadata (5.1 kB)
+Collecting click==8.5.0 (from -r requirements-formal.txt (line 5))
+  Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting platformdirs==4.12.3 (from -r requirements-formal.txt (line 6))
+  Downloading platformdirs-4.12.3-py3-none-any.whl.metadata (5.5 kB)
+Downloading yowasp_yosys-0.69.0.0.post1233-py3-none-any.whl (15.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.6/15.6 MB 16.1 MB/s  0:00:00
+Downloading yowasp_runtime-1.96-py3-none-any.whl (5.2 kB)
+Downloading wasmtime-47.0.1-py3-none-manylinux1_x86_64.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 5.5 MB/s  0:00:01
+Downloading platformdirs-4.12.3-py3-none-any.whl (32 kB)
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Installing collected packages: wasmtime, platformdirs, click, yowasp-runtime, yowasp-yosys
+
+Successfully installed click-8.5.0 platformdirs-4.12.3 wasmtime-47.0.1 yowasp-runtime-1.96 yowasp-yosys-0.69.0.0.post1233

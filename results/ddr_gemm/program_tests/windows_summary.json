@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "tests": 12,
+  "exit_code": 0,
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "build/run_programmer_unit_evidence.py",
+    "windows"
+  ],
+  "equivalent_unittest_command": "python -m unittest discover -s tb -p test_program_ddr_gemm.py -v",
+  "python": "3.13.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "source_sha256_utf8_lf": {
+    "scripts/program_ddr_gemm.py": "304c70b70c679fe141bbfaa2537a07aec676147d0747f103b82c86735f97f4a7",
+    "scripts/program_ddr_gemm.tcl": "7fb412c289395251c35638aa18b57a3e748ee67a9e2f112ee2bf949290e303f2",
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "tb/test_program_ddr_gemm.py": "6f84a30221aacda0361c21262b8c2ec618f8517b9b01dae18bab14c1a51d1e42"
+  },
+  "source_hashes_unchanged": true,
+  "console_sha256_bytes": "7b8bb613734ef39b22d3d9459a20b49d543447f04952588ba8363fde190e816e",
+  "scope": "Synthetic bitstream/simulation/report fixtures and mocked Vivado launch; no hardware access or real vendor process"
+}

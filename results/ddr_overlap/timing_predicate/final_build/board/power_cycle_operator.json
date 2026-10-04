@@ -1,0 +1,10 @@
+{
+  "operator_confirmed_fresh_off_on": true,
+  "jp1": "JTAG",
+  "j6_connected": true,
+  "serial_terminals_closed": true,
+  "operator_response": "Fresh OFF/ON complete; powered on and connected",
+  "question_scope": "Close any serial terminal, keep JP1 on JTAG and J6 USB connected, switch the FPGA OFF and then ON, and leave it powered on.",
+  "receipt_scope": "Operator report from the current conversation; exact physical power-cycle time was not measured.",
+  "build_id": 745016055
+}

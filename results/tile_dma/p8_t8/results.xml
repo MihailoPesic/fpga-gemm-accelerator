@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790960980" />
+    <testcase name="complete_matrix_transfers" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="290" time="10.803545475006104" sim_time_ns="117550.0" ratio_time="10880.687295846607" />
+    <testcase name="invalid_descriptors_have_no_side_effects" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="305" time="0.14266419410705566" sim_time_ns="2220.0" ratio_time="15561.01735193699" />
+    <testcase name="delayed_response_and_fault_obligations" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="330" time="0.39906811714172363" sim_time_ns="7920.0" ratio_time="19846.235917632377" />
+    <testcase name="local_protocol_faults_and_drain" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="397" time="0.8198850154876709" sim_time_ns="14450.0" ratio_time="17624.422604436895" />
+  </testsuite>
+</testsuites>

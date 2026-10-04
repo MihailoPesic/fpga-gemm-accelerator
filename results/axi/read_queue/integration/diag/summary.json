@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "tests": 4,
+  "scope": "Diagnostic plus production AXI burst engine, behavioral RAM; no vendor bridge or physical DDR",
+  "watchdog_limit": 64,
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_ddr_diag.sv": "bcd93e17f616db3df12e9ab08a5c7f6c0eee3c40dc2f4e18b583dc06f5f47d07",
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "tb/sv/ddr_diag_harness.sv": "829d09e254cf91841c9fbb92516e35a3d1bfa85ea57c44f5e02a84d13458afab",
+    "tb/test_ddr_diag.py": "84f367031aa5506a3127e6aa0c5fd9a12622e159e79bb80fde110d8b1804058e",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_diag.py": "316d1c7b1e5a2db29711f4e3a186876f78104d32f415d18b86f88a2059121193"
+  }
+}

@@ -1,0 +1,16 @@
+Routed bus-skew constraints; numeric rows retain the original summary order.
+Complete bus_skew.txt byte SHA-256: 81f2cdf7f6d2130985e4dee7c2d0b6368a0b78a410ccf7fa6136bbd41e1745ea
+Routed checkpoint byte SHA-256: a969a00bd4934d4942e0a2813637bbeb0559914f52fca456d1b02c877a97ff78
+Command: report_bus_skew -delay_type min_max -warn_on_violation
+
+ID  Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+ 1  Slow             10.000       1.038      8.962
+ 2  Slow             10.000       0.886      9.114
+ 3  Slow             10.000       0.671      9.329
+ 4  Slow             10.000       1.307      8.693
+ 5  Slow             10.000       0.894      9.106
+ 6  Slow             10.000       0.994      9.006
+ 7  Slow             10.000       0.782      9.218
+ 8  Slow             10.000       0.774      9.226
+ 9  Slow             10.000       0.750      9.250
+10  Slow             10.000       0.571      9.429

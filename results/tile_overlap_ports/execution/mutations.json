@@ -1,0 +1,16 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys",
+    "--exec",
+    ".venv/bin/python",
+    "scripts/mutation_tile_overlap.py",
+    "--build-dir",
+    "build/tile_ports_mutation_20261003_run2/tests"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 6.253144264221191
+}

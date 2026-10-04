@@ -1,0 +1,11 @@
+name,phase,read1_cycles,read4_cycles,saved_cycles
+dense,a_load,2524,1250,1274
+dense,bt_load,2524,1250,1274
+dense,compute,4530,4530,0
+dense,c_store,2765,2765,0
+odd,a_load,417,201,216
+odd,bt_load,391,189,202
+odd,compute,706,706,0
+odd,c_store,2530,2530,0
+dense,helper_sequence,12343,9795,2548
+odd,helper_sequence,4044,3626,418

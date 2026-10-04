@@ -1,0 +1,10 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791093116" />
+    <testcase name="pipeline_with_three_independent_owners" classname="test_tile_dma_duplex" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma_duplex.py" lineno="380" time="30.20784616470337" sim_time_ns="301460.0" ratio_time="9979.52645668077" />
+    <testcase name="independent_completion_and_bad_descriptors" classname="test_tile_dma_duplex" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma_duplex.py" lineno="430" time="0.14916515350341797" sim_time_ns="4530.0" ratio_time="30369.02315054568" />
+    <testcase name="first_fault_and_admission" classname="test_tile_dma_duplex" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma_duplex.py" lineno="487" time="0.15961170196533203" sim_time_ns="4860.0" ratio_time="30448.89528874018" />
+    <testcase name="reader_fault_retains_issued_write" classname="test_tile_dma_duplex" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma_duplex.py" lineno="554" time="0.31011486053466797" sim_time_ns="8980.0" ratio_time="28957.012845232934" />
+    <testcase name="writer_fault_retains_accepted_load" classname="test_tile_dma_duplex" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma_duplex.py" lineno="590" time="0.07779908180236816" sim_time_ns="2300.0" ratio_time="29563.330912344896" />
+  </testsuite>
+</testsuites>

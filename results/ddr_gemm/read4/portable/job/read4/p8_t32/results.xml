@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791040857" />
+    <testcase name="full_matrix_jobs_and_counters" classname="test_ddr_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_job.py" lineno="403" time="286.70651292800903" sim_time_ns="4851790.0" ratio_time="16922.496634104253" />
+    <testcase name="descriptor_rejection_and_command_lifetime" classname="test_ddr_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_job.py" lineno="422" time="0.2140195369720459" sim_time_ns="7640.0" ratio_time="35697.675586495156" />
+    <testcase name="final_b_timestamp_and_calibration_faults" classname="test_ddr_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_job.py" lineno="489" time="10.244542121887207" sim_time_ns="72210.0" ratio_time="7048.631275157251" />
+    <testcase name="fatal_responses_watchdog_and_draining" classname="test_ddr_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_job.py" lineno="555" time="1.9162397384643555" sim_time_ns="33330.0" ratio_time="17393.439521669738" />
+  </testsuite>
+</testsuites>

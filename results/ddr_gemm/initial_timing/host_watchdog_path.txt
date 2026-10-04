@@ -1,0 +1,123 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 22:49:57 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing -from [get_cells -hier -filter {IS_SEQUENTIAL == 1 && NAME =~ core/control/*}] -delay_type max -max_paths 12 -nworst 1 -file control_setup.txt
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.898ns  (required time - arrival time)
+  Source:                 core/control/timeout_limit_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/memory_state_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@10.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        11.557ns  (logic 4.040ns (34.957%)  route 7.517ns (65.043%))
+  Logic Levels:           20  (CARRY4=9 LUT1=1 LUT4=4 LUT5=2 LUT6=4)
+  Clock Path Skew:        -0.296ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.521ns = ( 8.479 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.733ns
+    Clock Pessimism Removal (CPR):    0.493ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.131ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.489     1.489 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.722    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.946    -4.224 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.661    -2.563    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.467 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=14499, routed)       1.734    -0.733    core/control/core_clk
+    SLICE_X30Y103        FDRE                                         r  core/control/timeout_limit_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y103        FDRE (Prop_fdre_C_Q)         0.478    -0.255 f  core/control/timeout_limit_reg[2]/Q
+                         net (fo=2, routed)           0.593     0.338    core/control/timeout_limit[2]
+    SLICE_X29Y103        LUT1 (Prop_lut1_I0_O)        0.295     0.633 r  core/control/host_fatal_i_80/O
+                         net (fo=1, routed)           0.000     0.633    core/control/host_fatal_i_80_n_0
+    SLICE_X29Y103        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     1.183 r  core/control/host_fatal_reg_i_69/CO[3]
+                         net (fo=1, routed)           0.000     1.183    core/control/host_fatal_reg_i_69_n_0
+    SLICE_X29Y104        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.297 r  core/control/host_fatal_reg_i_60/CO[3]
+                         net (fo=1, routed)           0.000     1.297    core/control/host_fatal_reg_i_60_n_0
+    SLICE_X29Y105        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.411 r  core/control/host_fatal_reg_i_59/CO[3]
+                         net (fo=1, routed)           0.000     1.411    core/control/host_fatal_reg_i_59_n_0
+    SLICE_X29Y106        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.525 r  core/control/host_fatal_reg_i_39/CO[3]
+                         net (fo=1, routed)           0.000     1.525    core/control/host_fatal_reg_i_39_n_0
+    SLICE_X29Y107        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.639 r  core/control/host_fatal_reg_i_38/CO[3]
+                         net (fo=1, routed)           0.000     1.639    core/control/host_fatal_reg_i_38_n_0
+    SLICE_X29Y108        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.753 r  core/control/host_fatal_reg_i_28/CO[3]
+                         net (fo=1, routed)           0.000     1.753    core/control/host_fatal_reg_i_28_n_0
+    SLICE_X29Y109        CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     1.867 r  core/control/host_fatal_reg_i_27/CO[3]
+                         net (fo=1, routed)           0.000     1.867    core/control/host_fatal_reg_i_27_n_0
+    SLICE_X29Y110        CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     2.106 r  core/control/host_fatal_reg_i_26/O[2]
+                         net (fo=2, routed)           0.821     2.927    core/control/timeout_now1[31]
+    SLICE_X30Y108        LUT4 (Prop_lut4_I0_O)        0.302     3.229 r  core/control/host_fatal_i_13/O
+                         net (fo=1, routed)           0.000     3.229    core/control/host_fatal_i_13_n_0
+    SLICE_X30Y108        CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     3.605 f  core/control/host_fatal_reg_i_5/CO[3]
+                         net (fo=3, routed)           1.173     4.778    core/control/timeout_now0
+    SLICE_X31Y92         LUT5 (Prop_lut5_I1_O)        0.124     4.902 r  core/control/host_fatal_i_3/O
+                         net (fo=4, routed)           0.440     5.343    core/control/host_fatal_i_3_n_0
+    SLICE_X30Y91         LUT4 (Prop_lut4_I2_O)        0.124     5.467 f  core/control/beat_count[4]_i_5/O
+                         net (fo=9, routed)           0.466     5.933    core/control/beat_count[4]_i_5_n_0
+    SLICE_X30Y92         LUT5 (Prop_lut5_I1_O)        0.124     6.057 f  core/control/write_payload[1919]_i_3/O
+                         net (fo=4, routed)           0.744     6.800    core/control/write_payload[1919]_i_3_n_0
+    SLICE_X26Y103        LUT6 (Prop_lut6_I0_O)        0.124     6.924 r  core/control/write_payload[1919]_i_2/O
+                         net (fo=1, routed)           0.815     7.739    core/control/write_payload[1919]_i_2_n_0
+    SLICE_X27Y114        LUT4 (Prop_lut4_I0_O)        0.124     7.863 r  core/control/write_payload[1919]_i_1/O
+                         net (fo=1955, routed)        1.285     9.149    core/control/memory_state[0]
+    SLICE_X36Y95         LUT6 (Prop_lut6_I2_O)        0.124     9.273 r  core/control/memory_state[1]_i_18/O
+                         net (fo=1, routed)           0.282     9.555    core/control/memory_state[1]_i_18_n_0
+    SLICE_X39Y95         LUT4 (Prop_lut4_I3_O)        0.124     9.679 r  core/control/memory_state[1]_i_16/O
+                         net (fo=1, routed)           0.429    10.107    core/control/memory_state[1]_i_16_n_0
+    SLICE_X37Y93         LUT6 (Prop_lut6_I5_O)        0.124    10.231 r  core/control/memory_state[1]_i_6/O
+                         net (fo=3, routed)           0.469    10.700    core/control/memory_state[1]_i_6_n_0
+    SLICE_X35Y94         LUT6 (Prop_lut6_I4_O)        0.124    10.824 r  core/control/memory_state[0]_i_1/O
+                         net (fo=1, routed)           0.000    10.824    core/control/memory_state[0]_i_1_n_0
+    SLICE_X35Y94         FDRE                                         r  core/control/memory_state_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  CLK100MHZ
+                         net (fo=0)                   0.000    10.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.418    11.418 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    12.580    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.204     5.376 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.581     6.957    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     7.048 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=14499, routed)       1.431     8.479    core/control/core_clk
+    SLICE_X35Y94         FDRE                                         r  core/control/memory_state_reg[0]/C
+                         clock pessimism              0.493     8.972    <hidden>
+                         clock uncertainty           -0.074     8.897    <hidden>
+    SLICE_X35Y94         FDRE (Setup_fdre_C_D)        0.029     8.926    core/control/memory_state_reg[0]
+  -------------------------------------------------------------------
+                         required time                          8.926    <hidden>
+                         arrival time                         -10.824    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.898    <hidden>
+

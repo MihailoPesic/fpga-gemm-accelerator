@@ -1,0 +1,78 @@
+Slack (MET) :             0.203ns  (required time - arrival time)
+  Source:                 core/burst/queued_read.response_slot_reg[0][0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/beat_count_reg[0]/R
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@10.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        8.982ns  (logic 1.825ns (20.318%)  route 7.157ns (79.682%))
+  Logic Levels:           9  (LUT2=1 LUT3=1 LUT6=7)
+  Clock Path Skew:        -0.103ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.524ns = ( 8.476 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.928ns
+    Clock Pessimism Removal (CPR):    0.493ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.131ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.489     1.489 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.722    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.946    -4.224 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.661    -2.563    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.467 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16754, routed)       1.539    -0.928    core/burst/core_clk
+    SLICE_X40Y70         FDRE                                         r  core/burst/queued_read.response_slot_reg[0][0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y70         FDRE (Prop_fdre_C_Q)         0.456    -0.472 r  core/burst/queued_read.response_slot_reg[0][0]/Q
+                         net (fo=2, routed)           0.970     0.498    core/burst/queued_read.response_slot_reg[0]_159[0]
+    SLICE_X40Y68         LUT6 (Prop_lut6_I3_O)        0.124     0.622 r  core/burst/queued_read.buffer_words_reg_0_63_0_2_i_3/O
+                         net (fo=129, routed)         0.749     1.372    core/burst/queued_read.receiving_slot[0]
+    SLICE_X42Y68         LUT6 (Prop_lut6_I3_O)        0.124     1.496 r  core/burst/queued_read.slot_count[3][4]_i_6/O
+                         net (fo=16, routed)          0.878     2.373    core/burst/queued_read.slot_count[3][4]_i_6_n_0
+    SLICE_X38Y69         LUT3 (Prop_lut3_I1_O)        0.148     2.521 r  core/burst/queued_read.slot_count[3][2]_i_2/O
+                         net (fo=6, routed)           0.692     3.213    core/burst/queued_read.slot_count[3][2]_i_2_n_0
+    SLICE_X39Y69         LUT6 (Prop_lut6_I3_O)        0.328     3.541 r  core/burst/FSM_sequential_write_state[1]_i_9/O
+                         net (fo=4, routed)           0.471     4.012    platform/platform/queued_read.stream_poisoned_reg_0
+    SLICE_X37Y71         LUT6 (Prop_lut6_I2_O)        0.124     4.136 f  platform/platform/FSM_sequential_write_state[1]_i_3/O
+                         net (fo=30, routed)          0.719     4.856    core/control/wr_done_status_reg[3]_0
+    SLICE_X36Y77         LUT6 (Prop_lut6_I4_O)        0.124     4.980 r  core/control/idle_cycles[31]_i_7/O
+                         net (fo=2, routed)           0.808     5.787    core/control/idle_cycles[31]_i_7_n_0
+    SLICE_X33Y80         LUT6 (Prop_lut6_I2_O)        0.124     5.911 f  core/control/burst_beats[4]_i_7__0/O
+                         net (fo=1, routed)           0.291     6.202    core/control/burst_beats[4]_i_7__0_n_0
+    SLICE_X33Y81         LUT6 (Prop_lut6_I2_O)        0.124     6.326 r  core/control/burst_beats[4]_i_3__0/O
+                         net (fo=52, routed)          1.031     7.357    platform/platform/beat_count_reg[0]
+    SLICE_X33Y85         LUT2 (Prop_lut2_I1_O)        0.149     7.506 r  platform/platform/beat_count[4]_i_1/O
+                         net (fo=6, routed)           0.549     8.054    core/control/beat_count_reg[0]_1[0]
+    SLICE_X33Y87         FDRE                                         r  core/control/beat_count_reg[0]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  CLK100MHZ
+                         net (fo=0)                   0.000    10.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.418    11.418 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    12.580    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.204     5.376 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.581     6.957    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     7.048 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16754, routed)       1.428     8.476    core/control/core_clk
+    SLICE_X33Y87         FDRE                                         r  core/control/beat_count_reg[0]/C
+                         clock pessimism              0.493     8.969    <hidden>
+                         clock uncertainty           -0.074     8.894    <hidden>
+    SLICE_X33Y87         FDRE (Setup_fdre_C_R)       -0.637     8.257    core/control/beat_count_reg[0]
+  -------------------------------------------------------------------
+                         required time                          8.257    <hidden>
+                         arrival time                          -8.054    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.203    <hidden>
+

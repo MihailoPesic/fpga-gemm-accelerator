@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Portable row planner, tile DMA, real banked compute and buffered AXI burst engine against behavioral AXI RAM; no vendor, routed or board qualification",
+  "reproduction_command": "python scripts/test_tile_dma.py --build-dir build/test_tile_dma_read4",
+  "reported_process_exit": 0,
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 421,
+      "invalid_requests": 16
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 5632,
+      "invalid_requests": 16
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 502,
+      "invalid_requests": 16
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 4414,
+      "invalid_requests": 16
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 421,
+      "invalid_requests": 16
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 5632,
+      "invalid_requests": 16
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 502,
+      "invalid_requests": 16
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 7,
+      "jobs": 27,
+      "output_values": 4414,
+      "invalid_requests": 16
+    }
+  ],
+  "totals": {
+    "tests": 56,
+    "jobs": 216,
+    "output_values": 21938,
+    "invalid_requests": 128
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "source_hash_definition": "SHA-256 of UTF-8 source bytes with CRLF normalized to LF; original summary preserved byte for byte",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "15d1708b0ec2dc25630a549b2cb09c7c2aab4135ca9f51fb48c8e0824f1baef9",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma.py": "108dddca1d0e59599fefab101382119c2a3a65f4ff63c9d19ba57f224aa5ef36"
+  },
+  "source_identity_note": "Run fingerprints and current source bytes match; this manifest does not assert a committed source revision.",
+  "artifact_hash_definition": "SHA-256 of exact saved bytes, including original line endings",
+  "artifact_sha256_bytes": {
+    "summary.json": "3c37ead827bd15ff87bb4b8d60c21925c5bd5c21549b48d085e76e79aaca5b57",
+    "console.txt": "23874294c30d51d3369ffccb1d5c56fbdc26219dfdf03cb76a9817c1f53ba33a",
+    "read1/p4_t8/coverage.json": "9a4b4ad31e7eb6a3766d37f77eb125453d6c4e76e337295117ecb121e1f76a60",
+    "read1/p4_t8/results.xml": "76c525100ed6fe6bb42d1ed97e60bd106f074015a4a5dea17163a1b67a52b8e1",
+    "read1/p4_t32/coverage.json": "4f5ab72be0a8d2570c5042940ae6ee451708919164eecec47a2c178f49af0448",
+    "read1/p4_t32/results.xml": "c19a864ad0ad1b20e87ad4baa3e9f3c8506b933fa5b854e31d9224360977fe6d",
+    "read1/p8_t8/coverage.json": "aea42c8856acfc1e5c6f3484c81534cf586f61e508b1a2ceea93232cde4795eb",
+    "read1/p8_t8/results.xml": "15a92eab8233c91d0272c3ae062a81e209192f5ba145de782f999bdcbc0a91fa",
+    "read1/p8_t32/coverage.json": "dbd9c26368e566f87cae049d31a1aa65cac61053704bdd9e4f7419007532bb77",
+    "read1/p8_t32/results.xml": "c9ff737282aa622007a6e3dff452e8f8d553af97dbfa5f56f22f4d0839c840c3",
+    "read4/p4_t8/coverage.json": "e60028bf51763102313ad9b2c044f5a415704208639799463df8ea6840e3aca9",
+    "read4/p4_t8/results.xml": "890468b4259de599c2831a72c49f5648fb0aeab2df7d48f36329f6df43fc886e",
+    "read4/p4_t32/coverage.json": "09f0625b077f6f5aa89034cabb734a39eb0a8e72c0465da5bb2a68e53edd15bb",
+    "read4/p4_t32/results.xml": "d6cb59d1f8fc9fedabfbfc70c4e5615d87b60b49d112d44baeba8476985281ba",
+    "read4/p8_t8/coverage.json": "42c505c391fcc37e442bb752c00271adf3a31a4fe9576ff156b8c02d2cc48aef",
+    "read4/p8_t8/results.xml": "9e7ffe3bfabc429d065c0372d1b9f7db4496ad7337f5de626dfd77bee9d9448f",
+    "read4/p8_t32/coverage.json": "90e61d06eeaa4b988e10a3cfc1688a330aa608ba1ee58383faf58ee09f0ed712",
+    "read4/p8_t32/results.xml": "520bb07d30861e6e36b5cb707424045c73c34b47657ad91ad5dc8845f1707233"
+  },
+  "artifact_original_paths": {
+    "summary.json": "build/read_dma_tile_20261003/summary.json",
+    "console.txt": "build/read_dma_tile_console.txt",
+    "read1/p4_t8/coverage.json": "build/read_dma_tile_20261003/read1/p4_t8/coverage.json",
+    "read1/p4_t8/results.xml": "build/read_dma_tile_20261003/read1/p4_t8/results.xml",
+    "read1/p4_t32/coverage.json": "build/read_dma_tile_20261003/read1/p4_t32/coverage.json",
+    "read1/p4_t32/results.xml": "build/read_dma_tile_20261003/read1/p4_t32/results.xml",
+    "read1/p8_t8/coverage.json": "build/read_dma_tile_20261003/read1/p8_t8/coverage.json",
+    "read1/p8_t8/results.xml": "build/read_dma_tile_20261003/read1/p8_t8/results.xml",
+    "read1/p8_t32/coverage.json": "build/read_dma_tile_20261003/read1/p8_t32/coverage.json",
+    "read1/p8_t32/results.xml": "build/read_dma_tile_20261003/read1/p8_t32/results.xml",
+    "read4/p4_t8/coverage.json": "build/read_dma_tile_20261003/read4/p4_t8/coverage.json",
+    "read4/p4_t8/results.xml": "build/read_dma_tile_20261003/read4/p4_t8/results.xml",
+    "read4/p4_t32/coverage.json": "build/read_dma_tile_20261003/read4/p4_t32/coverage.json",
+    "read4/p4_t32/results.xml": "build/read_dma_tile_20261003/read4/p4_t32/results.xml",
+    "read4/p8_t8/coverage.json": "build/read_dma_tile_20261003/read4/p8_t8/coverage.json",
+    "read4/p8_t8/results.xml": "build/read_dma_tile_20261003/read4/p8_t8/results.xml",
+    "read4/p8_t32/coverage.json": "build/read_dma_tile_20261003/read4/p8_t32/coverage.json",
+    "read4/p8_t32/results.xml": "build/read_dma_tile_20261003/read4/p8_t32/results.xml"
+  }
+}

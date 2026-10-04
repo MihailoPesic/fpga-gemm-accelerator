@@ -1,0 +1,206 @@
+[
+  {
+    "suite": "overlap_p4_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p4_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/overlap/p4_t8",
+      "--overlap",
+      "--suite",
+      "overlap"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 242.99839186668396
+  },
+  {
+    "suite": "compatibility_p4_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p4_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/compatibility/p4_t8",
+      "--overlap",
+      "--suite",
+      "compatibility"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 304.8240580558777
+  },
+  {
+    "suite": "job_p4_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_overlap_job.py",
+      "--only",
+      "p4_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/job/p4_t8"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 376.5139763355255
+  },
+  {
+    "suite": "job_p4_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_overlap_job.py",
+      "--only",
+      "p4_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/job/p4_t32"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 437.92606806755066
+  },
+  {
+    "suite": "compatibility_p4_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p4_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/compatibility/p4_t32",
+      "--overlap",
+      "--suite",
+      "compatibility"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 444.2500009536743
+  },
+  {
+    "suite": "compatibility_p8_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p8_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/compatibility/p8_t8",
+      "--overlap",
+      "--suite",
+      "compatibility"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 478.63849425315857
+  },
+  {
+    "suite": "overlap_p8_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p8_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/overlap/p8_t8",
+      "--overlap",
+      "--suite",
+      "overlap"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 397.9759430885315
+  },
+  {
+    "suite": "job_p8_t8",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_overlap_job.py",
+      "--only",
+      "p8_t8",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/job/p8_t8"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 981.1537446975708
+  },
+  {
+    "suite": "overlap_p4_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p4_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/overlap/p4_t32",
+      "--overlap",
+      "--suite",
+      "overlap"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1077.85089635849
+  },
+  {
+    "suite": "job_p8_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_overlap_job.py",
+      "--only",
+      "p8_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/job/p8_t32"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 546.911598443985
+  },
+  {
+    "suite": "lint",
+    "command": [
+      ".venv/bin/python",
+      "scripts/lint.py"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 5.03989315032959
+  },
+  {
+    "suite": "serial_compatibility",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p8_t32",
+      "--read-slots",
+      "4",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/serial_compatibility"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 300.3583290576935
+  },
+  {
+    "suite": "compatibility_p8_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p8_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/compatibility/p8_t32",
+      "--overlap",
+      "--suite",
+      "compatibility"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 635.1366746425629
+  },
+  {
+    "suite": "overlap_p8_t32",
+    "command": [
+      ".venv/bin/python",
+      "scripts/test_ddr_core.py",
+      "--only",
+      "p8_t32",
+      "--build-dir",
+      "build/overlap_fault_integration_20261004/overlap/p8_t32",
+      "--overlap",
+      "--suite",
+      "overlap"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 1051.0029833316803
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "result": "PASS",
+  "scope": "Read-only identity and readiness preflight; no reset, START or memory write",
+  "utc": "2026-10-03T10:50:47.364771+00:00",
+  "port": "COM11",
+  "build_id": 3980720430,
+  "bitstream_sha256": "fc2dcb3d43cf3f2775df5554de7f4a7e7612e9e4b41b6900a96afe2ce2bbc708",
+  "manifest_sha256": "5ce83bc90dc45b7f927c9dcd90f8643610838b53865632784d4352ddb744cff9",
+  "identity": {
+    "id": 827148110,
+    "version": 256,
+    "geometry": 16785412,
+    "p": 4,
+    "t": 32,
+    "kmax": 256,
+    "build_id": 3980720430,
+    "core_hz": 100000000
+  },
+  "transport": {
+    "retries": 0,
+    "rejected_frames": 0
+  }
+}

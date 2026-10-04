@@ -1,0 +1,525 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p8_t32",
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "seed": 20261151,
+        "jobs": 39,
+        "seeded_jobs": 25,
+        "output_values": 42547,
+        "macrotiles": 161,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            9,
+            65,
+            8
+          ],
+          [
+            31,
+            33,
+            255
+          ],
+          [
+            33,
+            9,
+            256
+          ],
+          [
+            33,
+            33,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            65,
+            97,
+            17
+          ],
+          [
+            29,
+            59,
+            16
+          ],
+          [
+            7,
+            14,
+            64
+          ],
+          [
+            13,
+            67,
+            9
+          ],
+          [
+            9,
+            47,
+            64
+          ],
+          [
+            13,
+            28,
+            64
+          ],
+          [
+            36,
+            58,
+            32
+          ],
+          [
+            60,
+            40,
+            16
+          ],
+          [
+            25,
+            38,
+            8
+          ],
+          [
+            59,
+            1,
+            9
+          ],
+          [
+            28,
+            7,
+            1
+          ],
+          [
+            46,
+            42,
+            1
+          ],
+          [
+            9,
+            26,
+            32
+          ],
+          [
+            62,
+            63,
+            7
+          ],
+          [
+            13,
+            65,
+            1
+          ],
+          [
+            63,
+            15,
+            7
+          ],
+          [
+            24,
+            50,
+            256
+          ],
+          [
+            29,
+            41,
+            1
+          ],
+          [
+            59,
+            37,
+            9
+          ],
+          [
+            7,
+            65,
+            32
+          ],
+          [
+            4,
+            21,
+            7
+          ],
+          [
+            10,
+            8,
+            33
+          ],
+          [
+            35,
+            17,
+            64
+          ],
+          [
+            65,
+            49,
+            64
+          ],
+          [
+            52,
+            38,
+            256
+          ],
+          [
+            2,
+            22,
+            2
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 46,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 495,
+          "ar": 3010,
+          "aw": 1051,
+          "w": 7704
+        },
+        "axi_read_beats": 97374,
+        "axi_write_beats": 22183,
+        "axi_write_responses": 3025
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p8_t32",
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "seed": 20261151,
+        "jobs": 39,
+        "seeded_jobs": 25,
+        "output_values": 45399,
+        "macrotiles": 157,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            9,
+            65,
+            8
+          ],
+          [
+            31,
+            33,
+            255
+          ],
+          [
+            33,
+            9,
+            256
+          ],
+          [
+            33,
+            33,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            65,
+            97,
+            17
+          ],
+          [
+            43,
+            27,
+            8
+          ],
+          [
+            4,
+            19,
+            8
+          ],
+          [
+            18,
+            45,
+            1
+          ],
+          [
+            25,
+            61,
+            33
+          ],
+          [
+            13,
+            61,
+            31
+          ],
+          [
+            57,
+            48,
+            64
+          ],
+          [
+            64,
+            31,
+            32
+          ],
+          [
+            39,
+            29,
+            9
+          ],
+          [
+            57,
+            22,
+            31
+          ],
+          [
+            24,
+            24,
+            9
+          ],
+          [
+            56,
+            53,
+            256
+          ],
+          [
+            53,
+            45,
+            255
+          ],
+          [
+            61,
+            47,
+            8
+          ],
+          [
+            14,
+            46,
+            16
+          ],
+          [
+            56,
+            53,
+            7
+          ],
+          [
+            41,
+            9,
+            2
+          ],
+          [
+            22,
+            24,
+            31
+          ],
+          [
+            61,
+            34,
+            8
+          ],
+          [
+            13,
+            50,
+            2
+          ],
+          [
+            11,
+            33,
+            9
+          ],
+          [
+            42,
+            10,
+            31
+          ],
+          [
+            17,
+            42,
+            9
+          ],
+          [
+            30,
+            16,
+            256
+          ],
+          [
+            23,
+            42,
+            31
+          ],
+          [
+            47,
+            9,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 46,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 495,
+          "ar": 3916,
+          "w": 8203,
+          "aw": 957
+        },
+        "axi_read_beats": 101909,
+        "axi_write_beats": 23637,
+        "axi_write_responses": 3075
+      }
+    }
+  ],
+  "scope": "Portable serial descriptor controller, row adapter, production tile engine and burst engine against behavioral AXI RAM; no UART, vendor DDR simulation or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/sv/ddr_job_harness.sv": "aaaae18186d54b1368637c11ef4ad99fbd260d54e41c321b504b63757290c61a",
+    "tb/test_ddr_job.py": "a233f06272416ebbea02634fda899cbd288962c084d3ec9f1e3dc98de4dc4aa3",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_job.py": "c3a6290f03c1af54b03428b0def752c0eee626064a29ff7c44cfe4c46efa36c0"
+  },
+  "totals": {
+    "jobs": 78,
+    "output_values": 87946,
+    "invalid_descriptors": 62,
+    "macrotiles": 318,
+    "axi_read_beats": 199283,
+    "axi_write_beats": 45820,
+    "axi_write_responses": 6100
+  }
+}

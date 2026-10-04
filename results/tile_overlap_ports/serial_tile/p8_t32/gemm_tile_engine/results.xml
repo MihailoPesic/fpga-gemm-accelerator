@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791063261" />
+    <testcase name="local_matrix_jobs" classname="test_tile_engine" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_engine.py" lineno="9" time="36.0912823677063" sim_time_ns="545960.0" ratio_time="15127.19870792159" />
+  </testsuite>
+</testsuites>

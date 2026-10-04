@@ -1,0 +1,4 @@
+Routing Is Done.
+Timing failed WNS=-0.237 WHS=0.020
+"error "Timing failed WNS=$wns WHS=$whs" "
+"if {$wns < 0 || $whs < 0} { error "Timing failed WNS=$wns WHS=$whs" }"

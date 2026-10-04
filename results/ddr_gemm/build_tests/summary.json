@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "tests": 12,
+  "exit_code": 0,
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tb",
+    "-p",
+    "test_build_ddr_gemm.py",
+    "-v"
+  ],
+  "platform": "windows",
+  "python": "Python 3.13.0",
+  "elapsed_s": 1.6362776000169106,
+  "source_sha256_utf8_lf": {
+    "scripts/build_ddr_gemm.py": "c616bb82f0d4b2203c8a88c8b050ab2c157c72b38680c2a79ad6a4f3cd77d370",
+    "scripts/build_ddr_gemm.tcl": "f474e60c4dc3a5591960891cca3c46b9fef179686e19c64af86e6efffb4bd7d2",
+    "scripts/build_ddr_diag.py": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa",
+    "scripts/test_mig.py": "7350ea9be9f3ca0156489c058153c9bb3b0fc6a6a46209478deb05c2170db61f",
+    "tb/test_build_ddr_gemm.py": "f4e4a809498b1e47ed51ed7c98f47b007115ce39c95ced2638c6982c4c0d2758",
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df"
+  },
+  "source_hashes_unchanged": true,
+  "console_sha256_bytes": "e2823002b935c48352bac09c6dfb26f8d22512aca4d6305ae0cfba1446fdebb2",
+  "scope": "Synthetic fixtures check build provenance, simulation and physical-report gates; no Vivado or hardware execution"
+}

@@ -1,0 +1,214 @@
+{
+  "p": 4,
+  "t": 8,
+  "read_slots": 1,
+  "seed": 20261107,
+  "jobs": 27,
+  "output_values": 421,
+  "shapes": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      5,
+      1,
+      8
+    ],
+    [
+      3,
+      5,
+      9
+    ],
+    [
+      7,
+      8,
+      255
+    ],
+    [
+      8,
+      7,
+      256
+    ],
+    [
+      8,
+      8,
+      256
+    ],
+    [
+      1,
+      3,
+      32
+    ],
+    [
+      7,
+      1,
+      1
+    ],
+    [
+      3,
+      6,
+      9
+    ],
+    [
+      4,
+      5,
+      7
+    ],
+    [
+      7,
+      8,
+      9
+    ],
+    [
+      5,
+      1,
+      9
+    ],
+    [
+      6,
+      1,
+      7
+    ],
+    [
+      2,
+      8,
+      8
+    ],
+    [
+      2,
+      3,
+      9
+    ],
+    [
+      2,
+      3,
+      7
+    ],
+    [
+      2,
+      3,
+      7
+    ],
+    [
+      2,
+      5,
+      9
+    ],
+    [
+      2,
+      5,
+      9
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      2,
+      5,
+      7
+    ],
+    [
+      2,
+      5,
+      7
+    ],
+    [
+      2,
+      5,
+      7
+    ]
+  ],
+  "input_buffers": [
+    0,
+    1
+  ],
+  "output_buffers": [
+    0,
+    1
+  ],
+  "invalid_requests": 16,
+  "read_lengths": [
+    1,
+    2,
+    3,
+    4,
+    15,
+    16
+  ],
+  "write_lengths": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "stalls": {
+    "done": 1002,
+    "ar": 72,
+    "load": 567,
+    "w": 64,
+    "result_response": 87,
+    "aw": 20,
+    "read": 81,
+    "write_data": 81
+  },
+  "faults": {
+    "delayed_b_no_early_done": 1,
+    "rresp": 1,
+    "bresp": 1,
+    "final_bresp": 1,
+    "precommand_fatal_0": 1,
+    "precommand_fatal_1": 1,
+    "inject_rd_tag": 1,
+    "inject_rd_index": 1,
+    "inject_rd_last": 1,
+    "inject_response_error": 1,
+    "inject_response_strb": 1,
+    "fatal_with_offered_c_read": 1,
+    "fatal_with_stalled_load": 1,
+    "premature_write_ok_with_pending_response": 1,
+    "engine_cancel_offered_read": 1,
+    "engine_cancel_held_write_data": 1,
+    "command_accept_same_edge_engine_fatal": 1,
+    "nonfinal_word_accept_same_edge_memory_fatal": 1,
+    "nonfinal_word_accept_same_edge_premature_success": 1
+  },
+  "axi_read_bursts": 309,
+  "axi_write_bursts": 123,
+  "axi_read_beats": 2103,
+  "axi_write_beats": 268,
+  "axi_write_valid_bytes": 1780,
+  "axi_write_responses": 123,
+  "read_occupancy": [
+    0,
+    1
+  ],
+  "queued_scenarios": [
+    "full_credit_before_first_R_and_bank_DONE_credit",
+    "last_DDR_word_after_metadata_wrap"
+  ],
+  "read_command_and_retirement_same_edge": 0
+}

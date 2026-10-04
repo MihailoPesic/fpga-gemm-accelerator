@@ -1,0 +1,44 @@
+p4_t8: selected version and test-result lines
+Complete local console SHA-256: 0d7997a577242ec5210ac234c20fb8cd6455a48fad2a7286b82448817ea5d7dd
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+131460.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+134010.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+141830.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+157510.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       157510.00           6.35      24814.87  **
+
+p4_t32: selected version and test-result lines
+Complete local console SHA-256: b3e6203152c681bda69ec4213c3282c60239a25203fbd113d2106b799969a32d
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+1215500.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+1218060.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+1225880.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+1241560.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      1241560.00          79.28      15659.98  **
+
+p8_t8: selected version and test-result lines
+Complete local console SHA-256: 479953ff57db5a356d89dca6462a86c22bc21d45259c1c19a2dc0a042b6a0666
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+119230.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+121780.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+129960.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+144970.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       144970.00          12.81      11315.73  **
+
+p8_t32: selected version and test-result lines
+Complete local console SHA-256: 3a37d31b83d486e117f3101213971ce0240fc83b37b71133ffc458bc8593a575
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+597560.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+600110.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+608290.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+623300.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       623300.00         117.62       5299.06  **
+

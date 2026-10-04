@@ -1,0 +1,105 @@
+{
+  "result": "PASS",
+  "utc_started": "2026-10-04T12:38:19.167401+00:00",
+  "scope": "Supplied-matrix Python API on the already programmed current MODE=1 image; no reset or programming",
+  "port": "COM11",
+  "build_id": 745016055,
+  "bitstream_sha256_bytes": "5124adc4348ed1f42b6420d2776d7d1f50a44df7e340a6789b3a9954373e4cf5",
+  "manifest_sha256_bytes": "bff31939c1c2b9d93c9d679b4576ec1a448c7affadbbbde5d469826b1d2b2e42",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/hw_test_ddr_gemm.py": "9bd4054d4f954b6081400420be65c64698414e4f47ae4c48a794ac9afb0057bd",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "a": [
+    [
+      1,
+      -2,
+      3
+    ],
+    [
+      4,
+      5,
+      -6
+    ]
+  ],
+  "b": [
+    [
+      7,
+      8
+    ],
+    [
+      -9,
+      10
+    ],
+    [
+      11,
+      -12
+    ]
+  ],
+  "expected": [
+    [
+      58,
+      -48
+    ],
+    [
+      -83,
+      154
+    ]
+  ],
+  "identity": {
+    "id": 827148110,
+    "version": 512,
+    "geometry": 16785416,
+    "p": 8,
+    "t": 32,
+    "kmax": 256,
+    "build_id": 745016055,
+    "core_hz": 100000000
+  },
+  "descriptor": {
+    "m": 2,
+    "n": 2,
+    "k": 3,
+    "a_base": 64,
+    "bt_base": 320,
+    "c_base": 576,
+    "a_stride": 64,
+    "bt_stride": 64,
+    "c_stride": 64,
+    "mode": 1,
+    "watchdog": 10000000
+  },
+  "c": [
+    [
+      58,
+      -48
+    ],
+    [
+      -83,
+      154
+    ]
+  ],
+  "counters": {
+    "job_cycles": 264,
+    "compute_cycles": 26,
+    "read_beats": 4,
+    "write_beats": 2,
+    "write_valid_bytes": 16,
+    "input_wait_cycles": 157,
+    "read_stall_cycles": 0,
+    "write_stall_cycles": 4
+  },
+  "compared_elements": 4,
+  "guard_bytes_checked": 752,
+  "source_hashes_unchanged": true,
+  "transport": {
+    "retries": 0,
+    "rejected_frames": 0,
+    "poisoned": false
+  },
+  "utc_finished": "2026-10-04T12:38:20.684617+00:00"
+}

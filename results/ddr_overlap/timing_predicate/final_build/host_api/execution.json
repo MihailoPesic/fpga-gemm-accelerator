@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "actual_exit_code": 0,
+  "actual_command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\current_matrix_api_demo.py"
+  ],
+  "exit_scope": "Actual native exec tool completion returned exit_code=0; no process timestamp inferred",
+  "no_reset_or_programming": true,
+  "method_sha256_bytes": "298ee07b5cb09bdab65e65ed77b2e7de6c0f3b670892b101e60e2225a2f5c805",
+  "results_sha256_bytes": "04b3d7f094c7e012b975c23a0d26730154774a04d716a4d414fcd8293e72cc06"
+}

@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "simulator": "xsim",
+  "cases": 194,
+  "checked_bytes": 776,
+  "seed": 56614,
+  "scope": "Extracted vendor testbench reference functions and early self-check; no DUT, vendor IP or hardware",
+  "source_sha256_utf8_lf": {
+    "tb/vendor/tb_ddr_gemm.sv": "cec431bb79b4e8b587d361042d9894332f179c3e17ec0c9558e9b8e20755e5d7",
+    "scripts/test_vendor_reference.py": "e4eeb4c02ede8d0be17de1978b538f2cbe798226e46a6ad1bb8e564d3a1d0649"
+  },
+  "commands": [
+    [
+      "C:\\AMDDesignTools\\2026.1\\Vivado\\bin\\xvlog.bat",
+      "-sv",
+      "vendor_reference.sv"
+    ],
+    [
+      "C:\\AMDDesignTools\\2026.1\\Vivado\\bin\\xelab.bat",
+      "--debug",
+      "off",
+      "--relax",
+      "--mt",
+      "auto",
+      "vendor_reference",
+      "-s",
+      "vendor_reference_snapshot"
+    ],
+    [
+      "C:\\AMDDesignTools\\2026.1\\Vivado\\bin\\xsim.bat",
+      "vendor_reference_snapshot",
+      "-runall"
+    ]
+  ],
+  "artifact_sha256_bytes": {
+    "vendor_reference.sv": "94ffe64ff7c1e08975bd025c5642cdfa238ffc3c840ac0cff41feb95029fa2db",
+    "command_0.txt": "25d879ea9b5992ad9d47701e92c8bc746bc6e4c159f882cc14e7b27d9836f687",
+    "command_1.txt": "acf7233ede9b8fabb808bb0dce62c10dbdcb59a445c8e2a320e113309e32ae5a",
+    "command_2.txt": "16678c72485a562f59915e040f9f4e49b66ae9aa30b22a52b3e95ceb8916f90f"
+  }
+}

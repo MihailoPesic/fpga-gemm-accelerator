@@ -1,0 +1,20 @@
+{
+  "p": 4,
+  "t": 8,
+  "seed": 20261411,
+  "jobs": 3,
+  "output_values": 108,
+  "compute_load_edges": 46,
+  "compute_read_edges": 38,
+  "compute_load_read_edges": 1,
+  "active_load_blocks": 116,
+  "active_read_blocks": 116,
+  "launch_gap_blocks": 3,
+  "stalled_response_edges": 77,
+  "disjoint_start_loads": 0,
+  "disjoint_start_reads": 0,
+  "pending_disjoint_starts": 1,
+  "held_disjoint_starts": 0,
+  "response_owned_start_blocks": 0,
+  "resets": 1
+}

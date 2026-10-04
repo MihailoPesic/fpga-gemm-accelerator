@@ -1,0 +1,12 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791037814" />
+    <testcase name="complete_matrix_transfers" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="340" time="7.493997812271118" sim_time_ns="118090.0" ratio_time="15757.944285309559" />
+    <testcase name="invalid_descriptors_have_no_side_effects" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="355" time="0.1079862117767334" sim_time_ns="2560.0" ratio_time="23706.730311948726" />
+    <testcase name="delayed_response_and_fault_obligations" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="380" time="0.3007698059082031" sim_time_ns="7970.0" ratio_time="26498.67055615448" />
+    <testcase name="local_protocol_faults_and_drain" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="448" time="0.5957510471343994" sim_time_ns="14680.0" ratio_time="24641.16524949765" />
+    <testcase name="gather_transition_fault_edges" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="596" time="0.30783796310424805" sim_time_ns="7260.0" ratio_time="23583.835881675943" />
+    <testcase name="queued_read_credits_and_row_metadata" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="696" time="0.45026397705078125" sim_time_ns="10500.0" ratio_time="23319.65365911517" />
+    <testcase name="queued_read_fault_drains_accepted_commands" classname="test_tile_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_dma.py" lineno="753" time="0.007668972015380859" sim_time_ns="80.0" ratio_time="10431.645837219425" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,42 @@
+{
+  "result": "PASS",
+  "date": "2026-10-03",
+  "scope": "DUT-free checks of the vendor fixture reference functions and early self-check; no full vendor simulation or hardware claim",
+  "cases_per_simulator": 194,
+  "checked_bytes_per_simulator": 776,
+  "seed": 56614,
+  "runs": {
+    "iverilog": {
+      "result": "PASS",
+      "command": "python scripts/test_vendor_reference.py --simulator iverilog",
+      "summary": "iverilog/summary.json",
+      "early_self_check": "DDR_GEMM_ORACLE_PASS jobs=2 outputs=16",
+      "terminal_console": "iverilog/command_1.txt",
+      "generated_harness_local_path": "build/test_vendor_reference/iverilog/vendor_reference.sv",
+      "generated_harness_sha256_bytes": "94ffe64ff7c1e08975bd025c5642cdfa238ffc3c840ac0cff41feb95029fa2db"
+    },
+    "xsim": {
+      "result": "PASS",
+      "command": "python scripts/test_vendor_reference.py --simulator xsim",
+      "summary": "xsim/summary.json",
+      "early_self_check": "DDR_GEMM_ORACLE_PASS jobs=2 outputs=16",
+      "terminal_console": "xsim/command_2.txt",
+      "generated_harness_local_path": "build/test_vendor_reference/xsim/vendor_reference.sv",
+      "generated_harness_sha256_bytes": "94ffe64ff7c1e08975bd025c5642cdfa238ffc3c840ac0cff41feb95029fa2db"
+    }
+  },
+  "saved_artifact_sha256_bytes": {
+    "iverilog/summary.json": "3f2765b0a4487f17db2be4478897a457fca21c76f6c69aad01c1f4d6bb2a6d49",
+    "iverilog/command_0.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "iverilog/command_1.txt": "8de68f27cb1ff1cdbf78e1f81f1267fbae6377f4dd5ae44e97fdd65bbd64d98a",
+    "xsim/summary.json": "ece38536cd81d51426e649e3ddbad809294c8c2755eb0fc7cdb0421b6cc768e2",
+    "xsim/command_0.txt": "25d879ea9b5992ad9d47701e92c8bc746bc6e4c159f882cc14e7b27d9836f687",
+    "xsim/command_1.txt": "acf7233ede9b8fabb808bb0dce62c10dbdcb59a445c8e2a320e113309e32ae5a",
+    "xsim/command_2.txt": "16678c72485a562f59915e040f9f4e49b66ae9aa30b22a52b3e95ceb8916f90f"
+  },
+  "source_sha256_utf8_lf": {
+    "tb/vendor/tb_ddr_gemm.sv": "cec431bb79b4e8b587d361042d9894332f179c3e17ec0c9558e9b8e20755e5d7",
+    "scripts/test_vendor_reference.py": "e4eeb4c02ede8d0be17de1978b538f2cbe798226e46a6ad1bb8e564d3a1d0649"
+  },
+  "copy_policy": "Per-run summaries and complete command consoles copied byte-for-byte; original artifact maps describe the local run directories, including the regenerated harness retained under build/"
+}

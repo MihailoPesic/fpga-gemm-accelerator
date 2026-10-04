@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "stage": "host_api",
+  "actual_exit_code": 0,
+  "build_id": 745016055,
+  "bitstream_sha256_bytes": "5124adc4348ed1f42b6420d2776d7d1f50a44df7e340a6789b3a9954373e4cf5",
+  "mode": 1,
+  "scope": "Documented supplied-matrix Python API on the currently programmed final image; no reset or programming",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/hw_test_ddr_gemm.py": "9bd4054d4f954b6081400420be65c64698414e4f47ae4c48a794ac9afb0057bd",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "source_hashes_unchanged": true,
+  "compared_elements": 4,
+  "guard_bytes_checked": 752,
+  "job_cycles": 264,
+  "warm_reset_qualified": false,
+  "utc_recorded": "2026-10-04T12:41:55.857193+00:00",
+  "saved_artifact_sha256_bytes": {
+    "execution.json": "fdb3b39362e94c87de19b8d329c21948848b352e61202e81009990c99b765b9e",
+    "method.py": "298ee07b5cb09bdab65e65ed77b2e7de6c0f3b670892b101e60e2225a2f5c805",
+    "results.json": "04b3d7f094c7e012b975c23a0d26730154774a04d716a4d414fcd8293e72cc06"
+  }
+}

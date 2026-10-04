@@ -1,0 +1,12 @@
+set ddr_root {C:/Users/mihai/Documents/continium/accelerator nexys}
+set ddr_out {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final}
+set ddr_stage sim
+set ddr_build_id 745016055
+set ddr_p 8
+set ddr_t 32
+set ddr_read_slots 4
+set ddr_enable_overlap 1
+set ddr_baud 115200
+set ddr_sim_baud 10000000
+set ddr_sim_debug off
+set ddr_sources [list {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/core/gemm_pe.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/core/gemm_array.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/core/gemm_microtile.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_operand_banks.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_result_banks.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_bram_microtile.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_tile_engine.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_dma_rows.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_tile_dma.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_tile_dma_read_queue.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_tile_dma_duplex.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_tile_scheduler.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_overlap_job.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/memory/gemm_axi_burst.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_job.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_control.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_core.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/accelerator nexys.srcs/sources_1/new/uart_rx.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/accelerator nexys.srcs/sources_1/new/uart_tx.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/platform/nexys_a7/axi_ddr_platform.sv} {C:/Users/mihai/Documents/continium/accelerator nexys/platform/nexys_a7/gemm_ddr_top.sv}]

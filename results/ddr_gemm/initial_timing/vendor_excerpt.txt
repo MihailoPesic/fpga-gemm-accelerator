@@ -1,0 +1,3 @@
+DDR_GEMM_SIM_CONFIG p=4 t=32 sim_baud=10000000 build_id=a969c4e5
+DDR_GEMM_CALIBRATED time_ns=165415000.0 ps
+DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=200 compute_cycles=12 read_beats=2 write_beats=1 write_bytes=4

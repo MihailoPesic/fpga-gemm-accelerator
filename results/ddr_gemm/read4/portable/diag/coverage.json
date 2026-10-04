@@ -1,0 +1,21 @@
+{
+  "successful_runs": 3,
+  "compared_read_words": 3072,
+  "checked_write_words": 1944,
+  "faults": [
+    "inject_bresp",
+    "inject_rresp",
+    "inject_r_xor",
+    "final_burst_word",
+    "final_job_word",
+    "watchdog_stalled_aw",
+    "calibration_loss_stalled_ar",
+    "start_calibration_race"
+  ],
+  "stalled_axi_cycles": {
+    "w": 1212,
+    "aw": 150,
+    "ar": 71
+  },
+  "repeated_busy_start": 3
+}

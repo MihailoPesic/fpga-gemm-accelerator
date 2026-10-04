@@ -1,0 +1,100 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 15-aug-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sun Oct  4 13:49:25 2026
+# Process ID         : 34532
+# Current directory  : C:/Users/mihai/Documents/continium/accelerator nexys/build/overlap_final_reset_review
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\review.tcl -log C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.log -journal C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.jou -tclargs C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_overlap_final\gemm_routed.dcp C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review Read-only final build 0x2c680af7 own routed checkpoint; physical-board and warm-reset qualification remain separate
+# Log file           : C:/Users/mihai/Documents/continium/accelerator nexys/build/overlap_final_reset_review/vivado.log
+# Journal file       : C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.jou
+# Running On         : mihinayoga
+# Platform           : Windows 11
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 258V
+# CPU Frequency      : 3302 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 33873 MB
+# Swap memory        : 19327 MB
+# Total Virtual      : 53201 MB
+# Available Virtual  : 7134 MB
+#-----------------------------------------------------------
+source {C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\review.tcl} -notrace
+Command: open_checkpoint {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/gemm_routed.dcp}
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 334.500 ; gain = 3.637
+INFO: [Device 21-403] Loading part xc7a50ticsg324-1L
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.201 . Memory (MB): peak = 844.121 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2085 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.092 . Memory (MB): peak = 995.043 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1627.840 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1627.840 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1627.840 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.888 . Memory (MB): peak = 1668.578 ; gain = 40.738
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1668.578 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.879 . Memory (MB): peak = 1668.578 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1668.578 ; gain = 40.738
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1668.578 ; gain = 40.738
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1698.844 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 304 instances were transformed.
+  IBUFDS_INTERMDISABLE => IBUFDS_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2)): 2 instances
+  IOBUFDS_INTERMDISABLE => IOBUFDS_INTERMDISABLE (IBUFDS_INTERMDISABLE_INT(x2), INV, OBUFTDS(x2)): 2 instances
+  IOBUF_INTERMDISABLE => IOBUF_INTERMDISABLE (IBUF_INTERMDISABLE, OBUFT): 16 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  OBUFTDS => OBUFTDS_DUAL_BUF (INV, OBUFTDS(x2)): 2 instances
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 8 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 8 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 161 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 4 instances
+  RAM32X1S => RAM32X1S (RAMS32): 8 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 75 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 1 instance 
+  RAM64X1S => RAM64X1S (RAMS64E): 16 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2026.1 (64-bit) build 6511674
+open_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 1704.488 ; gain = 1379.891
+get_pins: Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1704.723 ; gain = 0.234
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_exceptions: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1840.785 ; gain = 24.891
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_exceptions: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1845.809 ; gain = 5.023
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-78] ReportTimingParams: -to_pins  -max_paths 200 -nworst 1 -delay_type min_max -sort_by slack.
+report_timing: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1845.809 ; gain = 0.000
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-78] ReportTimingParams: -to_pins  -max_paths 200 -nworst 1 -delay_type min_max -sort_by slack.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-78] ReportTimingParams: -to_pins  -max_paths 400 -nworst 1 -delay_type min_max -sort_by slack.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-78] ReportTimingParams: -to_pins  -max_paths 400 -nworst 1 -delay_type min_max -sort_by slack.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: max.
+WARNING: [Common 17-708] report_cdc: The '-name' option will be ignored because it is only relevant in GUI mode.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max.
+INFO: [Timing 38-314] The report_cdc command only analyzes and reports clock domain crossing paths where clocks have been defined on both source and destination sides. Ports with no input delay constraint are skipped. Please run check_timing to verify there are no missing clock definitions in your design, nor any unconstrained input port.
+CHECKPOINT_RESET_CLOCK_REVIEW_COMPLETE ASYNC=86 RESET_LIKE=21831
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  4 13:52:41 2026...

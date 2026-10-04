@@ -1,0 +1,78 @@
+{
+  "result": "PASS",
+  "execution": [
+    {
+      "suite": "windows",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "-m",
+        "unittest",
+        "tb.test_host_gemm",
+        "tb.test_build_ddr_gemm",
+        "tb.test_program_ddr_gemm",
+        "tb.test_hw_ddr_gemm"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.187408208847046
+    },
+    {
+      "suite": "linux",
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys",
+        "--exec",
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "tb.test_host_gemm",
+        "tb.test_build_ddr_gemm",
+        "tb.test_program_ddr_gemm",
+        "tb.test_hw_ddr_gemm"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 32.50195050239563
+    }
+  ],
+  "utc": "2026-10-04T07:56:44.697124+00:00",
+  "source_sha256_utf8_lf": {
+    "tb/test_host_gemm.py": "910188fe264f2ba6147032bec13a11b4720f142a24a5b472bf93a66b959f9826",
+    "tb/test_build_ddr_gemm.py": "f5ce730412f226433630d2538fee7d957fe07f24b0584f815d1c450522f0892a",
+    "tb/test_program_ddr_gemm.py": "486e4c0bb6cabac4d85f4529c02e8e77ddbc3dc3383e306867e451c11d01b924",
+    "tb/test_hw_ddr_gemm.py": "3654dbd2d00665a1c4ebfd1175ff194f65aed153ceb52a9c42440978c14c8b9d",
+    "scripts/build_ddr_gemm.py": "3183915607a8e0d30b76a7b12f5748de37c78c3ce286acf36f5acca61eb7618e",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7",
+    "scripts/hw_test_ddr_gemm.py": "9bd4054d4f954b6081400420be65c64698414e4f47ae4c48a794ac9afb0057bd",
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "tb/test_host_preview.py": "45df2d2901df8da889bce795b2fefc5529abdca6140c349d8ac839f0313616a2"
+  },
+  "source_sha256_utf8_lf_after": {
+    "tb/test_host_gemm.py": "910188fe264f2ba6147032bec13a11b4720f142a24a5b472bf93a66b959f9826",
+    "tb/test_build_ddr_gemm.py": "f5ce730412f226433630d2538fee7d957fe07f24b0584f815d1c450522f0892a",
+    "tb/test_program_ddr_gemm.py": "486e4c0bb6cabac4d85f4529c02e8e77ddbc3dc3383e306867e451c11d01b924",
+    "tb/test_hw_ddr_gemm.py": "3654dbd2d00665a1c4ebfd1175ff194f65aed153ceb52a9c42440978c14c8b9d",
+    "scripts/build_ddr_gemm.py": "3183915607a8e0d30b76a7b12f5748de37c78c3ce286acf36f5acca61eb7618e",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7",
+    "scripts/hw_test_ddr_gemm.py": "9bd4054d4f954b6081400420be65c64698414e4f47ae4c48a794ac9afb0057bd",
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "tb/test_host_preview.py": "45df2d2901df8da889bce795b2fefc5529abdca6140c349d8ac839f0313616a2"
+  },
+  "tests_per_platform": 77,
+  "platforms": [
+    "windows",
+    "linux"
+  ],
+  "scope": "Host client, CLI, build, programmer and hardware-runner software tests; includes a behavioral packet fixture, not FPGA performance",
+  "saved_artifact_sha256_bytes": {
+    "linux_console.txt": "d3da2ad8c312a8dbc3b0dd54025c0bbc89891119026d6456811378a7548b05ec",
+    "windows_console.txt": "b46b97387864a82108b01c93b3fe1ab2703d8e9efcfb8b5ff0cca071364eb005"
+  }
+}

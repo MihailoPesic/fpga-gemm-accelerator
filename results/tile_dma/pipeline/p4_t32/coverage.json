@@ -1,0 +1,201 @@
+{
+  "p": 4,
+  "t": 32,
+  "seed": 20261107,
+  "jobs": 24,
+  "output_values": 5898,
+  "shapes": [
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      5,
+      1,
+      8
+    ],
+    [
+      3,
+      5,
+      9
+    ],
+    [
+      31,
+      32,
+      255
+    ],
+    [
+      32,
+      31,
+      256
+    ],
+    [
+      32,
+      32,
+      256
+    ],
+    [
+      31,
+      17,
+      32
+    ],
+    [
+      21,
+      27,
+      9
+    ],
+    [
+      25,
+      19,
+      9
+    ],
+    [
+      10,
+      18,
+      31
+    ],
+    [
+      15,
+      14,
+      32
+    ],
+    [
+      11,
+      21,
+      8
+    ],
+    [
+      9,
+      3,
+      33
+    ],
+    [
+      19,
+      31,
+      256
+    ],
+    [
+      2,
+      3,
+      9
+    ],
+    [
+      2,
+      3,
+      7
+    ],
+    [
+      2,
+      3,
+      7
+    ],
+    [
+      2,
+      5,
+      9
+    ],
+    [
+      2,
+      5,
+      9
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      1,
+      5,
+      8
+    ],
+    [
+      1,
+      5,
+      8
+    ]
+  ],
+  "input_buffers": [
+    0,
+    1
+  ],
+  "output_buffers": [
+    0,
+    1
+  ],
+  "invalid_requests": 16,
+  "read_lengths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    14,
+    15,
+    16
+  ],
+  "write_lengths": [
+    1,
+    2,
+    3,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16
+  ],
+  "stalls": {
+    "done": 866,
+    "ar": 228,
+    "load": 2801,
+    "result_response": 1071,
+    "write_data": 994,
+    "read": 1024,
+    "aw": 89,
+    "w": 1042
+  },
+  "faults": {
+    "delayed_b_no_early_done": 1,
+    "rresp": 1,
+    "bresp": 1,
+    "final_bresp": 1,
+    "precommand_fatal_0": 1,
+    "precommand_fatal_1": 1,
+    "inject_rd_tag": 1,
+    "inject_rd_index": 1,
+    "inject_rd_last": 1,
+    "inject_response_error": 1,
+    "inject_response_strb": 1,
+    "fatal_with_offered_c_read": 1,
+    "fatal_with_stalled_load": 1,
+    "premature_write_ok_with_pending_response": 1,
+    "engine_cancel_offered_read": 1,
+    "engine_cancel_held_write_data": 1
+  },
+  "axi_read_bursts": 841,
+  "axi_write_bursts": 293,
+  "axi_read_beats": 8492,
+  "axi_write_beats": 3056,
+  "axi_write_valid_bytes": 23672,
+  "axi_write_responses": 293
+}

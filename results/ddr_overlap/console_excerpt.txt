@@ -1,0 +1,271 @@
+overlap_p4_t8
+                                                         ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS     3762490.00          99.45      37833.20  **
+                                                         ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS      561690.00          15.92      35279.52  **
+                                                         ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                    4324180.00         115.39      37475.88  **
+                                                         ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS     3745190.00         116.57      32127.43  **
+                                                         ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS      559930.00          16.63      33671.92  **
+                                                         ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                    4305120.00         133.22      32316.94  **
+
+compatibility_p4_t8
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      790400.00          18.24      43323.82  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1550880.00          36.91      42020.65  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     1785170.00          46.67      38252.85  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS      384500.00          10.43      36861.01  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      185950.00           8.63      21556.10  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       28750.00           2.05      14008.89  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184830.00           6.03      30647.48  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96400.00           2.79      34573.13  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197140.00           6.31      31218.94  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      474770.00          16.09      29509.71  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        5678790.01         154.33      36795.90  **
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      791160.00          22.55      35078.20  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1552680.00          37.65      41245.06  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     1779220.00          50.38      35313.56  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS      382770.00          11.23      34079.76  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      185950.00           5.29      35144.58  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       28760.00           0.89      32190.83  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184850.00           5.98      30895.89  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96400.00           2.81      34318.20  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197140.00           5.98      32962.08  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      476000.00          13.49      35274.25  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        5674930.01         156.31      36305.20  **
+
+job_p4_t8
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS       92528.49           4.90      18895.43  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3630.72           0.19      19147.99  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       11212.23           0.50      22247.98  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS       17623.48           0.86      20555.36  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1980.36           0.10      20554.21  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     2478515.59         201.97      12271.52  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   2605490.88         208.54      12494.04  **
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS       70144.02           5.17      13576.60  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3270.65           0.23      14386.81  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       10252.04           0.71      14393.34  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS       13812.72           0.97      14274.35  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1860.33           0.12      15296.14  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     2087757.46         171.92      12143.92  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   2187097.21         179.14      12209.07  **
+
+job_p4_t32
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS      265803.14          16.89      15734.82  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3630.72           0.24      15308.35  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       99729.93           6.17      16172.43  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS      131406.23           9.71      13533.59  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1980.36           0.13      14903.25  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     2499799.85         203.80      12266.16  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   3002350.23         236.96      12670.25  **
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS      225525.09          18.37      12278.76  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3270.65           0.24      13791.57  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       95889.16           6.46      14843.63  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS      114632.88           9.30      12324.18  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1860.33           0.14      13280.33  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     2241458.19         184.35      12158.51  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   2682636.30         218.89      12255.70  **
+
+compatibility_p4_t32
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      791350.00          22.13      35760.31  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1550110.00          38.70      40057.48  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     3049170.00          84.04      36284.39  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS     1646290.00          48.00      34295.49  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      187000.00           5.41      34536.74  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29070.00           0.78      37325.92  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184690.00           4.50      41086.32  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96440.00           2.89      33353.40  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197350.00           5.56      35484.45  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475520.00          12.31      38632.42  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        8206990.01         224.36      36580.19  **
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      792210.00          21.23      37313.89  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1551910.00          46.75      33196.76  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     3037660.00         102.52      29630.69  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS     1640740.00          51.20      32043.31  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      187000.00           6.11      30629.10  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29090.00           0.93      31320.92  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184710.00           5.03      36757.66  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96440.00           3.20      30126.00  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197350.00           6.58      30009.82  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      476500.00          14.04      33938.62  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        8193610.01         257.62      31805.14  **
+
+compatibility_p8_t8
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      790460.00          30.91      25571.20  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1550630.00          68.33      22694.20  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     1892550.00          88.07      21488.81  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS      383170.00          17.00      22534.50  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      186290.00           8.11      22967.70  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29020.00           1.38      21048.18  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184790.00           7.51      24607.63  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       95940.00           4.44      21615.15  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197700.00           8.94      22108.94  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475280.00          21.01      22616.38  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        5785830.01         255.77      22621.18  **
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      790880.00          35.20      22468.94  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1552860.00          63.92      24294.34  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     1885830.00          99.31      18988.81  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS      381580.00          19.18      19893.96  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      186290.00           9.45      19703.25  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29020.00           1.44      20163.95  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184810.00           8.79      21019.31  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       95940.00           4.87      19693.31  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197920.00           9.92      19944.59  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475410.00          23.73      20032.71  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        5780540.01         275.87      20954.11  **
+
+overlap_p8_t8
+                                                         ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS     3749820.00         182.84      20509.01  **
+                                                         ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS      558190.00          27.70      20152.32  **
+                                                         ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                    4308010.00         210.55      20460.33  **
+                                                         ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS     3732110.00         178.16      20947.50  **
+                                                         ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS      557620.00          21.24      26251.43  **
+                                                         ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                    4289730.00         199.42      21511.30  **
+
+job_p8_t8
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS      111632.31          13.55       8238.20  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3510.69           0.33      10558.02  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       10752.14           1.05      10192.66  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS       13112.58           1.50       8745.40  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        2100.38           0.24       8683.62  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     3974964.82         583.68       6810.21  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   4116072.93         600.39       6855.72  **
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS       79105.81          12.16       6506.99  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3150.62           0.32       9967.13  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS        9791.95           1.00       9793.61  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS        9351.82           1.33       7028.14  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1980.36           0.22       9075.50  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     2512222.33         451.33       5566.30  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   2615602.90         466.38       5608.30  **
+
+overlap_p4_t32
+                                                          ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS    15376640.00         464.09      33132.64  **
+                                                          ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS     2861810.00          99.19      28850.75  **
+                                                          ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                   18238450.00         563.31      32377.56  **
+                                                          ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS    15306600.00         505.29      30292.82  **
+                                                          ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS     2854510.00          95.23      29974.53  **
+                                                          ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                   18161110.00         600.54      30241.52  **
+
+job_p8_t32
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS      241078.20          31.48       7657.27  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3510.69           0.35      10165.14  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       80646.12           8.96       8999.95  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS       66713.29          14.27       4674.86  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        2100.38           0.19      10971.42  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     1885587.03         242.56       7773.80  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   2279635.72         297.84       7653.91  **
+                                                         ** test_ddr_overlap_job.matched_jobs_both_modes          PASS      192668.52          29.54       6523.09  **
+                                                         ** test_ddr_overlap_job.validation_and_start_contract    PASS        3150.62           0.32       9983.60  **
+                                                         ** test_ddr_overlap_job.final_b_and_counter_snapshots    PASS       76805.35           8.83       8698.42  **
+                                                         ** test_ddr_overlap_job.fault_counters_and_drain         PASS       49939.94          10.28       4858.84  **
+                                                         ** test_ddr_overlap_job.calibration_watchdog_and_clear   PASS        1980.36           0.18      10855.48  **
+                                                         ** test_ddr_overlap_job.seeded_mixed_jobs                PASS     1631696.26         231.74       7041.15  **
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                   1956241.05         280.91       6963.98  **
+
+lint
+PASS: Icarus compile/warnings P=4
+PASS: banked Icarus compile/warnings P=4 T=8
+PASS: tile engine compile/warnings P=4 T=8
+PASS: banked Icarus compile/warnings P=4 T=32
+PASS: tile engine compile/warnings P=4 T=32
+PASS: Icarus compile/warnings P=8
+PASS: banked Icarus compile/warnings P=8 T=8
+PASS: tile engine compile/warnings P=8 T=8
+PASS: banked Icarus compile/warnings P=8 T=32
+PASS: tile engine compile/warnings P=8 T=32
+PASS: complete preview UART compile/warnings
+PASS: AXI burst primitive compile/warnings READ_SLOTS=1
+PASS: AXI burst primitive compile/warnings READ_SLOTS=4
+PASS: DMA row sequencer compile/warnings READ_SLOTS=1
+PASS: DMA row sequencer compile/warnings READ_SLOTS=4
+PASS: tile DMA adapter compile/warnings P=4 T=8 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=4 T=8 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=4 T=8 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=4 T=8 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=4 T=8
+PASS: tagged tile scheduler compile/warnings P=4 T=8
+PASS: overlap DDR job shell compile/warnings P=4 T=8
+PASS: DDR register interface compile/warnings P=4 T=8
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=1 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=1 ENABLE_OVERLAP=1
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=4 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=4 ENABLE_OVERLAP=1
+PASS: tile DMA adapter compile/warnings P=4 T=32 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=4 T=32 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=4 T=32 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=4 T=32 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=4 T=32
+PASS: tagged tile scheduler compile/warnings P=4 T=32
+PASS: overlap DDR job shell compile/warnings P=4 T=32
+PASS: DDR register interface compile/warnings P=4 T=32
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=1 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=1 ENABLE_OVERLAP=1
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=4 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=4 ENABLE_OVERLAP=1
+PASS: tile DMA adapter compile/warnings P=8 T=8 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=8 T=8 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=8 T=8 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=8 T=8 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=8 T=8
+PASS: tagged tile scheduler compile/warnings P=8 T=8
+PASS: overlap DDR job shell compile/warnings P=8 T=8
+PASS: DDR register interface compile/warnings P=8 T=8
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=1 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=1 ENABLE_OVERLAP=1
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=4 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=4 ENABLE_OVERLAP=1
+PASS: tile DMA adapter compile/warnings P=8 T=32 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=8 T=32 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=8 T=32 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=8 T=32 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=8 T=32
+PASS: tagged tile scheduler compile/warnings P=8 T=32
+PASS: overlap DDR job shell compile/warnings P=8 T=32
+PASS: DDR register interface compile/warnings P=8 T=32
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=1 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=1 ENABLE_OVERLAP=1
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=4 ENABLE_OVERLAP=0
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=4 ENABLE_OVERLAP=1
+PASS: DDR diagnostic and packet controller compile/warnings
+
+serial_compatibility
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      791380.00          36.19      21865.98  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1553700.00          69.80      22259.75  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     3128670.00         132.16      23674.15  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS     1630030.00          71.07      22935.90  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      186490.00           7.99      23345.14  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29020.00           1.30      22310.52  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184840.00           7.62      24264.08  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96240.00           5.58      17252.04  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197130.00          14.21      13876.95  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475460.00          18.36      25890.48  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        8272960.01         364.34      22706.65  **
+
+compatibility_p8_t32
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      791380.00          33.52      23610.48  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1550310.00          66.79      23212.74  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     3144200.00         144.05      21827.09  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS     1636600.00          78.44      20864.66  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      186490.00           8.46      22046.26  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29000.00           1.50      19336.95  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184820.00           7.15      25865.04  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96240.00           4.43      21704.71  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197110.00           9.25      21317.30  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475500.00          23.17      20521.40  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        8291650.01         376.80      22005.56  **
+                                                         ** test_ddr_core.host_memory_packets_and_retries                PASS      791380.00          39.14      20221.52  **
+                                                         ** test_ddr_core.host_memory_page_burst_schedule                PASS     1553700.00          65.98      23549.49  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets         PASS     3128670.00         137.06      22826.24  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b     PASS     1630030.00          79.64      20468.70  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain              PASS      186490.00           8.50      21927.16  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress           PASS       29020.00           1.40      20750.26  **
+                                                         ** test_ddr_core.host_memory_completion_fault_priority          PASS      184840.00           5.86      31539.26  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write         PASS       96240.00           3.16      30474.74  **
+                                                         ** test_ddr_core.calibration_loss_cancels_unoffered_job_reads   PASS      197130.00           7.05      27970.39  **
+                                                         ** test_ddr_core.gemm_read_error_retains_memory_ownership       PASS      475460.00          17.95      26485.05  **
+                                                         ** TESTS=10 PASS=10 FAIL=0 SKIP=0                                        8272960.01         365.78      22617.55  **
+
+overlap_p8_t32
+                                                          ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS    15233600.00         613.85      24816.44  **
+                                                          ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS     2815360.00          88.94      31656.03  **
+                                                          ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                   18048960.00         702.80      25681.68  **
+                                                          ** test_ddr_core_overlap.matched_packet_jobs_both_modes                   PASS    15166300.00         438.69      34571.52  **
+                                                          ** test_ddr_core_overlap.overlap_busy_replay_and_delayed_final_response   PASS     2811550.00          70.09      40111.03  **
+                                                          ** TESTS=2 PASS=2 FAIL=0 SKIP=0                                                   17977850.00         508.79      35334.21  **
+

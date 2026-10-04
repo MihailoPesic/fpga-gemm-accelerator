@@ -1,0 +1,980 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "p": 4,
+  "t": 32,
+  "model": "unstalled",
+  "core_hz": 100000000,
+  "clock_period_ns": 10,
+  "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "scope": "Portable simulation of qualified production RTL against behavioral AXI RAM; not MIG or physical DDR latency",
+  "memory_model": {
+    "random_channel_pauses": false,
+    "additional_first_read_delay_cycles": 0,
+    "additional_final_write_delay_cycles": 0,
+    "read_callback_wait_ns": 0,
+    "write_callback_wait_ns": 0,
+    "baseline_ar_to_first_r_cycles": 2,
+    "baseline_last_aw_w_to_b_cycles": 2,
+    "mechanism": "cocotbext-axi _read first word / _write final contiguous word callbacks; Timer followed by ReadOnly preserves post-edge response queuing; 10 ns core clock"
+  },
+  "timing_semantics": {
+    "job": "accepted START edge to final successful AXI B edge; host initialization/configuration excluded",
+    "phases": "disjoint pre-edge controller phases over accepted < edge <= final B",
+    "burst_intervals": "disjoint per burst; local terminal after final B excluded from job attribution",
+    "stalls": "contained diagnostics; do not add to elapsed intervals",
+    "single_beat_read": "remaining_r_span is zero; first response edge ends ar_to_first_r",
+    "sampling": "4 ns low-phase sample checked against original Harness AXI logs; registered acceptance observed after that edge"
+  },
+  "initialization": "Direct behavioral RAM initialization with the public 64-byte guarded layout; mathematical A/B/BT packing and oracle are independent of RTL",
+  "compared_outputs": 6289,
+  "checked_memory_bytes": 96000,
+  "original_profile_sha256_bytes": "3045a6d3b2d9ced7a0a30884993732d14cdd261b4ac536196bb476c76ee86f11",
+  "trace_scope": "Job summaries and per-burst CSV contain event endpoints, counts and gap histograms; full ordered edge lists remain in the local profile.json",
+  "jobs": [
+    {
+      "name": "dense",
+      "seed": 20261008,
+      "descriptor": {
+        "job_id": 1,
+        "m": 32,
+        "n": 32,
+        "k": 256,
+        "a_base": 64,
+        "bt_base": 8384,
+        "c_base": 16704,
+        "a_stride": 256,
+        "bt_stride": 256,
+        "c_stride": 128,
+        "mode": 0,
+        "watchdog": 10000000
+      },
+      "shape": {
+        "m": 32,
+        "n": 32,
+        "k": 256
+      },
+      "counters": {
+        "job_cycles": 25648,
+        "compute_cycles": 17088,
+        "read_beats": 2048,
+        "write_beats": 512,
+        "write_valid_bytes": 4096,
+        "input_wait_cycles": 5030,
+        "read_stall_cycles": 0,
+        "write_stall_cycles": 0
+      },
+      "phases": {
+        "a_load": 2515,
+        "bt_load": 2515,
+        "compute": 17346,
+        "c_store": 3272,
+        "retire": 0
+      },
+      "active_compute_cycles": 17088,
+      "compute_control_prefetch_cycles": 258,
+      "done_publication_cycles": 3,
+      "tiles": 1,
+      "microtiles": 64,
+      "read_bursts": 132,
+      "write_bursts": 33,
+      "latency_injection_sites": {
+        "read": 132,
+        "write": 33
+      },
+      "expected_latency_delta_cycles": 1254,
+      "compared_outputs": 1024,
+      "checked_memory_bytes": 20864,
+      "operation_attribution": {
+        "a": {
+          "burst_intervals_within_job": 2312,
+          "controller_planner_gaps": 203
+        },
+        "bt": {
+          "burst_intervals_within_job": 2312,
+          "controller_planner_gaps": 203
+        },
+        "c": {
+          "burst_intervals_within_job": 3170,
+          "controller_planner_gaps": 102
+        }
+      },
+      "burst_interval_totals": {
+        "read": {
+          "command_to_ar": 132,
+          "ar_to_first_r": 264,
+          "remaining_r_span": 1916,
+          "last_r_to_last_bank_load": 2180,
+          "last_bank_load_to_local_done": 132
+        },
+        "write": {
+          "c_gather": 2560,
+          "aw_w_issue": 512,
+          "b_response": 66,
+          "b_to_local_done": 33
+        }
+      },
+      "contained_stall_cycles": {
+        "dma_req": 0,
+        "d_rd_cmd": 0,
+        "d_wr_cmd": 0,
+        "d_rd_data": 0,
+        "load": 0,
+        "read": 0,
+        "response": 0,
+        "d_wr_data": 0,
+        "d_rd_done": 132,
+        "d_wr_done": 0
+      },
+      "c_gather_state_cycles": {
+        "NEXT_PAIR": 512,
+        "OFFER_READ": 512,
+        "WAIT_RESPONSE": 1024,
+        "SEND_WORD": 512
+      },
+      "operations": [
+        {
+          "index": 0,
+          "tile": 0,
+          "kind": "a",
+          "base": 64,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 1,
+          "done": 2515
+        },
+        {
+          "index": 1,
+          "tile": 0,
+          "kind": "bt",
+          "base": 8384,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 2516,
+          "done": 5030
+        },
+        {
+          "index": 2,
+          "tile": 0,
+          "kind": "c",
+          "base": 16704,
+          "stride": 128,
+          "rows": 32,
+          "row_bytes": 128,
+          "request": 22377,
+          "done": 25651
+        }
+      ],
+      "compute_spans": [
+        {
+          "i0": 0,
+          "j0": 0,
+          "m": 32,
+          "n": 32,
+          "k": 256,
+          "start": 5031,
+          "end": 22375
+        }
+      ],
+      "input_images_sha256": {
+        "a": "171593075b4d5e9849fe8e17a7551e74f5781813840ad8710186cd64440d6bd8",
+        "bt": "4fed0abab3a4411300ed5cb37f398903ded6efaf63e17fad9df342007f7a8709",
+        "c": "ec438a8bcdcb764a0166c17cc758f670ee7eeeff85413d1bc6c63052e27c200e"
+      }
+    },
+    {
+      "name": "odd",
+      "seed": 20261004,
+      "descriptor": {
+        "job_id": 2,
+        "m": 5,
+        "n": 3,
+        "k": 9,
+        "a_base": 64,
+        "bt_base": 512,
+        "c_base": 832,
+        "a_stride": 64,
+        "bt_stride": 64,
+        "c_stride": 64,
+        "mode": 0,
+        "watchdog": 10000000
+      },
+      "shape": {
+        "m": 5,
+        "n": 3,
+        "k": 9
+      },
+      "counters": {
+        "job_cycles": 240,
+        "compute_cycles": 40,
+        "read_beats": 16,
+        "write_beats": 10,
+        "write_valid_bytes": 60,
+        "input_wait_cycles": 98,
+        "read_stall_cycles": 0,
+        "write_stall_cycles": 0
+      },
+      "phases": {
+        "a_load": 60,
+        "bt_load": 38,
+        "compute": 50,
+        "c_store": 92,
+        "retire": 0
+      },
+      "active_compute_cycles": 40,
+      "compute_control_prefetch_cycles": 10,
+      "done_publication_cycles": 3,
+      "tiles": 1,
+      "microtiles": 2,
+      "read_bursts": 8,
+      "write_bursts": 5,
+      "latency_injection_sites": {
+        "read": 8,
+        "write": 5
+      },
+      "expected_latency_delta_cycles": 94,
+      "compared_outputs": 15,
+      "checked_memory_bytes": 1216,
+      "operation_attribution": {
+        "a": {
+          "burst_intervals_within_job": 40,
+          "controller_planner_gaps": 20
+        },
+        "bt": {
+          "burst_intervals_within_job": 24,
+          "controller_planner_gaps": 14
+        },
+        "c": {
+          "burst_intervals_within_job": 74,
+          "controller_planner_gaps": 18
+        }
+      },
+      "burst_interval_totals": {
+        "read": {
+          "command_to_ar": 8,
+          "ar_to_first_r": 16,
+          "remaining_r_span": 8,
+          "last_r_to_last_bank_load": 24,
+          "last_bank_load_to_local_done": 8
+        },
+        "write": {
+          "c_gather": 50,
+          "aw_w_issue": 10,
+          "b_response": 10,
+          "b_to_local_done": 5
+        }
+      },
+      "contained_stall_cycles": {
+        "dma_req": 0,
+        "d_rd_cmd": 0,
+        "d_wr_cmd": 0,
+        "d_rd_data": 0,
+        "load": 0,
+        "read": 0,
+        "response": 0,
+        "d_wr_data": 0,
+        "d_rd_done": 8,
+        "d_wr_done": 0
+      },
+      "c_gather_state_cycles": {
+        "NEXT_PAIR": 10,
+        "OFFER_READ": 10,
+        "WAIT_RESPONSE": 20,
+        "SEND_WORD": 10
+      },
+      "operations": [
+        {
+          "index": 0,
+          "tile": 0,
+          "kind": "a",
+          "base": 64,
+          "stride": 64,
+          "rows": 5,
+          "row_bytes": 9,
+          "request": 1,
+          "done": 60
+        },
+        {
+          "index": 1,
+          "tile": 0,
+          "kind": "bt",
+          "base": 512,
+          "stride": 64,
+          "rows": 3,
+          "row_bytes": 9,
+          "request": 61,
+          "done": 98
+        },
+        {
+          "index": 2,
+          "tile": 0,
+          "kind": "c",
+          "base": 832,
+          "stride": 64,
+          "rows": 5,
+          "row_bytes": 12,
+          "request": 149,
+          "done": 243
+        }
+      ],
+      "compute_spans": [
+        {
+          "i0": 0,
+          "j0": 0,
+          "m": 5,
+          "n": 3,
+          "k": 9,
+          "start": 99,
+          "end": 147
+        }
+      ],
+      "input_images_sha256": {
+        "a": "6746054c75523f664f19bf594f7acb7aff86496f890e50414a2b765a93e9b8e7",
+        "bt": "5151168eb7507d3e25c0588fb181d45dec15ed6672957a58a7344c01e6df8c61",
+        "c": "7f758cf2826679e3a5617beffa77bd0704556328d554dd0988186e7a55e97db1"
+      }
+    },
+    {
+      "name": "multi_tile",
+      "seed": 20261006,
+      "descriptor": {
+        "job_id": 3,
+        "m": 33,
+        "n": 35,
+        "k": 256,
+        "a_base": 64,
+        "bt_base": 8640,
+        "c_base": 17728,
+        "a_stride": 256,
+        "bt_stride": 256,
+        "c_stride": 192,
+        "mode": 0,
+        "watchdog": 10000000
+      },
+      "shape": {
+        "m": 33,
+        "n": 35,
+        "k": 256
+      },
+      "counters": {
+        "job_cycles": 36649,
+        "compute_cycles": 21627,
+        "read_beats": 4352,
+        "write_beats": 594,
+        "write_valid_bytes": 4620,
+        "input_wait_cycles": 10704,
+        "read_stall_cycles": 0,
+        "write_stall_cycles": 0
+      },
+      "phases": {
+        "a_load": 5196,
+        "bt_load": 5508,
+        "compute": 21959,
+        "c_store": 3983,
+        "retire": 3
+      },
+      "active_compute_cycles": 21627,
+      "compute_control_prefetch_cycles": 332,
+      "done_publication_cycles": 3,
+      "tiles": 4,
+      "microtiles": 81,
+      "read_bursts": 280,
+      "write_bursts": 67,
+      "latency_injection_sites": {
+        "read": 280,
+        "write": 67
+      },
+      "expected_latency_delta_cycles": 2642,
+      "compared_outputs": 1155,
+      "checked_memory_bytes": 24128,
+      "operation_attribution": {
+        "a": {
+          "burst_intervals_within_job": 4768,
+          "controller_planner_gaps": 428
+        },
+        "bt": {
+          "burst_intervals_within_job": 5056,
+          "controller_planner_gaps": 452
+        },
+        "c": {
+          "burst_intervals_within_job": 3764,
+          "controller_planner_gaps": 219
+        }
+      },
+      "burst_interval_totals": {
+        "read": {
+          "command_to_ar": 280,
+          "ar_to_first_r": 560,
+          "remaining_r_span": 4072,
+          "last_r_to_last_bank_load": 4632,
+          "last_bank_load_to_local_done": 280
+        },
+        "write": {
+          "c_gather": 2970,
+          "aw_w_issue": 594,
+          "b_response": 134,
+          "b_to_local_done": 67
+        }
+      },
+      "contained_stall_cycles": {
+        "dma_req": 0,
+        "d_rd_cmd": 0,
+        "d_wr_cmd": 0,
+        "d_rd_data": 0,
+        "load": 0,
+        "read": 0,
+        "response": 0,
+        "d_wr_data": 0,
+        "d_rd_done": 280,
+        "d_wr_done": 0
+      },
+      "c_gather_state_cycles": {
+        "NEXT_PAIR": 594,
+        "OFFER_READ": 594,
+        "WAIT_RESPONSE": 1188,
+        "SEND_WORD": 594
+      },
+      "operations": [
+        {
+          "index": 0,
+          "tile": 0,
+          "kind": "a",
+          "base": 64,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 1,
+          "done": 2515
+        },
+        {
+          "index": 1,
+          "tile": 0,
+          "kind": "bt",
+          "base": 8640,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 2516,
+          "done": 5030
+        },
+        {
+          "index": 2,
+          "tile": 0,
+          "kind": "c",
+          "base": 17728,
+          "stride": 192,
+          "rows": 32,
+          "row_bytes": 128,
+          "request": 22377,
+          "done": 25651
+        },
+        {
+          "index": 3,
+          "tile": 1,
+          "kind": "a",
+          "base": 64,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 25653,
+          "done": 28167
+        },
+        {
+          "index": 4,
+          "tile": 1,
+          "kind": "bt",
+          "base": 16832,
+          "stride": 256,
+          "rows": 3,
+          "row_bytes": 256,
+          "request": 28168,
+          "done": 28406
+        },
+        {
+          "index": 5,
+          "tile": 1,
+          "kind": "c",
+          "base": 17856,
+          "stride": 192,
+          "rows": 32,
+          "row_bytes": 12,
+          "request": 30577,
+          "done": 31157
+        },
+        {
+          "index": 6,
+          "tile": 2,
+          "kind": "a",
+          "base": 8256,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 256,
+          "request": 31159,
+          "done": 31241
+        },
+        {
+          "index": 7,
+          "tile": 2,
+          "kind": "bt",
+          "base": 8640,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 256,
+          "request": 31242,
+          "done": 33756
+        },
+        {
+          "index": 8,
+          "tile": 2,
+          "kind": "c",
+          "base": 23872,
+          "stride": 192,
+          "rows": 1,
+          "row_bytes": 128,
+          "request": 35927,
+          "done": 36033
+        },
+        {
+          "index": 9,
+          "tile": 3,
+          "kind": "a",
+          "base": 8256,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 256,
+          "request": 36035,
+          "done": 36117
+        },
+        {
+          "index": 10,
+          "tile": 3,
+          "kind": "bt",
+          "base": 16832,
+          "stride": 256,
+          "rows": 3,
+          "row_bytes": 256,
+          "request": 36118,
+          "done": 36356
+        },
+        {
+          "index": 11,
+          "tile": 3,
+          "kind": "c",
+          "base": 24000,
+          "stride": 192,
+          "rows": 1,
+          "row_bytes": 12,
+          "request": 36630,
+          "done": 36652
+        }
+      ],
+      "compute_spans": [
+        {
+          "i0": 0,
+          "j0": 0,
+          "m": 32,
+          "n": 32,
+          "k": 256,
+          "start": 5031,
+          "end": 22375
+        },
+        {
+          "i0": 0,
+          "j0": 32,
+          "m": 32,
+          "n": 3,
+          "k": 256,
+          "start": 28407,
+          "end": 30575
+        },
+        {
+          "i0": 32,
+          "j0": 0,
+          "m": 1,
+          "n": 32,
+          "k": 256,
+          "start": 33757,
+          "end": 35925
+        },
+        {
+          "i0": 32,
+          "j0": 32,
+          "m": 1,
+          "n": 3,
+          "k": 256,
+          "start": 36357,
+          "end": 36628
+        }
+      ],
+      "input_images_sha256": {
+        "a": "e9612acd46f92da60bfe860528c05ee0ebaf7fcda052dac159135c253d21df58",
+        "bt": "54225bf03dda9ebbb68618b20f6db19c334726cf507347e0428f53fe865574aa",
+        "c": "bef6787d0ec67be0be3a19b3448a5dbce9e5d8eb983c6a76078feb487445cdba"
+      }
+    },
+    {
+      "name": "asymmetric",
+      "seed": 20261007,
+      "descriptor": {
+        "job_id": 4,
+        "m": 65,
+        "n": 63,
+        "k": 255,
+        "a_base": 64,
+        "bt_base": 16832,
+        "c_base": 33088,
+        "a_stride": 256,
+        "bt_stride": 256,
+        "c_stride": 256,
+        "mode": 0,
+        "watchdog": 10000000
+      },
+      "shape": {
+        "m": 65,
+        "n": 63,
+        "k": 255
+      },
+      "counters": {
+        "job_cycles": 111850,
+        "compute_cycles": 72352,
+        "read_beats": 10208,
+        "write_beats": 2080,
+        "write_valid_bytes": 16380,
+        "input_wait_cycles": 25082,
+        "read_stall_cycles": 0,
+        "write_stall_cycles": 0
+      },
+      "phases": {
+        "a_load": 10226,
+        "bt_load": 14856,
+        "compute": 73452,
+        "c_store": 13311,
+        "retire": 5
+      },
+      "active_compute_cycles": 72352,
+      "compute_control_prefetch_cycles": 1100,
+      "done_publication_cycles": 3,
+      "tiles": 6,
+      "microtiles": 272,
+      "read_bursts": 658,
+      "write_bursts": 134,
+      "latency_injection_sites": {
+        "read": 658,
+        "write": 134
+      },
+      "expected_latency_delta_cycles": 6068,
+      "compared_outputs": 4095,
+      "checked_memory_bytes": 49792,
+      "operation_attribution": {
+        "a": {
+          "burst_intervals_within_job": 9392,
+          "controller_planner_gaps": 834
+        },
+        "bt": {
+          "burst_intervals_within_job": 13656,
+          "controller_planner_gaps": 1200
+        },
+        "c": {
+          "burst_intervals_within_job": 12881,
+          "controller_planner_gaps": 430
+        }
+      },
+      "burst_interval_totals": {
+        "read": {
+          "command_to_ar": 658,
+          "ar_to_first_r": 1316,
+          "remaining_r_span": 9550,
+          "last_r_to_last_bank_load": 10866,
+          "last_bank_load_to_local_done": 658
+        },
+        "write": {
+          "c_gather": 10400,
+          "aw_w_issue": 2080,
+          "b_response": 268,
+          "b_to_local_done": 134
+        }
+      },
+      "contained_stall_cycles": {
+        "dma_req": 0,
+        "d_rd_cmd": 0,
+        "d_wr_cmd": 0,
+        "d_rd_data": 0,
+        "load": 0,
+        "read": 0,
+        "response": 0,
+        "d_wr_data": 0,
+        "d_rd_done": 658,
+        "d_wr_done": 0
+      },
+      "c_gather_state_cycles": {
+        "NEXT_PAIR": 2080,
+        "OFFER_READ": 2080,
+        "WAIT_RESPONSE": 4160,
+        "SEND_WORD": 2080
+      },
+      "operations": [
+        {
+          "index": 0,
+          "tile": 0,
+          "kind": "a",
+          "base": 64,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 1,
+          "done": 2515
+        },
+        {
+          "index": 1,
+          "tile": 0,
+          "kind": "bt",
+          "base": 16832,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 2516,
+          "done": 5030
+        },
+        {
+          "index": 2,
+          "tile": 0,
+          "kind": "c",
+          "base": 33088,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 128,
+          "request": 22313,
+          "done": 25581
+        },
+        {
+          "index": 3,
+          "tile": 1,
+          "kind": "a",
+          "base": 64,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 25583,
+          "done": 28097
+        },
+        {
+          "index": 4,
+          "tile": 1,
+          "kind": "bt",
+          "base": 25024,
+          "stride": 256,
+          "rows": 31,
+          "row_bytes": 255,
+          "request": 28098,
+          "done": 30534
+        },
+        {
+          "index": 5,
+          "tile": 1,
+          "kind": "c",
+          "base": 33216,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 124,
+          "request": 47817,
+          "done": 51097
+        },
+        {
+          "index": 6,
+          "tile": 2,
+          "kind": "a",
+          "base": 8256,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 51099,
+          "done": 53613
+        },
+        {
+          "index": 7,
+          "tile": 2,
+          "kind": "bt",
+          "base": 16832,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 53614,
+          "done": 56128
+        },
+        {
+          "index": 8,
+          "tile": 2,
+          "kind": "c",
+          "base": 41280,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 128,
+          "request": 73411,
+          "done": 76679
+        },
+        {
+          "index": 9,
+          "tile": 3,
+          "kind": "a",
+          "base": 8256,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 76681,
+          "done": 79195
+        },
+        {
+          "index": 10,
+          "tile": 3,
+          "kind": "bt",
+          "base": 25024,
+          "stride": 256,
+          "rows": 31,
+          "row_bytes": 255,
+          "request": 79196,
+          "done": 81632
+        },
+        {
+          "index": 11,
+          "tile": 3,
+          "kind": "c",
+          "base": 41408,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 124,
+          "request": 98915,
+          "done": 102195
+        },
+        {
+          "index": 12,
+          "tile": 4,
+          "kind": "a",
+          "base": 16448,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 255,
+          "request": 102197,
+          "done": 102279
+        },
+        {
+          "index": 13,
+          "tile": 4,
+          "kind": "bt",
+          "base": 16832,
+          "stride": 256,
+          "rows": 32,
+          "row_bytes": 255,
+          "request": 102280,
+          "done": 104794
+        },
+        {
+          "index": 14,
+          "tile": 4,
+          "kind": "c",
+          "base": 49472,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 128,
+          "request": 106957,
+          "done": 107063
+        },
+        {
+          "index": 15,
+          "tile": 5,
+          "kind": "a",
+          "base": 16448,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 255,
+          "request": 107065,
+          "done": 107147
+        },
+        {
+          "index": 16,
+          "tile": 5,
+          "kind": "bt",
+          "base": 25024,
+          "stride": 256,
+          "rows": 31,
+          "row_bytes": 255,
+          "request": 107148,
+          "done": 109584
+        },
+        {
+          "index": 17,
+          "tile": 5,
+          "kind": "c",
+          "base": 49600,
+          "stride": 256,
+          "rows": 1,
+          "row_bytes": 124,
+          "request": 111747,
+          "done": 111853
+        }
+      ],
+      "compute_spans": [
+        {
+          "i0": 0,
+          "j0": 0,
+          "m": 32,
+          "n": 32,
+          "k": 255,
+          "start": 5031,
+          "end": 22311
+        },
+        {
+          "i0": 0,
+          "j0": 32,
+          "m": 32,
+          "n": 31,
+          "k": 255,
+          "start": 30535,
+          "end": 47815
+        },
+        {
+          "i0": 32,
+          "j0": 0,
+          "m": 32,
+          "n": 32,
+          "k": 255,
+          "start": 56129,
+          "end": 73409
+        },
+        {
+          "i0": 32,
+          "j0": 32,
+          "m": 32,
+          "n": 31,
+          "k": 255,
+          "start": 81633,
+          "end": 98913
+        },
+        {
+          "i0": 64,
+          "j0": 0,
+          "m": 1,
+          "n": 32,
+          "k": 255,
+          "start": 104795,
+          "end": 106955
+        },
+        {
+          "i0": 64,
+          "j0": 32,
+          "m": 1,
+          "n": 31,
+          "k": 255,
+          "start": 109585,
+          "end": 111745
+        }
+      ],
+      "input_images_sha256": {
+        "a": "780ca0522b5e0c15e4dd19c10bcc61cf73b2fc93a43435d85976895be7a95ec8",
+        "bt": "9d364345d9677d63689e36729b8aeda155e7d6624da5a53a7cc4d68ed09940d6",
+        "c": "ed4737927d2f1fa595cb4edbd136bf8dac0e774d64adcaed2dda55dcb7d1408a"
+      }
+    }
+  ]
+}

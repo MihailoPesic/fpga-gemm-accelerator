@@ -1,0 +1,7 @@
+Complete local console SHA-256 (raw bytes): 2ce5dd48b97cab4c7d56363159eeeb95c1832eedcd9fcb60c196b0b917a3c69e
+Selected original lines; every warning/error/fatal line is retained.
+
+221: INFO: [USF-XSim-60] Script generated:C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.sim/sim_1/behav/xsim/simulate.bat
+222: launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:10 . Memory (MB): peak = 1324.082 ; gain = 0.703
+223: DDR_GEMM_PREPARED
+224: INFO: [Common 17-206] Exiting Vivado at Sun Oct  4 12:17:35 2026...

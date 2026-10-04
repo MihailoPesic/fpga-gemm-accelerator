@@ -1,0 +1,13 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791040083" />
+    <testcase name="host_memory_packets_and_retries" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="482" time="16.707494020462036" sim_time_ns="790400.0" ratio_time="47308.11209819855" />
+    <testcase name="complete_matrix_jobs_from_host_packets" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="556" time="73.29342603683472" sim_time_ns="1785170.0" ratio_time="24356.48183648607" />
+    <testcase name="busy_ownership_duplicate_start_and_final_b" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="600" time="17.114908695220947" sim_time_ns="384500.0" ratio_time="22465.793236008627" />
+    <testcase name="host_memory_faults_and_hung_drain" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="659" time="8.721039295196533" sim_time_ns="185920.0" ratio_time="21318.560059969343" />
+    <testcase name="host_watchdog_threshold_and_progress" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="696" time="1.3409192562103271" sim_time_ns="28730.0" ratio_time="21425.600286475128" />
+    <testcase name="calibration_loss_during_accepted_write" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="758" time="4.2921106815338135" sim_time_ns="96400.0" ratio_time="22459.812235212637" />
+    <testcase name="calibration_loss_cancels_unoffered_job_reads" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="801" time="7.7759528160095215" sim_time_ns="197140.0" ratio_time="25352.520091700953" />
+    <testcase name="gemm_read_error_retains_memory_ownership" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="861" time="18.697407245635986" sim_time_ns="474660.0" ratio_time="25386.40752507472" />
+  </testsuite>
+</testsuites>

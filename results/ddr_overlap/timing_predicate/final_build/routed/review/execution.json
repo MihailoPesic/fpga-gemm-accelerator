@@ -1,0 +1,21 @@
+{
+  "command": [
+    "C:/AMDDesignTools/2026.1/Vivado/bin/vivado.bat",
+    "-mode",
+    "batch",
+    "-notrace",
+    "-source",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_reset_review\\review.tcl",
+    "-log",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_reset_review\\vivado.log",
+    "-journal",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_reset_review\\vivado.jou",
+    "-tclargs",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\gemm_routed.dcp",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_reset_review",
+    "Read-only final build 0x2c680af7 own routed checkpoint; physical-board and warm-reset qualification remain separate"
+  ],
+  "started_utc": "2026-10-04T11:49:24.259979+00:00",
+  "finished_utc": "2026-10-04T11:52:41.654560+00:00",
+  "exit_code": 0
+}

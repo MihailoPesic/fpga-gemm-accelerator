@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "actual_exit_code": 0,
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\python.exe",
+    "scripts/formal_buffers.py",
+    "--build-dir",
+    "build/formal_buffers_public_final_v3_20261004"
+  ],
+  "utc_started": "2026-10-04T13:56:18.941061+00:00",
+  "utc_finished": "2026-10-04T13:59:47.836788+00:00",
+  "native_tool_receipt": {
+    "session_id": 90700,
+    "chunk_id": "8e3fef",
+    "actual_exit_code": 0
+  },
+  "summary_sha256_bytes": "1e3350308b1804c232a675d0408ae8b54a2619739a50f61ccca03bad588d9c1d",
+  "scope": "Real formal tool execution; no hardware accessed"
+}

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791021567" />
+    <testcase name="cycle_profile" classname="profile_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/profile_ddr_core.py" lineno="513" time="107.38704013824463" sim_time_ns="1998470.0" ratio_time="18609.97376803822" />
+  </testsuite>
+</testsuites>

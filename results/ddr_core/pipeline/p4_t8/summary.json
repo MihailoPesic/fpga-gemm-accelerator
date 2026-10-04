@@ -1,0 +1,163 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "build_id": 3489661960,
+      "tests": 6,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "seed": 20261213,
+        "jobs": 7,
+        "output_values": 224,
+        "shapes": [
+          [
+            9,
+            11,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            9,
+            9,
+            7
+          ]
+        ],
+        "requests": 817,
+        "responses": 817,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 276,
+        "axi_write_bursts": 200,
+        "axi_read_beats": 2291,
+        "axi_write_beats": 2002,
+        "axi_write_responses": 200,
+        "stalls": {
+          "aw": 3591,
+          "w": 4238,
+          "ar": 3866
+        }
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "tb/test_ddr_core.py": "ce36b742cd527a9bd2db37a8d689de3da7a01387f9fa0e839e7bdd4d89831525",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "5c67977e1fe6dc0c4ab5433463caedba0e853b6ee8f7caeb7420177f37e586f8"
+  },
+  "scope": "Byte-framed transport, production control/register/job/DMA/core/burst and behavioral AXI RAM; no UART pin timing, vendor DDR or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "totals": {
+    "jobs": 7,
+    "output_values": 224,
+    "requests": 817,
+    "responses": 817,
+    "replays": 2,
+    "sequence_conflicts": 2,
+    "malformed_frames": 4,
+    "invalid_memory_commands": 24,
+    "axi_read_bursts": 276,
+    "axi_write_bursts": 200,
+    "axi_read_beats": 2291,
+    "axi_write_beats": 2002,
+    "axi_write_responses": 200
+  }
+}

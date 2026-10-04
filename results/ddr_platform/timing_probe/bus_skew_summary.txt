@@ -1,0 +1,17 @@
+Follow-up read-only report from the failed routed checkpoint, generated 2026-10-02 15:32:49.
+Numeric rows below retain the constraint order from the report summary.
+Complete bus_skew.txt byte SHA-256: e1f84e68633805bb489e45f5f3e925565d258dbbcd6c7a0dfb6e9f04173e68c9
+Routed checkpoint byte SHA-256: 6a5933c0c225d506c08bb1d5246578c4a0452fcc79841454edbf82a7005b8fda
+Command: report_bus_skew -delay_type min_max -warn_on_violation
+
+ID  Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+ 1  Slow             10.000       0.899      9.101
+ 2  Slow             10.000       0.848      9.152
+ 3  Slow             10.000       0.864      9.136
+ 4  Slow             10.000       0.928      9.072
+ 5  Slow             10.000       0.989      9.011
+ 6  Slow             10.000       0.992      9.008
+ 7  Slow             10.000       0.828      9.172
+ 8  Slow             10.000       0.957      9.043
+ 9  Slow             10.000       0.929      9.071
+10  Slow             10.000       0.773      9.227

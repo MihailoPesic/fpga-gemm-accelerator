@@ -1,0 +1,38 @@
+Summary excerpt; complete original methodology.txt byte SHA-256: 70ea43f2784a84cc4ec3a8fef71f276e06d57cdc98337e52de61a3352d94ff35
+The complete local report remains under build/ddr_diag.
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 15:30:27 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_methodology -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/methodology.txt}
+| Design       : gemm_ddr_diag_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: impl_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 38
++-----------+----------+-----------------------------------------------------------+--------+
+| Rule      | Severity | Description                                               | Checks |
++-----------+----------+-----------------------------------------------------------+--------+
+| LUTAR-1   | Warning  | LUT drives async reset alert                              | 1      |
+| PDRC-190  | Warning  | Suboptimally placed synchronized register chain           | 12     |
+| SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 8      |
+| XDCB-5    | Warning  | Runtime inefficient way to find pin objects               | 1      |
+| REQP-1959 | Advisory | connects_SERDES_RST_driver_not_FF                         | 16     |
++-----------+----------+-----------------------------------------------------------+--------+

@@ -1,0 +1,23 @@
+--- a/rtl/memory/gemm_tile_dma.sv
++++ b/rtl/memory/gemm_tile_dma.sv
+@@ -216,7 +216,9 @@
+                 else if (rd_cmd_ready) state <= RECEIVE;
+                 RECEIVE: if (rd_end) begin completion_status <= terminal_status; state <= FINISH; end
+                 CMD_WRITE: if (fatal) begin completion_status <= fatal_code; state <= FINISH; end
+-                else if (wr_cmd_ready) state <= NEXT_PAIR;
++                else if (wr_cmd_ready) state <= stop_work ? NEXT_PAIR : OFFER_READ;
++                // Normal collection offers the next C pair immediately. Keep
++                // this state only to fill an accepted burst after a fault.
+                 NEXT_PAIR: if (stop_work) begin
+                     wr_data <= 0; wr_data_strb <= 0; state <= SEND_WORD;
+                 end else state <= OFFER_READ;
+@@ -228,7 +230,8 @@
+                 end
+                 SEND_WORD: if (write_fire) begin
+                     write_count <= write_count + 1'b1;
+-                    state <= write_count+5'd1 == beats ? WAIT_WRITE : NEXT_PAIR;
++                    if (write_count+5'd1 == beats) state <= WAIT_WRITE;
++                    else state <= stop_work ? NEXT_PAIR : OFFER_READ;
+                 end
+                 WAIT_WRITE: begin end
+                 FINISH: if (planner_complete_ready) state <= IDLE;

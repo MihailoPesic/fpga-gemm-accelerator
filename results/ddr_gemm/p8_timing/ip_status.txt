@@ -1,0 +1,128 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Oct  3 13:18:50 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 21 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| Instance Name               | Status                    | Recommendation      | Change    | IP Name            | IP      | New Version   | New        | Original Part        |
+|                             |                           |                     | Log       |                    | Version |               | License    |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_bridge_0         | Up-to-date                | No changes required |  *(1)     | AXI SmartConnect   | 1.0     | 1.0 (Rev. 29) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 29)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_clocks_0         | Up-to-date                | No changes required |  *(2)     | Clocking Wizard    | 6.0     | 6.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_mig_0            | Up-to-date                | No changes required |  *(3)     | Memory Interface   | 4.2     | 4.2 (Rev. 2)  | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Generator (MIG 7   | (Rev.   |               |            |                      |
+|                             |                           |                     |           | Series)            | 2)      |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_mig_reset_gate_0 | Up-to-date (discontinued) | No changes required |  *(4)     | Utility Vector     | 2.0     | 2.0 (Rev. 5)  | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Logic              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 5)      |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_reset_core_0     | Up-to-date                | No changes required |  *(5)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 17)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_reset_ui_0       | Up-to-date                | No changes required |  *(6)     | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 17)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| axi_ddr_bd_zero_0           | Up-to-date (discontinued) | No changes required |  *(7)     | Constant           | 1.1     | 1.1 (Rev. 11) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 11)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_m00e_0              | Up-to-date                | No changes required |  *(8)     | SC EXIT            | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_m00s2a_0            | Up-to-date                | No changes required |  *(9)     | SmartConnect       | 1.0     | 1.0 (Rev. 11) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | SC2AXI Bridge      | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 11)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_psr0_0              | Up-to-date                | No changes required |  *(10)    | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 17)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_psr_aclk1_0         | Up-to-date                | No changes required |  *(11)    | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 17)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_psr_aclk_0          | Up-to-date                | No changes required |  *(12)    | Processor System   | 5.0     | 5.0 (Rev. 17) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | Reset              | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 17)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_s00a2s_0            | Up-to-date                | No changes required |  *(13)    | SmartConnect       | 1.0     | 1.0 (Rev. 11) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | AXI2SC Bridge      | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 11)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_s00mmu_0            | Up-to-date                | No changes required |  *(14)    | SC MMU             | 1.0     | 1.0 (Rev. 16) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 16)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_s00sic_0            | Up-to-date                | No changes required |  *(15)    | SC SI_CONVERTER    | 1.0     | 1.0 (Rev. 16) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 16)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_s00tr_0             | Up-to-date                | No changes required |  *(16)    | SC                 | 1.0     | 1.0 (Rev. 12) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           | TRANSACTION_REGULA | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 12)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_sarn_0              | Up-to-date                | No changes required |  *(17)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_sawn_0              | Up-to-date                | No changes required |  *(18)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_sbn_0               | Up-to-date                | No changes required |  *(19)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_srn_0               | Up-to-date                | No changes required |  *(20)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| bd_4940_swn_0               | Up-to-date                | No changes required |  *(21)    | SmartConnect Node  | 1.0     | 1.0 (Rev. 19) | Included   | xc7a50ticsg324-1L    |
+|                             |                           |                     |           |                    | (Rev.   |               |            |                      |
+|                             |                           |                     |           |                    | 19)     |               |            |                      |
++-----------------------------+---------------------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+*(1) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/smartconnect_v1_0/doc/smartconnect_v1_0_changelog.txt
+*(2) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/clk_wiz_v6_0/doc/clk_wiz_v6_0_changelog.txt
+*(3) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/mig_7series_v4_2/doc/mig_7series_v4_2_changelog.txt
+*(4) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/util_vector_logic_v2_0/doc/util_vector_logic_v2_0_changelog.txt
+*(5) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(6) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(7) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/xlconstant_v1_1/doc/xlconstant_v1_1_changelog.txt
+*(8) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_exit_v1_0/doc/sc_exit_v1_0_changelog.txt
+*(9) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_sc2axi_v1_0/doc/sc_sc2axi_v1_0_changelog.txt
+*(10) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(11) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(12) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
+*(13) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_axi2sc_v1_0/doc/sc_axi2sc_v1_0_changelog.txt
+*(14) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_mmu_v1_0/doc/sc_mmu_v1_0_changelog.txt
+*(15) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_si_converter_v1_0/doc/sc_si_converter_v1_0_changelog.txt
+*(16) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_transaction_regulator_v1_0/doc/sc_transaction_regulator_v1_0_changelog.txt
+*(17) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(18) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(19) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(20) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+*(21) c:/AMDDesignTools/2026.1/Vivado/data/ip/xilinx/sc_node_v1_0/doc/sc_node_v1_0_changelog.txt
+
+

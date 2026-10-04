@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791097479" />
+    <testcase name="complete_jobs_both_modes" classname="test_tile_scheduler" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_scheduler.py" lineno="301" time="163.85817742347717" sim_time_ns="2178107.784" ratio_time="13292.64012482496" />
+    <testcase name="blocked_store_ownership_and_completion" classname="test_tile_scheduler" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_scheduler.py" lineno="336" time="5.462369441986084" sim_time_ns="157245.71799999988" ratio_time="28787.0894984405" />
+    <testcase name="faults_drain_all_owners" classname="test_tile_scheduler" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_scheduler.py" lineno="371" time="4.874259948730469" sim_time_ns="131733.13699999964" ratio_time="27026.284684367387" />
+  </testsuite>
+</testsuites>

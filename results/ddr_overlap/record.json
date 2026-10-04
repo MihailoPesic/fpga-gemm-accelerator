@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "utc_recorded": "2026-10-04T08:33:46.536454+00:00",
+  "scope": "Validated selectable overlap shell and byte-framed production core against behavioral AXI RAM; no physical UART/vendor/timing/board claim",
+  "tests": 154,
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "rtl/control/gemm_tile_scheduler.sv": "3d34ecdbbb60a22bb796558d3351de0deb3ee3ee9c70472e2cfa44da2aa894fe",
+    "rtl/control/gemm_ddr_overlap_job.sv": "7a5ffc21a8c67e9277aa860b34184c30304ea98e76e669bc413bb605ab949fb5",
+    "tb/sv/ddr_overlap_job_harness.sv": "24dd4538a6ea08d4c06d2472b822128610475f121a3166f7f7239c24eab973c9",
+    "tb/test_ddr_overlap_job.py": "7a85320378681022f2786c6c2661f191e8869a3ca773ed6a7749207fbb54fdfb",
+    "tb/test_tile_scheduler.py": "44da9c193d8ee3af9395229785feec2a00530b429a435b1d9c412a300b8b50ea",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_overlap_job.py": "352b7416c0095726e52f0154f4a81dd9186e735f353215de48a520c53e95ab20",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "70f17435ad19298a8189f72e9095963d73197c2df2c26408597aed992f36b03e",
+    "rtl/control/gemm_ddr_core.sv": "ab0e4c86f14080bdb48eb9322212b0f6ad29f9839b05c50ac88ddd962bd58496",
+    "tb/test_ddr_core.py": "2b8bfdca762ee6ce4b92045e4467388d34ca0c3c1a14de7379abac43eecede2e",
+    "tb/test_ddr_core_overlap.py": "cd51e7c9c242a4ddd2235a2c68cf2fd3066cee4a3ce5b03b54075dca55248a42",
+    "scripts/test_ddr_core.py": "ff8a280525d92157c1a53dec5b28c2effbb23eebd3e8794660bd6590a5565ea1"
+  },
+  "configurations": [
+    {
+      "suite": "job",
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 6
+    },
+    {
+      "suite": "job",
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 6
+    },
+    {
+      "suite": "compatibility",
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 10
+    },
+    {
+      "suite": "compatibility",
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 10
+    },
+    {
+      "suite": "overlap",
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 2
+    },
+    {
+      "suite": "overlap",
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 2
+    },
+    {
+      "suite": "serial_compatibility",
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 10
+    }
+  ],
+  "totals": {
+    "job": {
+      "tests": 48,
+      "jobs": 912,
+      "output_values": 256544
+    },
+    "compatibility": {
+      "tests": 80,
+      "jobs": 64,
+      "output_values": 10232
+    },
+    "overlap": {
+      "tests": 16,
+      "jobs": 72,
+      "output_values": 53704
+    },
+    "serial_compatibility": {
+      "tests": 10,
+      "jobs": 8,
+      "output_values": 2319
+    }
+  },
+  "saved_artifact_sha256_bytes": {
+    "console_excerpt.txt": "cab6a190c540fd414aacce0b66ba1b815836256694947f0e5b78313a65ed3bae",
+    "execution.json": "81d9313acaf99996685a376e7ef533b708e015109069a13bc0b8fd5aa5000236",
+    "execution/compatibility_p4_t32.json": "f5e1e5bef6f01eb4e043672f9d99366c6c293cac9c32084730e84f019bdd08e8",
+    "execution/compatibility_p4_t8.json": "e395d44b07b6039a37340d4624dbd429584feb1d3558d132f9e6959ea38c5730",
+    "execution/compatibility_p8_t32.json": "6739b3256764f529e8aaca594ac9fe3b44c85bdabc9a68f9d778d22c041e8175",
+    "execution/compatibility_p8_t8.json": "b5f8ae7cd1a872b823efc10f0a12c5e597aba15d01aa06699293e453e58b8a1f",
+    "execution/job_p4_t32.json": "f5ac4fe83922caac3b45a48d908fb53406b613b193e83d629469b9d86595aa9b",
+    "execution/job_p4_t8.json": "b3def5589ae7dda87071d73456ac938beb2d395f1c85ba60c8008dfa14419a31",
+    "execution/job_p8_t32.json": "c7bafa1e9b02a510964d305eeba53b04b87508d54539252a6fa4c53ccc232f6f",
+    "execution/job_p8_t8.json": "5692c47cdfb163701a9c26b15cc920307b05ace259ad0d1f283ed763a02dfa85",
+    "execution/lint.json": "9b152d29c65887e2cfcfcf7efdd81f0d3ae416bc16deb1143f612f649314e1fa",
+    "execution/overlap_p4_t32.json": "3b49617cc14e46aff9d22713f7dade93353c5ae10ad00c20e77bd7a2c3dc3c85",
+    "execution/overlap_p4_t8.json": "fb47b4b7fb539459d315d74101f91576336e03f657e29b7ee8d754f7a20536e4",
+    "execution/overlap_p8_t32.json": "878c902732b9cbc90970e794069825fb4311fb7ac3bce7aa0f45549470a4a870",
+    "execution/overlap_p8_t8.json": "61e327f740150482b7b434d2bef300dc5b7cbcd79a053a73ccfe82914999ec7f",
+    "execution/serial_compatibility.json": "5ca5684ee3bb80a94ed6480d8f65ec6e0bd4fa703e97035843fc1f7ea841753f",
+    "serial_compatibility/summary.json": "127c47fcec0d76e1e4a17e47c40237409d0d1a3d140cc413a2e6ecc66acda75e",
+    "serial_compatibility/read4/p8_t32/coverage.json": "03aa2f42e7d8ff14e17f687cd2a3013f0d7c10bf94f3468e22d3a1d1a4a5dbb5",
+    "serial_compatibility/read4/p8_t32/results.xml": "57af1e20a2a0176ec072c3170b3c5c3df6b692a1d414114738b4ba3de7e6b003",
+    "overlap/p4_t32/summary.json": "f25cc456198467cadab2fda5f4420f8080671aff286c4cd579afc99998c0f477",
+    "overlap/p4_t8/summary.json": "30a9514f01206bc78c4ed8994d91bc33ffe73f5cf507dedab85e83c756893bd1",
+    "overlap/p8_t32/summary.json": "ce0ac20d936ad5a8af0de9dbd9fed47b059acda3cf2ba9d04324d5efbe4739ae",
+    "overlap/p8_t8/summary.json": "5a0ba49ef4796f78da0774b73d40099f9c56cbe5f1b1bc9a63e6d9569bc8824e",
+    "overlap/p8_t8/read4/p8_t8/coverage.json": "0d9d725abf9930a3be494f824d05d9880f5902e24e6c1d78853b4c64835a78c1",
+    "overlap/p8_t8/read4/p8_t8/results.xml": "3f4b3d49de24c75e000ea302e43de5decd7c34ee028c699728f73bee183882a5",
+    "overlap/p8_t8/read1/p8_t8/coverage.json": "ab63c98f6de56e59cd3bfa4e36230cfe9affaf5cdc5b4582f015d81c89ad21d5",
+    "overlap/p8_t8/read1/p8_t8/results.xml": "df1f427a37a6efb17bd918f1812071f623a473d227c49328c1297f20ec6cf41b",
+    "overlap/p8_t32/read4/p8_t32/coverage.json": "81a1b6f930b25faafb9be1c981fd1bf40d5f50b720ff8676a2e750b9f350f4d8",
+    "overlap/p8_t32/read4/p8_t32/results.xml": "70204ff26ad356e740beeccb5189c47637443be8f830048941c8ab6414d4b569",
+    "overlap/p8_t32/read1/p8_t32/coverage.json": "91ceaf85c26cfadadbb5ec4fc743b9f4e7c3fc88ea5f9377ddc3659714ca25fd",
+    "overlap/p8_t32/read1/p8_t32/results.xml": "294c503e4dc01ae0ca385c9a07f4a3c9d1a3b4ab0bd40c988aed8aa095d82297",
+    "overlap/p4_t8/read4/p4_t8/coverage.json": "9b80f553788f3e85ab61f2d3b457aba0e7220af0e0c5d73e044adbf7282272d3",
+    "overlap/p4_t8/read4/p4_t8/results.xml": "eb257ca7b90546bf8349685f65686e42a20ea227d0e61e106453531d034ae1e8",
+    "overlap/p4_t8/read1/p4_t8/coverage.json": "fa8d67a23b003f3fa419ba41d12b328d8053112f995cb2f31e48895955ffa18f",
+    "overlap/p4_t8/read1/p4_t8/results.xml": "0f6c978f78920953c0ac7e356bc9e9dabcb96e60cd4d100010e1eb3e4184d79d",
+    "overlap/p4_t32/read4/p4_t32/coverage.json": "d168fafc0840a40047a4715987b619d48d19c98b97949b37e0312426852c91b6",
+    "overlap/p4_t32/read4/p4_t32/results.xml": "c05c4c6e2714bd307383e00657a387a57b5a3d19b733925d0aa620609f77a878",
+    "overlap/p4_t32/read1/p4_t32/coverage.json": "10b0daad2a937b9986477d9dc10cf25cdc3011f962f8d9220a212a14a92fa457",
+    "overlap/p4_t32/read1/p4_t32/results.xml": "1ac86599c8c3404169deaca8d6a555c49a537417abbb69a435023767b5cdd959",
+    "job/p4_t32/summary.json": "8a7f4c9f1283013bc51845334a08379ba52d6b02c1840736e6c4d93d91863e83",
+    "job/p4_t8/summary.json": "903696bbd5bd8ab360047f6edcfe7dfda39d2f5fef1925f492ee8051a580d0ae",
+    "job/p8_t32/summary.json": "90fb9d8740d5cef5fb7548d67809d0373fd80b9e31df00d7d925bb11717af0a4",
+    "job/p8_t8/summary.json": "5f77a49056c0b58b09fd0a6a9b3e98f53d3c85494dd96cbb20c8d43cdc0356b6",
+    "job/p8_t8/read4/p8_t8/coverage.json": "978381adffdcab0eab8f1660e15806a7302340181777206f8997b1d38625693f",
+    "job/p8_t8/read4/p8_t8/results.xml": "987b110d3723015bd7861ca748dd123a79cc82d6cdab15a2f858bf95dfaa2681",
+    "job/p8_t8/read1/p8_t8/coverage.json": "f02086bd28caabf66058b22dc1542319458bf7ca3bcebc3588346736cdd8bccf",
+    "job/p8_t8/read1/p8_t8/results.xml": "132ae251d22ed9c3fb5c5ef4a441e746da41f3a93186356c1967175c6bd58441",
+    "job/p8_t32/read4/p8_t32/coverage.json": "4a4200fa4829ee0c54ff0ee267ef54ed79fb44cf2550a7c4f30ab086e8eae166",
+    "job/p8_t32/read4/p8_t32/results.xml": "ddc7b5e4af2feb2b9da93d7e5b2cd198226eb3847cbb5e74dbda4c99d17e4488",
+    "job/p8_t32/read1/p8_t32/coverage.json": "d7251534ae41d4544980a0ab898eaee08d2f546902c3aaddce4aa14492914700",
+    "job/p8_t32/read1/p8_t32/results.xml": "4ae313df8e3966306d39f44344d83784b60420b56f48262ac12224199d16eb0d",
+    "job/p4_t8/read4/p4_t8/coverage.json": "463bb6f00c48d003ad64e2212642a458dd88468addc81e518a4f4c087a6d898a",
+    "job/p4_t8/read4/p4_t8/results.xml": "59cbe865a419526056da3ec14fc7b476e748e4cb318ed3bc0c297922effbce7c",
+    "job/p4_t8/read1/p4_t8/coverage.json": "4cc015587a8ed11544f13cb967a3066810d63465ce3cb4793dab7fba7e98880b",
+    "job/p4_t8/read1/p4_t8/results.xml": "026ff3f4d4ed075c73a1c638b279e4cb33974ba3cb62137737a982b94d6c994b",
+    "job/p4_t32/read4/p4_t32/coverage.json": "63b3768b786f569eb9af0e0d0645d6ac0e3669e34ba422e8d32eb8cf1a80a3c7",
+    "job/p4_t32/read4/p4_t32/results.xml": "b274a8109584d97b835c1473b13b59c848c7b86394a335688c9fc7d1c759781d",
+    "job/p4_t32/read1/p4_t32/coverage.json": "497378c8a3b773dce89d1322f38a7aeafa5eb191dc2629b4b995968e6ed83f8d",
+    "job/p4_t32/read1/p4_t32/results.xml": "8bf610e1a87dd1bc2f7076994df094648db1712737538091315d43dd8d42bf1d",
+    "compatibility/p4_t32/summary.json": "33734b4631f733e42688293e029eb14c1a4a642dfcebf7c81df73fbc4881b575",
+    "compatibility/p4_t8/summary.json": "a12a93d45e4eae4c6b9dd83246fac6cd115230df90753f926d34d4e46c33640b",
+    "compatibility/p8_t32/summary.json": "eb53d92d0ea6700f914932d46933f9e2b397354b6570b603292cc2e251ffbe44",
+    "compatibility/p8_t8/summary.json": "fa16888dd5491d43e7e8c7e79b7c9995ae8668a3e9ce115bd1e0562602614813",
+    "compatibility/p8_t8/read4/p8_t8/coverage.json": "f4697a1595331067a1a6c4981607e593335550e42f66c0174bf78a18ab590fae",
+    "compatibility/p8_t8/read4/p8_t8/results.xml": "bae23d753f552a5bd13a827c0d639cc99e8dd7201db20b43863e4c946d88c7ce",
+    "compatibility/p8_t8/read1/p8_t8/coverage.json": "d9c480ccb03ab8164c8fee6d678cce04ef97225eda6d999b55c16223dec4b16b",
+    "compatibility/p8_t8/read1/p8_t8/results.xml": "b8996dec6d8a13b91aa7eb146ea1db1a7695d04165099accaf5774f72c90ce09",
+    "compatibility/p8_t32/read4/p8_t32/coverage.json": "edcf0c89f2d22c75f01cd9ee2f146b09d656bc44fa345ae00dc5b76e8a6eb8af",
+    "compatibility/p8_t32/read4/p8_t32/results.xml": "cb8016d54158e82a01347c84e337a2f29aa032a6f595e02d8b34da50a9326bc9",
+    "compatibility/p8_t32/read1/p8_t32/coverage.json": "7a2c1a4c4b4426a5bc5f9b96ffc036682eadcbcbc41fd291ba0706c6ea8ce7c0",
+    "compatibility/p8_t32/read1/p8_t32/results.xml": "816b8b0bf8bf8e92acc055772dc9e001bbe17142070dfea97577c40ac8ef43f6",
+    "compatibility/p4_t8/read4/p4_t8/coverage.json": "47b92c488be3af814147f619e5a600d7c49016771b35affb3451adc02c674ef7",
+    "compatibility/p4_t8/read4/p4_t8/results.xml": "875c7e8637b71b810e7d0daac0bc2e4b3bee9120f35e47dd737e976b98810d2b",
+    "compatibility/p4_t8/read1/p4_t8/coverage.json": "427e479d0b795ccc06f7e6dd2b82b29dbfd6765e8faa11740c638e427cc2ed3d",
+    "compatibility/p4_t8/read1/p4_t8/results.xml": "f46f2892913a1a33e16443a177cbe1a2dffbf2959aeb5221ed3323827e14c50d",
+    "compatibility/p4_t32/read4/p4_t32/coverage.json": "97d079d29736763ffef790d6b999780ee6751fd08fa2ff290528712881c0f7fb",
+    "compatibility/p4_t32/read4/p4_t32/results.xml": "0c41ceedd42658dd6962f37c671fe6ca8b041dbb8bd95bcd146cbc735158644e",
+    "compatibility/p4_t32/read1/p4_t32/coverage.json": "9903008bb4f2194e24e60372666ccca3882c2212e68719beeafe03918332cdc1",
+    "compatibility/p4_t32/read1/p4_t32/results.xml": "51c8782bf5271af1e2b50ba8808d019e7e295169e6eae3035453884d153cbff3"
+  }
+}

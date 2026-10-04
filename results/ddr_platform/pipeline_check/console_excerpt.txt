@@ -1,0 +1,36 @@
+Focused regression for the registered diagnostic read checker.
+These are selected console lines, not full console logs; full local log hashes follow.
+No routed timing, vendor simulation or board pass is established by this regression.
+
+Command: .venv/bin/python scripts/test_ddr_diag.py --build-dir build/test_ddr_diag_pipeline
+Local console: build/ddr_diag_pipeline_test.txt
+Full console size_bytes: 12779
+Full console sha256_bytes: c224719c05fef9049280eaabf852eb3f6732d8640021eb4e8fdf3711e161bdfd
+94: 167210.00ns INFO     cocotb.regression                  test_ddr_diag.complete_memory_plan_and_repeated_runs passed
+96: 192420.00ns INFO     cocotb.regression                  test_ddr_diag.response_errors_and_mismatch_details passed
+98: 262170.00ns INFO     cocotb.regression                  test_ddr_diag.final_read_word_must_pass_before_completion passed
+100: 276110.00ns INFO     cocotb.regression                  test_ddr_diag.watchdog_and_calibration_preserve_pending_axi passed
+109:                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                            276110.00           5.35      51612.56  **
+
+Command: make lint PYTHON=.venv/bin/python
+Local console: build/ddr_diag_pipeline_lint.txt
+Full console size_bytes: 1617
+Full console sha256_bytes: e5f4358cb484f1c9a33a0276669c67e3b8426a6b1effd2372e0fcf80bad04b7b
+Exit code: 0
+Lint is an Icarus compile/warnings check, not a separate static-analysis tool.
+Compiler diagnostic lines: 5 (sensitivity-list notices summarized below).
+Icarus notice: constant selects in always_* processes are not currently supported (all bits will be included).
+7: PASS: Icarus compile/warnings P=4
+8: PASS: banked Icarus compile/warnings P=4 T=8
+9: PASS: tile engine compile/warnings P=4 T=8
+10: PASS: banked Icarus compile/warnings P=4 T=32
+11: PASS: tile engine compile/warnings P=4 T=32
+12: PASS: Icarus compile/warnings P=8
+13: PASS: banked Icarus compile/warnings P=8 T=8
+14: PASS: tile engine compile/warnings P=8 T=8
+15: PASS: banked Icarus compile/warnings P=8 T=32
+16: PASS: tile engine compile/warnings P=8 T=32
+17: PASS: complete preview UART compile/warnings
+18: PASS: AXI burst primitive compile/warnings
+19: PASS: DDR diagnostic and packet controller compile/warnings
+

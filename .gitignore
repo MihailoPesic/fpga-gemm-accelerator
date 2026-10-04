@@ -66,6 +66,22 @@ usage_statistics_webtalk*
 *.backup.jou
 *.backup.log
 
+# Curated JTAG records referenced by saved board-result manifests.
+!results/ddr_gemm/board/program.log
+!results/ddr_gemm/gather4/board/program.log
+!results/ddr_gemm/maximum/program.log
+!results/ddr_gemm/p8_serial/board/program.log
+!results/ddr_gemm/read4/host_geometry/board/program.log
+
+# Exact bounded-SAT transcripts and reachable witnesses.
+!results/dma_rows/formal/*.log
+!results/dma_rows/formal/*.vcd
+!results/buffer_formal/*.vcd
+!results/buffer_formal/linux/*.vcd
+!results/dma_rows/formal/linux/*.vcd
+!results/ddr_overlap/timing_predicate/final_build/routed/review/vivado.log
+!results/ddr_overlap/timing_predicate/final_build/routed/review/vivado.jou
+
 # Vitis / XSCT workspace
 workspace/
 _ide/

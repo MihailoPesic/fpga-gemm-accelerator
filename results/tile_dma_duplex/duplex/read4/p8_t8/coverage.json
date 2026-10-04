@@ -1,0 +1,93 @@
+{
+  "p": 8,
+  "t": 8,
+  "read_slots": 4,
+  "seed": 20261004,
+  "jobs": 6,
+  "output_values": 187,
+  "shapes": [
+    [
+      8,
+      7,
+      33
+    ],
+    [
+      8,
+      8,
+      256
+    ],
+    [
+      7,
+      7,
+      255
+    ],
+    [
+      2,
+      3,
+      9
+    ],
+    [
+      2,
+      3,
+      9
+    ],
+    [
+      2,
+      3,
+      9
+    ]
+  ],
+  "read_occupancy": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "simultaneous_descriptors": 8,
+  "compute_load_edges": 176,
+  "compute_store_read_edges": 1,
+  "three_way_edges": 1,
+  "read_bursts": 148,
+  "write_bursts": 40,
+  "write_responses": 40,
+  "read_lengths": [
+    1,
+    2,
+    4,
+    5,
+    15,
+    16
+  ],
+  "write_lengths": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "stalls": {
+    "rd_cmd": 37,
+    "ar": 92,
+    "burst_rd_done": 195,
+    "load": 366,
+    "load_done": 399,
+    "read": 95,
+    "wr_data": 27,
+    "w": 109,
+    "response": 113,
+    "aw": 85,
+    "wr_cmd": 18,
+    "store_done": 370,
+    "wr_done": 138
+  },
+  "scenarios": [
+    "three_way_pipeline_delayed_b_snapshot_guards",
+    "independent_done_bad_desc_immutable_success_after_fatal",
+    "external_first_fault_normalization_local_sibling_command_gate",
+    "read_error_retains_aw",
+    "read_error_retains_w",
+    "read_error_retains_read",
+    "read_error_retains_response",
+    "c_response_error_preserves_held_operand_and_first_code"
+  ]
+}

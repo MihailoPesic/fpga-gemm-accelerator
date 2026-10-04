@@ -1,0 +1,138 @@
+Complete local console SHA-256 (raw bytes): c41d20762d2077323f106b1417eefa14d2f972275287fd858001c7a910473559
+Selected original lines; every warning/error/fatal line is retained.
+
+15: Finished scanning sources
+16: WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+17: INFO: [IP_Flow 19-234] Refreshing IP repositories
+18: INFO: [IP_Flow 19-1704] No user IP repositories specified
+19: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+44: INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.sim/sim_1/behav/xsim'
+45: "xvlog --incr --relax -L uvm -L axi_vip_v1_1_23 -L smartconnect_v1_0 -L xilinx_vip -prj tb_ddr_gemm_vlog.prj"
+46: 
+47: INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_clocks_0/axi_ddr_bd_clocks_0_clk_wiz.v" into library xil_defaultlib
+48: 
+214: 
+215: WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v:252]
+216: 
+217: INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/controller/mig_7series_v4_2_arb_select.v" into library xil_defaultlib
+218: 
+340: 
+341: INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_init.v" into library xil_defaultlib
+342: 
+343: INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_phy_init
+344: 
+345: INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_ocd_cntlr.v" into library xil_defaultlib
+346: 
+636: 
+637: "xvhdl --incr --relax -prj tb_ddr_gemm_vhdl.prj"
+638: 
+639: INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/ip/ip_1/sim/bd_4940_psr0_0.vhd" into library xil_defaultlib
+640: 
+662: INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.sim/sim_1/behav/xsim'
+663: "xelab --incr --debug off --relax --mt auto -generic_top "P=8" -generic_top "T=32" -generic_top "SIM_BAUD=10000000" -generic_top "BUILD_ID=745016055" -generic_top "READ_SLOTS=4" -generic_top "ENABLE_OVERLAP=1" -L xil_defaultlib -L proc_sys_reset_v5_0_17 -L smartconnect_v1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_37 -L axi_vip_v1_1_23 -L xlconstant_v1_1_11 -L util_vector_logic_v2_0_5 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_ddr_gemm_behav xil_defaultlib.tb_ddr_gemm xil_defaultlib.glbl -log elaborate.log"
+664: 
+665: Vivado Simulator v2026.1
+666: 
+670: 
+671: Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug off --relax --mt auto -generic_top P=8 -generic_top T=32 -generic_top SIM_BAUD=10000000 -generic_top BUILD_ID=745016055 -generic_top READ_SLOTS=4 -generic_top ENABLE_OVERLAP=1 -L xil_defaultlib -L proc_sys_reset_v5_0_17 -L smartconnect_v1_0 -L axi_infrastructure_v1_1_0 -L axi_register_slice_v2_1_37 -L axi_vip_v1_1_23 -L xlconstant_v1_1_11 -L util_vector_logic_v2_0_5 -L uvm -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_ddr_gemm_behav xil_defaultlib.tb_ddr_gemm xil_defaultlib.glbl -log elaborate.log 
+672: 
+673: Multi-threading is on. Using 6 slave threads.
+674: 
+678: 
+679: WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 1024 for port 'dbg_poc' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/axi_ddr_bd_mig_0_mig_sim.v:1278]
+680: 
+681: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1671]
+682: 
+683: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_phase_locked_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1679]
+684: 
+685: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v:1339]
+686: 
+687: WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 1 for port 'fine_adjust_lane_cnt' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1962]
+688: 
+689: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:366]
+690: 
+691: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:373]
+692: 
+693: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:751]
+694: 
+695: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:758]
+696: 
+697: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:765]
+698: 
+699: WARNING: [VRFC 10-5021] port 'complex_oclk_prech_req' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1317]
+700: 
+701: Completed static elaboration
+702: 
+950: 
+951: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_A' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:709]
+952: 
+953: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_B' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:708]
+954: 
+955: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_C' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:707]
+956: 
+957: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_D' [C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:706]
+958: 
+959: Compiling module xil_defaultlib.mig_7series_v4_2_ddr_mc_phy(DATA...
+960: 
+964: 
+965: Compiling module xil_defaultlib.mig_7series_v4_2_ddr_phy_init(tC...
+966: 
+967: Compiling module xil_defaultlib.mig_7series_v4_2_ddr_phy_wrcal(n...
+968: 
+1116: 
+1117: Built simulation snapshot tb_ddr_gemm_behav
+1118: 
+1119: run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:01:12 . Memory (MB): peak = 656.133 ; gain = 0.000
+1120: INFO: [USF-XSim-69] 'elaborate' step finished in '73' seconds
+1123: INFO: [USF-XSim-98] *** Running xsim
+1124:    with args "tb_ddr_gemm_behav -key {Behavioral:sim_1:Functional:tb_ddr_gemm} -tclbatch {tb_ddr_gemm.tcl} -protoinst "protoinst_files/bd_4940.protoinst" -protoinst "protoinst_files/axi_ddr_bd.protoinst" -log {simulate.log}"
+1125: INFO: [USF-XSim-8] Loading simulator feature
+1126: INFO: [Wavedata 42-565] Reading protoinst file protoinst_files/bd_4940.protoinst
+1127: INFO: [Wavedata 42-564]   Found protocol instance at /\tb_ddr_gemm(P=8,READ_SLOTS=4,ENABLE_OVERLAP=1,BUILD_ID=32'b0101100011010000000101011110111) /dut/platform/platform/axi_ddr_bd_i/bridge/inst//m00_exit_pipeline/m00_exit/M_AXI
+1146: source tb_ddr_gemm.tcl
+1147: WARNING: file design.txt could not be opened
+1148:  *** Warning: The analog data file design.txt for XADC instance tb_ddr_gemm(P=8,READ_SLOTS=4,ENABLE_OVERLAP=1,BUILD_ID=32'b0101100011010000000101011110111).dut.platform.platform.axi_ddr_bd_i.mig.u_axi_ddr_bd_mig_0_mig.temp_mon_enabled.u_tempmon.xadc_supplied_temperature.XADC_inst was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+1149: 
+1150: ############# Write Clocks PLLE2_ADV Parameters #############
+1151: 
+1201: tb_ddr_gemm(P=8,READ_SLOTS=4,ENABLE_OVERLAP=1,BUILD_ID=32'b0101100011010000000101011110111).dut.platform.platform.axi_ddr_bd_i.mig.u_axi_ddr_bd_mig_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : RCLK_SELECT_EDGE        = 111 
+1202: DDR_GEMM_ORACLE_PASS jobs=2 outputs=16
+1203: DDR_GEMM_SIM_CONFIG p=8 t=32 sim_baud=10000000 build_id=2c680af7
+1204: INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_ddr_gemm_behav' loaded.
+1205: INFO: [USF-XSim-97] XSim simulation ran for 0ns
+1206: launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:01:55 . Memory (MB): peak = 671.062 ; gain = 51.430
+1207: tb_ddr_gemm(P=8,READ_SLOTS=4,ENABLE_OVERLAP=1,BUILD_ID=32'b0101100011010000000101011110111).memory.cmd_task: at time 5505335.0 ps WARNING: 200 us is required before CKE goes active.
+1208: PHY_INIT: Memory Initialization completed at 46734475.0 ps
+1209: PHY_INIT: Phaser_In Phase Locked at 52734475.0 ps
+1210: PHY_INIT: Phaser_In DQSFOUND completed at 97674475.0 ps
+1211: PHY_INIT: Read Leveling Stage 1 completed at 157934475.0 ps
+1212: PHY_INIT : PRBS/PER_BIT calibration completed at 157934475.0 ps
+1213: PHY_INIT : COMPLEX OCLKDELAY calibration completed at 157934475.0 ps
+1214: DDR_GEMM_CALIBRATED time_ns=165415000.0 ps
+1215: DDR_GEMM_JOB_BEGIN job_id=1 m=1 n=1 k=1 time_ns=446972000.0 ps
+1216: DDR_GEMM_PROGRESS packets=8 opcode=05 status=0 time_ns=531692000.0 ps
+1217: DDR_GEMM_PROGRESS packets=16 opcode=03 status=0 time_ns=826472000.0 ps
+1218: DDR_GEMM_PROGRESS packets=24 opcode=02 status=0 time_ns=1095232000.0 ps
+1219: DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=220 compute_cycles=24 read_beats=2 write_beats=1 write_bytes=4
+1220: DDR_GEMM_PROGRESS packets=32 opcode=03 status=0 time_ns=1390472000.0 ps
+1221: DDR_GEMM_JOB_BEGIN job_id=2 m=5 n=3 k=9 time_ns=1424152000.0 ps
+1222: DDR_GEMM_PROGRESS packets=40 opcode=05 status=0 time_ns=1780632000.0 ps
+1223: DDR_GEMM_PROGRESS packets=48 opcode=03 status=0 time_ns=2170292000.0 ps
+1224: DDR_GEMM_PROGRESS packets=56 opcode=02 status=0 time_ns=2439012000.0 ps
+1225: DDR_GEMM_PROGRESS packets=64 opcode=04 status=0 time_ns=2785892000.0 ps
+1226: DDR_GEMM_JOB_PASS job_id=2 m=5 n=3 k=9 outputs=15 job_cycles=478 compute_cycles=32 read_beats=16 write_beats=10 write_bytes=60
+1227: DDR_GEMM_JOB_BEGIN job_id=3 m=1 n=33 k=9 time_ns=2879652000.0 ps
+1228: DDR_GEMM_PROGRESS packets=72 opcode=05 status=0 time_ns=3184992000.0 ps
+1229: DDR_GEMM_PROGRESS packets=80 opcode=05 status=0 time_ns=3592112000.0 ps
+1230: DDR_GEMM_PROGRESS packets=88 opcode=05 status=0 time_ns=3999232000.0 ps
+1231: DDR_GEMM_PROGRESS packets=96 opcode=05 status=0 time_ns=4406352000.0 ps
+1232: DDR_GEMM_PROGRESS packets=104 opcode=03 status=0 time_ns=4906652000.0 ps
+1233: DDR_GEMM_PROGRESS packets=112 opcode=02 status=0 time_ns=5175232000.0 ps
+1234: DDR_GEMM_JOB_PASS job_id=3 m=1 n=33 k=9 outputs=33 job_cycles=1024 compute_cycles=160 read_beats=70 write_beats=17 write_bytes=132
+1235: DDR_GEMM_WIRE_COUNTS tx_bytes=3014 rx_bytes=2068
+1236: DDR_GEMM_FINAL_PASS jobs=3 outputs=49 sim_baud=10000000 packets=118 read_beats=126 write_beats=152 write_responses=66
+1237: $finish called at time : 5538552 ns : File "C:/Users/mihai/Documents/continium/accelerator nexys/tb/vendor/tb_ddr_gemm.sv" Line 569
+1238: run: Time (s): cpu = 00:00:01 ; elapsed = 01:10:36 . Memory (MB): peak = 671.062 ; gain = 0.000
+1239: INFO: xsimkernel Simulation Memory Usage: 82968 KB (Peak: 82968 KB), Simulation CPU Usage: 3976359 ms
+1240: INFO: [Simtcl 6-16] Simulation closed
+1241: INFO: [Common 17-206] Exiting Vivado at Sun Oct  4 13:30:32 2026...

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-03 06:05:39 UTC",
+  "build_id": "0xed44f92e",
+  "bitstream_sha256": "fc2dcb3d43cf3f2775df5554de7f4a7e7612e9e4b41b6900a96afe2ce2bbc708",
+  "operator_confirmation": "Fresh OFF/ON complete; powered on and connected",
+  "jp1": "JTAG",
+  "j6_usb_connected": true,
+  "cold_power_cycle_confirmed": true,
+  "scope": "Operator-confirmed cold preparation before this image is programmed; no warm-reset claim",
+  "physical_memory_reported": "ISSI IS43DR16640C; speed/temperature suffix unreadable"
+}

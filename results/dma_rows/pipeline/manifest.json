@@ -1,0 +1,43 @@
+{
+  "result": "PASS",
+  "date": "2026-10-02",
+  "command": ".venv/bin/python scripts/test_dma_rows.py --build-dir build/test_dma_rows_pipeline",
+  "execution": "Ubuntu WSL, hidden Windows process",
+  "exit_code": 0,
+  "scope": "Standalone row planning and local handshakes after validation pipelining; no new integration or physical timing claim",
+  "source_state": "Working-tree inputs; exact UTF-8/LF source hashes identify this run",
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "tb/test_dma_rows.py": "494d941aaf0600a78d430dfeea875215f2850ef1b92bdaaaca26f8ab89854ff8",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_dma_rows.py": "63a87c8f99b0989524c23668de5746df8db71e8d80cfbbefbd4d2637a4740037"
+  },
+  "versions": {
+    "python": "3.12.4",
+    "cocotb": "2.0.1",
+    "icarus": "12.0 (stable)"
+  },
+  "workload_seeds": {
+    "directed": "0xd001",
+    "random_descriptors": "0xd002",
+    "completion_faults": "0xd003",
+    "local_reset": "0xd004"
+  },
+  "saved_artifact_sha256_bytes": {
+    "summary.json": "e4eddbf8ad23186ae130de9f33d8e3e8b8459becf174cec48febe10ff9f3fd91",
+    "coverage.json": "6878c52e72defaab582747dc4db9820f38e562537bddf9cd5a6283c7ca655b4f",
+    "results.xml": "0842e080db4fd41c37fbbfac6405e87536fcdbc0660245c8d393f5cddbfe6a07",
+    "console_excerpt.txt": "86ee66632cdca0253a0c07bc02d4e5f22aaa3e118b5e6af7be8479b009bf4efc"
+  },
+  "artifact_copy_policy": "summary.json, coverage.json and results.xml copied byte-for-byte; console excerpt is selected verbatim lines saved as UTF-8/LF",
+  "complete_local_console_path": "build/dma_rows_pipeline_test_console.txt",
+  "complete_local_console_sha256_bytes": "55ec40257970b67954021a8196123eae3d10669062d04aca2ba79c00ad1b7a10",
+  "initial_launch": {
+    "result": "WSL service denied access inside sandbox before compilation or simulation",
+    "log": "build/dma_rows_pipeline_console.txt",
+    "exit_code": 4294967295,
+    "sha256_bytes": "2c3dc855eb0f8875a7d8bfaf80a7f948ef85a7105336bdd4c66607b93c3f9cf7"
+  },
+  "prior_evidence": "../summary.json retains the earlier unpipelined implementation; no previous result was overwritten"
+}

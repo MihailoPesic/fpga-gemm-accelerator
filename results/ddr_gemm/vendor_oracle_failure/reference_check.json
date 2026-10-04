@@ -1,0 +1,42 @@
+{
+  "scope": "Independent Python integer calculation of job 2 C[0,0] only; no simulator or RTL data is used as the oracle",
+  "a_row": [
+    -128,
+    -1,
+    10,
+    -10,
+    1,
+    12,
+    -8,
+    3,
+    14
+  ],
+  "b_column": [
+    127,
+    0,
+    13,
+    -3,
+    10,
+    -6,
+    7,
+    -9,
+    4
+  ],
+  "products": [
+    -16256,
+    0,
+    130,
+    30,
+    10,
+    -72,
+    -56,
+    -27,
+    56
+  ],
+  "expected_int32": -16185,
+  "expected_uint32_hex": "ffffc0c7",
+  "expected_low_byte_hex": "c7",
+  "observed_low_byte_hex": "c7",
+  "observed_byte_matches_reference": true,
+  "full_output_validated": false
+}

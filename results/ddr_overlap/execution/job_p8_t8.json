@@ -1,0 +1,13 @@
+{
+  "suite": "job_p8_t8",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_ddr_overlap_job.py",
+    "--only",
+    "p8_t8",
+    "--build-dir",
+    "build/overlap_integration_20261004/job/p8_t8"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1071.1018390655518
+}

@@ -1,0 +1,154 @@
+{
+  "result": "PASS",
+  "date": "2026-10-02",
+  "scope": "Portable row adapter, production tile engine and burst engine against behavioral AXI RAM; no full descriptor scheduler or physical DDR test",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 24,
+      "compared_outputs": 391,
+      "invalid_requests": 16,
+      "fault_bins": 16,
+      "elapsed_seconds": 8.158554077148438,
+      "coverage": "p4_t8/coverage.json",
+      "test_results": "p4_t8/results.xml"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 24,
+      "compared_outputs": 5898,
+      "invalid_requests": 16,
+      "fault_bins": 16,
+      "elapsed_seconds": 81.26029682159424,
+      "coverage": "p4_t32/coverage.json",
+      "test_results": "p4_t32/results.xml"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 24,
+      "compared_outputs": 453,
+      "invalid_requests": 16,
+      "fault_bins": 16,
+      "elapsed_seconds": 14.537416696548462,
+      "coverage": "p8_t8/coverage.json",
+      "test_results": "p8_t8/results.xml"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 24,
+      "compared_outputs": 4177,
+      "invalid_requests": 16,
+      "fault_bins": 16,
+      "elapsed_seconds": 120.2399833202362,
+      "coverage": "p8_t32/coverage.json",
+      "test_results": "p8_t32/results.xml"
+    }
+  ],
+  "totals": {
+    "tests": 16,
+    "jobs": 96,
+    "compared_outputs": 10919,
+    "invalid_requests": 64
+  },
+  "source_state": "Working-tree inputs; all four independent runner source maps match exactly",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "tb/sv/tile_dma_harness.sv": "b5e3e24332107162ee80fcbda89fe152257d82ddf46b82f2d215b030eb413a97",
+    "tb/test_tile_dma.py": "c8b942ded337a63114d3126b270ecf09939af4ba032e5fc12dd765554f799d38",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma.py": "86d63676deddb0f1daa2d13b1b6ddb3b08e1d1de42a450d372dcbea358e7748c"
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "test_commands": [
+    ".venv/bin/python scripts/test_tile_dma.py --only p4_t8 --build-dir build/test_tile_dma_pipeline_p4_t8",
+    ".venv/bin/python scripts/test_tile_dma.py --only p4_t32 --build-dir build/test_tile_dma_pipeline_p4_t32",
+    ".venv/bin/python scripts/test_tile_dma.py --only p8_t8 --build-dir build/test_tile_dma_pipeline_p8_t8",
+    ".venv/bin/python scripts/test_tile_dma.py --only p8_t32 --build-dir build/test_tile_dma_pipeline_p8_t32"
+  ],
+  "raw_test_traffic": {
+    "axi_read_beats": 20524,
+    "axi_write_beats": 5735,
+    "axi_write_responses": 764
+  },
+  "publication": "Merged from four successful configuration summaries after identical source and version checks; XML and coverage copied byte-for-byte",
+  "original_artifacts": {
+    "p4_t8": {
+      "summary_path": "build/test_tile_dma_pipeline_p4_t8/summary.json",
+      "summary_sha256_bytes": "dba4c584bc0f53cba6a37c2714ef646a88f5a8b4e997b42f54e541ebab030889",
+      "complete_console_path": "build/tile_dma_pipeline_p4_t8_console.txt",
+      "complete_console_sha256_bytes": "0d7997a577242ec5210ac234c20fb8cd6455a48fad2a7286b82448817ea5d7dd",
+      "execution_path": "build/tile_dma_pipeline_p4_t8_execution.json",
+      "execution_sha256_bytes": "3a5c90e8e17fe4e803378935eee940ce456f32fb9c3093c0ee83319f6a8d02b0"
+    },
+    "p4_t32": {
+      "summary_path": "build/test_tile_dma_pipeline_p4_t32/summary.json",
+      "summary_sha256_bytes": "a3c98cd45bbb8a478b44f7fa48b9bf9d77fd81a2be18e15b8d6e87e2adfb539f",
+      "complete_console_path": "build/tile_dma_pipeline_p4_t32_console.txt",
+      "complete_console_sha256_bytes": "b3e6203152c681bda69ec4213c3282c60239a25203fbd113d2106b799969a32d",
+      "execution_path": "build/tile_dma_pipeline_p4_t32_execution.json",
+      "execution_sha256_bytes": "873ec2c795ccc1841efc75ec320f8ece90013d136b97b79937516261b878778c"
+    },
+    "p8_t8": {
+      "summary_path": "build/test_tile_dma_pipeline_p8_t8/summary.json",
+      "summary_sha256_bytes": "0347b3cea7e06ed258ce3a80d3c52581b8cffc754ded3f6b1ba955edc5500541",
+      "complete_console_path": "build/tile_dma_pipeline_p8_t8_console.txt",
+      "complete_console_sha256_bytes": "479953ff57db5a356d89dca6462a86c22bc21d45259c1c19a2dc0a042b6a0666",
+      "execution_path": "build/tile_dma_pipeline_p8_t8_execution.json",
+      "execution_sha256_bytes": "de4f43bdc41e389e9c3ee0f531a6e2939bc5c1e2362c95df39ff98c0a291f95b"
+    },
+    "p8_t32": {
+      "summary_path": "build/test_tile_dma_pipeline_p8_t32/summary.json",
+      "summary_sha256_bytes": "28defb871f70ce4c990505ff401fe2765f66a5047c4c0fa27f517e79605f752e",
+      "complete_console_path": "build/tile_dma_pipeline_p8_t32_console.txt",
+      "complete_console_sha256_bytes": "3a37d31b83d486e117f3101213971ce0240fc83b37b71133ffc458bc8593a575",
+      "execution_path": "build/tile_dma_pipeline_p8_t32_execution.json",
+      "execution_sha256_bytes": "33e910ceaf31d8c7ed5d85c8411b1f0cf8eb02572d91beb93bef9e375565b8af"
+    }
+  },
+  "saved_artifact_sha256_bytes": {
+    "console_excerpt.txt": "1d23079a69f6bbacac8cb890aa5af0041085385f5890e3182c7be38e633c7b15",
+    "p4_t32/coverage.json": "1a61b5d59a0f25219c317031f982fee56bb31cc37302e3d23135f1775e67fae2",
+    "p4_t32/results.xml": "53a8e2333ce7fdb48921ca271cbc045029986f3a3d13854f6dd5c932b362fe1f",
+    "p4_t8/coverage.json": "ae0a88e32f6fc5e00049207ef62dc8998f5a077f06edbaddc5085d0e3220f282",
+    "p4_t8/results.xml": "b765b00d7f9ff214974756141d7020784184933b30bebd9deccf198ce7634413",
+    "p8_t32/coverage.json": "eabafe3d74e41f2c03ce070726bd58be6ebecd91624ed93acd4ad1e855d2eeb0",
+    "p8_t32/results.xml": "83ca58b211dec75df5316aa00808c619ded887fc0082de078d80a0aa31c30380",
+    "p8_t8/coverage.json": "8224980b581d2ebab50109ffb59a37595091ffa83d5278581e9dbdae26c6e0fd",
+    "p8_t8/results.xml": "d6c906fbc28a40de6a1a95eec22b08ce4c2bdfe94f929527ee9898b1c5e87a64"
+  },
+  "limitations": {
+    "vendor_ip_simulated": false,
+    "routed_timing_checked": false,
+    "board_test_performed": false,
+    "overlap_tested": false
+  }
+}

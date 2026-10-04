@@ -1,0 +1,33 @@
+read_verilog -formal -sv -D SYNTHESIS /work/inputs/rtl/control/gemm_tile_scheduler.sv
+chparam -set P 4 -set T 8 gemm_tile_scheduler
+proc
+memory_map
+cd gemm_tile_scheduler
+rename -output input_state[0] obs_input0
+rename -output input_state[1] obs_input1
+rename -output output_state[0] obs_output0
+rename -output output_state[1] obs_output1
+rename -output load_state obs_load_state
+rename -output store_state obs_store_state
+rename -output core_state obs_core_state
+rename -output job_state obs_job_state
+rename -output admission_count obs_admitted
+rename -output compute_count obs_computed
+rename -output retirement_count obs_retired
+rename -output total_tiles obs_total
+rename -output input_tag[0] obs_input_tag0
+rename -output input_tag[1] obs_input_tag1
+rename -output output_tag[0] obs_output_tag0
+rename -output output_tag[1] obs_output_tag1
+cd ..
+read_verilog -formal -sv /work/inputs/formal/tile_scheduler.sv
+chparam -set MODE 0 tile_scheduler_formal
+prep -top tile_scheduler_formal -flatten
+memory_map
+async2sync
+chformal -assert -lower
+chformal -assume -lower
+opt -full -keepdc
+check
+stat
+sat -seq 32 -set-assumes -set rst 0 -timeout 120 -show-ports -set-at 1 rst 1 -falsify -prove cover_fault_drain 0 -dump_json /work/scheduler_0_fault_drain.json -dump_vcd /work/scheduler_0_fault_drain.vcd

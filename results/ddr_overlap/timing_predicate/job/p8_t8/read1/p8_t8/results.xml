@@ -1,0 +1,11 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791103574" />
+    <testcase name="matched_jobs_both_modes" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="266" time="11.918402671813965" sim_time_ns="111632.312" ratio_time="9366.381978685884" />
+    <testcase name="validation_and_start_contract" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="294" time="0.35823655128479004" sim_time_ns="3510.694000000003" ratio_time="9799.93243963841" />
+    <testcase name="final_b_and_counter_snapshots" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="352" time="1.1270945072174072" sim_time_ns="10752.14" ratio_time="9539.696920842149" />
+    <testcase name="fault_counters_and_drain" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="390" time="1.9268224239349365" sim_time_ns="13112.576000000001" ratio_time="6805.285135317055" />
+    <testcase name="calibration_watchdog_and_clear" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="434" time="0.23144054412841797" sim_time_ns="2100.3820000000123" ratio_time="9075.255193120296" />
+    <testcase name="seeded_mixed_jobs" classname="test_ddr_overlap_job" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_overlap_job.py" lineno="484" time="526.0143353939056" sim_time_ns="3974964.824" ratio_time="7556.761397050803" />
+  </testsuite>
+</testsuites>

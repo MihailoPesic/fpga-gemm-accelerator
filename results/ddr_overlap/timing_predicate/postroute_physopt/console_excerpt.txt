@@ -1,0 +1,10 @@
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-0.237 | TNS=-2.171 | WHS=0.020 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-0.237 | TNS=-2.171 | WHS=0.020 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.043 | TNS=0.000 | WHS=0.020 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.043 | TNS=0.000 | WHS=0.020 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.043 | TNS=0.000 | WHS=0.020 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.043 | TNS=0.000 | WHS=0.020 | THS=0.000 |
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:02:34 ; elapsed = 00:01:57 . Memory (MB): peak = 2106.664 ; gain = 401.066
+PHYSOPT_PROBE_RESULT WNS=0.043 WHS=0.020 ROUTED=1 ROUTE_ERRORS=0 CRITICAL_CDC=0 CRITICAL_CHECKS=0
+PHYSOPT_PROBE_PASS

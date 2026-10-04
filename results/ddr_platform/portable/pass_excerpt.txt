@@ -1,0 +1,45 @@
+Selected result lines, with original line numbers, from build/platform_regression_console.txt.
+This is an excerpt, not the complete console. Full-console byte SHA-256: ceda2d5e12bb2596621e594f62c0d8d6b2314e446f67d1efeef3d3de68277ce2
+
+7: PASS: Icarus compile/warnings P=4
+8: PASS: banked Icarus compile/warnings P=4 T=8
+9: PASS: tile engine compile/warnings P=4 T=8
+10: PASS: banked Icarus compile/warnings P=4 T=32
+11: PASS: tile engine compile/warnings P=4 T=32
+12: PASS: Icarus compile/warnings P=8
+13: PASS: banked Icarus compile/warnings P=8 T=8
+14: PASS: tile engine compile/warnings P=8 T=8
+15: PASS: banked Icarus compile/warnings P=8 T=32
+16: PASS: tile engine compile/warnings P=8 T=32
+17: PASS: complete preview UART compile/warnings
+18: PASS: AXI burst primitive compile/warnings
+19: PASS: DDR diagnostic and packet controller compile/warnings
+36:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                693450.00           3.13     221824.61  **
+53:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  725630.00           9.71      74731.59  **
+70:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  849490.00          74.78      11360.57  **
+115:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              134680.00           1.74      77594.28  **
+132:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              481750.00           7.54      63873.83  **
+149:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              133660.00          10.72      12470.09  **
+166:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                              255080.00          28.72       8882.35  **
+220:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     11600.00           0.09     136110.13  **
+237:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   118540.00           1.27      93533.54  **
+254:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     59600.00           0.28     210112.16  **
+271:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   987480.00          12.35      79976.93  **
+288:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     11440.00           0.07     166845.18  **
+305:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                    94650.00           3.30      28719.14  **
+322:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                     57040.00           0.30     192263.20  **
+339:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                   545960.00          32.13      16993.81  **
+417: Ran 20 tests in 0.137s
+419: OK
+440:                                                          ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                           1390620.00           9.23     150587.89  **
+467:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                         751040.00           9.54      78744.64  **
+506:                                                          ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                  3732300.00          16.98     219824.18  **
+648:                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                              38240.00           0.93      40960.68  **
+776:                                                         ** TESTS=3 PASS=3 FAIL=0 SKIP=0                                            174120.00           2.19      79595.00  **
+813:                                                         ** TESTS=1 PASS=1 FAIL=0 SKIP=0                                                    7420.00           0.04     178665.46  **
+827: Ran 8 tests in 0.214s
+829: OK
+832: CAUGHT unsigned_multiply
+833: CAUGHT product_survives_clear
+834: CAUGHT early_drain
+835: Evidence: /mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/mutations/1790942702045878824/summary.json

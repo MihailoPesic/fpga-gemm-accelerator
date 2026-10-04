@@ -1,0 +1,15 @@
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+OPERANDS k=0 a=-128 b=127 product=-16256
+OPERANDS k=1 a=-1 b=0 product=0
+OPERANDS k=2 a=10 b=13 product=130
+OPERANDS k=3 a=-10 b=-3 product=30
+OPERANDS k=4 a=1 b=10 product=10
+OPERANDS k=5 a=12 b=-6 product=-72
+OPERANDS k=6 a=-8 b=7 product=-56
+OPERANDS k=7 a=3 b=-9 product=-27
+OPERANDS k=8 a=14 b=4 product=56
+DIRECT job1=00004000 job2=xxxxxxxx
+Fatal: Literal oracle mismatch row=0 col=0 got=xxxxxxxx expected=ffffc0c7
+Time: 0 ps  Iteration: 0  Process: /oracle_probe/Initial73_0  Scope: oracle_probe.direct_checks  File: C:/Users/mihai/Documents/continium/accelerator nexys/build/vendor_oracle_probe/baseline/oracle_probe.sv Line: 88
+$finish called at time : 0 fs

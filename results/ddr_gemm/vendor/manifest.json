@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Cold-start functional UART/GEMM/SmartConnect/MIG/DDR2-model simulation; no routed timing or physical-board claim",
+  "original_run_directory": "build/gemm_reference",
+  "reproduction_command": "python scripts/build_ddr_gemm.py --stage sim --build-dir build/gemm_reproduce",
+  "build_id": 3980720430,
+  "source_commit": "35f8af4a7a04f6e8ef1d55f676fcef19455364cc",
+  "source_dirty": true,
+  "summary_copy_policy": "Exact bytes from build/gemm_reference/simulation.json; original provenance retained",
+  "source_identity": "The 28 source_sha256_utf8_lf entries in summary.json identify tested files; all matched the checkout at audit",
+  "generated_identity": "All 362 generated hashes matched at audit under raw_bytes_except_three_mig42_header_timestamps_v1. Three original raw XDC hashes remain in summary.json; physical regeneration subsequently changed their permitted date comments.",
+  "jobs": 2,
+  "checked_outputs": 16,
+  "packets": 65,
+  "traffic_including_host_transfers": {
+    "jobs": 2,
+    "outputs": 16,
+    "sim_baud": 10000000,
+    "packets": 65,
+    "read_beats": 37,
+    "write_beats": 48,
+    "write_responses": 26
+  },
+  "warnings_audit": {
+    "case_insensitive_warning_lines": 21,
+    "all_warning_lines_retained_in_excerpt": true,
+    "error_fatal_mismatch_violation_lines": 0,
+    "scope": "FAST early-CKE warning; generated-IP compilation and metadata warnings; missing XADC design.txt; signed decimal BUILD_ID conversion retains checked 32-bit value"
+  },
+  "local_complete_console_sha256_bytes": "aa54ed7e8318f695f152020dac9b95f717c53579217fb931522e895c870f24e1",
+  "local_simulation_completion_sha256_bytes": "cb32704df8af5acccfd148f9ee657fd97adc894273fcb620f5b3d72a24ed04c9",
+  "saved_artifact_sha256_bytes": {
+    "summary.json": "4e01bc1b120a7a70532db86f9f0b59fba7b685cd66b1f8e39a588fff134e8d43",
+    "console_excerpt.txt": "8ad901f3de0cff8ab853671a708c2d6cc1c7ecc13381052d23deb08553bc5355"
+  }
+}

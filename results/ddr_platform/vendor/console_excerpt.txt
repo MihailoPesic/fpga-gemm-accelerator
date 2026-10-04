@@ -1,0 +1,49 @@
+Selected original lines from build/ddr_diag/sim_console.txt.
+This is an excerpt, not the full console. All warning lines and final test markers are included.
+Command: python scripts/build_ddr_diag.py --stage sim
+Full console size_bytes: 83895
+Full console sha256_bytes: c3ca57a14f1b745d508e98977e4c9308f9445165ed9439d4e3061f660a7ea9c9
+Full console sha256_utf8_lf: 20f6d76dbbc272c83c61a4319fccf279e0626225a29efcacbec081a99da212c3
+Original simulation.json sha256_bytes: 21e8f6f79bb6360c84133a93c484d8da6850abbaffdb27b3240542782f2a2ad1
+Saved summary.json sha256_bytes (UTF-8/LF): 5d558033d77dfdee0d5b9383635a24b23147765d2beb8acfbf4875a1c8d40460
+The saved JSON fields are unchanged; only line endings were normalized.
+Source checkout: 35f8af4a7a04f6e8ef1d55f676fcef19455364cc; source_dirty: true
+Scope: FAST calibration, ideal board interconnect, cold startup and repeated jobs only.
+Warm-reset qualification remains false; see ../reset_probe/summary.json.
+
+3: ****** Vivado v2026.1 (64-bit)
+7:   **** Start of session at: Fri Oct  2 14:52:56 2026
+242: WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v:252]
+646: WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 1024 for port 'dbg_poc' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/axi_ddr_bd_mig_0_mig_sim.v:1278]
+648: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1671]
+650: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_phase_locked_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_mc_phy_wrapper.v:1679]
+652: WARNING: [VRFC 10-3091] actual bit length 12 differs from formal bit length 4 for port 'pi_dqs_found_lanes' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_top.v:1339]
+654: WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 1 for port 'fine_adjust_lane_cnt' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1962]
+656: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:366]
+658: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/sim/axi_ddr_bd.v:373]
+660: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:751]
+662: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:758]
+664: WARNING: [VRFC 10-5021] port 'mb_reset' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_bridge_0/bd_0/sim/bd_4940.v:765]
+666: WARNING: [VRFC 10-5021] port 'complex_oclk_prech_req' is not connected on this instance [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_calib_top.v:1317]
+926: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_A' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:709]
+928: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_B' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:708]
+930: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_C' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:707]
+932: WARNING: [VRFC 10-8809] cannot index into scalar type parameter/localparam 'PRESENT_DATA_D' [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/project/axi_platform.ip_user_files/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/rtl/phy/mig_7series_v4_2_ddr_phy_4lanes.v:706]
+1092: WARNING: file design.txt could not be opened
+1093:  *** Warning: The analog data file design.txt for XADC instance tb_ddr_platform.dut.platform.platform.axi_ddr_bd_i.mig.u_axi_ddr_bd_mig_0_mig.temp_mon_enabled.u_tempmon.xadc_supplied_temperature.XADC_inst was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+1150: tb_ddr_platform.memory.cmd_task: at time 5505335.0 ps WARNING: 200 us is required before CKE goes active.
+1151: PHY_INIT: Memory Initialization completed at 46734475.0 ps
+1152: PHY_INIT: Phaser_In Phase Locked at 52734475.0 ps
+1153: PHY_INIT: Phaser_In DQSFOUND completed at 97674475.0 ps
+1154: PHY_INIT: Read Leveling Stage 1 completed at 157934475.0 ps
+1155: PHY_INIT : PRBS/PER_BIT calibration completed at 157934475.0 ps
+1156: PHY_INIT : COMPLEX OCLKDELAY calibration completed at 157934475.0 ps
+1157: DDR_DIAG_RUN_PASS seed=12345678 cycles=9274 read_beats=1024 write_beats=648
+1158: DDR_DIAG_RUN_PASS seed=a5c319e7 cycles=9201 read_beats=1024 write_beats=648
+1159: DDR_DIAG_RUN_PASS seed=0f1e2d3c cycles=9257 read_beats=1024 write_beats=648
+1160: DDR_SINGLE_READ_PASS address=00000008 data=3370de46aaddb72b
+1161: DDR_DECODE_PASS address=08000000 status=7
+1162: DDR_PLATFORM_PASS runs=3 read_beats=3074 write_beats=1944 write_responses=144
+1164: run: Time (s): cpu = 00:00:02 ; elapsed = 00:15:52 . Memory (MB): peak = 1337.793 ; gain = 0.000
+1165: INFO: xsimkernel Simulation Memory Usage: 93268 KB (Peak: 93268 KB), Simulation CPU Usage: 654828 ms
+1167: INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 15:16:30 2026...

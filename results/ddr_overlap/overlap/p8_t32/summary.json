@@ -1,0 +1,266 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "enable_overlap": true,
+      "suite": "overlap",
+      "directory": "read1/p8_t32",
+      "build_id": 3489663008,
+      "tests": 2,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261241,
+        "jobs": 9,
+        "output_values": 12581,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            31,
+            65,
+            33
+          ],
+          [
+            31,
+            65,
+            33
+          ],
+          [
+            1,
+            33,
+            256
+          ],
+          [
+            1,
+            33,
+            256
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            65,
+            33,
+            33
+          ]
+        ],
+        "requests": 1486,
+        "responses": 1486,
+        "replays": 1,
+        "sequence_conflicts": 1,
+        "malformed_frames": 0,
+        "invalid_memory_commands": 0,
+        "host_lengths": [],
+        "faults": [],
+        "watchdog_limits": [],
+        "watchdog_progress_at_deadline": 0,
+        "axi_read_bursts": 2335,
+        "axi_write_bursts": 1648,
+        "axi_read_beats": 21129,
+        "axi_write_beats": 21757,
+        "axi_write_responses": 1648,
+        "stalls": {
+          "w": 7481,
+          "aw": 547,
+          "ar": 789
+        },
+        "axi_read_occupancy": [
+          0,
+          1
+        ],
+        "local_read_occupancy": [
+          0,
+          1
+        ],
+        "gemm_read_error_ownership": {},
+        "host_memory_completion_fault_priority": [],
+        "host_memory_page_burst_schedule": {},
+        "modes": [
+          0,
+          1
+        ],
+        "packet_overlap_activity_edges": 4420,
+        "overlap_final_b_held_cycles": 100
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "enable_overlap": true,
+      "suite": "overlap",
+      "directory": "read4/p8_t32",
+      "build_id": 3489859616,
+      "tests": 2,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261241,
+        "jobs": 9,
+        "output_values": 12581,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            31,
+            65,
+            33
+          ],
+          [
+            31,
+            65,
+            33
+          ],
+          [
+            1,
+            33,
+            256
+          ],
+          [
+            1,
+            33,
+            256
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            65,
+            33,
+            33
+          ]
+        ],
+        "requests": 1486,
+        "responses": 1486,
+        "replays": 1,
+        "sequence_conflicts": 1,
+        "malformed_frames": 0,
+        "invalid_memory_commands": 0,
+        "host_lengths": [],
+        "faults": [],
+        "watchdog_limits": [],
+        "watchdog_progress_at_deadline": 0,
+        "axi_read_bursts": 2335,
+        "axi_write_bursts": 1648,
+        "axi_read_beats": 21129,
+        "axi_write_beats": 21757,
+        "axi_write_responses": 1648,
+        "stalls": {
+          "w": 7516,
+          "aw": 540,
+          "ar": 779
+        },
+        "axi_read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "local_read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "gemm_read_error_ownership": {},
+        "host_memory_completion_fault_priority": [],
+        "host_memory_page_burst_schedule": {},
+        "modes": [
+          0,
+          1
+        ],
+        "packet_overlap_activity_edges": 3451,
+        "overlap_final_b_held_cycles": 100
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "rtl/control/gemm_tile_scheduler.sv": "3d34ecdbbb60a22bb796558d3351de0deb3ee3ee9c70472e2cfa44da2aa894fe",
+    "rtl/control/gemm_ddr_overlap_job.sv": "7a5ffc21a8c67e9277aa860b34184c30304ea98e76e669bc413bb605ab949fb5",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "70f17435ad19298a8189f72e9095963d73197c2df2c26408597aed992f36b03e",
+    "rtl/control/gemm_ddr_core.sv": "ab0e4c86f14080bdb48eb9322212b0f6ad29f9839b05c50ac88ddd962bd58496",
+    "tb/test_ddr_core.py": "2b8bfdca762ee6ce4b92045e4467388d34ca0c3c1a14de7379abac43eecede2e",
+    "tb/test_ddr_core_overlap.py": "cd51e7c9c242a4ddd2235a2c68cf2fd3066cee4a3ce5b03b54075dca55248a42",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "ff8a280525d92157c1a53dec5b28c2effbb23eebd3e8794660bd6590a5565ea1"
+  },
+  "scope": "Byte-framed transport, production control/register/job/DMA/core/burst and behavioral AXI RAM; no UART pin timing, vendor DDR or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "totals": {
+    "jobs": 18,
+    "output_values": 25162,
+    "requests": 2972,
+    "responses": 2972,
+    "replays": 2,
+    "sequence_conflicts": 2,
+    "malformed_frames": 0,
+    "invalid_memory_commands": 0,
+    "axi_read_bursts": 4670,
+    "axi_write_bursts": 3296,
+    "axi_read_beats": 42258,
+    "axi_write_beats": 43514,
+    "axi_write_responses": 3296
+  }
+}

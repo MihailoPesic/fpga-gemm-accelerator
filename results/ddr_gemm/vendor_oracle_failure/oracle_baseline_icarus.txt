@@ -1,0 +1,11 @@
+OPERANDS k=0 a=-128 b=127 product=-16256
+OPERANDS k=1 a=-1 b=0 product=0
+OPERANDS k=2 a=10 b=13 product=130
+OPERANDS k=3 a=-10 b=-3 product=30
+OPERANDS k=4 a=1 b=10 product=10
+OPERANDS k=5 a=12 b=-6 product=-72
+OPERANDS k=6 a=-8 b=7 product=-56
+OPERANDS k=7 a=3 b=-9 product=-27
+OPERANDS k=8 a=14 b=4 product=56
+DIRECT job1=00004000 job2=ffffc0c7
+ORACLE_PROBE_PASS

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Portable row address planning and ordered completion, both read depths; no AXI or board test",
+  "reproduction_command": "python scripts/test_dma_rows.py --build-dir build/test_dma_rows_read4",
+  "reported_process_exit": 0,
+  "configurations": [
+    {
+      "read_slots": 1,
+      "tests": 5,
+      "valid_descriptors": 271,
+      "invalid_descriptors": 121,
+      "burst_count": 4607,
+      "same_edge_issue_retire": 0
+    },
+    {
+      "read_slots": 4,
+      "tests": 5,
+      "valid_descriptors": 279,
+      "invalid_descriptors": 121,
+      "burst_count": 4650,
+      "same_edge_issue_retire": 9
+    }
+  ],
+  "totals": {
+    "tests": 10,
+    "valid_descriptors": 550,
+    "invalid_descriptors": 242,
+    "burst_count": 9257,
+    "same_edge_issue_retire": 9
+  },
+  "versions": {
+    "cocotb": "2.0.1"
+  },
+  "source_hash_definition": "SHA-256 of UTF-8 source bytes with CRLF normalized to LF; original summary preserved byte for byte",
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "tb/test_dma_rows.py": "7193f5657a17554f5ad90b81735eda36d4a11c84dd3448a9cdd80307d87249d8",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_dma_rows.py": "6240c68f7f0efe0cb5a02686075e8945e670e1c4663036bc4636224e50794437"
+  },
+  "source_identity_note": "Run fingerprints and current source bytes match; this manifest does not assert a committed source revision.",
+  "artifact_hash_definition": "SHA-256 of exact saved bytes, including original line endings",
+  "artifact_sha256_bytes": {
+    "summary.json": "ac78b9ceecdff5341f2d258f17bdfb57cd1934bf83b83c7894eb09cf86f70126",
+    "console.txt": "d4155f46ffa638aef0d63672cb0ca3ef904190e3ba216f7ca8a70eeff43c34b7",
+    "read1/coverage.json": "153a7050ecf0910b38c5573ef96e759821f3f0373b9defd19b0eaf1dd97e2d31",
+    "read1/results.xml": "de81ccdbfbdbe16abc3142f1630cfb7fbafde7c60ac02621fac9705a231c89d5",
+    "read4/coverage.json": "8f547ed1638796a4370e83eb33a962b5334e835ffd2eacb97afa63bc8e4d455b",
+    "read4/results.xml": "7d9d8970b991200dd2cb6adb1040feeebe79eb7915de5574f36da92669b45930"
+  },
+  "artifact_original_paths": {
+    "summary.json": "build/read_dma_rows_20261003/summary.json",
+    "console.txt": "build/read_dma_rows_console.txt",
+    "read1/coverage.json": "build/read_dma_rows_20261003/read1/coverage.json",
+    "read1/results.xml": "build/read_dma_rows_20261003/read1/results.xml",
+    "read4/coverage.json": "build/read_dma_rows_20261003/read4/coverage.json",
+    "read4/results.xml": "build/read_dma_rows_20261003/read4/results.xml"
+  }
+}

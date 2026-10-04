@@ -1,0 +1,17 @@
+{
+  "scope": "Parent process exit receipt for the actual public formal runner, no rerun",
+  "working_directory": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys",
+  "shell": "powershell",
+  "login": false,
+  "command": "& '.\\build\\formal-env\\Scripts\\python.exe' '.\\scripts\\formal_dma_rows.py' --build-dir '.\\build\\formal_dma_rows_public_final_20261004'",
+  "actual_exit_code": 0,
+  "observed_completion_tool": "write_stdin",
+  "exec_session_id": 46652,
+  "initial_stdout": "PASS read1_safety\n",
+  "completion_stdout": "PASS read1_read_done\nPASS read1_write_done\nPASS read4_safety\nPASS read4_read_done\nPASS read4_write_done\nPASS read4_credit_four\nPASS read4_simultaneous\nPASS read4_cancelled_drain\n",
+  "runner_utc_started": "2026-10-04T11:18:57.513138+00:00",
+  "runner_utc_finished": "2026-10-04T11:19:40.979263+00:00",
+  "parent_exit_utc": null,
+  "parent_exit_utc_note": "The tool completion reported exit0 without a UTC timestamp; none invented.",
+  "summary_sha256_bytes": "9f075b42e414edfddd2141a901b4371daf2579895ee80b1352e09703a5957f8c"
+}

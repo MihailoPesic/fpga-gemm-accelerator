@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "state": "PASS",
+  "passed": true,
+  "utc_started": "2026-10-03T12:01:08.891586+00:00",
+  "utc_finished": "2026-10-03T12:34:28.189735+00:00",
+  "elapsed_seconds": 1999.2978696000064,
+  "requested_seconds": 1800.0,
+  "port": "COM11",
+  "build_id": 1217977191,
+  "bitstream_sha256": "55eafc4dba5053b12d8299165b6d2deddb2dea9e7fb76d4ec6b4b4403cf1b910",
+  "manifest_sha256_bytes": "a3da6555964de83af346ec424ebd3e8942f8fe5ad1f9838ce7354089bf2a060c",
+  "case_plan_sha256": "37d065012515680a1ae3cb395694a6c1e79d9ec8b5a06149fddcbf38a145f902",
+  "orchestration_sha256_bytes": "b157d61bcbb2930d48da4c8fc8880e5f4a5025d5eab170482456af8e82137de8",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "7e9a22a7496636316d871fab8322a60fb39b2073c79a9d0c0460606a2258a482",
+    "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/hw_test_ddr_gemm.py": "c31700e8cf588e7eefe6e11a0123c1d8e6a86d5b0cb5910bce1e32711ba6313c",
+    "scripts/program_ddr_gemm.py": "304c70b70c679fe141bbfaa2537a07aec676147d0747f103b82c86735f97f4a7"
+  },
+  "iterations": [
+    {
+      "number": 1,
+      "directory": "pass_01",
+      "exit_code": 0,
+      "console_sha256_bytes": "010c906ee10624ad69fa7070af55d21591cf2d5c072a0a4ecdb78f2fbb66d15e",
+      "summary_sha256_bytes": "6e1ced82e585ab11119cdf30eb0a26ae516e871d2be339f233e64e9c8102a976",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 220.97645839999313
+    },
+    {
+      "number": 2,
+      "directory": "pass_02",
+      "exit_code": 0,
+      "console_sha256_bytes": "4f8494526f19ccf6ca8135ba285d6c6b285dfef56e315b0244b95273c617348c",
+      "summary_sha256_bytes": "c4bf2278144707e2273ba7e35bf3e5efc399003ffb7b3e2117fdebafc5895551",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.3849182999984
+    },
+    {
+      "number": 3,
+      "directory": "pass_03",
+      "exit_code": 0,
+      "console_sha256_bytes": "648626d9abecdd16a9741f240e2f7fa3d7d182c77f2f11cbffbff183f0eb6858",
+      "summary_sha256_bytes": "6a55c624819ffe372d6baf68408c2a2788cb6a289e9705c1d80d13097dc10078",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.15206260001287
+    },
+    {
+      "number": 4,
+      "directory": "pass_04",
+      "exit_code": 0,
+      "console_sha256_bytes": "8224a86508a0a172551d15685bdd6d39f4e2312f1fd81cd609ead75d2268e061",
+      "summary_sha256_bytes": "995dec0f9d712ee1de15735eab9ab5419ba3641f87a35ff4dcf2f04204e980b4",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.67617099999916
+    },
+    {
+      "number": 5,
+      "directory": "pass_05",
+      "exit_code": 0,
+      "console_sha256_bytes": "e52266a6282ac82888d2639843dbeaca9432d2b8601bb08f3f8e52e1bb530991",
+      "summary_sha256_bytes": "495ff4bac2b3554a0c93d1c745bbf2a8b3dc9c2701fbe0114ca5734831940c74",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.4066354999959
+    },
+    {
+      "number": 6,
+      "directory": "pass_06",
+      "exit_code": 0,
+      "console_sha256_bytes": "bbdff43fa92da89994261c21c32299eb19f58b6bdcd0710fd498250a49ad0a69",
+      "summary_sha256_bytes": "bd08a24750cc1b99c9419c746f01b28c264c29e7d274212eb9eaa8f4e3f216a0",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.7358774000022
+    },
+    {
+      "number": 7,
+      "directory": "pass_07",
+      "exit_code": 0,
+      "console_sha256_bytes": "73cae901da3c336e1842c6ed8d7346d0e4168e317640f010afff404297b17469",
+      "summary_sha256_bytes": "57b42de68355d48d99e8418e507eb1e8313125266773d0251a391dcd7aff9d04",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.57543860000442
+    },
+    {
+      "number": 8,
+      "directory": "pass_08",
+      "exit_code": 0,
+      "console_sha256_bytes": "6f7165589724e3d414e14ba7d7f35428d186013639b02977d5e4f040960bd69c",
+      "summary_sha256_bytes": "5aeec241a59089cfcafecc01869206e02a0fe36af0baa6edb31b00649d982528",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.9567394000187
+    },
+    {
+      "number": 9,
+      "directory": "pass_09",
+      "exit_code": 0,
+      "console_sha256_bytes": "3b54a9dacb6398276b44106a538d822bc16b00ec368933583a94046cd0cf99f5",
+      "summary_sha256_bytes": "ca62771e0503634b05094dfd7cfbc32ed650c59a90d0c83f72216633a168e72f",
+      "state": "PASS",
+      "completed_jobs": 48,
+      "elapsed_seconds": 221.97682810001425
+    }
+  ],
+  "scope": "Host-paced mixed-job repeatability with complete output and allocation checks; not continuous compute stress or full-memory qualification",
+  "checked_counts": {
+    "completed_jobs": 432,
+    "compared_outputs": 446337,
+    "guard_bytes_checked": 6206652
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-02",
+  "result": "FAIL",
+  "scope": "Routed AXI DDR diagnostic at 100 MHz; setup timing failed. No bitstream or physical-board result.",
+  "command": "python scripts/build_ddr_diag.py --stage bitstream",
+  "exit_code": 1,
+  "tool": "Vivado 2026.1, build 6511674",
+  "part": "xc7a50ticsg324-1L",
+  "build_id": 2796079237,
+  "core_hz": 100000000,
+  "source_commit": "35f8af4a7a04f6e8ef1d55f676fcef19455364cc",
+  "source_dirty": true,
+  "source_identity": "inputs.json contains the captured build input hashes; the recorded commit alone does not identify this dirty working tree.",
+  "saved_text_encoding": "UTF-8 with LF newlines, matching Git attributes; original artifact hashes retain the unmodified local bytes.",
+  "bitstream_generated": false,
+  "hardware_test_performed": false,
+  "timing": {
+    "wns_ns": -0.727,
+    "tns_ns": -86.022,
+    "setup_failing_endpoints": 240,
+    "setup_total_endpoints": 23662,
+    "whs_ns": 0.023,
+    "ths_ns": 0.0,
+    "hold_failing_endpoints": 0,
+    "hold_total_endpoints": 23600,
+    "wpws_ns": 0.0,
+    "tpws_ns": 0.0,
+    "pulse_failing_endpoints": 0,
+    "pulse_total_endpoints": 8064
+  },
+  "worst_setup_path": {
+    "source": "diagnostic/slot_reg[1]/C",
+    "destination": "diagnostic/seed_latched_reg[6]/CE",
+    "clock": "clk_out1_axi_ddr_bd_clocks_0",
+    "requirement_ns": 10.0,
+    "data_path_delay_ns": 10.409,
+    "logic_delay_ns": 3.556,
+    "routing_delay_ns": 6.853,
+    "logic_levels": 19,
+    "interpretation": "The routed path crosses expected-data/address and fault-control logic into a register clock enable. Its 6.853 ns routing component exceeds its 3.556 ns logic component; these figures describe this failed implementation, not an Fmax claim."
+  },
+  "utilization": {
+    "slice_luts": 6777,
+    "slice_registers": 6020,
+    "block_ram_tiles": 0,
+    "dsps": 0,
+    "bufgctrl": 4,
+    "mmcme2_adv": 2,
+    "plle2_adv": 1
+  },
+  "route": {
+    "routable_nets": 12614,
+    "fully_routed_nets": 12614,
+    "routing_errors": 0
+  },
+  "review_findings": {
+    "drc": {
+      "REQP-1709": {
+        "severity": "Warning",
+        "count": 1
+      }
+    },
+    "methodology": {
+      "LUTAR-1": 1,
+      "PDRC-190": 12,
+      "SYNTH-5": 8,
+      "XDCB-5": 1,
+      "REQP-1959": 16
+    },
+    "cdc": {
+      "CDC-3": {
+        "severity": "Info",
+        "count": 8
+      },
+      "CDC-8": {
+        "severity": "Warning",
+        "count": 2
+      },
+      "CDC-15": {
+        "severity": "Warning",
+        "count": 353
+      }
+    },
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "input_delay_missing_without_false_path": [
+      "CPU_RESETN"
+    ],
+    "input_delay_missing_with_false_path": [
+      "UART_TXD_IN"
+    ],
+    "output_delay_missing_with_false_path": [
+      "LED[0]",
+      "LED[1]",
+      "LED[2]",
+      "LED[3]",
+      "UART_RXD_OUT"
+    ],
+    "qualification": "Warnings and asynchronous reset/I/O constraints still require review. These report summaries do not declare complete physical signoff."
+  },
+  "original_artifact_sha256_bytes": {
+    "inputs.json": "8e1aba554fee9bee563320b14ea2008c9367bb599e43c8ba5ec4a072ecae1bfc",
+    "timing.txt": "561481639025062f15b3bae77c0ee18e919ad80205715b93ea26b398c13dbf82",
+    "utilization.txt": "b2ded1076dd8cc0a481697209741e0e73228f66b2d6f9163aa3e1bf843b46a61",
+    "check_timing.txt": "2bcbab388c2c4676154c3a96fc281f1c1ecec717ed44c907e5a7d3827271ade1",
+    "drc.txt": "2eae4050e4bed9765bc421f1c04a25884a3f244ced5abb5613e4c5d43c0c95cc",
+    "methodology.txt": "70ea43f2784a84cc4ec3a8fef71f276e06d57cdc98337e52de61a3352d94ff35",
+    "cdc.txt": "2fe25da1410e8d202b14b3e3cd4b591f55c34c97c8893ee0955ba90a0cba4629",
+    "route.txt": "eb888d46030f4f1ef853f37dea59de2240f88c32ce7617f490f273b64f4296f5",
+    "pulse_width.txt": "60f03f46cd7c33efa1bc0be69cf2f0209197adb5d21df0cf1026ea8e2f606ffc",
+    "pulse_width_violations.txt": "0c08d867dfc188113a814d692ab8466e8476112d45fea08e972d0fc63287eb4b",
+    "bitstream_console.txt": "90ccb36c23e6fcff729a6d902c1e79ec957afd89d3ed30a8475626d9909e3168",
+    "bitstream_exit.txt": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "simulation.json": "21e8f6f79bb6360c84133a93c484d8da6850abbaffdb27b3240542782f2a2ad1",
+    "diagnostic_routed.dcp": "6a5933c0c225d506c08bb1d5246578c4a0452fcc79841454edbf82a7005b8fda"
+  },
+  "saved_artifact_sha256_bytes": {
+    "bus_skew_summary.txt": "8675ab201ad399c70c4c566bcd0af2d71de183b4a724b674268de3bb1556cf63",
+    "cdc_summary.txt": "4207af00ae0e017ac4e777f9eba19ad134f0d1416cb5991b7bc9f33c5af2e8a3",
+    "check_timing.txt": "f2d27a0978f49a282b81485ffb6abebce96d08ef756e86375545dd7bda1b480c",
+    "console_excerpt.txt": "5e33d069fb5e995e343b73df5cb4801852661a563cba42d6c5aec34aec125365",
+    "drc.txt": "2eae4050e4bed9765bc421f1c04a25884a3f244ced5abb5613e4c5d43c0c95cc",
+    "inputs.json": "2a2254ac0f1e7c1ffa48ec492c5d978493bcd2e159857dd506053aaa9e3bad3e",
+    "methodology_summary.txt": "4390cbf8932596e6774ed5d5b8cd0be9bbbb13ca2e0c7b9640ebbb408a125f07",
+    "pulse_width_violations.txt": "2149793284d31d45b3b72d32942c6d4e25d7d056bc7978733113678d630717df",
+    "route.txt": "eb888d46030f4f1ef853f37dea59de2240f88c32ce7617f490f273b64f4296f5",
+    "timing.txt": "968674a790cf12b9a971fcac0cc0ac191177df7e98af6500880b72488fc0c1d0",
+    "utilization.txt": "b2ded1076dd8cc0a481697209741e0e73228f66b2d6f9163aa3e1bf843b46a61",
+    "worst_path.txt": "bbb1e8d56aa17f40cbb12584d3bb05860db1f97829757b06a55be8af57b490ab"
+  },
+  "bus_skew_follow_up": {
+    "scope": "Read-only report of the same failed routed checkpoint, after the build stopped",
+    "constraints": 10,
+    "violations": 0,
+    "worst_slack_ns": 9.008,
+    "original_report_sha256_bytes": "e1f84e68633805bb489e45f5f3e925565d258dbbcd6c7a0dfb6e9f04173e68c9",
+    "checkpoint_sha256_bytes": "6a5933c0c225d506c08bb1d5246578c4a0452fcc79841454edbf82a7005b8fda",
+    "command": "report_bus_skew -delay_type min_max -warn_on_violation"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "results": [
+    {
+      "p": 4,
+      "t": 8,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "module": "gemm_result_banks",
+      "result": "PASS"
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "module": "gemm_tile_engine",
+      "result": "PASS"
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_ddr_control.sv": "70f17435ad19298a8189f72e9095963d73197c2df2c26408597aed992f36b03e",
+    "rtl/control/gemm_ddr_core.sv": "dead0f5b38896c38c082fb084b75fe44085f6e3ea7eef557b618aa81ab724a02",
+    "rtl/control/gemm_ddr_diag.sv": "bcd93e17f616db3df12e9ab08a5c7f6c0eee3c40dc2f4e18b583dc06f5f47d07",
+    "rtl/control/gemm_ddr_diag_control.sv": "8eb54276e4a980f96ce6820829592a7ecdda5478dbaee177f8094672468e9a7b",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_preview_controller.sv": "6b9f6763b56e75bfcc64db97c522fc2ae417d4dbc06122af784a5999f31c7c60",
+    "rtl/control/gemm_preview_uart.sv": "613da57049ac188ac645f94fc5f87a9ae0d3063d168750d0aa221ac8a8bd6538",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/test_result_banks.py": "d5bea4edcc61d97c9af373b209158e93924bf499e63ad2fa1e497dcaad65a252",
+    "tb/test_tile_engine.py": "20070deae3882be7fe5957a80603ce65334eff7209111180506a89196f9c838e",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_tile.py": "c5bae26da2cafad893e6ea6cd4f29f712dc33cd3426a4efdeecc8e5de57d953b"
+  }
+}

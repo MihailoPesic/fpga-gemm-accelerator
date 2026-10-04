@@ -1,0 +1,19 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791043150" />
+    <testcase name="four_slots_reserve_until_ordered_done" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="150" time="0.02426600456237793" sim_time_ns="1400.0" ratio_time="57693.88184203028" />
+    <testcase name="ordered_invalid_commands_and_simultaneous_edges" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="210" time="0.029558181762695312" sim_time_ns="1700.0000000000002" ratio_time="57513.68651997161" />
+    <testcase name="seeded_read_queue_backpressure" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="258" time="0.43281078338623047" sim_time_ns="21100.0" ratio_time="48751.095882864916" />
+    <testcase name="response_errors_and_framing_poison_each_slot" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="313" time="0.1254129409790039" sim_time_ns="7900.0" ratio_time="62991.90449032356" />
+    <testcase name="held_ar_shared_fault_and_first_error" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="357" time="0.01841568946838379" sim_time_ns="1250.0" ratio_time="67876.90475265727" />
+    <testcase name="missing_rlast_keeps_each_issued_obligation" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="443" time="0.015367507934570312" sim_time_ns="860.0" ratio_time="55962.22911753754" />
+    <testcase name="coordinated_reset_discards_four_mixed_slots" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="474" time="0.011226654052734375" sim_time_ns="740.0" ratio_time="65914.56337071017" />
+    <testcase name="held_successful_done_survives_later_read_protocol_fault" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="525" time="0.004334211349487305" sim_time_ns="310.0" ratio_time="71523.96941525936" />
+    <testcase name="repeated_tags_and_consecutive_invalids_wrap_in_order" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="553" time="0.12114691734313965" sim_time_ns="6520.0" ratio_time="53818.95093155845" />
+    <testcase name="external_cancel_preserves_held_ar_and_cancels_pending" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="658" time="0.010912418365478516" sim_time_ns="140.0" ratio_time="12829.420144199257">
+      <failure error_type="AssertionError" error_msg="Unexpected AR" />
+    </testcase>
+    <testcase name="external_cancel_keeps_validated_data_and_done" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="703" time="0.009707927703857422" sim_time_ns="640.0" ratio_time="65925.50125251731" />
+    <testcase name="external_cancel_does_not_interrupt_write_collection" classname="test_axi_read_queue" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_axi_read_queue.py" lineno="739" time="0.003107786178588867" sim_time_ns="220.0" ratio_time="70789.94092827004" />
+  </testsuite>
+</testsuites>

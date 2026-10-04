@@ -1,0 +1,109 @@
+{
+  "state": "PASS",
+  "utc_started": "2026-10-04T12:08:45.759298+00:00",
+  "utc_finished": "2026-10-04T12:32:57.025119+00:00",
+  "startup_scope": "Fresh OFF/ON and jumpers reported by operator; no automatic electrical qualification",
+  "operator_receipt": {
+    "operator_confirmed_fresh_off_on": true,
+    "jp1": "JTAG",
+    "j6_connected": true,
+    "serial_terminals_closed": true,
+    "operator_response": "Fresh OFF/ON complete; powered on and connected",
+    "question_scope": "Close any serial terminal, keep JP1 on JTAG and J6 USB connected, switch the FPGA OFF and then ON, and leave it powered on.",
+    "receipt_scope": "Operator report from the current conversation; exact physical power-cycle time was not measured.",
+    "build_id": 745016055
+  },
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/hw_test_ddr_gemm.py": "9bd4054d4f954b6081400420be65c64698414e4f47ae4c48a794ac9afb0057bd",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "bound_file_sha256_bytes": {
+    "build\\run_overlap_board.py": "87aceeff516c39eb5c419006a05b1ecfa67fa2f26438af624bccb7db2292193a",
+    "build\\bench_overlap_matched.py": "46473b3c081c59ba8b2dd386999258b03afe8d3341b47edb2b24b055a85cbd48",
+    "scripts\\program_ddr_gemm.tcl": "7fb412c289395251c35638aa18b57a3e748ee67a9e2f112ee2bf949290e303f2",
+    "build\\gemm_p8_overlap_final\\build.json": "bff31939c1c2b9d93c9d679b4576ec1a448c7affadbbbde5d469826b1d2b2e42",
+    "build\\gemm_p8_overlap_final\\power_cycle_operator.json": "8654973e6bba7b0dbd9dd5aea94f5ef07f9bfb8f0cf3991465e55efd85929fd7"
+  },
+  "build_id": 745016055,
+  "bitstream_sha256": "5124adc4348ed1f42b6420d2776d7d1f50a44df7e340a6789b3a9954373e4cf5",
+  "port": "COM11",
+  "execution": [
+    {
+      "stage": "program",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\program_ddr_gemm.py",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\build.json"
+      ],
+      "utc_started": "2026-10-04T12:08:45.761873+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T12:09:11.638710+00:00"
+    },
+    {
+      "stage": "qualification_mode0",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\hw_test_ddr_gemm.py",
+        "--p",
+        "8",
+        "--mode",
+        "0",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\build.json",
+        "--retries",
+        "0",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_board\\mode0"
+      ],
+      "utc_started": "2026-10-04T12:09:11.644777+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T12:12:53.650813+00:00"
+    },
+    {
+      "stage": "qualification_mode1",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\hw_test_ddr_gemm.py",
+        "--p",
+        "8",
+        "--mode",
+        "1",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\build.json",
+        "--retries",
+        "0",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_board\\mode1"
+      ],
+      "utc_started": "2026-10-04T12:12:53.656216+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T12:16:35.334981+00:00"
+    },
+    {
+      "stage": "matched_benchmark",
+      "command": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\bench_overlap_matched.py",
+        "--port",
+        "COM11",
+        "--manifest",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\build.json",
+        "--output",
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_board\\matched_benchmark"
+      ],
+      "utc_started": "2026-10-04T12:16:35.343113+00:00",
+      "actual_exit_code": 0,
+      "utc_finished": "2026-10-04T12:32:57.011794+00:00"
+    }
+  ],
+  "source_hashes_unchanged": true
+}

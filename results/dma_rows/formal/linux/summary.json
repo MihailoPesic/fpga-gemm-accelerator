@@ -1,0 +1,865 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "passed": true,
+  "module": "gemm_dma_rows",
+  "scope": "Bounded safety and reachable public-command witnesses, not the full accelerator",
+  "bound_sat_timeframes": 20,
+  "induction": false,
+  "configurations": [
+    1,
+    4
+  ],
+  "assertions_per_configuration": 18,
+  "fixed_descriptor": {
+    "base": 4080,
+    "stride": 64,
+    "rows": 4,
+    "row_bytes": 20
+  },
+  "assumptions": [
+    "One abstract synchronous posedge transition per SAT timeframe; bound includes initial reset",
+    "Synchronous reset high at timeframe 1 and low thereafter",
+    "Initially unconstrained registers are defined binary values",
+    "Request direction/valid, burst ready, completion valid/status, cancel/status, and DONE ready independently symbolic",
+    "No fairness or eventual-response assumption"
+  ],
+  "properties": [
+    "Burst VALID and complete payload stable while stalled, except unaccepted queued-read cancellation/error withdrawal",
+    "DONE VALID/status stable while stalled",
+    "Public outstanding-count bounds, owned completions, and no premature DONE",
+    "Exact offered-burst address/order/row/word/flags/tail-strobe for the fixed descriptor"
+  ],
+  "reachability": [
+    "Successful read/write with five accepted/completed bursts, real offer/DONE stalls, and no cancellation",
+    "READ4 reaches four outstanding commands and simultaneous issue/completion",
+    "Nonzero READ4 cancellation leaves accepted traffic for a later completion before nonzero DONE"
+  ],
+  "excluded": [
+    "Arbitrary descriptors",
+    "Four-state X behavior",
+    "AXI/data/banks/compute/scheduler/UART/DDR PHY",
+    "Unbounded or inductive correctness"
+  ],
+  "hardware_accessed": false,
+  "utc_started": "2026-10-04T14:24:48.042997+00:00",
+  "commands": [
+    {
+      "name": "tool_version",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-V"
+      ],
+      "log": "tool_version.log",
+      "passed": true,
+      "exit_code": 0,
+      "seconds": 1.0572134039999952,
+      "log_sha256_bytes": "8064b524d44e8f3a0b72cad9293bb106e976a398edc56a43d211795804858d70"
+    },
+    {
+      "name": "read1_safety",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read1_safety.ys"
+      ],
+      "log": "read1_safety.log",
+      "passed": true,
+      "script": "read1_safety.ys",
+      "script_sha256_bytes": "3702fc22df8bf93469b0dbb97dac873b7402dde65f5b741c74e093b21c0ed4f9",
+      "exit_code": 0,
+      "seconds": 8.059069072,
+      "log_sha256_bytes": "c2ea102243b49a948e283392e83ef72ab03ac33f2c3cee4e4e3edf9acf546164",
+      "read_slots": 1,
+      "target": null,
+      "assertions": 18,
+      "assertion_imports": 360
+    },
+    {
+      "name": "read1_read_done",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read1_read_done.ys"
+      ],
+      "log": "read1_read_done.log",
+      "passed": true,
+      "script": "read1_read_done.ys",
+      "script_sha256_bytes": "1ef109120600d5e64ba4665c28f80d7a891a78f277a4a8454953187012a4bbac",
+      "exit_code": 0,
+      "seconds": 4.152780090000007,
+      "log_sha256_bytes": "15839a43be45f1dacbeee01b5a13598ec633c8f04416dc2b609eb7ee24548796",
+      "read_slots": 1,
+      "target": "cover_read_done",
+      "assertions": 18,
+      "model_sha256_bytes": "0a6a41f712b56d7ff7bf4c06dfe6ea9f3b7761cb7ad79d3f2b34202a9a05ba10",
+      "vcd_sha256_bytes": "a147063f247c6b277a3910496db037cb97422b674e2680c7496e83ff3eee2cd8",
+      "independently_decoded": true
+    },
+    {
+      "name": "read1_write_done",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read1_write_done.ys"
+      ],
+      "log": "read1_write_done.log",
+      "passed": true,
+      "script": "read1_write_done.ys",
+      "script_sha256_bytes": "d5446f3de78743d25137cbe8e85b0a27da9690639ced42e4cd2db1d8da1bcc7c",
+      "exit_code": 0,
+      "seconds": 4.140777932000006,
+      "log_sha256_bytes": "8cea163395ce31d0e7c1c31f68dace33b9eed958efbfd175fc7444eaee668785",
+      "read_slots": 1,
+      "target": "cover_write_done",
+      "assertions": 18,
+      "model_sha256_bytes": "30ca41d79fe07fbaa9ccb2e28de7241fced58c959ea8c0df90e7c43a29584e42",
+      "vcd_sha256_bytes": "70a3e6a3f53c5fcdfd4cfa3cc12c372dfd2da4f85838905133976cc7102046da",
+      "independently_decoded": true
+    },
+    {
+      "name": "read4_safety",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_safety.ys"
+      ],
+      "log": "read4_safety.log",
+      "passed": true,
+      "script": "read4_safety.ys",
+      "script_sha256_bytes": "addb3d9b562a2033344c1931618f101abb5b7a96033a3f4597f5b73a892a53b9",
+      "exit_code": 0,
+      "seconds": 13.371785716999995,
+      "log_sha256_bytes": "93b2d8a745203bd6ee5424722181b6d5a543527895611f58a53dcd2ddcbd7550",
+      "read_slots": 4,
+      "target": null,
+      "assertions": 18,
+      "assertion_imports": 360
+    },
+    {
+      "name": "read4_read_done",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_read_done.ys"
+      ],
+      "log": "read4_read_done.log",
+      "passed": true,
+      "script": "read4_read_done.ys",
+      "script_sha256_bytes": "ed900ee3105b47916840394468e065306dd8610f09a43cb661d03b4dcba76316",
+      "exit_code": 0,
+      "seconds": 4.205958385999992,
+      "log_sha256_bytes": "d00cd2430e994f15adc4bddb8a2b981c1e88b6d8f5720a9af1317e8dad35c272",
+      "read_slots": 4,
+      "target": "cover_read_done",
+      "assertions": 18,
+      "model_sha256_bytes": "c259304d76a0e8e28d7ca9008305a31c9ca0c3620b51cf73ce25b228c571aa81",
+      "vcd_sha256_bytes": "5a77923686e45a2b48af179f11c8be47a5601a168552a0277360aad7f3493eb5",
+      "independently_decoded": true
+    },
+    {
+      "name": "read4_write_done",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_write_done.ys"
+      ],
+      "log": "read4_write_done.log",
+      "passed": true,
+      "script": "read4_write_done.ys",
+      "script_sha256_bytes": "2cf8af18d52800fa5b1370ac02c8a50f0a53f18326c13a6e3c1ba7cc5b21f726",
+      "exit_code": 0,
+      "seconds": 4.802878866,
+      "log_sha256_bytes": "9dff47b164ae4d51f55f5b2ee04d8a1189301a58407f0f346c2666e57adc67e0",
+      "read_slots": 4,
+      "target": "cover_write_done",
+      "assertions": 18,
+      "model_sha256_bytes": "7f4e949d49bf7eb3179774058993fa9bead7072e2bc83a3063f642a3a29f9064",
+      "vcd_sha256_bytes": "cdf591c6d1db3da472a5b5aeb73a8e0366a2854dafa542ab1d4fbc40a556ab94",
+      "independently_decoded": true
+    },
+    {
+      "name": "read4_credit_four",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_credit_four.ys"
+      ],
+      "log": "read4_credit_four.log",
+      "passed": true,
+      "script": "read4_credit_four.ys",
+      "script_sha256_bytes": "87c6ec22f033bdc914bf14a1d28b71d226977eb933ee9b1af56bad1afebcdda2",
+      "exit_code": 0,
+      "seconds": 4.19576146899999,
+      "log_sha256_bytes": "41dcda346683feda73f304e612f5d8688884847b010b7b48775f8c9351970036",
+      "read_slots": 4,
+      "target": "cover_credit_four",
+      "assertions": 18,
+      "model_sha256_bytes": "08b7f8e467b8dd8559bb1f5dd974c9095f4d694125437394455296e93e0b849a",
+      "vcd_sha256_bytes": "dc2bb5aab6ccb060b1142f0f9359ea246937d4654e19eba688bf6ba1763697fb",
+      "independently_decoded": true
+    },
+    {
+      "name": "read4_simultaneous",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_simultaneous.ys"
+      ],
+      "log": "read4_simultaneous.log",
+      "passed": true,
+      "script": "read4_simultaneous.ys",
+      "script_sha256_bytes": "b2b56fcebecd6b6333be55920ff02ab3d1bff4049ab2733293eac43273d9c85a",
+      "exit_code": 0,
+      "seconds": 3.8500195390000016,
+      "log_sha256_bytes": "78bc7dfd4b0b3ae9985172a93d0a48b9c8df05779a076dd16bd4da93c5272903",
+      "read_slots": 4,
+      "target": "cover_simultaneous",
+      "assertions": 18,
+      "model_sha256_bytes": "ebf4e50745b8ff003605f5fee4780f9e491a8c11cd1569616f49c0ca0030b71b",
+      "vcd_sha256_bytes": "3abd3da43e8e093f0625b0b2ce508f8ef3fd9679dc2ec1b6e253b1a4cae62a5c",
+      "independently_decoded": true
+    },
+    {
+      "name": "read4_cancelled_drain",
+      "argv": [
+        "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys",
+        "-s",
+        "/work/read4_cancelled_drain.ys"
+      ],
+      "log": "read4_cancelled_drain.log",
+      "passed": true,
+      "script": "read4_cancelled_drain.ys",
+      "script_sha256_bytes": "b2b30d14960e8b3b506d413cc57afa134d769ebf6bcb5b62b28d28b62248aedf",
+      "exit_code": 0,
+      "seconds": 4.186726574000005,
+      "log_sha256_bytes": "98d3e692dac7f37532efe684e881d2c55d75cab10781a2ace6e2ab0e602d8298",
+      "read_slots": 4,
+      "target": "cover_cancelled_drain",
+      "assertions": 18,
+      "model_sha256_bytes": "26833ef7bee6c294cf0b3d3c8daf7bb124b9399d58751c46bb041cc404b51f7f",
+      "vcd_sha256_bytes": "08b59bf03877e870de424d0a59975778bb0af20fcb5714917b30f799c0695a6d",
+      "independently_decoded": true
+    }
+  ],
+  "witnesses": [
+    {
+      "result": "PASS",
+      "read_slots": 1,
+      "target": "cover_read_done",
+      "operations": [
+        {
+          "start": 2,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 6,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 9,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 11,
+              "addr": 4144,
+              "beats": 3
+            },
+            {
+              "step": 14,
+              "addr": 4208,
+              "beats": 3
+            },
+            {
+              "step": 16,
+              "addr": 4272,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 7,
+              "status": 0
+            },
+            {
+              "step": 10,
+              "status": 0
+            },
+            {
+              "step": 13,
+              "status": 0
+            },
+            {
+              "step": 15,
+              "status": 0
+            },
+            {
+              "step": 17,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [
+            8
+          ],
+          "done_stalls": [
+            18
+          ],
+          "cancel_edges": [],
+          "done": 19,
+          "status": 0
+        },
+        {
+          "start": 20,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 00 493f27af 24 0 00 00 0020 0 0000\n 2 0 1/0 00 00000000  0 0 00 00 0000 1 0000\n 3 0 0/0 01 00000000  0 0 00 00 0000 0 0000\n 4 0 0/0 01 00000000  0 0 00 00 0000 0 0000\n 5 0 0/0 01 00000000  0 0 00 00 0000 0 0000\n 6 0 0/0 11 00000ff0  2 0 00 00 0000 0 0000\n 7 0 0/0 00 00000ff0  2 1 11 01 0000 0 0000\n 8 0 0/0 10 00001000  1 0 10 00 0000 0 0000\n 9 0 0/0 11 00001000  1 0 10 00 0000 0 0000\n10 0 0/0 01 00001000  1 1 11 01 0000 0 0000\n11 0 0/0 11 00001030  3 0 00 01 0000 0 0000\n12 0 0/0 01 00001030  3 1 01 01 0000 0 0000\n13 0 0/0 01 00001030  3 1 11 01 0000 0 0000\n14 0 0/0 11 00001070  3 0 00 00 0000 0 0000\n15 0 0/0 00 00001070  3 1 11 00 0000 0 0000\n16 0 0/0 11 000010b0  3 0 10 00 0000 0 0000\n17 0 0/0 01 000010b0  3 1 11 00 0000 0 0000\n18 0 0/0 01 000010b0  3 0 10 10 0000 0 0000\n19 0 0/0 00 000010b0  3 0 00 11 0000 0 0000\n20 0 1/0 01 000010b0  3 0 10 01 0000 0 0000",
+      "vcd": "read1_read_done.vcd",
+      "vcd_sha256_bytes": "a147063f247c6b277a3910496db037cb97422b674e2680c7496e83ff3eee2cd8",
+      "model": "read1_read_done.json",
+      "model_sha256_bytes": "0a6a41f712b56d7ff7bf4c06dfe6ea9f3b7761cb7ad79d3f2b34202a9a05ba10"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 1,
+      "target": "cover_write_done",
+      "operations": [
+        {
+          "start": 3,
+          "write": 1,
+          "bursts": [
+            {
+              "step": 7,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 9,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 11,
+              "addr": 4144,
+              "beats": 3
+            },
+            {
+              "step": 13,
+              "addr": 4208,
+              "beats": 3
+            },
+            {
+              "step": 16,
+              "addr": 4272,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 8,
+              "status": 0
+            },
+            {
+              "step": 10,
+              "status": 0
+            },
+            {
+              "step": 12,
+              "status": 0
+            },
+            {
+              "step": 14,
+              "status": 0
+            },
+            {
+              "step": 17,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [
+            15
+          ],
+          "done_stalls": [
+            18
+          ],
+          "cancel_edges": [],
+          "done": 19,
+          "status": 0
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 00 9c14554a 25 0 00 01 8010 0 0000\n 2 0 0/1 01 00000000  0 0 00 00 0000 0 0000\n 3 0 1/1 01 00000000  0 0 00 01 0000 0 0000\n 4 0 0/1 01 00000000  0 0 00 00 0000 0 0000\n 5 0 0/0 01 00000000  0 0 10 01 0000 0 0000\n 6 0 0/1 01 00000000  0 0 10 01 0000 0 0000\n 7 0 0/0 11 00000ff0  2 0 10 00 0000 0 0000\n 8 0 0/0 01 00000ff0  2 1 11 00 0000 0 0000\n 9 0 0/0 11 00001000  1 0 10 01 0000 0 0000\n10 0 0/1 01 00001000  1 1 11 00 0000 0 0000\n11 0 0/0 11 00001030  3 0 10 01 0000 0 0000\n12 0 0/1 01 00001030  3 1 11 00 0000 0 0000\n13 0 0/0 11 00001070  3 0 10 00 0000 0 0000\n14 0 0/1 01 00001070  3 1 11 00 0000 0 0000\n15 0 0/0 10 000010b0  3 0 10 00 0000 0 0000\n16 0 0/0 11 000010b0  3 0 10 00 0000 0 0000\n17 0 0/0 01 000010b0  3 1 11 00 0000 0 0000\n18 0 0/0 01 000010b0  3 0 00 10 0000 0 0000\n19 0 0/0 01 000010b0  3 0 00 11 0000 0 0000\n20 0 0/0 01 000010b0  3 0 10 01 0000 0 0000",
+      "vcd": "read1_write_done.vcd",
+      "vcd_sha256_bytes": "70a3e6a3f53c5fcdfd4cfa3cc12c372dfd2da4f85838905133976cc7102046da",
+      "model": "read1_write_done.json",
+      "model_sha256_bytes": "30ca41d79fe07fbaa9ccb2e28de7241fced58c959ea8c0df90e7c43a29584e42"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "target": "cover_read_done",
+      "operations": [
+        {
+          "start": 3,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 8,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 9,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 10,
+              "addr": 4144,
+              "beats": 3
+            },
+            {
+              "step": 11,
+              "addr": 4208,
+              "beats": 3
+            },
+            {
+              "step": 12,
+              "addr": 4272,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 9,
+              "status": 0
+            },
+            {
+              "step": 10,
+              "status": 0
+            },
+            {
+              "step": 11,
+              "status": 0
+            },
+            {
+              "step": 12,
+              "status": 0
+            },
+            {
+              "step": 13,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [
+            7
+          ],
+          "done_stalls": [
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "cancel_edges": [],
+          "done": 19,
+          "status": 0
+        },
+        {
+          "start": 20,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 01 70401507 11 0 00 01 0000 0 0000\n 2 0 0/0 01 00000000  0 0 00 01 0000 0 0002\n 3 0 1/0 00 00000000  0 0 00 00 0000 0 0020\n 4 0 0/0 00 00000000  0 0 00 00 0000 0 0000\n 5 0 0/0 00 00000000  0 0 00 01 0000 0 0100\n 6 0 0/0 01 00000000  0 0 10 01 0000 0 0000\n 7 0 0/1 10 00000ff0  2 0 10 01 0000 0 0001\n 8 0 0/0 11 00000ff0  2 0 10 01 0000 0 0001\n 9 0 0/0 11 00001000  1 1 11 01 0000 0 0001\n10 0 0/0 11 00001030  3 1 11 00 0000 0 0001\n11 0 0/0 11 00001070  3 1 11 01 0000 0 0001\n12 0 0/0 11 000010b0  3 1 11 00 0000 0 0001\n13 0 0/0 01 000010b0  3 1 11 00 0000 0 0001\n14 0 0/0 01 000010b0  3 0 00 10 0000 0 0001\n15 0 0/0 00 000010b0  3 0 10 10 0000 0 0001\n16 0 0/0 00 000010b0  3 0 00 10 0000 0 0001\n17 0 0/0 01 000010b0  3 0 10 10 0000 0 0001\n18 0 0/0 00 000010b0  3 0 00 10 0000 0 0001\n19 0 0/0 01 000010b0  3 0 00 11 0000 0 0001\n20 0 1/0 00 000010b0  3 0 10 00 0000 0 0001",
+      "vcd": "read4_read_done.vcd",
+      "vcd_sha256_bytes": "5a77923686e45a2b48af179f11c8be47a5601a168552a0277360aad7f3493eb5",
+      "model": "read4_read_done.json",
+      "model_sha256_bytes": "c259304d76a0e8e28d7ca9008305a31c9ca0c3620b51cf73ce25b228c571aa81"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "target": "cover_write_done",
+      "operations": [
+        {
+          "start": 2,
+          "write": 1,
+          "bursts": [
+            {
+              "step": 6,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 8,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 10,
+              "addr": 4144,
+              "beats": 3
+            },
+            {
+              "step": 12,
+              "addr": 4208,
+              "beats": 3
+            },
+            {
+              "step": 15,
+              "addr": 4272,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 7,
+              "status": 0
+            },
+            {
+              "step": 9,
+              "status": 0
+            },
+            {
+              "step": 11,
+              "status": 0
+            },
+            {
+              "step": 13,
+              "status": 0
+            },
+            {
+              "step": 17,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [
+            14
+          ],
+          "done_stalls": [
+            18
+          ],
+          "cancel_edges": [],
+          "done": 19,
+          "status": 0
+        },
+        {
+          "start": 20,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 00 b6f99f86 11 0 00 00 0000 0 0000\n 2 0 1/1 01 00000000  0 0 00 01 0000 0 0000\n 3 0 0/1 01 00000000  0 0 00 01 0000 0 0004\n 4 0 0/1 00 00000000  0 0 00 01 0000 0 0000\n 5 0 0/1 01 00000000  0 0 10 00 0000 0 0004\n 6 0 0/0 11 00000ff0  2 0 10 01 0000 0 0002\n 7 0 0/1 01 00000ff0  2 1 11 01 0000 0 0000\n 8 0 0/1 11 00001000  1 0 00 00 0000 0 0200\n 9 0 0/1 01 00001000  1 1 11 00 0000 0 0000\n10 0 0/1 11 00001030  3 0 10 00 0000 0 0000\n11 0 0/1 00 00001030  3 1 11 00 0000 0 0080\n12 0 0/1 11 00001070  3 0 00 00 0000 0 0080\n13 0 0/1 00 00001070  3 1 11 00 0000 0 0001\n14 0 0/1 10 000010b0  3 0 00 00 0000 0 0000\n15 0 0/1 11 000010b0  3 0 10 00 0000 0 0400\n16 0 0/1 00 000010b0  3 1 01 00 0000 0 0000\n17 0 0/0 01 000010b0  3 1 11 01 0000 0 0000\n18 0 0/1 01 000010b0  3 0 10 10 0000 0 0000\n19 0 0/0 00 000010b0  3 0 00 11 0000 0 0000\n20 0 1/0 00 000010b0  3 0 10 01 0000 0 0001",
+      "vcd": "read4_write_done.vcd",
+      "vcd_sha256_bytes": "cdf591c6d1db3da472a5b5aeb73a8e0366a2854dafa542ab1d4fbc40a556ab94",
+      "model": "read4_write_done.json",
+      "model_sha256_bytes": "7f4e949d49bf7eb3179774058993fa9bead7072e2bc83a3063f642a3a29f9064"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "target": "cover_credit_four",
+      "operations": [
+        {
+          "start": 3,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": [
+            7
+          ],
+          "done": 8,
+          "status": 4096
+        },
+        {
+          "start": 9,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 13,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 14,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 15,
+              "addr": 4144,
+              "beats": 3
+            },
+            {
+              "step": 17,
+              "addr": 4208,
+              "beats": 3
+            },
+            {
+              "step": 18,
+              "addr": 4272,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 16,
+              "status": 0
+            },
+            {
+              "step": 19,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [
+            16
+          ],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [
+        19
+      ],
+      "simultaneous_steps": [],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 00 7147ff87 24 0 00 01 0002 0 0000\n 2 0 0/1 01 00000000  0 0 00 01 0000 1 0000\n 3 0 1/0 01 00000000  0 0 00 01 0000 0 0002\n 4 0 0/0 00 00000000  0 0 00 00 0000 0 0000\n 5 0 0/0 01 00000000  0 0 10 01 0000 0 0100\n 6 0 0/1 01 00000000  0 0 00 01 0000 0 0000\n 7 0 0/1 00 00000ff0  2 0 10 00 0000 1 1000\n 8 0 0/1 01 00000ff0  2 0 10 11 1000 0 0001\n 9 0 1/0 00 00000ff0  2 0 10 01 1000 0 0001\n10 0 0/1 01 00000ff0  2 0 00 00 0000 0 0001\n11 0 0/0 00 00000ff0  2 0 00 01 0000 0 0001\n12 0 0/1 01 00000ff0  2 0 10 01 0000 0 0001\n13 0 0/0 11 00000ff0  2 0 10 01 0000 0 0001\n14 0 0/0 11 00001000  1 1 01 00 0000 0 0001\n15 0 0/1 11 00001030  3 2 01 00 0000 0 0001\n16 0 0/0 10 00001070  3 3 11 01 0000 0 0001\n17 0 0/0 11 00001070  3 2 01 01 0000 0 0001\n18 0 0/0 11 000010b0  3 3 01 01 0000 0 0001\n19 0 0/0 01 000010b0  3 4 11 01 0000 0 0001\n20 0 0/0 00 000010b0  3 3 01 01 0000 0 0001",
+      "vcd": "read4_credit_four.vcd",
+      "vcd_sha256_bytes": "dc2bb5aab6ccb060b1142f0f9359ea246937d4654e19eba688bf6ba1763697fb",
+      "model": "read4_credit_four.json",
+      "model_sha256_bytes": "08b7f8e467b8dd8559bb1f5dd974c9095f4d694125437394455296e93e0b849a"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "target": "cover_simultaneous",
+      "operations": [
+        {
+          "start": 7,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 11,
+              "addr": 4080,
+              "beats": 2
+            }
+          ],
+          "completions": [
+            {
+              "step": 12,
+              "status": 1
+            }
+          ],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": [
+            12
+          ],
+          "done": 13,
+          "status": 4096
+        },
+        {
+          "start": 14,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 18,
+              "addr": 4080,
+              "beats": 2
+            },
+            {
+              "step": 19,
+              "addr": 4096,
+              "beats": 1
+            },
+            {
+              "step": 20,
+              "addr": 4144,
+              "beats": 3
+            }
+          ],
+          "completions": [
+            {
+              "step": 19,
+              "status": 0
+            },
+            {
+              "step": 20,
+              "status": 0
+            }
+          ],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [
+        19,
+        20
+      ],
+      "cancellation_with_pending_steps": [],
+      "cycle_table": " 1 1 0/0 00 71c6740f 12 0 00 00 0000 0 0000\n 2 0 0/0 01 00000000  0 0 00 01 0000 0 0002\n 3 0 0/0 01 00000000  0 0 00 01 0000 0 0000\n 4 0 0/0 00 00000000  0 0 00 01 0000 0 0001\n 5 0 0/0 01 00000000  0 0 00 00 0000 0 0001\n 6 0 0/0 01 00000000  0 0 00 01 0000 0 0001\n 7 0 1/0 01 00000000  0 0 00 01 0000 0 0001\n 8 0 0/0 01 00000000  0 0 00 01 0000 0 0001\n 9 0 0/0 01 00000000  0 0 00 01 0000 0 0001\n10 0 0/0 01 00000000  0 0 10 01 0000 0 0001\n11 0 0/1 11 00000ff0  2 0 00 01 0000 0 0001\n12 0 0/1 01 00001000  1 1 11 01 0000 1 1000\n13 0 0/0 01 00001000  1 0 10 11 1000 0 0001\n14 0 1/0 01 00001000  1 0 10 01 1000 0 0001\n15 0 0/0 01 00001000  1 0 10 01 0000 0 0001\n16 0 0/0 01 00001000  1 0 00 01 0000 0 0001\n17 0 0/1 00 00001000  1 0 00 00 0000 0 0001\n18 0 0/0 11 00000ff0  2 0 10 01 0000 0 0001\n19 0 0/0 11 00001000  1 1 11 01 0000 0 0001\n20 0 0/0 11 00001030  3 1 11 01 0000 0 0001",
+      "vcd": "read4_simultaneous.vcd",
+      "vcd_sha256_bytes": "3abd3da43e8e093f0625b0b2ce508f8ef3fd9679dc2ec1b6e253b1a4cae62a5c",
+      "model": "read4_simultaneous.json",
+      "model_sha256_bytes": "ebf4e50745b8ff003605f5fee4780f9e491a8c11cd1569616f49c0ca0030b71b"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "target": "cover_cancelled_drain",
+      "operations": [
+        {
+          "start": 6,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": [
+            10
+          ],
+          "done": 11,
+          "status": 8192
+        },
+        {
+          "start": 12,
+          "write": 0,
+          "bursts": [
+            {
+              "step": 16,
+              "addr": 4080,
+              "beats": 2
+            }
+          ],
+          "completions": [
+            {
+              "step": 18,
+              "status": 4
+            }
+          ],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": [
+            17
+          ],
+          "done": 19,
+          "status": 32768
+        },
+        {
+          "start": 20,
+          "write": 0,
+          "bursts": [],
+          "completions": [],
+          "offer_stalls": [],
+          "done_stalls": [],
+          "cancel_edges": []
+        }
+      ],
+      "credit_four_steps": [],
+      "simultaneous_steps": [],
+      "cancellation_with_pending_steps": [
+        17
+      ],
+      "cycle_table": " 1 1 0/0 01 5fffff87 24 0 00 00 0000 0 0000\n 2 0 0/0 01 00000000  0 0 00 01 0000 0 0100\n 3 0 0/0 00 00000000  0 0 00 01 0000 0 0000\n 4 0 0/0 00 00000000  0 0 00 01 0000 1 0004\n 5 0 0/0 01 00000000  0 0 00 01 0000 0 0001\n 6 0 1/0 01 00000000  0 0 00 00 0000 0 0000\n 7 0 0/0 01 00000000  0 0 00 01 0000 0 0001\n 8 0 0/1 01 00000000  0 0 00 01 0000 0 0001\n 9 0 0/1 00 00000000  0 0 00 01 0000 0 0001\n10 0 0/1 01 00000ff0  2 0 10 01 0000 1 2000\n11 0 0/1 01 00000ff0  2 0 10 11 2000 0 0001\n12 0 1/0 01 00000ff0  2 0 10 01 2000 0 0001\n13 0 0/0 00 00000ff0  2 0 00 01 0000 0 0001\n14 0 0/0 01 00000ff0  2 0 00 00 0000 0 0001\n15 0 0/0 01 00000ff0  2 0 00 00 0000 0 0001\n16 0 0/0 11 00000ff0  2 0 00 00 0000 0 0001\n17 0 0/0 01 00001000  1 1 01 01 0000 1 8000\n18 0 0/0 01 00001000  1 1 11 01 8000 0 0001\n19 0 0/0 01 00001000  1 0 10 11 8000 0 0001\n20 0 1/0 00 00001000  1 0 10 01 8000 0 0001",
+      "vcd": "read4_cancelled_drain.vcd",
+      "vcd_sha256_bytes": "08b59bf03877e870de424d0a59975778bb0af20fcb5714917b30f799c0695a6d",
+      "model": "read4_cancelled_drain.json",
+      "model_sha256_bytes": "26833ef7bee6c294cf0b3d3c8daf7bb124b9399d58751c46bb041cc404b51f7f"
+    }
+  ],
+  "source_hashes_before": {
+    "rtl/memory/gemm_dma_rows.sv": {
+      "bytes": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+      "utf8_lf": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9"
+    },
+    "formal/dma_rows.sv": {
+      "bytes": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6",
+      "utf8_lf": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6"
+    },
+    "scripts/formal_dma_rows.py": {
+      "bytes": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e",
+      "utf8_lf": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e"
+    },
+    "scripts/formal_dma_rows_witness.py": {
+      "bytes": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350",
+      "utf8_lf": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350"
+    },
+    "requirements-formal.txt": {
+      "bytes": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+      "utf8_lf": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+    }
+  },
+  "versions": {
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "python_executable": "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/python",
+    "packages": {
+      "yowasp-yosys": "0.69.0.0.post1233",
+      "yowasp-runtime": "1.96",
+      "wasmtime": "47.0.1",
+      "click": "8.5.0",
+      "platformdirs": "4.12.3"
+    },
+    "yosys": "Yosys 0.69 (git sha1 9f75ca1f9, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)",
+    "yosys_executable": "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/build/formal-linux-env_20261004/bin/yowasp-yosys"
+  },
+  "source_hashes_unchanged": true,
+  "source_hashes_after": {
+    "rtl/memory/gemm_dma_rows.sv": {
+      "bytes": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+      "utf8_lf": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9"
+    },
+    "formal/dma_rows.sv": {
+      "bytes": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6",
+      "utf8_lf": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6"
+    },
+    "scripts/formal_dma_rows.py": {
+      "bytes": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e",
+      "utf8_lf": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e"
+    },
+    "scripts/formal_dma_rows_witness.py": {
+      "bytes": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350",
+      "utf8_lf": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350"
+    },
+    "requirements-formal.txt": {
+      "bytes": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+      "utf8_lf": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+    }
+  },
+  "utc_finished": "2026-10-04T14:25:41.013143+00:00"
+}

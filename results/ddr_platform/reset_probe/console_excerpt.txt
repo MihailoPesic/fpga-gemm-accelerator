@@ -1,0 +1,38 @@
+Selected lines from failed sim_console.txt; full console hash is in summary.json.
+
+1159: tb_ddr_platform.memory.main: at time 350922893.0 ps ERROR: tERR(n2per) violation by 9.375000 ps.
+1160: tb_ddr_platform.memory.main: at time 350922893.0 ps ERROR: tERR(n2per) violation by 18.750000 ps.
+1161: tb_ddr_platform.memory.main: at time 350922893.0 ps ERROR: tJIT(per) violation by 1765.625000 ps.
+1162: tb_ddr_platform.memory.main: at time 350922893.0 ps ERROR: tJIT(cc) violation by 1675.000000 ps.
+1163: tb_ddr_platform.memory.main: at time 350922893.0 ps ERROR: tCL(abs) minimum violation on CLK by 1670.5 ps
+1164: tb_ddr_platform.memory.main: at time 352937893.0 ps ERROR: tCH(abs) maximum violation on CLK by 2012304.9 ps
+1165: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(3per) violation by 9915.625000 ps.
+1166: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(5per) violation by 9890.625000 ps.
+1167: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(n1per) violation by 9790.625000 ps.
+1168: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(n1per) violation by 9790.625000 ps.
+1169: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(n2per) violation by 9640.625000 ps.
+1170: tb_ddr_platform.memory.main: at time 352947893.0 ps ERROR: tERR(n2per) violation by 9640.625000 ps.
+7813: tb_ddr_platform.memory.main: at time 354136663.0 ps ERROR: tCH(abs) minimum violation on CLK by 708279119.0 ps
+7814: tb_ddr_platform.memory.main: at time 354136663.0 ps ERROR: tCH(avg) maximum violation on CLK by 5263.0 ps
+7815: tb_ddr_platform.memory.cmd_task: at time 354139163.0 ps ERROR: NOP, Deselect, or Refresh is required when CKE goes inactive.
+
+PHY_INIT: Memory Initialization completed at 46734475.0 ps
+PHY_INIT: Phaser_In Phase Locked at 52734475.0 ps
+PHY_INIT: Phaser_In DQSFOUND completed at 97674475.0 ps
+PHY_INIT: Read Leveling Stage 1 completed at 157934475.0 ps
+PHY_INIT : PRBS/PER_BIT calibration completed at 157934475.0 ps
+PHY_INIT : COMPLEX OCLKDELAY calibration completed at 157934475.0 ps
+DDR_DIAG_RUN_PASS seed=12345678 cycles=9274 read_beats=1024 write_beats=648
+DDR_DIAG_RUN_PASS seed=a5c319e7 cycles=9201 read_beats=1024 write_beats=648
+DDR_SINGLE_READ_PASS address=00000008 data=99adea9d000083f0
+DDR_DECODE_PASS address=08000000 status=7
+PHY_INIT: Memory Initialization completed at 397654475.0 ps
+PHY_INIT: Phaser_In Phase Locked at 403714475.0 ps
+PHY_INIT: Phaser_In DQSFOUND completed at 448654475.0 ps
+PHY_INIT: Read Leveling Stage 1 completed at 508914475.0 ps
+PHY_INIT : PRBS/PER_BIT calibration completed at 508914475.0 ps
+PHY_INIT : COMPLEX OCLKDELAY calibration completed at 508914475.0 ps
+DDR_DIAG_RUN_PASS seed=0f1e2d3c cycles=9274 read_beats=1024 write_beats=648
+DDR_PLATFORM_PASS runs=3 read_beats=3074 write_beats=1944 write_responses=144
+run: Time (s): cpu = 00:00:03 ; elapsed = 00:15:15 . Memory (MB): peak = 1334.141 ; gain = 0.000
+INFO: xsimkernel Simulation Memory Usage: 94548 KB (Peak: 94548 KB), Simulation CPU Usage: 567811 ms

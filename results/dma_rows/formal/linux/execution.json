@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "state": "PASS",
+  "hardware_accessed": false,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--exec",
+    "bash",
+    "--noprofile",
+    "--norc",
+    "-s"
+  ],
+  "stdin_command": "set -e\ncd '/mnt/c/Users/mihai/Documents/continium/accelerator nexys'\n./build/formal-linux-env_20261004/bin/python scripts/formal_dma_rows.py --build-dir build/formal_dma_rows_linux_final_20261004\n",
+  "utc_started": "2026-10-04T14:24:45.435281+00:00",
+  "stdin_sha256_bytes": "22ec224d446ab16243d9e9ef28618b1812ad0b23be0dc2c8680a1833ca9189e8",
+  "actual_wsl_exit_code": 0,
+  "actual_wrapper_exit_code": 0,
+  "seconds": 55.565308600023855,
+  "utc_finished": "2026-10-04T14:25:41.001693+00:00",
+  "stdout_sha256_bytes": "21f4fbbaa30da0453eff0140c787314b091d6be6ce0c848a55ef5fcc4448b2c1"
+}

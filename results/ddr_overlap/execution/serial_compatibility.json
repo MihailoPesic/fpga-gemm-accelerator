@@ -1,0 +1,15 @@
+{
+  "suite": "serial_compatibility",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_ddr_core.py",
+    "--only",
+    "p8_t32",
+    "--read-slots",
+    "4",
+    "--build-dir",
+    "build/overlap_integration_20261004/serial_compatibility"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 366.8491518497467
+}

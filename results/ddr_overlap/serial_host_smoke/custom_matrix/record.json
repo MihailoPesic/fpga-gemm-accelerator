@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "scope": "Documented supplied-matrix API checked on existing serial image; no overlap FPGA claim",
+  "saved_artifact_sha256_bytes": {
+    "results.json": "efd0808718af9fd1bf6c68c927badc9014189a1eb6b0dbf080ddd72d6892b12d"
+  }
+}

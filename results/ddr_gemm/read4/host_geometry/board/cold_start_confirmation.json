@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-03T19:09:51.152112+00:00",
+  "operator_confirmation": "Fresh OFF/ON complete; powered on and connected",
+  "cold_power_cycle_confirmed": true,
+  "jp1": "JTAG",
+  "j6_usb_connected": true,
+  "build_id": "0xd558a543",
+  "bitstream_sha256": "ff63f9cf7b3d64a388967269b5b6fc9ef1c7c6bd850af5d1aa09591a7740f1e8",
+  "build_manifest_sha256": "adf318104413210d2870383db17ccd98178cdd0f32e91f5135eb832cd8abbdc9",
+  "scope": "Operator confirmed a fresh OFF/ON before the programmer was launched; physical switching times were not instrumented. JP1/J6 are operator-reported.",
+  "warm_reset_qualified": false
+}

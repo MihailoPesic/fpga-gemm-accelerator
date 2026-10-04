@@ -1,0 +1,98 @@
+{
+  "p": 8,
+  "t": 32,
+  "read_slots": 4,
+  "seed": 20261241,
+  "jobs": 9,
+  "output_values": 12581,
+  "shapes": [
+    [
+      33,
+      35,
+      9
+    ],
+    [
+      33,
+      35,
+      9
+    ],
+    [
+      31,
+      65,
+      33
+    ],
+    [
+      31,
+      65,
+      33
+    ],
+    [
+      1,
+      33,
+      256
+    ],
+    [
+      1,
+      33,
+      256
+    ],
+    [
+      65,
+      31,
+      7
+    ],
+    [
+      65,
+      31,
+      7
+    ],
+    [
+      65,
+      33,
+      33
+    ]
+  ],
+  "requests": 1486,
+  "responses": 1486,
+  "replays": 1,
+  "sequence_conflicts": 1,
+  "malformed_frames": 0,
+  "invalid_memory_commands": 0,
+  "host_lengths": [],
+  "faults": [],
+  "watchdog_limits": [],
+  "watchdog_progress_at_deadline": 0,
+  "axi_read_bursts": 2335,
+  "axi_write_bursts": 1648,
+  "axi_read_beats": 21129,
+  "axi_write_beats": 21757,
+  "axi_write_responses": 1648,
+  "stalls": {
+    "w": 7516,
+    "aw": 540,
+    "ar": 779
+  },
+  "axi_read_occupancy": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "local_read_occupancy": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "gemm_read_error_ownership": {},
+  "host_memory_completion_fault_priority": [],
+  "host_memory_page_burst_schedule": {},
+  "modes": [
+    0,
+    1
+  ],
+  "packet_overlap_activity_edges": 3451,
+  "overlap_final_b_held_cycles": 100
+}

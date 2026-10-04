@@ -1,0 +1,61 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 22:48:29 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_methodology -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_gemm_timing_probe/methodology.txt}
+| Design       : gemm_ddr_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: impl_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 895
++-----------+----------+-----------------------------------------------------------+--------+
+| Rule      | Severity | Description                                               | Checks |
++-----------+----------+-----------------------------------------------------------+--------+
+| LUTAR-1   | Warning  | LUT drives async reset alert                              | 1      |
+| PDRC-190  | Warning  | Suboptimally placed synchronized register chain           | 12     |
+| SYNTH-5   | Warning  | Mapped onto distributed RAM because of timing constraints | 8      |
+| SYNTH-6   | Warning  | Timing of a RAM block might be sub-optimal                | 12     |
+| TIMING-16 | Warning  | Large setup violation                                     | 844    |
+| ULMTCS-1  | Warning  | Control Sets use limits recommend reduction               | 1      |
+| XDCB-5    | Warning  | Runtime inefficient way to find pin objects               | 1      |
+| REQP-1959 | Advisory | connects_SERDES_RST_driver_not_FF                         | 16     |
++-----------+----------+-----------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rstdiv2_sync_r[11]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__0/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__1/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__10/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__11/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__12/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__13/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__14/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__2/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__3/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__4/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__5/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__6/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__7/PRE,
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__8/PRE
+ (the first 15 of 28 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+

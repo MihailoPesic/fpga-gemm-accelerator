@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "tests": 17,
+  "configurations": [
+    {
+      "result": "PASS",
+      "read_slots": 1,
+      "tests": 4,
+      "directory": "read1"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "tests": 13,
+      "directory": "read4"
+    }
+  ],
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "tb/test_axi_burst.py": "c839db97df92a7fee07f2ea0ea674df5ebb6b63534c8620036406f3420240034",
+    "tb/test_axi_read_queue.py": "9f895556f94ed48428af145ad6208c95efe879b16a919a09a31d3aec5c120b3d",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_axi_burst.py": "a610cb19b5e92dca811c8a0b35c925bb93bdaeebe62914f45f322857bf228fc2"
+  },
+  "saved_artifact_sha256_bytes": {
+    "read1/summary.json": "36f2cd475ad26567bc684de0ed675d3c80840d2e3c4b1ffdc6cae952b8ee6d43",
+    "read1/results.xml": "d859358e51c400b91ccfbf31f163a05e0672c673e02114a43ac41e70aeadc862",
+    "read1/coverage.json": "795aaa5602650609901abbf3f44af608d6592096e1665bfb2828e5e162b39f96",
+    "read4/summary.json": "55a7b5e0a576e38d6f4d06ccb7665429ae6d0af69c616695f4197be49ad23c4c",
+    "read4/results.xml": "c2b09c46ddd15a554fdd816b018fd0cf256b13f7cd0f03b6a0ee1137d6d6652c",
+    "read4/coverage.json": "cf57d8c343ae638b990915d7c97a17dc63533e7559d8697ade0a42963a3acc84",
+    "read4/queue_coverage.json": "6105c683535cb0e8cac66391b826a3848dce341a6bb8aa48643632d316d0a8ec"
+  }
+}

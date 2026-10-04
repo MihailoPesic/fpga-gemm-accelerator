@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "tests": 28,
+  "command": ".venv/bin/python3.12 -m unittest discover -s tb -p test_host_gemm.py",
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "exit_code": 0,
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+    "host/gemm/__main__.py": "7e9a22a7496636316d871fab8322a60fb39b2073c79a9d0c0460606a2258a482",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "tb/test_host_gemm.py": "1155c02f5328ebcf529ed6b5dc1badb87f4a682e533b45eba4352b67762fae91"
+  },
+  "source_hashes_unchanged": true,
+  "same_sources_as_native": true,
+  "console_sha256": "b17ef9e3fc7b8f0e7093da1b97f1e7577347feef77d51c703615ab8ec256c633",
+  "scope": "Independent software command model through framed Link on WSL/Linux Python 3.12; no physical hardware access or RTL timing evidence"
+}

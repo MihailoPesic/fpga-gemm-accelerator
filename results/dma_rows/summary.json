@@ -1,0 +1,51 @@
+{
+  "result": "PASS",
+  "tests": 4,
+  "scope": "Row address/metadata sequencing and completion handshakes; no bank adapter, AXI fabric or physical DDR test",
+  "versions": {
+    "cocotb": "2.0.1"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_dma_rows.sv": "2f8054de94d47858b96334cb2b5aeec45f0b807cbba76b540c9675c57f739530",
+    "tb/test_dma_rows.py": "217d4030a73fed5f74c2525f68d7a29ee356f140782a46d3fa2a03940ae5c909",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_dma_rows.py": "63a87c8f99b0989524c23668de5746df8db71e8d80cfbbefbd4d2637a4740037"
+  },
+  "date": "2026-10-02",
+  "command": "make test-dma PYTHON=.venv/bin/python",
+  "exit_code": 0,
+  "simulator": "Icarus Verilog 12.0 (stable)",
+  "python": "3.12.4",
+  "workload_seeds": {
+    "directed": "0xd001",
+    "random_descriptors": "0xd002",
+    "completion_faults": "0xd003",
+    "local_reset": "0xd004"
+  },
+  "exercised": {
+    "valid_descriptors": 265,
+    "invalid_descriptors": 120,
+    "accepted_bursts": 4601
+  },
+  "compile_check": {
+    "result": "PASS",
+    "exit_code": 0,
+    "scope": "Icarus -Wall compilation, not routed timing or complete static lint",
+    "existing_tool_limitation_occurrences": 5
+  },
+  "original_artifact_sha256_bytes": {
+    "summary.json": "9caf877c54dedb1afd3c9de2684eca850f36c868794a45fb7cf1583887a759e0",
+    "coverage.json": "09c394e4047ec8dff5f0f210f6bddbbcbe47779de19cf260bd012b16c5b4f58b",
+    "results.xml": "f3530adb1694497d0310eee8c8ac858ebad490c3538b754fc5314391f694b6cd"
+  },
+  "saved_text_encoding": "UTF-8 with LF newlines; raw local-artifact hashes retained separately",
+  "complete_local_console_sha256_bytes": "ec03a768ba697008cf166a064186b62faa3d02ddd86e005bb0ef77ae27a2a0f1",
+  "complete_local_compile_console_sha256_bytes": "50f0a93d8f868b186b75a184f7b849f895be302f084284de60fd5a739b86799e",
+  "saved_artifact_sha256_bytes": {
+    "compile_check.txt": "1e372c2118fb5ac0fe88e61ccbf08bfacedb08f70d69e4d97cd79bc0fc163b23",
+    "console_excerpt.txt": "a7dff563c8bfcb23364614eef6ef4a29e9002690438053486f06f6c457fbd875",
+    "coverage.json": "09c394e4047ec8dff5f0f210f6bddbbcbe47779de19cf260bd012b16c5b4f58b",
+    "results.xml": "f3530adb1694497d0310eee8c8ac858ebad490c3538b754fc5314391f694b6cd"
+  }
+}

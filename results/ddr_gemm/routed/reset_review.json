@@ -1,0 +1,30 @@
+{
+  "source": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_reference\\gemm_routed.dcp",
+  "sha256_bytes": "f091503469427c4bd86aa739e06e5768820e4f46145b18edebd22d19f7474493",
+  "build_id": "0xed44f92e",
+  "bitstream_sha256": "fc2dcb3d43cf3f2775df5554de7f4a7e7612e9e4b41b6900a96afe2ce2bbc708",
+  "build_manifest_sha256": "5ce83bc90dc45b7f927c9dcd90f8643610838b53865632784d4352ddb744cff9",
+  "scope": "Read-only production reset query; copied new routed DCP, no project opened",
+  "result": "PASS",
+  "checkpoint_hashes_unchanged": true,
+  "evidence_sha256": {
+    "review.tcl": "91182ba807777ec0c1beafc6b09f3e3e1ed27b8db45bd5dfa389a95ad588ef83",
+    "run.py": "47d093ad23ae929975dadffaf47d510cddd48bc780ac4a2d42b8e9d1a2b6061a",
+    "console.txt": "366be07cb47ef61819119d3ada1cd268db670baac0bd96da7c7b0f175fd6e4d1",
+    "reset_selector.txt": "676d17bd14fa24cd64e84035bedbf24509fe3286cadd256747d894a6d6133ee2",
+    "exceptions.txt": "a3779103811d4b82ce3120623cb960e92bc1eb54c8b7bc62c9922d2b70e20ff8"
+  },
+  "cpu_reset_endpoints": {
+    "mig_pre": 43,
+    "mig_pll_rst": 1,
+    "unexpected": 0
+  },
+  "generated_selector_matches": 1,
+  "selector_matches_cpu_reset_endpoints": true,
+  "saved_file_sha256_bytes": {
+    "reset_query.tcl": "91182ba807777ec0c1beafc6b09f3e3e1ed27b8db45bd5dfa389a95ad588ef83",
+    "reset_selector.txt": "676d17bd14fa24cd64e84035bedbf24509fe3286cadd256747d894a6d6133ee2",
+    "reset_exceptions.txt": "a3779103811d4b82ce3120623cb960e92bc1eb54c8b7bc62c9922d2b70e20ff8"
+  },
+  "raw_console_scope": "Full query console and runner remain in the ignored directory; their original byte hashes are retained."
+}

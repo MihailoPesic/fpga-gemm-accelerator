@@ -9,9 +9,79 @@ permissions:
   contents: read
 
 jobs:
-  core:
+  portable:
+    name: ${{ matrix.suite }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - suite: Compute and interfaces
+            commands: |
+              python scripts/test.py
+              make test-release test-formal-traces PYTHON=python
+              make lint test-memory test-tile test-tile-overlap test-preview test-axi test-dma test-ddr-registers test-ddr-diag mutation mutation-tile-overlap PYTHON=python
+              python -m unittest discover -s tb -p test_host_gemm.py
+              python -m unittest discover -s tb -p test_build_ddr_gemm.py
+              python -m unittest discover -s tb -p test_program_ddr_gemm.py
+              python -m unittest discover -s tb -p test_hw_ddr_gemm.py
+              python scripts/test_vendor_reference.py
+          - suite: DDR P4/T8
+            commands: |
+              python scripts/test_tile_dma.py --only p4_t8
+              python scripts/test_tile_dma_duplex.py --only p4_t8
+              python scripts/test_tile_scheduler.py --only p4_t8
+              python scripts/test_ddr_job.py --only p4_t8
+              python scripts/test_ddr_core.py --only p4_t8
+          - suite: DDR P4/T32
+            commands: |
+              python scripts/test_tile_dma.py --only p4_t32
+              python scripts/test_tile_dma_duplex.py --only p4_t32
+              python scripts/test_tile_scheduler.py --only p4_t32
+              python scripts/test_ddr_job.py --only p4_t32
+              python scripts/test_ddr_core.py --only p4_t32
+          - suite: DDR P8/T8
+            commands: |
+              python scripts/test_tile_dma.py --only p8_t8
+              python scripts/test_tile_dma_duplex.py --only p8_t8
+              python scripts/test_tile_scheduler.py --only p8_t8
+              python scripts/test_ddr_job.py --only p8_t8
+              python scripts/test_ddr_core.py --only p8_t8
+          - suite: DDR P8/T32
+            commands: |
+              python scripts/test_tile_dma.py --only p8_t32
+              python scripts/test_tile_dma_duplex.py --only p8_t32
+              python scripts/test_tile_scheduler.py --only p8_t32
+              python scripts/test_ddr_job.py --only p8_t32
+              python scripts/test_ddr_core.py --only p8_t32
+          - suite: DDR cycle attribution
+            commands: |
+              python scripts/profile_ddr.py
+          - suite: Overlap P4/T8
+            commands: |
+              python scripts/test_ddr_overlap_job.py --only p4_t8
+              python scripts/test_ddr_core.py --only p4_t8 --overlap --build-dir build/overlap_compatibility
+              python scripts/test_ddr_core.py --only p4_t8 --overlap --suite overlap --build-dir build/overlap_packets
+          - suite: Overlap P4/T32
+            commands: |
+              python scripts/test_ddr_overlap_job.py --only p4_t32
+              python scripts/test_ddr_core.py --only p4_t32 --overlap --build-dir build/overlap_compatibility
+              python scripts/test_ddr_core.py --only p4_t32 --overlap --suite overlap --build-dir build/overlap_packets
+          - suite: Overlap P8/T8
+            commands: |
+              python scripts/test_ddr_overlap_job.py --only p8_t8
+              python scripts/test_ddr_core.py --only p8_t8 --overlap --build-dir build/overlap_compatibility
+              python scripts/test_ddr_core.py --only p8_t8 --overlap --suite overlap --build-dir build/overlap_packets
+          - suite: Overlap P8/T32
+            commands: |
+              python scripts/test_ddr_overlap_job.py --only p8_t32
+              python scripts/test_ddr_core.py --only p8_t32 --overlap --build-dir build/overlap_compatibility
+              python scripts/test_ddr_core.py --only p8_t32 --overlap --suite overlap --build-dir build/overlap_packets
+          - suite: Read DMA comparison
+            commands: |
+              python scripts/profile_read_dma.py
+              python scripts/mutation_read_queue.py
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
@@ -24,5 +94,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y iverilog
           python -m pip install -r requirements-test.txt
-      - name: Compile, simulate, and check injected defects
-        run: make lint test mutation PYTHON=python
+      - name: Run portable checks
+        run: ${{ matrix.commands }}
+  formal:
+    name: Scoped FIFO and scheduler proofs
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-formal.txt
+      - name: Install the optional proof toolchain
+        run: python -m pip install -r requirements-formal.txt
+      - name: Run scoped safety checks and decode reachable witnesses
+        run: make formal PYTHON=python

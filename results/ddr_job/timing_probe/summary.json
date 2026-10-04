@@ -1,0 +1,82 @@
+{
+  "result": "PASS",
+  "date": "2026-10-02",
+  "part": "xc7a50ticsg324-1L",
+  "p": 4,
+  "t": 32,
+  "scope": "Isolated serial controller with routed BUFG; all external input/output paths excluded. No DMA/core interface or full-board timing claim.",
+  "clock_hz": 100000000,
+  "clock_uncertainty_ns": 0.2,
+  "wns_ns": 0.373,
+  "whs_ns": 0.011,
+  "utilization": {
+    "lut": 1710,
+    "ff": 2040,
+    "dsp": 6,
+    "bram": 0,
+    "latches": 0,
+    "bufg": 1
+  },
+  "complete_routed_nets": 3257,
+  "unconstrained_internal_endpoints": 0,
+  "excluded_input_paths": 513,
+  "excluded_output_paths": 666,
+  "worst_setup_path": {
+    "start": "watchdog_q_reg[2]/C",
+    "end": "job_cycles_reg[0]/CE",
+    "delay_ns": 9.072,
+    "logic_ns": 3.252,
+    "route_ns": 5.82,
+    "explanation": "Watchdog threshold and fault detection drive shared counter-snapshot enables."
+  },
+  "vivado": "2026.1 build6511674",
+  "source_sha256_utf8_lf": "f88470f40ea87721694c58b0acd27e1ca78874b6e98c31683e12d37c9a336ac3",
+  "warnings": {
+    "Synth 8-6014": {
+      "count": 2,
+      "example": "WARNING: [Synth 8-6014] Unused sequential element a_loaded_reg was removed.  [C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_job_probe/gemm_ddr_job.sv:193]"
+    },
+    "Synth 8-3332": {
+      "count": 93,
+      "example": "WARNING: [Synth 8-3332] Sequential element (c_size_reg[47]) is unused and will be removed from module gemm_ddr_job."
+    },
+    "Netlist 29-101": {
+      "count": 1,
+      "example": "WARNING: [Netlist 29-101] Netlist 'gemm_ddr_job_probe' is not ideal for floorplanning, since the cellview 'gemm_ddr_job' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning."
+    },
+    "DRC 23-814": {
+      "count": 3,
+      "example": "WARNING: [DRC 23-814] Not all possible (connectivity based) DRCs may have been run because this design is seen as Out of Context."
+    },
+    "Route 35-198": {
+      "count": 100,
+      "example": "WARNING: [Route 35-198] Port \"axi_bvalid\" does not have an associated HD.PARTPIN_LOCS, which will prevent the partial routing of the signal \"axi_bvalid\". Without this partial route, timing analysis to/from this port will not be accurate, and no routing information for this port can be exported."
+    },
+    "Constraints 18-8777": {
+      "count": 1,
+      "example": "WARNING: [Constraints 18-8777] Unable to split tiles. All required files are not available."
+    }
+  },
+  "warning_free": false,
+  "unexplained_warning": "Constraints 18-8777: Unable to split tiles. All required files are not available.",
+  "complete_local_console_sha256_bytes": "6eca78e13e0948367cadc1930101a7b5e006163262b8610ef8de48e9a7124ed5",
+  "original_artifact_sha256_bytes": {
+    "utilization.txt": "c8bec6a35b11c225398c0a3779274f8a16b66026fbe790f854f6c50e028cbcc3",
+    "timing.txt": "9d0c684007d60969fc2f11b1e300f540fc76ccc105a6583c4151ab9e62e1d67d",
+    "check_timing.txt": "402b7b62d9e09180d58f705dd6000f201f748d7dc599ca2842b09468c7c7f2a5",
+    "methodology.txt": "4df34ce237f4a793d7b7e459114bf25598961e4fd53134a610b8980fc50595f1",
+    "route.txt": "f30efdbf3b07f672d88c2208b038652d1d94ea34957038332f4148951e5231bd",
+    "probe.tcl": "525091823854905571319e77f48af4e01b822f958cb3c550e59eda05c80d2dc5",
+    "gemm_ddr_job_probe.sv": "a103251ecb6fdf83585bb4878d934ee953284f20e2ed0c409d80580a6e825097"
+  },
+  "saved_artifact_sha256_bytes": {
+    "utilization.txt": "c8bec6a35b11c225398c0a3779274f8a16b66026fbe790f854f6c50e028cbcc3",
+    "timing.txt": "99fa1c7656fa742396a77f4d832acf06551323d5126193a45cf372e227759220",
+    "check_timing.txt": "ff902d7adbc9dcfbe8ec240d52a1d7864eab8752be9ee9fb9600d6b48737ac9b",
+    "methodology.txt": "4df34ce237f4a793d7b7e459114bf25598961e4fd53134a610b8980fc50595f1",
+    "route.txt": "f30efdbf3b07f672d88c2208b038652d1d94ea34957038332f4148951e5231bd",
+    "probe.tcl": "525091823854905571319e77f48af4e01b822f958cb3c550e59eda05c80d2dc5",
+    "gemm_ddr_job_probe.sv": "a103251ecb6fdf83585bb4878d934ee953284f20e2ed0c409d80580a6e825097",
+    "warnings.txt": "a223d09442306942426b5d7510e5b5ed6ac12b85879570944ccd6b675ad199ca"
+  }
+}

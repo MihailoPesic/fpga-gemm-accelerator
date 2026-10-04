@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "recorded_utc": "2026-10-03T15:18:56.640116+00:00",
+  "public_directory": "results/ddr_gemm/read4/portable/diag",
+  "totals": {
+    "tests": 4
+  },
+  "executions": [
+    {
+      "run": "build/read_dma_cancel_diag_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 4,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0"
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_ddr_diag.sv": "bcd93e17f616db3df12e9ab08a5c7f6c0eee3c40dc2f4e18b583dc06f5f47d07",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "tb/sv/ddr_diag_harness.sv": "44d83f3f4d17885410f7f1812e70d44ebc6fec5a67066db5753cfdf5b631bf9e",
+    "tb/test_ddr_diag.py": "84f367031aa5506a3127e6aa0c5fd9a12622e159e79bb80fde110d8b1804058e",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_diag.py": "316d1c7b1e5a2db29711f4e3a186876f78104d32f415d18b86f88a2059121193"
+  },
+  "saved_artifact_sha256_bytes": {
+    "coverage.json": "9a2055798c37e31e98eeaa3500b4e0c46a69cde025d113352ad796ec81d54a07",
+    "results.xml": "be132d0c19283ca2564e1848eeb764674dcecbeeef1ec7bed526df3f6a378a18",
+    "summary.json": "8df3bd8d5d688f931fe46d35aed2200cf787767737adcbd53221d38235173561"
+  },
+  "scope": "Portable behavioral simulation; no new board, routed timing or physical DDR performance claim"
+}

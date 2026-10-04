@@ -1,0 +1,927 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "directory": "read1/p4_t8",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 1,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 187,
+        "shapes": [
+          [
+            8,
+            7,
+            33
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            7,
+            7,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 336,
+        "compute_store_read_edges": 1,
+        "three_way_edges": 1,
+        "read_bursts": 141,
+        "write_bursts": 40,
+        "write_responses": 40,
+        "read_lengths": [
+          1,
+          2,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "rd_cmd": 32,
+          "burst_rd_done": 189,
+          "load": 403,
+          "ar": 31,
+          "load_done": 399,
+          "read": 80,
+          "response": 90,
+          "wr_data": 30,
+          "w": 89,
+          "aw": 67,
+          "store_done": 322,
+          "wr_cmd": 14,
+          "wr_done": 98
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p4_t32",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 2995,
+        "shapes": [
+          [
+            32,
+            31,
+            33
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            31,
+            31,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 1984,
+        "compute_store_read_edges": 512,
+        "three_way_edges": 1,
+        "read_bursts": 391,
+        "write_bursts": 112,
+        "write_responses": 112,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          13,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          15,
+          16
+        ],
+        "stalls": {
+          "rd_cmd": 119,
+          "burst_rd_done": 599,
+          "load": 1507,
+          "ar": 111,
+          "load_done": 399,
+          "read": 584,
+          "wr_data": 508,
+          "aw": 102,
+          "w": 555,
+          "wr_cmd": 44,
+          "response": 581,
+          "store_done": 322,
+          "wr_done": 98
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "directory": "read1/p8_t8",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "read_slots": 1,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 187,
+        "shapes": [
+          [
+            8,
+            7,
+            33
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            7,
+            7,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 80,
+        "compute_store_read_edges": 1,
+        "three_way_edges": 1,
+        "read_bursts": 141,
+        "write_bursts": 40,
+        "write_responses": 40,
+        "read_lengths": [
+          1,
+          2,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "burst_rd_done": 191,
+          "load": 377,
+          "ar": 33,
+          "load_done": 399,
+          "rd_cmd": 33,
+          "read": 85,
+          "wr_data": 44,
+          "wr_cmd": 13,
+          "aw": 68,
+          "w": 92,
+          "response": 88,
+          "store_done": 322,
+          "wr_done": 98
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p8_t32",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 2995,
+        "shapes": [
+          [
+            32,
+            31,
+            33
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            31,
+            31,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 1424,
+        "compute_store_read_edges": 1,
+        "three_way_edges": 1,
+        "read_bursts": 391,
+        "write_bursts": 112,
+        "write_responses": 112,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          13,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          15,
+          16
+        ],
+        "stalls": {
+          "burst_rd_done": 618,
+          "load": 1509,
+          "ar": 89,
+          "rd_cmd": 124,
+          "load_done": 399,
+          "wr_cmd": 55,
+          "read": 535,
+          "wr_data": 561,
+          "response": 590,
+          "w": 596,
+          "aw": 97,
+          "store_done": 322,
+          "wr_done": 98
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "directory": "read4/p4_t8",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 4,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 187,
+        "shapes": [
+          [
+            8,
+            7,
+            33
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            7,
+            7,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 448,
+        "compute_store_read_edges": 32,
+        "three_way_edges": 1,
+        "read_bursts": 148,
+        "write_bursts": 40,
+        "write_responses": 40,
+        "read_lengths": [
+          1,
+          2,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "rd_cmd": 33,
+          "burst_rd_done": 195,
+          "ar": 86,
+          "load": 366,
+          "load_done": 399,
+          "read": 103,
+          "wr_data": 39,
+          "aw": 88,
+          "response": 110,
+          "w": 115,
+          "wr_cmd": 21,
+          "store_done": 370,
+          "wr_done": 138
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p4_t32",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 2995,
+        "shapes": [
+          [
+            32,
+            31,
+            33
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            31,
+            31,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 1984,
+        "compute_store_read_edges": 512,
+        "three_way_edges": 1,
+        "read_bursts": 398,
+        "write_bursts": 112,
+        "write_responses": 112,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          13,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          15,
+          16
+        ],
+        "stalls": {
+          "rd_cmd": 136,
+          "ar": 199,
+          "burst_rd_done": 633,
+          "load": 1419,
+          "load_done": 399,
+          "wr_cmd": 48,
+          "read": 593,
+          "aw": 112,
+          "w": 618,
+          "response": 599,
+          "wr_data": 480,
+          "store_done": 370,
+          "wr_done": 138
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "directory": "read4/p8_t8",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "read_slots": 4,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 187,
+        "shapes": [
+          [
+            8,
+            7,
+            33
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            7,
+            7,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 176,
+        "compute_store_read_edges": 1,
+        "three_way_edges": 1,
+        "read_bursts": 148,
+        "write_bursts": 40,
+        "write_responses": 40,
+        "read_lengths": [
+          1,
+          2,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "rd_cmd": 37,
+          "ar": 92,
+          "burst_rd_done": 195,
+          "load": 366,
+          "load_done": 399,
+          "read": 95,
+          "wr_data": 27,
+          "w": 109,
+          "response": 113,
+          "aw": 85,
+          "wr_cmd": 18,
+          "store_done": 370,
+          "wr_done": 138
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p8_t32",
+      "tests": 5,
+      "test_names": [
+        "pipeline_with_three_independent_owners",
+        "independent_completion_and_bad_descriptors",
+        "first_fault_and_admission",
+        "reader_fault_retains_issued_write",
+        "writer_fault_retains_accepted_load"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261004,
+        "jobs": 6,
+        "output_values": 2995,
+        "shapes": [
+          [
+            32,
+            31,
+            33
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            31,
+            31,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            9
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "simultaneous_descriptors": 8,
+        "compute_load_edges": 1984,
+        "compute_store_read_edges": 208,
+        "three_way_edges": 1,
+        "read_bursts": 398,
+        "write_bursts": 112,
+        "write_responses": 112,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          11,
+          13,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          15,
+          16
+        ],
+        "stalls": {
+          "rd_cmd": 110,
+          "burst_rd_done": 581,
+          "ar": 160,
+          "load": 1497,
+          "load_done": 399,
+          "wr_cmd": 43,
+          "read": 572,
+          "wr_data": 514,
+          "response": 597,
+          "w": 614,
+          "aw": 114,
+          "store_done": 370,
+          "wr_done": 138
+        },
+        "scenarios": [
+          "three_way_pipeline_delayed_b_snapshot_guards",
+          "independent_done_bad_desc_immutable_success_after_fatal",
+          "external_first_fault_normalization_local_sibling_command_gate",
+          "read_error_retains_aw",
+          "read_error_retains_w",
+          "read_error_retains_read",
+          "read_error_retains_response",
+          "c_response_error_preserves_held_operand_and_first_code"
+        ]
+      }
+    }
+  ],
+  "expected_test_names": [
+    "pipeline_with_three_independent_owners",
+    "independent_completion_and_bad_descriptors",
+    "first_fault_and_admission",
+    "reader_fault_retains_issued_write",
+    "writer_fault_retains_accepted_load"
+  ],
+  "scope": "Independent operand-load and result-store adapters with concurrent local bank ports and behavioral AXI RAM; production DDR MODE=1 remains unsupported",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "python_executable": "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()",
+    "iverilog_executable": "/usr/bin/iverilog",
+    "vvp": "Icarus Verilog runtime version 12.0 (stable) ()",
+    "vvp_executable": "/usr/bin/vvp"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma_duplex.py": "10e6357ba78ca3287755626c1d66f50f12f976a0a0631f629782a20574ebe156"
+  },
+  "source_sha256_utf8_lf_after": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma_duplex.py": "10e6357ba78ca3287755626c1d66f50f12f976a0a0631f629782a20574ebe156"
+  }
+}

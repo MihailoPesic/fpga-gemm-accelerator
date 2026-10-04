@@ -1,0 +1,13 @@
+{
+  "suite": "p8_t32",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_tile_scheduler.py",
+    "--only",
+    "p8_t32",
+    "--build-dir",
+    "build/scheduler_regression_20261004_final/p8_t32"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 342.64472460746765
+}

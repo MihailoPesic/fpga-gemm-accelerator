@@ -1,0 +1,67 @@
+{
+  "result": "DETECTED",
+  "source_hashes_unchanged": true,
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "tb/test_tile_overlap.py": "9df9a5af85db7ce7f49d9a427fa6f2942fa52a6692f60691297b90f4d41d6be6",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/mutation_tile_overlap.py": "d8feea141ab167cd0d63223d620121e8f347cacc4f0cc8d3a028fc1c30c2b4ff"
+  },
+  "mutations": [
+    {
+      "name": "response_owner_uses_live_request",
+      "result": "DETECTED",
+      "tests": 3,
+      "expected_failures": [
+        "start_response_ownership"
+      ],
+      "replacement": {
+        "old": "output_buf != read_buf_q",
+        "new": "output_buf != read_buf"
+      },
+      "mutant_sha256_bytes": "9086e014d6e4beaa53c535cd8e4434a2cf22b6cb0e674c618454914d0696036e",
+      "failing_xml_sha256_bytes": "280f0c6a4ade0872d28622c735f049a6ed5cb36bffbd05a53605413efa09be56"
+    },
+    {
+      "name": "active_result_reads_allowed",
+      "result": "DETECTED",
+      "tests": 3,
+      "expected_failures": [
+        "disjoint_load_compute_read"
+      ],
+      "replacement": {
+        "old": "!rst && (!busy || read_buf != output_q) &&",
+        "new": "!rst &&"
+      },
+      "mutant_sha256_bytes": "c17b49ecc86dd16ab488daad2ab4ae11e8d2af1660acfa1a19dc0da363da7a5f",
+      "failing_xml_sha256_bytes": "9dd01a0a3063d245816477abdc7f94e774fce37efc8f2a8c4de426ee13d08d6c"
+    },
+    {
+      "name": "response_owner_released_early",
+      "result": "DETECTED",
+      "tests": 3,
+      "expected_failures": [
+        "start_response_ownership"
+      ],
+      "replacement": {
+        "old": "wire read_owned = read_pending || response_valid;",
+        "new": "wire read_owned = read_pending || (response_valid && !response_ready);"
+      },
+      "mutant_sha256_bytes": "d59c672699693d6c016bcb1bbdc4e43807eeccaaffeda88e5272e0c680e1bd21",
+      "failing_xml_sha256_bytes": "06b92198a60624d24c911a840d6e5e18529a39141959bc6aa0e69e1180d5a135"
+    }
+  ],
+  "versions": {
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "cocotb": "2.0.1",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "scope": "Three deliberately broken private tile-engine copies at P4/T8; no production edits or formal proof"
+}

@@ -1,0 +1,93 @@
+--- qualified_serial_tile_engine.sv
++++ rtl/control/gemm_tile_engine.sv
+@@ -1,5 +1,5 @@
+ `timescale 1ns/1ps
+-// Serial local-matrix engine: 1<=M,N<=T, 1<=K<=256. See docs/tile-engine.md.
++// Local-matrix engine: 1<=M,N<=T, 1<=K<=256. See docs/tile-engine.md.
+ // No DDR, descriptors or transport framing here. Loaded inputs must be ready.
+ module gemm_tile_engine #(
+     parameter integer P = 4,
+@@ -8,7 +8,8 @@
+     parameter integer DIM_W = $clog2(T+1),
+     parameter integer COUNT_W = $clog2(P+1),
+     parameter integer ROW_W = $clog2(P),
+-    parameter integer GROUP_W = (T/P > 1) ? $clog2(T/P) : 1
++    parameter integer GROUP_W = (T/P > 1) ? $clog2(T/P) : 1,
++    parameter integer CONCURRENT_PORTS = 0
+ ) (
+     input wire clk, rst,
+     input wire load_valid,
+@@ -46,7 +47,7 @@
+     logic [GROUP_W-1:0] row_group, col_group, last_row_group, last_col_group;
+     logic [1:0] prefetch_left;
+     logic [DIM_W-1:0] result_rows [0:1], result_cols [0:1];
+-    logic read_pending, read_error_q, read_upper_q;
++    logic read_pending, read_error_q, read_upper_q, read_buf_q;
+     wire [63:0] bank_read_data;
+     wire memory_load_ready, micro_ready, drain_valid;
+     wire [ROW_W-1:0] drain_row;
+@@ -54,13 +55,25 @@
+     wire [P*32-1:0] drain_data;
+ 
+     assign busy = state != IDLE;
+-    assign start_ready = !rst && !busy && !read_pending && !response_valid;
++    // A completed-buffer read owns its buffer until the response is consumed.
++    // Its stored data may outlive a new job using the other result buffer.
++    wire read_owned = read_pending || response_valid;
++    assign start_ready = !rst && !busy &&
++        (CONCURRENT_PORTS ? (!read_owned || output_buf != read_buf_q) : !read_owned);
+     wire legal = m >= 1 && m <= T && n >= 1 && n <= T && k >= 1 && k <= 256;
+     wire accept_start = start && start_ready && legal;
+     // Serial preview: a START pulse wins over host load/read requests.
+     wire host_idle = !rst && !busy && !start;
+-    assign load_ready = host_idle && memory_load_ready;
+-    assign read_ready = host_idle && !read_pending && !response_valid;
++    // Reserve the selected input/result buffers for the complete local job,
++    // including LAUNCH_TILE gaps when the inner microtile is briefly idle.
++    wire load_allowed = CONCURRENT_PORTS ?
++        !rst && (!busy || load_buf != input_q) &&
++            !(accept_start && load_buf == input_buf) : host_idle;
++    wire read_allowed = CONCURRENT_PORTS ?
++        !rst && (!busy || read_buf != output_q) &&
++            !(accept_start && read_buf == output_buf) : host_idle;
++    assign load_ready = load_allowed && memory_load_ready;
++    assign read_ready = read_allowed && !read_owned;
+     wire read_fire = read_valid && read_ready;
+     wire [Q_W:0] read_col = {1'b0, read_pair, 1'b0};
+     wire read_legal = result_valid[read_buf] && read_row < result_rows[read_buf] &&
+@@ -76,7 +89,7 @@
+     wire tile_final = result_write && drain_row == ROW_W'(P-1);
+ 
+     gemm_bram_microtile #(.P(P), .T(T)) compute (
+-        .clk(clk), .rst(rst), .load_valid(load_valid && host_idle),
++        .clk(clk), .rst(rst), .load_valid(load_valid && load_allowed),
+         .load_ready(memory_load_ready), .load_bt(load_bt), .load_buf(load_buf),
+         .load_q(load_q), .load_word(load_word), .load_data(load_data),
+         .start(tile_start), .start_ready(micro_ready), .buffer_id(input_q),
+@@ -117,6 +130,7 @@
+             read_pending <= 1'b0;
+             read_error_q <= 1'b0;
+             read_upper_q <= 1'b0;
++            read_buf_q <= 1'b0;
+             response_valid <= 1'b0;
+             response_data <= '0;
+             response_strb <= '0;
+@@ -126,6 +140,7 @@
+             if (response_valid && response_ready) response_valid <= 1'b0;
+             read_pending <= read_fire;
+             if (read_fire) begin
++                read_buf_q <= read_buf;
+                 read_error_q <= !read_legal;
+                 read_upper_q <= read_col + 1 < result_cols[read_buf];
+             end
+@@ -184,4 +199,10 @@
+             endcase
+         end
+     end
++`ifndef SYNTHESIS
++    initial begin
++        if (CONCURRENT_PORTS != 0 && CONCURRENT_PORTS != 1)
++            $fatal(1, "CONCURRENT_PORTS must be 0 or 1");
++    end
++`endif
+ endmodule

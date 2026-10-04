@@ -27,6 +27,60 @@ subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_preview
                 *map(str, preview)], check=True)
 print('PASS: complete preview UART compile/warnings')
 
-subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_axi_burst',
-                str(root / 'rtl/memory/gemm_axi_burst.sv')], check=True)
-print('PASS: AXI burst primitive compile/warnings')
+for read_slots in (1, 4):
+    subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_axi_burst',
+                    f'-Pgemm_axi_burst.READ_SLOTS={read_slots}',
+                    str(root / 'rtl/memory/gemm_axi_burst.sv')], check=True)
+    print(f'PASS: AXI burst primitive compile/warnings READ_SLOTS={read_slots}')
+for read_slots in (1, 4):
+    subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_dma_rows',
+                    f'-Pgemm_dma_rows.READ_SLOTS={read_slots}',
+                    str(root / 'rtl/memory/gemm_dma_rows.sv')], check=True)
+    print(f'PASS: DMA row sequencer compile/warnings READ_SLOTS={read_slots}')
+for p in (4, 8):
+    for t in (8, 32):
+        for read_slots in (1, 4):
+            subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_tile_dma',
+                            f'-Pgemm_tile_dma.P={p}', f'-Pgemm_tile_dma.T={t}',
+                            f'-Pgemm_tile_dma.READ_SLOTS={read_slots}',
+                            str(root / 'rtl/memory/gemm_dma_rows.sv'),
+                            str(root / 'rtl/memory/gemm_tile_dma_read_queue.sv'),
+                            str(root / 'rtl/memory/gemm_tile_dma.sv')], check=True)
+            print(f'PASS: tile DMA adapter compile/warnings P={p} T={t} READ_SLOTS={read_slots}')
+            subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_tile_dma_duplex',
+                            f'-Pgemm_tile_dma_duplex.P={p}', f'-Pgemm_tile_dma_duplex.T={t}',
+                            f'-Pgemm_tile_dma_duplex.READ_SLOTS={read_slots}',
+                            str(root / 'rtl/memory/gemm_dma_rows.sv'),
+                            str(root / 'rtl/memory/gemm_tile_dma_read_queue.sv'),
+                            str(root / 'rtl/memory/gemm_tile_dma.sv'),
+                            str(root / 'rtl/memory/gemm_tile_dma_duplex.sv')], check=True)
+            print(f'PASS: duplex tile DMA compile/warnings P={p} T={t} READ_SLOTS={read_slots}')
+        subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_ddr_job',
+                        f'-Pgemm_ddr_job.P={p}', f'-Pgemm_ddr_job.T={t}',
+                        str(root / 'rtl/control/gemm_ddr_job.sv')], check=True)
+        print(f'PASS: DDR job controller compile/warnings P={p} T={t}')
+        subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_tile_scheduler',
+                        f'-Pgemm_tile_scheduler.P={p}', f'-Pgemm_tile_scheduler.T={t}',
+                        str(root / 'rtl/control/gemm_tile_scheduler.sv')], check=True)
+        print(f'PASS: tagged tile scheduler compile/warnings P={p} T={t}')
+        subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_ddr_overlap_job',
+                        f'-Pgemm_ddr_overlap_job.P={p}', f'-Pgemm_ddr_overlap_job.T={t}',
+                        str(root / 'rtl/control/gemm_tile_scheduler.sv'),
+                        str(root / 'rtl/control/gemm_ddr_overlap_job.sv')], check=True)
+        print(f'PASS: overlap DDR job shell compile/warnings P={p} T={t}')
+        subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_ddr_registers',
+                        f'-Pgemm_ddr_registers.P={p}', f'-Pgemm_ddr_registers.T={t}',
+                        str(root / 'rtl/control/gemm_ddr_registers.sv')], check=True)
+        print(f'PASS: DDR register interface compile/warnings P={p} T={t}')
+        for read_slots in (1, 4):
+            for overlap in (0, 1):
+                subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', 'gemm_ddr_core',
+                                f'-Pgemm_ddr_core.P={p}', f'-Pgemm_ddr_core.T={t}',
+                                f'-Pgemm_ddr_core.READ_SLOTS={read_slots}',
+                                f'-Pgemm_ddr_core.ENABLE_OVERLAP={overlap}',
+                                *map(str, sorted((root / 'rtl').rglob('*.sv')))], check=True)
+                print(f'PASS: complete DDR command/memory core compile/warnings P={p} T={t} READ_SLOTS={read_slots} ENABLE_OVERLAP={overlap}')
+for top in ('gemm_ddr_diag', 'gemm_ddr_diag_control'):
+    subprocess.run(['iverilog', '-g2012', '-Wall', '-t', 'null', '-s', top,
+                    str(root / 'rtl/control' / f'{top}.sv')], check=True)
+print('PASS: DDR diagnostic and packet controller compile/warnings')

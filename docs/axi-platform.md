@@ -1,15 +1,25 @@
 # AXI DDR2 platform bring-up
 
 The AXI MIG flow is separate from the working BRAM preview and the historical
-native-DDR project. It currently generates the DDR controller and runs its
-vendor-model simulation. It does not yet connect GEMM to DDR or produce a new
-board bitstream.
+native-DDR project. The standalone flow generates the DDR controller and runs
+its vendor-model simulation. The separate [DDR diagnostic](ddr-diagnostic.md)
+adds the board wrapper, SmartConnect, coordinated reset and custom memory
+test. The [serial GEMM wrapper](ddr-board.md) now connects the matrix
+subsystem to this platform. Its [complete qualification](../results/ddr_gemm/README.md)
+passes vendor simulation, routed timing and 48 cold-start board jobs.
+
+The integrated diagnostic passes routed timing at 100 MHz and three seeded
+cold-start checks on the physical Nexys A7-50T. The
+[board evidence](../results/ddr_platform/board/summary.json) records the image,
+counters and power-up sequence. It validates the selected memory-test pattern;
+warm reset remains open. The matrix wrapper has separate
+[board measurements](../results/ddr_gemm/board/README.md).
 
 ```text
 Implemented vendor simulation:
 AMD AXI traffic generator -> 128-bit AXI MIG -> DDR2 memory model
 
-Next hardware integration:
+Diagnostic integration:
 64-bit burst engine @ 100 MHz -> SmartConnect -> 128-bit AXI MIG @ 50 MHz
                                                         |
                                                   Physical DDR2
@@ -28,6 +38,15 @@ The retained configuration is MT47H64M16HR-25E, a 16-bit physical data bus,
 separate 100 MHz system and 200 MHz reference clocks with no input buffers
 inside the IP. A physical wrapper must supply those clocks and coordinated
 resets; the simulation supplies ideal clock inputs.
+
+MT47H64M16HR-25E names the configured MIG preset and simulation model, not
+an independently identified chip on this board. The October 3 physical
+inspection reports ISSI IS43DR16640C; its speed and temperature suffix
+is still unreadable. The [platform manifest](../platform/nexys_a7/manifest.json)
+records both separately. Calibration and the bounded board diagnostic do not
+establish compatibility with every device or speed grade in that family.
+See the [memory compatibility review](ddr-memory-compatibility.md) for the
+configured timings, candidate comparison and unresolved identification.
 
 The scripts check the generated XCI parameters, narrow-support parameter and
 every generated DDR pin and I/O standard. AMD documents loading a modified
@@ -75,8 +94,14 @@ so the END_ADDRESS value does not bound every generated address to 4 KiB.
 The saved summary records observed minimum/maximum AR/AW starting addresses.
 This is a smoke test, not exhaustive coverage of any memory range.
 
-Narrow support is enabled in the controller, but the vendor traffic test does
-not enable its narrow-transaction mode. Physical calibration, high-address
-alias checks, byte strobes and the 64-to-128-bit clock/width bridge still need
-integration tests. The portable [burst-engine tests](axi-burst.md) exercise
-the custom master against an independent AXI RAM; they do not simulate DDR pins.
+Narrow support is enabled in this standalone controller test, but its traffic
+generator does not enable narrow-transaction mode. The board diagnostic has
+a separate generated configuration: SmartConnect packs multi-beat traffic to
+the MIG width and propagates narrow-burst support=0. Single narrow beats remain
+supported. Its vendor test explicitly checks a single 64-bit transfer at
+address 8, masked writes and high addresses. Warm-reset qualification is a
+separate failing test; functional recovery does not resolve its DRAM-model
+clock violations. See the
+[diagnostic contract](ddr-diagnostic.md) for commands and validation scope.
+The portable [burst-engine tests](axi-burst.md) use an independent AXI RAM;
+they do not simulate DDR pins or establish physical calibration.

@@ -1,0 +1,7 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791103322" />
+    <testcase name="matched_packet_jobs_both_modes" classname="test_ddr_core_overlap" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core_overlap.py" lineno="25" time="102.24997401237488" sim_time_ns="3745190.0" ratio_time="36627.78437035823" />
+    <testcase name="overlap_busy_replay_and_delayed_final_response" classname="test_ddr_core_overlap" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core_overlap.py" lineno="65" time="13.185034275054932" sim_time_ns="559930.0" ratio_time="42467.087177721216" />
+  </testsuite>
+</testsuites>

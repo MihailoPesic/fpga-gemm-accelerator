@@ -1,0 +1,14 @@
+DDR_GEMM_ORACLE_PASS jobs=2 outputs=16
+DDR_GEMM_SIM_CONFIG p=8 t=32 sim_baud=10000000 build_id=669f7769
+DDR_GEMM_CALIBRATED time_ns=165415000.0 ps
+DDR_GEMM_JOB_BEGIN job_id=1 m=1 n=1 k=1 time_ns=446972000.0 ps
+DDR_GEMM_PROGRESS packets=8 opcode=05 status=0 time_ns=531692000.0 ps
+DDR_GEMM_PROGRESS packets=16 opcode=03 status=0 time_ns=826472000.0 ps
+DDR_GEMM_PROGRESS packets=24 opcode=02 status=0 time_ns=1095092000.0 ps
+DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=216 compute_cycles=24 read_beats=2 write_beats=1 write_bytes=4
+DDR_GEMM_PROGRESS packets=32 opcode=03 status=3 time_ns=1390372000.0 ps
+DDR_GEMM_JOB_BEGIN job_id=2 m=5 n=3 k=9 time_ns=1390372000.0 ps
+Command failed: Simulator command interrupted.
+Simulation engine not responding
+The simulator has terminated in an unexpected manner.  Please review the simulation log (xsim.log) for details.
+INFO: [Simtcl 6-16] Simulation closed

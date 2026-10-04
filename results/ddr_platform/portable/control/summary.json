@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_ddr_diag_control.sv": "8eb54276e4a980f96ce6820829592a7ecdda5478dbaee177f8094672468e9a7b",
+    "tb/test_ddr_diag_control.py": "9f30495e00d23c6c53f3485bc3213f25c17ea12774df04f7dd3a47dda85f9c36",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "scripts/test_ddr_diag_control.py": "1f9cf007bcfc5eb4296ccc5cd944b3a5596128a3ec437b8500cc4dd5b209c7c7"
+  }
+}

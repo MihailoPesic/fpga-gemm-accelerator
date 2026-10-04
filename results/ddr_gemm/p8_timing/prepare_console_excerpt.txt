@@ -1,0 +1,6 @@
+Selected original lines; full console remains local.
+Original: build/gemm_p8_timing/prepare_console.txt
+SHA256 bytes: cddc2e92b46667d6e302bd31601ce5f401b3257a78a054205522595b2746234f
+
+78: DDR_GEMM_PREPARED
+79: INFO: [Common 17-206] Exiting Vivado at Sat Oct  3 13:19:09 2026...

@@ -1,0 +1,1117 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Oct  3 13:31:29 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type min -max_paths 20 -nworst 2 -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_timing/hold_paths.txt}
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.012ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1913]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1913]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.350ns  (logic 0.141ns (40.234%)  route 0.209ns (59.766%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.751ns
+    Source Clock Delay      (SCD):    -0.513ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.634    -0.513    core/transport/core_clk
+    SLICE_X35Y117        FDRE                                         r  core/transport/req_payload_reg[1913]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y117        FDRE (Prop_fdre_C_Q)         0.141    -0.372 r  core/transport/req_payload_reg[1913]/Q
+                         net (fo=1, routed)           0.209    -0.162    core/control/packet_payload_reg[1967]_0[1913]
+    SLICE_X36Y119        FDRE                                         r  core/control/packet_payload_reg[1913]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.904    -0.751    core/control/core_clk
+    SLICE_X36Y119        FDRE                                         r  core/control/packet_payload_reg[1913]/C
+                         clock pessimism              0.499    -0.252    <hidden>
+    SLICE_X36Y119        FDRE (Hold_fdre_C_D)         0.078    -0.174    core/control/packet_payload_reg[1913]
+  -------------------------------------------------------------------
+                         required time                          0.174    <hidden>
+                         arrival time                          -0.162    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.012    <hidden>
+
+Slack (MET) :             0.012ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1913]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1913]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.350ns  (logic 0.141ns (40.234%)  route 0.209ns (59.766%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.751ns
+    Source Clock Delay      (SCD):    -0.513ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.634    -0.513    core/transport/core_clk
+    SLICE_X35Y117        FDRE                                         r  core/transport/req_payload_reg[1913]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y117        FDRE (Prop_fdre_C_Q)         0.141    -0.372 f  core/transport/req_payload_reg[1913]/Q
+                         net (fo=1, routed)           0.209    -0.162    core/control/packet_payload_reg[1967]_0[1913]
+    SLICE_X36Y119        FDRE                                         f  core/control/packet_payload_reg[1913]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.904    -0.751    core/control/core_clk
+    SLICE_X36Y119        FDRE                                         r  core/control/packet_payload_reg[1913]/C
+                         clock pessimism              0.499    -0.252    <hidden>
+    SLICE_X36Y119        FDRE (Hold_fdre_C_D)         0.078    -0.174    core/control/packet_payload_reg[1913]
+  -------------------------------------------------------------------
+                         required time                          0.174    <hidden>
+                         arrival time                          -0.162    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.012    <hidden>
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[720]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[720]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.356ns  (logic 0.141ns (39.560%)  route 0.215ns (60.440%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.265ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.743ns
+    Source Clock Delay      (SCD):    -0.509ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.638    -0.509    core/transport/core_clk
+    SLICE_X32Y112        FDRE                                         r  core/transport/req_payload_reg[720]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y112        FDRE (Prop_fdre_C_Q)         0.141    -0.368 r  core/transport/req_payload_reg[720]/Q
+                         net (fo=1, routed)           0.215    -0.152    core/control/packet_payload_reg[1967]_0[720]
+    SLICE_X36Y110        FDRE                                         r  core/control/packet_payload_reg[720]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.912    -0.743    core/control/core_clk
+    SLICE_X36Y110        FDRE                                         r  core/control/packet_payload_reg[720]/C
+                         clock pessimism              0.499    -0.244    <hidden>
+    SLICE_X36Y110        FDRE (Hold_fdre_C_D)         0.072    -0.172    core/control/packet_payload_reg[720]
+  -------------------------------------------------------------------
+                         required time                          0.172    <hidden>
+                         arrival time                          -0.152    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.020    <hidden>
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[720]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[720]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.356ns  (logic 0.141ns (39.560%)  route 0.215ns (60.440%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.265ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.743ns
+    Source Clock Delay      (SCD):    -0.509ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.638    -0.509    core/transport/core_clk
+    SLICE_X32Y112        FDRE                                         r  core/transport/req_payload_reg[720]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y112        FDRE (Prop_fdre_C_Q)         0.141    -0.368 f  core/transport/req_payload_reg[720]/Q
+                         net (fo=1, routed)           0.215    -0.152    core/control/packet_payload_reg[1967]_0[720]
+    SLICE_X36Y110        FDRE                                         f  core/control/packet_payload_reg[720]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.912    -0.743    core/control/core_clk
+    SLICE_X36Y110        FDRE                                         r  core/control/packet_payload_reg[720]/C
+                         clock pessimism              0.499    -0.244    <hidden>
+    SLICE_X36Y110        FDRE (Hold_fdre_C_D)         0.072    -0.172    core/control/packet_payload_reg[720]
+  -------------------------------------------------------------------
+                         required time                          0.172    <hidden>
+                         arrival time                          -0.152    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.020    <hidden>
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1395]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1395]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.354ns  (logic 0.141ns (39.839%)  route 0.213ns (60.161%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.740ns
+    Source Clock Delay      (SCD):    -0.505ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.642    -0.505    core/transport/core_clk
+    SLICE_X33Y100        FDRE                                         r  core/transport/req_payload_reg[1395]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y100        FDRE (Prop_fdre_C_Q)         0.141    -0.364 r  core/transport/req_payload_reg[1395]/Q
+                         net (fo=1, routed)           0.213    -0.151    core/control/packet_payload_reg[1967]_0[1395]
+    SLICE_X36Y101        FDRE                                         r  core/control/packet_payload_reg[1395]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.915    -0.740    core/control/core_clk
+    SLICE_X36Y101        FDRE                                         r  core/control/packet_payload_reg[1395]/C
+                         clock pessimism              0.499    -0.241    <hidden>
+    SLICE_X36Y101        FDRE (Hold_fdre_C_D)         0.070    -0.171    core/control/packet_payload_reg[1395]
+  -------------------------------------------------------------------
+                         required time                          0.171    <hidden>
+                         arrival time                          -0.151    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.020    <hidden>
+
+Slack (MET) :             0.020ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1395]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1395]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.354ns  (logic 0.141ns (39.839%)  route 0.213ns (60.161%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.740ns
+    Source Clock Delay      (SCD):    -0.505ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.642    -0.505    core/transport/core_clk
+    SLICE_X33Y100        FDRE                                         r  core/transport/req_payload_reg[1395]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y100        FDRE (Prop_fdre_C_Q)         0.141    -0.364 f  core/transport/req_payload_reg[1395]/Q
+                         net (fo=1, routed)           0.213    -0.151    core/control/packet_payload_reg[1967]_0[1395]
+    SLICE_X36Y101        FDRE                                         f  core/control/packet_payload_reg[1395]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.915    -0.740    core/control/core_clk
+    SLICE_X36Y101        FDRE                                         r  core/control/packet_payload_reg[1395]/C
+                         clock pessimism              0.499    -0.241    <hidden>
+    SLICE_X36Y101        FDRE (Hold_fdre_C_D)         0.070    -0.171    core/control/packet_payload_reg[1395]
+  -------------------------------------------------------------------
+                         required time                          0.171    <hidden>
+                         arrival time                          -0.151    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.020    <hidden>
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[939]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[939]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.360ns  (logic 0.141ns (39.147%)  route 0.219ns (60.853%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.756ns
+    Source Clock Delay      (SCD):    -0.518ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.629    -0.518    core/transport/core_clk
+    SLICE_X33Y126        FDRE                                         r  core/transport/req_payload_reg[939]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y126        FDRE (Prop_fdre_C_Q)         0.141    -0.377 r  core/transport/req_payload_reg[939]/Q
+                         net (fo=1, routed)           0.219    -0.158    core/control/packet_payload_reg[1967]_0[939]
+    SLICE_X39Y126        FDRE                                         r  core/control/packet_payload_reg[939]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.899    -0.756    core/control/core_clk
+    SLICE_X39Y126        FDRE                                         r  core/control/packet_payload_reg[939]/C
+                         clock pessimism              0.499    -0.257    <hidden>
+    SLICE_X39Y126        FDRE (Hold_fdre_C_D)         0.078    -0.179    core/control/packet_payload_reg[939]
+  -------------------------------------------------------------------
+                         required time                          0.179    <hidden>
+                         arrival time                          -0.158    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.021    <hidden>
+
+Slack (MET) :             0.021ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[939]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[939]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.360ns  (logic 0.141ns (39.147%)  route 0.219ns (60.853%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.756ns
+    Source Clock Delay      (SCD):    -0.518ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.629    -0.518    core/transport/core_clk
+    SLICE_X33Y126        FDRE                                         r  core/transport/req_payload_reg[939]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y126        FDRE (Prop_fdre_C_Q)         0.141    -0.377 f  core/transport/req_payload_reg[939]/Q
+                         net (fo=1, routed)           0.219    -0.158    core/control/packet_payload_reg[1967]_0[939]
+    SLICE_X39Y126        FDRE                                         f  core/control/packet_payload_reg[939]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.899    -0.756    core/control/core_clk
+    SLICE_X39Y126        FDRE                                         r  core/control/packet_payload_reg[939]/C
+                         clock pessimism              0.499    -0.257    <hidden>
+    SLICE_X39Y126        FDRE (Hold_fdre_C_D)         0.078    -0.179    core/control/packet_payload_reg[939]
+  -------------------------------------------------------------------
+                         required time                          0.179    <hidden>
+                         arrival time                          -0.158    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.021    <hidden>
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1273]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1273]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.356ns  (logic 0.141ns (39.661%)  route 0.215ns (60.339%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.752ns
+    Source Clock Delay      (SCD):    -0.517ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.630    -0.517    core/transport/core_clk
+    SLICE_X35Y127        FDRE                                         r  core/transport/req_payload_reg[1273]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y127        FDRE (Prop_fdre_C_Q)         0.141    -0.376 r  core/transport/req_payload_reg[1273]/Q
+                         net (fo=1, routed)           0.215    -0.161    core/control/packet_payload_reg[1967]_0[1273]
+    SLICE_X36Y129        FDRE                                         r  core/control/packet_payload_reg[1273]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.903    -0.752    core/control/core_clk
+    SLICE_X36Y129        FDRE                                         r  core/control/packet_payload_reg[1273]/C
+                         clock pessimism              0.499    -0.253    <hidden>
+    SLICE_X36Y129        FDRE (Hold_fdre_C_D)         0.070    -0.183    core/control/packet_payload_reg[1273]
+  -------------------------------------------------------------------
+                         required time                          0.183    <hidden>
+                         arrival time                          -0.161    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.022    <hidden>
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1273]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1273]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.356ns  (logic 0.141ns (39.661%)  route 0.215ns (60.339%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.752ns
+    Source Clock Delay      (SCD):    -0.517ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.630    -0.517    core/transport/core_clk
+    SLICE_X35Y127        FDRE                                         r  core/transport/req_payload_reg[1273]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X35Y127        FDRE (Prop_fdre_C_Q)         0.141    -0.376 f  core/transport/req_payload_reg[1273]/Q
+                         net (fo=1, routed)           0.215    -0.161    core/control/packet_payload_reg[1967]_0[1273]
+    SLICE_X36Y129        FDRE                                         f  core/control/packet_payload_reg[1273]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.903    -0.752    core/control/core_clk
+    SLICE_X36Y129        FDRE                                         r  core/control/packet_payload_reg[1273]/C
+                         clock pessimism              0.499    -0.253    <hidden>
+    SLICE_X36Y129        FDRE (Hold_fdre_C_D)         0.070    -0.183    core/control/packet_payload_reg[1273]
+  -------------------------------------------------------------------
+                         required time                          0.183    <hidden>
+                         arrival time                          -0.161    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.022    <hidden>
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1937]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1937]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.347ns  (logic 0.141ns (40.625%)  route 0.206ns (59.375%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.752ns
+    Source Clock Delay      (SCD):    -0.514ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.633    -0.514    core/transport/core_clk
+    SLICE_X37Y118        FDRE                                         r  core/transport/req_payload_reg[1937]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y118        FDRE (Prop_fdre_C_Q)         0.141    -0.373 r  core/transport/req_payload_reg[1937]/Q
+                         net (fo=1, routed)           0.206    -0.167    core/control/packet_payload_reg[1967]_0[1937]
+    SLICE_X34Y120        FDRE                                         r  core/control/packet_payload_reg[1937]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.903    -0.752    core/control/core_clk
+    SLICE_X34Y120        FDRE                                         r  core/control/packet_payload_reg[1937]/C
+                         clock pessimism              0.499    -0.253    <hidden>
+    SLICE_X34Y120        FDRE (Hold_fdre_C_D)         0.064    -0.189    core/control/packet_payload_reg[1937]
+  -------------------------------------------------------------------
+                         required time                          0.189    <hidden>
+                         arrival time                          -0.167    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.022    <hidden>
+
+Slack (MET) :             0.022ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1937]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1937]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.347ns  (logic 0.141ns (40.625%)  route 0.206ns (59.375%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.752ns
+    Source Clock Delay      (SCD):    -0.514ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.633    -0.514    core/transport/core_clk
+    SLICE_X37Y118        FDRE                                         r  core/transport/req_payload_reg[1937]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y118        FDRE (Prop_fdre_C_Q)         0.141    -0.373 f  core/transport/req_payload_reg[1937]/Q
+                         net (fo=1, routed)           0.206    -0.167    core/control/packet_payload_reg[1967]_0[1937]
+    SLICE_X34Y120        FDRE                                         f  core/control/packet_payload_reg[1937]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.903    -0.752    core/control/core_clk
+    SLICE_X34Y120        FDRE                                         r  core/control/packet_payload_reg[1937]/C
+                         clock pessimism              0.499    -0.253    <hidden>
+    SLICE_X34Y120        FDRE (Hold_fdre_C_D)         0.064    -0.189    core/control/packet_payload_reg[1937]
+  -------------------------------------------------------------------
+                         required time                          0.189    <hidden>
+                         arrival time                          -0.167    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.022    <hidden>
+
+Slack (MET) :             0.023ns  (arrival time - required time)
+  Source:                 core/transport/received_crc_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/transport/received_crc_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.271ns  (logic 0.141ns (52.058%)  route 0.130ns (47.942%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.184ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.821ns
+    Source Clock Delay      (SCD):    -0.503ns
+    Clock Pessimism Removal (CPR):    -0.503ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.644    -0.503    core/transport/core_clk
+    SLICE_X53Y100        FDRE                                         r  core/transport/received_crc_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y100        FDRE (Prop_fdre_C_Q)         0.141    -0.362 r  core/transport/received_crc_reg[11]/Q
+                         net (fo=2, routed)           0.130    -0.232    core/transport/received_crc[11]
+    SLICE_X52Y99         FDRE                                         r  core/transport/received_crc_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.833    -0.821    core/transport/core_clk
+    SLICE_X52Y99         FDRE                                         r  core/transport/received_crc_reg[3]/C
+                         clock pessimism              0.503    -0.318    <hidden>
+    SLICE_X52Y99         FDRE (Hold_fdre_C_D)         0.063    -0.255    core/transport/received_crc_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.255    <hidden>
+                         arrival time                          -0.232    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.023    <hidden>
+
+Slack (MET) :             0.023ns  (arrival time - required time)
+  Source:                 core/transport/received_crc_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/transport/received_crc_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.271ns  (logic 0.141ns (52.058%)  route 0.130ns (47.942%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.184ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.821ns
+    Source Clock Delay      (SCD):    -0.503ns
+    Clock Pessimism Removal (CPR):    -0.503ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.644    -0.503    core/transport/core_clk
+    SLICE_X53Y100        FDRE                                         r  core/transport/received_crc_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y100        FDRE (Prop_fdre_C_Q)         0.141    -0.362 f  core/transport/received_crc_reg[11]/Q
+                         net (fo=2, routed)           0.130    -0.232    core/transport/received_crc[11]
+    SLICE_X52Y99         FDRE                                         f  core/transport/received_crc_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.833    -0.821    core/transport/core_clk
+    SLICE_X52Y99         FDRE                                         r  core/transport/received_crc_reg[3]/C
+                         clock pessimism              0.503    -0.318    <hidden>
+    SLICE_X52Y99         FDRE (Hold_fdre_C_D)         0.063    -0.255    core/transport/received_crc_reg[3]
+  -------------------------------------------------------------------
+                         required time                          0.255    <hidden>
+                         arrival time                          -0.232    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.023    <hidden>
+
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 core/control/packet_payload_reg[1835]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/write_payload_reg[1787]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.305ns  (logic 0.128ns (41.913%)  route 0.177ns (58.087%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.748ns
+    Source Clock Delay      (SCD):    -0.510ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.637    -0.510    core/control/core_clk
+    SLICE_X32Y134        FDRE                                         r  core/control/packet_payload_reg[1835]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y134        FDRE (Prop_fdre_C_Q)         0.128    -0.382 r  core/control/packet_payload_reg[1835]/Q
+                         net (fo=1, routed)           0.177    -0.204    core/control/packet_payload[1835]
+    SLICE_X37Y133        FDRE                                         r  core/control/write_payload_reg[1787]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.907    -0.748    core/control/core_clk
+    SLICE_X37Y133        FDRE                                         r  core/control/write_payload_reg[1787]/C
+                         clock pessimism              0.499    -0.249    <hidden>
+    SLICE_X37Y133        FDRE (Hold_fdre_C_D)         0.019    -0.230    core/control/write_payload_reg[1787]
+  -------------------------------------------------------------------
+                         required time                          0.230    <hidden>
+                         arrival time                          -0.204    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.026    <hidden>
+
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 core/control/packet_payload_reg[1835]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/write_payload_reg[1787]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.305ns  (logic 0.128ns (41.913%)  route 0.177ns (58.087%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.748ns
+    Source Clock Delay      (SCD):    -0.510ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.637    -0.510    core/control/core_clk
+    SLICE_X32Y134        FDRE                                         r  core/control/packet_payload_reg[1835]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y134        FDRE (Prop_fdre_C_Q)         0.128    -0.382 f  core/control/packet_payload_reg[1835]/Q
+                         net (fo=1, routed)           0.177    -0.204    core/control/packet_payload[1835]
+    SLICE_X37Y133        FDRE                                         f  core/control/write_payload_reg[1787]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.907    -0.748    core/control/core_clk
+    SLICE_X37Y133        FDRE                                         r  core/control/write_payload_reg[1787]/C
+                         clock pessimism              0.499    -0.249    <hidden>
+    SLICE_X37Y133        FDRE (Hold_fdre_C_D)         0.019    -0.230    core/control/write_payload_reg[1787]
+  -------------------------------------------------------------------
+                         required time                          0.230    <hidden>
+                         arrival time                          -0.204    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.026    <hidden>
+
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[505]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[505]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.366ns  (logic 0.141ns (38.542%)  route 0.225ns (61.458%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.262ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.751ns
+    Source Clock Delay      (SCD):    -0.514ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.633    -0.514    core/transport/core_clk
+    SLICE_X32Y119        FDRE                                         r  core/transport/req_payload_reg[505]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y119        FDRE (Prop_fdre_C_Q)         0.141    -0.373 r  core/transport/req_payload_reg[505]/Q
+                         net (fo=1, routed)           0.225    -0.148    core/control/packet_payload_reg[1967]_0[505]
+    SLICE_X39Y119        FDRE                                         r  core/control/packet_payload_reg[505]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.904    -0.751    core/control/core_clk
+    SLICE_X39Y119        FDRE                                         r  core/control/packet_payload_reg[505]/C
+                         clock pessimism              0.499    -0.252    <hidden>
+    SLICE_X39Y119        FDRE (Hold_fdre_C_D)         0.078    -0.174    core/control/packet_payload_reg[505]
+  -------------------------------------------------------------------
+                         required time                          0.174    <hidden>
+                         arrival time                          -0.148    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.026    <hidden>
+
+Slack (MET) :             0.026ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[505]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[505]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.366ns  (logic 0.141ns (38.542%)  route 0.225ns (61.458%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.262ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.751ns
+    Source Clock Delay      (SCD):    -0.514ns
+    Clock Pessimism Removal (CPR):    -0.499ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.633    -0.514    core/transport/core_clk
+    SLICE_X32Y119        FDRE                                         r  core/transport/req_payload_reg[505]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y119        FDRE (Prop_fdre_C_Q)         0.141    -0.373 f  core/transport/req_payload_reg[505]/Q
+                         net (fo=1, routed)           0.225    -0.148    core/control/packet_payload_reg[1967]_0[505]
+    SLICE_X39Y119        FDRE                                         f  core/control/packet_payload_reg[505]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.904    -0.751    core/control/core_clk
+    SLICE_X39Y119        FDRE                                         r  core/control/packet_payload_reg[505]/C
+                         clock pessimism              0.499    -0.252    <hidden>
+    SLICE_X39Y119        FDRE (Hold_fdre_C_D)         0.078    -0.174    core/control/packet_payload_reg[505]
+  -------------------------------------------------------------------
+                         required time                          0.174    <hidden>
+                         arrival time                          -0.148    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.026    <hidden>
+
+Slack (MET) :             0.028ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1781]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1781]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.362ns  (logic 0.141ns (38.982%)  route 0.221ns (61.018%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.826ns
+    Source Clock Delay      (SCD):    -0.587ns
+    Clock Pessimism Removal (CPR):    -0.503ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.560    -0.587    core/transport/core_clk
+    SLICE_X31Y99         FDRE                                         r  core/transport/req_payload_reg[1781]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X31Y99         FDRE (Prop_fdre_C_Q)         0.141    -0.446 r  core/transport/req_payload_reg[1781]/Q
+                         net (fo=1, routed)           0.221    -0.225    core/control/packet_payload_reg[1967]_0[1781]
+    SLICE_X36Y99         FDRE                                         r  core/control/packet_payload_reg[1781]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.828    -0.826    core/control/core_clk
+    SLICE_X36Y99         FDRE                                         r  core/control/packet_payload_reg[1781]/C
+                         clock pessimism              0.503    -0.323    <hidden>
+    SLICE_X36Y99         FDRE (Hold_fdre_C_D)         0.070    -0.253    core/control/packet_payload_reg[1781]
+  -------------------------------------------------------------------
+                         required time                          0.253    <hidden>
+                         arrival time                          -0.225    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.028    <hidden>
+
+Slack (MET) :             0.028ns  (arrival time - required time)
+  Source:                 core/transport/req_payload_reg[1781]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/control/packet_payload_reg[1781]/D
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        0.362ns  (logic 0.141ns (38.982%)  route 0.221ns (61.018%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.264ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.826ns
+    Source Clock Delay      (SCD):    -0.587ns
+    Clock Pessimism Removal (CPR):    -0.503ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.560    -0.587    core/transport/core_clk
+    SLICE_X31Y99         FDRE                                         r  core/transport/req_payload_reg[1781]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X31Y99         FDRE (Prop_fdre_C_Q)         0.141    -0.446 f  core/transport/req_payload_reg[1781]/Q
+                         net (fo=1, routed)           0.221    -0.225    core/control/packet_payload_reg[1967]_0[1781]
+    SLICE_X36Y99         FDRE                                         f  core/control/packet_payload_reg[1781]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.445     0.445 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.480     0.925    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -3.138    -2.213 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.530    -1.684    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.655 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=16528, routed)       0.828    -0.826    core/control/core_clk
+    SLICE_X36Y99         FDRE                                         r  core/control/packet_payload_reg[1781]/C
+                         clock pessimism              0.503    -0.323    <hidden>
+    SLICE_X36Y99         FDRE (Hold_fdre_C_D)         0.070    -0.253    core/control/packet_payload_reg[1781]
+  -------------------------------------------------------------------
+                         required time                          0.253    <hidden>
+                         arrival time                          -0.225    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.028    <hidden>
+
+
+
+

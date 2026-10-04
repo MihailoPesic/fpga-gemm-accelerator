@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790964858" />
+    <testcase name="register_map_and_access_rules" classname="test_ddr_registers" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_registers.py" lineno="154" time="0.17273449897766113" sim_time_ns="13630.0" ratio_time="78907.2251384056" />
+    <testcase name="counter_words_and_response_stability" classname="test_ddr_registers" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_registers.py" lineno="203" time="0.04116177558898926" sim_time_ns="3170.0" ratio_time="77013.19864461757" />
+    <testcase name="deferred_start_and_clear_commands" classname="test_ddr_registers" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_registers.py" lineno="245" time="0.043706655502319336" sim_time_ns="3750.0" ratio_time="85799.28976265417" />
+    <testcase name="reset_and_back_to_back_requests" classname="test_ddr_registers" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_registers.py" lineno="296" time="0.03458356857299805" sim_time_ns="2170.0" ratio_time="62746.56114274684" />
+  </testsuite>
+</testsuites>

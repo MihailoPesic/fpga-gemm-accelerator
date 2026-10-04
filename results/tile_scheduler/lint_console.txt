@@ -1,0 +1,95 @@
+PASS: Icarus compile/warnings P=4
+PASS: banked Icarus compile/warnings P=4 T=8
+PASS: tile engine compile/warnings P=4 T=8
+PASS: banked Icarus compile/warnings P=4 T=32
+PASS: tile engine compile/warnings P=4 T=32
+PASS: Icarus compile/warnings P=8
+PASS: banked Icarus compile/warnings P=8 T=8
+PASS: tile engine compile/warnings P=8 T=8
+PASS: banked Icarus compile/warnings P=8 T=32
+PASS: tile engine compile/warnings P=8 T=32
+PASS: complete preview UART compile/warnings
+PASS: AXI burst primitive compile/warnings READ_SLOTS=1
+PASS: AXI burst primitive compile/warnings READ_SLOTS=4
+PASS: DMA row sequencer compile/warnings READ_SLOTS=1
+PASS: DMA row sequencer compile/warnings READ_SLOTS=4
+PASS: tile DMA adapter compile/warnings P=4 T=8 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=4 T=8 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=4 T=8 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=4 T=8 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=4 T=8
+PASS: tagged tile scheduler compile/warnings P=4 T=8
+PASS: DDR register interface compile/warnings P=4 T=8
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=1
+PASS: complete DDR command/memory core compile/warnings P=4 T=8 READ_SLOTS=4
+PASS: tile DMA adapter compile/warnings P=4 T=32 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=4 T=32 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=4 T=32 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=4 T=32 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=4 T=32
+PASS: tagged tile scheduler compile/warnings P=4 T=32
+PASS: DDR register interface compile/warnings P=4 T=32
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=1
+PASS: complete DDR command/memory core compile/warnings P=4 T=32 READ_SLOTS=4
+PASS: tile DMA adapter compile/warnings P=8 T=8 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=8 T=8 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=8 T=8 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=8 T=8 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=8 T=8
+PASS: tagged tile scheduler compile/warnings P=8 T=8
+PASS: DDR register interface compile/warnings P=8 T=8
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=1
+PASS: complete DDR command/memory core compile/warnings P=8 T=8 READ_SLOTS=4
+PASS: tile DMA adapter compile/warnings P=8 T=32 READ_SLOTS=1
+PASS: duplex tile DMA compile/warnings P=8 T=32 READ_SLOTS=1
+PASS: tile DMA adapter compile/warnings P=8 T=32 READ_SLOTS=4
+PASS: duplex tile DMA compile/warnings P=8 T=32 READ_SLOTS=4
+PASS: DDR job controller compile/warnings P=8 T=32
+PASS: tagged tile scheduler compile/warnings P=8 T=32
+PASS: DDR register interface compile/warnings P=8 T=32
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=1
+PASS: complete DDR command/memory core compile/warnings P=8 T=32 READ_SLOTS=4
+PASS: DDR diagnostic and packet controller compile/warnings
+tly supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).

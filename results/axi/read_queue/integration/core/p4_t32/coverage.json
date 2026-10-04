@@ -1,0 +1,107 @@
+{
+  "p": 4,
+  "t": 32,
+  "seed": 20261237,
+  "jobs": 7,
+  "output_values": 2288,
+  "shapes": [
+    [
+      33,
+      35,
+      9
+    ],
+    [
+      3,
+      5,
+      1
+    ],
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      5,
+      3,
+      8
+    ],
+    [
+      2,
+      3,
+      255
+    ],
+    [
+      3,
+      1,
+      256
+    ],
+    [
+      33,
+      33,
+      7
+    ]
+  ],
+  "requests": 1005,
+  "responses": 1005,
+  "replays": 2,
+  "sequence_conflicts": 2,
+  "malformed_frames": 4,
+  "invalid_memory_commands": 24,
+  "host_lengths": [
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    64,
+    72,
+    80,
+    88,
+    96,
+    104,
+    112,
+    120,
+    128,
+    136,
+    144,
+    152,
+    160,
+    168,
+    176,
+    184,
+    192,
+    200,
+    208,
+    216,
+    224,
+    232,
+    240
+  ],
+  "faults": [
+    "read",
+    "write",
+    "watchdog",
+    "calibration_during_write_collection"
+  ],
+  "watchdog_limits": [
+    1,
+    2,
+    3,
+    7,
+    16,
+    4294967295
+  ],
+  "watchdog_progress_at_deadline": 1,
+  "axi_read_bursts": 618,
+  "axi_write_bursts": 448,
+  "axi_read_beats": 4787,
+  "axi_write_beats": 5266,
+  "axi_write_responses": 448,
+  "stalls": {
+    "aw": 3662,
+    "w": 5351,
+    "ar": 4020
+  }
+}

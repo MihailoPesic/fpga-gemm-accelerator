@@ -1,0 +1,1040 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "passed": true,
+  "witness_bound_sat_timeframes": 32,
+  "scheduler_safety_bound_sat_timeframes": 32,
+  "queue_safety": "Separate reset-based 8-timeframe base and reset-low induction-only sequence4 (maximum induction length8)",
+  "hardware_accessed": false,
+  "utc_started": "2026-10-04T13:56:18.941061+00:00",
+  "commands": [
+    {
+      "name": "tool_version",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-V"
+      ],
+      "passed": true,
+      "log": "tool_version.log",
+      "exit_code": 0,
+      "seconds": 0.5061143999919295,
+      "log_sha256_bytes": "8064b524d44e8f3a0b72cad9293bb106e976a398edc56a43d211795804858d70"
+    },
+    {
+      "name": "queue_8_base",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_base.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_base.log",
+      "script": "queue_8_base.ys",
+      "script_sha256_bytes": "020b10ddd77d489dd22f711070457a92a50672e36408cd2baca71b936e31dad7",
+      "exit_code": 0,
+      "seconds": 1.2318686999497004,
+      "log_sha256_bytes": "6148c3a4ce0e6e5f898e4b2ef644c29ff9a069095f8b97440e73eb67493ba413",
+      "kind": "queue",
+      "configuration": 8,
+      "target": null,
+      "assertions": 37,
+      "bound": 8,
+      "induction": false,
+      "assertion_imports": 296
+    },
+    {
+      "name": "queue_8_induction",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_induction.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_induction.log",
+      "script": "queue_8_induction.ys",
+      "script_sha256_bytes": "e81230cc60f579d4db20da3dbd094a7f841428e32ce7a2612e63de716c054639",
+      "exit_code": 0,
+      "seconds": 1.0652446000021882,
+      "log_sha256_bytes": "b0966b926bb3616f699335c6edff6532143861975a0208f38c0fc828b3777947",
+      "kind": "queue",
+      "configuration": 8,
+      "target": null,
+      "assertions": 37,
+      "bound": 4,
+      "induction": true,
+      "assertion_imports": 111,
+      "induction_length": 2,
+      "base_case_command": "queue_8_base",
+      "reset_low_all_step_frames": true
+    },
+    {
+      "name": "queue_8_full",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_full.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_full.log",
+      "script": "queue_8_full.ys",
+      "script_sha256_bytes": "834902b6642121727e9c19057ac1b60df21220203599463a319ac9ab3b51c203",
+      "exit_code": 0,
+      "seconds": 4.057810500031337,
+      "log_sha256_bytes": "03199b5fe5286d7681b622021f7b5e148c42d3f51646e06b36123dfc64b961c1",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_full",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "30b0494115b4eab0efc0dc18c1387f61a50a7d4d556775db968cedd5786d5c42",
+      "vcd_sha256_bytes": "b09ec6a73941fef545b1d4890e4b5ef910525f73538e575b76c8f8c8a20ac752",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_8_wrap",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_wrap.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_wrap.log",
+      "script": "queue_8_wrap.ys",
+      "script_sha256_bytes": "5a838cb94adcccca9285358169f048e315d32c0881f5d30885fb052d105be2fc",
+      "exit_code": 0,
+      "seconds": 2.8392812000238337,
+      "log_sha256_bytes": "47f1aa69ec0cdeb8b10df26ea99a891547b8024651ba85c22c8f2fb208199659",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_wrap",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "7827e23bdcf36b279787649d58ca5828c7d175e9ab6cb1c3aed1c3466beef274",
+      "vcd_sha256_bytes": "59bad9852e5c41dde14a9d8b3035804bcbe5fece736a7f0b4dde178804b48f63",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_8_stalls",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_stalls.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_stalls.log",
+      "script": "queue_8_stalls.ys",
+      "script_sha256_bytes": "bf3537d6aea3c12bb75d6e5740edeace9fd968e68374a2bdbd8fc01226dbde47",
+      "exit_code": 0,
+      "seconds": 2.035966700001154,
+      "log_sha256_bytes": "884666f2c66ea7fa71f47a4782f3a82820f1262dc3681d4ed0fdfc4841d9ba3f",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_stalls",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "0dba81a13f45f5ac7cfc48a95f099e15caf1a32bf9d723eb4c7fce25656b98e8",
+      "vcd_sha256_bytes": "16189d9365129ea88258b4307db94d411c773dce81a8a6262e83bc1bd79d2df1",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_8_stop_drain",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_8_stop_drain.ys"
+      ],
+      "passed": true,
+      "log": "queue_8_stop_drain.log",
+      "script": "queue_8_stop_drain.ys",
+      "script_sha256_bytes": "4460f8d5e7f7d3b08cf833dcd02c8fc535bc3b0dfd882269f19e79d8dfdfab65",
+      "exit_code": 0,
+      "seconds": 1.992068699968513,
+      "log_sha256_bytes": "78aa213cfbabd8958343d07cccf399cc2cf2292fd6fb7f50503f18ab38ca1ccb",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_stop_drain",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "375d63e29cbadf3a6816d81de3cf537c643efa593f8172597a1a1ffcb02a0f1a",
+      "vcd_sha256_bytes": "6d3c7bbabc8ade77fcba94e64cbe894f870b418401bd7378c17c292fcef88bcb",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_32_base",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_base.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_base.log",
+      "script": "queue_32_base.ys",
+      "script_sha256_bytes": "c3ce6a38ebe22b3b5e6fc8bbe7c3b898d151b401b223eb6cdd08888a6e296e57",
+      "exit_code": 0,
+      "seconds": 1.2166771999909543,
+      "log_sha256_bytes": "291f684be252eddbe45538fa93cff46586300dea41675aeca9b74be32e48255a",
+      "kind": "queue",
+      "configuration": 32,
+      "target": null,
+      "assertions": 37,
+      "bound": 8,
+      "induction": false,
+      "assertion_imports": 296
+    },
+    {
+      "name": "queue_32_induction",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_induction.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_induction.log",
+      "script": "queue_32_induction.ys",
+      "script_sha256_bytes": "ffd58270bb87320a86f1a6bb745f8bbb42e5bbfeb6c543460d74d2d711e515e9",
+      "exit_code": 0,
+      "seconds": 0.8955692000454292,
+      "log_sha256_bytes": "d60cb33e5e5769c70f423182c85daf027fda4b85c0d652a717e0bb67c3ad93e7",
+      "kind": "queue",
+      "configuration": 32,
+      "target": null,
+      "assertions": 37,
+      "bound": 4,
+      "induction": true,
+      "assertion_imports": 111,
+      "induction_length": 2,
+      "base_case_command": "queue_32_base",
+      "reset_low_all_step_frames": true
+    },
+    {
+      "name": "queue_32_full",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_full.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_full.log",
+      "script": "queue_32_full.ys",
+      "script_sha256_bytes": "84d3e8922b66fc9304574b33a6101508c7753447388ce597595a61e8152827dc",
+      "exit_code": 0,
+      "seconds": 1.7895918999565765,
+      "log_sha256_bytes": "623e72c0f604baeba4c09ea4666a267cf062deb1a20d87c6991a2f160442bfaa",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_full",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "717b5a5295468c70e3abb0d094f71b0e185e3b355f9c030828f46b01b6879498",
+      "vcd_sha256_bytes": "df5c6a0d4cb4627adce31f0a024bb0c04b3dcf6615b2cb9a737f99d1b7418d80",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_32_wrap",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_wrap.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_wrap.log",
+      "script": "queue_32_wrap.ys",
+      "script_sha256_bytes": "bf50a14524ac23843dd5b624f623a30499b396c316f055bbde0a447f7dea53e9",
+      "exit_code": 0,
+      "seconds": 2.2234304000157863,
+      "log_sha256_bytes": "ced457a590cceff221ff545ab7d09dbecd62f1010be830cae6bb850fd6257581",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_wrap",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "4a68d8bc3d8ffcb7d10df03a3ba6d248f87c10a52223222a5343a85f6120934a",
+      "vcd_sha256_bytes": "46fdbe68febf1edb002b25fe29812fedc005f9b825a7d3244ac14bdf4a742274",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_32_stalls",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_stalls.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_stalls.log",
+      "script": "queue_32_stalls.ys",
+      "script_sha256_bytes": "4ece24751d6562209fde4745338a31a114893f2697dc5a8bb78cf1a76994bba9",
+      "exit_code": 0,
+      "seconds": 1.9664043000084348,
+      "log_sha256_bytes": "0dfaa6d5816a63575db2c4ddd83b9c656e726e0d0954bbbcb1b40696167a54d1",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_stalls",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "651caaf7f8b6be7de8e6ec5169456d30f406466b1c38e7369d4e31913ee5cd32",
+      "vcd_sha256_bytes": "100e915731901f3f5aa71e57e2e031e1a6327a0b9f306be27c4def99fa1bd9ce",
+      "independently_decoded": true
+    },
+    {
+      "name": "queue_32_stop_drain",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/queue_32_stop_drain.ys"
+      ],
+      "passed": true,
+      "log": "queue_32_stop_drain.log",
+      "script": "queue_32_stop_drain.ys",
+      "script_sha256_bytes": "545fef3bf186f55c6905ee1014f33db9004717709c23fb4d77a8a068fa28d84f",
+      "exit_code": 0,
+      "seconds": 1.7807254000217654,
+      "log_sha256_bytes": "3ea468af1e93dab6ecef16145e624d3dd67d0d6b8e85ad4d48a6db9fea7a8438",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_stop_drain",
+      "assertions": 37,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "ec154a5e31e1dfc67739f6fc5ad72a36e8d16e55bce1433b380237a3ccff0a6a",
+      "vcd_sha256_bytes": "29754c5d9eb346d116a7d24029f23146c01949e4f9fd8906827d3fbc6078b789",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_0_safety",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_0_safety.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_0_safety.log",
+      "script": "scheduler_0_safety.ys",
+      "script_sha256_bytes": "fe409ddec56eeb7f1ed173cfa3cbdf433272775006df708013df595fc294f387",
+      "exit_code": 0,
+      "seconds": 53.05401359999087,
+      "log_sha256_bytes": "e4452be2ba7cf1a809b4096e414ea7016ee0a02b7122685ed4fb62731f09fa35",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": null,
+      "assertions": 36,
+      "bound": 32,
+      "induction": false,
+      "assertion_imports": 1152
+    },
+    {
+      "name": "scheduler_0_success",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_0_success.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_0_success.log",
+      "script": "scheduler_0_success.ys",
+      "script_sha256_bytes": "27a5cbb00f13508c349c5d194db1fb0c2d9cd850c0bdbe6642f8dee7dc2731f5",
+      "exit_code": 0,
+      "seconds": 5.158747999987099,
+      "log_sha256_bytes": "26d5c961df991530ea30975f6c63ae499a24a14b9d52f5e53f3515aea9e13ea0",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_success",
+      "assertions": 36,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "48c99913c2fd9a0bd3fa127faaf68daff3fe76e407010dad04f8195ef8b66169",
+      "vcd_sha256_bytes": "f95dfd6f2026ce604397b00d1981acd9e3f6eac1f7d35b91d3c0619dafcb1ede",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_0_held",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_0_held.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_0_held.log",
+      "script": "scheduler_0_held.ys",
+      "script_sha256_bytes": "23594d6b1e5376750fea02c872c7a93baad810a51109eb7282ae2b43b48b6f79",
+      "exit_code": 0,
+      "seconds": 5.470277499989606,
+      "log_sha256_bytes": "c4bac1d9793ac2b28c4b9de79cadb8ee9205320a6dcec39a3d60229dd2bb03f0",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_held",
+      "assertions": 36,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "822ed80d745d7a52b76cce80f6278b82a95e336d75f8cd4bd89cddd5a1e730e5",
+      "vcd_sha256_bytes": "332d0d324dff211873920d8bb0709a67118ef54b5fcf6c54de7d7399fc47afb1",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_0_fault_drain",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_0_fault_drain.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_0_fault_drain.log",
+      "script": "scheduler_0_fault_drain.ys",
+      "script_sha256_bytes": "fee8db71a8e22dd07ea13cfe57a040065dc67ed171a6a67f9552f2b1c2aada04",
+      "exit_code": 0,
+      "seconds": 4.408946600044146,
+      "log_sha256_bytes": "64b700688377c6e0cc258f5a37445079e6fbeac71f21cf240a5a90b652724c16",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_fault_drain",
+      "assertions": 36,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "0ee9857b7cc58afd91c912c7d4447fb8b95fec6b3e098c10efacbf46379e4680",
+      "vcd_sha256_bytes": "5596891e92887b77c80ae8ab02d7d2971cc93f60b5b288934646175c44191c13",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_1_safety",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_1_safety.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_1_safety.log",
+      "script": "scheduler_1_safety.ys",
+      "script_sha256_bytes": "12a20ff3d94cb4a5fbee487de184dc189db8f2fcce02520e832465e2e7ef5049",
+      "exit_code": 0,
+      "seconds": 98.24918859999161,
+      "log_sha256_bytes": "1a9a3bcc69be24d5698cbb7e1073eb4c54369d67fb2058518d8ff44270afc0bb",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": null,
+      "assertions": 33,
+      "bound": 32,
+      "induction": false,
+      "assertion_imports": 1056
+    },
+    {
+      "name": "scheduler_1_success",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_1_success.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_1_success.log",
+      "script": "scheduler_1_success.ys",
+      "script_sha256_bytes": "3d1304053bb61ae3222e51b8b4dbef5ce66ef5eca58969f41931043fc7150c2e",
+      "exit_code": 0,
+      "seconds": 5.304592700034846,
+      "log_sha256_bytes": "c891f367bda2df65a565c7fdb38c5fbac6a73da2d8b9035f6591fd124dc2e1d9",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_success",
+      "assertions": 33,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "64a8cf000fcd0f026a91475d110a336ca25af743f607d6b7b51679bfbb39c770",
+      "vcd_sha256_bytes": "d5aa5a528025938282da5597f831e2047b943ff66180b77d87d61e256d03e9b7",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_1_held",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_1_held.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_1_held.log",
+      "script": "scheduler_1_held.ys",
+      "script_sha256_bytes": "c83be5589d3119375c6bb18936dfe10f3d30dd9b729a20fb54f54923d0a0fc1e",
+      "exit_code": 0,
+      "seconds": 4.169022199988831,
+      "log_sha256_bytes": "0033800831d04457f17a078d3f282fc4db097057de7a264f8387c8d37b21b980",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_held",
+      "assertions": 33,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "141871ebd59d023838bc33ce960c61df5ab2359fdfc5a0243699233a68dfda9f",
+      "vcd_sha256_bytes": "afd7e40753e251e46b5ba7445088e00480c7df401784c355782be2e26f4d6b25",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_1_fault_drain",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_1_fault_drain.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_1_fault_drain.log",
+      "script": "scheduler_1_fault_drain.ys",
+      "script_sha256_bytes": "a4a4e2b8b6ca84600e0d3d483f724733d71bf4043075a0b12547942b682b7946",
+      "exit_code": 0,
+      "seconds": 4.50135550001869,
+      "log_sha256_bytes": "e37dfb3bea00fec0c9687f396b1946128296013b4ecd23fe1284412c15cf4e5e",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_fault_drain",
+      "assertions": 33,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "50cb39add23956d17d2f1258727a4ba5066a9fde1c8730d4976a2278fb92e4fc",
+      "vcd_sha256_bytes": "6c7cfef99063e36227f6a26706e6351197faa11837949572a1817c14563ebd2e",
+      "independently_decoded": true
+    },
+    {
+      "name": "scheduler_1_overlap",
+      "argv": [
+        "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\yowasp-yosys.exe",
+        "-s",
+        "/work/scheduler_1_overlap.ys"
+      ],
+      "passed": true,
+      "log": "scheduler_1_overlap.log",
+      "script": "scheduler_1_overlap.ys",
+      "script_sha256_bytes": "3eaab9a0ebc876bb5c988fa0c241360da6ced7c152ff9d951b4f0e0025b2bdfd",
+      "exit_code": 0,
+      "seconds": 4.262170900008641,
+      "log_sha256_bytes": "b90296173be76270e26756daa5b62eb2f7976492dca5f64f40f33674c44a268d",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_overlap",
+      "assertions": 33,
+      "bound": 32,
+      "induction": false,
+      "model_sha256_bytes": "0a9a187fd1057ce4202bb680dcad3576c598dd36ff3b2dcf11aab0e95e925c33",
+      "vcd_sha256_bytes": "c196d84aa9e0dce30a750972a15844666d9f94c6b9e037fd7b69d75f0c359fff",
+      "independently_decoded": true
+    }
+  ],
+  "witnesses": [
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_full",
+      "vcd": "queue_8_full.vcd",
+      "model": "queue_8_full.json",
+      "vcd_sha256_bytes": "b09ec6a73941fef545b1d4890e4b5ef910525f73538e575b76c8f8c8a20ac752",
+      "model_sha256_bytes": "30b0494115b4eab0efc0dc18c1387f61a50a7d4d556775db968cedd5786d5c42",
+      "pushes": 7,
+      "pops": 4,
+      "full_steps": [
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "bank_stall_steps": [
+        23,
+        24,
+        25
+      ],
+      "terminal_stall_steps": [
+        6,
+        7,
+        12,
+        13,
+        20,
+        28,
+        29,
+        30
+      ],
+      "stop_with_work_step": 22,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 1 1 0 0 1/0 0/0 2 0\n 4 0 2 0 2 0 18 0/1 0/0 2 0\n 5 0 2 0 2 0 18 0/0 1/0 2 0\n 6 0 2 0 2 0 18 0/0 0/0 2 0\n 7 0 2 1 2 0 18 0/0 0/0 3 0\n 8 0 3 1 3 0 18 0/0 0/1 4 1\n 9 0 3 0 0 0 18 1/0 0/0 4 1\n10 0 3 0 0 0 31 0/1 0/0 4 1\n11 0 3 0 0 0 31 0/0 1/0 4 1\n12 0 3 1 0 0 31 0/0 0/0 5 1\n13 0 4 0 1 0 31 0/0 0/0 5 1\n14 0 4 0 1 0 31 0/0 0/1 5 2\n15 0 3 1 1 0 31 0/0 0/0 6 2\n16 0 4 0 2 0 31 0/0 0/0 6 2\n17 0 4 0 2 0 31 1/0 0/0 6 2\n18 0 4 0 2 0 9 0/1 0/0 6 2\n19 0 4 0 2 0 9 0/0 1/0 6 2\n20 0 4 0 2 0 9 0/0 0/0 6 2\n21 0 4 0 2 0 9 0/0 0/1 6 3\n22 0 3 1 2 0 9 1/0 0/0 7 3\n23 1 4 0 3 7 30 0/0 0/0 7 3\n24 1 4 0 3 7 30 0/0 0/0 7 3\n25 1 4 0 3 7 30 0/0 0/0 7 3\n26 1 4 0 3 7 30 0/1 0/0 7 3\n27 1 4 0 3 7 30 0/0 1/0 7 3\n28 1 4 0 3 7 30 0/0 0/0 7 3\n29 1 4 0 3 7 30 0/0 0/0 7 3\n30 1 4 0 3 7 30 0/0 0/0 7 3\n31 1 4 0 3 7 30 0/0 0/1 7 4\n32 1 3 0 3 7 30 0/0 0/0 7 4"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_wrap",
+      "vcd": "queue_8_wrap.vcd",
+      "model": "queue_8_wrap.json",
+      "vcd_sha256_bytes": "59bad9852e5c41dde14a9d8b3035804bcbe5fece736a7f0b4dde178804b48f63",
+      "model_sha256_bytes": "7827e23bdcf36b279787649d58ca5828c7d175e9ab6cb1c3aed1c3466beef274",
+      "pushes": 5,
+      "pops": 5,
+      "full_steps": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "bank_stall_steps": [],
+      "terminal_stall_steps": [
+        28
+      ],
+      "stop_with_work_step": null,
+      "later_retire": false,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 0 1 0 0 1/0 0/0 1 0\n 4 0 1 0 1 1 0 0/1 0/0 1 0\n 5 0 1 0 1 1 0 0/0 0/0 1 0\n 6 0 1 1 1 1 0 0/0 0/0 2 0\n 7 0 2 1 2 1 0 0/0 1/0 3 0\n 8 0 3 1 3 1 0 0/0 0/1 4 1\n 9 0 3 0 0 1 0 0/0 0/0 4 1\n10 0 3 1 0 1 0 0/0 0/0 5 1\n11 0 4 0 1 1 0 0/0 0/0 5 1\n12 0 4 0 1 1 0 1/0 0/0 5 1\n13 0 4 0 1 2 4 0/1 0/0 5 1\n14 0 4 0 1 2 4 0/0 1/0 5 1\n15 0 4 0 1 2 4 0/0 0/1 5 2\n16 0 3 0 1 2 4 1/0 0/0 5 2\n17 0 3 0 1 1 17 0/1 0/0 5 2\n18 0 3 0 1 1 17 0/0 1/0 5 2\n19 0 3 0 1 1 17 0/0 0/1 5 3\n20 0 2 0 1 1 17 1/0 0/0 5 3\n21 0 2 0 1 1 2 0/1 0/0 5 3\n22 0 2 0 1 1 2 0/0 1/0 5 3\n23 0 2 0 1 1 2 0/0 0/1 5 4\n24 0 1 0 1 1 2 0/0 0/0 5 4\n25 0 1 0 1 1 2 1/0 0/0 5 4\n26 0 1 0 1 2 24 0/1 0/0 5 4\n27 0 1 0 1 2 24 0/0 1/0 5 4\n28 0 1 0 1 2 24 0/0 0/0 5 4\n29 0 1 0 1 2 24 0/0 0/1 5 5\n30 0 0 0 1 2 24 0/0 0/0 5 5\n31 0 0 0 1 2 24 0/0 0/0 5 5\n32 0 0 0 1 2 24 0/0 0/0 5 5"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_stalls",
+      "vcd": "queue_8_stalls.vcd",
+      "model": "queue_8_stalls.json",
+      "vcd_sha256_bytes": "16189d9365129ea88258b4307db94d411c773dce81a8a6262e83bc1bd79d2df1",
+      "model_sha256_bytes": "0dba81a13f45f5ac7cfc48a95f099e15caf1a32bf9d723eb4c7fce25656b98e8",
+      "pushes": 4,
+      "pops": 4,
+      "full_steps": [],
+      "bank_stall_steps": [
+        4
+      ],
+      "terminal_stall_steps": [
+        28
+      ],
+      "stop_with_work_step": 17,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 0 1 0 0 1/0 0/0 1 0\n 4 0 1 0 1 0 16 0/0 0/0 1 0\n 5 0 1 0 1 0 16 0/1 0/0 1 0\n 6 0 1 0 1 0 16 0/0 1/0 1 0\n 7 0 1 0 1 0 16 0/0 0/1 1 1\n 8 0 0 1 1 0 16 0/0 0/0 2 1\n 9 0 1 0 2 0 16 0/0 0/0 2 1\n10 0 1 1 2 0 16 1/0 0/0 3 1\n11 0 2 0 3 0 0 0/1 0/0 3 1\n12 0 2 0 3 0 0 0/0 1/0 3 1\n13 0 2 0 3 0 0 0/0 0/1 3 2\n14 0 1 0 3 0 0 0/0 0/0 3 2\n15 0 1 0 3 0 0 0/0 0/0 3 2\n16 0 1 0 3 0 0 0/0 0/0 3 2\n17 0 1 1 3 0 0 0/0 0/0 4 2\n18 1 2 0 0 0 0 0/0 0/0 4 2\n19 1 2 0 0 0 0 0/0 0/0 4 2\n20 1 2 0 0 0 0 1/0 0/0 4 2\n21 1 2 0 0 0 0 0/0 1/0 4 2\n22 1 2 0 0 0 0 0/0 0/1 4 3\n23 1 1 0 0 0 0 0/0 0/0 4 3\n24 1 1 0 0 0 0 1/0 0/0 4 3\n25 1 1 0 0 0 0 0/0 0/0 4 3\n26 1 1 0 0 0 0 0/0 0/0 4 3\n27 1 1 0 0 0 0 0/0 1/0 4 3\n28 1 1 0 0 0 0 0/0 0/0 4 3\n29 1 1 0 0 0 0 0/0 0/1 4 4\n30 1 0 0 0 0 0 0/0 0/0 4 4\n31 1 0 0 0 0 0 0/0 0/0 4 4\n32 1 0 0 0 0 0 0/0 0/0 4 4"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 8,
+      "target": "cover_stop_drain",
+      "vcd": "queue_8_stop_drain.vcd",
+      "model": "queue_8_stop_drain.json",
+      "vcd_sha256_bytes": "6d3c7bbabc8ade77fcba94e64cbe894f870b418401bd7378c17c292fcef88bcb",
+      "model_sha256_bytes": "375d63e29cbadf3a6816d81de3cf537c643efa593f8172597a1a1ffcb02a0f1a",
+      "pushes": 2,
+      "pops": 2,
+      "full_steps": [],
+      "bank_stall_steps": [],
+      "terminal_stall_steps": [],
+      "stop_with_work_step": 25,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 0 1 0 0 1/0 0/0 1 0\n 4 0 1 0 1 0 0 0/1 0/0 1 0\n 5 0 1 0 1 0 0 0/0 0/0 1 0\n 6 0 1 0 1 0 0 0/0 0/0 1 0\n 7 0 1 0 1 0 0 0/0 0/0 1 0\n 8 0 1 1 1 0 0 0/0 0/0 2 0\n 9 0 2 0 2 0 0 0/0 0/0 2 0\n10 0 2 0 2 0 0 0/0 0/0 2 0\n11 0 2 0 2 0 0 0/0 0/0 2 0\n12 0 2 0 2 0 0 0/0 1/0 2 0\n13 0 2 0 2 0 0 0/0 0/1 2 1\n14 0 1 0 2 0 0 0/0 0/0 2 1\n15 0 1 0 2 0 0 0/0 0/0 2 1\n16 0 1 0 2 0 0 0/0 0/0 2 1\n17 0 1 0 2 0 0 0/0 0/0 2 1\n18 0 1 0 2 0 0 0/0 0/0 2 1\n19 0 1 0 2 0 0 0/0 0/0 2 1\n20 0 1 0 2 0 0 0/0 0/0 2 1\n21 0 1 0 2 0 0 0/0 0/0 2 1\n22 0 1 0 2 0 0 0/0 0/0 2 1\n23 0 1 0 2 0 0 1/0 0/0 2 1\n24 0 1 0 2 2 21 0/1 0/0 2 1\n25 0 1 0 2 2 21 0/0 1/0 2 1\n26 1 1 0 2 2 21 0/0 0/1 2 2\n27 1 0 0 2 2 21 0/0 0/0 2 2\n28 1 0 0 2 2 21 0/0 0/0 2 2\n29 1 0 0 2 2 21 0/0 0/0 2 2\n30 1 0 0 2 2 21 0/0 0/0 2 2\n31 1 0 0 2 2 21 0/0 0/0 2 2\n32 1 0 0 2 2 21 0/0 0/0 2 2"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_full",
+      "vcd": "queue_32_full.vcd",
+      "model": "queue_32_full.json",
+      "vcd_sha256_bytes": "df5c6a0d4cb4627adce31f0a024bb0c04b3dcf6615b2cb9a737f99d1b7418d80",
+      "model_sha256_bytes": "717b5a5295468c70e3abb0d094f71b0e185e3b355f9c030828f46b01b6879498",
+      "pushes": 4,
+      "pops": 1,
+      "full_steps": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "bank_stall_steps": [],
+      "terminal_stall_steps": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "stop_with_work_step": 6,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 0 0 0 0 0/0 0/0 0 0\n 3 0 0 1 0 0 0 0/0 0/0 1 0\n 4 0 1 1 1 0 0 0/0 0/0 2 0\n 5 0 2 1 2 0 0 0/0 0/0 3 0\n 6 0 3 1 3 0 0 0/0 0/0 4 0\n 7 1 4 0 0 0 0 1/0 0/0 4 0\n 8 1 4 0 0 0 0 0/0 1/0 4 0\n 9 1 4 0 0 0 0 0/0 0/0 4 0\n10 1 4 0 0 0 0 0/0 0/0 4 0\n11 1 4 0 0 0 0 0/0 0/0 4 0\n12 1 4 0 0 0 0 0/0 0/0 4 0\n13 1 4 0 0 0 0 0/0 0/0 4 0\n14 1 4 0 0 0 0 0/0 0/0 4 0\n15 1 4 0 0 0 0 0/0 0/0 4 0\n16 1 4 0 0 0 0 0/0 0/0 4 0\n17 1 4 0 0 0 0 0/0 0/0 4 0\n18 1 4 0 0 0 0 0/0 0/0 4 0\n19 1 4 0 0 0 0 0/0 0/0 4 0\n20 1 4 0 0 0 0 0/0 0/0 4 0\n21 1 4 0 0 0 0 0/0 0/0 4 0\n22 1 4 0 0 0 0 0/0 0/0 4 0\n23 1 4 0 0 0 0 0/0 0/0 4 0\n24 1 4 0 0 0 0 0/0 0/0 4 0\n25 1 4 0 0 0 0 0/0 0/0 4 0\n26 1 4 0 0 0 0 0/0 0/0 4 0\n27 1 4 0 0 0 0 0/0 0/0 4 0\n28 1 4 0 0 0 0 0/0 0/0 4 0\n29 1 4 0 0 0 0 0/0 0/0 4 0\n30 1 4 0 0 0 0 0/0 0/0 4 0\n31 1 4 0 0 0 0 0/0 0/1 4 1\n32 1 3 0 0 0 0 0/0 0/0 4 1"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_wrap",
+      "vcd": "queue_32_wrap.vcd",
+      "model": "queue_32_wrap.json",
+      "vcd_sha256_bytes": "46fdbe68febf1edb002b25fe29812fedc005f9b825a7d3244ac14bdf4a742274",
+      "model_sha256_bytes": "4a68d8bc3d8ffcb7d10df03a3ba6d248f87c10a52223222a5343a85f6120934a",
+      "pushes": 5,
+      "pops": 5,
+      "full_steps": [],
+      "bank_stall_steps": [
+        27
+      ],
+      "terminal_stall_steps": [
+        20
+      ],
+      "stop_with_work_step": null,
+      "later_retire": false,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 0 1 0 0 1/0 0/0 1 0\n 4 0 1 0 1 0 0 0/1 0/0 1 0\n 5 0 1 0 1 0 0 0/0 1/0 1 0\n 6 0 1 1 1 0 0 0/0 0/1 2 1\n 7 0 1 0 2 0 0 1/0 0/0 2 1\n 8 0 1 0 2 1 13 0/1 0/0 2 1\n 9 0 1 0 2 1 13 0/0 1/0 2 1\n10 0 1 0 2 1 13 0/0 0/1 2 2\n11 0 0 0 2 1 13 0/0 0/0 2 2\n12 0 0 0 2 1 13 0/0 0/0 2 2\n13 0 0 0 2 1 13 0/0 0/0 2 2\n14 0 0 0 2 1 13 0/0 0/0 2 2\n15 0 0 0 2 1 13 0/0 0/0 2 2\n16 0 0 1 2 1 13 0/0 0/0 3 2\n17 0 1 1 3 1 13 1/0 0/0 4 2\n18 0 2 0 0 25 2 0/1 0/0 4 2\n19 0 2 1 0 25 2 0/0 1/0 5 2\n20 0 3 0 1 25 2 0/0 0/0 5 2\n21 0 3 0 1 25 2 0/0 0/1 5 3\n22 0 2 0 1 25 2 1/0 0/0 5 3\n23 0 2 0 1 27 25 0/1 0/0 5 3\n24 0 2 0 1 27 25 0/0 1/0 5 3\n25 0 2 0 1 27 25 0/0 0/1 5 4\n26 0 1 0 1 27 25 1/0 0/0 5 4\n27 0 1 0 1 11 13 0/0 0/0 5 4\n28 0 1 0 1 11 13 0/1 0/0 5 4\n29 0 1 0 1 11 13 0/0 1/0 5 4\n30 0 1 0 1 11 13 0/0 0/1 5 5\n31 0 0 0 1 11 13 0/0 0/0 5 5\n32 1 0 0 1 11 13 0/0 0/0 5 5"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_stalls",
+      "vcd": "queue_32_stalls.vcd",
+      "model": "queue_32_stalls.json",
+      "vcd_sha256_bytes": "100e915731901f3f5aa71e57e2e031e1a6327a0b9f306be27c4def99fa1bd9ce",
+      "model_sha256_bytes": "651caaf7f8b6be7de8e6ec5169456d30f406466b1c38e7369d4e31913ee5cd32",
+      "pushes": 4,
+      "pops": 4,
+      "full_steps": [],
+      "bank_stall_steps": [
+        21
+      ],
+      "terminal_stall_steps": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "stop_with_work_step": 22,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 1 0 0 0 0/0 0/0 1 0\n 3 0 1 0 1 0 0 1/0 0/0 1 0\n 4 0 1 0 1 0 22 0/1 0/0 1 0\n 5 0 1 0 1 0 22 0/0 1/0 1 0\n 6 0 1 0 1 0 22 0/0 0/0 1 0\n 7 0 1 0 1 0 22 0/0 0/0 1 0\n 8 0 1 0 1 0 22 0/0 0/0 1 0\n 9 0 1 0 1 0 22 0/0 0/0 1 0\n10 0 1 0 1 0 22 0/0 0/0 1 0\n11 0 1 0 1 0 22 0/0 0/0 1 0\n12 0 1 0 1 0 22 0/0 0/0 1 0\n13 0 1 0 1 0 22 0/0 0/1 1 1\n14 0 0 0 1 0 22 0/0 0/0 1 1\n15 0 0 1 1 0 22 0/0 0/0 2 1\n16 0 1 0 2 0 22 1/0 0/0 2 1\n17 0 1 0 2 24 2 0/1 0/0 2 1\n18 0 1 1 2 24 2 0/0 1/0 3 1\n19 0 2 0 3 24 2 0/0 0/1 3 2\n20 0 1 0 3 24 2 1/0 0/0 3 2\n21 0 1 1 3 27 28 0/0 0/0 4 2\n22 0 2 0 0 27 28 0/1 0/0 4 2\n23 1 2 0 0 27 28 0/0 0/0 4 2\n24 1 2 0 0 27 28 0/0 1/0 4 2\n25 1 2 0 0 27 28 0/0 0/1 4 3\n26 1 1 0 0 27 28 1/0 0/0 4 3\n27 1 1 0 0 27 28 0/0 1/0 4 3\n28 1 1 0 0 27 28 0/0 0/1 4 4\n29 1 0 0 0 27 28 0/0 0/0 4 4\n30 1 0 0 0 27 28 0/0 0/0 4 4\n31 1 0 0 0 27 28 0/0 0/0 4 4\n32 1 0 0 0 27 28 0/0 0/0 4 4"
+    },
+    {
+      "result": "PASS",
+      "kind": "queue",
+      "configuration": 32,
+      "target": "cover_stop_drain",
+      "vcd": "queue_32_stop_drain.vcd",
+      "model": "queue_32_stop_drain.json",
+      "vcd_sha256_bytes": "29754c5d9eb346d116a7d24029f23146c01949e4f9fd8906827d3fbc6078b789",
+      "model_sha256_bytes": "ec154a5e31e1dfc67739f6fc5ad72a36e8d16e55bce1433b380237a3ccff0a6a",
+      "pushes": 1,
+      "pops": 1,
+      "full_steps": [],
+      "bank_stall_steps": [],
+      "terminal_stall_steps": [],
+      "stop_with_work_step": 14,
+      "later_retire": true,
+      "cycle_table": "step stop owned cmd tag row word data/bank done/terminal pushes pops\n 2 0 0 0 0 0 0 0/0 0/0 0 0\n 3 0 0 0 0 0 0 0/0 0/0 0 0\n 4 0 0 0 0 0 0 0/0 0/0 0 0\n 5 0 0 0 0 0 0 0/0 0/0 0 0\n 6 0 0 0 0 0 0 0/0 0/0 0 0\n 7 0 0 0 0 0 0 0/0 0/0 0 0\n 8 0 0 0 0 0 0 0/0 0/0 0 0\n 9 0 0 0 0 0 0 0/0 0/0 0 0\n10 0 0 0 0 0 0 0/0 0/0 0 0\n11 0 0 0 0 0 0 0/0 0/0 0 0\n12 0 0 0 0 0 0 0/0 0/0 0 0\n13 0 0 1 0 0 0 0/0 0/0 1 0\n14 0 1 0 1 0 0 1/0 0/0 1 0\n15 1 1 0 1 0 2 0/1 0/0 1 0\n16 1 1 0 1 0 2 0/0 0/0 1 0\n17 1 1 0 1 0 2 0/0 0/0 1 0\n18 1 1 0 1 0 2 0/0 0/0 1 0\n19 1 1 0 1 0 2 0/0 0/0 1 0\n20 1 1 0 1 0 2 0/0 0/0 1 0\n21 1 1 0 1 0 2 0/0 0/0 1 0\n22 1 1 0 1 0 2 0/0 0/0 1 0\n23 1 1 0 1 0 2 0/0 0/0 1 0\n24 1 1 0 1 0 2 0/0 0/0 1 0\n25 1 1 0 1 0 2 0/0 0/0 1 0\n26 1 1 0 1 0 2 0/0 0/0 1 0\n27 1 1 0 1 0 2 0/0 0/0 1 0\n28 1 1 0 1 0 2 0/0 1/0 1 0\n29 1 1 0 1 0 2 0/0 0/1 1 1\n30 1 0 0 1 0 2 0/0 0/0 1 1\n31 1 0 0 1 0 2 0/0 0/0 1 1\n32 1 0 0 1 0 2 0/0 0/0 1 1"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_success",
+      "vcd": "scheduler_0_success.vcd",
+      "model": "scheduler_0_success.json",
+      "vcd_sha256_bytes": "f95dfd6f2026ce604397b00d1981acd9e3f6eac1f7d35b91d3c0619dafcb1ede",
+      "model_sha256_bytes": "48c99913c2fd9a0bd3fa127faaf68daff3fe76e407010dad04f8195ef8b66169",
+      "load_requests": 4,
+      "compute_starts": 2,
+      "store_requests": 2,
+      "store_completions": 2,
+      "overlap_steps": [],
+      "load_stall_steps": [
+        19,
+        20
+      ],
+      "store_stall_steps": [],
+      "fault_with_work_step": null,
+      "later_completion": false,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 1 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 5 0 1 None/None/None 1 0 0 1/0 0/0 0\n 6 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 7 0 1 None/None/None 1 0 0 1/0 0/0 0\n 8 0 1 None/None/None 1 0 0 2/0 0/0 0\n 9 0 1 None/None/None 1 0 0 3/0 1/0 0\n10 0 1 None/(0, 0)/None 1 0 0 3/0 1/0 0\n11 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n12 0 1 None/None/None 1 1 0 3/0 1/0 0\n13 0 1 None/None/None 1 1 0 0/0 2/0 0\n14 0 1 None/None/0 1 1 0 0/0 3/0 0\n15 0 1 None/None/None 1 1 0 0/0 3/0 0\n16 0 1 None/None/None 1 1 1 0/0 0/0 0\n17 0 1 (0, 0)/None/None 2 1 1 1/0 0/0 0\n18 0 1 None/None/None 2 1 1 1/0 0/0 0\n19 0 1 None/None/None 2 1 1 1/0 0/0 0\n20 0 1 None/None/None 2 1 1 1/0 0/0 0\n21 0 1 (0, 1)/None/None 2 1 1 1/0 0/0 0\n22 0 1 None/None/None 2 1 1 1/0 0/0 0\n23 0 1 None/None/None 2 1 1 2/0 0/0 0\n24 0 1 None/(0, 0)/None 2 1 1 3/0 1/0 0\n25 0 1 None/(0, 0)/None 2 2 1 3/0 1/0 0\n26 0 1 None/None/None 2 2 1 3/0 1/0 0\n27 0 1 None/None/None 2 2 1 0/0 2/0 0\n28 0 1 None/None/0 2 2 1 0/0 3/0 0\n29 0 1 None/None/None 2 2 1 0/0 3/0 0\n30 0 1 None/None/None 2 2 2 0/0 0/0 0\n31 0 0 None/None/None 2 2 2 0/0 0/0 1\n32 1 1 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_held",
+      "vcd": "scheduler_0_held.vcd",
+      "model": "scheduler_0_held.json",
+      "vcd_sha256_bytes": "332d0d324dff211873920d8bb0709a67118ef54b5fcf6c54de7d7399fc47afb1",
+      "model_sha256_bytes": "822ed80d745d7a52b76cce80f6278b82a95e336d75f8cd4bd89cddd5a1e730e5",
+      "load_requests": 3,
+      "compute_starts": 1,
+      "store_requests": 1,
+      "store_completions": 1,
+      "overlap_steps": [],
+      "load_stall_steps": [
+        24
+      ],
+      "store_stall_steps": [
+        17
+      ],
+      "fault_with_work_step": null,
+      "later_completion": false,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 1 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 5 0 1 None/None/None 1 0 0 1/0 0/0 0\n 6 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 7 0 1 None/None/None 1 0 0 1/0 0/0 0\n 8 0 1 None/None/None 1 0 0 2/0 0/0 0\n 9 0 1 None/(0, 0)/None 1 0 0 3/0 1/0 0\n10 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n11 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n12 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n13 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n14 0 1 None/(0, 0)/None 1 1 0 3/0 1/0 0\n15 0 1 None/None/None 1 1 0 3/0 1/0 0\n16 0 1 None/None/None 1 1 0 0/0 2/0 0\n17 0 1 None/None/None 1 1 0 0/0 3/0 0\n18 0 1 None/None/0 1 1 0 0/0 3/0 0\n19 0 1 None/None/0 1 1 0 0/0 3/0 0\n20 0 1 None/None/None 1 1 0 0/0 3/0 0\n21 0 1 None/None/None 1 1 1 0/0 0/0 0\n22 0 1 (0, 0)/None/None 2 1 1 1/0 0/0 0\n23 0 1 None/None/None 2 1 1 1/0 0/0 0\n24 0 1 None/None/None 2 1 1 1/0 0/0 0\n25 0 1 None/None/None 2 1 1 1/0 0/0 0\n26 1 1 None/None/None 2 1 1 1/0 0/0 0\n27 1 0 None/None/None 2 1 1 0/0 0/0 0\n28 1 0 None/None/None 2 1 1 0/0 0/0 0\n29 1 0 None/None/None 2 1 1 0/0 0/0 0\n30 1 0 None/None/None 2 1 1 0/0 0/0 0\n31 1 0 None/None/None 2 1 1 0/0 0/0 0\n32 1 0 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 0,
+      "target": "cover_fault_drain",
+      "vcd": "scheduler_0_fault_drain.vcd",
+      "model": "scheduler_0_fault_drain.json",
+      "vcd_sha256_bytes": "5596891e92887b77c80ae8ab02d7d2971cc93f60b5b288934646175c44191c13",
+      "model_sha256_bytes": "0ee9857b7cc58afd91c912c7d4447fb8b95fec6b3e098c10efacbf46379e4680",
+      "load_requests": 1,
+      "compute_starts": 0,
+      "store_requests": 0,
+      "store_completions": 0,
+      "overlap_steps": [],
+      "load_stall_steps": [
+        4,
+        5
+      ],
+      "store_stall_steps": [],
+      "fault_with_work_step": 7,
+      "later_completion": true,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 1 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 None/None/None 1 0 0 1/0 0/0 0\n 5 0 1 None/None/None 1 0 0 1/0 0/0 0\n 6 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 7 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 8 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 9 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n10 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n11 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n12 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n13 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n14 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n15 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n16 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n17 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n18 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n19 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n20 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n21 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n22 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n23 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n24 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n25 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n26 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n27 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n28 1 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n29 1 1 None/None/None 1 0 0 1/0 0/0 0\n30 1 1 None/None/None 1 0 0 1/0 0/0 0\n31 1 0 None/None/None 1 0 0 0/0 0/0 0\n32 1 0 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_success",
+      "vcd": "scheduler_1_success.vcd",
+      "model": "scheduler_1_success.json",
+      "vcd_sha256_bytes": "d5aa5a528025938282da5597f831e2047b943ff66180b77d87d61e256d03e9b7",
+      "model_sha256_bytes": "64a8cf000fcd0f026a91475d110a336ca25af743f607d6b7b51679bfbb39c770",
+      "load_requests": 4,
+      "compute_starts": 2,
+      "store_requests": 2,
+      "store_completions": 2,
+      "overlap_steps": [
+        10
+      ],
+      "load_stall_steps": [],
+      "store_stall_steps": [],
+      "fault_with_work_step": null,
+      "later_completion": false,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 1 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 5 0 1 None/None/None 1 0 0 1/0 0/0 0\n 6 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 7 0 1 None/None/None 1 0 0 1/0 0/0 0\n 8 0 1 None/None/None 1 0 0 2/0 0/0 0\n 9 0 1 (1, 0)/(0, 0)/None 2 0 0 3/1 1/0 0\n10 0 1 None/(0, 0)/None 2 1 0 3/1 1/0 0\n11 0 1 (1, 1)/None/None 2 1 0 3/1 1/0 0\n12 0 1 None/None/None 2 1 0 0/1 2/0 0\n13 0 1 None/None/0 2 1 0 0/2 3/0 0\n14 0 1 None/(1, 1)/None 2 1 0 0/3 3/1 0\n15 0 1 None/(1, 1)/None 2 2 1 0/3 0/1 0\n16 0 1 None/(1, 1)/None 2 2 1 0/3 0/1 0\n17 0 1 None/None/None 2 2 1 0/3 0/1 0\n18 0 1 None/None/None 2 2 1 0/0 0/2 0\n19 0 1 None/None/1 2 2 1 0/0 0/3 0\n20 0 1 None/None/None 2 2 1 0/0 0/3 0\n21 0 1 None/None/None 2 2 2 0/0 0/0 0\n22 0 0 None/None/None 2 2 2 0/0 0/0 1\n23 1 1 None/None/None 2 2 2 0/0 0/0 0\n24 1 0 None/None/None 2 2 2 0/0 0/0 0\n25 1 0 None/None/None 2 2 2 0/0 0/0 0\n26 1 0 None/None/None 2 2 2 0/0 0/0 0\n27 1 0 None/None/None 2 2 2 0/0 0/0 0\n28 1 0 None/None/None 2 2 2 0/0 0/0 0\n29 1 0 None/None/None 2 2 2 0/0 0/0 0\n30 1 0 None/None/None 2 2 2 0/0 0/0 0\n31 1 0 None/None/None 2 2 2 0/0 0/0 0\n32 1 0 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_held",
+      "vcd": "scheduler_1_held.vcd",
+      "model": "scheduler_1_held.json",
+      "vcd_sha256_bytes": "afd7e40753e251e46b5ba7445088e00480c7df401784c355782be2e26f4d6b25",
+      "model_sha256_bytes": "141871ebd59d023838bc33ce960c61df5ab2359fdfc5a0243699233a68dfda9f",
+      "load_requests": 3,
+      "compute_starts": 1,
+      "store_requests": 0,
+      "store_completions": 0,
+      "overlap_steps": [],
+      "load_stall_steps": [
+        26,
+        27,
+        30
+      ],
+      "store_stall_steps": [
+        30
+      ],
+      "fault_with_work_step": null,
+      "later_completion": false,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 0 None/None/None 0 0 0 0/0 0/0 0\n 4 0 0 None/None/None 0 0 0 0/0 0/0 0\n 5 0 0 None/None/None 0 0 0 0/0 0/0 0\n 6 0 0 None/None/None 0 0 0 0/0 0/0 0\n 7 0 0 None/None/None 0 0 0 0/0 0/0 0\n 8 0 0 None/None/None 0 0 0 0/0 0/0 0\n 9 0 0 None/None/None 0 0 0 0/0 0/0 0\n10 0 0 None/None/None 0 0 0 0/0 0/0 0\n11 0 0 None/None/None 0 0 0 0/0 0/0 0\n12 0 0 None/None/None 0 0 0 0/0 0/0 0\n13 0 0 None/None/None 0 0 0 0/0 0/0 0\n14 0 0 None/None/None 0 0 0 0/0 0/0 0\n15 0 0 None/None/None 0 0 0 0/0 0/0 0\n16 0 0 None/None/None 0 0 0 0/0 0/0 0\n17 0 0 None/None/None 0 0 0 0/0 0/0 0\n18 0 0 None/None/None 0 0 0 0/0 0/0 0\n19 0 1 None/None/None 0 0 0 0/0 0/0 0\n20 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n21 0 1 None/None/None 1 0 0 1/0 0/0 0\n22 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n23 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n24 0 1 None/None/None 1 0 0 1/0 0/0 0\n25 0 1 None/None/None 1 0 0 2/0 0/0 0\n26 0 1 None/(0, 0)/None 2 0 0 3/1 1/0 0\n27 0 1 None/(0, 0)/None 2 1 0 3/1 1/0 0\n28 0 1 (1, 0)/None/None 2 1 0 3/1 1/0 0\n29 0 1 None/None/None 2 1 0 0/1 2/0 0\n30 0 1 None/None/None 2 1 0 0/1 3/0 0\n31 0 1 None/None/None 2 1 0 0/1 3/0 0\n32 1 1 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_fault_drain",
+      "vcd": "scheduler_1_fault_drain.vcd",
+      "model": "scheduler_1_fault_drain.json",
+      "vcd_sha256_bytes": "6c7cfef99063e36227f6a26706e6351197faa11837949572a1817c14563ebd2e",
+      "model_sha256_bytes": "50cb39add23956d17d2f1258727a4ba5066a9fde1c8730d4976a2278fb92e4fc",
+      "load_requests": 2,
+      "compute_starts": 0,
+      "store_requests": 0,
+      "store_completions": 0,
+      "overlap_steps": [],
+      "load_stall_steps": [],
+      "store_stall_steps": [],
+      "fault_with_work_step": 9,
+      "later_completion": true,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 0 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 None/None/None 0 0 0 0/0 0/0 0\n 5 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 6 0 1 None/None/None 1 0 0 1/0 0/0 0\n 7 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 8 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 9 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n10 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n11 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n12 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n13 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n14 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n15 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n16 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n17 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n18 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n19 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n20 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n21 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n22 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n23 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n24 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n25 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n26 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n27 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n28 1 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n29 1 1 None/None/None 1 0 0 1/0 0/0 0\n30 1 1 None/None/None 1 0 0 1/0 0/0 0\n31 1 0 None/None/None 1 0 0 0/0 0/0 0\n32 1 0 FINAL_OBSERVATION 0"
+    },
+    {
+      "result": "PASS",
+      "kind": "scheduler",
+      "configuration": 1,
+      "target": "cover_overlap",
+      "vcd": "scheduler_1_overlap.vcd",
+      "model": "scheduler_1_overlap.json",
+      "vcd_sha256_bytes": "c196d84aa9e0dce30a750972a15844666d9f94c6b9e037fd7b69d75f0c359fff",
+      "model_sha256_bytes": "0a9a187fd1057ce4202bb680dcad3576c598dd36ff3b2dcf11aab0e95e925c33",
+      "load_requests": 4,
+      "compute_starts": 2,
+      "store_requests": 1,
+      "store_completions": 1,
+      "overlap_steps": [
+        11
+      ],
+      "load_stall_steps": [
+        9
+      ],
+      "store_stall_steps": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "fault_with_work_step": null,
+      "later_completion": false,
+      "cycle_table": "step fatal busy owners(load/core/store) admitted computed retired input0/1 output0/1 done\n 2 0 0 None/None/None 0 0 0 0/0 0/0 0\n 3 0 1 None/None/None 0 0 0 0/0 0/0 0\n 4 0 1 (0, 0)/None/None 1 0 0 1/0 0/0 0\n 5 0 1 None/None/None 1 0 0 1/0 0/0 0\n 6 0 1 (0, 1)/None/None 1 0 0 1/0 0/0 0\n 7 0 1 None/None/None 1 0 0 1/0 0/0 0\n 8 0 1 None/None/None 1 0 0 2/0 0/0 0\n 9 0 1 None/(0, 0)/None 2 0 0 3/1 1/0 0\n10 0 1 (1, 0)/(0, 0)/None 2 1 0 3/1 1/0 0\n11 0 1 None/None/None 2 1 0 3/1 1/0 0\n12 0 1 (1, 1)/None/None 2 1 0 0/1 2/0 0\n13 0 1 (1, 1)/None/0 2 1 0 0/1 3/0 0\n14 0 1 None/None/0 2 1 0 0/1 3/0 0\n15 0 1 None/None/None 2 1 0 0/2 3/0 0\n16 0 1 None/None/None 2 1 1 0/3 0/1 0\n17 0 1 None/(1, 1)/None 2 1 1 0/3 0/1 0\n18 0 1 None/(1, 1)/None 2 2 1 0/3 0/1 0\n19 0 1 None/None/None 2 2 1 0/3 0/1 0\n20 0 1 None/None/None 2 2 1 0/0 0/2 0\n21 0 1 None/None/None 2 2 1 0/0 0/3 0\n22 0 1 None/None/None 2 2 1 0/0 0/3 0\n23 0 1 None/None/None 2 2 1 0/0 0/3 0\n24 0 1 None/None/None 2 2 1 0/0 0/3 0\n25 0 1 None/None/None 2 2 1 0/0 0/3 0\n26 0 1 None/None/None 2 2 1 0/0 0/3 0\n27 0 1 None/None/None 2 2 1 0/0 0/3 0\n28 0 1 None/None/None 2 2 1 0/0 0/3 0\n29 1 1 None/None/None 2 2 1 0/0 0/3 0\n30 1 0 None/None/None 2 2 1 0/0 0/0 0\n31 1 0 None/None/None 2 2 1 0/0 0/0 0\n32 1 0 FINAL_OBSERVATION 0"
+    }
+  ],
+  "scope": "Actual four-entry read metadata FIFO and reduced two-tile scheduler ownership, not the full accelerator",
+  "assumptions": [
+    "One abstract synchronous posedge per SAT timeframe; reset high only at timeframe1, defined initial binary registers",
+    "Witness final timeframe is an observation after the last committed transition; final input offers are not counted as executed handshakes",
+    "FIFO: one-beat non-final descriptors, row<T, arbitrary 5-bit word/address and 64-bit data, fixed saved BT/buffer=1",
+    "FIFO: planner and data source keep unaccepted offers stable; ordered head-tag/index0/LAST and successful completion only after bank delivery, except stop drains with status7",
+    "Scheduler: one prevalidated P4/T8 M1/N9/K1 job, MODE0/1, bases0x1000/0x2000/0x3000 and strides64",
+    "Scheduler: abstract engines accept at most one operation each; terminals occur only for accepted work; compute reports BUSY before DONE",
+    "Scheduler: DMA statuses are0/7, external memory fatal code7 and compute-error code8; no AXI response timing is proved by the abstract engines",
+    "Independent symbolic request readiness/completion delays and errors, no fairness or eventual-response assumption",
+    "No AXI/DDR PHY arithmetic, full descriptor validation, watchdog, public counters or unbounded claims"
+  ],
+  "observation_preparation": "Lower unchanged DUT memories then rename selected existing registers to observation-only output ports; no drivers cut",
+  "source_hashes_before": {
+    "rtl/memory/gemm_tile_dma_read_queue.sv": {
+      "bytes": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+      "utf8_lf": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd"
+    },
+    "rtl/control/gemm_tile_scheduler.sv": {
+      "bytes": "3e3e9ea2a6153e9c703a175cc5c5f69736be88c61f427d634109a0dfa8860051",
+      "utf8_lf": "3e3e9ea2a6153e9c703a175cc5c5f69736be88c61f427d634109a0dfa8860051"
+    },
+    "formal/tile_read_queue.sv": {
+      "bytes": "899c18e16444b49706faa2dd3227c35aa5010966477aeae2c31cef84cfe4f560",
+      "utf8_lf": "899c18e16444b49706faa2dd3227c35aa5010966477aeae2c31cef84cfe4f560"
+    },
+    "formal/tile_scheduler.sv": {
+      "bytes": "283129375773367471873e113e020c1ad419ad37f9d2c8134b8d93b86ca1158f",
+      "utf8_lf": "283129375773367471873e113e020c1ad419ad37f9d2c8134b8d93b86ca1158f"
+    },
+    "scripts/formal_buffers.py": {
+      "bytes": "b10fafb4a84ccbbbe0b34987aa779ef21a726e9653d72c65e1ecd8a136489b0c",
+      "utf8_lf": "b10fafb4a84ccbbbe0b34987aa779ef21a726e9653d72c65e1ecd8a136489b0c"
+    },
+    "scripts/formal_buffers_witness.py": {
+      "bytes": "867c6e4f5512408fee1f28b7b554ec78595e121dedf8cd629b90358d87119fcf",
+      "utf8_lf": "867c6e4f5512408fee1f28b7b554ec78595e121dedf8cd629b90358d87119fcf"
+    },
+    "requirements-formal.txt": {
+      "bytes": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+      "utf8_lf": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+    },
+    "tb/test_formal_buffers.py": {
+      "bytes": "508da79df78c6974e177bd27f1f67e0a0a0744d5d1296dcadf78bdf6347806ab",
+      "utf8_lf": "508da79df78c6974e177bd27f1f67e0a0a0744d5d1296dcadf78bdf6347806ab"
+    }
+  },
+  "versions": {
+    "python": "3.13.0 (main, Nov 19 2024, 22:38:08) [MSC v.1929 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\formal-env\\Scripts\\python.exe",
+    "packages": {
+      "yowasp-yosys": "0.69.0.0.post1233",
+      "yowasp-runtime": "1.96",
+      "wasmtime": "47.0.1",
+      "click": "8.5.0",
+      "platformdirs": "4.12.3"
+    },
+    "yosys": "Yosys 0.69 (git sha1 9f75ca1f9, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)"
+  },
+  "queries": 21,
+  "source_hashes_unchanged": true,
+  "source_hashes_after": {
+    "rtl/memory/gemm_tile_dma_read_queue.sv": {
+      "bytes": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+      "utf8_lf": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd"
+    },
+    "rtl/control/gemm_tile_scheduler.sv": {
+      "bytes": "3e3e9ea2a6153e9c703a175cc5c5f69736be88c61f427d634109a0dfa8860051",
+      "utf8_lf": "3e3e9ea2a6153e9c703a175cc5c5f69736be88c61f427d634109a0dfa8860051"
+    },
+    "formal/tile_read_queue.sv": {
+      "bytes": "899c18e16444b49706faa2dd3227c35aa5010966477aeae2c31cef84cfe4f560",
+      "utf8_lf": "899c18e16444b49706faa2dd3227c35aa5010966477aeae2c31cef84cfe4f560"
+    },
+    "formal/tile_scheduler.sv": {
+      "bytes": "283129375773367471873e113e020c1ad419ad37f9d2c8134b8d93b86ca1158f",
+      "utf8_lf": "283129375773367471873e113e020c1ad419ad37f9d2c8134b8d93b86ca1158f"
+    },
+    "scripts/formal_buffers.py": {
+      "bytes": "b10fafb4a84ccbbbe0b34987aa779ef21a726e9653d72c65e1ecd8a136489b0c",
+      "utf8_lf": "b10fafb4a84ccbbbe0b34987aa779ef21a726e9653d72c65e1ecd8a136489b0c"
+    },
+    "scripts/formal_buffers_witness.py": {
+      "bytes": "867c6e4f5512408fee1f28b7b554ec78595e121dedf8cd629b90358d87119fcf",
+      "utf8_lf": "867c6e4f5512408fee1f28b7b554ec78595e121dedf8cd629b90358d87119fcf"
+    },
+    "requirements-formal.txt": {
+      "bytes": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+      "utf8_lf": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+    },
+    "tb/test_formal_buffers.py": {
+      "bytes": "508da79df78c6974e177bd27f1f67e0a0a0744d5d1296dcadf78bdf6347806ab",
+      "utf8_lf": "508da79df78c6974e177bd27f1f67e0a0a0744d5d1296dcadf78bdf6347806ab"
+    }
+  },
+  "utc_finished": "2026-10-04T13:59:47.836788+00:00"
+}

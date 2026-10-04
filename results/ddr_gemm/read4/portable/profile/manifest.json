@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "sha256_bytes": {
+    "read1/results.xml": "842fa30ca77e717f7eff89e3c79a3fa7222e9af74089fd5d25c23b0808a930db",
+    "read1/profile.json": "034d4b9d768473085c08b0204cfd48bfb37cd507630a69f6f52d8733f8bea638",
+    "read4/results.xml": "819b319f4ef3b718040f65bc3d54906723b0f42ef361d08ac8521f2a4aca36d1",
+    "read4/profile.json": "78f778e6f75bfb2b5ff5ac05e60a8a40f2c743b6c0e7a008097d03ef8951cbce",
+    "summary.json": "03bda9f230b95e057fbbbc43d9d7497084ea95d05618b1df376ecb1cac17d6ed",
+    "comparison.csv": "1df9870a2648df89a178c8b5388f124aa290373fd8ac8ff0e995c35f399a4cf4"
+  }
+}

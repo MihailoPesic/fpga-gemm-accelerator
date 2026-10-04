@@ -1,0 +1,36 @@
+p4_t8
+     0.00ns INFO     cocotb.regression                  running test_ddr_job.full_matrix_jobs_and_counters (1/4)
+4506280.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+4506280.00ns INFO     cocotb.regression                  running test_ddr_job.descriptor_rejection_and_command_lifetime (2/4)
+4513810.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+4513810.00ns INFO     cocotb.regression                  running test_ddr_job.final_b_timestamp_and_calibration_faults (3/4)
+4539350.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+4539350.00ns INFO     cocotb.regression                  running test_ddr_job.fatal_responses_watchdog_and_draining (4/4)
+4553030.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+p4_t32
+     0.00ns INFO     cocotb.regression                  running test_ddr_job.full_matrix_jobs_and_counters (1/4)
+8454290.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+8454290.00ns INFO     cocotb.regression                  running test_ddr_job.descriptor_rejection_and_command_lifetime (2/4)
+8461820.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+8461820.00ns INFO     cocotb.regression                  running test_ddr_job.final_b_timestamp_and_calibration_faults (3/4)
+8687470.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+8687470.00ns INFO     cocotb.regression                  running test_ddr_job.fatal_responses_watchdog_and_draining (4/4)
+8760550.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+p8_t8
+     0.00ns INFO     cocotb.regression                  running test_ddr_job.full_matrix_jobs_and_counters (1/4)
+3861750.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+3861750.00ns INFO     cocotb.regression                  running test_ddr_job.descriptor_rejection_and_command_lifetime (2/4)
+3869760.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+3869760.00ns INFO     cocotb.regression                  running test_ddr_job.final_b_timestamp_and_calibration_faults (3/4)
+3887410.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+3887410.00ns INFO     cocotb.regression                  running test_ddr_job.fatal_responses_watchdog_and_draining (4/4)
+3899410.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+p8_t32
+     0.00ns INFO     cocotb.regression                  running test_ddr_job.full_matrix_jobs_and_counters (1/4)
+6140770.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+6140770.00ns INFO     cocotb.regression                  running test_ddr_job.descriptor_rejection_and_command_lifetime (2/4)
+6148780.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+6148780.00ns INFO     cocotb.regression                  running test_ddr_job.final_b_timestamp_and_calibration_faults (3/4)
+6246390.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+6246390.00ns INFO     cocotb.regression                  running test_ddr_job.fatal_responses_watchdog_and_draining (4/4)
+6290790.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed

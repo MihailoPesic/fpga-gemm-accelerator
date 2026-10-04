@@ -1,0 +1,22 @@
+Summary excerpt; complete original cdc.txt byte SHA-256: 2fe25da1410e8d202b14b3e3cd4b591f55c34c97c8893ee0955ba90a0cba4629
+The complete local report remains under build/ddr_diag.
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 15:30:37 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_cdc -name ddr_cdc -details -show_waiver -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag/cdc.txt}
+| Design       : gemm_ddr_diag_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+ID      Severity  Count  Description
+------  --------  -----  ---------------------------------------------------------------
+CDC-3   Info          8  1-bit synchronized with ASYNC_REG property
+CDC-8   Warning       2  Asynchronous reset synchronized with missing ASYNC_REG property
+CDC-15  Warning     353  Clock enable controlled CDC structure detected

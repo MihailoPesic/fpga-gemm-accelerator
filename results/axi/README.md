@@ -1,12 +1,16 @@
 # AXI memory-path evidence
 
-The 64-bit burst primitive passes independent transaction tests and synthesizes
+The original 64-bit burst primitive passes independent transaction tests and synthesizes
 for the Nexys A7-50T. It has one outstanding burst per direction and reserves
 complete read/write buffers. The [interface contract](../../docs/axi-burst.md)
 defines malformed responses, stalled VALID obligations and coordinated reset.
 Separately, a generated AXI MIG passes its vendor DDR2-model smoke test. These
-results do not yet connect the custom master to MIG or establish a DDR-backed
-matrix job on the board.
+records apply to that original checkpoint. The later
+[complete DDR GEMM path](../ddr_gemm/README.md) has separate integration and
+physical results. The [four-slot read queue](read_queue/README.md) was a
+portable prerequisite; its concurrency is now enabled and board-qualified in
+the [READ4 GEMM integration](../ddr_gemm/read4/host_geometry/board/README.md)
+and [selectable overlap image](../ddr_overlap/timing_predicate/final_build/board/README.md).
 
 All 43 recorded source hashes match commit
 `4fabacfa0e370395af46396372d3af028f218db4`; see the [manifest](manifest.json).

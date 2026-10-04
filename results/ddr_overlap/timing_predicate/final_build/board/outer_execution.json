@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "actual_exit_code": 0,
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\run_overlap_board.py",
+    "--port",
+    "COM11",
+    "--power-cycle-receipt",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\power_cycle_operator.json",
+    "--output",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_final_board"
+  ],
+  "utc_exit_observed": "2026-10-04T12:33:22+00:00",
+  "invocation_scope": "Observed native exec session 53137 actual completion; inner stage timestamps retained separately.",
+  "source_hashes_unchanged": true,
+  "wrapper_sha256_bytes": "87aceeff516c39eb5c419006a05b1ecfa67fa2f26438af624bccb7db2292193a",
+  "execution_json_sha256_bytes": "d279f40fc2118347686346ebd795a1a3fdf8625ecd77328ffcc2c0abcae0a376",
+  "tool_completion": {
+    "chunk_id": "6e6b08",
+    "wall_time_seconds": 0.0000084,
+    "exit_code": 0,
+    "original_token_count": 8,
+    "output": "Completed matched_benchmark\r\n"
+  }
+}

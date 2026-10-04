@@ -38,6 +38,175 @@ The `lint` target is an Icarus syntax/elaboration/warning check, not a claim
 of comprehensive static RTL lint or formal proof. GitHub Actions runs the
 portable checks on Ubuntu; the first published core/memory checkpoint passed.
 
+The overlap integration has separate entry points:
+
+```sh
+make test-ddr-overlap-job test-ddr-overlap-core PYTHON=.venv/bin/python
+```
+
+The job-shell suite checks widened descriptor validation, both scheduling
+modes, actual final-B timestamps, independently sampled compute/traffic/wait
+counters, held replies, output-space stalls, calibration/watchdog faults and
+fatal drain. It completes 100 seeded jobs per P/T/read-depth configuration;
+regular larger shapes reach M,N <= 97. The packet suites run the existing
+command/error regression against the selectable build, then compare matched
+MODE=0/1 input images and complete memory readbacks. They exercise START replay,
+BUSY host exclusion and a held final write response. Source identities and
+raw XML/coverage go under ignored `build/`. See [the integration boundary](ddr-overlap.md).
+
+For a smaller explicit smoke run:
+
+```sh
+.venv/bin/python scripts/test_ddr_overlap_job.py --only p8_t8 --read-slots 4 --random-jobs 3 --build-dir build/overlap_smoke
+```
+
+The smoke count is recorded in its summary and does not replace the full
+100-job regression. Both serial and overlap core configurations are compiled
+by `make lint`; GitHub Actions runs the full overlap suites per geometry.
+
+To attribute serial DDR job cycles and compare T8/T32 reuse under explicit
+behavioral memory responses:
+
+```sh
+make profile-ddr PYTHON=.venv/bin/python
+```
+
+`make profile-read-dma PYTHON=.venv/bin/python` compares read depths one and
+four at fixed P8/T32, with identical matrices and traffic. It checks complete
+outputs and guards, requires unchanged compute/store cycles and records
+per-phase CSV plus source and artifact hashes. Its software-driven tile-helper
+cycles are separate from the full job counter and physical DDR measurements.
+
+`make test-tile-overlap PYTHON=.venv/bin/python` checks opt-in concurrent local
+ports at P4/P8 and T8/T32. Default production ports remain serial. The tests
+check other-buffer load/read during compute, independent buffer IDs, complete
+arithmetic/readback, ownership on START, response stalls and reset. Results
+go to `build/test_tile_overlap/`; choose a fresh `--build-dir` to retain runs.
+`make mutation-tile-overlap PYTHON=.venv/bin/python` runs three broken private
+copies and requires their expected assertion failures. Compile/tool failures
+do not count as detected defects. See [the saved evidence](../results/tile_overlap_ports/README.md).
+
+The profiler checks complete outputs and guards, reconciles its event trace
+with all frozen counters, and checks sensitivity to known per-burst delays.
+See the [accounting convention](ddr-core.md#cycle-attribution). Results go to
+`build/profile_ddr/`; select a new directory for each later experiment with
+`scripts/profile_ddr.py --build-dir build/profile_ddr_run2`.
+`--only p4_t8|p4_t32` and `--model unstalled|latency` select a subset.
+These are simulation measurements, separate from the physical board results.
+
+## Release board measurements
+
+`make test-release test-formal-traces` checks the measurement runner,
+comparison collector and formal trace decoder using software fixtures. These
+checks require neither the FPGA nor optional plotting packages and are included
+in the portable CI job. They do not establish accelerator correctness.
+
+`scripts/qualify_release.py` tests an already programmed, qualified P8 image.
+It checks its bitstream, vendor simulation and routed reports before opening
+the serial port. It never resets or programs the FPGA. The required board
+startup sequence is in [ddr-board.md](ddr-board.md).
+
+```text
+python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase maximum --modes both
+python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase endurance --modes both --resume
+python scripts/qualify_release.py --port COM11 --manifest build/gemm_p8_overlap_final/build.json --output build/release_checks --phase benchmark --modes both --resume
+```
+
+Modes, seed, oracle and sample count are part of the immutable result plan.
+Use a fresh output directory when changing them.
+The combined `--phase all --modes both` command runs all three phases.
+After a reconnect, inputs for each pending case are reloaded.
+
+Maximum checks every output at M=N=1024,K=256 and retains compressed complete
+memory snapshots. Endurance completes mixed workloads in both modes for at
+least 1,800 seconds in one connection; reconnect gaps never count toward it.
+Benchmark uses 30 samples per mode for the 12 square cases and four tails in
+the specification. `--cases 11` selects 256x256x256; a subsequent matching
+`--resume` can finish the other cases. Inputs remain in DDR within each case.
+Every job starts with fresh C sentinels, then reads each A/BT/C allocation
+once and compares all output, input, padding and guard bytes. Frozen FPGA
+counters and host phases are recorded separately.
+
+Only complete units with intact seals can be skipped on resume. A failed or
+interrupted unit stays preserved and requires a fresh result directory; the
+runner does not replay an uncertain START or clear a hardware fault. The
+first mismatch, transport error or changed identity stops the run. The
+runner's software tests use a synthetic device and are not board evidence.
+
+The Make equivalents are `make bench` and `make hw-release`, with `PORT`,
+`MANIFEST`, `PYTHON` and a fresh `RELEASE_OUTPUT`. `make demo` runs one small
+complete comparison. `make bitstream BOARD=nexys_a7_50t` runs both vendor
+simulation and implementation in `RELEASE_BUILD`; its defaults are P8/T32,
+four reads, selectable scheduling and 1 Mbaud. Set `VIVADO` explicitly when
+it is not on PATH. Programming remains a separate cold-start operation.
+
+After both builds have completed the same cases, collect the controlled
+comparison with:
+
+```sh
+python -m pip install -r requirements-benchmark.txt
+python scripts/collect_benchmarks.py --t8 build/t8_measurements --t32 build/t32_measurements --output build/controlled_comparison
+```
+
+T8 provides MODE0 samples; T32 provides matched MODE0/1 samples. The collector
+checks seals, sample order, input bytes, C sentinels, descriptors, traffic and
+source/clock/read-depth/UART identities. It requires all 16 cases and at least
+30 samples per series. JSON/CSV retain raw counters and min/median/max;
+static PNG/PDF figures show useful throughput, transfer volume and tail latency.
+`--table-only` needs no plotting packages. `--allow-partial` explicitly lists
+missing cases and cannot claim a complete benchmark grid.
+
+## Bounded formal checks
+
+The optional toolchain in [requirements-formal.txt](../requirements-formal.txt)
+uses pinned YoWASP Yosys with its built-in SAT solver. It is independent of
+the simulation and host environments and needs no proprietary IP.
+
+From PowerShell:
+
+```powershell
+python -m venv build/formal-env
+.\build\formal-env\Scripts\python.exe -m pip install -r requirements-formal.txt
+.\build\formal-env\Scripts\python.exe scripts/formal_dma_rows.py --build-dir build/formal_dma_rows
+.\build\formal-env\Scripts\python.exe scripts/formal_buffers.py --build-dir build/formal_buffers
+```
+
+With make available, the same runner is exposed as
+`make formal PYTHON=... FORMAL_BUILD=build/fresh_rows FORMAL_BUFFERS_BUILD=build/fresh_buffers`. Select fresh directories
+for every run; the runner refuses to overwrite evidence. Installation is an
+explicit setup step. The runner checks package/binary versions and source
+snapshots, then saves actual tool exits, query scripts, logs and witness models.
+The [native FIFO/scheduler record](../results/buffer_formal/README.md) and its
+[Linux reproduction](../results/buffer_formal/linux/README.md) retain actual
+successful exits, source snapshots and decoded witnesses on both platforms.
+The [Linux row-planner run](../results/dma_rows/formal/linux/README.md) separately
+reproduces its nine queries and seven decoded witnesses.
+
+The [saved DMA row-planner result](../results/dma_rows/formal/README.md)
+passes 18 assertions for READ_SLOTS=1/4 through 20 SAT timeframes, including
+initial synchronous reset, for a fixed four-row descriptor at a 4 KiB boundary.
+It checks stalled offers and DONE, command credits, no DONE with accepted
+commands outstanding, and burst metadata. Seven independently decoded
+VCD/JSON witnesses demonstrate complete transfers, stalls, four read credits,
+simultaneous issue/completion and cancellation with later draining.
+
+This is bounded checking without induction or fairness. It does not prove
+arbitrary descriptors, universal successful completion, first-error priority,
+FIFO ordering, scheduler ownership or the full accelerator. The result records
+the initial-state assumptions and the local queued-read withdrawal exception;
+AXI VALID obligations remain a separate contract.
+
+The [FIFO and scheduler record](../results/buffer_formal/README.md) extends
+that scope without changing production RTL. The four-entry read metadata FIFO
+at T8/T32 passes 37 assertions under one-beat ordered descriptors: an eight-frame
+reset-based base and a separate reset-low induction step. The reduced P4/T8
+scheduler checks one M1/N9/K1 job in both modes through 32 SAT timeframes,
+with 36/33 assertions. Fifteen independently decoded witnesses exercise full
+credits, wrap, held payloads, complete jobs, overlap and later fault draining.
+The scheduler result is bounded; the FIFO's induction applies only to its
+stated model. [formal/README.md](../formal/README.md) lists assumptions and
+exclusions. Manual CI dispatch also runs these optional proof checks.
+
 ## Vivado core check
 
 ```sh
@@ -80,9 +249,12 @@ checks one primary clock on CLK100MHZ. Native RTL receives no GEMM modules.
 
 `-no-bitstream` additionally implements and writes reports; the default asks
 for a native baseline bitstream after timing and critical-violation checks.
-This remains the old protocol. No full-release `make bitstream`, `make hw-test`,
-`make formal` or `make bench` is advertised as implemented
-for GEMM until its relevant gate is delivered. A passing native UART loopback
+This remains the old protocol. The bounded serial GEMM board plan is implemented
+as `make hw-test PORT=COMx MANIFEST=build/gemm/build.json`; see the
+[DDR GEMM board flow](ddr-board.md). The integrated `make bitstream`,
+`make bench` and `make hw-release` interfaces are described above. `make formal`
+runs the scoped row-planner, FIFO and reduced-scheduler checks described above.
+A passing native UART loopback
 is not a MIG vendor-memory simulation.
 
 ## Operand banks and prefetch
@@ -112,6 +284,37 @@ and added prefetch latency.
 `make test-tile PYTHON=.venv/bin/python` checks result-bank mapping and full
 matrix jobs for all four P/T combinations. `make test` includes this suite.
 Reports and source hashes go to `build/test_tile/`.
+
+`make test-tile-dma PYTHON=.venv/bin/python` checks both one/four-read memory integration:
+load A/BT from an AXI RAM into the production banks, run the real array, then
+store C back through the burst engine. `make test` includes this suite.
+`scripts/test_tile_dma.py --only p4_t8|p4_t32|p8_t8|p8_t32` selects one build.
+Per-build coverage/XML and the source-hashed summary go to `build/test_tile_dma/`.
+See the [adapter contract](tile-dma.md) for its ownership and fault boundaries.
+This is a portable AXI simulation, not a MIG or physical DDR GEMM test.
+
+`make test-tile-dma-duplex PYTHON=.venv/bin/python` tests independent load/store
+contexts with the concurrent local engine, across P4/P8, T8/T32 and both read
+depths. The five named cases check a three-tile pipeline, descriptor snapshots,
+independent held completions, BAD_DESC isolation, first-fault capture and
+cross-direction draining with held operand, C-read/response and AXI AW/W
+offers. Every successful stored matrix is compared in full, including its
+padding and guard bytes. Results go to `build/test_tile_dma_duplex/`; `--only`
+and `--read-slots` select a configuration, and `--build-dir` preserves a fresh
+run. The runner requires exactly the five test names, rejects skipped/failed
+tests and checks unchanged source hashes before/after execution. CI runs both
+depths in each P/T job. Production MODE=1 remains unsupported.
+
+`make test-tile-scheduler PYTHON=.venv/bin/python` connects the tagged
+[macrotile scheduler](tile-scheduler.md) to the duplex DMA, real local banks
+and array. Its three cases check both modes with identical matrix bytes,
+row-major addresses and retirement, tails, buffer exclusion, held completions
+and fatal drain. Results go to `build/test_tile_scheduler/`; `--only`,
+`--read-slots` and `--build-dir` select and preserve runs. The runner requires
+all three named tests, rejects failures/skips and checks source hashes before
+and after each configuration. Descriptors enter this internal fixture already
+validated. UART/register integration, public counters, watchdog and physical
+overlap qualification are separate gates.
 
 `make synth-tile` runs the registered-neighbor timing harness for P4/P8,T32
 in separate Vivado processes, at 100 MHz with 0.2 ns clock uncertainty. An
@@ -180,7 +383,16 @@ backpressure and held completions. Fault cases cover non-OKAY responses,
 incorrect IDs, early/late/missing RLAST, responses before their prerequisites,
 faults in the other direction, and new commands coincident with a fault.
 The runner removes stale success artifacts and rejects source changes during
-the run. Evidence goes under `build/test_axi_burst/`.
+the run. The default runner elaborates `READ_SLOTS=1` and `4` separately under
+`build/test_axi_burst/read1` and `read4`; the parent summary binds both runs.
+`python scripts/test_axi_burst.py --read-slots 4` selects only the queue build.
+Queue-specific tests check four ARs before any R, retained slot credit through
+DONE, ordered invalid commands, wraparound, simultaneous handshakes and
+protocol-fault draining. [Saved primitive evidence](../results/axi/read_queue/README.md)
+has a separate source identity from the original serial implementation.
+The GEMM build selects `--read-slots 1` (default) or `--read-slots 4`.
+External cancellation cases retain held AR/data/DONE, cancel never-offered
+reads, keep writes active and require coordinated reset to restore reads.
 
 ## AXI MIG vendor simulation
 
@@ -197,3 +409,118 @@ configuration checks, calibration/traffic monitor and limits. It verifies the
 MIG example and DDR2 model, not the custom burst engine through a bridge or a
 physical board. Source hashes, generated-IP hashes and traffic counts are saved
 under `build/axi_mig/`; selected evidence is in [results/axi](../results/axi/README.md).
+
+## Integrated DDR diagnostic
+
+`make test-ddr-diag PYTHON=.venv/bin/python` checks the memory-test controller
+with the production burst engine, its command backend and the host driver.
+It is included in the portable regression.
+
+With native Python and Vivado, run `python scripts/build_ddr_diag.py --stage sim`
+and then `python scripts/build_ddr_diag.py --stage bitstream`. The second stage
+requires the exact sources and generated platform from the successful first
+stage. The Make equivalents are `sim-ddr` and `ddr-diag-bitstream`; both accept
+`PYTHON` and `VIVADO` overrides. Output stays under `build/ddr_diag`.
+
+This test connects the custom 64-bit burst engine through SmartConnect to
+MIG and its generated DDR2 model. It covers startup and data movement; the
+separate warm-reset qualification currently fails the memory-model timing
+checks. See the [diagnostic workflow](ddr-diagnostic.md) and
+[saved evidence](../results/ddr_platform/README.md) before programming the board.
+
+## Serial DDR job integration
+
+The vendor fixture's reference calculation has a fast standalone regression:
+
+```text
+make test-vendor-reference PYTHON=.venv/bin/python
+python scripts/test_vendor_reference.py --simulator xsim
+```
+
+The first command uses Icarus and runs in portable CI. The second uses native
+Vivado tools, with optional `--vivado-bin` for the installation path. Both
+extract the actual fixture functions and early self-check, then compare
+directed and seeded results plus little-endian byte serialization against
+Python integer arithmetic. Neither command instantiates the accelerator or
+DDR IP. This catches reference defects before the full vendor simulation;
+it cannot replace that integration test.
+
+`make test-ddr-job PYTHON=.venv/bin/python` connects the descriptor/job
+controller to the production tile DMA, local engine and AXI burst engine.
+It is included in `make test`. The [controller contract](ddr-job.md) describes
+the serial checkpoint and its completion/fault boundaries.
+
+Results, coverage and source identities go under `build/test_ddr_job/`.
+This remains behavioral AXI RAM simulation; vendor integration and board
+GEMM require their own results.
+
+The [serial DDR board flow](ddr-board.md) runs real UART commands through
+SmartConnect/MIG and the generated DDR2 model:
+
+```text
+python scripts/build_ddr_gemm.py --stage sim
+python scripts/build_ddr_gemm.py --stage bitstream
+```
+
+The defaults are P4/T32 at 100 MHz, with 115200 baud for the bitstream and
+10 Mbaud for the bounded UART-pin simulation. The accelerated setting is not
+a physical UART qualification. The second stage requires matching successful
+simulation and checks full routed timing/constraints before writing its build
+manifest. Outputs are under `build/gemm/`; Make targets are `sim-gemm-ddr` and
+`ddr-gemm-bitstream`.
+
+`test-ddr-core` also runs the builder's focused unit tests. Synthetic fixtures
+check rejection of stale source/configuration/generated inputs, incomplete
+simulation markers and failing physical reports without requiring Vivado.
+Programmer tests likewise mock Vivado and ensure altered bitstreams,
+simulation/configuration identities or routed reports cannot reach programming.
+The [saved build-flow checks](../results/ddr_gemm/README.md) record both native
+Windows and Linux results.
+
+`make test-ddr-registers PYTHON=.venv/bin/python` tests the local register map
+and job-command handshakes for all four P/T builds, with mocked job status.
+It is included in `make test`. Output goes under `build/test_ddr_registers/`;
+see the [register contract](ddr-registers.md) for its scope.
+
+`make test-ddr-core PYTHON=.venv/bin/python` tests the host library, then
+connects the production packet transport, register bank, job controller,
+DMA, banks and compute engine to AXI RAM. Packet commands upload A/BT,
+configure a descriptor, start/poll the job and download complete C results.
+It also tests host-memory bounds/splits, replay, busy rejection and faults
+that retain memory ownership. Output goes under `build/test_ddr_core/`;
+Directed cases remove calibration during the first read capture and at the
+read/write completion decision, then check empty error replies, stable held
+responses, preserved guards and complete draining. A completion-edge fault
+must never produce a success response.
+The page-boundary sweep checks all 16 aligned starts in the page's final
+128 bytes with lengths 8, 120, 128, 136 and 240 bytes. An independent word-address
+enumeration checks exact AR/AW burst schedules, covering every first-burst cap
+from one to 16 beats. Selected cases hold AR, AW and W for 20 cycles; complete
+data, guards, terminal counts and stable channel payloads must still match.
+`scripts/test_ddr_core.py --only p4_t8|p4_t32|p8_t8|p8_t32` selects a build.
+The [subsystem contract](ddr-core.md) describes this byte-level boundary.
+UART pin timing, vendor DDR integration and physical GEMM are separate checks.
+
+`python -m unittest discover -s tb -p test_hw_ddr_gemm.py -v` runs nine
+offline board-runner checks. They pin the original P4 workload and matrix
+bytes, select P8 explicitly, check literal active-cycle counts, reject
+incompatible manifests and verify that CLI admission failures never open COM.
+These software checks run in CI and `make test-ddr-core`; the complete
+[48-job board plan](ddr-board.md) supplies physical evidence separately.
+
+CI runs compute/interface checks and the four DDR integration geometries in
+separate jobs. The maximum-dimension tests retain complete output, guard and
+transaction checks; they are not replaced by a checksum to reduce runtime.
+
+## DMA row sequencing
+
+`make test-dma PYTHON=.venv/bin/python` tests both read depths of the row sequencer's
+addresses, burst metadata, byte strobes and completion handshakes. It is
+included in `make test`. The independent scoreboard enumerates row word
+addresses, then checks that issued bursts cover them exactly once without
+crossing a row, 16 beats or a 4 KiB boundary. Request snapshotting, held
+payloads, delayed/error completions and invalid descriptors are tested too.
+
+Output is stored under `build/test_dma_rows/`. This portable test does not
+connect operand/result banks, the AXI engine or the vendor DDR platform.
+See the [row sequencer contract](dma-rows.md) for that integration boundary.

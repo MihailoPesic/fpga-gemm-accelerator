@@ -1,0 +1,44 @@
+p4_t8: selected version and test-result lines
+Complete local console SHA-256: fba61fc5d3e6196f6209efdb00335ff85e4a4aeca7c31675fa8ff03f0947ac01
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+4777820.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+4785590.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+4811230.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+4825150.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      4825150.00         303.55      15895.77  **
+
+p4_t32: selected version and test-result lines
+Complete local console SHA-256: 865e1e40e3ce225a740a446030856f97037b1b19d57b69a92392c1d11ebe2004
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+9020620.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+9028390.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+9254140.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+9327460.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      9327460.00         590.02      15808.73  **
+
+p8_t8: selected version and test-result lines
+Complete local console SHA-256: 8829eaa645f00459acdae6a10d7faa36d5f23294a5bdb579fc5cd1aa0661a81e
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+4059160.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+4067410.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+4085160.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+4097400.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      4097400.00         407.06      10065.85  **
+
+p8_t32: selected version and test-result lines
+Complete local console SHA-256: c6c5c8f40bd95bea1d1c9d9e7db42e44a96df8206dc036af9c95787c766974da
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+7410910.00ns INFO     cocotb.regression                  test_ddr_job.full_matrix_jobs_and_counters passed
+7419160.00ns INFO     cocotb.regression                  test_ddr_job.descriptor_rejection_and_command_lifetime passed
+7516870.00ns INFO     cocotb.regression                  test_ddr_job.final_b_timestamp_and_calibration_faults passed
+7561510.00ns INFO     cocotb.regression                  test_ddr_job.fatal_responses_watchdog_and_draining passed
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      7561510.00         707.77      10683.57  **
+

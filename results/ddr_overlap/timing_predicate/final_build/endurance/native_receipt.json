@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "actual_exit_code": 0,
+  "session_id": 76281,
+  "chunk_id": "f5e084",
+  "receipt_origin": "Parent agent observed the native execution tool return exit 0; wrapper receipt and console are retained separately",
+  "execution_sha256_bytes": "7faefd513c2217c7c9a844cfe616a29d4ef8ea117e7ecc0b5da8b1071acdc0d2"
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "recorded_utc": "2026-10-04T07:10:36.254756+00:00",
+  "scope": "Portable tagged scheduler for prevalidated descriptors with independent load/store DMA, local compute and behavioral AXI RAM; no new vendor, routed or physical-board qualification",
+  "production_scheduler_enabled": false,
+  "production_duplex_enabled": false,
+  "production_concurrent_ports": 0,
+  "production_ddr_mode_1_supported": false,
+  "normal_passing_tests": 24,
+  "tests_by_suite": {
+    "p4_t8": 6,
+    "p4_t32": 6,
+    "p8_t8": 6,
+    "p8_t32": 6
+  },
+  "scheduler_totals": {
+    "jobs": 112,
+    "output_values": 71632,
+    "macrotiles": 336,
+    "scheduler_load_overlap_edges": 72063,
+    "scheduler_store_overlap_edges": 53683,
+    "scheduler_three_way_edges": 20948,
+    "independent_buffer_ids": 32,
+    "held_completion_checks": 24,
+    "read_bursts": 12233,
+    "write_bursts": 4052,
+    "write_responses": 4052
+  },
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 16384,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 16384,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 1024,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 1024,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 16384,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 16384,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 1024,
+      "paired_mode_jobs": 10
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "maximum_descriptor_tiles_admission_only": 1024,
+      "paired_mode_jobs": 10
+    }
+  ],
+  "paired_mode_comparison": "First ten completed cases per configuration are five identical guarded input-image/shape/traffic pairs, MODE0 versus internal MODE1; this is correctness/ownership evidence, not a hardware speedup benchmark",
+  "maximum_descriptor_scope": "1024x1024 descriptors check only the nonwrapping total-tile admission count, then fault/drain before memory requests; their outputs are excluded from fully checked jobs and output totals",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "rtl/control/gemm_tile_scheduler.sv": "a69ad76148533ea3395785642a3f171f73096ca459e68f2e1103f5e416a555da",
+    "tb/sv/tile_scheduler_harness.sv": "34692f679bf44cb8d28deb38d42abadfb46b0f430f73158bea953437d37bb4da",
+    "tb/test_tile_scheduler.py": "44da9c193d8ee3af9395229785feec2a00530b429a435b1d9c412a300b8b50ea",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_scheduler.py": "d681be83ed35e62b5c1d7d85360b640cc6c6de3c2d2fa8e2b4ced21ede4d1366",
+    "scripts/lint.py": "a08f419d00c3828e0c46db7d4d1e8209594597e4365098201a9c320a9959a0ab"
+  },
+  "saved_artifact_sha256_bytes": {
+    "p4_t8/read1/p4_t8/results.xml": "d44b8e70c4f2aa531b3714fadaa44e9c02ba24e868326f89df5fc78b46f842a7",
+    "p4_t8/read1/p4_t8/coverage.json": "dcd18568082fc28a35946ffb5a2db15f680b88746a148e301567745a96def786",
+    "p4_t8/read4/p4_t8/results.xml": "9b089ab5ebd3828b595e4c068c645315d9ef9e9f03d67b4177d580c947b678a1",
+    "p4_t8/read4/p4_t8/coverage.json": "518860844925edbe9bd31a2170db54cdd07b44dba8e123e2223d13918647d374",
+    "p4_t8/summary.json": "b98d40da30a9557a1f220980d6493b414fe41fe13b87f2435b66c5684ff8346d",
+    "p4_t32/read1/p4_t32/results.xml": "a899d2c9bf6a3c65a7a26377690b7076826816675e97be76a2d8a7f3495becbe",
+    "p4_t32/read1/p4_t32/coverage.json": "072432935cc28e5b1f8d5dabafb23b69fa9048cd0d58a6bdf676539471e4a015",
+    "p4_t32/read4/p4_t32/results.xml": "20cb8f69044f28bd7b79bd73f2ad3cf66a14bc289fe1e4790ee71955164eff14",
+    "p4_t32/read4/p4_t32/coverage.json": "040b3d6a8da083ef7939b876c40411d31b00a7637ae36839d88601a992da56d5",
+    "p4_t32/summary.json": "7cfcdebff175f7222ec08bd04c19a75b0d59e199fbd2b1939b378d3bd13a973d",
+    "p8_t8/read1/p8_t8/results.xml": "3f8b010912f11347238a4e6cfeab088d63a1ef8afd9f29fd829f74e26c3c20fa",
+    "p8_t8/read1/p8_t8/coverage.json": "f71623b21dd4cd58c126f8fe11675b98fe0e781df37a04bdab2bbfc5d51e3acf",
+    "p8_t8/read4/p8_t8/results.xml": "e3e115f7969d1844a462788f6e3a833aa7eddf12b569637611049f1925255eec",
+    "p8_t8/read4/p8_t8/coverage.json": "11fd114aa12085aea2694c55b7ebc24c4ce6746c0e611bfa67d8c06a89a2339c",
+    "p8_t8/summary.json": "5dbbcb2139528b95adea3e4e645798d5995e05b0c6e4c4ce9e09810b694a20ed",
+    "p8_t32/read1/p8_t32/results.xml": "37b0ddb2e5a7d597fc0b846020c8c502caca8de19c4bfc8118c6924c028aafba",
+    "p8_t32/read1/p8_t32/coverage.json": "a8e9f6bed7b5f01a7289051f6295c14cd887b916a5b191a89bf0787f8735511a",
+    "p8_t32/read4/p8_t32/results.xml": "794a9c3d73afbe72a28f14c239913162b3dc448c73165b4101529e3a0df57268",
+    "p8_t32/read4/p8_t32/coverage.json": "85fa65abaaa21c70021662863b99adcc41cefec26523992bc1cbe28b6f614254",
+    "p8_t32/summary.json": "b36ccf6f374743f44e6b6a571a7c7958139a37110f9d8fe1ac2a9772c9d0c621",
+    "execution/p4_t8.json": "96afe56a6b4ea078ec8c4648a1ecdd04fdfe64cad605117cec4444ac2318cc5f",
+    "execution/p4_t8.exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "execution/p4_t32.json": "8c9776051cbbf37b4e76e46ccc2a6094bf168b3805cdc6e8cb32824d4d741fcd",
+    "execution/p4_t32.exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "execution/p8_t8.json": "0ab16dd6b78994d9cd8cad55be1e49af9f71c28bc19b9151f581225cd343456a",
+    "execution/p8_t8.exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "execution/p8_t32.json": "28a786b0f59c6979807196c2a8f9ef5f4c1d83d2020aface374f576c9dd79c96",
+    "execution/p8_t32.exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "execution/lint.json": "db77e689a0994e3c5a19060edd31b717259dbca7ee1538f15aca7d3896cdbe42",
+    "execution/lint.exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "lint_console.txt": "062df64ee6252b6de99c448899f64ae2faad08b0fdad0fb300c41771c662e685"
+  },
+  "qualified_board_manifest": "results/ddr_gemm/read4/host_geometry/board/manifest.json",
+  "qualified_board_manifest_sha256_bytes": "89c8a05fa32bb678c57ca7d71ea8d2608254b40d38431a400a6d120ea713a3a2",
+  "qualified_build_inputs_changed": [
+    "rtl/control/gemm_tile_engine.sv"
+  ],
+  "production_scope": "The new scheduler and duplex wrapper are absent from the production source list and hierarchy. Among qualified build inputs only the separately tested, default-disabled local-port option differs; the saved board image remains the qualified serial image."
+}

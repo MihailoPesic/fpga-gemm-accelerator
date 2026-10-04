@@ -1,0 +1,41 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 16:02:26 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_drc -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag_pipeline/drc.txt}
+| Design       : gemm_ddr_diag_top
+| Device       : xc7a50ticsg324-1L
+| Speed File   : -1L
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: impl_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 1
++-----------+----------+------------------------+--------+
+| Rule      | Severity | Description            | Checks |
++-----------+----------+------------------------+--------+
+| REQP-1709 | Warning  | Clock output buffering | 1      |
++-----------+----------+------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+REQP-1709#1 Warning
+Clock output buffering  
+PLLE2_ADV connectivity violation. The signal platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/pll_clk3_out on the platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/CLKOUT3 pin of platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i does not drive the same kind of BUFFER load as the other CLKOUT pins. Routing from the different buffer types will not be phase aligned.
+Related violations: <none>
+
+

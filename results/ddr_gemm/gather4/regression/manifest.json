@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "tests": 60,
+  "suites": {
+    "tile_dma": {
+      "result": "PASS",
+      "tests": 20,
+      "totals": {
+        "jobs": 108,
+        "output_values": 11039,
+        "invalid_requests": 64
+      },
+      "local_directory": "build/test_tile_dma_gather4_20261003"
+    },
+    "ddr_job": {
+      "result": "PASS",
+      "tests": 16,
+      "totals": {
+        "jobs": 154,
+        "output_values": 86322,
+        "invalid_descriptors": 124,
+        "macrotiles": 1017,
+        "axi_read_beats": 353898,
+        "axi_write_beats": 46100,
+        "axi_write_responses": 8975
+      },
+      "local_directory": "build/test_ddr_job_gather4_20261003"
+    },
+    "ddr_core": {
+      "result": "PASS",
+      "tests": 24,
+      "totals": {
+        "jobs": 28,
+        "output_values": 5056,
+        "requests": 3652,
+        "responses": 3652,
+        "replays": 8,
+        "sequence_conflicts": 8,
+        "malformed_frames": 16,
+        "invalid_memory_commands": 96,
+        "axi_read_bursts": 1820,
+        "axi_write_bursts": 1317,
+        "axi_read_beats": 14368,
+        "axi_write_beats": 14748,
+        "axi_write_responses": 1317
+      },
+      "local_directory": "build/test_ddr_core_gather4_20261003"
+    }
+  },
+  "scope": "Four P/T builds of the changed C gather adapter, serial job controller and framed packet subsystem against behavioral AXI RAM; no new vendor, routed or board qualification",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "2e46a1b1ace8cbe31228ebdcf37bbc96ba7f48edea67580146c8cdfd384cf0ef",
+    "tb/sv/tile_dma_harness.sv": "b5e3e24332107162ee80fcbda89fe152257d82ddf46b82f2d215b030eb413a97",
+    "tb/test_tile_dma.py": "6d6aa4aec73114489364af65174b1903ab5246cb8edf2babbb62930806053ecf",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma.py": "86d63676deddb0f1daa2d13b1b6ddb3b08e1d1de42a450d372dcbea358e7748c",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "tb/sv/ddr_job_harness.sv": "73ee98dddd97d29a6fd25af0a51f08a3768adbb203ea2588fae70af767a32532",
+    "tb/test_ddr_job.py": "a233f06272416ebbea02634fda899cbd288962c084d3ec9f1e3dc98de4dc4aa3",
+    "scripts/test_ddr_job.py": "8ee756fc25a3313039faaa2b541acea7c4693caaff76bea078cffb567ba0e566",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "tb/test_ddr_core.py": "ce36b742cd527a9bd2db37a8d689de3da7a01387f9fa0e839e7bdd4d89831525",
+    "scripts/test_ddr_core.py": "5c67977e1fe6dc0c4ab5433463caedba0e853b6ee8f7caeb7420177f37e586f8"
+  },
+  "saved_artifact_sha256_bytes": {
+    "tile_dma/summary.json": "5a97afa42e5c4b7c18a66b71ebe1e31f8b6bc37e56c9ce23e03a051ac65d4fc9",
+    "tile_dma/p4_t8/results.xml": "0a921e88ba3d34ae9f045323f237c5ef10849d384b8e1466ff530b0af23c3f23",
+    "tile_dma/p4_t32/results.xml": "d7dd7679dc466f22369dbf08aed854bb3607a9b17a69bbbba0f823261d2a2dc3",
+    "tile_dma/p8_t8/results.xml": "ddbd1a3f065df93f2f284fff91da86f5b8848ff175542e9e75b971e48410f3b5",
+    "tile_dma/p8_t32/results.xml": "2334ad0bfbf33c14dedd820751024e305f3d356dbcb19a174dc10ecbd628af8a",
+    "ddr_job/summary.json": "654ecec9a6200ad54613eb1ba2230858e16e4c5548c08451e5b9c0593b7e8c50",
+    "ddr_job/p4_t8/results.xml": "004536183fe19db64279fb718a2a486f6e07980a42a99c8f0261070ef97a7415",
+    "ddr_job/p4_t32/results.xml": "d4f68c427f3b59e29428ae00992f5bc647fae1bf31aed43bcae81865d7257b25",
+    "ddr_job/p8_t8/results.xml": "de2ba15af5acd4cccb2f96a6fca87c040c1607637dc435b87da9423ead8b6ce3",
+    "ddr_job/p8_t32/results.xml": "37c880aa420688eb324e11d09227819b884a9d1daecca5fb3c0c979a99d78e1d",
+    "ddr_core/summary.json": "77d8c322e08263311d9dfacd818701e57ab2eaa0c58dc47dc1970740201ef322",
+    "ddr_core/p4_t8/results.xml": "a487f7dde10758080c1db7067e510dd7622165d0cc69bb7ab959248292f69c50",
+    "ddr_core/p4_t32/results.xml": "6b183f597fa516d6396a05512076d2e5e5cd1da89ef31a55a1a50b37d2c4a570",
+    "ddr_core/p8_t8/results.xml": "0195ff18113d2afacfd69535730e9f49ca7d369a82dd0f21c7f17b5c7fc2c37f",
+    "ddr_core/p8_t32/results.xml": "32de46a944a3258a883939be2984b33d4d55fe19310150539ac9ddb29d488f9a"
+  }
+}

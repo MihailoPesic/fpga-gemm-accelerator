@@ -1,0 +1,19 @@
+Selected original build console lines, not the complete console.
+Complete console byte SHA-256: 3482e312436bea3bdaeb4e70e1c3718548e45e41174c5e0072fb1e9817c5825d
+Original build.json byte SHA-256: 3ad8063c615803f445fd95e624aee0f19ea867f6aac7cf51fdc9adec6c8e3192
+Saved build.json LF byte SHA-256: 6d94f64fc674f851d66320528f2894ceec3752185925d04ad7b495bd2bb0b1eb
+
+1786: 528 Infos, 394 Warnings, 0 Critical Warnings and 0 Errors encountered.
+1896: 14 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2060: 39 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2325: 77 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2357: 87 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2579: 100 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2597: WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+2607: 113 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2698: WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+2700: WARNING: [Common 17-708] report_cdc: The '-name' option will be ignored because it is only relevant in GUI mode.
+2703: WARNING: [Vivado_Tcl 4-967] No CDC violation matched SEVERITY == "Critical"
+2724: INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+2726: 17 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+2729: DDR_DIAG_BUILD_PASS WNS=0.642 WHS=0.027

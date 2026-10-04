@@ -1,0 +1,54 @@
+{
+  "result": "PASS",
+  "recorded_utc": "2026-10-03T15:18:56.760074+00:00",
+  "public_directory": "results/ddr_gemm/read4/portable/profile",
+  "totals": {
+    "tests": 2
+  },
+  "executions": [
+    {
+      "run": "build/profile_read_dma_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 2,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "scapy": "2.7.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/profile_read_dma.py": "fc0754537a208eef29f0329ed353bc81a5e2000a1c6110a6176434a443d23d87",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/profile_read_dma.py": "3b195543163894c99292f3ac87445ae72bd170ca0dcac2c75ee79fd275a302a6"
+  },
+  "saved_artifact_sha256_bytes": {
+    "read1/profile.json": "034d4b9d768473085c08b0204cfd48bfb37cd507630a69f6f52d8733f8bea638",
+    "read1/results.xml": "842fa30ca77e717f7eff89e3c79a3fa7222e9af74089fd5d25c23b0808a930db",
+    "read4/profile.json": "78f778e6f75bfb2b5ff5ac05e60a8a40f2c743b6c0e7a008097d03ef8951cbce",
+    "read4/results.xml": "819b319f4ef3b718040f65bc3d54906723b0f42ef361d08ac8521f2a4aca36d1",
+    "summary.json": "03bda9f230b95e057fbbbc43d9d7497084ea95d05618b1df376ecb1cac17d6ed",
+    "manifest.json": "295c3f3e9433eb8873050c1be314d002618e4b76a74715f15569c5948b07cfef",
+    "run.json": "9474c5d39c9ce1e92a5a1fe0e06ce3d0071cd7fbb238f6adfc55a02ff8229e52",
+    "comparison.csv": "1df9870a2648df89a178c8b5388f124aa290373fd8ac8ff0e995c35f399a4cf4"
+  },
+  "scope": "Portable behavioral simulation; no new board, routed timing or physical DDR performance claim"
+}

@@ -1,0 +1,292 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791035315
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_axi_burst.ram_and_independent_channel_stalls (1/4)
+     0.00ns WARNING  gpi                                VPI: Not able to map type vpiFunction(20) to object.
+     0.00ns WARNING  gpi                                Unable to create command_legal via any registered implementation
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awuser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wuser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          buser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          aruser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ruser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+ 30330.00ns INFO     cocotb.regression                  test_axi_burst.ram_and_independent_channel_stalls passed
+ 30330.00ns INFO     cocotb.regression                  running test_axi_burst.invalid_descriptors_and_response_faults (2/4)
+ 35140.00ns INFO     cocotb.regression                  test_axi_burst.invalid_descriptors_and_response_faults passed
+ 35140.00ns INFO     cocotb.regression                  running test_axi_burst.concurrent_faults_preserve_issued_obligations (3/4)
+ 36390.00ns INFO     cocotb.regression                  test_axi_burst.concurrent_faults_preserve_issued_obligations passed
+ 36390.00ns INFO     cocotb.regression                  running test_axi_burst.premature_responses_do_not_retire_obligations (4/4)
+ 38240.00ns INFO     cocotb.regression                  test_axi_burst.premature_responses_do_not_retire_obligations passed
+ 38240.00ns INFO     cocotb.regression                  **********************************************************************************************************************
+                                                        ** TEST                                                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **********************************************************************************************************************
+                                                        ** test_axi_burst.ram_and_independent_channel_stalls              PASS       30330.00           0.75      40292.53  **
+                                                        ** test_axi_burst.invalid_descriptors_and_response_faults         PASS        4810.00           0.07      65262.10  **
+                                                        ** test_axi_burst.concurrent_faults_preserve_issued_obligations   PASS        1250.00           0.02      61037.53  **
+                                                        ** test_axi_burst.premature_responses_do_not_retire_obligations   PASS        1850.00           0.03      66344.57  **
+                                                        **********************************************************************************************************************
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                              38240.00           0.89      42932.09  **
+                                                        **********************************************************************************************************************
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791035316
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_axi_burst.ram_and_independent_channel_stalls (1/13)
+     0.00ns WARNING  gpi                                VPI: Not able to map type vpiFunction(20) to object.
+     0.00ns WARNING  gpi                                Unable to create command_legal via any registered implementation
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awuser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wuser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          buser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          aruser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          ruser: not present
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi          rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_axi_burst.m_axi        Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+ 30730.00ns INFO     cocotb.regression                  test_axi_burst.ram_and_independent_channel_stalls passed
+ 30730.00ns INFO     cocotb.regression                  running test_axi_burst.invalid_descriptors_and_response_faults (2/13)
+ 35620.00ns INFO     cocotb.regression                  test_axi_burst.invalid_descriptors_and_response_faults passed
+ 35620.00ns INFO     cocotb.regression                  running test_axi_burst.concurrent_faults_preserve_issued_obligations (3/13)
+ 36910.00ns INFO     cocotb.regression                  test_axi_burst.concurrent_faults_preserve_issued_obligations passed
+ 36910.00ns INFO     cocotb.regression                  running test_axi_burst.premature_responses_do_not_retire_obligations (4/13)
+ 38770.00ns INFO     cocotb.regression                  test_axi_burst.premature_responses_do_not_retire_obligations passed
+ 38770.00ns INFO     cocotb.regression                  running test_axi_read_queue.four_slots_reserve_until_ordered_done (5/13)
+ 40170.00ns INFO     cocotb.regression                  test_axi_read_queue.four_slots_reserve_until_ordered_done passed
+ 40170.00ns INFO     cocotb.regression                  running test_axi_read_queue.ordered_invalid_commands_and_simultaneous_edges (6/13)
+ 41870.00ns INFO     cocotb.regression                  test_axi_read_queue.ordered_invalid_commands_and_simultaneous_edges passed
+ 41870.00ns INFO     cocotb.regression                  running test_axi_read_queue.seeded_read_queue_backpressure (7/13)
+ 62970.01ns INFO     cocotb.regression                  test_axi_read_queue.seeded_read_queue_backpressure passed
+ 62970.01ns INFO     cocotb.regression                  running test_axi_read_queue.response_errors_and_framing_poison_each_slot (8/13)
+ 70870.01ns INFO     cocotb.regression                  test_axi_read_queue.response_errors_and_framing_poison_each_slot passed
+ 70870.01ns INFO     cocotb.regression                  running test_axi_read_queue.held_ar_shared_fault_and_first_error (9/13)
+ 72120.01ns INFO     cocotb.regression                  test_axi_read_queue.held_ar_shared_fault_and_first_error passed
+ 72120.01ns INFO     cocotb.regression                  running test_axi_read_queue.missing_rlast_keeps_each_issued_obligation (10/13)
+ 72980.01ns INFO     cocotb.regression                  test_axi_read_queue.missing_rlast_keeps_each_issued_obligation passed
+ 72980.01ns INFO     cocotb.regression                  running test_axi_read_queue.coordinated_reset_discards_four_mixed_slots (11/13)
+ 73720.01ns INFO     cocotb.regression                  test_axi_read_queue.coordinated_reset_discards_four_mixed_slots passed
+ 73720.01ns INFO     cocotb.regression                  running test_axi_read_queue.held_successful_done_survives_later_read_protocol_fault (12/13)
+ 74030.01ns INFO     cocotb.regression                  test_axi_read_queue.held_successful_done_survives_later_read_protocol_fault passed
+ 74030.01ns INFO     cocotb.regression                  running test_axi_read_queue.repeated_tags_and_consecutive_invalids_wrap_in_order (13/13)
+ 80550.01ns INFO     cocotb.regression                  test_axi_read_queue.repeated_tags_and_consecutive_invalids_wrap_in_order passed
+ 80550.01ns INFO     cocotb.regression                  *************************************************************************************************************************************
+                                                        ** TEST                                                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *************************************************************************************************************************************
+                                                        ** test_axi_burst.ram_and_independent_channel_stalls                             PASS       30730.00           0.82      37553.64  **
+                                                        ** test_axi_burst.invalid_descriptors_and_response_faults                        PASS        4890.00           0.08      61410.20  **
+                                                        ** test_axi_burst.concurrent_faults_preserve_issued_obligations                  PASS        1290.00           0.02      54594.60  **
+                                                        ** test_axi_burst.premature_responses_do_not_retire_obligations                  PASS        1860.00           0.03      59274.89  **
+                                                        ** test_axi_read_queue.four_slots_reserve_until_ordered_done                     PASS        1400.00           0.03      49841.07  **
+                                                        ** test_axi_read_queue.ordered_invalid_commands_and_simultaneous_edges           PASS        1700.00           0.04      48550.47  **
+                                                        ** test_axi_read_queue.seeded_read_queue_backpressure                            PASS       21100.00           0.47      45353.19  **
+                                                        ** test_axi_read_queue.response_errors_and_framing_poison_each_slot              PASS        7900.00           0.13      59908.55  **
+                                                        ** test_axi_read_queue.held_ar_shared_fault_and_first_error                      PASS        1250.00           0.02      54869.39  **
+                                                        ** test_axi_read_queue.missing_rlast_keeps_each_issued_obligation                PASS         860.00           0.02      50363.74  **
+                                                        ** test_axi_read_queue.coordinated_reset_discards_four_mixed_slots               PASS         740.00           0.02      45898.36  **
+                                                        ** test_axi_read_queue.held_successful_done_survives_later_read_protocol_fault   PASS         310.00           0.01      29445.71  **
+                                                        ** test_axi_read_queue.repeated_tags_and_consecutive_invalids_wrap_in_order      PASS        6520.00           0.13      48777.94  **
+                                                        *************************************************************************************************************************************
+                                                        ** TESTS=13 PASS=13 FAIL=0 SKIP=0                                                           80550.01           1.85      43486.05  **
+                                                        *************************************************************************************************************************************
+{
+  "result": "PASS",
+  "tests": 17,
+  "configurations": [
+    {
+      "result": "PASS",
+      "read_slots": 1,
+      "tests": 4,
+      "directory": "read1"
+    },
+    {
+      "result": "PASS",
+      "read_slots": 4,
+      "tests": 13,
+      "directory": "read4"
+    }
+  ],
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "tb/test_axi_burst.py": "c839db97df92a7fee07f2ea0ea674df5ebb6b63534c8620036406f3420240034",
+    "tb/test_axi_read_queue.py": "9f895556f94ed48428af145ad6208c95efe879b16a919a09a31d3aec5c120b3d",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_axi_burst.py": "a610cb19b5e92dca811c8a0b35c925bb93bdaeebe62914f45f322857bf228fc2"
+  },
+  "saved_artifact_sha256_bytes": {
+    "read1/summary.json": "36f2cd475ad26567bc684de0ed675d3c80840d2e3c4b1ffdc6cae952b8ee6d43",
+    "read1/results.xml": "d859358e51c400b91ccfbf31f163a05e0672c673e02114a43ac41e70aeadc862",
+    "read1/coverage.json": "795aaa5602650609901abbf3f44af608d6592096e1665bfb2828e5e162b39f96",
+    "read4/summary.json": "55a7b5e0a576e38d6f4d06ccb7665429ae6d0af69c616695f4197be49ad23c4c",
+    "read4/results.xml": "c2b09c46ddd15a554fdd816b018fd0cf256b13f7cd0f03b6a0ee1137d6d6652c",
+    "read4/coverage.json": "cf57d8c343ae638b990915d7c97a17dc63533e7559d8697ade0a42963a3acc84",
+    "read4/queue_coverage.json": "6105c683535cb0e8cac66391b826a3848dce341a6bb8aa48643632d316d0a8ec"
+  }
+}

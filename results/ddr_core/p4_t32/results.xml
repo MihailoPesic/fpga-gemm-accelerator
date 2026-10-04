@@ -1,0 +1,10 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790967860" />
+    <testcase name="host_memory_packets_and_retries" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="366" time="41.66074895858765" sim_time_ns="791350.0" ratio_time="18995.097778646075" />
+    <testcase name="complete_matrix_jobs_from_host_packets" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="440" time="159.77942848205566" sim_time_ns="3052190.0" ratio_time="19102.52170130138" />
+    <testcase name="busy_ownership_duplicate_start_and_final_b" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="482" time="74.60348582267761" sim_time_ns="1651690.0000000005" ratio_time="22139.582109150288" />
+    <testcase name="host_memory_faults_and_hung_drain" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="541" time="7.518853425979614" sim_time_ns="186940.0" ratio_time="24862.833388143088" />
+    <testcase name="calibration_loss_during_accepted_write" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="578" time="4.565281629562378" sim_time_ns="96440.0" ratio_time="21124.655130913492" />
+  </testsuite>
+</testsuites>

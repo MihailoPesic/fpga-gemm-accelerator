@@ -1,0 +1,212 @@
+{
+  "p": 8,
+  "t": 8,
+  "read_slots": 1,
+  "seed": 20261217,
+  "jobs": 8,
+  "output_values": 255,
+  "shapes": [
+    [
+      9,
+      11,
+      9
+    ],
+    [
+      3,
+      5,
+      1
+    ],
+    [
+      1,
+      9,
+      7
+    ],
+    [
+      9,
+      3,
+      8
+    ],
+    [
+      2,
+      3,
+      255
+    ],
+    [
+      3,
+      1,
+      256
+    ],
+    [
+      9,
+      9,
+      7
+    ],
+    [
+      5,
+      3,
+      9
+    ]
+  ],
+  "requests": 1319,
+  "responses": 1319,
+  "replays": 2,
+  "sequence_conflicts": 2,
+  "malformed_frames": 4,
+  "invalid_memory_commands": 24,
+  "host_lengths": [
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    64,
+    72,
+    80,
+    88,
+    96,
+    104,
+    112,
+    120,
+    128,
+    136,
+    144,
+    152,
+    160,
+    168,
+    176,
+    184,
+    192,
+    200,
+    208,
+    216,
+    224,
+    232,
+    240
+  ],
+  "faults": [
+    "read",
+    "write",
+    "watchdog",
+    "calibration_during_host_read_completion",
+    "calibration_during_host_write_completion",
+    "calibration_during_host_read_capture",
+    "calibration_during_write_collection",
+    "calibration_loss_cancels_unoffered_job_reads",
+    "gemm_read_error_retains_memory_ownership"
+  ],
+  "watchdog_limits": [
+    1,
+    2,
+    3,
+    7,
+    16,
+    4294967295
+  ],
+  "watchdog_progress_at_deadline": 1,
+  "axi_read_bursts": 471,
+  "axi_write_bursts": 414,
+  "axi_read_beats": 3895,
+  "axi_write_beats": 3934,
+  "axi_write_responses": 414,
+  "stalls": {
+    "w": 4511,
+    "aw": 3616,
+    "ar": 7197
+  },
+  "axi_read_occupancy": [
+    0,
+    1
+  ],
+  "local_read_occupancy": [
+    0,
+    1
+  ],
+  "gemm_read_error_ownership": {
+    "read_slots": 1,
+    "ar_before_first_r": 1,
+    "ordered_terminals": 1,
+    "drained_r_beats": 16,
+    "fault_snapshot_r_beats": 2,
+    "host_commands_excluded": 9,
+    "c_unchanged": true,
+    "fault_counters_frozen": true
+  },
+  "host_memory_completion_fault_priority": [
+    {
+      "direction": "read",
+      "fault_phase": "completion",
+      "status": 10,
+      "empty_reply": true,
+      "ownership_drained": true,
+      "backend_stall_cycles": 31,
+      "tx_stall_cycles": 20,
+      "data_and_guards_preserved": true
+    },
+    {
+      "direction": "write",
+      "fault_phase": "completion",
+      "status": 10,
+      "empty_reply": true,
+      "ownership_drained": true,
+      "backend_stall_cycles": 159,
+      "tx_stall_cycles": 20,
+      "data_and_guards_preserved": true
+    },
+    {
+      "direction": "read",
+      "fault_phase": "capture",
+      "status": 10,
+      "empty_reply": true,
+      "ownership_drained": true,
+      "backend_stall_cycles": 31,
+      "tx_stall_cycles": 20,
+      "data_and_guards_preserved": true
+    }
+  ],
+  "host_memory_page_burst_schedule": {
+    "aligned_page_tail_starts": 16,
+    "lengths": [
+      8,
+      120,
+      128,
+      136,
+      240
+    ],
+    "write_read_cases": 80,
+    "first_burst_sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "held_axi_cycles": {
+      "aw": 40,
+      "w": 40,
+      "ar": 40
+    },
+    "data_and_guards_preserved": true,
+    "unexpected_faults": 0
+  },
+  "external_read_cancel": {
+    "read_slots": 1,
+    "held_ar_drained": 1,
+    "never_offered_canceled": 0,
+    "drained_r_beats": 16,
+    "global_error_code": 10,
+    "fault_counters_frozen": true
+  }
+}

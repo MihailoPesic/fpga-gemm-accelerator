@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "date": "2026-10-02",
+  "scope": "Portable packet-to-GEMM regression after row-burst, tile-boundary and watchdog timing changes; behavioral AXI RAM, not vendor simulation, physical timing or board performance",
+  "tests": 24,
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "build_id": 3489661960,
+      "tests": 6,
+      "result": "PASS",
+      "summary_file": "p4_t8/summary.json",
+      "coverage_file": "p4_t8/coverage.json",
+      "results_file": "p4_t8/results.xml",
+      "jobs": 7,
+      "output_values": 224,
+      "requests": 817,
+      "responses": 817,
+      "seed": 20261213
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "build_id": 3489661984,
+      "tests": 6,
+      "result": "PASS",
+      "summary_file": "p4_t32/summary.json",
+      "coverage_file": "p4_t32/coverage.json",
+      "results_file": "p4_t32/results.xml",
+      "jobs": 7,
+      "output_values": 2288,
+      "requests": 1009,
+      "responses": 1009,
+      "seed": 20261237
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "build_id": 3489662984,
+      "tests": 6,
+      "result": "PASS",
+      "summary_file": "p8_t8/summary.json",
+      "coverage_file": "p8_t8/coverage.json",
+      "results_file": "p8_t8/results.xml",
+      "jobs": 7,
+      "output_values": 240,
+      "requests": 825,
+      "responses": 825,
+      "seed": 20261217
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "build_id": 3489663008,
+      "tests": 6,
+      "result": "PASS",
+      "summary_file": "p8_t32/summary.json",
+      "coverage_file": "p8_t32/coverage.json",
+      "results_file": "p8_t32/results.xml",
+      "jobs": 7,
+      "output_values": 2304,
+      "requests": 1010,
+      "responses": 1010,
+      "seed": 20261241
+    }
+  ],
+  "totals": {
+    "jobs": 28,
+    "output_values": 5056,
+    "requests": 3661,
+    "responses": 3661,
+    "replays": 8,
+    "sequence_conflicts": 8,
+    "malformed_frames": 16,
+    "invalid_memory_commands": 96,
+    "axi_read_bursts": 1820,
+    "axi_write_bursts": 1317,
+    "axi_read_beats": 14368,
+    "axi_write_beats": 14748,
+    "axi_write_responses": 1317
+  },
+  "watchdog_boundary_coverage": {
+    "exact_expiry_limits": [
+      1,
+      2,
+      3,
+      7,
+      16
+    ],
+    "progress_on_expiry_edge_limit": 8,
+    "progress_on_expiry_edge_cases": 4,
+    "maximum_limit_successful_read": 4294967295,
+    "zero_register_limit_rejected": true,
+    "comparison_basis": "Pre-edge local and raw AXI handshakes; post-edge first fatal latch, with no reads or forced writes of the DUT timeout counter"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "tb/test_ddr_core.py": "ce36b742cd527a9bd2db37a8d689de3da7a01387f9fa0e839e7bdd4d89831525",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "5c67977e1fe6dc0c4ab5433463caedba0e853b6ee8f7caeb7420177f37e586f8"
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "compile_check_file": "compile_summary.json",
+  "saved_artifact_policy": "Run JSON/XML and compile summary/console copied byte-for-byte. Full regression logs remain local with both raw and normalized hashes; the saved console excerpt selects regression and diagnostic lines.",
+  "original_artifacts": {
+    "p4_t8/summary.json": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t8_run/summary.json",
+      "raw_sha256": "fedfa41ff3fbf1bd3c4f15bba9ba2d50e59d86989fbd6b8a0b6522820f0e143e",
+      "saved_sha256": "fedfa41ff3fbf1bd3c4f15bba9ba2d50e59d86989fbd6b8a0b6522820f0e143e",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t8/coverage.json": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t8_run/p4_t8/coverage.json",
+      "raw_sha256": "66900215b2d8411c34c34821139ceea3e40117cba72a418aa903d504f76792df",
+      "saved_sha256": "66900215b2d8411c34c34821139ceea3e40117cba72a418aa903d504f76792df",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t8/results.xml": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t8_run/p4_t8/results.xml",
+      "raw_sha256": "478a5592eb592c8b91133dbef2f3630bcb548f531b7a0b41f394899fbd90150d",
+      "saved_sha256": "478a5592eb592c8b91133dbef2f3630bcb548f531b7a0b41f394899fbd90150d",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t8/console": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t8.log",
+      "raw_sha256": "678378d11595238e3fb97e7c78a7423fc4872dd95fc8a25969f8efba3ca9fcd7",
+      "full_console_utf8_lf_sha256": "678378d11595238e3fb97e7c78a7423fc4872dd95fc8a25969f8efba3ca9fcd7"
+    },
+    "p4_t32/summary.json": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t32_run/summary.json",
+      "raw_sha256": "0690343f962104f16bb5ada0ba7a54f656255a3c830e75cb21fe30615131549f",
+      "saved_sha256": "0690343f962104f16bb5ada0ba7a54f656255a3c830e75cb21fe30615131549f",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t32/coverage.json": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t32_run/p4_t32/coverage.json",
+      "raw_sha256": "441740dfdfcd9d5d470cd990d235d1061fb1aba52380db511bddd63896909141",
+      "saved_sha256": "441740dfdfcd9d5d470cd990d235d1061fb1aba52380db511bddd63896909141",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t32/results.xml": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t32_run/p4_t32/results.xml",
+      "raw_sha256": "6266a856ca3ffe014a8a9eab0cda03a47c9834216694c1391ca9f507d223b7b5",
+      "saved_sha256": "6266a856ca3ffe014a8a9eab0cda03a47c9834216694c1391ca9f507d223b7b5",
+      "copy_policy": "byte_for_byte"
+    },
+    "p4_t32/console": {
+      "local_path": "build/test_ddr_core_pipeline/p4_t32.log",
+      "raw_sha256": "dd5697f2c03f7e71478afb2550de18ccf5343007bd2f54aa34e175c663469fa1",
+      "full_console_utf8_lf_sha256": "dd5697f2c03f7e71478afb2550de18ccf5343007bd2f54aa34e175c663469fa1"
+    },
+    "p8_t8/summary.json": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t8_run/summary.json",
+      "raw_sha256": "4519d6988fe70897aeab936ba58b3c419332f3618b47f357f2570443d0cd369f",
+      "saved_sha256": "4519d6988fe70897aeab936ba58b3c419332f3618b47f357f2570443d0cd369f",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t8/coverage.json": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t8_run/p8_t8/coverage.json",
+      "raw_sha256": "3a1f265f9d4f666f00c0b488c130157fd1d7faed88bddd89a076ffe898dab508",
+      "saved_sha256": "3a1f265f9d4f666f00c0b488c130157fd1d7faed88bddd89a076ffe898dab508",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t8/results.xml": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t8_run/p8_t8/results.xml",
+      "raw_sha256": "acc4fc1ea9ee1642f093f6a0656283c39dba48bf08b5c76271a05a4fa5d4d711",
+      "saved_sha256": "acc4fc1ea9ee1642f093f6a0656283c39dba48bf08b5c76271a05a4fa5d4d711",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t8/console": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t8.log",
+      "raw_sha256": "cffeecb69c6cd366e1a617b005d2eed78f3ef79da486893635fd8085aafa4859",
+      "full_console_utf8_lf_sha256": "cffeecb69c6cd366e1a617b005d2eed78f3ef79da486893635fd8085aafa4859"
+    },
+    "p8_t32/summary.json": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t32_run/summary.json",
+      "raw_sha256": "797a6f7c43295b6911ec22d85994ce04ce5902de46fc56215a239148c6f32274",
+      "saved_sha256": "797a6f7c43295b6911ec22d85994ce04ce5902de46fc56215a239148c6f32274",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t32/coverage.json": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t32_run/p8_t32/coverage.json",
+      "raw_sha256": "2127188f927872b78f96f97fc2815d4007a7115a63137f2d013c4f89cccf54e1",
+      "saved_sha256": "2127188f927872b78f96f97fc2815d4007a7115a63137f2d013c4f89cccf54e1",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t32/results.xml": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t32_run/p8_t32/results.xml",
+      "raw_sha256": "1f8eeb976dd012d4eb8a88b8e1f8965b1a9ab7158db35a193fba85eb6e587ac6",
+      "saved_sha256": "1f8eeb976dd012d4eb8a88b8e1f8965b1a9ab7158db35a193fba85eb6e587ac6",
+      "copy_policy": "byte_for_byte"
+    },
+    "p8_t32/console": {
+      "local_path": "build/test_ddr_core_pipeline/p8_t32.log",
+      "raw_sha256": "c4b6fc6e151e87a17b1ac573ddd62ce2a3257e091d4aab01f8a94efa7687e231",
+      "full_console_utf8_lf_sha256": "c4b6fc6e151e87a17b1ac573ddd62ce2a3257e091d4aab01f8a94efa7687e231"
+    },
+    "compile_summary.json": {
+      "local_path": "build/gemm_pipeline_compile/summary.json",
+      "raw_sha256": "958341b5bcc45e34e6291efa182c1a6f6a9332a44eeb9a0f7e8527e48ab85ee3",
+      "saved_sha256": "958341b5bcc45e34e6291efa182c1a6f6a9332a44eeb9a0f7e8527e48ab85ee3",
+      "copy_policy": "byte_for_byte"
+    },
+    "compile_console.txt": {
+      "local_path": "build/gemm_pipeline_compile/console.txt",
+      "raw_sha256": "bab3e2915bce38f85f91f73baf01d8267f5e0e60b3cadcdfc0cca26df76e7348",
+      "saved_sha256": "bab3e2915bce38f85f91f73baf01d8267f5e0e60b3cadcdfc0cca26df76e7348",
+      "copy_policy": "byte_for_byte"
+    }
+  },
+  "saved_artifact_sha256": {
+    "p4_t8/summary.json": "fedfa41ff3fbf1bd3c4f15bba9ba2d50e59d86989fbd6b8a0b6522820f0e143e",
+    "p4_t8/coverage.json": "66900215b2d8411c34c34821139ceea3e40117cba72a418aa903d504f76792df",
+    "p4_t8/results.xml": "478a5592eb592c8b91133dbef2f3630bcb548f531b7a0b41f394899fbd90150d",
+    "p4_t32/summary.json": "0690343f962104f16bb5ada0ba7a54f656255a3c830e75cb21fe30615131549f",
+    "p4_t32/coverage.json": "441740dfdfcd9d5d470cd990d235d1061fb1aba52380db511bddd63896909141",
+    "p4_t32/results.xml": "6266a856ca3ffe014a8a9eab0cda03a47c9834216694c1391ca9f507d223b7b5",
+    "p8_t8/summary.json": "4519d6988fe70897aeab936ba58b3c419332f3618b47f357f2570443d0cd369f",
+    "p8_t8/coverage.json": "3a1f265f9d4f666f00c0b488c130157fd1d7faed88bddd89a076ffe898dab508",
+    "p8_t8/results.xml": "acc4fc1ea9ee1642f093f6a0656283c39dba48bf08b5c76271a05a4fa5d4d711",
+    "p8_t32/summary.json": "797a6f7c43295b6911ec22d85994ce04ce5902de46fc56215a239148c6f32274",
+    "p8_t32/coverage.json": "2127188f927872b78f96f97fc2815d4007a7115a63137f2d013c4f89cccf54e1",
+    "p8_t32/results.xml": "1f8eeb976dd012d4eb8a88b8e1f8965b1a9ab7158db35a193fba85eb6e587ac6",
+    "console_excerpt.txt": "95e6275b285e8721b3930a954bc4b495b90830555a463e408468971fabac7d53",
+    "compile_summary.json": "958341b5bcc45e34e6291efa182c1a6f6a9332a44eeb9a0f7e8527e48ab85ee3",
+    "compile_console.txt": "bab3e2915bce38f85f91f73baf01d8267f5e0e60b3cadcdfc0cca26df76e7348"
+  }
+}

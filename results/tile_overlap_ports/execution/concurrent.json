@@ -1,0 +1,17 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys",
+    "--exec",
+    ".venv/bin/python",
+    "scripts/test_tile_overlap.py",
+    "--build-dir",
+    "build/test_tile_overlap_20261003_run3"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 11.638893127441406,
+  "scope": "Local-buffer portable tests only; no Vivado or FPGA access"
+}

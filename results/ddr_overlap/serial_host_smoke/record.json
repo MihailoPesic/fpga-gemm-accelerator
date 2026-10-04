@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "utc_recorded": "2026-10-04T08:34:50.295255+00:00",
+  "scope": "New selectable host software against the previously qualified serial FPGA image; no overlap FPGA claim",
+  "fpga_version": 256,
+  "build_id": 3579356483,
+  "baud": 115200,
+  "jobs": 1,
+  "compared_elements": 4,
+  "guard_bytes_checked": 752,
+  "job_cycles": 262,
+  "retries": 0,
+  "rejected_frames": 0,
+  "saved_artifact_sha256_bytes": {
+    "results.csv": "e4b476c44ce8ff7079d66ec75db409502f9c34cf39376d05681f32f71c61c17a",
+    "results.json": "9e06ee09640691d48c9936f02e830c5c257ae747cd39a36d4ebbd04826f707e6"
+  }
+}

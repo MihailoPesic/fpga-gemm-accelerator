@@ -1,0 +1,356 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p4_t32",
+      "build_id": 3489661984,
+      "tests": 8,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261237,
+        "jobs": 8,
+        "output_values": 2303,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            33,
+            33,
+            7
+          ],
+          [
+            5,
+            3,
+            9
+          ]
+        ],
+        "requests": 1199,
+        "responses": 1199,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection",
+          "calibration_loss_cancels_unoffered_job_reads",
+          "gemm_read_error_retains_memory_ownership"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 639,
+        "axi_write_bursts": 496,
+        "axi_read_beats": 4987,
+        "axi_write_beats": 5812,
+        "axi_write_responses": 496,
+        "stalls": {
+          "aw": 3674,
+          "w": 5528,
+          "ar": 7217
+        },
+        "axi_read_occupancy": [
+          0,
+          1
+        ],
+        "local_read_occupancy": [
+          0,
+          1
+        ],
+        "gemm_read_error_ownership": {
+          "read_slots": 1,
+          "ar_before_first_r": 1,
+          "ordered_terminals": 1,
+          "drained_r_beats": 16,
+          "fault_snapshot_r_beats": 2,
+          "host_commands_excluded": 9,
+          "c_unchanged": true,
+          "fault_counters_frozen": true
+        },
+        "external_read_cancel": {
+          "read_slots": 1,
+          "held_ar_drained": 1,
+          "never_offered_canceled": 0,
+          "drained_r_beats": 16,
+          "global_error_code": 10,
+          "fault_counters_frozen": true
+        }
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p4_t32",
+      "build_id": 3489858592,
+      "tests": 8,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261237,
+        "jobs": 8,
+        "output_values": 2303,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            33,
+            33,
+            7
+          ],
+          [
+            5,
+            3,
+            9
+          ]
+        ],
+        "requests": 1190,
+        "responses": 1190,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection",
+          "calibration_loss_cancels_unoffered_job_reads",
+          "gemm_read_error_retains_memory_ownership"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 642,
+        "axi_write_bursts": 496,
+        "axi_read_beats": 5035,
+        "axi_write_beats": 5812,
+        "axi_write_responses": 496,
+        "stalls": {
+          "aw": 3689,
+          "w": 5514,
+          "ar": 7214
+        },
+        "axi_read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "local_read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "gemm_read_error_ownership": {
+          "read_slots": 4,
+          "ar_before_first_r": 4,
+          "ordered_terminals": 4,
+          "drained_r_beats": 64,
+          "fault_snapshot_r_beats": 2,
+          "host_commands_excluded": 9,
+          "c_unchanged": true,
+          "fault_counters_frozen": true
+        },
+        "external_read_cancel": {
+          "read_slots": 4,
+          "held_ar_drained": 1,
+          "never_offered_canceled": 3,
+          "drained_r_beats": 16,
+          "global_error_code": 10,
+          "fault_counters_frozen": true
+        }
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "dead0f5b38896c38c082fb084b75fe44085f6e3ea7eef557b618aa81ab724a02",
+    "tb/test_ddr_core.py": "ccaf00756fdd8a30878b577a8e841cbb7d6b072c95ca407a35abf816ce7b7fb7",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "5f885287c257bab24094430040c0ae5bb56a9f659c8dbb187720988b480dda67"
+  },
+  "scope": "Byte-framed transport, production control/register/job/DMA/core/burst and behavioral AXI RAM; no UART pin timing, vendor DDR or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "totals": {
+    "jobs": 16,
+    "output_values": 4606,
+    "requests": 2389,
+    "responses": 2389,
+    "replays": 4,
+    "sequence_conflicts": 4,
+    "malformed_frames": 8,
+    "invalid_memory_commands": 48,
+    "axi_read_bursts": 1281,
+    "axi_write_bursts": 992,
+    "axi_read_beats": 10022,
+    "axi_write_beats": 11624,
+    "axi_write_responses": 992
+  }
+}

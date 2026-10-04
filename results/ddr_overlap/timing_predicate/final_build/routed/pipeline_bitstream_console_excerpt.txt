@@ -1,0 +1,5 @@
+Complete local console SHA-256 (raw bytes): eba653c8d6bf176fdb5ebfd97094fe7e8e57bb03c6f1c3a0e996512966aabfde
+Selected original lines; every warning/error/fatal line is retained.
+
+1: DDR GEMM bitstream; P8/T32; build ID 0x2c680af7; C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_overlap_final\bitstream_console.txt
+2: PASS: C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_overlap_final\build.json

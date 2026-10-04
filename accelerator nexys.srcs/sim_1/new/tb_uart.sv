@@ -2,12 +2,10 @@
 //=============================================================================
 // tb_uart -- loopback test: uart_tx drives uart_rx over a single wire.
 //
-// Catches nearly every UART bug without a 10-minute synthesis run. The four
-// test values are chosen deliberately:
-//   00 -> finds bits stuck at 1
-//   FF -> finds bits stuck at 0
-//   A5 / 5A -> find reversed bit order (they are each other's mirror)
-// Passing all four means the receiver is almost certainly correct.
+// Historical smoke test at one clock/baud setting. Checks byte round-trips
+// and reported framing errors for a small set of patterns. It does not cover
+// baud mismatch, malformed frames, independent TX/RX timing or reset mid-frame.
+// A5 and 5A exercise mixed bits; both are unchanged by bit-order reversal.
 //=============================================================================
 
 module tb_uart;
@@ -76,7 +74,7 @@ module tb_uart;
     send_byte(8'hA5);
     send_byte(8'h5A);
 
-    // Back-to-back, no idle gap: proves the receiver re-arms in time.
+    // Successive bytes with the four-clock idle gap inserted by send_byte.
     send_byte(8'h01);
     send_byte(8'h02);
     send_byte(8'h03);

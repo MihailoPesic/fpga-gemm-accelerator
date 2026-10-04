@@ -1,0 +1,5 @@
+SCOPE Read-only final build 0x2c680af7 own routed checkpoint; physical-board and warm-reset qualification remain separate
+TOOL 2026.1
+DESIGN checkpoint_gemm_routed
+CHECKPOINT C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_overlap_final/gemm_routed.dcp
+No constraint/design/run changes; no bitstream or hardware access.

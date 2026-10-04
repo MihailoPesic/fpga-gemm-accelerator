@@ -1,0 +1,39 @@
+{
+  "result": "PASS",
+  "method": "Exact raw-byte reconstruction of three MIG timestamp comments",
+  "verifier_sha256_utf8_lf": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa",
+  "as_built_builder_sha256_utf8_lf": "83ce58512c3c4850114e1383f688d832d60efbca402e1da22045e81e387355e6",
+  "original_runner_exit_code": 1,
+  "original_runner_log_sha256_bytes": "fa0e489cd14e2274696544c184ddeaee0f1a16d87a49ac56a557f6f7ab2a848c",
+  "original_console_sha256_bytes": "3482e312436bea3bdaeb4e70e1c3718548e45e41174c5e0072fb1e9817c5825d",
+  "timestamp_proof_sha256_bytes": "4a0bbcd0ef5f3a9deaf2b9709edf6927b5e2a13690d0f0021a4c985c422682bd",
+  "timestamp_changes": [
+    {
+      "path": "project/axi_platform.gen/sources_1/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/example_design/par/example_top.xdc",
+      "exact_raw_before_sha256": "6f536a3ff466f542d147ac2087daffe07bde4a529f1094f96d52d39cc7d181b4",
+      "actual_raw_after_sha256": "9f77d02a32dc53b5715e910a5f4908daf5682ed233b9e5dd7529857e07ab5152",
+      "after_timestamp": "15:52:16",
+      "before_timestamp": "15:37:14",
+      "only_change": "8-byte HH:MM:SS field in generated MIG comment"
+    },
+    {
+      "path": "project/axi_platform.gen/sources_1/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/constraints/axi_ddr_bd_mig_0.xdc",
+      "exact_raw_before_sha256": "14f44ee4465c46419918802f277398006facd8fb118069522e72b1db3fd0ba8d",
+      "actual_raw_after_sha256": "428a682f5737545dfaf897f6716ea0f3b4e49aacf6d9523f9403a3bdc5db0b97",
+      "after_timestamp": "15:52:15",
+      "before_timestamp": "15:37:13",
+      "only_change": "8-byte HH:MM:SS field in generated MIG comment"
+    },
+    {
+      "path": "project/axi_platform.gen/sources_1/bd/axi_ddr_bd/ip/axi_ddr_bd_mig_0/axi_ddr_bd_mig_0/user_design/constraints/axi_ddr_bd_mig_0_ooc.xdc",
+      "exact_raw_before_sha256": "bb849fa6e8c0bdbba0a0fad3b8c6f5f393e70637c919258ce8faf57c5f9e2ed8",
+      "actual_raw_after_sha256": "117bfc9d05a0ef0356f9a9255f85c0db8650a0b302c648db6236ff2a9803846b",
+      "after_timestamp": "15:52:15",
+      "before_timestamp": "15:37:13",
+      "only_change": "8-byte HH:MM:SS field in generated MIG comment"
+    }
+  ],
+  "simulation_summary_sha256_bytes": "4eb671b17be2c40b4943563ee15c5bfd5a359b7857b8ab19c53317660ae25643",
+  "all_other_source_inputs_unchanged": true,
+  "all_other_generated_files_unchanged": true
+}

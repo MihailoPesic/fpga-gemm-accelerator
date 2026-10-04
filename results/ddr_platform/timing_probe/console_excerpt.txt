@@ -1,0 +1,9 @@
+Selected original console lines; complete byte SHA-256: 90ccb36c23e6fcff729a6d902c1e79ec957afd89d3ed30a8475626d9909e3168
+
+3000: WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+3103: WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+3105: WARNING: [Common 17-708] report_cdc: The '-name' option will be ignored because it is only relevant in GUI mode.
+3108: WARNING: [Vivado_Tcl 4-967] No CDC violation matched SEVERITY == "Critical"
+3111: Timing failed WNS=-0.727 WHS=0.023
+3113: "error "Timing failed WNS=$wns WHS=$whs" "
+3115: "if {$wns < 0 || $whs < 0} { error "Timing failed WNS=$wns WHS=$whs" }"

@@ -1,0 +1,1883 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "directory": "read1/p4_t8",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 1,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 421,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            7,
+            8,
+            255
+          ],
+          [
+            8,
+            7,
+            256
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            1,
+            3,
+            32
+          ],
+          [
+            7,
+            1,
+            1
+          ],
+          [
+            3,
+            6,
+            9
+          ],
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            7,
+            8,
+            9
+          ],
+          [
+            5,
+            1,
+            9
+          ],
+          [
+            6,
+            1,
+            7
+          ],
+          [
+            2,
+            8,
+            8
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "done": 1002,
+          "ar": 72,
+          "load": 567,
+          "w": 64,
+          "result_response": 87,
+          "aw": 20,
+          "read": 81,
+          "write_data": 81
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 309,
+        "axi_write_bursts": 123,
+        "axi_read_beats": 2103,
+        "axi_write_beats": 268,
+        "axi_write_valid_bytes": 1780,
+        "axi_write_responses": 123,
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p4_t32",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 5632,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            31,
+            32,
+            255
+          ],
+          [
+            32,
+            31,
+            256
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            21,
+            27,
+            9
+          ],
+          [
+            25,
+            19,
+            9
+          ],
+          [
+            10,
+            18,
+            31
+          ],
+          [
+            15,
+            14,
+            32
+          ],
+          [
+            11,
+            21,
+            8
+          ],
+          [
+            9,
+            3,
+            33
+          ],
+          [
+            19,
+            31,
+            256
+          ],
+          [
+            21,
+            11,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          14,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16
+        ],
+        "stalls": {
+          "done": 1002,
+          "ar": 257,
+          "load": 3059,
+          "w": 1011,
+          "read": 1010,
+          "write_data": 919,
+          "aw": 83,
+          "result_response": 922
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 906,
+        "axi_write_bursts": 294,
+        "axi_read_beats": 9729,
+        "axi_write_beats": 2927,
+        "axi_write_valid_bytes": 22624,
+        "axi_write_responses": 294,
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 1,
+      "directory": "read1/p8_t8",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "read_slots": 1,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 502,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            8,
+            7
+          ],
+          [
+            8,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            7,
+            8,
+            255
+          ],
+          [
+            8,
+            7,
+            256
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            1,
+            8,
+            9
+          ],
+          [
+            4,
+            8,
+            7
+          ],
+          [
+            6,
+            7,
+            33
+          ],
+          [
+            6,
+            7,
+            33
+          ],
+          [
+            1,
+            5,
+            31
+          ],
+          [
+            5,
+            3,
+            1
+          ],
+          [
+            6,
+            7,
+            255
+          ],
+          [
+            4,
+            5,
+            1
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "done": 1002,
+          "ar": 74,
+          "read": 100,
+          "load": 750,
+          "aw": 31,
+          "write_data": 101,
+          "w": 102,
+          "result_response": 91
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 345,
+        "axi_write_bursts": 127,
+        "axi_read_beats": 2616,
+        "axi_write_beats": 312,
+        "axi_write_valid_bytes": 2104,
+        "axi_write_responses": 127,
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 1,
+      "directory": "read1/p8_t32",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 1,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 4414,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            9,
+            7
+          ],
+          [
+            9,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            31,
+            32,
+            255
+          ],
+          [
+            32,
+            31,
+            256
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            20,
+            8,
+            255
+          ],
+          [
+            20,
+            29,
+            32
+          ],
+          [
+            10,
+            11,
+            9
+          ],
+          [
+            1,
+            8,
+            255
+          ],
+          [
+            22,
+            2,
+            9
+          ],
+          [
+            5,
+            27,
+            31
+          ],
+          [
+            11,
+            2,
+            33
+          ],
+          [
+            9,
+            25,
+            33
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          14,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "stalls": {
+          "done": 1002,
+          "ar": 234,
+          "load": 2687,
+          "result_response": 812,
+          "read": 755,
+          "aw": 86,
+          "w": 717,
+          "write_data": 782
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 799,
+        "axi_write_bursts": 263,
+        "axi_read_beats": 8442,
+        "axi_write_beats": 2289,
+        "axi_write_valid_bytes": 17752,
+        "axi_write_responses": 263,
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "directory": "read4/p4_t8",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 4,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 421,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            7,
+            8,
+            255
+          ],
+          [
+            8,
+            7,
+            256
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            1,
+            3,
+            32
+          ],
+          [
+            7,
+            1,
+            1
+          ],
+          [
+            3,
+            6,
+            9
+          ],
+          [
+            4,
+            5,
+            7
+          ],
+          [
+            7,
+            8,
+            9
+          ],
+          [
+            5,
+            1,
+            9
+          ],
+          [
+            6,
+            1,
+            7
+          ],
+          [
+            2,
+            8,
+            8
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "done": 1018,
+          "ar": 182,
+          "load": 604,
+          "w": 67,
+          "read": 78,
+          "result_response": 81,
+          "write_data": 69,
+          "aw": 26
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 319,
+        "axi_write_bursts": 123,
+        "axi_read_beats": 2193,
+        "axi_write_beats": 268,
+        "axi_write_valid_bytes": 1780,
+        "axi_write_responses": 123,
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap",
+          "RRESP_with_three_issued_and_one_stalled_AR",
+          "external_fatal_cancels_unaccepted_local_offer_only"
+        ],
+        "read_command_and_retirement_same_edge": 3
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p4_t32",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 5632,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            31,
+            32,
+            255
+          ],
+          [
+            32,
+            31,
+            256
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            21,
+            27,
+            9
+          ],
+          [
+            25,
+            19,
+            9
+          ],
+          [
+            10,
+            18,
+            31
+          ],
+          [
+            15,
+            14,
+            32
+          ],
+          [
+            11,
+            21,
+            8
+          ],
+          [
+            9,
+            3,
+            33
+          ],
+          [
+            19,
+            31,
+            256
+          ],
+          [
+            21,
+            11,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          14,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          16
+        ],
+        "stalls": {
+          "done": 1018,
+          "load": 3124,
+          "ar": 454,
+          "result_response": 926,
+          "write_data": 913,
+          "w": 973,
+          "aw": 71,
+          "read": 987
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 915,
+        "axi_write_bursts": 294,
+        "axi_read_beats": 9819,
+        "axi_write_beats": 2927,
+        "axi_write_valid_bytes": 22624,
+        "axi_write_responses": 294,
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap",
+          "RRESP_with_three_issued_and_one_stalled_AR",
+          "external_fatal_cancels_unaccepted_local_offer_only"
+        ],
+        "read_command_and_retirement_same_edge": 4
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "read_slots": 4,
+      "directory": "read4/p8_t8",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "read_slots": 4,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 502,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            8,
+            7
+          ],
+          [
+            8,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            7,
+            8,
+            255
+          ],
+          [
+            8,
+            7,
+            256
+          ],
+          [
+            8,
+            8,
+            256
+          ],
+          [
+            1,
+            8,
+            9
+          ],
+          [
+            4,
+            8,
+            7
+          ],
+          [
+            6,
+            7,
+            33
+          ],
+          [
+            6,
+            7,
+            33
+          ],
+          [
+            1,
+            5,
+            31
+          ],
+          [
+            5,
+            3,
+            1
+          ],
+          [
+            6,
+            7,
+            255
+          ],
+          [
+            4,
+            5,
+            1
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "stalls": {
+          "done": 1018,
+          "ar": 201,
+          "read": 100,
+          "load": 792,
+          "aw": 31,
+          "result_response": 88,
+          "write_data": 83,
+          "w": 99
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 355,
+        "axi_write_bursts": 127,
+        "axi_read_beats": 2706,
+        "axi_write_beats": 312,
+        "axi_write_valid_bytes": 2104,
+        "axi_write_responses": 127,
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap",
+          "RRESP_with_three_issued_and_one_stalled_AR",
+          "external_fatal_cancels_unaccepted_local_offer_only"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "read_slots": 4,
+      "directory": "read4/p8_t32",
+      "tests": 7,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "read_slots": 4,
+        "seed": 20261107,
+        "jobs": 27,
+        "output_values": 4414,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            9,
+            7
+          ],
+          [
+            9,
+            1,
+            8
+          ],
+          [
+            3,
+            5,
+            9
+          ],
+          [
+            31,
+            32,
+            255
+          ],
+          [
+            32,
+            31,
+            256
+          ],
+          [
+            32,
+            32,
+            256
+          ],
+          [
+            20,
+            8,
+            255
+          ],
+          [
+            20,
+            29,
+            32
+          ],
+          [
+            10,
+            11,
+            9
+          ],
+          [
+            1,
+            8,
+            255
+          ],
+          [
+            22,
+            2,
+            9
+          ],
+          [
+            5,
+            27,
+            31
+          ],
+          [
+            11,
+            2,
+            33
+          ],
+          [
+            9,
+            25,
+            33
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            2,
+            5,
+            9
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            1,
+            5,
+            8
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ],
+          [
+            2,
+            5,
+            7
+          ]
+        ],
+        "input_buffers": [
+          0,
+          1
+        ],
+        "output_buffers": [
+          0,
+          1
+        ],
+        "invalid_requests": 16,
+        "read_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10,
+          15,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "stalls": {
+          "done": 1018,
+          "ar": 365,
+          "load": 2682,
+          "read": 756,
+          "write_data": 778,
+          "w": 727,
+          "result_response": 742,
+          "aw": 81
+        },
+        "faults": {
+          "delayed_b_no_early_done": 1,
+          "rresp": 1,
+          "bresp": 1,
+          "final_bresp": 1,
+          "precommand_fatal_0": 1,
+          "precommand_fatal_1": 1,
+          "inject_rd_tag": 1,
+          "inject_rd_index": 1,
+          "inject_rd_last": 1,
+          "inject_response_error": 1,
+          "inject_response_strb": 1,
+          "fatal_with_offered_c_read": 1,
+          "fatal_with_stalled_load": 1,
+          "premature_write_ok_with_pending_response": 1,
+          "engine_cancel_offered_read": 1,
+          "engine_cancel_held_write_data": 1,
+          "command_accept_same_edge_engine_fatal": 1,
+          "nonfinal_word_accept_same_edge_memory_fatal": 1,
+          "nonfinal_word_accept_same_edge_premature_success": 1
+        },
+        "axi_read_bursts": 813,
+        "axi_write_bursts": 263,
+        "axi_read_beats": 8532,
+        "axi_write_beats": 2289,
+        "axi_write_valid_bytes": 17752,
+        "axi_write_responses": 263,
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "queued_scenarios": [
+          "full_credit_before_first_R_and_bank_DONE_credit",
+          "last_DDR_word_after_metadata_wrap",
+          "RRESP_with_three_issued_and_one_stalled_AR",
+          "external_fatal_cancels_unaccepted_local_offer_only"
+        ],
+        "read_command_and_retirement_same_edge": 0
+      }
+    }
+  ],
+  "scope": "Portable row adapter, production tile engine and burst engine against behavioral AXI RAM; no full descriptor scheduler or physical DDR test",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_dma.py": "108dddca1d0e59599fefab101382119c2a3a65f4ff63c9d19ba57f224aa5ef36"
+  }
+}

@@ -1,0 +1,1757 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69 (git sha1 9f75ca1f9, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Executing script file `/work/read1_safety.ys' --
+
+1. Executing Verilog-2005 frontend: /work/inputs/rtl/memory/gemm_dma_rows.sv
+Parsing formal SystemVerilog input from `/work/inputs/rtl/memory/gemm_dma_rows.sv' to AST representation.
+Generating RTLIL representation for module `\gemm_dma_rows'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /work/inputs/formal/dma_rows.sv
+Parsing formal SystemVerilog input from `/work/inputs/formal/dma_rows.sv' to AST representation.
+Generating RTLIL representation for module `\dma_rows_formal'.
+Successfully finished Verilog frontend.
+Parameter \READ_SLOTS = 1
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\dma_rows_formal'.
+Parameter \READ_SLOTS = 1
+Generating RTLIL representation for module `$paramod\dma_rows_formal\READ_SLOTS=s32'00000000000000000000000000000001'.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \dma_rows_formal
+Used module:     \gemm_dma_rows
+Parameter \READ_SLOTS = 1
+
+4.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\gemm_dma_rows'.
+Parameter \READ_SLOTS = 1
+Generating RTLIL representation for module `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001'.
+
+4.1.3. Analyzing design hierarchy..
+Top module:  \dma_rows_formal
+Used module:     $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001
+
+4.1.4. Analyzing design hierarchy..
+Top module:  \dma_rows_formal
+Used module:     $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001
+Removing unused module `\gemm_dma_rows'.
+Removed 1 unused modules.
+Module dma_rows_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/work/inputs/formal/dma_rows.sv:44$411 in module dma_rows_formal.
+Marked 3 switch rules as full_case in process $proc$/work/inputs/formal/dma_rows.sv:63$412 in module dma_rows_formal.
+Removed 1 dead cases from process $proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573 in module $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.
+Marked 14 switch rules as full_case in process $proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573 in module $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.
+Removed a total of 1 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 51 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:57$503'.
+  Set init value: \pending = 4'0000
+  Set init value: \cover_read_done = 1'0
+  Set init value: \cover_write_done = 1'0
+  Set init value: \cover_credit_four = 1'0
+  Set init value: \cover_simultaneous = 1'0
+  Set init value: \cover_cancelled_drain = 1'0
+  Set init value: \past_valid = 1'0
+  Set init value: \ghost_write = 1'0
+  Set init value: \stalled_burst = 1'0
+  Set init value: \stalled_done = 1'0
+  Set init value: \saw_cancel = 1'0
+  Set init value: \saw_any_cancel = 1'0
+  Set init value: \issued = 4'0000
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~39 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+     1/4: $1\expected_beats[4:0]
+     2/4: $1\expected_addr[31:0]
+     3/4: $1\expected_word[4:0]
+     4/4: $1\expected_row[4:0]
+Creating decoders for process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+     1/31: $0\pending[3:0]
+     2/31: $0\past_valid[0:0]
+     3/31: $assert$/work/inputs/formal/dma_rows.sv:96$457_EN
+     4/31: $assert$/work/inputs/formal/dma_rows.sv:95$455_EN
+     5/31: $assert$/work/inputs/formal/dma_rows.sv:94$450_EN
+     6/31: $assert$/work/inputs/formal/dma_rows.sv:93$447_EN
+     7/31: $assert$/work/inputs/formal/dma_rows.sv:92$444_EN
+     8/31: $assert$/work/inputs/formal/dma_rows.sv:91$442_EN
+     9/31: $assert$/work/inputs/formal/dma_rows.sv:90$440_EN
+    10/31: $assert$/work/inputs/formal/dma_rows.sv:89$438_EN
+    11/31: $assert$/work/inputs/formal/dma_rows.sv:88$436_EN
+    12/31: $assert$/work/inputs/formal/dma_rows.sv:87$434_EN
+    13/31: $assert$/work/inputs/formal/dma_rows.sv:86$432_EN
+    14/31: $assert$/work/inputs/formal/dma_rows.sv:84$430_EN
+    15/31: $assert$/work/inputs/formal/dma_rows.sv:83$428_EN
+    16/31: $assert$/work/inputs/formal/dma_rows.sv:82$425_EN
+    17/31: $assert$/work/inputs/formal/dma_rows.sv:79$423_EN
+    18/31: $assert$/work/inputs/formal/dma_rows.sv:78$422_EN
+    19/31: $assert$/work/inputs/formal/dma_rows.sv:75$420_EN
+    20/31: $assert$/work/inputs/formal/dma_rows.sv:74$419_EN
+    21/31: $0\issued[3:0]
+    22/31: $0\saw_any_cancel[0:0]
+    23/31: $0\saw_cancel[0:0]
+    24/31: $0\stalled_done[0:0]
+    25/31: $0\stalled_burst[0:0]
+    26/31: $0\ghost_write[0:0]
+    27/31: $0\cover_cancelled_drain[0:0]
+    28/31: $0\cover_simultaneous[0:0]
+    29/31: $0\cover_credit_four[0:0]
+    30/31: $0\cover_write_done[0:0]
+    31/31: $0\cover_read_done[0:0]
+Creating decoders for process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:57$503'.
+Creating decoders for process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+     1/164: $6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$791
+     2/164: $6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$784
+     3/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result[4:0]$768
+     4/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$773
+     5/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary[9:0]$772
+     6/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary[12:0]$771
+     7/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining[5:0]$770
+     8/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address[31:0]$769
+     9/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$779
+    10/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary[9:0]$778
+    11/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary[12:0]$777
+    12/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining[5:0]$776
+    13/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address[31:0]$775
+    14/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result[4:0]$774
+    15/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$767
+    16/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary[9:0]$766
+    17/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary[12:0]$765
+    18/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining[5:0]$764
+    19/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address[31:0]$763
+    20/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result[4:0]$762
+    21/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$761
+    22/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary[9:0]$760
+    23/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary[12:0]$759
+    24/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining[5:0]$758
+    25/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address[31:0]$757
+    26/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result[4:0]$756
+    27/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$755
+    28/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary[9:0]$754
+    29/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary[12:0]$753
+    30/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining[5:0]$752
+    31/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address[31:0]$751
+    32/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result[4:0]$750
+    33/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$749
+    34/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary[9:0]$748
+    35/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary[12:0]$747
+    36/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining[5:0]$746
+    37/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address[31:0]$745
+    38/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result[4:0]$744
+    39/164: $6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$743
+    40/164: $6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$736
+    41/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result[4:0]$720
+    42/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$725
+    43/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary[9:0]$724
+    44/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary[12:0]$723
+    45/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining[5:0]$722
+    46/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address[31:0]$721
+    47/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$731
+    48/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary[9:0]$730
+    49/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary[12:0]$729
+    50/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining[5:0]$728
+    51/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address[31:0]$727
+    52/164: $5\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result[4:0]$726
+    53/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$719
+    54/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary[9:0]$718
+    55/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary[12:0]$717
+    56/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining[5:0]$716
+    57/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address[31:0]$715
+    58/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result[4:0]$714
+    59/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$713
+    60/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary[9:0]$712
+    61/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary[12:0]$711
+    62/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining[5:0]$710
+    63/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address[31:0]$709
+    64/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result[4:0]$708
+    65/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$705
+    66/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary[9:0]$704
+    67/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary[12:0]$703
+    68/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining[5:0]$702
+    69/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address[31:0]$701
+    70/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result[4:0]$700
+    71/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$699
+    72/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary[9:0]$698
+    73/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary[12:0]$697
+    74/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining[5:0]$696
+    75/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address[31:0]$695
+    76/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result[4:0]$694
+    77/164: $4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count[5:0]$692
+    78/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count[5:0]$687
+    79/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.words_to_boundary[9:0]$686
+    80/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.bytes_to_boundary[12:0]$685
+    81/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.remaining[5:0]$684
+    82/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.address[31:0]$683
+    83/164: $3\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.$result[4:0]$682
+    84/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$675
+    85/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary[9:0]$674
+    86/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary[12:0]$673
+    87/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining[5:0]$672
+    88/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address[31:0]$671
+    89/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result[4:0]$670
+    90/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$669
+    91/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary[9:0]$668
+    92/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary[12:0]$667
+    93/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining[5:0]$666
+    94/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address[31:0]$665
+    95/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result[4:0]$664
+    96/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$663
+    97/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary[9:0]$662
+    98/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary[12:0]$661
+    99/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining[5:0]$660
+   100/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address[31:0]$659
+   101/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result[4:0]$658
+   102/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$657
+   103/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary[9:0]$656
+   104/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary[12:0]$655
+   105/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining[5:0]$654
+   106/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address[31:0]$653
+   107/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result[4:0]$652
+   108/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count[5:0]$651
+   109/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.words_to_boundary[9:0]$650
+   110/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.bytes_to_boundary[12:0]$649
+   111/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.remaining[5:0]$648
+   112/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.address[31:0]$647
+   113/164: $2\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.$result[4:0]$646
+   114/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count[5:0]$633
+   115/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary[9:0]$632
+   116/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary[12:0]$631
+   117/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining[5:0]$630
+   118/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address[31:0]$629
+   119/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result[4:0]$628
+   120/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count[5:0]$627
+   121/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary[9:0]$626
+   122/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary[12:0]$625
+   123/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining[5:0]$624
+   124/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address[31:0]$623
+   125/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result[4:0]$622
+   126/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$621
+   127/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary[9:0]$620
+   128/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary[12:0]$619
+   129/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining[5:0]$618
+   130/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address[31:0]$617
+   131/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result[4:0]$616
+   132/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$615
+   133/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary[9:0]$614
+   134/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary[12:0]$613
+   135/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining[5:0]$612
+   136/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address[31:0]$611
+   137/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result[4:0]$610
+   138/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count[5:0]$609
+   139/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.words_to_boundary[9:0]$608
+   140/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.bytes_to_boundary[12:0]$607
+   141/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.remaining[5:0]$606
+   142/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.address[31:0]$605
+   143/164: $1\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.$result[4:0]$604
+   144/164: $0\cancelled[0:0]
+   145/164: $0\issued_all[0:0]
+   146/164: $0\outstanding[2:0]
+   147/164: $0\touched_end[38:0]
+   148/164: $0\first_row_end[32:0]
+   149/164: $0\last_row_offset[37:0]
+   150/164: $0\rounded_row_bytes[9:0]
+   151/164: $0\last_row_index[5:0]
+   152/164: $0\saved_row_bytes[8:0]
+   153/164: $0\words_per_row[5:0]
+   154/164: $0\saved_rows[5:0]
+   155/164: $0\row_address[31:0]
+   156/164: $0\saved_stride[31:0]
+   157/164: $0\saved_base[31:0]
+   158/164: $0\saved_write[0:0]
+   159/164: $0\state[2:0]
+   160/164: $0\done_status[15:0]
+   161/164: $0\burst_word[4:0]
+   162/164: $0\burst_row[4:0]
+   163/164: $0\burst_beats[4:0]
+   164/164: $0\burst_addr[31:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dma_rows_formal.\expected_addr' from process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+No latch inferred for signal `\dma_rows_formal.\expected_beats' from process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+No latch inferred for signal `\dma_rows_formal.\expected_row' from process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+No latch inferred for signal `\dma_rows_formal.\expected_word' from process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dma_rows_formal.\pending' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2895' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\cover_read_done' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2896' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\cover_write_done' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2897' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\cover_credit_four' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2898' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\cover_simultaneous' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2899' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\cover_cancelled_drain' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2900' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\past_valid' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2901' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\ghost_write' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2902' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\stalled_burst' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2903' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\stalled_done' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2904' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\saw_cancel' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2905' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\saw_any_cancel' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2906' with positive edge clock.
+Creating register for signal `\dma_rows_formal.\issued' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2907' with positive edge clock.
+Creating register for signal `\dma_rows_formal.$past$/work/inputs/formal/dma_rows.sv:73$399$0' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2908' with positive edge clock.
+Creating register for signal `\dma_rows_formal.$past$/work/inputs/formal/dma_rows.sv:75$400$0' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2909' with positive edge clock.
+Creating register for signal `\dma_rows_formal.$past$/work/inputs/formal/dma_rows.sv:77$401$0' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2910' with positive edge clock.
+Creating register for signal `\dma_rows_formal.$past$/work/inputs/formal/dma_rows.sv:79$402$0' using process `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+  created $dff cell `$procdff$2911' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\burst_addr' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2912' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\burst_beats' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2913' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\burst_row' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2914' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\burst_word' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2915' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\done_status' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2916' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\state' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2917' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\saved_write' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2918' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\saved_base' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2919' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\saved_stride' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2920' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\row_address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2921' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\saved_rows' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2922' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\words_per_row' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2923' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\saved_row_bytes' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2924' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\last_row_index' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2925' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\rounded_row_bytes' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2926' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\last_row_offset' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2927' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\first_row_end' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2928' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\touched_end' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2929' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\outstanding' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2930' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\issued_all' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2931' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\cancelled' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2932' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.$result' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2933' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2934' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.remaining' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2935' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.bytes_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2936' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.words_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2937' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2938' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.$result' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2939' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2940' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.remaining' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2941' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.bytes_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2942' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.words_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2943' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2944' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.$result' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2945' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2946' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.remaining' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2947' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.bytes_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2948' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.words_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2949' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2950' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.$result' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2951' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2952' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.remaining' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2953' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.bytes_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2954' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.words_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2955' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:175$507.count' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2956' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.$result' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2957' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.address' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2958' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.remaining' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2959' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.bytes_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2960' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.words_to_boundary' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2961' with positive edge clock.
+Creating register for signal `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:180$508.count' using process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+  created $dff cell `$procdff$2962' with positive edge clock.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+Removing empty process `dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:44$411'.
+Found and cleaned up 18 empty switches in `\dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+Removing empty process `dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:63$412'.
+Removing empty process `dma_rows_formal.$proc$/work/inputs/formal/dma_rows.sv:57$503'.
+Found and cleaned up 20 empty switches in `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+Removing empty process `$paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.$proc$/work/inputs/rtl/memory/gemm_dma_rows.sv:99$573'.
+Cleaned up 39 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+<suppressed ~23 debug messages>
+Optimizing module $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.
+<suppressed ~69 debug messages>
+
+4.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\gemm_dma_rows\READ_SLOTS=s32'00000000000000000000000000000001.
+<suppressed ~1 debug messages>
+
+4.4. Executing FUTURE pass.
+
+4.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+<suppressed ~2 debug messages>
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 761 unused cells and 1523 unused wires.
+<suppressed ~787 debug messages>
+
+4.7. Executing CHECK pass (checking for obvious problems).
+Checking module dma_rows_formal...
+Found and reported 0 problems.
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 473 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 402 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 399 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+<suppressed ~222 debug messages>
+Removed a total of 74 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1020.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1017.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1503.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1015.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1013.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1010.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1038.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1035.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1508.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1033.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1031.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1501.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1498.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1505.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1489.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1486.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1484.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1482.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1479.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1988.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1991.
+    dead port 1/2 on $mux $flatten\dut.$procmux$1986.
+    dead port 2/2 on $mux $flatten\dut.$procmux$1028.
+Removed 23 multiplexer ports.
+<suppressed ~273 debug messages>
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+    New ctrl vector for $pmux cell $procmux$798: { $auto$opt_reduce.cc:137:opt_pmux$2965 $procmux$816_CMP $procmux$810_CMP }
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 1 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 377 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 358 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 344 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 340 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 339 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+<suppressed ~114 debug messages>
+Removed a total of 38 cells.
+
+4.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 0 unused cells and 133 unused wires.
+<suppressed ~1 debug messages>
+
+4.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+4.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~218 debug messages>
+
+4.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 0 changes.
+
+4.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 339 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Removed a total of 0 cells.
+
+4.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+
+4.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+4.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell dma_rows_formal.$le$/work/inputs/formal/dma_rows.sv:82$427 ($le).
+Removed top 29 bits (of 32) from port B of cell dma_rows_formal.$lt$/work/inputs/formal/dma_rows.sv:86$433 ($lt).
+Removed top 20 bits (of 32) from port A of cell dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:96$458 ($add).
+Removed top 24 bits (of 32) from port B of cell dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:96$458 ($add).
+Removed top 19 bits (of 32) from port Y of cell dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:96$458 ($add).
+Removed top 19 bits (of 32) from port A of cell dma_rows_formal.$le$/work/inputs/formal/dma_rows.sv:96$459 ($le).
+Removed top 19 bits (of 32) from port B of cell dma_rows_formal.$le$/work/inputs/formal/dma_rows.sv:96$459 ($le).
+Removed top 31 bits (of 32) from port B of cell dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:103$463 ($add).
+Removed top 28 bits (of 32) from port Y of cell dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:103$463 ($add).
+Removed top 1 bits (of 4) from port B of cell dma_rows_formal.$eq$/work/inputs/formal/dma_rows.sv:112$478 ($eq).
+Removed top 1 bits (of 4) from port B of cell dma_rows_formal.$eq$/work/inputs/formal/dma_rows.sv:114$485 ($eq).
+Removed top 3 bits (of 5) from mux cell dma_rows_formal.$procmux$798 ($pmux).
+Removed top 19 bits (of 32) from mux cell dma_rows_formal.$procmux$805 ($pmux).
+Removed top 3 bits (of 4) from port B of cell dma_rows_formal.$procmux$816_CMP0 ($eq).
+Removed top 3 bits (of 5) from mux cell dma_rows_formal.$procmux$815 ($mux).
+Removed top 1 bits (of 4) from port B of cell dma_rows_formal.$procmux$819_CMP0 ($eq).
+Removed top 3 bits (of 5) from mux cell dma_rows_formal.$procmux$818 ($pmux).
+Removed top 2 bits (of 4) from port B of cell dma_rows_formal.$procmux$820_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell dma_rows_formal.$procmux$821_CMP0 ($eq).
+Removed top 1 bits (of 3) from mux cell dma_rows_formal.$flatten\dut.$procmux$2744 ($mux).
+Removed top 1 bits (of 3) from mux cell dma_rows_formal.$flatten\dut.$procmux$2735 ($mux).
+Removed top 1 bits (of 3) from port B of cell dma_rows_formal.$flatten\dut.$procmux$2637_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell dma_rows_formal.$flatten\dut.$procmux$2572_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell dma_rows_formal.$flatten\dut.$procmux$2561_CMP0 ($eq).
+Removed top 1 bits (of 6) from mux cell dma_rows_formal.$flatten\dut.$procmux$1983 ($mux).
+Removed top 1 bits (of 6) from mux cell dma_rows_formal.$flatten\dut.$procmux$1496 ($mux).
+Removed top 1 bits (of 6) from mux cell dma_rows_formal.$flatten\dut.$procmux$1007 ($mux).
+Removed top 4 bits (of 10) from port B of cell dma_rows_formal.$flatten\dut.$lt$/work/inputs/rtl/memory/gemm_dma_rows.sv:70$790 ($lt).
+Removed top 1 bits (of 6) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:69$788 ($gt).
+Removed top 1 bits (of 13) from port B of cell dma_rows_formal.$flatten\dut.$sub$/work/inputs/rtl/memory/gemm_dma_rows.sv:67$787 ($sub).
+Removed top 4 bits (of 10) from port B of cell dma_rows_formal.$flatten\dut.$lt$/work/inputs/rtl/memory/gemm_dma_rows.sv:70$783 ($lt).
+Removed top 1 bits (of 6) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:69$781 ($gt).
+Removed top 1 bits (of 13) from port B of cell dma_rows_formal.$flatten\dut.$sub$/work/inputs/rtl/memory/gemm_dma_rows.sv:67$780 ($sub).
+Removed top 4 bits (of 10) from port B of cell dma_rows_formal.$flatten\dut.$lt$/work/inputs/rtl/memory/gemm_dma_rows.sv:70$691 ($lt).
+Removed top 1 bits (of 6) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:69$689 ($gt).
+Removed top 1 bits (of 13) from port B of cell dma_rows_formal.$flatten\dut.$sub$/work/inputs/rtl/memory/gemm_dma_rows.sv:67$688 ($sub).
+Removed top 1 bits (of 39) from port A of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:135$681 ($add).
+Removed top 6 bits (of 39) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:135$681 ($add).
+Removed top 1 bits (of 33) from port A of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:131$680 ($add).
+Removed top 23 bits (of 33) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:131$680 ($add).
+Removed top 6 bits (of 38) from port A of cell dma_rows_formal.$flatten\dut.$mul$/work/inputs/rtl/memory/gemm_dma_rows.sv:130$679 ($mul).
+Removed top 32 bits (of 38) from port B of cell dma_rows_formal.$flatten\dut.$mul$/work/inputs/rtl/memory/gemm_dma_rows.sv:130$679 ($mul).
+Removed top 3 bits (of 4) from port B of cell dma_rows_formal.$flatten\dut.$sub$/work/inputs/rtl/memory/gemm_dma_rows.sv:96$572 ($sub).
+Removed top 1 bits (of 4) from port A of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:96$571 ($add).
+Removed top 3 bits (of 4) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:96$571 ($add).
+Removed top 1 bits (of 6) from port A of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:89$554 ($add).
+Removed top 5 bits (of 6) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:89$554 ($add).
+Removed top 29 bits (of 32) from port B of cell dma_rows_formal.$flatten\dut.$lt$/work/inputs/rtl/memory/gemm_dma_rows.sv:86$546 ($lt).
+Removed top 24 bits (of 32) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:76$528 ($add).
+Removed top 1 bits (of 6) from port A of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:75$527 ($add).
+Removed top 1 bits (of 6) from port B of cell dma_rows_formal.$flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:75$527 ($add).
+Removed top 11 bits (of 39) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:59$525 ($gt).
+Removed top 22 bits (of 32) from port B of cell dma_rows_formal.$flatten\dut.$lt$/work/inputs/rtl/memory/gemm_dma_rows.sv:57$520 ($lt).
+Removed top 23 bits (of 32) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:55$514 ($gt).
+Removed top 26 bits (of 32) from port B of cell dma_rows_formal.$flatten\dut.$gt$/work/inputs/rtl/memory/gemm_dma_rows.sv:54$510 ($gt).
+Removed top 1 bits (of 6) from wire dma_rows_formal.$flatten\dut.$6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:157$505.count[5:0]$736.
+Removed top 1 bits (of 3) from wire dma_rows_formal.$flatten\dut.$procmux$2744_Y.
+Removed top 1 bits (of 3) from wire dma_rows_formal.$flatten\dut.$procmux$2735_Y.
+Removed top 1 bits (of 6) from wire dma_rows_formal.$flatten\dut.$6\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:162$506.count[5:0]$743.
+Removed top 19 bits (of 32) from wire dma_rows_formal.expected_addr.
+Removed top 3 bits (of 5) from wire dma_rows_formal.expected_beats.
+Removed top 3 bits (of 5) from wire dma_rows_formal.expected_row.
+Removed top 3 bits (of 5) from wire dma_rows_formal.expected_word.
+Removed top 1 bits (of 6) from wire dma_rows_formal.$flatten\dut.$4\choose_beats$func$/work/inputs/rtl/memory/gemm_dma_rows.sv:144$504.count[5:0]$692.
+Removed top 19 bits (of 32) from wire dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:96$458_Y.
+Removed top 28 bits (of 32) from wire dma_rows_formal.$add$/work/inputs/formal/dma_rows.sv:103$463_Y.
+
+4.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+4.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.12. Executing OPT pass (performing simple optimizations).
+
+4.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+4.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 339 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Removed a total of 0 cells.
+
+4.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+
+4.12.4. Finished fast OPT passes.
+
+4.13. Executing SORT pass.
+
+4.14. Printing statistics.
+
+=== dma_rows_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      365 wires
+     2521 wire bits
+       99 public wires
+      748 public wire bits
+       30 ports
+      128 port bits
+      339 cells
+       11   $add
+       18   $check
+       38   $dff
+       25   $eq
+        6   $gt
+        2   $le
+       34   $logic_and
+       16   $logic_not
+       14   $logic_or
+        6   $lt
+        1   $mul
+      139   $mux
+       12   $pmux
+        9   $reduce_bool
+        1   $reduce_or
+        1   $scopeinfo
+        6   $sub
+
+4.15. Executing CHECK pass (checking for obvious problems).
+Checking module dma_rows_formal...
+Found and reported 0 problems.
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+<suppressed ~9 debug messages>
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 424 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 395 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+<suppressed ~87 debug messages>
+Removed a total of 29 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~211 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+    Consolidated identical input bits for $mux cell $flatten\dut.$procmux$2735:
+      Old ports: A=2'00, B=2'10, Y=$auto$wreduce.cc:513:run$2968 [1:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:513:run$2968 [1]
+      New connections: $auto$wreduce.cc:513:run$2968 [0] = 1'0
+    Consolidated identical input bits for $mux cell $flatten\dut.$procmux$2744:
+      Old ports: A=2'00, B=2'10, Y=$auto$wreduce.cc:513:run$2967 [1:0]
+      New ports: A=1'0, B=1'1, Y=$auto$wreduce.cc:513:run$2967 [1]
+      New connections: $auto$wreduce.cc:513:run$2967 [0] = 1'0
+    Consolidated identical input bits for $mux cell $flatten\dut.$ternary$/work/inputs/rtl/memory/gemm_dma_rows.sv:90$559:
+      Old ports: A=8'11111111, B=8'00001111, Y=\burst_final_strb
+      New ports: A=1'1, B=1'0, Y=\burst_final_strb [4]
+      New connections: { \burst_final_strb [7:5] \burst_final_strb [3:0] } = { \burst_final_strb [4] \burst_final_strb [4] \burst_final_strb [4] 4'1111 }
+    Consolidated identical input bits for $pmux cell $procmux$805:
+      Old ports: A=13'0000000000000, B=65'01111111100001000000000000100000011000010000011100001000010110000, Y=\expected_addr
+      New ports: A=5'00000, B=25'0111110000100011001110101, Y={ \expected_addr [12] \expected_addr [8:6] \expected_addr [4] }
+      New connections: { \expected_addr [11:9] \expected_addr [5] \expected_addr [3:0] } = { \expected_addr [8] \expected_addr [8] \expected_addr [8] \expected_addr [4] 4'0000 }
+    Consolidated identical input bits for $mux cell $procmux$815:
+      Old ports: A=2'00, B=2'10, Y=\expected_word
+      New ports: A=1'0, B=1'1, Y=\expected_word [1]
+      New connections: \expected_word [0] = 1'0
+    Consolidated identical input bits for $mux cell $ternary$/work/inputs/formal/dma_rows.sv:94$453:
+      Old ports: A=8'11111111, B=8'00001111, Y=$ternary$/work/inputs/formal/dma_rows.sv:94$453_Y
+      New ports: A=1'1, B=1'0, Y=$ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [4]
+      New connections: { $ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [7:5] $ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [3:0] } = { $ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [4] $ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [4] $ternary$/work/inputs/formal/dma_rows.sv:94$453_Y [4] 4'1111 }
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 6 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 395 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_SHARE pass.
+
+6.7. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$2907 ($dff) from module dma_rows_formal (D = $procmux$927_Y, Q = \issued, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$3176 ($sdff) from module dma_rows_formal (D = $add$/work/inputs/formal/dma_rows.sv:103$463_Y, Q = \issued).
+Adding SRST signal on $procdff$2906 ($dff) from module dma_rows_formal (D = $procmux$935_Y, Q = \saw_any_cancel, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3180 ($sdff) from module dma_rows_formal (D = 1'1, Q = \saw_any_cancel).
+Adding SRST signal on $procdff$2905 ($dff) from module dma_rows_formal (D = $procmux$946_Y, Q = \saw_cancel, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3184 ($sdff) from module dma_rows_formal (D = 1'0, Q = \saw_cancel).
+Adding SRST signal on $procdff$2904 ($dff) from module dma_rows_formal (D = $procmux$951_Y, Q = \stalled_done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3186 ($sdff) from module dma_rows_formal (D = 1'1, Q = \stalled_done).
+Adding SRST signal on $procdff$2903 ($dff) from module dma_rows_formal (D = $procmux$959_Y, Q = \stalled_burst, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3190 ($sdff) from module dma_rows_formal (D = 1'1, Q = \stalled_burst).
+Adding SRST signal on $procdff$2902 ($dff) from module dma_rows_formal (D = $procmux$968_Y, Q = \ghost_write, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3194 ($sdff) from module dma_rows_formal (D = \req_write, Q = \ghost_write).
+Adding SRST signal on $procdff$2900 ($dff) from module dma_rows_formal (D = $procmux$973_Y, Q = \cover_cancelled_drain, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3196 ($sdff) from module dma_rows_formal (D = 1'1, Q = \cover_cancelled_drain).
+Adding SRST signal on $procdff$2899 ($dff) from module dma_rows_formal (D = $procmux$978_Y, Q = \cover_simultaneous, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3198 ($sdff) from module dma_rows_formal (D = 1'1, Q = \cover_simultaneous).
+Adding SRST signal on $procdff$2898 ($dff) from module dma_rows_formal (D = $procmux$983_Y, Q = \cover_credit_four, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3200 ($sdff) from module dma_rows_formal (D = 1'1, Q = \cover_credit_four).
+Adding SRST signal on $procdff$2897 ($dff) from module dma_rows_formal (D = $procmux$991_Y, Q = \cover_write_done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3202 ($sdff) from module dma_rows_formal (D = 1'1, Q = \cover_write_done).
+Adding SRST signal on $procdff$2896 ($dff) from module dma_rows_formal (D = $procmux$999_Y, Q = \cover_read_done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3206 ($sdff) from module dma_rows_formal (D = 1'1, Q = \cover_read_done).
+Adding SRST signal on $procdff$2895 ($dff) from module dma_rows_formal (D = $sub$/work/inputs/formal/dma_rows.sv:102$462_Y, Q = \pending, rval = 4'0000).
+Adding SRST signal on $flatten\dut.$procdff$2932 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2526_Y, Q = \dut.cancelled, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3215 ($sdff) from module dma_rows_formal (D = 1'0, Q = \dut.cancelled).
+Adding SRST signal on $flatten\dut.$procdff$2931 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2538_Y, Q = \dut.issued_all, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3219 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2538_Y, Q = \dut.issued_all).
+Adding SRST signal on $flatten\dut.$procdff$2930 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2547_Y, Q = \dut.outstanding, rval = 3'000).
+Adding EN signal on $auto$ff.cc:337:slice$3231 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2547_Y, Q = \dut.outstanding).
+Adding SRST signal on $flatten\dut.$procdff$2929 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2560_Y, Q = \dut.touched_end, rval = 39'000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3239 ($sdff) from module dma_rows_formal (D = $flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:135$681_Y, Q = \dut.touched_end).
+Adding SRST signal on $flatten\dut.$procdff$2928 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2571_Y, Q = \dut.first_row_end, rval = 33'000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3241 ($sdff) from module dma_rows_formal (D = $flatten\dut.$add$/work/inputs/rtl/memory/gemm_dma_rows.sv:131$680_Y, Q = \dut.first_row_end).
+Adding SRST signal on $flatten\dut.$procdff$2927 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2582_Y, Q = \dut.last_row_offset, rval = 38'00000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3243 ($sdff) from module dma_rows_formal (D = $flatten\dut.$mul$/work/inputs/rtl/memory/gemm_dma_rows.sv:130$679_Y, Q = \dut.last_row_offset).
+Adding SRST signal on $flatten\dut.$procdff$2926 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2596_Y, Q = \dut.rounded_row_bytes, rval = 10'0000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3245 ($sdff) from module dma_rows_formal (D = 10'0000011000, Q = \dut.rounded_row_bytes).
+Adding SRST signal on $flatten\dut.$procdff$2925 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2610_Y, Q = \dut.last_row_index, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:337:slice$3249 ($sdff) from module dma_rows_formal (D = 6'000011, Q = \dut.last_row_index).
+Adding SRST signal on $flatten\dut.$procdff$2924 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2624_Y, Q = \dut.saved_row_bytes, rval = 9'000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3253 ($sdff) from module dma_rows_formal (D = 9'000010100, Q = \dut.saved_row_bytes).
+Adding SRST signal on $flatten\dut.$procdff$2923 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2636_Y, Q = \dut.words_per_row, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:337:slice$3257 ($sdff) from module dma_rows_formal (D = \dut.rounded_row_bytes [8:3], Q = \dut.words_per_row).
+Adding SRST signal on $flatten\dut.$procdff$2922 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2650_Y, Q = \dut.saved_rows, rval = 6'000000).
+Adding EN signal on $auto$ff.cc:337:slice$3263 ($sdff) from module dma_rows_formal (D = 6'000100, Q = \dut.saved_rows).
+Adding SRST signal on $flatten\dut.$procdff$2921 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2665_Y, Q = \dut.row_address, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$3267 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2665_Y, Q = \dut.row_address).
+Adding SRST signal on $flatten\dut.$procdff$2920 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2693_Y, Q = \dut.saved_stride, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$3283 ($sdff) from module dma_rows_formal (D = 64, Q = \dut.saved_stride).
+Adding SRST signal on $flatten\dut.$procdff$2919 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2707_Y, Q = \dut.saved_base, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$3287 ($sdff) from module dma_rows_formal (D = 4080, Q = \dut.saved_base).
+Adding SRST signal on $flatten\dut.$procdff$2918 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2721_Y, Q = \dut.saved_write, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$3291 ($sdff) from module dma_rows_formal (D = \req_write, Q = \dut.saved_write).
+Adding SRST signal on $flatten\dut.$procdff$2917 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2728_Y, Q = \dut.state, rval = 3'000).
+Adding EN signal on $auto$ff.cc:337:slice$3295 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2728_Y, Q = \dut.state).
+Adding SRST signal on $flatten\dut.$procdff$2916 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2767_Y, Q = \dut.done_status, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$3311 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2767_Y, Q = \dut.done_status).
+Adding SRST signal on $flatten\dut.$procdff$2915 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2789_Y, Q = \dut.burst_word, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:337:slice$3325 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2789_Y, Q = \dut.burst_word).
+Adding SRST signal on $flatten\dut.$procdff$2914 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2818_Y, Q = \dut.burst_row, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:337:slice$3341 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2818_Y, Q = \dut.burst_row).
+Adding SRST signal on $flatten\dut.$procdff$2913 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2847_Y, Q = \dut.burst_beats, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:337:slice$3357 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2847_Y, Q = \dut.burst_beats).
+Adding SRST signal on $flatten\dut.$procdff$2912 ($dff) from module dma_rows_formal (D = $flatten\dut.$procmux$2876_Y, Q = \dut.burst_addr, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$3373 ($sdff) from module dma_rows_formal (D = $flatten\dut.$procmux$2876_Y, Q = \dut.burst_addr).
+Adding SRST signal on $auto$async2sync.cc:110:execute$2985 ($dff) from module dma_rows_formal (D = $procmux$913_Y, Q = $auto$async2sync.cc:107:execute$2983, rval = 1'0).
+Adding SRST signal on $auto$async2sync.cc:110:execute$2997 ($dff) from module dma_rows_formal (D = $procmux$899_Y, Q = $auto$async2sync.cc:107:execute$2995, rval = 1'0).
+Adding SRST signal on $auto$async2sync.cc:110:execute$3009 ($dff) from module dma_rows_formal (D = $procmux$891_Y, Q = $auto$async2sync.cc:107:execute$3007, rval = 1'0).
+Adding SRST signal on $auto$async2sync.cc:110:execute$3015 ($dff) from module dma_rows_formal (D = $procmux$886_Y, Q = $auto$async2sync.cc:107:execute$3013, rval = 1'0).
+Adding SRST signal on $auto$async2sync.cc:110:execute$3081 ($dff) from module dma_rows_formal (D = $procmux$831_Y, Q = $auto$async2sync.cc:107:execute$3079, rval = 1'0).
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$3185 ($sdffe) from module dma_rows_formal.
+
+6.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 115 unused cells and 150 unused wires.
+<suppressed ~116 debug messages>
+
+6.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+<suppressed ~64 debug messages>
+
+6.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~57 debug messages>
+
+6.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$2665: $auto$opt_reduce.cc:137:opt_pmux$3404
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$2789: $auto$opt_reduce.cc:137:opt_pmux$3406
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$2818: $auto$opt_reduce.cc:137:opt_pmux$3408
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$2847: $auto$opt_reduce.cc:137:opt_pmux$3410
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$2876: $auto$opt_reduce.cc:137:opt_pmux$3412
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 5 changes.
+
+6.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 318 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 271 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 266 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+<suppressed ~156 debug messages>
+Removed a total of 52 cells.
+
+6.14. Executing OPT_SHARE pass.
+
+6.15. Executing OPT_DFF pass (perform DFF optimizations).
+Handling never-active EN on $auto$ff.cc:337:slice$3197 ($sdffe) from module dma_rows_formal (connecting SRST instead).
+Adding EN signal on $auto$ff.cc:337:slice$3268 ($sdffe) from module dma_rows_formal (D = $flatten\dut.$procmux$2665_Y, Q = \dut.row_address).
+Adding EN signal on $auto$ff.cc:337:slice$3342 ($sdffe) from module dma_rows_formal (D = $flatten\dut.$procmux$2818_Y, Q = \dut.burst_row).
+Adding EN signal on $auto$ff.cc:337:slice$3374 ($sdffe) from module dma_rows_formal (D = $flatten\dut.$procmux$2876_Y [2:0], Q = \dut.burst_addr [2:0]).
+Setting constant 0-bit at position 0 on $auto$ff.cc:337:slice$3197 ($dffe) from module dma_rows_formal.
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 2 unused cells and 97 unused wires.
+<suppressed ~3 debug messages>
+
+6.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+<suppressed ~3 debug messages>
+
+6.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+6.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$3427: { $auto$simple.cc:193:make_patterns_logic$3227 $auto$simple.cc:193:make_patterns_logic$3269 $auto$simple.cc:193:make_patterns_logic$3271 $auto$simple.cc:193:make_patterns_logic$3273 $auto$simple.cc:193:make_patterns_logic$3275 $auto$simple.cc:193:make_patterns_logic$3277 $auto$simple.cc:193:make_patterns_logic$3424 }
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$3422: { $auto$simple.cc:193:make_patterns_logic$3227 $auto$simple.cc:193:make_patterns_logic$3269 $auto$simple.cc:193:make_patterns_logic$3271 $auto$simple.cc:193:make_patterns_logic$3273 $auto$simple.cc:193:make_patterns_logic$3275 $auto$simple.cc:193:make_patterns_logic$3277 $auto$simple.cc:193:make_patterns_logic$3419 }
+    New input vector for $reduce_and cell $auto$simple.cc:211:make_patterns_logic$3417: { $auto$simple.cc:193:make_patterns_logic$3227 $auto$simple.cc:193:make_patterns_logic$3269 $auto$simple.cc:193:make_patterns_logic$3271 $auto$simple.cc:193:make_patterns_logic$3273 $auto$simple.cc:193:make_patterns_logic$3275 $auto$simple.cc:193:make_patterns_logic$3277 $auto$simple.cc:193:make_patterns_logic$3414 }
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 3 changes.
+
+6.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 267 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 265 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Computing hashes of 263 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+6.22. Executing OPT_SHARE pass.
+
+6.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+6.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+6.26. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dma_rows_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+6.28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dma_rows_formal.
+Performed a total of 0 changes.
+
+6.29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dma_rows_formal'.
+Computing hashes of 263 cells of `\dma_rows_formal'.
+Finding duplicate cells in `\dma_rows_formal'.
+Removed a total of 0 cells.
+
+6.30. Executing OPT_SHARE pass.
+
+6.31. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.32. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dma_rows_formal..
+
+6.33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dma_rows_formal.
+
+6.34. Finished fast OPT passes. (There is nothing left to do.)
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module dma_rows_formal...
+Found and reported 0 problems.
+
+8. Printing statistics.
+
+=== dma_rows_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      290 wires
+     1363 wire bits
+       99 public wires
+      748 public wire bits
+       30 ports
+      128 port bits
+      263 cells
+       11   $add
+       18   $assert
+       24   $dff
+       25   $eq
+        6   $gt
+        2   $le
+       31   $logic_and
+       17   $logic_not
+       14   $logic_or
+        5   $lt
+        1   $mul
+       15   $mux
+       13   $ne
+        6   $not
+        5   $pmux
+       10   $reduce_and
+       12   $reduce_bool
+        4   $reduce_or
+        1   $scopeinfo
+        6   $sdff
+       31   $sdffe
+        6   $sub
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint: \rst = 1'0
+Import set-constraint for this timestep: \rst = 1'1
+Final constraint equation: \rst = 1'1
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$3013 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3041 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3017 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3059 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3071 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3023 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3047 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$3079 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$2981 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$2983 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3029 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$2987 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3065 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3053 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$2993 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$2995 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3035 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$2999 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$3001 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3083 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3005 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:107:execute$3007 = 1'0
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3077 = 1'1
+Import set-constraint from init attribute: $auto$async2sync.cc:116:execute$3011 = 1'1
+Import set-constraint from init attribute: \cover_credit_four = 1'0
+Import set-constraint from init attribute: \cover_read_done = 1'0
+Import set-constraint from init attribute: \cover_simultaneous = 1'0
+Import set-constraint from init attribute: \cover_write_done = 1'0
+Import set-constraint from init attribute: \ghost_write = 1'0
+Import set-constraint from init attribute: \issued = 4'0000
+Import set-constraint from init attribute: \past_valid = 1'0
+Import set-constraint from init attribute: \pending = 4'0000
+Import set-constraint from init attribute: \saw_any_cancel = 1'0
+Import set-constraint from init attribute: \stalled_burst = 1'0
+Import set-constraint from init attribute: \stalled_done = 1'0
+Final init constraint equation: { \stalled_done \stalled_burst \saw_any_cancel \pending \past_valid \issued \ghost_write \cover_write_done \cover_simultaneous \cover_read_done \cover_credit_four $auto$async2sync.cc:116:execute$3011 $auto$async2sync.cc:116:execute$3077 $auto$async2sync.cc:107:execute$3007 $auto$async2sync.cc:116:execute$3005 $auto$async2sync.cc:116:execute$3083 $auto$async2sync.cc:107:execute$3001 $auto$async2sync.cc:116:execute$2999 $auto$async2sync.cc:116:execute$3035 $auto$async2sync.cc:107:execute$2995 $auto$async2sync.cc:116:execute$2993 $auto$async2sync.cc:116:execute$3053 $auto$async2sync.cc:116:execute$3065 $auto$async2sync.cc:116:execute$2987 $auto$async2sync.cc:116:execute$3029 $auto$async2sync.cc:107:execute$2983 $auto$async2sync.cc:116:execute$2981 $auto$async2sync.cc:107:execute$3079 $auto$async2sync.cc:116:execute$3047 $auto$async2sync.cc:116:execute$3023 $auto$async2sync.cc:116:execute$3071 $auto$async2sync.cc:116:execute$3059 $auto$async2sync.cc:116:execute$3017 $auto$async2sync.cc:116:execute$3041 $auto$async2sync.cc:107:execute$3013 } = 41'00000000000000000110110110111110101111110
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 2:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 3:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 4:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 5:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 6:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 7:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 8:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 9:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 10:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 11:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 12:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 13:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 14:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 15:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 16:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 17:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 18:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 19:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+
+Setting up time step 20:
+Import set-constraint: \rst = 1'0
+Final constraint equation: \rst = 1'0
+Import def constraint for this timestep: \clk
+Import def constraint for this timestep: \rst
+Import def constraint for this timestep: \req_valid
+Import def constraint for this timestep: \req_write
+Import def constraint for this timestep: \burst_ready
+Import def constraint for this timestep: \complete_valid
+Import def constraint for this timestep: \cancel
+Import def constraint for this timestep: \done_ready
+Import def constraint for this timestep: \complete_status
+Import def constraint for this timestep: \cancel_status
+Imported 263 cells to SAT database.
+Import proof for assert: $auto$async2sync.cc:116:execute$3011 when $auto$async2sync.cc:107:execute$3007.
+Import proof for assert: $auto$async2sync.cc:116:execute$3017 when $auto$async2sync.cc:107:execute$3013.
+Import proof for assert: $auto$async2sync.cc:116:execute$3023 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3029 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3035 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3041 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3047 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3053 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3059 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3065 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$2981 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2987 when $auto$async2sync.cc:107:execute$2983.
+Import proof for assert: $auto$async2sync.cc:116:execute$2993 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$2999 when $auto$async2sync.cc:107:execute$2995.
+Import proof for assert: $auto$async2sync.cc:116:execute$3005 when $auto$async2sync.cc:107:execute$3001.
+Import proof for assert: $auto$async2sync.cc:116:execute$3083 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3077 when $auto$async2sync.cc:107:execute$3079.
+Import proof for assert: $auto$async2sync.cc:116:execute$3071 when $auto$async2sync.cc:107:execute$3079.
+Import show expression: \burst_ready
+Import show expression: \cancel
+Import show expression: \cancel_status
+Import show expression: \clk
+Import show expression: \complete_status
+Import show expression: \complete_valid
+Import show expression: \done_ready
+Import show expression: \req_valid
+Import show expression: \req_write
+Import show expression: \rst
+Import show expression: \burst_addr
+Import show expression: \burst_beats
+Import show expression: \burst_final_strb
+Import show expression: \burst_last
+Import show expression: \burst_row
+Import show expression: \burst_row_last
+Import show expression: \burst_valid
+Import show expression: \burst_word
+Import show expression: \burst_write
+Import show expression: \busy
+Import show expression: \complete_ready
+Import show expression: \cover_cancelled_drain
+Import show expression: \cover_credit_four
+Import show expression: \cover_read_done
+Import show expression: \cover_simultaneous
+Import show expression: \cover_write_done
+Import show expression: \done_status
+Import show expression: \done_valid
+Import show expression: \pending
+Import show expression: \req_ready
+
+Solving problem with 581688 variables and 1640311 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 873169c8eb, time: 6.67s, user: 6.67s, system: 0.00s
+Yosys 0.69 (git sha1 9f75ca1f9, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 97% 1x sat (6 sec), 0% 1x proc_mux (0 sec), ...

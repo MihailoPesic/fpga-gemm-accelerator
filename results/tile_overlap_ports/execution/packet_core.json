@@ -1,0 +1,15 @@
+{
+  "suite": "packet_core",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_ddr_core.py",
+    "--only",
+    "p8_t32",
+    "--read-slots",
+    "4",
+    "--build-dir",
+    "build/tile_ports_regression_20261003/packet_core"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 195.81269717216492
+}

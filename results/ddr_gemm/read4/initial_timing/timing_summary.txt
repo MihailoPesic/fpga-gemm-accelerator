@@ -1,0 +1,325 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Oct  3 18:37:14 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -delay_type min_max -report_unconstrained -max_paths 5 -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_read4_candidate/timing.txt}
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity  Description                                                Violations  
+---------  --------  ---------------------------------------------------------  ----------  
+LUTAR-1    Warning   LUT drives async reset alert                               1           
+PDRC-190   Warning   Suboptimally placed synchronized register chain            12          
+SYNTH-5    Warning   Mapped onto distributed RAM because of timing constraints  8           
+SYNTH-6    Warning   Timing of a RAM block might be sub-optimal                 24          
+ULMTCS-2   Warning   Control Sets use limits require reduction                  1           
+XDCB-5     Warning   Runtime inefficient way to find pin objects                1           
+REQP-1959  Advisory  connects_SERDES_RST_driver_not_FF                          16          
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (2)
+6. checking no_output_delay (5)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (2)
+------------------------------
+ There is 1 input port with no input delay specified. (HIGH)
+
+ There is 1 input port with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (5)
+-------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 5 ports with no output delay but user has a false path constraint (MEDIUM)
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+     -0.470     -166.396                    882                67095        0.013        0.000                      0                67033        0.000        0.000                       0                 22204  
+
+
+Timing constraints are not met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock                                                                                                                                                            Waveform(ns)         Period(ns)      Frequency(MHz)
+-----                                                                                                                                                            ------------         ----------      --------------
+CLK100MHZ                                                                                                                                                        {0.000 5.000}        10.000          100.000         
+  clk_out1_axi_ddr_bd_clocks_0                                                                                                                                   {0.000 5.000}        10.000          100.000         
+    freq_refclk                                                                                                                                                  {0.000 1.250}        2.500           400.000         
+      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clk  {0.000 2.500}        5.000           200.000         
+        iserdes_clkdiv                                                                                                                                           {0.000 10.000}       20.000          50.000          
+      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clk  {0.000 2.500}        5.000           200.000         
+        iserdes_clkdiv_1                                                                                                                                         {0.000 10.000}       20.000          50.000          
+    mem_refclk                                                                                                                                                   {0.000 2.500}        5.000           200.000         
+      oserdes_clk                                                                                                                                                {0.000 2.500}        5.000           200.000         
+        oserdes_clkdiv                                                                                                                                           {0.000 5.000}        10.000          100.000         
+      oserdes_clk_1                                                                                                                                              {0.000 2.500}        5.000           200.000         
+        oserdes_clkdiv_1                                                                                                                                         {0.000 10.000}       20.000          50.000          
+      oserdes_clk_2                                                                                                                                              {0.000 2.500}        5.000           200.000         
+        oserdes_clkdiv_2                                                                                                                                         {0.000 5.000}        10.000          100.000         
+      oserdes_clk_3                                                                                                                                              {0.000 2.500}        5.000           200.000         
+        oserdes_clkdiv_3                                                                                                                                         {0.000 10.000}       20.000          50.000          
+    pll_clk3_out                                                                                                                                                 {0.000 10.000}       20.000          50.000          
+      clk_pll_i                                                                                                                                                  {0.000 10.000}       20.000          50.000          
+    pll_clkfbout                                                                                                                                                 {0.000 5.000}        10.000          100.000         
+    sync_pulse                                                                                                                                                   {2.187 7.187}        80.000          12.500          
+  clk_out2_axi_ddr_bd_clocks_0                                                                                                                                   {0.000 2.500}        5.000           200.000         
+  clkfbout_axi_ddr_bd_clocks_0                                                                                                                                   {0.000 5.000}        10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                                                                                                                                                                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                                                                                                                                                                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+CLK100MHZ                                                                                                                                                                                                                                                                                                          3.000        0.000                       0                     1  
+  clk_out1_axi_ddr_bd_clocks_0                                                                                                                                        -0.470     -166.396                    882                53548        0.013        0.000                      0                53548        3.000        0.000                       0                 16800  
+    freq_refclk                                                                                                                                                                                                                                                                                                    0.000        0.000                       0                     8  
+      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clk                                                                                                                                                    3.333        0.000                       0                    16  
+        iserdes_clkdiv                                                                                                                                                17.936        0.000                      0                   33        0.071        0.000                      0                   33        7.850        0.000                       0                     9  
+      u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clk                                                                                                                                                    3.333        0.000                       0                    16  
+        iserdes_clkdiv_1                                                                                                                                              17.959        0.000                      0                   33        0.071        0.000                      0                   33        7.850        0.000                       0                     9  
+    mem_refclk                                                                                                                                                         3.823        0.000                      0                    1        0.336        0.000                      0                    1        1.875        0.000                       0                     8  
+      oserdes_clk                                                                                                                                                      3.412        0.000                      0                    4        0.411        0.000                      0                    4        3.333        0.000                       0                    12  
+        oserdes_clkdiv                                                                                                                                                 8.568        0.000                      0                   36        0.090        0.000                      0                   36        2.850        0.000                       0                    11  
+      oserdes_clk_1                                                                                                                                                                                                                                                                                                3.333        0.000                       0                    12  
+        oserdes_clkdiv_1                                                                                                                                              18.556        0.000                      0                   48        0.094        0.000                      0                   48        7.850        0.000                       0                    13  
+      oserdes_clk_2                                                                                                                                                    3.405        0.000                      0                    4        0.413        0.000                      0                    4        3.333        0.000                       0                    12  
+        oserdes_clkdiv_2                                                                                                                                               8.362        0.000                      0                   36        0.092        0.000                      0                   36        2.850        0.000                       0                    11  
+      oserdes_clk_3                                                                                                                                                                                                                                                                                                3.333        0.000                       0                    11  
+        oserdes_clkdiv_3                                                                                                                                              18.285        0.000                      0                   40        0.086        0.000                      0                   40        7.850        0.000                       0                    11  
+    pll_clk3_out                                                                                                                                                                                                                                                                                                   7.000        0.000                       0                     3  
+      clk_pll_i                                                                                                                                                        9.202        0.000                      0                13040        0.025        0.000                      0                13040        7.850        0.000                       0                  5164  
+    pll_clkfbout                                                                                                                                                                                                                                                                                                   8.751        0.000                       0                     2  
+    sync_pulse                                                                                                                                                                                                                                                                                                     3.750        0.000                       0                     8  
+  clk_out2_axi_ddr_bd_clocks_0                                                                                                                                         1.186        0.000                      0                  126        0.076        0.000                      0                  126        0.264        0.000                       0                    64  
+  clkfbout_axi_ddr_bd_clocks_0                                                                                                                                                                                                                                                                                     7.845        0.000                       0                     3  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock                                                                                                                                                 To Clock                                                                                                                                                       WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------                                                                                                                                                 --------                                                                                                                                                       -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+clk_pll_i                                                                                                                                                  clk_out1_axi_ddr_bd_clocks_0                                                                                                                                    16.946        0.000                      0                  165                                                                        
+clk_pll_i                                                                                                                                                  u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_A.ddr_byte_lane_A/iserdes_clk       20.463        0.000                      0                    8       75.427        0.000                      0                    8  
+clk_pll_i                                                                                                                                                  u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/ddr_byte_lane_C.ddr_byte_lane_C/iserdes_clk       21.873        0.000                      0                    8       74.689        0.000                      0                    8  
+sync_pulse                                                                                                                                                 mem_refclk                                                                                                                                                       2.363        0.000                      0                    1        1.746        0.000                      0                    1  
+oserdes_clk                                                                                                                                                oserdes_clkdiv                                                                                                                                                   4.087        0.000                      0                   15        0.095        0.000                      0                   15  
+oserdes_clk_1                                                                                                                                              oserdes_clkdiv_1                                                                                                                                                 4.087        0.000                      0                   13        0.095        0.000                      0                   13  
+oserdes_clk_2                                                                                                                                              oserdes_clkdiv_2                                                                                                                                                 4.087        0.000                      0                   15        0.095        0.000                      0                   15  
+oserdes_clk_3                                                                                                                                              oserdes_clkdiv_3                                                                                                                                                 4.087        0.000                      0                   11        0.095        0.000                      0                   11  
+clk_out1_axi_ddr_bd_clocks_0                                                                                                                               clk_pll_i                                                                                                                                                        7.387        0.000                      0                  248                                                                        
+clk_out2_axi_ddr_bd_clocks_0                                                                                                                               clk_pll_i                                                                                                                                                       16.778        0.000                      0                   12        0.106        0.000                      0                   12  
+clk_pll_i                                                                                                                                                  clk_out2_axi_ddr_bd_clocks_0                                                                                                                                    16.161        0.000                      0                    1                                                                        
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group         From Clock         To Clock               WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------         ----------         --------               -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+**async_default**  clk_pll_i          clk_pll_i               16.574        0.000                      0                    1        1.180        0.000                      0                    1  
+**default**        clk_pll_i                                   2.723        0.000                      0                    1                                                                        
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group                    From Clock                    To Clock                    
+----------                    ----------                    --------                    
+(none)                        clk_out1_axi_ddr_bd_clocks_0                                
+(none)                        clk_pll_i                                                   
+(none)                                                      clk_out1_axi_ddr_bd_clocks_0  
+(none)                        clk_out1_axi_ddr_bd_clocks_0  clk_out1_axi_ddr_bd_clocks_0  
+(none)                        clk_pll_i                     clk_out1_axi_ddr_bd_clocks_0  
+(none)                                                      clk_out2_axi_ddr_bd_clocks_0  
+(none)                        clk_pll_i                     clk_out2_axi_ddr_bd_clocks_0  
+(none)                                                      clk_pll_i                     
+(none)                        clk_out1_axi_ddr_bd_clocks_0  clk_pll_i                     
+(none)                        clk_pll_i                     clk_pll_i                     
+(none)                        mem_refclk                    clk_pll_i                     
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group                    From Clock                    To Clock                    
+----------                    ----------                    --------                    
+(none)                                                      clk_out1_axi_ddr_bd_clocks_0  
+(none)                                                      clk_pll_i                     
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK100MHZ
+  To Clock:  CLK100MHZ
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK100MHZ
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { CLK100MHZ }
+
+Check Type        Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
+Min Period        n/a     MMCME2_ADV/CLKIN1  n/a            1.249         10.000      8.751      MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+Max Period        n/a     MMCME2_ADV/CLKIN1  n/a            100.000       10.000      90.000     MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+Low Pulse Width   Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000      MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+Low Pulse Width   Fast    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000      MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+High Pulse Width  Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000      MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+High Pulse Width  Fast    MMCME2_ADV/CLKIN1  n/a            2.000         5.000       3.000      MMCME2_ADV_X1Y1  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKIN1
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk_out1_axi_ddr_bd_clocks_0
+  To Clock:  clk_out1_axi_ddr_bd_clocks_0
+
+Setup :          882  Failing Endpoints,  Worst Slack       -0.470ns,  Total Violation     -166.396ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.013ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------

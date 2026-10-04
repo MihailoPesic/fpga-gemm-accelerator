@@ -1,0 +1,400 @@
+{
+  "p": 4,
+  "t": 8,
+  "read_slots": 4,
+  "seed": 20261004,
+  "jobs": 14,
+  "output_values": 1130,
+  "shapes": [
+    [
+      1,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      9,
+      11,
+      9,
+      0
+    ],
+    [
+      9,
+      11,
+      9,
+      1
+    ],
+    [
+      17,
+      7,
+      33,
+      0
+    ],
+    [
+      17,
+      7,
+      33,
+      1
+    ],
+    [
+      7,
+      17,
+      255,
+      0
+    ],
+    [
+      7,
+      17,
+      255,
+      1
+    ],
+    [
+      9,
+      9,
+      256,
+      0
+    ],
+    [
+      9,
+      9,
+      256,
+      1
+    ],
+    [
+      17,
+      17,
+      9,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "read_occupancy": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "simultaneous_descriptors": 6,
+  "compute_load_edges": 1646,
+  "compute_store_read_edges": 218,
+  "three_way_edges": 52,
+  "read_bursts": 648,
+  "write_bursts": 206,
+  "write_responses": 206,
+  "read_lengths": [
+    1,
+    2,
+    5,
+    8,
+    16
+  ],
+  "write_lengths": [
+    1,
+    2,
+    4
+  ],
+  "stalls": {
+    "load": 1715,
+    "burst_rd_done": 932,
+    "wr_cmd": 56,
+    "aw": 56,
+    "w": 154,
+    "store_done": 45,
+    "load_done": 311,
+    "ar": 288,
+    "rd_cmd": 166,
+    "read": 146,
+    "response": 156,
+    "wr_data": 125
+  },
+  "scenarios": [
+    "row_major_both_modes_tails_signed_padding_snapshot",
+    "both_result_sets_retained_final_local_and_axi_idle",
+    "read_write_core_external_fault_drain_first_code"
+  ],
+  "macrotiles": 42,
+  "modes": [
+    0,
+    1
+  ],
+  "scheduler_load_overlap_edges": 3282,
+  "scheduler_store_overlap_edges": 1708,
+  "scheduler_three_way_edges": 887,
+  "independent_buffer_ids": 3,
+  "held_completion_checks": 3,
+  "fatal_cases": [
+    "read",
+    "write",
+    "compute",
+    "external",
+    "idle_after_success",
+    "final_terminal_same_edge"
+  ],
+  "case_results": [
+    {
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "mode": 0,
+      "macrotiles": 1,
+      "input_image_sha256_bytes": {
+        "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+        "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+      },
+      "read_bursts": 2,
+      "write_bursts": 1,
+      "write_beats": 1,
+      "write_valid_bytes": 4
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "mode": 1,
+      "macrotiles": 1,
+      "input_image_sha256_bytes": {
+        "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+        "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+      },
+      "read_bursts": 2,
+      "write_bursts": 1,
+      "write_beats": 1,
+      "write_valid_bytes": 4
+    },
+    {
+      "shape": [
+        9,
+        11,
+        9
+      ],
+      "mode": 0,
+      "macrotiles": 4,
+      "input_image_sha256_bytes": {
+        "a": "32bd8a39c1f2eb79f38e49f06b98ad5385f85b5798abc63cf0354c1ed62256e3",
+        "bt": "e063d53621fa82f370af202a1b9f675e2c1ea1977e44d8119c874bfbd9bb0cdd"
+      },
+      "read_bursts": 40,
+      "write_bursts": 18,
+      "write_beats": 54,
+      "write_valid_bytes": 396
+    },
+    {
+      "shape": [
+        9,
+        11,
+        9
+      ],
+      "mode": 1,
+      "macrotiles": 4,
+      "input_image_sha256_bytes": {
+        "a": "32bd8a39c1f2eb79f38e49f06b98ad5385f85b5798abc63cf0354c1ed62256e3",
+        "bt": "e063d53621fa82f370af202a1b9f675e2c1ea1977e44d8119c874bfbd9bb0cdd"
+      },
+      "read_bursts": 40,
+      "write_bursts": 18,
+      "write_beats": 54,
+      "write_valid_bytes": 396
+    },
+    {
+      "shape": [
+        17,
+        7,
+        33
+      ],
+      "mode": 0,
+      "macrotiles": 3,
+      "input_image_sha256_bytes": {
+        "a": "63d9464d058e6308edff92a2e89c4204ecd46855c2dc0d94c8251fe4b2c7b3b5",
+        "bt": "280e4536395dc341b12553d9efc1372e807a4c39d3eaf37a4784d5f98ad4db65"
+      },
+      "read_bursts": 38,
+      "write_bursts": 17,
+      "write_beats": 68,
+      "write_valid_bytes": 476
+    },
+    {
+      "shape": [
+        17,
+        7,
+        33
+      ],
+      "mode": 1,
+      "macrotiles": 3,
+      "input_image_sha256_bytes": {
+        "a": "63d9464d058e6308edff92a2e89c4204ecd46855c2dc0d94c8251fe4b2c7b3b5",
+        "bt": "280e4536395dc341b12553d9efc1372e807a4c39d3eaf37a4784d5f98ad4db65"
+      },
+      "read_bursts": 38,
+      "write_bursts": 17,
+      "write_beats": 68,
+      "write_valid_bytes": 476
+    },
+    {
+      "shape": [
+        7,
+        17,
+        255
+      ],
+      "mode": 0,
+      "macrotiles": 3,
+      "input_image_sha256_bytes": {
+        "a": "a2120617d0ba18a696983059350fc2c92e955edac8ffc670c756506e3a790e27",
+        "bt": "27b10a65be8943bc65051482ed882ec15014edd750606a15574b06c9e8def15c"
+      },
+      "read_bursts": 80,
+      "write_bursts": 21,
+      "write_beats": 63,
+      "write_valid_bytes": 476
+    },
+    {
+      "shape": [
+        7,
+        17,
+        255
+      ],
+      "mode": 1,
+      "macrotiles": 3,
+      "input_image_sha256_bytes": {
+        "a": "a2120617d0ba18a696983059350fc2c92e955edac8ffc670c756506e3a790e27",
+        "bt": "27b10a65be8943bc65051482ed882ec15014edd750606a15574b06c9e8def15c"
+      },
+      "read_bursts": 80,
+      "write_bursts": 21,
+      "write_beats": 63,
+      "write_valid_bytes": 476
+    },
+    {
+      "shape": [
+        9,
+        9,
+        256
+      ],
+      "mode": 0,
+      "macrotiles": 4,
+      "input_image_sha256_bytes": {
+        "a": "52a2f9b9bc6605f67a86623ae1dd761a94383d1d0283a925f4b4b748eea41273",
+        "bt": "a7958240d344c957360446f6a6b9cee0c10fb08fcb410b4b5887344e91aa5ff4"
+      },
+      "read_bursts": 76,
+      "write_bursts": 18,
+      "write_beats": 45,
+      "write_valid_bytes": 324
+    },
+    {
+      "shape": [
+        9,
+        9,
+        256
+      ],
+      "mode": 1,
+      "macrotiles": 4,
+      "input_image_sha256_bytes": {
+        "a": "52a2f9b9bc6605f67a86623ae1dd761a94383d1d0283a925f4b4b748eea41273",
+        "bt": "a7958240d344c957360446f6a6b9cee0c10fb08fcb410b4b5887344e91aa5ff4"
+      },
+      "read_bursts": 76,
+      "write_bursts": 18,
+      "write_beats": 45,
+      "write_valid_bytes": 324
+    },
+    {
+      "shape": [
+        17,
+        17,
+        9
+      ],
+      "mode": 1,
+      "macrotiles": 9,
+      "input_image_sha256_bytes": {
+        "a": "66398f1937bc5ee945581c0c5eeead9ba250cd1fce6785b14e45cdd198059c51",
+        "bt": "fe4790c4db04512c48ed18840079ace213525eb6a1939146dbcdd53af66d8894"
+      },
+      "read_bursts": 102,
+      "write_bursts": 51,
+      "write_beats": 153,
+      "write_valid_bytes": 1156
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "mode": 1,
+      "macrotiles": 1,
+      "input_image_sha256_bytes": {
+        "a": "bb7f491d2db8da3a882d64b72c2338f819cec9c747ef9a0eac844276ede4bb60",
+        "bt": "6d6d24392996305780262350336799a26b88896cbbb00c1837e6b542c4c1334a"
+      },
+      "read_bursts": 2,
+      "write_bursts": 1,
+      "write_beats": 1,
+      "write_valid_bytes": 4
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "mode": 1,
+      "macrotiles": 1,
+      "input_image_sha256_bytes": {
+        "a": "0e6943ad4079627c9993c46e2ffcc988cc7c2dffb3bf1cae7bb4bd0308b51128",
+        "bt": "5abf55a0ed8d35718195600a1ef1bb704a93885828cc90784fda325745ecfd45"
+      },
+      "read_bursts": 2,
+      "write_bursts": 1,
+      "write_beats": 1,
+      "write_valid_bytes": 4
+    },
+    {
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "mode": 1,
+      "macrotiles": 1,
+      "input_image_sha256_bytes": {
+        "a": "d734120d55e56e05582fad9cf14c060a0eb998e29576485770791f7ae6c1f8ee",
+        "bt": "f82b83b9ccb4e4560a4333f20723367bccdbdfe9e63f5ab3b3e6ec804d711aaa"
+      },
+      "read_bursts": 2,
+      "write_bursts": 1,
+      "write_beats": 1,
+      "write_valid_bytes": 4
+    }
+  ],
+  "maximum_tile_counts": [
+    16384
+  ]
+}

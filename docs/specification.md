@@ -7,7 +7,7 @@ The first release is a P4 BRAM preview; the full target includes DDR2 and P8.
 
 ## Board envelope and release goals
 
-Target **Nexys A7-50T**. JTAG detected an `xc7a50t`; package marking and physical board revision remain to be recorded. The 50T has 32,600 LUTs, 65,200 flip-flops, 120 DSP slices and 2,700 Kb of block RAM, equivalent to 75 blocks of 36 Kb. The board includes 128 MiB DDR2 and USB-UART. The input-clock constraint is 10 ns, or 100 MHz.[^4][^5]
+Target **Nexys A7-50T**. JTAG detected an `xc7a50t`, and the operator confirmed the Nexys A7 / 50T / CSG324 marking. The full device speed/temperature suffix and physical board revision remain unrecorded. The 50T has 32,600 LUTs, 65,200 flip-flops, 120 DSP slices and 2,700 Kb of block RAM, equivalent to 75 blocks of 36 Kb. The board includes 128 MiB DDR2 and USB-UART. The input-clock constraint is 10 ns, or 100 MHz.[^4][^5]
 
 | Item | Specification / target | Status |
 | --- | --- | --- |
@@ -37,7 +37,7 @@ Target **Nexys A7-50T**. JTAG detected an `xc7a50t`; package marking and physica
 | Compute | Signed MAC PE, skewing, systolic array, bank prefetch and result drain. | No DDR stalls inside an active microtile. |
 | Platform | Wrapper, reset coordination and reproducible IP configuration. | AMD MIG and AXI width/clock conversion remain vendor IP. |
 
-Use MIG with its AXI4 interface. Configure the MIG-side AXI width to match its generated native application width where supported. A vendor SmartConnect path adapts your 64-bit, 100 MHz master to the actual MIG width and clock. Check the generated configuration rather than assuming its user clock is 100 MHz. The architectural interface to your RTL remains fixed.[^7][^8][^9][^10]
+Use MIG with its AXI4 interface. Configure the MIG-side AXI width to match its generated native application width where supported. A vendor SmartConnect path adapts the custom 64-bit, 100 MHz master to the actual MIG width and clock. Check the generated configuration rather than assuming its user clock is 100 MHz. The architectural interface to the portable RTL remains fixed.[^7][^8][^9][^10]
 
 **Why the hierarchy matters:** local storage absorbs DDR variability; a prepared microtile then runs with a predictable schedule. The array reuses values spatially, while the macrotile reuses them across multiple array launches. Load, compute and store can proceed independently when buffer ownership permits. Gemmini is a useful reference for these ideas; this is a smaller original SystemVerilog subsystem, with different interfaces and deliberately bounded functionality.[^6]
 
@@ -114,7 +114,7 @@ An independent address enumeration checked that the proposed operand map is coll
 
 **M-02:** choose explicit ordinary-memory sideband constants in the wrapper: LOCK=0, CACHE=0, PROT=0, QOS=0, REGION=0; omit unused USER channels or tie them to zero. Configure the path consistently. Do not infer correctness from tied-off sideband signals while ignoring response or burst semantics.
 
-**M-03:** keep a behavioral AXI RAM at this boundary for most simulation. Add randomized delays on all five channels and error injection. Then run a smaller integration test with generated vendor simulation models. Open-source simulation of your core is not a simulation of the physical DDR interface.[^16]
+**M-03:** keep a behavioral AXI RAM at this boundary for most simulation. Add randomized delays on all five channels and error injection. Then run a smaller integration test with generated vendor simulation models. Open-source simulation of the portable core is not a simulation of the physical DDR interface.[^16]
 
 Measure read-only, write-only and mixed traffic with the actual row and burst patterns. A 64-bit bus at 100 MHz carries at most 800 MB/s in each continuously transferring channel. The shared DDR device, bridge behavior and command overhead impose a separate combined limit. Do not assume simultaneous 800 MB/s reads and writes from the memory.
 
@@ -255,7 +255,7 @@ Use independent transfer and compute counters to explain measured throughput, in
 [^7]: [AMD: UG586: Zynq 7000 SoC and 7 Series Devices Memory Interface Solutions](https://docs.amd.com/r/en-US/ug586_7Series_MIS). Version 4.2, 13 November 2024. MIG generation, example designs, memory calibration and integration.
 [^8]: [AMD: UG586: AXI4 Slave Interface Parameters](https://docs.amd.com/r/en-US/ug586_7Series_MIS/AXI4-Slave-Interface-Parameters). 32-bit addressing; selectable AXI data widths; recommends matching APP_DATA_WIDTH for performance.
 [^9]: [AMD: PG059: Clock Conversion](https://docs.amd.com/r/en-US/pg059-axi-interconnect/Clock-Conversion). AXI infrastructure reference, version 2.1. Use the documentation for the selected installed IP release.
-[^10]: [AMD: PG247: Width Conversion](https://docs.amd.com/r/en-US/pg247-smartconnect/Width-Conversion). SmartConnect automatically adapts differing endpoint widths. This is vendor infrastructure, not student-designed RTL.
+[^10]: [AMD: PG247: Width Conversion](https://docs.amd.com/r/en-US/pg247-smartconnect/Width-Conversion). SmartConnect automatically adapts differing endpoint widths. Width conversion is supplied by vendor IP.
 [^6]: [UC Berkeley Architecture Research: Gemmini: Berkeley's Spatial Array Generator](https://github.com/ucb-bar/gemmini). Architecture reference for systolic computation, local storage, DMA and overlapped execution. This project does not port Gemmini.
 [^11]: [AMD: UG949: Coding for Optimal DSP and Arithmetic Inference](https://docs.amd.com/r/en-US/ug949-vivado-design-methodology/Coding-for-Optimal-DSP-and-Arithmetic-Inference). Check inferred hardware and register placement in synthesis; one DSP per PE is a design goal.
 [^16]: [Alex Forencich and contributors: cocotbext-axi](https://github.com/alexforencich/cocotbext-axi). AXI master, slave and RAM simulation models; extend the test environment for error injection.

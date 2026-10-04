@@ -1,0 +1,22 @@
+DDR_GEMM_SIM_CONFIG p=4 t=32 sim_baud=10000000 build_id=2833cd6e
+PHY_INIT: Memory Initialization completed at 46734475.0 ps
+PHY_INIT: Phaser_In Phase Locked at 52734475.0 ps
+PHY_INIT: Phaser_In DQSFOUND completed at 97674475.0 ps
+PHY_INIT: Read Leveling Stage 1 completed at 157934475.0 ps
+PHY_INIT : PRBS/PER_BIT calibration completed at 157934475.0 ps
+PHY_INIT : COMPLEX OCLKDELAY calibration completed at 157934475.0 ps
+DDR_GEMM_CALIBRATED time_ns=165415000.0 ps
+DDR_GEMM_JOB_BEGIN job_id=1 m=1 n=1 k=1 time_ns=446972000.0 ps
+DDR_GEMM_PROGRESS packets=8 opcode=05 status=0 time_ns=531692000.0 ps
+DDR_GEMM_PROGRESS packets=16 opcode=03 status=0 time_ns=826472000.0 ps
+DDR_GEMM_PROGRESS packets=24 opcode=02 status=0 time_ns=1095092000.0 ps
+DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=206 compute_cycles=12 read_beats=2 write_beats=1 write_bytes=4
+DDR_GEMM_PROGRESS packets=32 opcode=03 status=3 time_ns=1390372000.0 ps
+DDR_GEMM_JOB_BEGIN job_id=2 m=5 n=3 k=9 time_ns=1390372000.0 ps
+DDR_GEMM_PROGRESS packets=40 opcode=05 status=0 time_ns=1797892000.0 ps
+DDR_GEMM_PROGRESS packets=48 opcode=03 status=0 time_ns=2170592000.0 ps
+DDR_GEMM_PROGRESS packets=56 opcode=02 status=0 time_ns=2439132000.0 ps
+Fatal: C/guard mismatch job=2 address=00002fc0 expected=xx actual=c7
+Time: 2565692 ns  Iteration: 0  Process: /tb_ddr_gemm(BUILD_ID=32'b0101000001100111100110101101110)/run_job  Scope: tb_ddr_gemm(BUILD_ID=32'b0101000001100111100110101101110).run_job  File: C:/Users/mihai/Documents/continium/accelerator nexys/tb/vendor/tb_ddr_gemm.sv Line: 373
+$finish called at time : 2565692 ns
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:31:59 . Memory (MB): peak = 669.344 ; gain = 0.000

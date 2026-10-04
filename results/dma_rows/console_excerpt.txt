@@ -1,0 +1,19 @@
+Excerpt of the original local console; original line numbers retained.
+1:      -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+3:      0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+5:      0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+8:      0.00ns INFO     cocotb.regression                  running test_dma_rows.directed_row_boundaries_and_snapshots (1/4)
+9:  19400.00ns INFO     cocotb.regression                  test_dma_rows.directed_row_boundaries_and_snapshots passed
+10:  19400.00ns INFO     cocotb.regression                  running test_dma_rows.seeded_valid_and_invalid_descriptors (2/4)
+11: 318630.00ns INFO     cocotb.regression                  test_dma_rows.seeded_valid_and_invalid_descriptors passed
+12: 318630.00ns INFO     cocotb.regression                  running test_dma_rows.completion_faults_and_offer_chronology (3/4)
+13: 324480.00ns INFO     cocotb.regression                  test_dma_rows.completion_faults_and_offer_chronology passed
+14: 324480.00ns INFO     cocotb.regression                  running test_dma_rows.local_reset_states (4/4)
+15: 325620.00ns INFO     cocotb.regression                  test_dma_rows.local_reset_states passed
+19:                                                         ** test_dma_rows.directed_row_boundaries_and_snapshots    PASS       19400.00           0.32      59938.23  **
+20:                                                         ** test_dma_rows.seeded_valid_and_invalid_descriptors     PASS      299230.00           5.22      57328.59  **
+21:                                                         ** test_dma_rows.completion_faults_and_offer_chronology   PASS        5850.00           0.10      56028.13  **
+22:                                                         ** test_dma_rows.local_reset_states                       PASS        1140.00           0.03      42977.52  **
+24:                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                     325620.00           5.73      56847.48  **
+35:     "tb/test_dma_rows.py": "217d4030a73fed5f74c2525f68d7a29ee356f140782a46d3fa2a03940ae5c909",
+38:     "scripts/test_dma_rows.py": "63a87c8f99b0989524c23668de5746df8db71e8d80cfbbefbd4d2637a4740037"

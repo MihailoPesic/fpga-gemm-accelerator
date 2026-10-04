@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "commands": 22,
+  "queries": 21,
+  "witnesses": 15,
+  "current_source_and_snapshot_hashes_verified": true,
+  "all_actual_child_exits": 0,
+  "summary_sha256_bytes": "1e3350308b1804c232a675d0408ae8b54a2619739a50f61ccca03bad588d9c1d",
+  "execution_sha256_bytes": "9f8b5904984104a35408c7a106953b78d935a9b8361855f6c53abdf5829074a4"
+}

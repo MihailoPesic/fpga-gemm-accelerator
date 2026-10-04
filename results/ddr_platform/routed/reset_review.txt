@@ -1,0 +1,15 @@
+Read-only reset endpoint and active-exception review of the same routed checkpoint.
+Routed checkpoint byte SHA-256: a969a00bd4934d4942e0a2813637bbeb0559914f52fca456d1b02c877a97ff78
+Full reset_endpoints.txt byte SHA-256: 3163bfc25342d0c867d665f19c01024cb0cd2630be0c7d56fd34585a8488334f
+Full valid_exceptions.txt byte SHA-256: 619ed694cce1688d267e529b76ae0c918b7be2413c9f65b593a78601e3ee136a
+
+CPU_RESETN has 44 endpoints: one MIG PLL reset and 43 MIG reset-chain PRE pins.
+No application D or CE endpoint is reached by that asynchronous input.
+The generated reset exception resolves to the reset-gate output in the
+implemented design; the synthesis empty-net warning does not remain an
+unapplied reset exception at implementation. No new timing waiver was added.
+This constraint review does not qualify an abrupt warm reset.
+
+Active exception, original position 10:
+set_false_path \
+    -through [get_pins {platform/platform/axi_ddr_bd_i/mig_reset_gate/Res[0]_INST_0/O}]

@@ -1,0 +1,2346 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "p": 8,
+  "t": 32,
+  "read_slots": 4,
+  "model": "cocotbext-axi AxiRam; no inserted channel or local stalls",
+  "cycle_scope": "Software-driven tile helper sequence: A load, BT load, compute, C store. Includes request validation, buffered delivery and helper DONE observation/retirement; completion(stall=0). Excludes reset and host preparation. Not the full DDR job counter, MIG timing, UART throughput or board performance.",
+  "jobs": [
+    {
+      "name": "dense",
+      "shape": [
+        32,
+        32,
+        256
+      ],
+      "seed": 20261011,
+      "phases": {
+        "a_load": {
+          "start_cycle": 3,
+          "counters": {
+            "ar_bursts": 67,
+            "r_beats": 1024,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 1024,
+            "read_commands": 67,
+            "read_completions": 67
+          },
+          "max_axi_reads": 4,
+          "read_occupancy": {
+            "0": 176,
+            "1": 886,
+            "2": 139,
+            "3": 48,
+            "4": 1
+          },
+          "end_cycle": 1253,
+          "cycles": 1250
+        },
+        "bt_load": {
+          "start_cycle": 1253,
+          "counters": {
+            "ar_bursts": 67,
+            "r_beats": 1024,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 1024,
+            "read_commands": 67,
+            "read_completions": 67
+          },
+          "max_axi_reads": 4,
+          "read_occupancy": {
+            "0": 176,
+            "1": 886,
+            "2": 139,
+            "3": 48,
+            "4": 1
+          },
+          "end_cycle": 2503,
+          "cycles": 1250
+        },
+        "compute": {
+          "start_cycle": 2503,
+          "counters": {
+            "ar_bursts": 0,
+            "r_beats": 0,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 0,
+            "read_commands": 0,
+            "read_completions": 0
+          },
+          "max_axi_reads": 0,
+          "read_occupancy": {
+            "0": 4530
+          },
+          "tile_job_cycles": 4528,
+          "end_cycle": 7033,
+          "cycles": 4530
+        },
+        "c_store": {
+          "start_cycle": 7033,
+          "counters": {
+            "ar_bursts": 0,
+            "r_beats": 0,
+            "aw_bursts": 33,
+            "w_beats": 512,
+            "b_responses": 33,
+            "write_valid_bytes": 4096,
+            "bank_words": 0,
+            "read_commands": 0,
+            "read_completions": 0
+          },
+          "max_axi_reads": 0,
+          "read_occupancy": {
+            "0": 2765
+          },
+          "end_cycle": 9798,
+          "cycles": 2765
+        }
+      },
+      "helper_sequence_cycles": 9795,
+      "counters": {
+        "ar_bursts": 134,
+        "r_beats": 2048,
+        "aw_bursts": 33,
+        "w_beats": 512,
+        "b_responses": 33,
+        "write_valid_bytes": 4096,
+        "bank_words": 2048,
+        "read_commands": 134,
+        "read_completions": 134
+      },
+      "regions": {
+        "a_load": {
+          "base": 4088,
+          "stride": 264,
+          "rows": 32,
+          "row_bytes": 256,
+          "buffer": 0,
+          "checked_start": 4080,
+          "checked_bytes": 8464,
+          "initial_sha256": "3bf707aeb8235b302f49f89aad903029f6e5b178112f21e0d553280988b3c262",
+          "final_sha256": "3bf707aeb8235b302f49f89aad903029f6e5b178112f21e0d553280988b3c262"
+        },
+        "bt_load": {
+          "base": 135160,
+          "stride": 264,
+          "rows": 32,
+          "row_bytes": 256,
+          "buffer": 0,
+          "checked_start": 135152,
+          "checked_bytes": 8464,
+          "initial_sha256": "c60a0bae4a4c57a011be641bf07ef628c7e4a88bfe043733384abdce35f27655",
+          "final_sha256": "c60a0bae4a4c57a011be641bf07ef628c7e4a88bfe043733384abdce35f27655"
+        },
+        "c_store": {
+          "base": 266232,
+          "stride": 152,
+          "rows": 32,
+          "row_bytes": 128,
+          "buffer": 1,
+          "checked_start": 266224,
+          "checked_bytes": 4880,
+          "initial_sha256": "ed4298becd74b813dc036de20d20f70d8e1db163b42ead577f1d9476a9cc5934",
+          "final_sha256": "f7b22cccfb20545e792f9407603d29c277db218ceb04976593c862adc14e0ec7"
+        }
+      },
+      "max_axi_reads": 4,
+      "compared_output_values": 1024,
+      "checked_memory_bytes": 21808,
+      "golden_int32_sha256": "4be8d4390092115643bd6a4a7d9d90760f93c9ac4bb4a5b92e7c9cb5354f6910",
+      "reads": [
+        {
+          "address": 4088,
+          "beats": 1
+        },
+        {
+          "address": 4096,
+          "beats": 16
+        },
+        {
+          "address": 4224,
+          "beats": 15
+        },
+        {
+          "address": 4352,
+          "beats": 16
+        },
+        {
+          "address": 4480,
+          "beats": 16
+        },
+        {
+          "address": 4616,
+          "beats": 16
+        },
+        {
+          "address": 4744,
+          "beats": 16
+        },
+        {
+          "address": 4880,
+          "beats": 16
+        },
+        {
+          "address": 5008,
+          "beats": 16
+        },
+        {
+          "address": 5144,
+          "beats": 16
+        },
+        {
+          "address": 5272,
+          "beats": 16
+        },
+        {
+          "address": 5408,
+          "beats": 16
+        },
+        {
+          "address": 5536,
+          "beats": 16
+        },
+        {
+          "address": 5672,
+          "beats": 16
+        },
+        {
+          "address": 5800,
+          "beats": 16
+        },
+        {
+          "address": 5936,
+          "beats": 16
+        },
+        {
+          "address": 6064,
+          "beats": 16
+        },
+        {
+          "address": 6200,
+          "beats": 16
+        },
+        {
+          "address": 6328,
+          "beats": 16
+        },
+        {
+          "address": 6464,
+          "beats": 16
+        },
+        {
+          "address": 6592,
+          "beats": 16
+        },
+        {
+          "address": 6728,
+          "beats": 16
+        },
+        {
+          "address": 6856,
+          "beats": 16
+        },
+        {
+          "address": 6992,
+          "beats": 16
+        },
+        {
+          "address": 7120,
+          "beats": 16
+        },
+        {
+          "address": 7256,
+          "beats": 16
+        },
+        {
+          "address": 7384,
+          "beats": 16
+        },
+        {
+          "address": 7520,
+          "beats": 16
+        },
+        {
+          "address": 7648,
+          "beats": 16
+        },
+        {
+          "address": 7784,
+          "beats": 16
+        },
+        {
+          "address": 7912,
+          "beats": 16
+        },
+        {
+          "address": 8048,
+          "beats": 16
+        },
+        {
+          "address": 8176,
+          "beats": 2
+        },
+        {
+          "address": 8192,
+          "beats": 14
+        },
+        {
+          "address": 8312,
+          "beats": 16
+        },
+        {
+          "address": 8440,
+          "beats": 16
+        },
+        {
+          "address": 8576,
+          "beats": 16
+        },
+        {
+          "address": 8704,
+          "beats": 16
+        },
+        {
+          "address": 8840,
+          "beats": 16
+        },
+        {
+          "address": 8968,
+          "beats": 16
+        },
+        {
+          "address": 9104,
+          "beats": 16
+        },
+        {
+          "address": 9232,
+          "beats": 16
+        },
+        {
+          "address": 9368,
+          "beats": 16
+        },
+        {
+          "address": 9496,
+          "beats": 16
+        },
+        {
+          "address": 9632,
+          "beats": 16
+        },
+        {
+          "address": 9760,
+          "beats": 16
+        },
+        {
+          "address": 9896,
+          "beats": 16
+        },
+        {
+          "address": 10024,
+          "beats": 16
+        },
+        {
+          "address": 10160,
+          "beats": 16
+        },
+        {
+          "address": 10288,
+          "beats": 16
+        },
+        {
+          "address": 10424,
+          "beats": 16
+        },
+        {
+          "address": 10552,
+          "beats": 16
+        },
+        {
+          "address": 10688,
+          "beats": 16
+        },
+        {
+          "address": 10816,
+          "beats": 16
+        },
+        {
+          "address": 10952,
+          "beats": 16
+        },
+        {
+          "address": 11080,
+          "beats": 16
+        },
+        {
+          "address": 11216,
+          "beats": 16
+        },
+        {
+          "address": 11344,
+          "beats": 16
+        },
+        {
+          "address": 11480,
+          "beats": 16
+        },
+        {
+          "address": 11608,
+          "beats": 16
+        },
+        {
+          "address": 11744,
+          "beats": 16
+        },
+        {
+          "address": 11872,
+          "beats": 16
+        },
+        {
+          "address": 12008,
+          "beats": 16
+        },
+        {
+          "address": 12136,
+          "beats": 16
+        },
+        {
+          "address": 12272,
+          "beats": 2
+        },
+        {
+          "address": 12288,
+          "beats": 16
+        },
+        {
+          "address": 12416,
+          "beats": 14
+        },
+        {
+          "address": 135160,
+          "beats": 1
+        },
+        {
+          "address": 135168,
+          "beats": 16
+        },
+        {
+          "address": 135296,
+          "beats": 15
+        },
+        {
+          "address": 135424,
+          "beats": 16
+        },
+        {
+          "address": 135552,
+          "beats": 16
+        },
+        {
+          "address": 135688,
+          "beats": 16
+        },
+        {
+          "address": 135816,
+          "beats": 16
+        },
+        {
+          "address": 135952,
+          "beats": 16
+        },
+        {
+          "address": 136080,
+          "beats": 16
+        },
+        {
+          "address": 136216,
+          "beats": 16
+        },
+        {
+          "address": 136344,
+          "beats": 16
+        },
+        {
+          "address": 136480,
+          "beats": 16
+        },
+        {
+          "address": 136608,
+          "beats": 16
+        },
+        {
+          "address": 136744,
+          "beats": 16
+        },
+        {
+          "address": 136872,
+          "beats": 16
+        },
+        {
+          "address": 137008,
+          "beats": 16
+        },
+        {
+          "address": 137136,
+          "beats": 16
+        },
+        {
+          "address": 137272,
+          "beats": 16
+        },
+        {
+          "address": 137400,
+          "beats": 16
+        },
+        {
+          "address": 137536,
+          "beats": 16
+        },
+        {
+          "address": 137664,
+          "beats": 16
+        },
+        {
+          "address": 137800,
+          "beats": 16
+        },
+        {
+          "address": 137928,
+          "beats": 16
+        },
+        {
+          "address": 138064,
+          "beats": 16
+        },
+        {
+          "address": 138192,
+          "beats": 16
+        },
+        {
+          "address": 138328,
+          "beats": 16
+        },
+        {
+          "address": 138456,
+          "beats": 16
+        },
+        {
+          "address": 138592,
+          "beats": 16
+        },
+        {
+          "address": 138720,
+          "beats": 16
+        },
+        {
+          "address": 138856,
+          "beats": 16
+        },
+        {
+          "address": 138984,
+          "beats": 16
+        },
+        {
+          "address": 139120,
+          "beats": 16
+        },
+        {
+          "address": 139248,
+          "beats": 2
+        },
+        {
+          "address": 139264,
+          "beats": 14
+        },
+        {
+          "address": 139384,
+          "beats": 16
+        },
+        {
+          "address": 139512,
+          "beats": 16
+        },
+        {
+          "address": 139648,
+          "beats": 16
+        },
+        {
+          "address": 139776,
+          "beats": 16
+        },
+        {
+          "address": 139912,
+          "beats": 16
+        },
+        {
+          "address": 140040,
+          "beats": 16
+        },
+        {
+          "address": 140176,
+          "beats": 16
+        },
+        {
+          "address": 140304,
+          "beats": 16
+        },
+        {
+          "address": 140440,
+          "beats": 16
+        },
+        {
+          "address": 140568,
+          "beats": 16
+        },
+        {
+          "address": 140704,
+          "beats": 16
+        },
+        {
+          "address": 140832,
+          "beats": 16
+        },
+        {
+          "address": 140968,
+          "beats": 16
+        },
+        {
+          "address": 141096,
+          "beats": 16
+        },
+        {
+          "address": 141232,
+          "beats": 16
+        },
+        {
+          "address": 141360,
+          "beats": 16
+        },
+        {
+          "address": 141496,
+          "beats": 16
+        },
+        {
+          "address": 141624,
+          "beats": 16
+        },
+        {
+          "address": 141760,
+          "beats": 16
+        },
+        {
+          "address": 141888,
+          "beats": 16
+        },
+        {
+          "address": 142024,
+          "beats": 16
+        },
+        {
+          "address": 142152,
+          "beats": 16
+        },
+        {
+          "address": 142288,
+          "beats": 16
+        },
+        {
+          "address": 142416,
+          "beats": 16
+        },
+        {
+          "address": 142552,
+          "beats": 16
+        },
+        {
+          "address": 142680,
+          "beats": 16
+        },
+        {
+          "address": 142816,
+          "beats": 16
+        },
+        {
+          "address": 142944,
+          "beats": 16
+        },
+        {
+          "address": 143080,
+          "beats": 16
+        },
+        {
+          "address": 143208,
+          "beats": 16
+        },
+        {
+          "address": 143344,
+          "beats": 2
+        },
+        {
+          "address": 143360,
+          "beats": 16
+        },
+        {
+          "address": 143488,
+          "beats": 14
+        }
+      ],
+      "writes": [
+        {
+          "address": 266232,
+          "beats": 1
+        },
+        {
+          "address": 266240,
+          "beats": 15
+        },
+        {
+          "address": 266384,
+          "beats": 16
+        },
+        {
+          "address": 266536,
+          "beats": 16
+        },
+        {
+          "address": 266688,
+          "beats": 16
+        },
+        {
+          "address": 266840,
+          "beats": 16
+        },
+        {
+          "address": 266992,
+          "beats": 16
+        },
+        {
+          "address": 267144,
+          "beats": 16
+        },
+        {
+          "address": 267296,
+          "beats": 16
+        },
+        {
+          "address": 267448,
+          "beats": 16
+        },
+        {
+          "address": 267600,
+          "beats": 16
+        },
+        {
+          "address": 267752,
+          "beats": 16
+        },
+        {
+          "address": 267904,
+          "beats": 16
+        },
+        {
+          "address": 268056,
+          "beats": 16
+        },
+        {
+          "address": 268208,
+          "beats": 16
+        },
+        {
+          "address": 268360,
+          "beats": 16
+        },
+        {
+          "address": 268512,
+          "beats": 16
+        },
+        {
+          "address": 268664,
+          "beats": 16
+        },
+        {
+          "address": 268816,
+          "beats": 16
+        },
+        {
+          "address": 268968,
+          "beats": 16
+        },
+        {
+          "address": 269120,
+          "beats": 16
+        },
+        {
+          "address": 269272,
+          "beats": 16
+        },
+        {
+          "address": 269424,
+          "beats": 16
+        },
+        {
+          "address": 269576,
+          "beats": 16
+        },
+        {
+          "address": 269728,
+          "beats": 16
+        },
+        {
+          "address": 269880,
+          "beats": 16
+        },
+        {
+          "address": 270032,
+          "beats": 16
+        },
+        {
+          "address": 270184,
+          "beats": 16
+        },
+        {
+          "address": 270336,
+          "beats": 16
+        },
+        {
+          "address": 270488,
+          "beats": 16
+        },
+        {
+          "address": 270640,
+          "beats": 16
+        },
+        {
+          "address": 270792,
+          "beats": 16
+        },
+        {
+          "address": 270944,
+          "beats": 16
+        }
+      ],
+      "write_strobes": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "odd",
+      "shape": [
+        31,
+        29,
+        17
+      ],
+      "seed": 20261012,
+      "phases": {
+        "a_load": {
+          "start_cycle": 9798,
+          "counters": {
+            "ar_bursts": 32,
+            "r_beats": 93,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 93,
+            "read_commands": 32,
+            "read_completions": 32
+          },
+          "max_axi_reads": 2,
+          "read_occupancy": {
+            "0": 79,
+            "1": 117,
+            "2": 5
+          },
+          "end_cycle": 9999,
+          "cycles": 201
+        },
+        "bt_load": {
+          "start_cycle": 9999,
+          "counters": {
+            "ar_bursts": 30,
+            "r_beats": 87,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 87,
+            "read_commands": 30,
+            "read_completions": 30
+          },
+          "max_axi_reads": 2,
+          "read_occupancy": {
+            "0": 75,
+            "1": 109,
+            "2": 5
+          },
+          "end_cycle": 10188,
+          "cycles": 189
+        },
+        "compute": {
+          "start_cycle": 10188,
+          "counters": {
+            "ar_bursts": 0,
+            "r_beats": 0,
+            "aw_bursts": 0,
+            "w_beats": 0,
+            "b_responses": 0,
+            "write_valid_bytes": 0,
+            "bank_words": 0,
+            "read_commands": 0,
+            "read_completions": 0
+          },
+          "max_axi_reads": 0,
+          "read_occupancy": {
+            "0": 706
+          },
+          "tile_job_cycles": 704,
+          "end_cycle": 10894,
+          "cycles": 706
+        },
+        "c_store": {
+          "start_cycle": 10894,
+          "counters": {
+            "ar_bursts": 0,
+            "r_beats": 0,
+            "aw_bursts": 33,
+            "w_beats": 465,
+            "b_responses": 33,
+            "write_valid_bytes": 3596,
+            "bank_words": 0,
+            "read_commands": 0,
+            "read_completions": 0
+          },
+          "max_axi_reads": 0,
+          "read_occupancy": {
+            "0": 2530
+          },
+          "end_cycle": 13424,
+          "cycles": 2530
+        }
+      },
+      "helper_sequence_cycles": 3626,
+      "counters": {
+        "ar_bursts": 62,
+        "r_beats": 180,
+        "aw_bursts": 33,
+        "w_beats": 465,
+        "b_responses": 33,
+        "write_valid_bytes": 3596,
+        "bank_words": 180,
+        "read_commands": 62,
+        "read_completions": 62
+      },
+      "regions": {
+        "a_load": {
+          "base": 4088,
+          "stride": 48,
+          "rows": 31,
+          "row_bytes": 17,
+          "buffer": 1,
+          "checked_start": 4080,
+          "checked_bytes": 1504,
+          "initial_sha256": "be3068a313e355f342e1a236b7cd8f5ad87e30a9e448c7c02d58e062c9b66367",
+          "final_sha256": "be3068a313e355f342e1a236b7cd8f5ad87e30a9e448c7c02d58e062c9b66367"
+        },
+        "bt_load": {
+          "base": 135160,
+          "stride": 48,
+          "rows": 29,
+          "row_bytes": 17,
+          "buffer": 1,
+          "checked_start": 135152,
+          "checked_bytes": 1408,
+          "initial_sha256": "12e784324db46c3385205b32a46f34b3855cfe4b3527917330f392c8bfbf4104",
+          "final_sha256": "12e784324db46c3385205b32a46f34b3855cfe4b3527917330f392c8bfbf4104"
+        },
+        "c_store": {
+          "base": 266232,
+          "stride": 144,
+          "rows": 31,
+          "row_bytes": 116,
+          "buffer": 0,
+          "checked_start": 266224,
+          "checked_bytes": 4480,
+          "initial_sha256": "7503cf654d7509cf3ad5f9de8d189221fd4851c8c9af39401a5bc2875d5f8ac8",
+          "final_sha256": "6b60a052bddafd9f3d6aee6ecfaef068e4c484c7fdf90746cc5355a3fddb2ac9"
+        }
+      },
+      "max_axi_reads": 2,
+      "compared_output_values": 899,
+      "checked_memory_bytes": 7392,
+      "golden_int32_sha256": "2e0afb21550d4e78658d30481a3aa12521b8f75de2dfce160adc23c711eaec11",
+      "reads": [
+        {
+          "address": 4088,
+          "beats": 1
+        },
+        {
+          "address": 4096,
+          "beats": 2
+        },
+        {
+          "address": 4136,
+          "beats": 3
+        },
+        {
+          "address": 4184,
+          "beats": 3
+        },
+        {
+          "address": 4232,
+          "beats": 3
+        },
+        {
+          "address": 4280,
+          "beats": 3
+        },
+        {
+          "address": 4328,
+          "beats": 3
+        },
+        {
+          "address": 4376,
+          "beats": 3
+        },
+        {
+          "address": 4424,
+          "beats": 3
+        },
+        {
+          "address": 4472,
+          "beats": 3
+        },
+        {
+          "address": 4520,
+          "beats": 3
+        },
+        {
+          "address": 4568,
+          "beats": 3
+        },
+        {
+          "address": 4616,
+          "beats": 3
+        },
+        {
+          "address": 4664,
+          "beats": 3
+        },
+        {
+          "address": 4712,
+          "beats": 3
+        },
+        {
+          "address": 4760,
+          "beats": 3
+        },
+        {
+          "address": 4808,
+          "beats": 3
+        },
+        {
+          "address": 4856,
+          "beats": 3
+        },
+        {
+          "address": 4904,
+          "beats": 3
+        },
+        {
+          "address": 4952,
+          "beats": 3
+        },
+        {
+          "address": 5000,
+          "beats": 3
+        },
+        {
+          "address": 5048,
+          "beats": 3
+        },
+        {
+          "address": 5096,
+          "beats": 3
+        },
+        {
+          "address": 5144,
+          "beats": 3
+        },
+        {
+          "address": 5192,
+          "beats": 3
+        },
+        {
+          "address": 5240,
+          "beats": 3
+        },
+        {
+          "address": 5288,
+          "beats": 3
+        },
+        {
+          "address": 5336,
+          "beats": 3
+        },
+        {
+          "address": 5384,
+          "beats": 3
+        },
+        {
+          "address": 5432,
+          "beats": 3
+        },
+        {
+          "address": 5480,
+          "beats": 3
+        },
+        {
+          "address": 5528,
+          "beats": 3
+        },
+        {
+          "address": 135160,
+          "beats": 1
+        },
+        {
+          "address": 135168,
+          "beats": 2
+        },
+        {
+          "address": 135208,
+          "beats": 3
+        },
+        {
+          "address": 135256,
+          "beats": 3
+        },
+        {
+          "address": 135304,
+          "beats": 3
+        },
+        {
+          "address": 135352,
+          "beats": 3
+        },
+        {
+          "address": 135400,
+          "beats": 3
+        },
+        {
+          "address": 135448,
+          "beats": 3
+        },
+        {
+          "address": 135496,
+          "beats": 3
+        },
+        {
+          "address": 135544,
+          "beats": 3
+        },
+        {
+          "address": 135592,
+          "beats": 3
+        },
+        {
+          "address": 135640,
+          "beats": 3
+        },
+        {
+          "address": 135688,
+          "beats": 3
+        },
+        {
+          "address": 135736,
+          "beats": 3
+        },
+        {
+          "address": 135784,
+          "beats": 3
+        },
+        {
+          "address": 135832,
+          "beats": 3
+        },
+        {
+          "address": 135880,
+          "beats": 3
+        },
+        {
+          "address": 135928,
+          "beats": 3
+        },
+        {
+          "address": 135976,
+          "beats": 3
+        },
+        {
+          "address": 136024,
+          "beats": 3
+        },
+        {
+          "address": 136072,
+          "beats": 3
+        },
+        {
+          "address": 136120,
+          "beats": 3
+        },
+        {
+          "address": 136168,
+          "beats": 3
+        },
+        {
+          "address": 136216,
+          "beats": 3
+        },
+        {
+          "address": 136264,
+          "beats": 3
+        },
+        {
+          "address": 136312,
+          "beats": 3
+        },
+        {
+          "address": 136360,
+          "beats": 3
+        },
+        {
+          "address": 136408,
+          "beats": 3
+        },
+        {
+          "address": 136456,
+          "beats": 3
+        },
+        {
+          "address": 136504,
+          "beats": 3
+        }
+      ],
+      "writes": [
+        {
+          "address": 266232,
+          "beats": 1
+        },
+        {
+          "address": 266240,
+          "beats": 14
+        },
+        {
+          "address": 266376,
+          "beats": 15
+        },
+        {
+          "address": 266520,
+          "beats": 15
+        },
+        {
+          "address": 266664,
+          "beats": 15
+        },
+        {
+          "address": 266808,
+          "beats": 15
+        },
+        {
+          "address": 266952,
+          "beats": 15
+        },
+        {
+          "address": 267096,
+          "beats": 15
+        },
+        {
+          "address": 267240,
+          "beats": 15
+        },
+        {
+          "address": 267384,
+          "beats": 15
+        },
+        {
+          "address": 267528,
+          "beats": 15
+        },
+        {
+          "address": 267672,
+          "beats": 15
+        },
+        {
+          "address": 267816,
+          "beats": 15
+        },
+        {
+          "address": 267960,
+          "beats": 15
+        },
+        {
+          "address": 268104,
+          "beats": 15
+        },
+        {
+          "address": 268248,
+          "beats": 15
+        },
+        {
+          "address": 268392,
+          "beats": 15
+        },
+        {
+          "address": 268536,
+          "beats": 15
+        },
+        {
+          "address": 268680,
+          "beats": 15
+        },
+        {
+          "address": 268824,
+          "beats": 15
+        },
+        {
+          "address": 268968,
+          "beats": 15
+        },
+        {
+          "address": 269112,
+          "beats": 15
+        },
+        {
+          "address": 269256,
+          "beats": 15
+        },
+        {
+          "address": 269400,
+          "beats": 15
+        },
+        {
+          "address": 269544,
+          "beats": 15
+        },
+        {
+          "address": 269688,
+          "beats": 15
+        },
+        {
+          "address": 269832,
+          "beats": 15
+        },
+        {
+          "address": 269976,
+          "beats": 15
+        },
+        {
+          "address": 270120,
+          "beats": 15
+        },
+        {
+          "address": 270264,
+          "beats": 9
+        },
+        {
+          "address": 270336,
+          "beats": 6
+        },
+        {
+          "address": 270408,
+          "beats": 15
+        },
+        {
+          "address": 270552,
+          "beats": 15
+        }
+      ],
+      "write_strobes": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        15
+      ]
+    }
+  ]
+}

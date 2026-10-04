@@ -1,0 +1,14 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791047313" />
+    <testcase name="host_memory_packets_and_retries" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="483" time="21.340599536895752" sim_time_ns="791380.0" ratio_time="37083.30680362487" />
+    <testcase name="complete_matrix_jobs_from_host_packets" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="557" time="113.77942132949829" sim_time_ns="3144200.0" ratio_time="27634.171129193808" />
+    <testcase name="busy_ownership_duplicate_start_and_final_b" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="601" time="60.330079317092896" sim_time_ns="1636600.0000000005" ratio_time="27127.42994084402" />
+    <testcase name="host_memory_faults_and_hung_drain" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="660" time="7.39569091796875" sim_time_ns="186490.0" ratio_time="25216.034859826195" />
+    <testcase name="host_watchdog_threshold_and_progress" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="697" time="1.142491102218628" sim_time_ns="29000.0" ratio_time="25383.129849925554" />
+    <testcase name="host_memory_completion_fault_priority" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="759" time="5.102903842926025" sim_time_ns="184820.0" ratio_time="36218.593508519545" />
+    <testcase name="calibration_loss_during_accepted_write" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="878" time="3.0301802158355713" sim_time_ns="96240.0" ratio_time="31760.487213616714" />
+    <testcase name="calibration_loss_cancels_unoffered_job_reads" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="921" time="5.643463134765625" sim_time_ns="197110.0" ratio_time="34927.135216979856" />
+    <testcase name="gemm_read_error_retains_memory_ownership" classname="test_ddr_core" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_core.py" lineno="981" time="15.754964351654053" sim_time_ns="474820.0" ratio_time="30137.802244544622" />
+  </testsuite>
+</testsuites>

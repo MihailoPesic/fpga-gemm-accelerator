@@ -1,0 +1,109 @@
+{
+  "result": "PASS",
+  "recorded_utc": "2026-10-03T17:20:07.539889+00:00",
+  "public_directory": "results/ddr_gemm/read4/registered_reply/core",
+  "totals": {
+    "tests": 72,
+    "jobs": 64,
+    "output_values": 10232
+  },
+  "executions": [
+    {
+      "run": "build/read4_registered_core_p4_t8_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 18,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    },
+    {
+      "run": "build/read4_registered_core_p4_t32_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 18,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    },
+    {
+      "run": "build/read4_registered_core_p8_t8_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 18,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    },
+    {
+      "run": "build/read4_registered_core_p8_t32_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 18,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+        "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "12eea1a57622e6517c442be1d32c2469fbd78e003c88a4fa150bb7f0bfb19ce3",
+    "rtl/control/gemm_ddr_core.sv": "dead0f5b38896c38c082fb084b75fe44085f6e3ea7eef557b618aa81ab724a02",
+    "tb/test_ddr_core.py": "34aaeb56e34d6cf1dbaef687eb02b9c93f32deeb07acc6e3694768fdd9842921",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "5f885287c257bab24094430040c0ae5bb56a9f659c8dbb187720988b480dda67"
+  },
+  "saved_artifact_sha256_bytes": {
+    "p4_t8/read1/p4_t8/coverage.json": "cb37ed7a836c2021acc366002a426aa52114ed0776a0b5c4d41a7e08e89f99e9",
+    "p4_t8/read1/p4_t8/results.xml": "e9733012e211cb97b58a21d4eb95b720fb05bed333407df8d9b54d83c78c7a1d",
+    "p4_t8/read4/p4_t8/coverage.json": "3f208ec8921e113671203d88fd7c6e5ea1d16c5be4364467d30af2b16e9c45e6",
+    "p4_t8/read4/p4_t8/results.xml": "c8d6a3188a3ffe2cbc6f3e8177e619e1c3920596d4b268e4167d7f42c6e52c6f",
+    "p4_t8/summary.json": "9fa79ac483dc1b89a70e88ae6fb6431b08f0c6e7112f736daf482fd741d11930",
+    "p4_t32/read1/p4_t32/coverage.json": "91b969e389b5bdeb121a4dde149c398f02efcc58da1935bf906cd29dc8e8de0c",
+    "p4_t32/read1/p4_t32/results.xml": "56d382ab9c8180ae63561074ad81c0855947ea5c9adc3753862f9158c0e13f25",
+    "p4_t32/read4/p4_t32/coverage.json": "c9ffb7900e05e952d27f0673a5822b750e20443d899bb6401a70b9a797c56e5e",
+    "p4_t32/read4/p4_t32/results.xml": "22b3c622ca2738467fce85839bf25029565937ce4b05cf2cecce14e5d5ea9a2d",
+    "p4_t32/summary.json": "56813c6112b31736442053aba5c14af429e0980b18d98e9437880f2e1b2923b5",
+    "p8_t8/read1/p8_t8/coverage.json": "9e9452073b8e17d8b357efe991fd70728ba5879d38d201c892af852407af64d8",
+    "p8_t8/read1/p8_t8/results.xml": "6fe62d16e368abc29976a25977b316e25e72a5542e85a79f994d6c2a1ca73695",
+    "p8_t8/read4/p8_t8/coverage.json": "8d681fb0e12c405e395ed7e2e668ed7ca9583b45c738a3c50a877f9f3278958c",
+    "p8_t8/read4/p8_t8/results.xml": "a6242a171eb5812a138feb23d9eb86f3e58fd860a23f2567e29b3ec61dc6bc63",
+    "p8_t8/summary.json": "67c026915d42f260614d298da0bfba23b877a6d7f3a4d6de5ad70a7f09441793",
+    "p8_t32/read1/p8_t32/coverage.json": "9bb22db86163380639237092d4f328bdc28a7317ffb3437644afa494cbf28a51",
+    "p8_t32/read1/p8_t32/results.xml": "db67d11fa39e69aabb1801650e0f79ffefbe0991f6956fc121181b4b8a774688",
+    "p8_t32/read4/p8_t32/coverage.json": "81cb831590a22e3db04ccd76c5a30bf4ef023f8c84272b8dabc69bca27ce62e0",
+    "p8_t32/read4/p8_t32/results.xml": "4975c64db462cd637855dd9aee991182fcf2a74202a33c2fa65e5461dc435953",
+    "p8_t32/summary.json": "f1cd12801171417eee6a13bff39d0c3095dfd7e90cb594236cd1ba1554626254"
+  },
+  "scope": "Portable behavioral simulation; no new board, routed timing or physical DDR performance claim"
+}

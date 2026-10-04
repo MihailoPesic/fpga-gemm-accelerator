@@ -1,0 +1,16 @@
+{
+  "suite": "compatibility_p8_t8",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_ddr_core.py",
+    "--only",
+    "p8_t8",
+    "--build-dir",
+    "build/overlap_integration_20261004/compatibility/p8_t8",
+    "--overlap",
+    "--suite",
+    "compatibility"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 535.5990798473358
+}

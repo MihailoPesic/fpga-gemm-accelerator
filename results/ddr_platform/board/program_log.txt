@@ -1,0 +1,52 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 15-aug-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Fri Oct  2 17:33:22 2026
+# Process ID         : 32240
+# Current directory  : C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag_pipeline
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\mihai\Documents\continium\accelerator nexys\scripts\program_preview.tcl -log C:\Users\mihai\Documents\continium\accelerator nexys\build\ddr_diag_pipeline\program.log -journal C:\Users\mihai\Documents\continium\accelerator nexys\build\ddr_diag_pipeline\program.jou -tclargs C:\Users\mihai\Documents\continium\accelerator nexys\build\ddr_diag_pipeline\gemm_ddr_diag.bit
+# Log file           : C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag_pipeline/program.log
+# Journal file       : C:\Users\mihai\Documents\continium\accelerator nexys\build\ddr_diag_pipeline\program.jou
+# Running On         : mihinayoga
+# Platform           : Windows 11
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 258V
+# CPU Frequency      : 3302 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 33873 MB
+# Swap memory        : 19327 MB
+# Total Virtual      : 53201 MB
+# Available Virtual  : 13545 MB
+#-----------------------------------------------------------
+source {C:\Users\mihai\Documents\continium\accelerator nexys\scripts\program_preview.tcl} -notrace
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2026.1
+  **** Build date : May 29 2026 at 14:55:19
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 602.578 ; gain = 6.949
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292B40D95A
+INFO: [Labtools 27-3164] End of startup status: HIGH
+INFO: [Labtools 27-1434] Device xc7a50t (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+PREVIEW_PROGRAMMED xc7a50t C:/Users/mihai/Documents/continium/accelerator nexys/build/ddr_diag_pipeline/gemm_ddr_diag.bit
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210292B40D95A
+INFO: [Common 17-206] Exiting Vivado at Fri Oct  2 17:33:38 2026...

@@ -1,0 +1,82 @@
+{
+  "commands": 361,
+  "valid_commands": 307,
+  "invalid_commands": 54,
+  "read_beats": 1832,
+  "delivered_words": 1684,
+  "completions": 357,
+  "lengths": [
+    16,
+    15,
+    2,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    14,
+    10
+  ],
+  "local_occupancy": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "axi_outstanding": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "scenarios": {
+    "four_ar_before_r_full_buffer_head_data_and_done_stalls": 1,
+    "local_idle_includes_write_collection_and_terminal": 1,
+    "valid_invalid_valid_ordered": 1,
+    "ring_wrap": 1,
+    "seeded_160_commands_144_valid_16_invalid": 1,
+    "held_ar_survives_fault_unoffered_cancels_invalid_retains_bad_desc": 1,
+    "same_edge_read_command_and_fault_cancels_without_ar": 1,
+    "shared_write_fault_preserves_issued_and_published_reads": 1,
+    "first_own_error_precedes_later_stream_poison": 1,
+    "missing_last_drain_preserves_four_distinct_obligations": 1,
+    "coordinated_reset_four_mixed_slots_then_fresh_four_reads": 1,
+    "held_successful_done_survives_later_read_protocol_fault": 1,
+    "repeated_opaque_tags_consecutive_invalids_72_commands": 1,
+    "external_cancel_held_ar_three_pending_same_edge_accept": 1,
+    "external_cancel_before_first_ar_promotion": 1,
+    "external_cancel_held_validated_data_and_success_done": 1,
+    "external_cancel_read_admission_only_write_collection_unchanged": 1
+  },
+  "error_slots": {
+    "rresp_0": 1,
+    "rresp_1": 1,
+    "rresp_2": 1,
+    "rresp_3": 1,
+    "rid_0": 1,
+    "rid_1": 1,
+    "rid_2": 1,
+    "rid_3": 1,
+    "early_last_0": 1,
+    "early_last_1": 1,
+    "early_last_2": 1,
+    "early_last_3": 1,
+    "late_last_0": 1,
+    "late_last_1": 1,
+    "late_last_2": 1,
+    "late_last_3": 1
+  },
+  "simultaneous": {
+    "new_ar_and_old_rlast": 10,
+    "retire_and_allocate": 48
+  },
+  "reset_discarded_commands": 4
+}

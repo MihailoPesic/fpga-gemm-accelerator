@@ -1,0 +1,895 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 1,
+      "directory": "read1/p4_t8",
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 1,
+        "seed": 20261004,
+        "jobs": 14,
+        "output_values": 1130,
+        "shapes": [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            9,
+            11,
+            9,
+            0
+          ],
+          [
+            9,
+            11,
+            9,
+            1
+          ],
+          [
+            17,
+            7,
+            33,
+            0
+          ],
+          [
+            17,
+            7,
+            33,
+            1
+          ],
+          [
+            7,
+            17,
+            255,
+            0
+          ],
+          [
+            7,
+            17,
+            255,
+            1
+          ],
+          [
+            9,
+            9,
+            256,
+            0
+          ],
+          [
+            9,
+            9,
+            256,
+            1
+          ],
+          [
+            17,
+            17,
+            9,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1
+        ],
+        "simultaneous_descriptors": 2,
+        "compute_load_edges": 1324,
+        "compute_store_read_edges": 170,
+        "three_way_edges": 21,
+        "read_bursts": 643,
+        "write_bursts": 206,
+        "write_responses": 206,
+        "read_lengths": [
+          1,
+          2,
+          5,
+          8,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          4
+        ],
+        "stalls": {
+          "rd_cmd": 174,
+          "load": 1728,
+          "burst_rd_done": 963,
+          "ar": 171,
+          "load_done": 253,
+          "wr_data": 174,
+          "wr_cmd": 47,
+          "read": 166,
+          "response": 138,
+          "w": 160,
+          "aw": 35,
+          "store_done": 44
+        },
+        "scenarios": [
+          "row_major_both_modes_tails_signed_padding_snapshot",
+          "both_result_sets_retained_final_local_and_axi_idle",
+          "read_write_core_external_fault_drain_first_code"
+        ],
+        "macrotiles": 42,
+        "modes": [
+          0,
+          1
+        ],
+        "scheduler_load_overlap_edges": 4807,
+        "scheduler_store_overlap_edges": 1325,
+        "scheduler_three_way_edges": 807,
+        "independent_buffer_ids": 5,
+        "held_completion_checks": 3,
+        "fatal_cases": [
+          "read",
+          "write",
+          "compute",
+          "external",
+          "idle_after_success",
+          "final_terminal_same_edge"
+        ],
+        "case_results": [
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 0,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+              "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+              "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              9,
+              11,
+              9
+            ],
+            "mode": 0,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "7e44526b768993e199789d384261a0ed5fd83280b23c4f0b29c254449649072d",
+              "bt": "96113d9b0a5e8645c718b5b7aff7acb9048b5532b2234fedc755a39607c113db"
+            },
+            "read_bursts": 40,
+            "write_bursts": 18,
+            "write_beats": 54,
+            "write_valid_bytes": 396
+          },
+          {
+            "shape": [
+              9,
+              11,
+              9
+            ],
+            "mode": 1,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "7e44526b768993e199789d384261a0ed5fd83280b23c4f0b29c254449649072d",
+              "bt": "96113d9b0a5e8645c718b5b7aff7acb9048b5532b2234fedc755a39607c113db"
+            },
+            "read_bursts": 40,
+            "write_bursts": 18,
+            "write_beats": 54,
+            "write_valid_bytes": 396
+          },
+          {
+            "shape": [
+              17,
+              7,
+              33
+            ],
+            "mode": 0,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "bf901f5ac66d465ed434e717f68729dbf08a4aad11361c7461ee33a23db3222d",
+              "bt": "8608d84de48cfb68f89af38da2dc4a8066c7364bd5f7ac718576caabbf2c19f6"
+            },
+            "read_bursts": 38,
+            "write_bursts": 17,
+            "write_beats": 68,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              17,
+              7,
+              33
+            ],
+            "mode": 1,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "bf901f5ac66d465ed434e717f68729dbf08a4aad11361c7461ee33a23db3222d",
+              "bt": "8608d84de48cfb68f89af38da2dc4a8066c7364bd5f7ac718576caabbf2c19f6"
+            },
+            "read_bursts": 38,
+            "write_bursts": 17,
+            "write_beats": 68,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              7,
+              17,
+              255
+            ],
+            "mode": 0,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "cfbab3e1213be83c49048120b27adad8a140a5f8314724fc9eb18b14ef5d1362",
+              "bt": "fb10819f5d312ef1c0f3233a927ea748310e8e0590df114cad91f88bca34f305"
+            },
+            "read_bursts": 80,
+            "write_bursts": 21,
+            "write_beats": 63,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              7,
+              17,
+              255
+            ],
+            "mode": 1,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "cfbab3e1213be83c49048120b27adad8a140a5f8314724fc9eb18b14ef5d1362",
+              "bt": "fb10819f5d312ef1c0f3233a927ea748310e8e0590df114cad91f88bca34f305"
+            },
+            "read_bursts": 80,
+            "write_bursts": 21,
+            "write_beats": 63,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              9,
+              9,
+              256
+            ],
+            "mode": 0,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "38776342cf10da5d5c638effb5257d1b1fa56005729e02d408de091797a96a1b",
+              "bt": "fe6c1e675fc4f9aff033e41843f2d77d03542964cc13c897147133f77693f402"
+            },
+            "read_bursts": 76,
+            "write_bursts": 18,
+            "write_beats": 45,
+            "write_valid_bytes": 324
+          },
+          {
+            "shape": [
+              9,
+              9,
+              256
+            ],
+            "mode": 1,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "38776342cf10da5d5c638effb5257d1b1fa56005729e02d408de091797a96a1b",
+              "bt": "fe6c1e675fc4f9aff033e41843f2d77d03542964cc13c897147133f77693f402"
+            },
+            "read_bursts": 76,
+            "write_bursts": 18,
+            "write_beats": 45,
+            "write_valid_bytes": 324
+          },
+          {
+            "shape": [
+              17,
+              17,
+              9
+            ],
+            "mode": 1,
+            "macrotiles": 9,
+            "input_image_sha256_bytes": {
+              "a": "66398f1937bc5ee945581c0c5eeead9ba250cd1fce6785b14e45cdd198059c51",
+              "bt": "fe4790c4db04512c48ed18840079ace213525eb6a1939146dbcdd53af66d8894"
+            },
+            "read_bursts": 102,
+            "write_bursts": 51,
+            "write_beats": 153,
+            "write_valid_bytes": 1156
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "bb7f491d2db8da3a882d64b72c2338f819cec9c747ef9a0eac844276ede4bb60",
+              "bt": "6d6d24392996305780262350336799a26b88896cbbb00c1837e6b542c4c1334a"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "0e6943ad4079627c9993c46e2ffcc988cc7c2dffb3bf1cae7bb4bd0308b51128",
+              "bt": "5abf55a0ed8d35718195600a1ef1bb704a93885828cc90784fda325745ecfd45"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "d734120d55e56e05582fad9cf14c060a0eb998e29576485770791f7ae6c1f8ee",
+              "bt": "f82b83b9ccb4e4560a4333f20723367bccdbdfe9e63f5ab3b3e6ec804d711aaa"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          }
+        ],
+        "maximum_tile_counts": [
+          16384
+        ]
+      }
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "read_slots": 4,
+      "directory": "read4/p4_t8",
+      "tests": 3,
+      "test_names": [
+        "complete_jobs_both_modes",
+        "blocked_store_ownership_and_completion",
+        "faults_drain_all_owners"
+      ],
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "read_slots": 4,
+        "seed": 20261004,
+        "jobs": 14,
+        "output_values": 1130,
+        "shapes": [
+          [
+            1,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            9,
+            11,
+            9,
+            0
+          ],
+          [
+            9,
+            11,
+            9,
+            1
+          ],
+          [
+            17,
+            7,
+            33,
+            0
+          ],
+          [
+            17,
+            7,
+            33,
+            1
+          ],
+          [
+            7,
+            17,
+            255,
+            0
+          ],
+          [
+            7,
+            17,
+            255,
+            1
+          ],
+          [
+            9,
+            9,
+            256,
+            0
+          ],
+          [
+            9,
+            9,
+            256,
+            1
+          ],
+          [
+            17,
+            17,
+            9,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "read_occupancy": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "simultaneous_descriptors": 6,
+        "compute_load_edges": 1646,
+        "compute_store_read_edges": 218,
+        "three_way_edges": 52,
+        "read_bursts": 648,
+        "write_bursts": 206,
+        "write_responses": 206,
+        "read_lengths": [
+          1,
+          2,
+          5,
+          8,
+          16
+        ],
+        "write_lengths": [
+          1,
+          2,
+          4
+        ],
+        "stalls": {
+          "load": 1715,
+          "burst_rd_done": 932,
+          "wr_cmd": 56,
+          "aw": 56,
+          "w": 154,
+          "store_done": 45,
+          "load_done": 311,
+          "ar": 288,
+          "rd_cmd": 166,
+          "read": 146,
+          "response": 156,
+          "wr_data": 125
+        },
+        "scenarios": [
+          "row_major_both_modes_tails_signed_padding_snapshot",
+          "both_result_sets_retained_final_local_and_axi_idle",
+          "read_write_core_external_fault_drain_first_code"
+        ],
+        "macrotiles": 42,
+        "modes": [
+          0,
+          1
+        ],
+        "scheduler_load_overlap_edges": 3282,
+        "scheduler_store_overlap_edges": 1708,
+        "scheduler_three_way_edges": 887,
+        "independent_buffer_ids": 3,
+        "held_completion_checks": 3,
+        "fatal_cases": [
+          "read",
+          "write",
+          "compute",
+          "external",
+          "idle_after_success",
+          "final_terminal_same_edge"
+        ],
+        "case_results": [
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 0,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+              "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "3e79b1637b826eda027b2f88261ce2766e14996dbeb349b210d4957c062de257",
+              "bt": "0e94085d959f715d62727085d23e93fa6e8f275776006a7da4da945a54c68ac4"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              9,
+              11,
+              9
+            ],
+            "mode": 0,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "32bd8a39c1f2eb79f38e49f06b98ad5385f85b5798abc63cf0354c1ed62256e3",
+              "bt": "e063d53621fa82f370af202a1b9f675e2c1ea1977e44d8119c874bfbd9bb0cdd"
+            },
+            "read_bursts": 40,
+            "write_bursts": 18,
+            "write_beats": 54,
+            "write_valid_bytes": 396
+          },
+          {
+            "shape": [
+              9,
+              11,
+              9
+            ],
+            "mode": 1,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "32bd8a39c1f2eb79f38e49f06b98ad5385f85b5798abc63cf0354c1ed62256e3",
+              "bt": "e063d53621fa82f370af202a1b9f675e2c1ea1977e44d8119c874bfbd9bb0cdd"
+            },
+            "read_bursts": 40,
+            "write_bursts": 18,
+            "write_beats": 54,
+            "write_valid_bytes": 396
+          },
+          {
+            "shape": [
+              17,
+              7,
+              33
+            ],
+            "mode": 0,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "63d9464d058e6308edff92a2e89c4204ecd46855c2dc0d94c8251fe4b2c7b3b5",
+              "bt": "280e4536395dc341b12553d9efc1372e807a4c39d3eaf37a4784d5f98ad4db65"
+            },
+            "read_bursts": 38,
+            "write_bursts": 17,
+            "write_beats": 68,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              17,
+              7,
+              33
+            ],
+            "mode": 1,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "63d9464d058e6308edff92a2e89c4204ecd46855c2dc0d94c8251fe4b2c7b3b5",
+              "bt": "280e4536395dc341b12553d9efc1372e807a4c39d3eaf37a4784d5f98ad4db65"
+            },
+            "read_bursts": 38,
+            "write_bursts": 17,
+            "write_beats": 68,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              7,
+              17,
+              255
+            ],
+            "mode": 0,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "a2120617d0ba18a696983059350fc2c92e955edac8ffc670c756506e3a790e27",
+              "bt": "27b10a65be8943bc65051482ed882ec15014edd750606a15574b06c9e8def15c"
+            },
+            "read_bursts": 80,
+            "write_bursts": 21,
+            "write_beats": 63,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              7,
+              17,
+              255
+            ],
+            "mode": 1,
+            "macrotiles": 3,
+            "input_image_sha256_bytes": {
+              "a": "a2120617d0ba18a696983059350fc2c92e955edac8ffc670c756506e3a790e27",
+              "bt": "27b10a65be8943bc65051482ed882ec15014edd750606a15574b06c9e8def15c"
+            },
+            "read_bursts": 80,
+            "write_bursts": 21,
+            "write_beats": 63,
+            "write_valid_bytes": 476
+          },
+          {
+            "shape": [
+              9,
+              9,
+              256
+            ],
+            "mode": 0,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "52a2f9b9bc6605f67a86623ae1dd761a94383d1d0283a925f4b4b748eea41273",
+              "bt": "a7958240d344c957360446f6a6b9cee0c10fb08fcb410b4b5887344e91aa5ff4"
+            },
+            "read_bursts": 76,
+            "write_bursts": 18,
+            "write_beats": 45,
+            "write_valid_bytes": 324
+          },
+          {
+            "shape": [
+              9,
+              9,
+              256
+            ],
+            "mode": 1,
+            "macrotiles": 4,
+            "input_image_sha256_bytes": {
+              "a": "52a2f9b9bc6605f67a86623ae1dd761a94383d1d0283a925f4b4b748eea41273",
+              "bt": "a7958240d344c957360446f6a6b9cee0c10fb08fcb410b4b5887344e91aa5ff4"
+            },
+            "read_bursts": 76,
+            "write_bursts": 18,
+            "write_beats": 45,
+            "write_valid_bytes": 324
+          },
+          {
+            "shape": [
+              17,
+              17,
+              9
+            ],
+            "mode": 1,
+            "macrotiles": 9,
+            "input_image_sha256_bytes": {
+              "a": "66398f1937bc5ee945581c0c5eeead9ba250cd1fce6785b14e45cdd198059c51",
+              "bt": "fe4790c4db04512c48ed18840079ace213525eb6a1939146dbcdd53af66d8894"
+            },
+            "read_bursts": 102,
+            "write_bursts": 51,
+            "write_beats": 153,
+            "write_valid_bytes": 1156
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "bb7f491d2db8da3a882d64b72c2338f819cec9c747ef9a0eac844276ede4bb60",
+              "bt": "6d6d24392996305780262350336799a26b88896cbbb00c1837e6b542c4c1334a"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "0e6943ad4079627c9993c46e2ffcc988cc7c2dffb3bf1cae7bb4bd0308b51128",
+              "bt": "5abf55a0ed8d35718195600a1ef1bb704a93885828cc90784fda325745ecfd45"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          },
+          {
+            "shape": [
+              1,
+              1,
+              1
+            ],
+            "mode": 1,
+            "macrotiles": 1,
+            "input_image_sha256_bytes": {
+              "a": "d734120d55e56e05582fad9cf14c060a0eb998e29576485770791f7ae6c1f8ee",
+              "bt": "f82b83b9ccb4e4560a4333f20723367bccdbdfe9e63f5ab3b3e6ec804d711aaa"
+            },
+            "read_bursts": 2,
+            "write_bursts": 1,
+            "write_beats": 1,
+            "write_valid_bytes": 4
+          }
+        ],
+        "maximum_tile_counts": [
+          16384
+        ]
+      }
+    }
+  ],
+  "expected_test_names": [
+    "complete_jobs_both_modes",
+    "blocked_store_ownership_and_completion",
+    "faults_drain_all_owners"
+  ],
+  "scope": "Internal tagged scheduler with prevalidated descriptors, independent tile DMA contexts, local compute and behavioral AXI RAM; no UART, production MODE=1, public counters or platform qualification",
+  "totals": {
+    "jobs": 28,
+    "output_values": 2260,
+    "macrotiles": 84
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "python_executable": "/mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()",
+    "iverilog_executable": "/usr/bin/iverilog",
+    "vvp": "Icarus Verilog runtime version 12.0 (stable) ()",
+    "vvp_executable": "/usr/bin/vvp"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "rtl/control/gemm_tile_scheduler.sv": "a69ad76148533ea3395785642a3f171f73096ca459e68f2e1103f5e416a555da",
+    "tb/sv/tile_scheduler_harness.sv": "34692f679bf44cb8d28deb38d42abadfb46b0f430f73158bea953437d37bb4da",
+    "tb/test_tile_scheduler.py": "44da9c193d8ee3af9395229785feec2a00530b429a435b1d9c412a300b8b50ea",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_scheduler.py": "d681be83ed35e62b5c1d7d85360b640cc6c6de3c2d2fa8e2b4ced21ede4d1366"
+  },
+  "source_sha256_utf8_lf_after": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "c71d8c817d65ef8c5504092603a1a660b7984adc4b44df4ba97b087a4825cd0e",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "rtl/memory/gemm_tile_dma_duplex.sv": "4a70c8582882b485b5e6e191093e522bb4610fe65e6730ac3a278c3700f69515",
+    "tb/sv/tile_dma_duplex_harness.sv": "927620f8bc489b080ea309e2499ff39eeb82eee74d446f0252cb143a3a0e90aa",
+    "rtl/control/gemm_tile_scheduler.sv": "a69ad76148533ea3395785642a3f171f73096ca459e68f2e1103f5e416a555da",
+    "tb/sv/tile_scheduler_harness.sv": "34692f679bf44cb8d28deb38d42abadfb46b0f430f73158bea953437d37bb4da",
+    "tb/test_tile_scheduler.py": "44da9c193d8ee3af9395229785feec2a00530b429a435b1d9c412a300b8b50ea",
+    "tb/test_tile_dma_duplex.py": "54aaf3cb9dda728431de53652d5811ed7abf246325fc29469afd63130c93d06f",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_tile_scheduler.py": "d681be83ed35e62b5c1d7d85360b640cc6c6de3c2d2fa8e2b4ced21ede4d1366"
+  }
+}

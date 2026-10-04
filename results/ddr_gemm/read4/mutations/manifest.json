@@ -1,0 +1,19 @@
+{
+  "result": "DETECTED",
+  "process_exit_code": 0,
+  "public_directory": "results/ddr_gemm/read4/mutations",
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "tb/test_axi_burst.py": "971e39031b609d98feaf6934e5a76d746be93607ecc6afa563a799bc68f414b9",
+    "tb/test_axi_read_queue.py": "bd122db319907b469390a834bcd4e763da990c8afdf3d0b63b35f164a98eec0b",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/mutation_read_queue.py": "8e28666fae7cec71d7d2474b81d91d536a1f8828d902805975e67a40c5f85d23"
+  },
+  "saved_artifact_sha256_bytes": {
+    "summary.json": "dd2a40af03ba86232d5b086037b9c25aef91cea9f3273619d24db72777e78c51",
+    "pending_reads_ignore_external_stop/expected_failure.xml": "b7e96854d7fc39331fd35934d08d62ec5fe2d89ce0bf5033703cc14e996a9ef2",
+    "external_stop_arrives_one_edge_late/expected_failure.xml": "e094cf89e5e7241ee2a216bc7a74862b2013d36da2694af0a1dd3f078588fd09"
+  },
+  "scope": "Deliberately broken private RTL copies; failing tests demonstrate defect detection. Production RTL was not modified."
+}

@@ -1,0 +1,70 @@
+Excerpt from the final four-configuration run. Full local console hash is in summary.json.
+Configurations run in order: P4/T8, P4/T32, P8/T8, P8/T32.
+
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  running test_tile_dma.complete_matrix_transfers (1/4)
+130670.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+130670.00ns INFO     cocotb.regression                  running test_tile_dma.invalid_descriptors_have_no_side_effects (2/4)
+132880.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+132880.00ns INFO     cocotb.regression                  running test_tile_dma.delayed_response_and_fault_obligations (3/4)
+140440.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+140440.00ns INFO     cocotb.regression                  running test_tile_dma.local_protocol_faults_and_drain (4/4)
+155560.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** test_tile_dma.complete_matrix_transfers                  PASS      130670.00           7.87      16611.81  **
+                                                        ** test_tile_dma.invalid_descriptors_have_no_side_effects   PASS        2210.00           0.15      14679.10  **
+                                                        ** test_tile_dma.delayed_response_and_fault_obligations     PASS        7560.00           0.34      22151.76  **
+                                                        ** test_tile_dma.local_protocol_faults_and_drain            PASS       15120.00           0.75      20153.50  **
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       155560.00           9.14      17028.79  **
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  running test_tile_dma.complete_matrix_transfers (1/4)
+1214690.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+1214690.00ns INFO     cocotb.regression                  running test_tile_dma.invalid_descriptors_have_no_side_effects (2/4)
+1216900.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+1216900.00ns INFO     cocotb.regression                  running test_tile_dma.delayed_response_and_fault_obligations (3/4)
+1224460.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+1224460.00ns INFO     cocotb.regression                  running test_tile_dma.local_protocol_faults_and_drain (4/4)
+1239580.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                         ** test_tile_dma.complete_matrix_transfers                  PASS     1214690.00          78.97      15381.25  **
+                                                         ** test_tile_dma.invalid_descriptors_have_no_side_effects   PASS        2210.00           0.13      17045.53  **
+                                                         ** test_tile_dma.delayed_response_and_fault_obligations     PASS        7560.00           0.35      21451.03  **
+                                                         ** test_tile_dma.local_protocol_faults_and_drain            PASS       15120.00           0.67      22679.26  **
+                                                         ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                      1239580.00          80.14      15466.99  **
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  running test_tile_dma.complete_matrix_transfers (1/4)
+117550.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+117550.00ns INFO     cocotb.regression                  running test_tile_dma.invalid_descriptors_have_no_side_effects (2/4)
+119770.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+119770.00ns INFO     cocotb.regression                  running test_tile_dma.delayed_response_and_fault_obligations (3/4)
+127690.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+127690.00ns INFO     cocotb.regression                  running test_tile_dma.local_protocol_faults_and_drain (4/4)
+142140.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** test_tile_dma.complete_matrix_transfers                  PASS      117550.00          10.80      10880.69  **
+                                                        ** test_tile_dma.invalid_descriptors_have_no_side_effects   PASS        2220.00           0.14      15561.02  **
+                                                        ** test_tile_dma.delayed_response_and_fault_obligations     PASS        7920.00           0.40      19846.24  **
+                                                        ** test_tile_dma.local_protocol_faults_and_drain            PASS       14450.00           0.82      17624.42  **
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       142140.00          12.24      11609.13  **
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  running test_tile_dma.complete_matrix_transfers (1/4)
+595410.00ns INFO     cocotb.regression                  test_tile_dma.complete_matrix_transfers passed
+595410.00ns INFO     cocotb.regression                  running test_tile_dma.invalid_descriptors_have_no_side_effects (2/4)
+597620.00ns INFO     cocotb.regression                  test_tile_dma.invalid_descriptors_have_no_side_effects passed
+597620.00ns INFO     cocotb.regression                  running test_tile_dma.delayed_response_and_fault_obligations (3/4)
+605540.00ns INFO     cocotb.regression                  test_tile_dma.delayed_response_and_fault_obligations passed
+605540.00ns INFO     cocotb.regression                  running test_tile_dma.local_protocol_faults_and_drain (4/4)
+619990.00ns INFO     cocotb.regression                  test_tile_dma.local_protocol_faults_and_drain passed
+                                                        ** test_tile_dma.complete_matrix_transfers                  PASS      595410.00          96.46       6172.64  **
+                                                        ** test_tile_dma.invalid_descriptors_have_no_side_effects   PASS        2210.00           0.18      11966.65  **
+                                                        ** test_tile_dma.delayed_response_and_fault_obligations     PASS        7920.00           0.54      14793.45  **
+                                                        ** test_tile_dma.local_protocol_faults_and_drain            PASS       14450.00           0.92      15746.19  **
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                       619990.00          98.12       6318.58  **
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+    "tb/test_tile_dma.py": "c8b942ded337a63114d3126b270ecf09939af4ba032e5fc12dd765554f799d38",
+    "scripts/test_tile_dma.py": "86d63676deddb0f1daa2d13b1b6ddb3b08e1d1de42a450d372dcbea358e7748c"

@@ -1,0 +1,80 @@
+First setup path, excerpted from timing.txt.
+Original complete timing.txt byte SHA-256: 6c5fb3cc11780d5d839f3400a2d5290a3adfc221f32a62d7e2d3821789891b2c
+
+Slack (MET) :             0.642ns  (required time - arrival time)
+  Source:                 transport/state_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            transport/crc_reg[21]/S
+                            (rising edge-triggered cell FDSE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@10.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        8.722ns  (logic 1.676ns (19.216%)  route 7.046ns (80.784%))
+  Logic Levels:           8  (LUT3=1 LUT4=1 LUT5=1 LUT6=4 RAMD64E=1)
+  Clock Path Skew:        -0.038ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.501ns = ( 8.499 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.900ns
+    Clock Pessimism Removal (CPR):    0.564ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.131ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.489     1.489 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.722    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.946    -4.224 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.661    -2.563    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.467 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=2813, routed)        1.567    -0.900    transport/core_clk
+    SLICE_X13Y37         FDRE                                         r  transport/state_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y37         FDRE (Prop_fdre_C_Q)         0.456    -0.444 r  transport/state_reg[4]/Q
+                         net (fo=76, routed)          1.078     0.634    transport/state_reg_n_0_[4]
+    SLICE_X15Y38         LUT5 (Prop_lut5_I2_O)        0.124     0.758 r  transport/decoded_reg_0_63_0_2_i_7/O
+                         net (fo=5, routed)           0.616     1.374    transport/decoded_reg_0_63_0_2_i_7_n_0
+    SLICE_X28Y36         LUT4 (Prop_lut4_I1_O)        0.124     1.498 r  transport/decoded_reg_0_63_0_2_i_4/O
+                         net (fo=45, routed)          1.350     2.848    transport/decoded_reg_0_63_0_2/ADDRB3
+    SLICE_X30Y22         RAMD64E (Prop_ramd64e_RADR3_O)
+                                                      0.124     2.972 r  transport/decoded_reg_0_63_0_2/RAMB/O
+                         net (fo=1, routed)           1.144     4.117    transport/decoded_reg_0_63_0_2_n_1
+    SLICE_X31Y36         LUT3 (Prop_lut3_I2_O)        0.150     4.267 r  transport/last_request_reg_0_255_1_1_i_3/O
+                         net (fo=2, routed)           0.521     4.788    transport/last_request_reg_0_255_1_1_i_3_n_0
+    SLICE_X28Y41         LUT6 (Prop_lut6_I5_O)        0.326     5.114 r  transport/last_request_reg_0_255_1_1_i_1/O
+                         net (fo=13, routed)          0.351     5.465    transport/decoded_byte[1]
+    SLICE_X28Y40         LUT6 (Prop_lut6_I4_O)        0.124     5.589 r  transport/state[4]_i_25/O
+                         net (fo=6, routed)           0.755     6.343    transport/state[4]_i_25_n_0
+    SLICE_X15Y36         LUT6 (Prop_lut6_I3_O)        0.124     6.467 f  transport/crc[31]_i_6/O
+                         net (fo=1, routed)           0.555     7.023    transport/crc[31]_i_6_n_0
+    SLICE_X13Y39         LUT6 (Prop_lut6_I2_O)        0.124     7.147 r  transport/crc[31]_i_1/O
+                         net (fo=32, routed)          0.676     7.822    transport/crc[31]_i_1_n_0
+    SLICE_X10Y37         FDSE                                         r  transport/crc_reg[21]/S
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  CLK100MHZ
+                         net (fo=0)                   0.000    10.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.418    11.418 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    12.580    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.204     5.376 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.581     6.957    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     7.048 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=2813, routed)        1.450     8.499    transport/core_clk
+    SLICE_X10Y37         FDSE                                         r  transport/crc_reg[21]/C
+                         clock pessimism              0.564     9.062    <hidden>
+                         clock uncertainty           -0.074     8.988    <hidden>
+    SLICE_X10Y37         FDSE (Setup_fdse_C_S)       -0.524     8.464    transport/crc_reg[21]
+  -------------------------------------------------------------------
+                         required time                          8.464    <hidden>
+                         arrival time                          -7.822    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.642    <hidden>
+

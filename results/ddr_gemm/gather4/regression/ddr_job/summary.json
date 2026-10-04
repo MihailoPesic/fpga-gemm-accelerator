@@ -1,0 +1,988 @@
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "seed": 20261123,
+        "jobs": 38,
+        "seeded_jobs": 25,
+        "output_values": 4385,
+        "macrotiles": 346,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            9,
+            11,
+            9
+          ],
+          [
+            17,
+            7,
+            7
+          ],
+          [
+            5,
+            17,
+            8
+          ],
+          [
+            7,
+            9,
+            255
+          ],
+          [
+            9,
+            5,
+            256
+          ],
+          [
+            9,
+            9,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            4,
+            17,
+            33
+          ],
+          [
+            11,
+            1,
+            9
+          ],
+          [
+            10,
+            16,
+            1
+          ],
+          [
+            1,
+            2,
+            8
+          ],
+          [
+            4,
+            9,
+            256
+          ],
+          [
+            14,
+            13,
+            255
+          ],
+          [
+            2,
+            19,
+            31
+          ],
+          [
+            1,
+            11,
+            16
+          ],
+          [
+            7,
+            11,
+            64
+          ],
+          [
+            5,
+            8,
+            9
+          ],
+          [
+            16,
+            10,
+            9
+          ],
+          [
+            11,
+            15,
+            64
+          ],
+          [
+            9,
+            2,
+            32
+          ],
+          [
+            6,
+            17,
+            256
+          ],
+          [
+            6,
+            4,
+            64
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            5,
+            4,
+            256
+          ],
+          [
+            1,
+            15,
+            16
+          ],
+          [
+            18,
+            2,
+            2
+          ],
+          [
+            9,
+            18,
+            9
+          ],
+          [
+            13,
+            6,
+            16
+          ],
+          [
+            12,
+            13,
+            16
+          ],
+          [
+            1,
+            12,
+            8
+          ],
+          [
+            10,
+            17,
+            7
+          ],
+          [
+            12,
+            7,
+            7
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 45,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 487,
+          "w": 1000,
+          "ar": 2053,
+          "aw": 549
+        },
+        "axi_read_beats": 82367,
+        "axi_write_beats": 2798,
+        "axi_write_responses": 1583
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "seed": 20261147,
+        "jobs": 39,
+        "seeded_jobs": 25,
+        "output_values": 34189,
+        "macrotiles": 149,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            5,
+            65,
+            8
+          ],
+          [
+            31,
+            33,
+            255
+          ],
+          [
+            33,
+            5,
+            256
+          ],
+          [
+            33,
+            33,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            65,
+            97,
+            17
+          ],
+          [
+            56,
+            30,
+            2
+          ],
+          [
+            10,
+            58,
+            31
+          ],
+          [
+            38,
+            16,
+            9
+          ],
+          [
+            42,
+            25,
+            2
+          ],
+          [
+            24,
+            10,
+            7
+          ],
+          [
+            30,
+            58,
+            31
+          ],
+          [
+            24,
+            28,
+            32
+          ],
+          [
+            20,
+            5,
+            31
+          ],
+          [
+            8,
+            2,
+            16
+          ],
+          [
+            16,
+            8,
+            9
+          ],
+          [
+            49,
+            24,
+            33
+          ],
+          [
+            35,
+            8,
+            8
+          ],
+          [
+            10,
+            58,
+            256
+          ],
+          [
+            11,
+            56,
+            31
+          ],
+          [
+            1,
+            27,
+            2
+          ],
+          [
+            39,
+            57,
+            7
+          ],
+          [
+            47,
+            8,
+            255
+          ],
+          [
+            65,
+            23,
+            31
+          ],
+          [
+            37,
+            66,
+            8
+          ],
+          [
+            23,
+            12,
+            2
+          ],
+          [
+            61,
+            6,
+            9
+          ],
+          [
+            27,
+            58,
+            31
+          ],
+          [
+            2,
+            63,
+            9
+          ],
+          [
+            34,
+            1,
+            1
+          ],
+          [
+            30,
+            55,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 46,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 495,
+          "w": 6391,
+          "ar": 2717,
+          "aw": 863
+        },
+        "axi_read_beats": 93234,
+        "axi_write_beats": 17881,
+        "axi_write_responses": 2647
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "seed": 20261127,
+        "jobs": 38,
+        "seeded_jobs": 25,
+        "output_values": 5201,
+        "macrotiles": 361,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            9,
+            11,
+            9
+          ],
+          [
+            17,
+            7,
+            7
+          ],
+          [
+            9,
+            17,
+            8
+          ],
+          [
+            7,
+            9,
+            255
+          ],
+          [
+            9,
+            9,
+            256
+          ],
+          [
+            9,
+            9,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            17,
+            1,
+            2
+          ],
+          [
+            14,
+            19,
+            31
+          ],
+          [
+            3,
+            8,
+            2
+          ],
+          [
+            13,
+            19,
+            8
+          ],
+          [
+            6,
+            13,
+            64
+          ],
+          [
+            8,
+            12,
+            64
+          ],
+          [
+            3,
+            5,
+            32
+          ],
+          [
+            17,
+            19,
+            1
+          ],
+          [
+            6,
+            2,
+            9
+          ],
+          [
+            13,
+            15,
+            33
+          ],
+          [
+            18,
+            8,
+            31
+          ],
+          [
+            1,
+            11,
+            33
+          ],
+          [
+            15,
+            5,
+            2
+          ],
+          [
+            13,
+            14,
+            32
+          ],
+          [
+            14,
+            1,
+            16
+          ],
+          [
+            5,
+            6,
+            2
+          ],
+          [
+            15,
+            19,
+            8
+          ],
+          [
+            3,
+            9,
+            9
+          ],
+          [
+            1,
+            6,
+            1
+          ],
+          [
+            13,
+            10,
+            32
+          ],
+          [
+            4,
+            7,
+            7
+          ],
+          [
+            12,
+            11,
+            64
+          ],
+          [
+            10,
+            2,
+            9
+          ],
+          [
+            9,
+            17,
+            33
+          ],
+          [
+            3,
+            10,
+            255
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 45,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 487,
+          "aw": 621,
+          "ar": 2113,
+          "w": 1155
+        },
+        "axi_read_beats": 80923,
+        "axi_write_beats": 3238,
+        "axi_write_responses": 1720
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "tests": 4,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "seed": 20261151,
+        "jobs": 39,
+        "seeded_jobs": 25,
+        "output_values": 42547,
+        "macrotiles": 161,
+        "invalid_descriptors": 31,
+        "shapes": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            65,
+            31,
+            7
+          ],
+          [
+            9,
+            65,
+            8
+          ],
+          [
+            31,
+            33,
+            255
+          ],
+          [
+            33,
+            9,
+            256
+          ],
+          [
+            33,
+            33,
+            256
+          ],
+          [
+            1024,
+            1,
+            256
+          ],
+          [
+            1,
+            1024,
+            256
+          ],
+          [
+            65,
+            97,
+            17
+          ],
+          [
+            29,
+            59,
+            16
+          ],
+          [
+            7,
+            14,
+            64
+          ],
+          [
+            13,
+            67,
+            9
+          ],
+          [
+            9,
+            47,
+            64
+          ],
+          [
+            13,
+            28,
+            64
+          ],
+          [
+            36,
+            58,
+            32
+          ],
+          [
+            60,
+            40,
+            16
+          ],
+          [
+            25,
+            38,
+            8
+          ],
+          [
+            59,
+            1,
+            9
+          ],
+          [
+            28,
+            7,
+            1
+          ],
+          [
+            46,
+            42,
+            1
+          ],
+          [
+            9,
+            26,
+            32
+          ],
+          [
+            62,
+            63,
+            7
+          ],
+          [
+            13,
+            65,
+            1
+          ],
+          [
+            63,
+            15,
+            7
+          ],
+          [
+            24,
+            50,
+            256
+          ],
+          [
+            29,
+            41,
+            1
+          ],
+          [
+            59,
+            37,
+            9
+          ],
+          [
+            7,
+            65,
+            32
+          ],
+          [
+            4,
+            21,
+            7
+          ],
+          [
+            10,
+            8,
+            33
+          ],
+          [
+            35,
+            17,
+            64
+          ],
+          [
+            65,
+            49,
+            64
+          ],
+          [
+            52,
+            38,
+            256
+          ],
+          [
+            2,
+            22,
+            2
+          ],
+          [
+            2,
+            3,
+            9
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            3,
+            7
+          ],
+          [
+            1,
+            3,
+            8
+          ]
+        ],
+        "faults": {
+          "idle_calibration_loss": 1,
+          "validation_calibration_loss": 1,
+          "active_calibration_loss": 1,
+          "read_response": 1,
+          "write_response": 1,
+          "core_protocol": 1,
+          "c_response": 1,
+          "watchdog_hung_ar": 1,
+          "watchdog_hung_b": 1
+        },
+        "command_statuses": {
+          "0": 46,
+          "5": 7,
+          "3": 31,
+          "4": 1
+        },
+        "stalls": {
+          "start_rsp": 495,
+          "ar": 3010,
+          "aw": 1051,
+          "w": 7704
+        },
+        "axi_read_beats": 97374,
+        "axi_write_beats": 22183,
+        "axi_write_responses": 3025
+      }
+    }
+  ],
+  "scope": "Portable serial descriptor controller, row adapter, production tile engine and burst engine against behavioral AXI RAM; no UART, vendor DDR simulation or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "2e46a1b1ace8cbe31228ebdcf37bbc96ba7f48edea67580146c8cdfd384cf0ef",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "tb/sv/tile_dma_harness.sv": "b5e3e24332107162ee80fcbda89fe152257d82ddf46b82f2d215b030eb413a97",
+    "tb/sv/ddr_job_harness.sv": "73ee98dddd97d29a6fd25af0a51f08a3768adbb203ea2588fae70af767a32532",
+    "tb/test_ddr_job.py": "a233f06272416ebbea02634fda899cbd288962c084d3ec9f1e3dc98de4dc4aa3",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_job.py": "8ee756fc25a3313039faaa2b541acea7c4693caaff76bea078cffb567ba0e566"
+  },
+  "totals": {
+    "jobs": 154,
+    "output_values": 86322,
+    "invalid_descriptors": 124,
+    "macrotiles": 1017,
+    "axi_read_beats": 353898,
+    "axi_write_beats": 46100,
+    "axi_write_responses": 8975
+  }
+}

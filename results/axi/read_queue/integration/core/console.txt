@@ -1,0 +1,1001 @@
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791034415
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           buser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           aruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+790400.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790400.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+2575570.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2575570.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+2960070.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+2960070.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+3145990.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3145990.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+3166650.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                           self._pause_cr.kill()
+3174720.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+3174720.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+3271120.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+3271120.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+                                                         ** TEST                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ******************************************************************************************************************
+                                                         ** test_ddr_core.host_memory_packets_and_retries              PASS      790400.00          11.93      66240.05  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets       PASS     1785170.00          30.37      58772.96  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b   PASS      384500.00           7.02      54802.65  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain            PASS      185920.00           3.62      51302.78  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress         PASS       28730.00           0.62      46068.52  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write       PASS       96400.00           1.70      56718.65  **
+                                                         ******************************************************************************************************************
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                        3271120.00          55.29      59160.97  **
+                                                         ******************************************************************************************************************
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791034471
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           buser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           aruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+791350.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791350.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+3839580.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3839580.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+5485700.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5485700.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+5672640.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5672640.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+5693520.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                           self._pause_cr.kill()
+5701670.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+5701670.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+5798110.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+5798110.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+                                                         ** TEST                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ******************************************************************************************************************
+                                                         ** test_ddr_core.host_memory_packets_and_retries              PASS      791350.00          15.33      51612.36  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets       PASS     3048230.00          55.86      54569.97  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b   PASS     1646120.00          27.22      60481.01  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain            PASS      186940.00           2.85      65498.27  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress         PASS       29030.00           0.41      70678.64  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write       PASS       96440.00           1.43      67477.05  **
+                                                         ******************************************************************************************************************
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                        5798110.00         103.12      56224.71  **
+                                                         ******************************************************************************************************************
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791034575
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           buser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           aruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+790460.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790460.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+2681580.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2681580.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+3064750.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+3064750.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+3251030.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3251030.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+3271800.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                           self._pause_cr.kill()
+3280020.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+3280020.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+3375960.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+3375960.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+                                                         ** TEST                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ******************************************************************************************************************
+                                                         ** test_ddr_core.host_memory_packets_and_retries              PASS      790460.00          19.42      40708.67  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets       PASS     1891120.00          43.45      43524.31  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b   PASS      383170.00           8.91      42992.29  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain            PASS      186280.00           4.17      44662.58  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress         PASS       28990.00           0.62      46426.82  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write       PASS       95940.00           2.10      45632.01  **
+                                                         ******************************************************************************************************************
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                        3375960.00          78.70      42898.68  **
+                                                         ******************************************************************************************************************
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_packet_transport.sv:133: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+/mnt/c/Users/mihai/Documents/continium/accelerator nexys/rtl/control/gemm_ddr_registers.sv:56: sorry: constant selects in always_* processes are not currently supported (all bits will be included).
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791034654
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (write)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awaddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           awvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wstrb width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wuser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           wvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           buser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           bvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model (read)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model configuration:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Address width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ID width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Byte size: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         AXI slave model signals:
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           araddr width: 32 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arburst width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arcache width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlen width: 8 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arlock width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arprot width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arqos width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arregion width: 4 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arsize width: 3 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           aruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           arvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rdata width: 64 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rlast width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rready width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rresp width: 2 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           ruser: not present
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi           rvalid width: 1 bits
+     0.00ns INFO     cocotb.gemm_ddr_core.m_axi         Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+791380.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791380.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+3935580.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3935580.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+5572180.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5572180.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+5758670.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5758670.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+5779450.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                           self._pause_cr.kill()
+5787670.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+5787670.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+5883910.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+5883910.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+                                                         ** TEST                                                      STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                         ******************************************************************************************************************
+                                                         ** test_ddr_core.host_memory_packets_and_retries              PASS      791380.00          18.42      42973.94  **
+                                                         ** test_ddr_core.complete_matrix_jobs_from_host_packets       PASS     3144200.00          85.33      36847.62  **
+                                                         ** test_ddr_core.busy_ownership_duplicate_start_and_final_b   PASS     1636600.00          37.91      43174.44  **
+                                                         ** test_ddr_core.host_memory_faults_and_hung_drain            PASS      186490.00           4.23      44067.68  **
+                                                         ** test_ddr_core.host_watchdog_threshold_and_progress         PASS       29000.00           0.67      42983.64  **
+                                                         ** test_ddr_core.calibration_loss_during_accepted_write       PASS       96240.00           2.25      42808.77  **
+                                                         ******************************************************************************************************************
+                                                         ** TESTS=6 PASS=6 FAIL=0 SKIP=0                                        5883910.00         148.83      39535.20  **
+                                                         ******************************************************************************************************************
+{
+  "result": "PASS",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "build_id": 3489661960,
+      "tests": 6,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 8,
+        "seed": 20261213,
+        "jobs": 7,
+        "output_values": 224,
+        "shapes": [
+          [
+            9,
+            11,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            9,
+            9,
+            7
+          ]
+        ],
+        "requests": 817,
+        "responses": 817,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 276,
+        "axi_write_bursts": 200,
+        "axi_read_beats": 2291,
+        "axi_write_beats": 2002,
+        "axi_write_responses": 200,
+        "stalls": {
+          "aw": 3594,
+          "w": 4249,
+          "ar": 3861
+        }
+      }
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "build_id": 3489661984,
+      "tests": 6,
+      "result": "PASS",
+      "coverage": {
+        "p": 4,
+        "t": 32,
+        "seed": 20261237,
+        "jobs": 7,
+        "output_values": 2288,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            5,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            33,
+            33,
+            7
+          ]
+        ],
+        "requests": 1005,
+        "responses": 1005,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 618,
+        "axi_write_bursts": 448,
+        "axi_read_beats": 4787,
+        "axi_write_beats": 5266,
+        "axi_write_responses": 448,
+        "stalls": {
+          "aw": 3662,
+          "w": 5351,
+          "ar": 4020
+        }
+      }
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "build_id": 3489662984,
+      "tests": 6,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 8,
+        "seed": 20261217,
+        "jobs": 7,
+        "output_values": 240,
+        "shapes": [
+          [
+            9,
+            11,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            9,
+            7
+          ],
+          [
+            9,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            9,
+            9,
+            7
+          ]
+        ],
+        "requests": 824,
+        "responses": 824,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 294,
+        "axi_write_bursts": 211,
+        "axi_read_beats": 2399,
+        "axi_write_beats": 2108,
+        "axi_write_responses": 211,
+        "stalls": {
+          "w": 4238,
+          "aw": 3554,
+          "ar": 3901
+        }
+      }
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "build_id": 3489663008,
+      "tests": 6,
+      "result": "PASS",
+      "coverage": {
+        "p": 8,
+        "t": 32,
+        "seed": 20261241,
+        "jobs": 7,
+        "output_values": 2304,
+        "shapes": [
+          [
+            33,
+            35,
+            9
+          ],
+          [
+            3,
+            5,
+            1
+          ],
+          [
+            1,
+            9,
+            7
+          ],
+          [
+            9,
+            3,
+            8
+          ],
+          [
+            2,
+            3,
+            255
+          ],
+          [
+            3,
+            1,
+            256
+          ],
+          [
+            33,
+            33,
+            7
+          ]
+        ],
+        "requests": 1006,
+        "responses": 1006,
+        "replays": 2,
+        "sequence_conflicts": 2,
+        "malformed_frames": 4,
+        "invalid_memory_commands": 24,
+        "host_lengths": [
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240
+        ],
+        "faults": [
+          "read",
+          "write",
+          "watchdog",
+          "calibration_during_write_collection"
+        ],
+        "watchdog_limits": [
+          1,
+          2,
+          3,
+          7,
+          16,
+          4294967295
+        ],
+        "watchdog_progress_at_deadline": 1,
+        "axi_read_bursts": 632,
+        "axi_write_bursts": 458,
+        "axi_read_beats": 4891,
+        "axi_write_beats": 5372,
+        "axi_write_responses": 458,
+        "stalls": {
+          "aw": 3665,
+          "w": 5441,
+          "ar": 4005
+        }
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "rtl/memory/gemm_tile_dma.sv": "2e46a1b1ace8cbe31228ebdcf37bbc96ba7f48edea67580146c8cdfd384cf0ef",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "43eb2cca0e96ac0cfd420f71da51a3f054f098377646e941c84a8b75187ced94",
+    "tb/test_ddr_core.py": "ce36b742cd527a9bd2db37a8d689de3da7a01387f9fa0e839e7bdd4d89831525",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_core.py": "5c67977e1fe6dc0c4ab5433463caedba0e853b6ee8f7caeb7420177f37e586f8"
+  },
+  "scope": "Byte-framed transport, production control/register/job/DMA/core/burst and behavioral AXI RAM; no UART pin timing, vendor DDR or board measurement",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "totals": {
+    "jobs": 28,
+    "output_values": 5056,
+    "requests": 3652,
+    "responses": 3652,
+    "replays": 8,
+    "sequence_conflicts": 8,
+    "malformed_frames": 16,
+    "invalid_memory_commands": 96,
+    "axi_read_bursts": 1820,
+    "axi_write_bursts": 1317,
+    "axi_read_beats": 14368,
+    "axi_write_beats": 14748,
+    "axi_write_responses": 1317
+  }
+}

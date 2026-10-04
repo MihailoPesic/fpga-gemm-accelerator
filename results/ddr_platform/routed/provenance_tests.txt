@@ -1,0 +1,11 @@
+test_constraints_pins_newlines_and_extra_comments_remain_significant (test_build_ddr_diag.GeneratedFingerprintTests.test_constraints_pins_newlines_and_extra_comments_remain_significant) ... ok
+test_existing_verification_rejects_changed_nonbuilder_input (test_build_ddr_diag.GeneratedFingerprintTests.test_existing_verification_rejects_changed_nonbuilder_input) ... ok
+test_malformed_or_duplicated_header_fails_closed (test_build_ddr_diag.GeneratedFingerprintTests.test_malformed_or_duplicated_header_fails_closed) ... ok
+test_only_known_header_timestamp_is_ignored (test_build_ddr_diag.GeneratedFingerprintTests.test_only_known_header_timestamp_is_ignored) ... ok
+test_proof_cannot_expand_file_allowlist (test_build_ddr_diag.GeneratedFingerprintTests.test_proof_cannot_expand_file_allowlist) ... ok
+test_reconstruction_checks_original_raw_bytes_and_other_generated_files (test_build_ddr_diag.GeneratedFingerprintTests.test_reconstruction_checks_original_raw_bytes_and_other_generated_files) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.071s
+
+OK

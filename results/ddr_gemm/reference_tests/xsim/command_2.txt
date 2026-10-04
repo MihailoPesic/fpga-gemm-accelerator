@@ -1,0 +1,18 @@
+
+****** xsim v2026.1 (64-bit)
+  **** SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+  **** IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+  **** SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+  **** Start of session at: Sat Oct  3 00:00:49 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/vendor_reference_snapshot/xsim_script.tcl
+# xsim {vendor_reference_snapshot} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+DDR_GEMM_ORACLE_PASS jobs=2 outputs=16
+VENDOR_REFERENCE_PASS cases=194 bytes=776
+$finish called at time : 194 ns : File "C:/Users/mihai/Documents/continium/accelerator nexys/build/test_vendor_reference/xsim/vendor_reference.sv" Line 270
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Oct  3 00:00:51 2026...

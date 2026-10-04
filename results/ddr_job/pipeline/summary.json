@@ -1,0 +1,166 @@
+{
+  "result": "PASS",
+  "date": "2026-10-02",
+  "scope": "Portable serial descriptor controller, row adapter, production tile engine and burst engine against behavioral AXI RAM; no UART, vendor DDR simulation or board measurement",
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 38,
+      "compared_outputs": 5789,
+      "invalid_descriptors": 31,
+      "fault_bins": 9,
+      "elapsed_seconds": 305.67248153686523,
+      "coverage": "p4_t8/coverage.json",
+      "test_results": "p4_t8/results.xml",
+      "seeded_jobs": 25,
+      "macrotiles": 366
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 39,
+      "compared_outputs": 42912,
+      "invalid_descriptors": 31,
+      "fault_bins": 9,
+      "elapsed_seconds": 592.1192519664764,
+      "coverage": "p4_t32/coverage.json",
+      "test_results": "p4_t32/results.xml",
+      "seeded_jobs": 25,
+      "macrotiles": 158
+    },
+    {
+      "p": 8,
+      "t": 8,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 38,
+      "compared_outputs": 5337,
+      "invalid_descriptors": 31,
+      "fault_bins": 9,
+      "elapsed_seconds": 410.02860379219055,
+      "coverage": "p8_t8/coverage.json",
+      "test_results": "p8_t8/results.xml",
+      "seeded_jobs": 25,
+      "macrotiles": 361
+    },
+    {
+      "p": 8,
+      "t": 32,
+      "result": "PASS",
+      "tests": 4,
+      "jobs": 39,
+      "compared_outputs": 49048,
+      "invalid_descriptors": 31,
+      "fault_bins": 9,
+      "elapsed_seconds": 710.6916754245758,
+      "coverage": "p8_t32/coverage.json",
+      "test_results": "p8_t32/results.xml",
+      "seeded_jobs": 25,
+      "macrotiles": 164
+    }
+  ],
+  "totals": {
+    "tests": 16,
+    "jobs": 154,
+    "compared_outputs": 103086,
+    "invalid_descriptors": 124,
+    "seeded_jobs": 100,
+    "macrotiles": 1049
+  },
+  "source_state": "Working-tree inputs; all four independent runner source maps match exactly",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "tb/sv/tile_dma_harness.sv": "b5e3e24332107162ee80fcbda89fe152257d82ddf46b82f2d215b030eb413a97",
+    "tb/sv/ddr_job_harness.sv": "73ee98dddd97d29a6fd25af0a51f08a3768adbb203ea2588fae70af767a32532",
+    "tb/test_ddr_job.py": "a233f06272416ebbea02634fda899cbd288962c084d3ec9f1e3dc98de4dc4aa3",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_job.py": "8ee756fc25a3313039faaa2b541acea7c4693caaff76bea078cffb567ba0e566"
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "test_commands": [
+    ".venv/bin/python scripts/test_ddr_job.py --only p4_t8 --build-dir build/test_ddr_job_pipeline_p4_t8",
+    ".venv/bin/python scripts/test_ddr_job.py --only p4_t32 --build-dir build/test_ddr_job_pipeline_p4_t32",
+    ".venv/bin/python scripts/test_ddr_job.py --only p8_t8 --build-dir build/test_ddr_job_pipeline_p8_t8",
+    ".venv/bin/python scripts/test_ddr_job.py --only p8_t32 --build-dir build/test_ddr_job_pipeline_p8_t32"
+  ],
+  "raw_test_traffic": {
+    "axi_read_beats": 385440,
+    "axi_write_beats": 54702,
+    "axi_write_responses": 9732
+  },
+  "publication": "Merged from four successful configuration summaries after identical source and version checks; XML and coverage copied byte-for-byte",
+  "original_artifacts": {
+    "p4_t8": {
+      "summary_path": "build/test_ddr_job_pipeline_p4_t8/summary.json",
+      "summary_sha256_bytes": "ee0eecba8d3594300a8545286470c1fdec18928de948540167aec68c53320268",
+      "complete_console_path": "build/ddr_job_pipeline_p4_t8_console.txt",
+      "complete_console_sha256_bytes": "fba61fc5d3e6196f6209efdb00335ff85e4a4aeca7c31675fa8ff03f0947ac01",
+      "execution_path": "build/ddr_job_pipeline_p4_t8_execution.json",
+      "execution_sha256_bytes": "7590a30a9cd3c81b7d44f5ed9a6f700c1a116bc0c8efa589aed9343db9a8f62c"
+    },
+    "p4_t32": {
+      "summary_path": "build/test_ddr_job_pipeline_p4_t32/summary.json",
+      "summary_sha256_bytes": "19e21acb575849bc3b877e95576856c597d5aee5d0b63c7f6b7f3f452125230c",
+      "complete_console_path": "build/ddr_job_pipeline_p4_t32_console.txt",
+      "complete_console_sha256_bytes": "865e1e40e3ce225a740a446030856f97037b1b19d57b69a92392c1d11ebe2004",
+      "execution_path": "build/ddr_job_pipeline_p4_t32_execution.json",
+      "execution_sha256_bytes": "95bfaad82be4a7c507fc20a27f1cdd47baa0d4cc3d029976fbfdfb8b7fc9051a"
+    },
+    "p8_t8": {
+      "summary_path": "build/test_ddr_job_pipeline_p8_t8/summary.json",
+      "summary_sha256_bytes": "da2d18ffc5ff91771ce12246891517506f244efce0702a0d83f7c1d0f679f215",
+      "complete_console_path": "build/ddr_job_pipeline_p8_t8_console.txt",
+      "complete_console_sha256_bytes": "8829eaa645f00459acdae6a10d7faa36d5f23294a5bdb579fc5cd1aa0661a81e",
+      "execution_path": "build/ddr_job_pipeline_p8_t8_execution.json",
+      "execution_sha256_bytes": "b1b4cc4cbfe9d29491760a1dce79380a34505acb6f36db0b5af671fe9b568502"
+    },
+    "p8_t32": {
+      "summary_path": "build/test_ddr_job_pipeline_p8_t32/summary.json",
+      "summary_sha256_bytes": "0070994519d4965044111b8a986461abf351ba0815a7d033a92da32ca3643e71",
+      "complete_console_path": "build/ddr_job_pipeline_p8_t32_console.txt",
+      "complete_console_sha256_bytes": "c6c5c8f40bd95bea1d1c9d9e7db42e44a96df8206dc036af9c95787c766974da",
+      "execution_path": "build/ddr_job_pipeline_p8_t32_execution.json",
+      "execution_sha256_bytes": "4b8f0322485a8e502667211ef4a3f7f63c5034956c2c26c64f9685cbdf426508"
+    }
+  },
+  "saved_artifact_sha256_bytes": {
+    "console_excerpt.txt": "88345788043aadf8ddfaa568f715647bbddbc93472df44f18564a205ef920cfd",
+    "p4_t32/coverage.json": "4514b559df1e267fde778dbde083a862717c6a02785c54bddb6e39b82529bd1b",
+    "p4_t32/results.xml": "38242d49dadf0b65b60ba479a951baf6dbe750906a4de32987cad930d4f65bdd",
+    "p4_t8/coverage.json": "d2a8d17f144099f34a44987bf7d5f95c3de45716df181537883a86f2489cd534",
+    "p4_t8/results.xml": "0e7bd9643b067c8c4a21a1d48bf7adb9049418786dd67285c9f3c9a705757811",
+    "p8_t32/coverage.json": "8ab37b2f5f7f184685e1d314cd76f4c9b81006694bcd21e3b9195fc5d03227b3",
+    "p8_t32/results.xml": "308399be7e460077adddc0ec784a95eb558b73fe4fc2964c071f9e742d31041d",
+    "p8_t8/coverage.json": "33a52a01273b9e8ebd7562002f0beb4eb2f19eac8783be96feb18dafdf0cb516",
+    "p8_t8/results.xml": "3b13d1e9ec29463c41330c6fd0ffbadef3735486dba9b5a3451371f3589ba0e0"
+  },
+  "limitations": {
+    "vendor_ip_simulated": false,
+    "routed_timing_checked": false,
+    "board_test_performed": false,
+    "overlap_tested": false
+  }
+}

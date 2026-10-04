@@ -1,0 +1,107 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Oct  4 13:52:35 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing -to platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/rst_out_reg/CLR -delay_type min_max -user_ignored -max_paths 400 -nworst 1 -path_type full_clock_expanded -file {C:/Users/mihai/Documents/continium/accelerator nexys/build/overlap_final_reset_review/vendor_reset_control_ignored_timing.txt}
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Physopt postRoute
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 CPU_RESETN
+                            (input port)
+  Destination:            platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        8.376ns  (logic 1.754ns (20.939%)  route 6.622ns (79.061%))
+  Logic Levels:           3  (IBUF=1 LUT1=1 LUT2=1)
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    C12                                               0.000     0.000 f  CPU_RESETN
+                         net (fo=0)                   0.000     0.000    CPU_RESETN
+    C12                  IBUF (Prop_ibuf_I_O)         1.506     1.506 f  CPU_RESETN_IBUF_inst/O
+                         net (fo=1, routed)           4.042     5.548    platform/platform/axi_ddr_bd_i/mig_reset_gate/Op1[0]
+    SLICE_X64Y53         LUT2 (Prop_lut2_I0_O)        0.124     5.672 f  platform/platform/axi_ddr_bd_i/mig_reset_gate/Res[0]_INST_0/O
+                         net (fo=2, routed)           1.559     7.231    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/sys_rst_i
+    SLICE_X65Y31         LUT1 (Prop_lut1_I0_O)        0.124     7.355 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/plle2_i_i_1/O
+                         net (fo=16, routed)          1.021     8.376    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/AS[0]
+    PLLE2_ADV_X1Y0       PLLE2_ADV                                    r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/C
+                            (rising edge-triggered cell FDPE clocked by clk_pll_i  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/phy_control_i/RESET
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        1.332ns  (logic 0.141ns (10.587%)  route 1.191ns (89.413%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.206ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.050ns
+    Discrete Jitter          (DJ):    0.089ns
+    Phase Error              (PE):    0.155ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pll_i rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         0.257     0.257 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           0.440     0.697    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -2.356    -1.659 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.486    -1.173    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.147 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=17671, routed)       0.556    -0.591    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/mmcm_clk
+    PLLE2_ADV_X1Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT3)
+                                                      0.050    -0.541 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/CLKOUT3
+                         net (fo=1, routed)           0.381    -0.160    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/pll_clk3_out
+    BUFHCE_X1Y0          BUFH (Prop_bufh_I_O)         0.020    -0.140 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/u_bufh_pll_clk3/O
+                         net (fo=1, routed)           0.259     0.119    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/pll_clk3
+    MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -1.061    -0.942 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT
+                         net (fo=1, routed)           0.486    -0.456    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/clk_pll_i
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.026    -0.430 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/u_bufg_clkdiv0/O
+                         net (fo=5162, routed)        0.596     0.166    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/CLK
+    SLICE_X62Y49         FDPE                                         r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X62Y49         FDPE (Prop_fdpe_C_Q)         0.141     0.307 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/Q
+                         net (fo=31, routed)          1.191     1.498    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/in0
+    PHY_CONTROL_X1Y0     PHY_CONTROL                                  r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/phy_control_i/RESET
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 CPU_RESETN
+                            (input port)
+  Destination:            platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        3.246ns  (logic 0.363ns (11.198%)  route 2.882ns (88.802%))
+  Logic Levels:           3  (IBUF=1 LUT1=1 LUT2=1)
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    C12                                               0.000     0.000 f  CPU_RESETN
+                         net (fo=0)                   0.000     0.000    CPU_RESETN
+    C12                  IBUF (Prop_ibuf_I_O)         0.273     0.273 f  CPU_RESETN_IBUF_inst/O
+                         net (fo=1, routed)           1.791     2.064    platform/platform/axi_ddr_bd_i/mig_reset_gate/Op1[0]
+    SLICE_X64Y53         LUT2 (Prop_lut2_I0_O)        0.045     2.109 f  platform/platform/axi_ddr_bd_i/mig_reset_gate/Res[0]_INST_0/O
+                         net (fo=2, routed)           0.598     2.708    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/sys_rst_i
+    SLICE_X65Y31         LUT1 (Prop_lut1_I0_O)        0.045     2.753 r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/plle2_i_i_1/O
+                         net (fo=16, routed)          0.493     3.246    platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/AS[0]
+    PLLE2_ADV_X1Y0       PLLE2_ADV                                    r  platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST
+  -------------------------------------------------------------------    -------------------
+
+
+
+

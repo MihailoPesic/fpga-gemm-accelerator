@@ -1,0 +1,107 @@
+{
+  "p": 8,
+  "t": 8,
+  "seed": 20261217,
+  "jobs": 7,
+  "output_values": 240,
+  "shapes": [
+    [
+      9,
+      11,
+      9
+    ],
+    [
+      3,
+      5,
+      1
+    ],
+    [
+      1,
+      9,
+      7
+    ],
+    [
+      9,
+      3,
+      8
+    ],
+    [
+      2,
+      3,
+      255
+    ],
+    [
+      3,
+      1,
+      256
+    ],
+    [
+      9,
+      9,
+      7
+    ]
+  ],
+  "requests": 824,
+  "responses": 824,
+  "replays": 2,
+  "sequence_conflicts": 2,
+  "malformed_frames": 4,
+  "invalid_memory_commands": 24,
+  "host_lengths": [
+    8,
+    16,
+    24,
+    32,
+    40,
+    48,
+    56,
+    64,
+    72,
+    80,
+    88,
+    96,
+    104,
+    112,
+    120,
+    128,
+    136,
+    144,
+    152,
+    160,
+    168,
+    176,
+    184,
+    192,
+    200,
+    208,
+    216,
+    224,
+    232,
+    240
+  ],
+  "faults": [
+    "read",
+    "write",
+    "watchdog",
+    "calibration_during_write_collection"
+  ],
+  "watchdog_limits": [
+    1,
+    2,
+    3,
+    7,
+    16,
+    4294967295
+  ],
+  "watchdog_progress_at_deadline": 1,
+  "axi_read_bursts": 294,
+  "axi_write_bursts": 211,
+  "axi_read_beats": 2399,
+  "axi_write_beats": 2108,
+  "axi_write_responses": 211,
+  "stalls": {
+    "w": 4238,
+    "aw": 3554,
+    "ar": 3901
+  }
+}

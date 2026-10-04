@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "tests": 4,
+  "scope": "Row address/metadata sequencing and completion handshakes; no bank adapter, AXI fabric or physical DDR test",
+  "versions": {
+    "cocotb": "2.0.1"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "tb/test_dma_rows.py": "494d941aaf0600a78d430dfeea875215f2850ef1b92bdaaaca26f8ab89854ff8",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_dma_rows.py": "63a87c8f99b0989524c23668de5746df8db71e8d80cfbbefbd4d2637a4740037"
+  }
+}

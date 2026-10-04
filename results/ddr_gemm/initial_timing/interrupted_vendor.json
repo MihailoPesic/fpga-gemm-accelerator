@@ -1,0 +1,42 @@
+{
+  "result": "INTERRUPTED",
+  "utc": "2026-10-02T20:52:00.480509+00:00",
+  "reason": "Superseded after full-board routed timing failed; only this owned simulator and batch Vivado process were stopped",
+  "build_id": 2842281189,
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "2f8054de94d47858b96334cb2b5aeec45f0b807cbba76b540c9675c57f739530",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/control/gemm_ddr_job.sv": "f88470f40ea87721694c58b0acd27e1ca78874b6e98c31683e12d37c9a336ac3",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "87c104cefcf8b04aedfe21f6711dfbd8cc9938d2e2d849efafa41f69b51470d8",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "accelerator nexys.srcs/sources_1/new/uart_rx.sv": "d163dc2262631c2e43fc106e5717b54d04fb5077811505db69d8007474a1f9a1",
+    "accelerator nexys.srcs/sources_1/new/uart_tx.sv": "c2179f6da3806fcf77640be63f85d0df85201e9ff9f4705097cb85ecc2d16daa",
+    "platform/nexys_a7/axi_ddr_platform.sv": "6112a83e811b4397e3b1a92474b08b92869aedfdd510970accfb0bfc937dc789",
+    "platform/nexys_a7/gemm_ddr_top.sv": "581b86ce2fe5527ee385e11510d1ac920592edfb44882ab04b8dbad534ba2429",
+    "scripts/build_ddr_gemm.py": "06809fd4236f4d973b5b641ed43de3fb7a0629af0ca4178827d89416bf4a1993",
+    "scripts/build_ddr_gemm.tcl": "388c1240ae50c02507af0dafaeb01b9223c0e1b9a226d79c3fb0738c262bab56",
+    "scripts/build_ddr_diag.py": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa",
+    "scripts/create_axi_platform.tcl": "993bad33ed34459834fdb4497876ec08d5ce85d996d9477096e540b019310fb3",
+    "scripts/test_mig.py": "7350ea9be9f3ca0156489c058153c9bb3b0fc6a6a46209478deb05c2170db61f",
+    "tb/vendor/tb_ddr_gemm.sv": "984fef024db36b20e75ae051dc488a44efaf30a8a0e7abc464a565a0dfabf94a",
+    "platform/nexys_a7/axi_ddr.xdc": "7b9e2d19422c86b64097b13db256b8c44acf02ed42621f90c298803aec9d8431",
+    "platform/nexys_a7/gemm_ddr.xdc": "af566dc6d42ad740c67ec1cc49d173bfbdcacf991a8e66d84d7036419654add7",
+    "accelerator nexys.srcs/sources_1/ip/mig_7series_0/mig_a.prj": "2a8eacf3f8786fe40a6d758c4c4bda61150c58f9a5c6676ae085b25c4fa1221c"
+  },
+  "console_sha256_bytes": "529e03fca26a0f8f392bc28448b08afdd827424605d1d4451862a98abc2a8129",
+  "first_job_marker": [
+    "DDR_GEMM_JOB_PASS job_id=1 m=1 n=1 k=1 outputs=1 job_cycles=200 compute_cycles=12 read_beats=2 write_beats=1 write_bytes=4"
+  ],
+  "final_pass_present": false,
+  "physical_board_validated": false
+}

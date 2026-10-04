@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "actual_native_exit_code": 0,
+  "actual_wsl_exit_code": 0,
+  "native_session_id": 43567,
+  "native_chunk_id": "70fd4c",
+  "execution_sha256_bytes": "538c9958e3efffc320b02403e8d418de09c1db060a79da47ebaae92b515a8777",
+  "scope": "Actual unchanged Linux formal runner; no hardware access"
+}

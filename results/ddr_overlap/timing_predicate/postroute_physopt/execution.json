@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:\\AMDDesignTools\\2026.1\\Vivado\\bin\\vivado.bat",
+    "-mode",
+    "batch",
+    "-notrace",
+    "-source",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_fault_physopt_probe\\physopt.tcl",
+    "-log",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_fault_physopt_probe\\physopt.log",
+    "-journal",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_fault_physopt_probe\\physopt.jou"
+  ],
+  "cwd": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\overlap_fault_physopt_probe",
+  "started_utc": "2026-10-04T09:24:51.379708+00:00",
+  "finished_utc": "2026-10-04T09:27:56.109803+00:00",
+  "exit_code": 0
+}

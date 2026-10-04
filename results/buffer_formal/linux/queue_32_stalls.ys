@@ -1,0 +1,36 @@
+read_verilog -formal -sv -D SYNTHESIS /work/inputs/rtl/memory/gemm_tile_dma_read_queue.sv
+chparam -set T 32 gemm_tile_dma_read_queue
+proc
+memory_map
+cd gemm_tile_dma_read_queue
+rename -output owned obs_owned
+rename -output head obs_head
+rename -output tail obs_tail
+rename -output received obs_received
+rename -output delivered obs_delivered
+rename -output load_pending obs_load_pending
+rename -output completion_pending obs_completion_pending
+rename -output rows[0] obs_row0
+rename -output rows[1] obs_row1
+rename -output rows[2] obs_row2
+rename -output rows[3] obs_row3
+rename -output words[0] obs_word0
+rename -output words[1] obs_word1
+rename -output words[2] obs_word2
+rename -output words[3] obs_word3
+rename -output beats[0] obs_beats0
+rename -output beats[1] obs_beats1
+rename -output beats[2] obs_beats2
+rename -output beats[3] obs_beats3
+cd ..
+read_verilog -formal -sv /work/inputs/formal/tile_read_queue.sv
+chparam -set T 32 tile_read_queue_formal
+prep -top tile_read_queue_formal -flatten
+memory_map
+async2sync
+chformal -assert -lower
+chformal -assume -lower
+opt -full -keepdc
+check
+stat
+sat -seq 32 -set-assumes -set rst 0 -timeout 120 -show-ports -set-at 1 rst 1 -falsify -prove cover_stalls 0 -dump_json /work/queue_32_stalls.json -dump_vcd /work/queue_32_stalls.vcd

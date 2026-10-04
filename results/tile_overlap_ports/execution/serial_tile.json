@@ -1,0 +1,11 @@
+{
+  "suite": "serial_tile",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_tile.py",
+    "--build-dir",
+    "build/tile_ports_regression_20261003/serial_tile"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 65.37499260902405
+}

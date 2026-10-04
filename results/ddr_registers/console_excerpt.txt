@@ -1,0 +1,32 @@
+     0.00ns INFO     cocotb.regression                  running test_ddr_registers.register_map_and_access_rules (1/4)
+ 13630.00ns INFO     cocotb.regression                  test_ddr_registers.register_map_and_access_rules passed
+ 13630.00ns INFO     cocotb.regression                  running test_ddr_registers.counter_words_and_response_stability (2/4)
+ 16800.00ns INFO     cocotb.regression                  test_ddr_registers.counter_words_and_response_stability passed
+ 16800.00ns INFO     cocotb.regression                  running test_ddr_registers.deferred_start_and_clear_commands (3/4)
+ 20550.00ns INFO     cocotb.regression                  test_ddr_registers.deferred_start_and_clear_commands passed
+ 20550.00ns INFO     cocotb.regression                  running test_ddr_registers.reset_and_back_to_back_requests (4/4)
+ 22720.00ns INFO     cocotb.regression                  test_ddr_registers.reset_and_back_to_back_requests passed
+     0.00ns INFO     cocotb.regression                  running test_ddr_registers.register_map_and_access_rules (1/4)
+ 13630.00ns INFO     cocotb.regression                  test_ddr_registers.register_map_and_access_rules passed
+ 13630.00ns INFO     cocotb.regression                  running test_ddr_registers.counter_words_and_response_stability (2/4)
+ 16800.00ns INFO     cocotb.regression                  test_ddr_registers.counter_words_and_response_stability passed
+ 16800.00ns INFO     cocotb.regression                  running test_ddr_registers.deferred_start_and_clear_commands (3/4)
+ 20550.00ns INFO     cocotb.regression                  test_ddr_registers.deferred_start_and_clear_commands passed
+ 20550.00ns INFO     cocotb.regression                  running test_ddr_registers.reset_and_back_to_back_requests (4/4)
+ 22720.00ns INFO     cocotb.regression                  test_ddr_registers.reset_and_back_to_back_requests passed
+     0.00ns INFO     cocotb.regression                  running test_ddr_registers.register_map_and_access_rules (1/4)
+ 13630.00ns INFO     cocotb.regression                  test_ddr_registers.register_map_and_access_rules passed
+ 13630.00ns INFO     cocotb.regression                  running test_ddr_registers.counter_words_and_response_stability (2/4)
+ 16800.00ns INFO     cocotb.regression                  test_ddr_registers.counter_words_and_response_stability passed
+ 16800.00ns INFO     cocotb.regression                  running test_ddr_registers.deferred_start_and_clear_commands (3/4)
+ 20550.00ns INFO     cocotb.regression                  test_ddr_registers.deferred_start_and_clear_commands passed
+ 20550.00ns INFO     cocotb.regression                  running test_ddr_registers.reset_and_back_to_back_requests (4/4)
+ 22720.00ns INFO     cocotb.regression                  test_ddr_registers.reset_and_back_to_back_requests passed
+     0.00ns INFO     cocotb.regression                  running test_ddr_registers.register_map_and_access_rules (1/4)
+ 13630.00ns INFO     cocotb.regression                  test_ddr_registers.register_map_and_access_rules passed
+ 13630.00ns INFO     cocotb.regression                  running test_ddr_registers.counter_words_and_response_stability (2/4)
+ 16800.00ns INFO     cocotb.regression                  test_ddr_registers.counter_words_and_response_stability passed
+ 16800.00ns INFO     cocotb.regression                  running test_ddr_registers.deferred_start_and_clear_commands (3/4)
+ 20550.00ns INFO     cocotb.regression                  test_ddr_registers.deferred_start_and_clear_commands passed
+ 20550.00ns INFO     cocotb.regression                  running test_ddr_registers.reset_and_back_to_back_requests (4/4)
+ 22720.00ns INFO     cocotb.regression                  test_ddr_registers.reset_and_back_to_back_requests passed

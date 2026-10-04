@@ -1,0 +1,2 @@
+Python 3.12.3
+pip 26.2.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/pip (python 3.12)

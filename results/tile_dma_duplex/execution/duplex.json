@@ -1,0 +1,17 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys",
+    "--exec",
+    ".venv/bin/python",
+    "scripts/test_tile_dma_duplex.py",
+    "--build-dir",
+    "build/test_duplex_20261004_final2"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 118.62379503250122,
+  "scope": "Portable duplex integration; no FPGA access"
+}

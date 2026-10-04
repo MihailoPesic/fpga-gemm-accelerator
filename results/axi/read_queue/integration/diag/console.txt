@@ -1,0 +1,130 @@
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1791034414
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running test_ddr_diag.complete_memory_plan_and_repeated_runs (1/4)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model (write)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      https://github.com/alexforencich/cocotbext-axi
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.ready.setimmediatevalue(self._ready_init)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          self.valid.setimmediatevalue(self._valid_init)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+                                                          s.setimmediatevalue(v)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model configuration:
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Address width: 32 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        ID width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Byte size: 8 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model signals:
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awaddr width: 32 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awburst width: 2 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awcache width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awlen width: 8 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awlock width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awprot width: 3 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awqos width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awready width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awregion width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awsize width: 3 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awuser: not present
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        awvalid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wdata width: 64 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wlast width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wready width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wstrb width: 8 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wuser: not present
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        wvalid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        bid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        bready width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        bresp width: 2 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        buser: not present
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        bvalid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model (read)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      cocotbext-axi version 0.1.28
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Copyright (c) 2021-2025 Alex Forencich
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      https://github.com/alexforencich/cocotbext-axi
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model configuration:
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Address width: 32 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        ID width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Byte size: 8 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        Data width: 64 bits (8 bytes)
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      AXI slave model signals:
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        araddr width: 32 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arburst width: 2 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arcache width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arlen width: 8 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arlock width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arprot width: 3 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arqos width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arready width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arregion width: 4 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arsize width: 3 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        aruser: not present
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        arvalid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rdata width: 64 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rlast width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rready width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rresp width: 2 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        ruser: not present
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi        rvalid width: 1 bits
+     0.00ns INFO     cocotb.ddr_diag_harness.m_axi      Reset de-asserted
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+                                                          await Edge(reset_signal)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._run_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_write_cr.kill()
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+                                                          self._process_read_cr.kill()
+167210.00ns INFO     cocotb.regression                  test_ddr_diag.complete_memory_plan_and_repeated_runs passed
+167210.00ns INFO     cocotb.regression                  running test_ddr_diag.response_errors_and_mismatch_details (2/4)
+192420.00ns INFO     cocotb.regression                  test_ddr_diag.response_errors_and_mismatch_details passed
+192420.00ns INFO     cocotb.regression                  running test_ddr_diag.final_read_word_must_pass_before_completion (3/4)
+262170.00ns INFO     cocotb.regression                  test_ddr_diag.final_read_word_must_pass_before_completion passed
+262170.00ns INFO     cocotb.regression                  running test_ddr_diag.watchdog_and_calibration_preserve_pending_axi (4/4)
+276110.00ns INFO     cocotb.regression                  test_ddr_diag.watchdog_and_calibration_preserve_pending_axi passed
+276110.00ns INFO     cocotb.regression                  *********************************************************************************************************************
+                                                        ** TEST                                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *********************************************************************************************************************
+                                                        ** test_ddr_diag.complete_memory_plan_and_repeated_runs          PASS      167210.00           2.16      77444.51  **
+                                                        ** test_ddr_diag.response_errors_and_mismatch_details            PASS       25210.00           0.24     105596.80  **
+                                                        ** test_ddr_diag.final_read_word_must_pass_before_completion     PASS       69750.00           0.86      81003.99  **
+                                                        ** test_ddr_diag.watchdog_and_calibration_preserve_pending_axi   PASS       13940.00           0.14     101506.40  **
+                                                        *********************************************************************************************************************
+                                                        ** TESTS=4 PASS=4 FAIL=0 SKIP=0                                            276110.00           3.41      80976.38  **
+                                                        *********************************************************************************************************************
+{
+  "result": "PASS",
+  "tests": 4,
+  "scope": "Diagnostic plus production AXI burst engine, behavioral RAM; no vendor bridge or physical DDR",
+  "watchdog_limit": 64,
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/control/gemm_ddr_diag.sv": "bcd93e17f616db3df12e9ab08a5c7f6c0eee3c40dc2f4e18b583dc06f5f47d07",
+    "rtl/memory/gemm_axi_burst.sv": "75eb1520d53350a16a4f9c875f8b334ef57d0471973ff94d34686e0c361e6c09",
+    "tb/sv/ddr_diag_harness.sv": "829d09e254cf91841c9fbb92516e35a3d1bfa85ea57c44f5e02a84d13458afab",
+    "tb/test_ddr_diag.py": "84f367031aa5506a3127e6aa0c5fd9a12622e159e79bb80fde110d8b1804058e",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_ddr_diag.py": "316d1c7b1e5a2db29711f4e3a186876f78104d32f415d18b86f88a2059121193"
+  }
+}

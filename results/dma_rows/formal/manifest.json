@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "stage": "bounded_formal",
+  "module": "gemm_dma_rows",
+  "bound_sat_timeframes": 20,
+  "induction": false,
+  "configurations": [
+    1,
+    4
+  ],
+  "safety_queries": 2,
+  "reachable_witnesses": 7,
+  "assertions_per_configuration": 18,
+  "actual_runner_exit_code": 0,
+  "utc_saved": "2026-10-04T11:24:53.457536+00:00",
+  "original_directory": "build/formal_dma_rows_public_final_20261004",
+  "source_hashes_unchanged": true,
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "formal/dma_rows.sv": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6",
+    "scripts/formal_dma_rows.py": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e",
+    "scripts/formal_dma_rows_witness.py": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350",
+    "requirements-formal.txt": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+  },
+  "source_hashes": {
+    "rtl/memory/gemm_dma_rows.sv": {
+      "bytes": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+      "utf8_lf": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9"
+    },
+    "formal/dma_rows.sv": {
+      "bytes": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6",
+      "utf8_lf": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6"
+    },
+    "scripts/formal_dma_rows.py": {
+      "bytes": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e",
+      "utf8_lf": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e"
+    },
+    "scripts/formal_dma_rows_witness.py": {
+      "bytes": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350",
+      "utf8_lf": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350"
+    },
+    "requirements-formal.txt": {
+      "bytes": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+      "utf8_lf": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877"
+    }
+  },
+  "hardware_accessed": false,
+  "saved_artifact_sha256_bytes": {
+    "execution.json": "3662ffbb0174a96323663dfe8697f1ed53a9f6361388513167dc661e2e2ced21",
+    "inputs/formal/dma_rows.sv": "81bdf12449a5764f8002beea1199492596714ce82d9472696d4cf7e4cd3104c6",
+    "inputs/requirements-formal.txt": "c9a5517c61dfdc1131e59ce7b73f93894c68fad152fdce9fc3541786c0a9e877",
+    "inputs/rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "inputs/scripts/formal_dma_rows.py": "5771431a5df6dbeb3f53cde4095d0b22839c9deb5a6986187072cc17df27f52e",
+    "inputs/scripts/formal_dma_rows_witness.py": "2842b6d243eca9dbe2933c8b3fda71dda18c49878c7891a623b483fbb3251350",
+    "read1_read_done.json": "0a6a41f712b56d7ff7bf4c06dfe6ea9f3b7761cb7ad79d3f2b34202a9a05ba10",
+    "read1_read_done.log": "0360adda0967e7b13c079ee2333a0f76e15687852403e65e5630624ebfe51b57",
+    "read1_read_done.vcd": "a396e3d028ef7a500fd899538d40af7f9d5aa36ad2eeab4cd3cb9e7f33b8489e",
+    "read1_read_done.ys": "eb4e0734ff43fcfc653c196f57b475d494569414d911f7802e450ff5504d70e3",
+    "read1_safety.log": "d7e5161ac2c0af7e1fb2ac36f2ee0ae8cd0289754ba50150055f5980880b883b",
+    "read1_safety.ys": "d37694d5e1e875ce9f9e2446cc10e2bcb2b689de8f25dfa7022cc153b5f7feff",
+    "read1_write_done.json": "30ca41d79fe07fbaa9ccb2e28de7241fced58c959ea8c0df90e7c43a29584e42",
+    "read1_write_done.log": "187b5385049696a6b4ad8dc4d93d4e9f231811b0aed768accbed2024ae7aef05",
+    "read1_write_done.vcd": "b3608515a93bde27ec9b14534f20f7cd5384293c3ada26fbcbee4965643fe68c",
+    "read1_write_done.ys": "94328ea999e5390b7f667804873a48af9f8fd2dfb80bd7efe0012b6de2ad7535",
+    "read4_cancelled_drain.json": "26833ef7bee6c294cf0b3d3c8daf7bb124b9399d58751c46bb041cc404b51f7f",
+    "read4_cancelled_drain.log": "1e0425795cf16a71546041cd701c67175b228d964bfeeae222fe5aa7736c7fdb",
+    "read4_cancelled_drain.vcd": "4aff30a7671ecd923a72c0ae7ce9076df63915a15b257d8f693ee2d4bfaf6cff",
+    "read4_cancelled_drain.ys": "a0e49628ffd6c892b2ed3f0fefd9de4322c39b711be8aa5148b29e60131ec52b",
+    "read4_credit_four.json": "08b7f8e467b8dd8559bb1f5dd974c9095f4d694125437394455296e93e0b849a",
+    "read4_credit_four.log": "c3a41cc792ccd6fc32481d1df21a486bcd0b86880136ea8e60a163c2d2895589",
+    "read4_credit_four.vcd": "17b8586b5020e98f9c7a0e575dafa13ea5907e96c106ad4ea1b0193bca9d9e60",
+    "read4_credit_four.ys": "c2ec9b8dd6c11440fc388a231a1f0a2633e3e497e5780d973f665119bbd8b3c0",
+    "read4_read_done.json": "c259304d76a0e8e28d7ca9008305a31c9ca0c3620b51cf73ce25b228c571aa81",
+    "read4_read_done.log": "8ec52ce5702a5a7e4753a329d1f22ec25992b3a39cb2e9850372e24b7c9c658a",
+    "read4_read_done.vcd": "fca3ae80cd092befd05aea1e0dc320fcbd0f1341943155adbcdca973d1b1d576",
+    "read4_read_done.ys": "dc56860561eefd4272dfa6f0a99eaa3438b564a6b14330bef5eb1f2329131ba0",
+    "read4_safety.log": "b7be7de67ca96800482a7cd1de43707693b5bff525a541089367f0b58c0bf2a9",
+    "read4_safety.ys": "3da52278a842d085bd5845f1e5cb0c0e5a32d553213bcb63875db750d7c4327f",
+    "read4_simultaneous.json": "ebf4e50745b8ff003605f5fee4780f9e491a8c11cd1569616f49c0ca0030b71b",
+    "read4_simultaneous.log": "b9f833f5873f5754d686309ecc581c7590a393015ce1d621d0100be8811daaba",
+    "read4_simultaneous.vcd": "0873add09438708b162d32fbc77cbc6388e16d81ebd9b3bb18bd82eec74e0853",
+    "read4_simultaneous.ys": "4b06b53be889b6b07664537cf0955b335b012a72e609ab601f921f0d649fbf0b",
+    "read4_write_done.json": "7f4e949d49bf7eb3179774058993fa9bead7072e2bc83a3063f642a3a29f9064",
+    "read4_write_done.log": "f63c9d56de598b7843f1754e480535177aa7dfd9de38d854f54b960c685beb32",
+    "read4_write_done.vcd": "bbf62b6284797a85bd7e1a084eb5d2dcc2b5856fb601defa784b86f910f303db",
+    "read4_write_done.ys": "798249dadc611e5936ac1b9bd12c724c48f4d4daf6c6f497af115d32045738d5",
+    "README.md": "aa578fdf52e8565e707bea3bba6418cf4c2143a49c6a1843685826d106cff8d0",
+    "summary.json": "9f075b42e414edfddd2141a901b4371daf2579895ee80b1352e09703a5957f8c",
+    "tool_version.log": "8064b524d44e8f3a0b72cad9293bb106e976a398edc56a43d211795804858d70",
+    "witness_cycles.txt": "a28cbb6fb2148a173859496ce58a152dd8b12300dafb689e9b1ae1dc47486569"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "requested_phase": "endurance",
+  "plan_sha256": "54e0916b230fce634fb750e2f175127a81a1d9e4ca344fb1c906e422d1d05854",
+  "build_id": 745016055,
+  "bitstream_sha256": "5124adc4348ed1f42b6420d2776d7d1f50a44df7e340a6789b3a9954373e4cf5",
+  "source_hashes_unchanged": true,
+  "completed_units": [
+    "endurance"
+  ],
+  "checked_counts": {
+    "completed_jobs": 368,
+    "compared_outputs": 342286,
+    "allocation_bytes_checked": 6688768,
+    "guard_input_bytes_checked": 5319624
+  },
+  "scope": "Only the explicitly requested completed units; skipped units remain their original sealed historical runs",
+  "continuous_endurance": "No duration is carried across reconnects or resumed units",
+  "available_completed_units": [
+    "endurance"
+  ],
+  "full_grid_benchmark_complete": false,
+  "all_requested_release_phases_complete": false,
+  "utc_recorded": "2026-10-04T14:25:08.122635+00:00"
+}

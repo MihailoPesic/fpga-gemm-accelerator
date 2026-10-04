@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-02",
+  "result": "PASS",
+  "kind": "first_physical_ddr_diagnostic",
+  "scope": "4096 initialized bytes across 16 selected locations, including both DDR-window edges; masked overlays and full comparisons at those locations. Not a full 128 MiB sweep, bandwidth benchmark, endurance test or DDR-backed GEMM.",
+  "preparation": {
+    "basis": "Operator-confirmed preparation; jumper and power sequence were not sensed by software.",
+    "jp1": "JTAG",
+    "sequence": "Board power OFF/ON immediately before programming; powered ON with J6 USB connected."
+  },
+  "observed_connection": {
+    "jtag_device": "xc7a50t",
+    "jtag_target": "Digilent/210292B40D95A",
+    "uart_port": "COM11",
+    "baud": 115200
+  },
+  "operator_led_observation": {
+    "led0_calibrated": true,
+    "led2_completed": true,
+    "led3_error": false,
+    "basis": "Operator confirmed the LEDs after the three successful diagnostic runs."
+  },
+  "host_report_utc": "2026-10-02T15:34:20.867603+00:00",
+  "build_id": 3325966762,
+  "bitstream_sha256": "089061f1a6d83aadcd2cf236cf24c4a677f7657122f61e11454ced479a04e2e0",
+  "core_hz": 100000000,
+  "identity_check": "UART BUILD_ID/clock and selected local bitstream SHA-256",
+  "programming": {
+    "command": "python scripts/program_preview.py --manifest build/ddr_diag_pipeline/build.json",
+    "exit_code": 0,
+    "startup_status": "HIGH",
+    "log_label_note": "PREVIEW_PROGRAMMED is the shared programmer marker; the selected path and UART identity identify the DDR diagnostic."
+  },
+  "hardware_test": {
+    "command": "python -m host.ddr_diag --port COM11 --manifest build/ddr_diag_pipeline/build.json --repeats 3 --output build/ddr_diag_pipeline/hw_results",
+    "exit_code": 0,
+    "runs": [
+      {
+        "index": 0,
+        "seed": 305419896,
+        "wall_seconds": 0.0320131,
+        "status": 21,
+        "error_code": 0,
+        "first_fail_addr": 0,
+        "expected": 0,
+        "actual": 0,
+        "cycles": 10603,
+        "read_beats": 1024,
+        "write_beats": 648,
+        "diagnostic_words_available": true,
+        "passed": true
+      },
+      {
+        "index": 1,
+        "seed": 2959855665,
+        "wall_seconds": 0.0320328,
+        "status": 21,
+        "error_code": 0,
+        "first_fail_addr": 0,
+        "expected": 0,
+        "actual": 0,
+        "cycles": 10615,
+        "read_beats": 1024,
+        "write_beats": 648,
+        "diagnostic_words_available": true,
+        "passed": true
+      },
+      {
+        "index": 2,
+        "seed": 1319324138,
+        "wall_seconds": 0.0319777,
+        "status": 21,
+        "error_code": 0,
+        "first_fail_addr": 0,
+        "expected": 0,
+        "actual": 0,
+        "cycles": 10642,
+        "read_beats": 1024,
+        "write_beats": 648,
+        "diagnostic_words_available": true,
+        "passed": true
+      }
+    ],
+    "transport": {
+      "retries": 0,
+      "rejected_frames": 0
+    },
+    "total_read_beats": 3072,
+    "total_write_beats": 1944,
+    "counter_semantics": {
+      "read_beats": "64-bit words delivered by the burst engine",
+      "write_beats": "64-bit words submitted to the burst engine",
+      "cycles": "diagnostic engine clock cycles; UART/host time excluded"
+    }
+  },
+  "source_identity": {
+    "hardware": "Original as-built source map and separate verifier identity are retained in results.json build.",
+    "host_source_sha256_utf8_lf": {
+      "host/ddr_diag/__init__.py": "d97b164cb9971dad7e44600c9cd3ffe1a29d99959272cb10e549072e4ba6f6dd",
+      "host/ddr_diag/__main__.py": "f7b5aac202f1dddf4d09623765dace9d747b4abb9e6e3edc3b7c6928a05e5d25",
+      "host/ddr_diag/client.py": "fe1483da4b1e26e16cd856847533652c63d38985b1e2a06a159afeaaf407b309",
+      "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df"
+    },
+    "programming_source_sha256_utf8_lf": {
+      "scripts/program_preview.py": "10ac0738d69a4cb33b035eb16fcbb1c11d414102ba4241fa070c68b70d071253",
+      "scripts/program_preview.tcl": "cabb205308d65d5dbfe43913e166798a3f048a15d85618b562de3bed65ccbeba",
+      "host/preview/client.py": "b62b6f8cd2d2eb926f0231c9ab55bac4ed59b73ca27a1b685d230f7b7c849154",
+      "build/run_ddr_hardware.py": "8b54591799424973e9f4cfb4f39f7d6426f1a166b4c420ef29475f87a91c94c2"
+    },
+    "programming_hash_capture": "Collected after the run during evidence curation; the host source map was recorded by the runner."
+  },
+  "warm_reset_qualified": false,
+  "full_memory_sweep_performed": false,
+  "bandwidth_measured": false,
+  "gemm_connected": false,
+  "thirty_minute_repeatability_test_performed": false,
+  "saved_text_encoding": "UTF-8 with LF newlines; JSON and CSV fields unchanged.",
+  "original_artifact_sha256_bytes": {
+    "hw_results/results.json": "948110e4860f62538d6fc6e6d684b37eb0e0fc0f94ef3f8fd314d20e38662683",
+    "hw_results/results.csv": "4604d85bf6aa00d447c9936750e2590a17d46d955be4b04a20b710b4df9728a6",
+    "hardware_program_exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "hardware_test_exit.txt": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354",
+    "hardware_program_console.txt": "0c9709ab07a0b31a1d0907ef20c2c0ec39c1af9210353ee3da2ad280d0dcc37a",
+    "hardware_test_console.txt": "0c0584650671afbe66b5fcfa4ef92424a5c7b939628fa502894fad6f6111f318",
+    "program.log": "7bfcc88c69ed158c2c1f0f02c5074779a0c2eba8e91295fdadf8e4afa7409edc",
+    "build.json": "3ad8063c615803f445fd95e624aee0f19ea867f6aac7cf51fdc9adec6c8e3192"
+  },
+  "saved_artifact_sha256_bytes": {
+    "results.json": "8f347b515a068d8df679b3c2704ac44d6b8977e31ba5c208203693e4a96cec52",
+    "results.csv": "a01da6d7920a4740da217c02f3483e868776500ed5e985480ab34d20096eb012",
+    "program_log.txt": "cb21047862d4ffdfeb179c96e6ba6591f4083486ecda4fde062dcb95b970534f",
+    "program_console.txt": "5e551ef41f35652cf1285d02dbed01929067d5794cf78d1a737ac2ee8faa2d37",
+    "test_console.txt": "cd162620ab23c23a774ec06ab7f91f931e061890c05a2202024a792cfa312b90"
+  }
+}

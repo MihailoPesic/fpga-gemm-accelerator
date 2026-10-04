@@ -1,0 +1,51 @@
+Exact generated MIG reset selector matches: 1
+NET platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/sys_rst_i
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][9]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][8]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][7]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][6]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][5]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][4]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][3]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][2]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][1]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][14]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][13]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][12]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][11]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][10]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][0]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[9]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[8]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[7]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[6]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[5]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[4]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[3]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[2]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[1]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[11]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[10]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[0]/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__9/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__8/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__7/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__6/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__5/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__4/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__3/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__2/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__14/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__13/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__12/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__11/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__10/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__1/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep__0/PRE
+ENDPOINT platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/PRE
+All hierarchical sys_rst name matches:
+platform/platform/axi_ddr_bd_i/mig/sys_rst
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/sys_rst
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/sys_rst_act_hi
+platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/sys_rst_i

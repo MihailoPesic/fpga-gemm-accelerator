@@ -1,0 +1,60 @@
+{
+  "state": "PASS",
+  "utc_started": "2026-10-04T13:22:36.818467+00:00",
+  "utc_finished": "2026-10-04T13:54:29.197004+00:00",
+  "actual_exit_code": 0,
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "-m",
+    "host.gemm",
+    "--port",
+    "COM11",
+    "--manifest",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final\\build.json",
+    "--mode",
+    "1",
+    "--m",
+    "1024",
+    "--n",
+    "1024",
+    "--k",
+    "256",
+    "--repeats",
+    "1",
+    "--seed",
+    "20261004",
+    "--retries",
+    "0",
+    "--output",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_current_maximum\\maximum"
+  ],
+  "manifest_sha256_bytes": "bff31939c1c2b9d93c9d679b4576ec1a448c7affadbbbde5d469826b1d2b2e42",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df"
+  },
+  "helper_sha256_bytes": "2ff5c29de362636c37eaf6975a4037aff10d843376165c81be204af74fd29167",
+  "build_id": 745016055,
+  "bitstream_sha256_bytes": "5124adc4348ed1f42b6420d2776d7d1f50a44df7e340a6789b3a9954373e4cf5",
+  "startup_scope": "Continues the previously qualified powered session after fresh read-only UART identity/readiness checks; no reset or programming",
+  "preflight_identity": {
+    "id": 827148110,
+    "version": 512,
+    "geometry": 16785416,
+    "p": 8,
+    "t": 32,
+    "kmax": 256,
+    "build_id": 745016055,
+    "core_hz": 100000000
+  },
+  "preflight_transport": {
+    "retries": 0,
+    "rejected_frames": 0,
+    "poisoned": false
+  },
+  "console_sha256_bytes": "5befcb0b793c51892eee06b546c36a700b9a65b4c358746e456d3a15ad8bee4f",
+  "results_sha256_bytes": "09729380aec686c1556ac579a5047c178a2bd897078164c4d69c472ed7034cf7",
+  "csv_sha256_bytes": "d542f4328d732930927c263586ab3f3ed179d557709740d8a349c20ea6ad37c2"
+}

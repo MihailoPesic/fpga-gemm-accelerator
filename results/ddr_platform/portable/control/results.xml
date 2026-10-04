@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790942701" />
+    <testcase name="packet_validation_start_guard_and_snapshots" classname="test_ddr_diag_control" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_diag_control.py" lineno="78" time="0.03416180610656738" sim_time_ns="7420.0" ratio_time="217201.6308755278" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "result": "PASS_ROUTE_ONLY",
+  "scope": "Independent full-board P4/T32 routed timing probe; no bitstream, vendor simulation pass, or physical-board qualification",
+  "tool": "Vivado 2026.1 win64 build 6511674",
+  "run_date": "2026-10-02",
+  "identity": {
+    "kind": "serial_ddr_gemm",
+    "source_sha256_utf8_lf": {
+      "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+      "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+      "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+      "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+      "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+      "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+      "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+      "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+      "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+      "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+      "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+      "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+      "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+      "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+      "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+      "accelerator nexys.srcs/sources_1/new/uart_rx.sv": "d163dc2262631c2e43fc106e5717b54d04fb5077811505db69d8007474a1f9a1",
+      "accelerator nexys.srcs/sources_1/new/uart_tx.sv": "c2179f6da3806fcf77640be63f85d0df85201e9ff9f4705097cb85ecc2d16daa",
+      "platform/nexys_a7/axi_ddr_platform.sv": "6112a83e811b4397e3b1a92474b08b92869aedfdd510970accfb0bfc937dc789",
+      "platform/nexys_a7/gemm_ddr_top.sv": "581b86ce2fe5527ee385e11510d1ac920592edfb44882ab04b8dbad534ba2429",
+      "scripts/build_ddr_gemm.py": "c616bb82f0d4b2203c8a88c8b050ab2c157c72b38680c2a79ad6a4f3cd77d370",
+      "scripts/build_ddr_gemm.tcl": "f474e60c4dc3a5591960891cca3c46b9fef179686e19c64af86e6efffb4bd7d2",
+      "scripts/build_ddr_diag.py": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa",
+      "scripts/create_axi_platform.tcl": "993bad33ed34459834fdb4497876ec08d5ce85d996d9477096e540b019310fb3",
+      "scripts/test_mig.py": "7350ea9be9f3ca0156489c058153c9bb3b0fc6a6a46209478deb05c2170db61f",
+      "tb/vendor/tb_ddr_gemm.sv": "984fef024db36b20e75ae051dc488a44efaf30a8a0e7abc464a565a0dfabf94a",
+      "platform/nexys_a7/axi_ddr.xdc": "7b9e2d19422c86b64097b13db256b8c44acf02ed42621f90c298803aec9d8431",
+      "platform/nexys_a7/gemm_ddr.xdc": "af566dc6d42ad740c67ec1cc49d173bfbdcacf991a8e66d84d7036419654add7",
+      "accelerator nexys.srcs/sources_1/ip/mig_7series_0/mig_a.prj": "2a8eacf3f8786fe40a6d758c4c4bda61150c58f9a5c6676ae085b25c4fa1221c"
+    },
+    "part": "xc7a50ticsg324-1L",
+    "core_hz": 100000000,
+    "p": 4,
+    "t": 32,
+    "kmax": 256,
+    "baud": 115200,
+    "simulation_baud": 10000000,
+    "simulation_debug": "off",
+    "id": 827148110,
+    "version": 256,
+    "mode": "serial",
+    "build_id": 674483566,
+    "probe_scope": "Independent P4/T32 route-only probe: no bitstream, no vendor simulation pass, no hardware qualification"
+  },
+  "source_revision_note": "Working source revision identified by exact input hashes; not represented by a source commit alone.",
+  "routed_metrics": {
+    "wns_ns": 0.081,
+    "tns_ns": 0.0,
+    "setup_failing_endpoints": 0,
+    "setup_endpoints": 59974,
+    "whs_ns": 0.01,
+    "ths_ns": 0.0,
+    "hold_failing_endpoints": 0,
+    "hold_endpoints": 59912,
+    "wpws_ns": 0.0,
+    "tpws_ns": 0.0,
+    "pulse_failing_endpoints": 0,
+    "pulse_endpoints": 20044,
+    "fully_routed_nets": 29824,
+    "routing_errors": 0,
+    "unconstrained_internal_endpoints": 0,
+    "lut": 15739,
+    "ff": 17953,
+    "dsp48e1": 24,
+    "ramb36": 8,
+    "ramb18": 4,
+    "slices": 6500,
+    "unique_control_sets": 1658,
+    "bus_skew_checks": 10,
+    "minimum_bus_skew_slack_ns": 8.76
+  },
+  "worst_setup_path": {
+    "source": "core/control/memory_state_reg[0]/C",
+    "destination": "core/control/rsp_payload_reg[1743]/CE",
+    "data_delay_ns": 9.542,
+    "logic_delay_ns": 1.572,
+    "routing_delay_ns": 7.97,
+    "logic_levels": 9,
+    "interpretation": "Host response-word capture enable through handshake and fault qualification; routing dominates."
+  },
+  "worst_hold_path": {
+    "source": "core/control/packet_payload_reg[1026]/C",
+    "destination": "core/control/write_payload_reg[978]/D",
+    "data_delay_ns": 0.44,
+    "logic_levels": 0
+  },
+  "physical_review": {
+    "cdc_critical": 0,
+    "cdc_info": {
+      "CDC-3": 8
+    },
+    "cdc_warnings": {
+      "CDC-8": 2,
+      "CDC-15": 353
+    },
+    "drc_warnings": {
+      "DPIP-1": 3,
+      "DPOP-1": 4,
+      "DPOP-2": 8,
+      "REQP-1709": 1
+    },
+    "methodology_warnings": {
+      "LUTAR-1": 1,
+      "PDRC-190": 12,
+      "SYNTH-5": 8,
+      "SYNTH-6": 12,
+      "ULMTCS-2": 1,
+      "XDCB-5": 1
+    },
+    "methodology_advisories": {
+      "REQP-1959": 16
+    },
+    "control_set_guideline_percent": 15,
+    "control_set_actual_percent": 20.34,
+    "cpu_reset_endpoints": {
+      "mig_pre": 43,
+      "mig_pll_rst": 1,
+      "application_data_or_enable": 0
+    },
+    "generated_reset_selector_matches": 1,
+    "generated_reset_selector_matches_cpu_reset_endpoints": true,
+    "warm_reset_qualified": false
+  },
+  "source_config_generated_checks_passed": true,
+  "generated_file_count": 362,
+  "original_attempt_sha256_bytes": "f11a5c1899aad3ec5cab2ccc6be1d94c7c1b81081945c8a86df8a2e5ea0f3224",
+  "routed_checkpoint_sha256_bytes": "93034f90139f98188b6262050500d39b1088d7a6adf1b16a07c87f3485982f03",
+  "probe_helper_sha256_bytes": {
+    "probe.tcl": "705984169a3bc8db3de341f638105a6cc232ca12b0419de64f90654170d2e9d8",
+    "probe_runner.py": "d71a33ecec43063e2c2a9afa75d955b751d983362245c796245b4cbea4fe5e8a"
+  },
+  "reset_query_checkpoint": {
+    "sha256_bytes": "93034f90139f98188b6262050500d39b1088d7a6adf1b16a07c87f3485982f03",
+    "source": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\ddr_gemm_timing_pipeline\\gemm_routed.dcp",
+    "scope": "Read-only generated reset-selector query from a copied routed checkpoint"
+  },
+  "selected_reports": {
+    "timing.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/timing.txt",
+      "original_sha256_bytes": "aa6d6d8a005eec45a804446f8307f7a112b16540aea5573de89ccc8e6c97b128",
+      "saved_sha256_bytes": "aa6d6d8a005eec45a804446f8307f7a112b16540aea5573de89ccc8e6c97b128",
+      "selection": "whole file"
+    },
+    "check_timing.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/check_timing.txt",
+      "original_sha256_bytes": "07dc299661d5b1d1bcf669ba3e52fc84d1c7966d8c6fff1479ea936e487dece2",
+      "saved_sha256_bytes": "07dc299661d5b1d1bcf669ba3e52fc84d1c7966d8c6fff1479ea936e487dece2",
+      "selection": "whole file"
+    },
+    "utilization.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/utilization.txt",
+      "original_sha256_bytes": "12b09e951ba8ca78db7c32f9afbc94e4d0ef75e2ffedb8d2b2bf5beae714d675",
+      "saved_sha256_bytes": "12b09e951ba8ca78db7c32f9afbc94e4d0ef75e2ffedb8d2b2bf5beae714d675",
+      "selection": "whole file"
+    },
+    "clocks.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/clocks.txt",
+      "original_sha256_bytes": "4886458a2e0b032a69a43b201832f7133dfe56e6b35869db6de24fff045b6ee9",
+      "saved_sha256_bytes": "4886458a2e0b032a69a43b201832f7133dfe56e6b35869db6de24fff045b6ee9",
+      "selection": "whole file"
+    },
+    "clock_interaction.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/clock_interaction.txt",
+      "original_sha256_bytes": "889969c428ddedb75a128feb146ebabc622a39b04cd00ada4a7e1abf22b73150",
+      "saved_sha256_bytes": "889969c428ddedb75a128feb146ebabc622a39b04cd00ada4a7e1abf22b73150",
+      "selection": "whole file"
+    },
+    "clock_utilization.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/clock_utilization.txt",
+      "original_sha256_bytes": "b73ee79acb18b69db19ef144b98c118b76b24f69b96203d4c103eb512dc01171",
+      "saved_sha256_bytes": "b73ee79acb18b69db19ef144b98c118b76b24f69b96203d4c103eb512dc01171",
+      "selection": "whole file"
+    },
+    "route.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/route.txt",
+      "original_sha256_bytes": "713b29e07fed9f417c6d43242b2a5a8ef8feaed14e4e8b49561a0ea3143d6ec9",
+      "saved_sha256_bytes": "713b29e07fed9f417c6d43242b2a5a8ef8feaed14e4e8b49561a0ea3143d6ec9",
+      "selection": "whole file"
+    },
+    "drc.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/drc.txt",
+      "original_sha256_bytes": "b4c45d2a37ad2a6325eea896057c9f2b33762290f7a0e1f8863c91787e4c3a0e",
+      "saved_sha256_bytes": "b4c45d2a37ad2a6325eea896057c9f2b33762290f7a0e1f8863c91787e4c3a0e",
+      "selection": "whole file"
+    },
+    "methodology.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/methodology.txt",
+      "original_sha256_bytes": "779e951f69981a43a4ce6b2252ebbd1234c84baae2b9cf26389fef7997a0f955",
+      "saved_sha256_bytes": "779e951f69981a43a4ce6b2252ebbd1234c84baae2b9cf26389fef7997a0f955",
+      "selection": "whole file"
+    },
+    "cdc.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/cdc.txt",
+      "original_sha256_bytes": "1296a9675fc500941048478914c4eab799057af6b03718f728d8ca7957c969df",
+      "saved_sha256_bytes": "1296a9675fc500941048478914c4eab799057af6b03718f728d8ca7957c969df",
+      "selection": "whole file"
+    },
+    "pulse_width.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/pulse_width.txt",
+      "original_sha256_bytes": "ac08d73a4bd31d2053e2478a3e87ca57f4e559f7e588bf6f0fad8bc6b9b41864",
+      "saved_sha256_bytes": "ac08d73a4bd31d2053e2478a3e87ca57f4e559f7e588bf6f0fad8bc6b9b41864",
+      "selection": "whole file"
+    },
+    "pulse_width_violations.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/pulse_width_violations.txt",
+      "original_sha256_bytes": "19613789a4f74441a148d0e24f6becdc14f007652ef4ffd70bbf3ece87c24d33",
+      "saved_sha256_bytes": "19613789a4f74441a148d0e24f6becdc14f007652ef4ffd70bbf3ece87c24d33",
+      "selection": "whole file"
+    },
+    "bus_skew.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/bus_skew.txt",
+      "original_sha256_bytes": "d4a02640b9c1d569a3941f571c01ba832176f690640af40afeecfd1e71c4375f",
+      "saved_sha256_bytes": "d4a02640b9c1d569a3941f571c01ba832176f690640af40afeecfd1e71c4375f",
+      "selection": "whole file"
+    },
+    "setup_path.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/setup_paths.txt",
+      "original_sha256_bytes": "3d4201b6820f9dab72c1d1eb3927b7354a48b0ada65939ed0728472dfb7c9f92",
+      "saved_sha256_bytes": "54caf88e88f80a37d38be07e70771184e5a5f8304e53f9f50cfd428099954a1b",
+      "selection": "Report header and first complete timing path, ending before the second Slack heading."
+    },
+    "hold_path.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/hold_paths.txt",
+      "original_sha256_bytes": "ae2791f16847fc8ca763fa77425f5a36b707b139f2ba240edfb03ab88efacc5b",
+      "saved_sha256_bytes": "4d70f300369ef370f00e66efd0189853d6f429a5de75d53196311cd5a2770963",
+      "selection": "Report header and first complete timing path, ending before the second Slack heading."
+    },
+    "reset_endpoints.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/reset_endpoints.txt",
+      "original_sha256_bytes": "41fbdbc11f26303f3c6afebcb4122bd9841eb256e05482e25b54346384b96258",
+      "saved_sha256_bytes": "41fbdbc11f26303f3c6afebcb4122bd9841eb256e05482e25b54346384b96258",
+      "selection": "whole file"
+    },
+    "reset_selector.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/reset_review/reset_selector.txt",
+      "original_sha256_bytes": "929c50700e25b44e86a4e19123c95d7e609fb7f417ab0f510b66a3935c91d197",
+      "saved_sha256_bytes": "929c50700e25b44e86a4e19123c95d7e609fb7f417ab0f510b66a3935c91d197",
+      "selection": "whole file"
+    },
+    "exceptions.txt": {
+      "original_path": "build/ddr_gemm_timing_pipeline/exceptions.txt",
+      "original_sha256_bytes": "8b0df7c2a72fd93426c44905d8c4cb86f087f875c065542cfb60951b02b2dead",
+      "saved_sha256_bytes": "8b0df7c2a72fd93426c44905d8c4cb86f087f875c065542cfb60951b02b2dead",
+      "selection": "whole file"
+    },
+    "reset_query.tcl": {
+      "original_path": "build/ddr_gemm_timing_pipeline/reset_review/review.tcl",
+      "original_sha256_bytes": "e4a74ffc66b1c1af72ed0e8a53196e9b20af16d7c355cb20302624817eb5e36e",
+      "saved_sha256_bytes": "e4a74ffc66b1c1af72ed0e8a53196e9b20af16d7c355cb20302624817eb5e36e",
+      "selection": "whole file"
+    }
+  },
+  "vendor_simulation_qualified": false,
+  "bitstream_generated": false,
+  "physical_board_validated": false,
+  "scaling_review": {
+    "scope": "Read-only analysis of the already passed P4/T32 routed checkpoint; no P8 full-system implementation performed",
+    "total_control_sets": 1658,
+    "minimum_control_sets": 263,
+    "synthesis_replication_additions": 38,
+    "physical_replication_additions": 1357,
+    "hierarchical_control_sets": {
+      "transport": 1048,
+      "control": 130,
+      "job": 66,
+      "dma": 40,
+      "registers": 75,
+      "tile": 28,
+      "array": 3,
+      "platform": 239
+    },
+    "hierarchical_count_note": "Counts from the global hierarchical report. Controls can cross hierarchy boundaries; do not sum parent and child rows.",
+    "transport_request_payload": {
+      "surviving_ff": 1968,
+      "byte_write_enable_nets": 246,
+      "replicated_reset_nets": 33,
+      "clock_enable_reset_combinations": 977,
+      "single_ff_combinations": 437,
+      "other_combination_load_histogram": {
+        "2": 277,
+        "3": 146,
+        "4": 75,
+        "5": 25,
+        "6": 10,
+        "7": 2,
+        "8": 5
+      }
+    },
+    "slices_touched_by_hierarchy": {
+      "transport": 1545,
+      "control": 1764,
+      "job": 811,
+      "dma": 229,
+      "registers": 272,
+      "tile": 536,
+      "platform": 1879
+    },
+    "slice_count_note": "Distinct occupied slices touched by each hierarchy; a shared slice appears in multiple groups, so these counts cannot be added.",
+    "unoccupied_slices": 1650,
+    "p8_scope": "Existing isolated P8/T32 tile uses 64 DSP and 20 RAMB36 equivalents. Full-system packing and timing remain untested; global placement and control replication can change.",
+    "future_candidate": "Review transport payload validity, byte-write enables and reset/storage architecture before scaling; do not merge timing-driven replicas blindly.",
+    "diagnostic_sha256_bytes": {
+      "build/ddr_gemm_timing_pipeline/control_set_review/control_sets_hierarchy.txt": "1ef189f36eb2a6e1fb3be0f6b43f742864fd297dbda00d585fa73539650a12e4",
+      "build/ddr_gemm_timing_pipeline/control_set_review/control_sets_verbose.txt": "40e69b5152cad104410c4880b7853a0c160a86e5d48f339ba30526d584bbe0a4",
+      "build/ddr_gemm_timing_pipeline/control_set_review/slice_membership.txt": "fa27ee7795cca3e22456c5ddf29d4a6cb32c631b06766defd234ace440b0d783",
+      "build/ddr_gemm_timing_pipeline/control_set_review/payload_membership.txt": "686e0ffe876bd12157f5e1f5a8887d82e3e2bf88d570aa1a4a4c15b41ba96d02",
+      "build/ddr_gemm_timing_pipeline/control_set_review/review.tcl": "99e90c681951d5e4feae8076462f65d4c8402d65522a44a59768dca563e4bb3b",
+      "build/ddr_gemm_timing_pipeline/control_set_review/payload_query.tcl": "7936d213484089d1befc896b29702366ce734970e983e3331185cba46244f4c6",
+      "build/ddr_gemm_timing_pipeline/control_set_review/run.py": "2cf3e4775e229eda995012621412e2719fe184c92ae53ff57f508271d3a15900",
+      "build/ddr_gemm_timing_pipeline/control_set_review/run_payload.py": "edfd22c3b1cb3d272d7488c6d9cb7a96e055d818b973560e86914ca600241345",
+      "build/ddr_gemm_timing_pipeline/control_set_review/checkpoint_identity.json": "3ab7869694943f4ed2d9c94e6bc678bb1035d36f15ee54329b8a4a12d17f9531",
+      "build/ddr_gemm_timing_pipeline/control_set_review/report_hashes.json": "5ef7a3fc04067310b7d5a7eae033a016ca40e13cac91a5e46376f0106e1d5336",
+      "build/ddr_gemm_timing_pipeline/control_set_review/payload_hashes.json": "b1b7d4715375ff78c371cdf32fdc27fd9873e35aa86ddee1c347c44ae9c01112"
+    },
+    "references": [
+      "https://docs.amd.com/r/en-US/ug949-vivado-design-methodology/Follow-Control-Set-Guidelines",
+      "https://docs.amd.com/r/2020.2-English/ug949-vivado-design-methodology/Control-Signals-and-Control-Sets"
+    ]
+  },
+  "historical_fixture_identity": {
+    "result_unchanged": "PASS_ROUTE_ONLY",
+    "build_id": 674483566,
+    "later_changed_input": "tb/vendor/tb_ddr_gemm.sv",
+    "old_fixture_sha256_utf8_lf": "984fef024db36b20e75ae051dc488a44efaf30a8a0e7abc464a565a0dfabf94a",
+    "observed_corrected_fixture_sha256_utf8_lf": "cec431bb79b4e8b587d361042d9894332f179c3e17ec0c9558e9b8e20755e5d7",
+    "other_recorded_inputs_unchanged_at_review": true,
+    "qualifies_corrected_fixture_build": false,
+    "reason": "The fixture correction changes the full build identity and BUILD_ID constant. This timing result remains evidence only for its original identity; the corrected build needs its own vendor and physical gates.",
+    "observed_corrected_build_id": 3980720430,
+    "unchanged_original_inputs_count": 27,
+    "reference_checks": {
+      "xsim": {
+        "result": "PASS_REFERENCE_ONLY",
+        "cases": 194,
+        "checked_bytes": 776,
+        "summary_sha256_bytes": "ece38536cd81d51426e649e3ddbad809294c8c2755eb0fc7cdb0421b6cc768e2"
+      },
+      "iverilog": {
+        "result": "PASS_REFERENCE_ONLY",
+        "cases": 194,
+        "checked_bytes": 776,
+        "summary_sha256_bytes": "3f2765b0a4487f17db2be4478897a457fca21c76f6c69aad01c1f4d6bb2a6d49"
+      }
+    }
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "build_id": 745016055,
+  "utc_recorded": "2026-10-04T12:06:05.395013+00:00",
+  "checkpoint_sha256_bytes": "885f1f22ab2ae53558c734d82e7ace87881bad444ba3b46c3e11e6b4736d1d6c",
+  "build_manifest_sha256_bytes": "bff31939c1c2b9d93c9d679b4576ec1a448c7affadbbbde5d469826b1d2b2e42",
+  "review_record_sha256_bytes": "73346d41efce830704b4e1666d6d6a9d9781cc7eef14ae65447b3e14849aabe0",
+  "scope": "Independent manual static review of final build 0x2c680af7 own routed checkpoint: reset inventory and scoped exceptions, clocks/CDC/I/O constraints, resource mapping and actual timing; no physical-board or warm-reset qualification",
+  "qualification_scope": "PASS for this completed static implementation/review scope only",
+  "original_checkpoint_review_result": "PASS_PROVISIONAL_REVIEW",
+  "actual_review_exit_code": 0,
+  "reviewed_artifact_count": 28,
+  "original_directory": "build/overlap_final_reset_review",
+  "physical_report_sha256_bytes": {
+    "timing.txt": "e9b37b8adc8a2a29bf6ffbdba6278dd062b299016590cfde43626d2b2c8aa773",
+    "check_timing.txt": "ff237ea5e0bbe8b7d73b616e71edc18e2c8a1fb37d386f8011fd5b23f06036c8",
+    "utilization.txt": "166eeb44fb74f562fb449da33e00d807c234cd9399c8864c0c8da078320b7338",
+    "clocks.txt": "38e9f029fc820c1776be7efadbabb6af1ea81d10ebb741d7833a35a535361d7b",
+    "clock_interaction.txt": "f93503a869eb1aeb9fa0172635d012e0eaf7c583aed71315994a30d7ae9fe280",
+    "clock_utilization.txt": "33592ffcfa2c7f11d150708c2477aa4d3a1f7c8284abfb0f17650961fd2911dc",
+    "route.txt": "ba27a6ac60c0e7d19d10998bbc9d87db0f1d1d544b3a60df6844544319e0fb38",
+    "drc.txt": "93ffee187c9b5ff0d3de9c3adb51e4693b348cd92339faf0240aa679ce1bd206",
+    "methodology.txt": "b56a48e7d1489680f1f5a68c713d4ca846bcf360f43c4e0c8a74f3853137c6a9",
+    "cdc.txt": "9029d648c1cc69139e699b63b765d19b0019961e6579e8f49c341f73410d79e7",
+    "pulse_width.txt": "e85684c8b46f1a7a1f7bad45f337ce2b8c5358f2dfe285d488fd1a8da4ddca70",
+    "pulse_width_violations.txt": "7f0f25ebbcf17040428527c92500d7119dbcbd87377d75da139ad5b7c80331d7",
+    "bus_skew.txt": "bdefab23259742f6b79c9518f3138abb3e9054d3cb1c4525b6511ec92363d647"
+  },
+  "production_sources_modified": false,
+  "hardware_accessed": false,
+  "physical_board_validated": false,
+  "warm_reset_qualified": false,
+  "discrepancies_blocking_static_review": [],
+  "physical_checks": {
+    "vivado": "2026.1",
+    "wns_ns": 0.038,
+    "whs_ns": 0.016,
+    "core_hz": 100000000,
+    "bus_skew_checks": 10,
+    "bus_skew_worst_slack_ns": 8.718
+  },
+  "reset_review": {
+    "total_reset_like_primitive_pins": 21831,
+    "classifications": {
+      "SYNC_SLICE_RESET": 20788,
+      "SYNC_MEMORY_OR_DSP_RESET": 846,
+      "ASYNC_SLICE_RESET": 86,
+      "VENDOR_PRIMITIVE_RESET_CONTROL": 101,
+      "SYNC_DDR_IO_RESET": 10
+    },
+    "board_reset_endpoints": 44,
+    "same_board_reset_endpoints_as_qualified_serial": true,
+    "normalized_active_exceptions_identical_to_qualified_serial": true,
+    "async_primitives": {
+      "FDCE": 43,
+      "FDPE": 43
+    },
+    "async_scopes": {
+      "bridge": 42,
+      "mig": 44
+    },
+    "user_accelerator_async_reset_storage_count": 0,
+    "intentionally_excluded_async_checks": 170,
+    "excluded_async_endpoints": 85,
+    "excluded_check_types": {
+      "Recovery": 85,
+      "Removal": 85
+    },
+    "excluded_checks_interpretation": "Recovery/removal paths within generated MIG and SmartConnect reset structures retain exactly the qualified serial scoped false-path exceptions; no accelerator-wide timing exclusion was added.",
+    "timed_remaining_async_checks": [
+      {
+        "slack_ns": 1.391,
+        "source": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/C",
+        "destination": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/rst_out_reg/CLR",
+        "path_type": "Removal (Min at Fast Process Corner)",
+        "data_path_delay": "1.349ns  (logic 0.141ns (10.454%)  route 1.208ns (89.546%))",
+        "logic_levels": "0",
+        "exception": null
+      },
+      {
+        "slack_ns": 16.468,
+        "source": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/C",
+        "destination": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/rst_out_reg/CLR",
+        "path_type": "Recovery (Max at Slow Process Corner)",
+        "data_path_delay": "3.106ns  (logic 0.456ns (14.683%)  route 2.650ns (85.317%))",
+        "logic_levels": "0",
+        "exception": null
+      }
+    ],
+    "ignored_generated_exception_positions": [
+      50,
+      51,
+      52
+    ],
+    "ignored_generated_exception_reason": "Scoped synchronizer first-stage constraints have non-existent timing paths in the generated implementation.",
+    "superseded_generated_dpo_positions": {
+      "59": 60,
+      "61": 62,
+      "63": 64,
+      "65": 66,
+      "67": 68
+    },
+    "superseded_dpo_reason": "Five generated SmartConnect XPM payload-memory datapath-only constraints are superseded by their paired scoped constraints; active exceptions and ten bus-skew constraints remain intact."
+  },
+  "specialized_vendor_controls": {
+    "reset_like_pins": 101,
+    "primitive_counts": {
+      "MMCME2_ADV": 2,
+      "XADC": 1,
+      "PLLE2_ADV": 1,
+      "IDELAYCTRL": 1,
+      "IDELAYE2": 16,
+      "ISERDESE2": 16,
+      "OSERDESE2": 42,
+      "IN_FIFO": 2,
+      "OUT_FIFO": 4,
+      "PHASER_IN_PHY": 6,
+      "PHASER_OUT_PHY": 8,
+      "PHASER_REF": 1,
+      "PHY_CONTROL": 1
+    },
+    "finite_timing_paths": 89,
+    "finite_timing_endpoints": 45,
+    "finite_path_min_slack_ns": 0.103,
+    "ignored_timing_paths": [
+      {
+        "slack_ns": "inf",
+        "source": "CPU_RESETN",
+        "destination": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST",
+        "path_type": "Max at Slow Process Corner",
+        "data_path_delay": "8.376ns  (logic 1.754ns (20.939%)  route 6.622ns (79.061%))",
+        "logic_levels": "3  (IBUF=1 LUT1=1 LUT2=1)",
+        "exception": "False Path"
+      },
+      {
+        "slack_ns": "inf",
+        "source": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r1_reg_rep/C",
+        "destination": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper/u_ddr_mc_phy/ddr_phy_4lanes_0.u_ddr_phy_4lanes/phy_control_i/RESET",
+        "path_type": "Min at Fast Process Corner",
+        "data_path_delay": "1.332ns  (logic 0.141ns (10.587%)  route 1.191ns (89.413%))",
+        "logic_levels": "0",
+        "exception": "False Path"
+      },
+      {
+        "slack_ns": "inf",
+        "source": "CPU_RESETN",
+        "destination": "platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/plle2_i/RST",
+        "path_type": "Min at Fast Process Corner",
+        "data_path_delay": "3.246ns  (logic 0.363ns (11.198%)  route 2.882ns (88.802%))",
+        "logic_levels": "3  (IBUF=1 LUT1=1 LUT2=1)",
+        "exception": "False Path"
+      }
+    ],
+    "no_normal_or_ignored_timing_path_pins": 55,
+    "tied_zero_pins": 18,
+    "dynamic_or_primitive_flag_pins_without_reported_path": 37,
+    "nonpath_primitive_and_logic_counts": {
+      "MMCME2_ADV:zero": 1,
+      "XADC:zero": 1,
+      "MMCME2_ADV:unknown": 1,
+      "IDELAYCTRL:unknown": 1,
+      "IDELAYE2:unknown": 16,
+      "ISERDESE2:zero": 16,
+      "IN_FIFO:unknown": 2,
+      "OUT_FIFO:unknown": 4,
+      "PHASER_IN_PHY:unknown": 4,
+      "PHASER_OUT_PHY:unknown": 8,
+      "PHASER_REF:unknown": 1
+    },
+    "interpretation": "The complete inventory includes primitive reset-like metadata flags, including six BURSTPENDINGPHY inputs. Tied, asynchronous hard-primitive and vendor control pins without a reported timing arc are retained as vendor scope; the timing reports do not prove their initialization/reset sequencing or pulse widths."
+  },
+  "cdc": {
+    "counts": {
+      "CDC-3": 8,
+      "CDC-15": 353,
+      "CDC-8": 2
+    },
+    "total_detailed_rows": 363,
+    "all_normalized_rows_identical_to_serial": true,
+    "waived_rows": 0,
+    "clock_enable_warning_nodes": {
+      "b": 2,
+      "r": 133,
+      "ar": 37,
+      "aw": 37,
+      "w": 144
+    },
+    "clock_enable_warning_all_vendor_bridge_payload_fifo": true,
+    "clock_enable_warning_all_max_delay_datapath_only": true,
+    "async_reset_warning_rows": [
+      "1 CDC-8 Warning Asynchronous reset synchronized with missing ASYNC_REG property 15 False Path CPU_RESETN platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_iodelay_ctrl/rst_ref_sync_r_reg[0][0]/PRE N",
+      "1 CDC-8 Warning Asynchronous reset synchronized with missing ASYNC_REG property 12 False Path CPU_RESETN platform/platform/axi_ddr_bd_i/mig/u_axi_ddr_bd_mig_0_mig/u_ddr2_infrastructure/rstdiv0_sync_r_reg[0]/PRE N"
+    ],
+    "critical_entries": 0,
+    "interpretation": "All 363 detailed rows and all 8 synchronized single-bit entries match qualified serial. All 353 clock-enable warnings are vendor bridge payload FIFO CDC with datapath-only limits; the two MIG reset warnings are unchanged. No row was waived."
+  },
+  "clocks": {
+    "count": 22,
+    "all_definitions_identical_to_qualified_serial": true,
+    "core_hz": 100000000,
+    "reference_hz": 200000000,
+    "mig_ui_hz": 50000000,
+    "interactions": 23,
+    "classifications": {
+      "Clean": 20,
+      "Ignored": 3
+    },
+    "exception_types": {
+      "Partial False Path": 2,
+      "Max Delay Datapath Only": 3,
+      "Timed": 18
+    },
+    "ignored_pairs": [
+      {
+        "from": "clk_out1_axi_ddr_bd_clocks_0",
+        "to": "clk_pll_i",
+        "classification": "Ignored",
+        "constraint": "Max Delay Datapath Only"
+      },
+      {
+        "from": "clk_pll_i",
+        "to": "clk_out1_axi_ddr_bd_clocks_0",
+        "classification": "Ignored",
+        "constraint": "Max Delay Datapath Only"
+      },
+      {
+        "from": "clk_pll_i",
+        "to": "clk_out2_axi_ddr_bd_clocks_0",
+        "classification": "Ignored",
+        "constraint": "Max Delay Datapath Only"
+      }
+    ],
+    "failing_interaction_endpoints": 0
+  },
+  "io_and_check_timing": {
+    "body_identical_to_serial": true,
+    "counts": {
+      "no_clock": 0,
+      "constant_clock": 0,
+      "pulse_width_clock": 0,
+      "unconstrained_internal_endpoints": 0,
+      "no_input_delay": 2,
+      "no_output_delay": 5,
+      "multiple_clock": 0,
+      "generated_clocks": 0,
+      "loops": 0,
+      "partial_input_delay": 0,
+      "partial_output_delay": 0,
+      "latch_loops": 0
+    },
+    "accepted_missing_io_delay_set": {
+      "no_input_delay_high_no_delay": [
+        "CPU_RESETN"
+      ],
+      "no_input_delay_medium_false_path": [
+        "UART_TXD_IN"
+      ],
+      "no_output_delay_medium_false_path": [
+        "LED[0]",
+        "LED[1]",
+        "LED[2]",
+        "LED[3]",
+        "UART_RXD_OUT"
+      ]
+    },
+    "interpretation": "CPU_RESETN is asynchronous and reaches only the 44 reviewed MIG leaves. UART RX exclusion ends at its first synchronizer; its later stages remain timed. UART TX/four LEDs have no external receiving clock. No synchronous external datapath is masked by these exceptions."
+  },
+  "methodology": {
+    "summary": {
+      "LUTAR-1": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "PDRC-190": {
+        "severity": "Warning",
+        "count": 12
+      },
+      "SYNTH-5": {
+        "severity": "Warning",
+        "count": 8
+      },
+      "SYNTH-6": {
+        "severity": "Warning",
+        "count": 24
+      },
+      "ULMTCS-2": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "XDCB-5": {
+        "severity": "Warning",
+        "count": 1
+      },
+      "REQP-1959": {
+        "severity": "Advisory",
+        "count": 16
+      }
+    },
+    "same_check_classes_and_endpoints_as_qualified_serial": true,
+    "differences": "Twelve existing MIG temperature-monitor placement sites and build-local XDC path changed. Control-set count decreased from 1618 to 1407, but remains at 17.26%, above the 15% packing guideline.",
+    "control_sets": 1407,
+    "available_control_sets": 8150,
+    "known_scope": "MIG LUTAR/reset/SERDES and temperature-monitor placement warnings, transport distributed-RAM mapping, unregistered local BRAM outputs, control-set packing and generated constraint-query efficiency are explicitly retained; this is not a zero-warning result."
+  },
+  "drc": {
+    "summary": {
+      "DPIP-1": {
+        "severity": "Warning",
+        "count": 4
+      },
+      "DPOP-1": {
+        "severity": "Warning",
+        "count": 5
+      },
+      "DPOP-2": {
+        "severity": "Warning",
+        "count": 11
+      },
+      "REQP-1709": {
+        "severity": "Warning",
+        "count": 1
+      }
+    },
+    "qualified_serial_summary": {
+      "DPIP-1": {
+        "severity": "Warning",
+        "count": 2
+      },
+      "DPOP-1": {
+        "severity": "Warning",
+        "count": 4
+      },
+      "DPOP-2": {
+        "severity": "Warning",
+        "count": 8
+      },
+      "REQP-1709": {
+        "severity": "Warning",
+        "count": 1
+      }
+    },
+    "controller_dsp_advisory_entries": 17,
+    "pe_input_dsp_advisory_entries": 3,
+    "pe_input_advisory_endpoints": [
+      "core/tile/compute/core/array/rows[0].cols[0].pe/sum_reg/A[29:0]",
+      "core/tile/compute/core/array/rows[0].cols[0].pe/sum_reg/B[17:0]",
+      "core/tile/compute/core/array/rows[1].cols[0].pe/sum_reg/A[29:0]"
+    ],
+    "explanation": "The four input-pipeline advisories concern scheduler total_tiles and PE00 A/B plus PE10 A. The five output-pipeline and eleven multiplier-pipeline advisories concern controller arithmetic. The independent DMA reader/writer and scheduler add controller DSPs; no blanket claim of fully registered DSP inputs is made. The existing MIG PLL clock-buffer advisory remains at 1; actual routed timing and bus-skew gates pass."
+  },
+  "resources": {
+    "luts": 17030,
+    "flip_flops": 20874,
+    "slices": 6670,
+    "slice_capacity": 8150,
+    "slice_utilization_percent": 81.84,
+    "control_sets": 1407,
+    "dsps": 75,
+    "dsp_capacity": 120,
+    "dsp_by_scope": {
+      "core/overlap_path.dma/reader/": 2,
+      "core/overlap_path.dma/writer/": 2,
+      "core/overlap_path.job/": 6,
+      "core/overlap_path.job/scheduler/": 1,
+      "core/tile/compute/core/array/": 64
+    },
+    "operand_ramb36": 16,
+    "result_ramb18": 8,
+    "ramb36_equivalents": 20,
+    "vendor_platform_dsps": 0,
+    "vendor_platform_block_rams": 0
+  },
+  "timing": {
+    "worst_setup": {
+      "slack_ns": 0.038,
+      "source": "core/burst/queued_read.response_slot_reg[0][0]/C",
+      "destination": "core/overlap_path.job/error_code_reg[1]/CE",
+      "path_type": "Setup (Max at Slow Process Corner)",
+      "data_path_delay": "9.573ns  (logic 1.944ns (20.307%)  route 7.629ns (79.693%))",
+      "logic_levels": "12  (LUT2=1 LUT3=1 LUT5=1 LUT6=9)",
+      "exception": null
+    },
+    "worst_hold": {
+      "slack_ns": 0.016,
+      "source": "core/transport/req_payload_reg[1941]/C",
+      "destination": "core/control/packet_payload_reg[1941]/D",
+      "path_type": "Hold (Min at Fast Process Corner)",
+      "data_path_delay": "0.353ns  (logic 0.141ns (39.893%)  route 0.212ns (60.107%))",
+      "logic_levels": "0",
+      "exception": null
+    },
+    "explanation": "The limiting setup path selects a queued read-response slot, propagates through burst protocol/progress/watchdog/fault control, and reaches the job error-code clock enable. It has 12 LUT levels and 9.573 ns data delay, with 79.693% routing. It meets 100 MHz with +0.038 ns slack; this is a narrow margin for this exact routed build, not a general Fmax claim."
+  },
+  "limitations": [
+    "Static review does not establish physical DDR calibration, UART electrical behavior, GEMM board correctness or measured overlap speedup.",
+    "Generated vendor reset/PHY controls retain their scoped modeling/exception boundary; cold power-up validation remains required and warm reset remains unqualified.",
+    "Positive setup/hold slack is bound to this exact checkpoint, bitstream/source identity, constraints and Vivado flow; later changes need a new build/review.",
+    "Methodology/DRC optimization advisories remain documented; this is not a zero-warning implementation."
+  ]
+}

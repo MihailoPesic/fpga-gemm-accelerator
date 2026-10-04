@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "utc_finished": "2026-10-03T07:38:53.843665+00:00",
+  "scope": "Production portable RTL with behavioral AXI RAM; no MIG, electrical timing or physical DDR latency claim",
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_tile_dma.sv": "6a783e79ab1fd7ab94c1e39034e902cafd637230345ee4177eecf15c2fa97816",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "tb/profile_ddr_core.py": "59566f17698a54028ca816af4bb789ded27bf34d39a313703c6c706882e5cbdd",
+    "tb/test_ddr_core.py": "ce36b742cd527a9bd2db37a8d689de3da7a01387f9fa0e839e7bdd4d89831525",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/profile_ddr.py": "6b598ba395f2ea3b2dd465ded828e1e2dfed7682d4ada2408ab8c9bcc916844b"
+  },
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "configurations": [
+    {
+      "p": 4,
+      "t": 8,
+      "model": "unstalled",
+      "tests": 1,
+      "result": "PASS",
+      "directory": "p4_t8_unstalled"
+    },
+    {
+      "p": 4,
+      "t": 8,
+      "model": "latency",
+      "tests": 1,
+      "result": "PASS",
+      "directory": "p4_t8_latency"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "model": "unstalled",
+      "tests": 1,
+      "result": "PASS",
+      "directory": "p4_t32_unstalled"
+    },
+    {
+      "p": 4,
+      "t": 32,
+      "model": "latency",
+      "tests": 1,
+      "result": "PASS",
+      "directory": "p4_t32_latency"
+    }
+  ],
+  "latency_sensitivity": [
+    {
+      "t": 8,
+      "name": "dense",
+      "read_bursts": 528,
+      "write_bursts": 128,
+      "expected_added_cycles": 4992,
+      "observed_added_cycles": 4992,
+      "result": "PASS"
+    },
+    {
+      "t": 8,
+      "name": "odd",
+      "read_bursts": 8,
+      "write_bursts": 5,
+      "expected_added_cycles": 94,
+      "observed_added_cycles": 94,
+      "result": "PASS"
+    },
+    {
+      "t": 8,
+      "name": "multi_tile",
+      "read_bursts": 700,
+      "write_bursts": 165,
+      "expected_added_cycles": 6590,
+      "observed_added_cycles": 6590,
+      "result": "PASS"
+    },
+    {
+      "t": 8,
+      "name": "asymmetric",
+      "read_bursts": 2242,
+      "write_bursts": 520,
+      "expected_added_cycles": 21056,
+      "observed_added_cycles": 21056,
+      "result": "PASS"
+    },
+    {
+      "t": 32,
+      "name": "dense",
+      "read_bursts": 132,
+      "write_bursts": 33,
+      "expected_added_cycles": 1254,
+      "observed_added_cycles": 1254,
+      "result": "PASS"
+    },
+    {
+      "t": 32,
+      "name": "odd",
+      "read_bursts": 8,
+      "write_bursts": 5,
+      "expected_added_cycles": 94,
+      "observed_added_cycles": 94,
+      "result": "PASS"
+    },
+    {
+      "t": 32,
+      "name": "multi_tile",
+      "read_bursts": 280,
+      "write_bursts": 67,
+      "expected_added_cycles": 2642,
+      "observed_added_cycles": 2642,
+      "result": "PASS"
+    },
+    {
+      "t": 32,
+      "name": "asymmetric",
+      "read_bursts": 658,
+      "write_bursts": 134,
+      "expected_added_cycles": 6068,
+      "observed_added_cycles": 6068,
+      "result": "PASS"
+    }
+  ],
+  "reuse_comparisons": [
+    {
+      "name": "dense",
+      "model": "unstalled",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 41548,
+      "t32_job_cycles": 25648,
+      "t8_read_bytes": 65536,
+      "t32_read_bytes": 16384,
+      "result_write_bytes": 4096,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "odd",
+      "model": "unstalled",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 240,
+      "t32_job_cycles": 240,
+      "t8_read_bytes": 128,
+      "t32_read_bytes": 128,
+      "result_write_bytes": 80,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "multi_tile",
+      "model": "unstalled",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 53611,
+      "t32_job_cycles": 36649,
+      "t8_read_bytes": 87040,
+      "t32_read_bytes": 34816,
+      "result_write_bytes": 4752,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "asymmetric",
+      "model": "unstalled",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 175594,
+      "t32_job_cycles": 111850,
+      "t8_read_bytes": 278272,
+      "t32_read_bytes": 81664,
+      "result_write_bytes": 16640,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "dense",
+      "model": "latency",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 46540,
+      "t32_job_cycles": 26902,
+      "t8_read_bytes": 65536,
+      "t32_read_bytes": 16384,
+      "result_write_bytes": 4096,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "odd",
+      "model": "latency",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 334,
+      "t32_job_cycles": 334,
+      "t8_read_bytes": 128,
+      "t32_read_bytes": 128,
+      "result_write_bytes": 80,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "multi_tile",
+      "model": "latency",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 60201,
+      "t32_job_cycles": 39291,
+      "t8_read_bytes": 87040,
+      "t32_read_bytes": 34816,
+      "result_write_bytes": 4752,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    },
+    {
+      "name": "asymmetric",
+      "model": "latency",
+      "p": 4,
+      "core_hz": 100000000,
+      "t8_job_cycles": 196650,
+      "t32_job_cycles": 117918,
+      "t8_read_bytes": 278272,
+      "t32_read_bytes": 81664,
+      "result_write_bytes": 16640,
+      "scope": "Controlled behavioral-model comparison; not a board speedup"
+    }
+  ],
+  "total_jobs": 16,
+  "total_outputs": 25156,
+  "original_artifact_sha256_bytes": {
+    "p4_t8_unstalled/profile.json": "9abf226bd1223a70f166a77adbadc50e26a1c5e72cef87f8284fe48b1b92bd67",
+    "p4_t8_unstalled/results.xml": "d834e9d69fecc6f039b97df6fe752793137522a7c2898394f4ecf021f89b8f86",
+    "p4_t8_latency/profile.json": "b7a00bbde8fc9645db47f750aadcbfafacb4fa132fb0dd8b895209fab98683f3",
+    "p4_t8_latency/results.xml": "1c7cf01467f5e6a5ecfe7dd7754fe9c4837573ab2467c1452ec2f96fa642e4b9",
+    "p4_t32_unstalled/profile.json": "3045a6d3b2d9ced7a0a30884993732d14cdd261b4ac536196bb476c76ee86f11",
+    "p4_t32_unstalled/results.xml": "4b0fc96e82c634f670a86e1c0009442f55b4fd6e760012156b8353e481f355eb",
+    "p4_t32_latency/profile.json": "fd8f55673582e78f9a606201d73b425fa8331e007c71a9b19f71c6125d57ed22",
+    "p4_t32_latency/results.xml": "9cce9d7b154c2eed85409fdf6385b046619a064558baaad9c15aac66e52fe729",
+    "cycles.csv": "b3406b7955bc18f171f2ce9449effff8102786ed2036973b9b8ada66c547b8f0"
+  },
+  "artifact_scope": "Compact summaries, burst CSVs and cycle table are derived from the complete local profiles; XML is copied unchanged",
+  "saved_artifact_sha256_bytes": {
+    "p4_t8_unstalled/compact.json": "649ca61599a9edd633a5b0c2630956a5df6ec13dac8ba129cf4c88a4a8f4f59b",
+    "p4_t8_unstalled/bursts.csv": "7a5972767928faddb9d60782251ed897f5f23f7fddb991a6057a76c2f248f92b",
+    "p4_t8_unstalled/results.xml": "d834e9d69fecc6f039b97df6fe752793137522a7c2898394f4ecf021f89b8f86",
+    "p4_t8_latency/compact.json": "dce5f6f99d6eb66484eb6a0ae3d5d0af629b41ff8e503b9406f145715c17425b",
+    "p4_t8_latency/bursts.csv": "24ba710ef6656de7ce92d4f27b264c45946bb12a61a242b841613549b428a209",
+    "p4_t8_latency/results.xml": "1c7cf01467f5e6a5ecfe7dd7754fe9c4837573ab2467c1452ec2f96fa642e4b9",
+    "p4_t32_unstalled/compact.json": "078462eb23bb112afd25e9adf5639f69f9c5f5b3d2acd23418105b36d629c060",
+    "p4_t32_unstalled/bursts.csv": "289a4cf3a599030b4f34644b79ab8dc0cf4abc7afda51a87a95646c1cce5324e",
+    "p4_t32_unstalled/results.xml": "4b0fc96e82c634f670a86e1c0009442f55b4fd6e760012156b8353e481f355eb",
+    "p4_t32_latency/compact.json": "7831184477a2649455e82ad8c1946954ba9917fb294eccb6fc1f3a424578b248",
+    "p4_t32_latency/bursts.csv": "c40cfaefa510de7800cebac5d3e9e51974b3713326f80355985536f214e7c44d",
+    "p4_t32_latency/results.xml": "9cce9d7b154c2eed85409fdf6385b046619a064558baaad9c15aac66e52fe729",
+    "cycles.csv": "b3406b7955bc18f171f2ce9449effff8102786ed2036973b9b8ada66c547b8f0"
+  }
+}

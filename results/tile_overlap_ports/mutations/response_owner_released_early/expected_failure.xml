@@ -1,0 +1,10 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791063649" />
+    <testcase name="disjoint_load_compute_read" classname="test_tile_overlap" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_overlap.py" lineno="184" time="0.0878446102142334" sim_time_ns="5320.0" ratio_time="60561.48450116299" />
+    <testcase name="start_response_ownership" classname="test_tile_overlap" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_overlap.py" lineno="244" time="0.008785009384155273" sim_time_ns="560.0" ratio_time="63744.95182782859">
+      <failure error_type="AssertionError" error_msg="" />
+    </testcase>
+    <testcase name="start_edge_and_reset" classname="test_tile_overlap" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_tile_overlap.py" lineno="306" time="0.06719279289245605" sim_time_ns="4560.0" ratio_time="67864.42122294883" />
+  </testsuite>
+</testsuites>

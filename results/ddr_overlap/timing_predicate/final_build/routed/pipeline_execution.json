@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-04T10:15:50.402800+00:00",
+  "finished_utc": "2026-10-04T11:49:40.960850+00:00",
+  "command": [
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\host-venv\\Scripts\\python.exe",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\scripts\\build_ddr_gemm.py",
+    "--stage",
+    "bitstream",
+    "--overlap",
+    "--p",
+    "8",
+    "--t",
+    "32",
+    "--read-slots",
+    "4",
+    "--baud",
+    "115200",
+    "--build-dir",
+    "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\gemm_p8_overlap_final"
+  ],
+  "actual_exit_code": 0,
+  "build_id": 745016055,
+  "hardware_accessed": false,
+  "source_hashes_unchanged": true
+}

@@ -1,0 +1,17 @@
+test_clean_archived_evidence_all_geometries_and_physical_bauds (test_program_ddr_gemm.ProgrammerTests.test_clean_archived_evidence_all_geometries_and_physical_bauds) ... ok
+test_complete_report_hash_set_required (test_program_ddr_gemm.ProgrammerTests.test_complete_report_hash_set_required) ... ok
+test_empty_report_rejected_even_with_matching_hash (test_program_ddr_gemm.ProgrammerTests.test_empty_report_rejected_even_with_matching_hash) ... ok
+test_every_missing_or_changed_report_never_launches (test_program_ddr_gemm.ProgrammerTests.test_every_missing_or_changed_report_never_launches) ... ok
+test_invalid_or_nonobject_simulation_never_launches (test_program_ddr_gemm.ProgrammerTests.test_invalid_or_nonobject_simulation_never_launches) ... ok
+test_missing_or_changed_bitstream_never_launches (test_program_ddr_gemm.ProgrammerTests.test_missing_or_changed_bitstream_never_launches) ... ok
+test_missing_or_changed_simulation_never_launches (test_program_ddr_gemm.ProgrammerTests.test_missing_or_changed_simulation_never_launches) ... ok
+test_physical_checks_must_be_finite_nonnegative_and_complete (test_program_ddr_gemm.ProgrammerTests.test_physical_checks_must_be_finite_nonnegative_and_complete) ... ok
+test_resealed_simulation_must_still_match_pass_and_identity (test_program_ddr_gemm.ProgrammerTests.test_resealed_simulation_must_still_match_pass_and_identity) ... ok
+test_source_identity_and_simulation_hash_required (test_program_ddr_gemm.ProgrammerTests.test_source_identity_and_simulation_hash_required) ... ok
+test_unqualified_manifest_never_launches (test_program_ddr_gemm.ProgrammerTests.test_unqualified_manifest_never_launches) ... ok
+test_vivado_failure_propagates_after_valid_preflight (test_program_ddr_gemm.ProgrammerTests.test_vivado_failure_propagates_after_valid_preflight) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.687s
+
+OK

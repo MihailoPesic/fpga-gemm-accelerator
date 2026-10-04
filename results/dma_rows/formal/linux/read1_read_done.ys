@@ -1,0 +1,9 @@
+read_verilog -formal -sv -D SYNTHESIS /work/inputs/rtl/memory/gemm_dma_rows.sv /work/inputs/formal/dma_rows.sv
+chparam -set READ_SLOTS 1 dma_rows_formal
+prep -top dma_rows_formal -flatten
+async2sync
+chformal -assert -lower
+opt -full -keepdc
+check
+stat
+sat -seq 20 -set-def-inputs -set-init-def -set rst 0 -set-at 1 rst 1 -timeout 30 -show-ports -falsify -prove cover_read_done 0 -dump_json /work/read1_read_done.json -dump_vcd /work/read1_read_done.vcd

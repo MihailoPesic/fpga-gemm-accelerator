@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "host": {
+    "python": "3.13.0",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "source_sha256_utf8_lf": {
+      "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+      "host/gemm/__main__.py": "7e9a22a7496636316d871fab8322a60fb39b2073c79a9d0c0460606a2258a482",
+      "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+      "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+      "scripts/hw_test_ddr_gemm.py": "2cca8b6144996a2895a0c828bf8a4a554adfe08f686be71f99b8457ae5efe0e1",
+      "scripts/program_ddr_gemm.py": "304c70b70c679fe141bbfaa2537a07aec676147d0747f103b82c86735f97f4a7"
+    },
+    "pyserial": "3.5"
+  },
+  "source_delta_from_previous_board_record": {
+    "changed_sources": [
+      "scripts/hw_test_ddr_gemm.py"
+    ],
+    "old_runner_sha256_utf8_lf": "c31700e8cf588e7eefe6e11a0123c1d8e6a86d5b0cb5910bce1e32711ba6313c",
+    "current_runner_sha256_utf8_lf": "2cca8b6144996a2895a0c828bf8a4a554adfe08f686be71f99b8457ae5efe0e1",
+    "description": "Explicit --p 4/8 admission; P4 remains default and retains its original workload",
+    "other_five_host_inputs_unchanged": true
+  },
+  "case_plan_sha256": "37d065012515680a1ae3cb395694a6c1e79d9ec8b5a06149fddcbf38a145f902",
+  "matrix_bytes_sha256": {
+    "signed_scalar": "af472cf2977dbfccc45851e12525627fc9ecc03f274f108a865b18a672f38ba6",
+    "signed_extremes": "bc68e1fa7b0285da52544aeae4168e94cfdedc8eaa28f46b3022e84a90abf15a",
+    "odd_tail": "1a6489fa9ed507f81b422516ada2f109141bdf136e2f47ae55d0c5d74c24bf0b",
+    "column_tile_boundary": "576d75b6013b14d9a286eea189a4364cfad3c9196b2a15bc59abbdaaaf812d23",
+    "multi_tile_kmax": "1f4cbcac83e78b297a1f793e83669953a55a450b749717e9cbe15fe6e7ddceed",
+    "asymmetric_k255": "84d5c7cf36febc18f4f38566031dfdead5e6c4b7b8b3a377ebfd3463e0ea63a4",
+    "resident_dense": "d329e73c4152200b77f49bc1b66c8d5602992bd92e527cbb6dfc36795212759e"
+  },
+  "matrix_hash_basis": "Flattened row-major A followed by B, signed INT8 serialized as two-complement bytes",
+  "test_source_sha256_utf8_lf": {
+    "tb/test_hw_ddr_gemm.py": "1971169bec408f646c6397796ad856f19904da9600823cb7880cc946a5635380"
+  },
+  "test_evidence_scope": "Pinned public nine-test source and independently rechecked plans/input bytes; no copied unit execution log"
+}

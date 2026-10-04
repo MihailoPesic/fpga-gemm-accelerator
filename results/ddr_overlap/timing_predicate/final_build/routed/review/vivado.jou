@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Sun Oct  4 13:49:25 2026
+# Process ID         : 34532
+# Current directory  : C:/Users/mihai/Documents/continium/accelerator nexys/build/overlap_final_reset_review
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\review.tcl -log C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.log -journal C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.jou -tclargs C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_overlap_final\gemm_routed.dcp C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review Read-only final build 0x2c680af7 own routed checkpoint; physical-board and warm-reset qualification remain separate
+# Log file           : C:/Users/mihai/Documents/continium/accelerator nexys/build/overlap_final_reset_review/vivado.log
+# Journal file       : C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\vivado.jou
+# Running On         : mihinayoga
+# Platform           : Windows 11
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 7 258V
+# CPU Frequency      : 3302 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 33873 MB
+# Swap memory        : 19327 MB
+# Total Virtual      : 53201 MB
+# Available Virtual  : 7134 MB
+#-----------------------------------------------------------
+source {C:\Users\mihai\Documents\continium\accelerator nexys\build\overlap_final_reset_review\review.tcl} -notrace

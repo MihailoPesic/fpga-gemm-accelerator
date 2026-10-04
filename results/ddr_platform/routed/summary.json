@@ -1,0 +1,177 @@
+{
+  "date": "2026-10-02",
+  "result": "PASS",
+  "scope": "Routed AXI DDR diagnostic at 100 MHz with bitstream identity; no physical-board result and no DDR-backed GEMM claim.",
+  "command": "python scripts/build_ddr_diag.py --stage bitstream --build-dir build/ddr_diag_pipeline",
+  "original_build_exit_code": 1,
+  "explicit_verification_exit_code": 0,
+  "verification_command": "python scripts/build_ddr_diag.py --stage verify --build-dir build/ddr_diag_pipeline --as-built-builder build/ddr_diag_pipeline/build_ddr_diag.as_built.py --timestamp-proof build/axi_platform_gate_probe/mig_timestamp_proof.json",
+  "part": "xc7a50ticsg324-1L",
+  "build_id": 3325966762,
+  "core_hz": 100000000,
+  "bitstream_sha256": "089061f1a6d83aadcd2cf236cf24c4a677f7657122f61e11454ced479a04e2e0",
+  "source_commit": "35f8af4a7a04f6e8ef1d55f676fcef19455364cc",
+  "source_dirty": true,
+  "source_identity": "build.json retains the completed build manifest fields; its source hashes identify the dirty working-tree inputs.",
+  "saved_text_encoding": "UTF-8 with LF newlines; original artifact hashes retain unmodified local bytes.",
+  "hardware_test_performed": false,
+  "warm_reset_qualified": false,
+  "provenance_recovery": {
+    "original_result": "Original Python runner rejected three regenerated XDC timestamp comments after Vivado timing and bitstream completion.",
+    "verification_result": "PASS after exact raw-byte reconstruction; executable constraints and all other generated files unchanged.",
+    "source_maps": "Original 16 as-built hashes and BUILD_ID retained; newer verifier hash is separate in build.json verification metadata."
+  },
+  "provenance_tests": {
+    "result": "PASS",
+    "tests": 6,
+    "exit_code": 0,
+    "command": "python -m unittest discover -s tb -p test_build_ddr_diag.py -v",
+    "test_source_sha256_utf8_lf": "386460726c846309a3d5e4ddab4dc3f6e862c95cf72d331a48f9c276a519f067",
+    "verifier_sha256_utf8_lf": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa"
+  },
+  "timing": {
+    "wns_ns": 0.642,
+    "tns_ns": 0.0,
+    "setup_failing_endpoints": 0,
+    "setup_total_endpoints": 24126,
+    "whs_ns": 0.027,
+    "ths_ns": 0.0,
+    "hold_failing_endpoints": 0,
+    "hold_total_endpoints": 24064,
+    "wpws_ns": 0.0,
+    "tpws_ns": 0.0,
+    "pulse_failing_endpoints": 0,
+    "pulse_total_endpoints": 8219
+  },
+  "worst_setup_path": {
+    "source": "transport/state_reg[4]/C",
+    "destination": "transport/crc_reg[21]/S",
+    "clock": "clk_out1_axi_ddr_bd_clocks_0",
+    "requirement_ns": 10.0,
+    "data_path_delay_ns": 8.722,
+    "logic_delay_ns": 1.676,
+    "routing_delay_ns": 7.046,
+    "logic_levels": 8,
+    "interpretation": "The critical path is now in UART packet decoding/CRC control; the diagnostic comparison path no longer determines worst setup slack in this implementation."
+  },
+  "utilization": {
+    "slice_luts": 6717,
+    "slice_registers": 6175,
+    "block_ram_tiles": 0,
+    "dsps": 0,
+    "bufgctrl": 4,
+    "mmcme2_adv": 2,
+    "plle2_adv": 1
+  },
+  "route": {
+    "routable_nets": 12515,
+    "fully_routed_nets": 12515,
+    "routing_errors": 0
+  },
+  "bus_skew": {
+    "constraints": 10,
+    "violations": 0,
+    "worst_slack_ns": 8.693
+  },
+  "review_findings": {
+    "drc": {
+      "REQP-1709": {
+        "severity": "Warning",
+        "count": 1
+      }
+    },
+    "methodology": {
+      "LUTAR-1": 1,
+      "PDRC-190": 12,
+      "SYNTH-5": 8,
+      "XDCB-5": 1,
+      "REQP-1959": 16
+    },
+    "cdc": {
+      "CDC-3": {
+        "severity": "Info",
+        "count": 8
+      },
+      "CDC-8": {
+        "severity": "Warning",
+        "count": 2
+      },
+      "CDC-15": {
+        "severity": "Warning",
+        "count": 353
+      }
+    },
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "input_delay_missing_without_false_path": [
+      "CPU_RESETN"
+    ],
+    "input_delay_missing_with_false_path": [
+      "UART_TXD_IN"
+    ],
+    "output_delay_missing_with_false_path": [
+      "LED[0]",
+      "LED[1]",
+      "LED[2]",
+      "LED[3]",
+      "UART_RXD_OUT"
+    ],
+    "qualification": "Timing and bus-skew passes are distinct from physical-board validation; asynchronous reset and vendor-generated warnings are reviewed separately."
+  },
+  "reset_review": {
+    "cpu_resetn_endpoints": 44,
+    "mig_pll_reset_endpoints": 1,
+    "mig_reset_chain_preset_endpoints": 43,
+    "application_data_or_enable_endpoints": 0,
+    "generated_exception_resolves": true,
+    "new_timing_waivers_added": false,
+    "warm_reset_qualified": false,
+    "endpoint_report_sha256_bytes": "3163bfc25342d0c867d665f19c01024cb0cd2630be0c7d56fd34585a8488334f",
+    "active_exceptions_report_sha256_bytes": "619ed694cce1688d267e529b76ae0c918b7be2413c9f65b593a78601e3ee136a"
+  },
+  "original_artifact_sha256_bytes": {
+    "build.json": "3ad8063c615803f445fd95e624aee0f19ea867f6aac7cf51fdc9adec6c8e3192",
+    "inputs.json": "65479d3a568c90b0046bea37c2f4ae5864f04de381866d1e1f5887684c57e38b",
+    "timing.txt": "6c5fb3cc11780d5d839f3400a2d5290a3adfc221f32a62d7e2d3821789891b2c",
+    "utilization.txt": "e8d5aa988ab226a3fac250e2d01c48d88c0c486c32dfb47b82ebe9048e117b52",
+    "check_timing.txt": "f56da3d562faac88b78366f50a420ce383c85f4fee34498f9e15e19d6f455ffa",
+    "drc.txt": "271914ef8b366c8963c830ce4716f90b69a0d80e212dc23860792bd06fa36139",
+    "methodology.txt": "27996b9399b1d682339c0d6e4f5c9a4b80f002ffaab3a1b9de8a5e9cc7f62218",
+    "cdc.txt": "95a0de7f9b7510027ef2084c0480e304328eac1044f662a6b6cb57030a3ff7c9",
+    "route.txt": "7d1bde7fc789bacac5df0e404f7754b4bfc0258b5d21721a346bccdca78db946",
+    "pulse_width.txt": "8573a8f37ad01f46ca0abbdbd450dece0773f77140463e75586a6577e83cdd3e",
+    "pulse_width_violations.txt": "fffe12d0f0322d8c96f6b7da6eae74ddcb3a4a3adb7a0a078970b5c1a0c859d3",
+    "bus_skew.txt": "81f2cdf7f6d2130985e4dee7c2d0b6368a0b78a410ccf7fa6136bbd41e1745ea",
+    "bitstream_console.txt": "3482e312436bea3bdaeb4e70e1c3718548e45e41174c5e0072fb1e9817c5825d",
+    "bitstream_exit.txt": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+    "simulation.json": "4eb671b17be2c40b4943563ee15c5bfd5a359b7857b8ab19c53317660ae25643",
+    "diagnostic_routed.dcp": "a969a00bd4934d4942e0a2813637bbeb0559914f52fca456d1b02c877a97ff78",
+    "gemm_ddr_diag.bit": "089061f1a6d83aadcd2cf236cf24c4a677f7657122f61e11454ced479a04e2e0",
+    "verification.json": "73b1704eb2c3a897d83dd15a93208496b693be721aa907bd085ab9783c375aa3",
+    "verify_exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verify_runner.txt": "c41c6fad91c72fa8bf443c33847a13f5926740e27e7c1219c11f6239369ae3b0",
+    "provenance_tests.txt": "a3f9bad0fd2a8838dcc1f33a96a645e8610dd72a9dd0309c168a3ba729d6e29a",
+    "provenance_tests_exit.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "build_ddr_diag.as_built.py": "83ce58512c3c4850114e1383f688d832d60efbca402e1da22045e81e387355e6"
+  },
+  "saved_artifact_sha256_bytes": {
+    "build.json": "6d94f64fc674f851d66320528f2894ceec3752185925d04ad7b495bd2bb0b1eb",
+    "bus_skew_summary.txt": "007c55cc2bec4ea1597a445dfe02af73c5b2775bdfa6d9698c508a694a029abe",
+    "cdc_summary.txt": "79a209110ca9913e95886788f2add9c4bf2a4af01659149d7101f580767fbf5c",
+    "check_timing.txt": "d7fe4df861cb279a34f3f02f58e96f6316a430661ac77a73cae5fb989cdb6e3d",
+    "console_excerpt.txt": "63102a15e6a7ebfdd45b89a7a78acf993edb236852f27749a27cb327b10b9826",
+    "drc.txt": "271914ef8b366c8963c830ce4716f90b69a0d80e212dc23860792bd06fa36139",
+    "inputs.json": "47693844db183db4a943c3d9f38de199579a7d69a6f9b7cc9ae85d8d0f52bb2e",
+    "methodology_summary.txt": "1e5d5780b47f21136adeb5e2e12147995e179c7220525e13b9ebf0792d6f4028",
+    "provenance_tests.txt": "a3f9bad0fd2a8838dcc1f33a96a645e8610dd72a9dd0309c168a3ba729d6e29a",
+    "pulse_width.txt": "ef5e0254aefd704de71ed30a5c3f3ba17f20f0988f270b222a922be09fd6ebcf",
+    "pulse_width_violations.txt": "80d95e9a944ea157b8b7a63ca6232c6aa04209366f29acd48319ada279a9ac39",
+    "reset_review.txt": "1f1b6d8591525f5a494ffd5df689807d194852a2e03968190f56058d06dea480",
+    "route.txt": "7d1bde7fc789bacac5df0e404f7754b4bfc0258b5d21721a346bccdca78db946",
+    "timing.txt": "174bfd32273f64cab69f53ee3d9e6f60e3d4399ba96ae1f4381b190b3d63eea8",
+    "utilization.txt": "e8d5aa988ab226a3fac250e2d01c48d88c0c486c32dfb47b82ebe9048e117b52",
+    "verification.json": "4887d57ddf2fee7f66c545c794583a087ddff2d0bf415de2c7de8d9e663253fd",
+    "verify_runner.txt": "c41c6fad91c72fa8bf443c33847a13f5926740e27e7c1219c11f6239369ae3b0",
+    "worst_path.txt": "d70fc5980c4afffe8c53f8ac2b98b012dbffd66a53c6fb717dc4e83462cab01b"
+  }
+}

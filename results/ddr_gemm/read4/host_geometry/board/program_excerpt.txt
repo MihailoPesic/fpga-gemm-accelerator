@@ -1,0 +1,12 @@
+Selected lines from program.log; the exact full log is preserved and hash-bound in manifest.json.
+# Start of session at: Sat Oct  3 21:08:27 2026
+# Command line       : vivado.exe -mode batch -notrace -source C:\Users\mihai\Documents\continium\accelerator nexys\scripts\program_ddr_gemm.tcl -log C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_read4_host_geometry\program.log -journal C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_read4_host_geometry\program.jou -tclargs C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_read4_host_geometry\gemm_ddr.bit
+# Log file           : C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_read4_host_geometry/program.log
+# Journal file       : C:\Users\mihai\Documents\continium\accelerator nexys\build\gemm_p8_read4_host_geometry\program.jou
+source {C:\Users\mihai\Documents\continium\accelerator nexys\scripts\program_ddr_gemm.tcl} -notrace
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292B40D95A
+INFO: [Labtools 27-3164] End of startup status: HIGH
+INFO: [Labtools 27-1434] Device xc7a50t (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+DDR_GEMM_PROGRAMMED xc7a50t C:/Users/mihai/Documents/continium/accelerator nexys/build/gemm_p8_read4_host_geometry/gemm_ddr.bit
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210292B40D95A
+INFO: [Common 17-206] Exiting Vivado at Sat Oct  3 21:08:42 2026...

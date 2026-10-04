@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "p": 8,
+  "t": 32,
+  "read_slots": [
+    1,
+    4
+  ],
+  "scope": "Software-driven tile helper sequence: A load, BT load, compute, C store. Includes request validation, buffered delivery and helper DONE observation/retirement; completion(stall=0). Excludes reset and host preparation. Not the full DDR job counter, MIG timing, UART throughput or board performance.",
+  "versions": {
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0",
+    "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+    "iverilog": "Icarus Verilog version 12.0 (stable) ()"
+  },
+  "source_sha256_bytes": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/profile_read_dma.py": "fc0754537a208eef29f0329ed353bc81a5e2000a1c6110a6176434a443d23d87",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/profile_read_dma.py": "3b195543163894c99292f3ac87445ae72bd170ca0dcac2c75ee79fd275a302a6"
+  },
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "4c393b2ce5c7174391d5629d3c2e0829cf62be267b3503304cf25e64c0d1abf9",
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "rtl/memory/gemm_tile_dma.sv": "378db147d90708d5e1e654082afa6127c8a64aebaf3a6dc16a765589d369f937",
+    "rtl/memory/gemm_tile_dma_read_queue.sv": "406b166674c3dab211c80e24d8418cc93d04e85b699f75837f8f9145840bf9fd",
+    "tb/sv/tile_dma_harness.sv": "96d829fc9e686eed17522d763a2624363844cb37fc92f696cac7bb91e1930521",
+    "tb/profile_read_dma.py": "fc0754537a208eef29f0329ed353bc81a5e2000a1c6110a6176434a443d23d87",
+    "tb/test_tile_dma.py": "72b2f3027f85c0eb97bca0ab9c432b3c54403bdf6b65d8bd6dc2a58e63e48603",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/profile_read_dma.py": "3b195543163894c99292f3ac87445ae72bd170ca0dcac2c75ee79fd275a302a6"
+  },
+  "cases": [
+    {
+      "name": "dense",
+      "shape": [
+        32,
+        32,
+        256
+      ],
+      "seed": 20261011,
+      "phases": {
+        "a_load": {
+          "read1_cycles": 2524,
+          "read4_cycles": 1250,
+          "saved_cycles": 1274
+        },
+        "bt_load": {
+          "read1_cycles": 2524,
+          "read4_cycles": 1250,
+          "saved_cycles": 1274
+        },
+        "compute": {
+          "read1_cycles": 4530,
+          "read4_cycles": 4530,
+          "saved_cycles": 0
+        },
+        "c_store": {
+          "read1_cycles": 2765,
+          "read4_cycles": 2765,
+          "saved_cycles": 0
+        }
+      },
+      "read1_cycles": 12343,
+      "read4_cycles": 9795,
+      "saved_cycles": 2548,
+      "model_cycle_ratio": 1.260132720775906,
+      "max_axi_reads": {
+        "read1": 1,
+        "read4": 4
+      },
+      "compared_output_values": 1024,
+      "checked_memory_bytes": 21808,
+      "counters": {
+        "ar_bursts": 134,
+        "r_beats": 2048,
+        "aw_bursts": 33,
+        "w_beats": 512,
+        "b_responses": 33,
+        "write_valid_bytes": 4096,
+        "bank_words": 2048,
+        "read_commands": 134,
+        "read_completions": 134
+      },
+      "golden_int32_sha256": "4be8d4390092115643bd6a4a7d9d90760f93c9ac4bb4a5b92e7c9cb5354f6910",
+      "result": "PASS",
+      "scope": "Same workload and traffic; behavioral-model cycle comparison only"
+    },
+    {
+      "name": "odd",
+      "shape": [
+        31,
+        29,
+        17
+      ],
+      "seed": 20261012,
+      "phases": {
+        "a_load": {
+          "read1_cycles": 417,
+          "read4_cycles": 201,
+          "saved_cycles": 216
+        },
+        "bt_load": {
+          "read1_cycles": 391,
+          "read4_cycles": 189,
+          "saved_cycles": 202
+        },
+        "compute": {
+          "read1_cycles": 706,
+          "read4_cycles": 706,
+          "saved_cycles": 0
+        },
+        "c_store": {
+          "read1_cycles": 2530,
+          "read4_cycles": 2530,
+          "saved_cycles": 0
+        }
+      },
+      "read1_cycles": 4044,
+      "read4_cycles": 3626,
+      "saved_cycles": 418,
+      "model_cycle_ratio": 1.1152785438499724,
+      "max_axi_reads": {
+        "read1": 1,
+        "read4": 2
+      },
+      "compared_output_values": 899,
+      "checked_memory_bytes": 7392,
+      "counters": {
+        "ar_bursts": 62,
+        "r_beats": 180,
+        "aw_bursts": 33,
+        "w_beats": 465,
+        "b_responses": 33,
+        "write_valid_bytes": 3596,
+        "bank_words": 180,
+        "read_commands": 62,
+        "read_completions": 62
+      },
+      "golden_int32_sha256": "2e0afb21550d4e78658d30481a3aa12521b8f75de2dfce160adc23c711eaec11",
+      "result": "PASS",
+      "scope": "Same workload and traffic; behavioral-model cycle comparison only"
+    }
+  ],
+  "configurations": [
+    {
+      "read_slots": 1,
+      "result": "PASS",
+      "profile": "read1/profile.json"
+    },
+    {
+      "read_slots": 4,
+      "result": "PASS",
+      "profile": "read4/profile.json"
+    }
+  ]
+}

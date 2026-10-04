@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "recorded_utc": "2026-10-03T15:46:54.716234+00:00",
+  "public_directory": "results/ddr_gemm/read4/portable/axi",
+  "totals": {
+    "tests": 20
+  },
+  "executions": [
+    {
+      "run": "build/read_dma_cancel_boundary_axi_20261003",
+      "process_exit_code": 0,
+      "result": "PASS",
+      "tests": 20,
+      "versions": {
+        "cocotb": "2.0.1",
+        "cocotbext-axi": "0.1.28",
+        "cocotb-bus": "0.3.0",
+        "scapy": "2.7.0"
+      }
+    }
+  ],
+  "source_sha256_utf8_lf": {
+    "rtl/memory/gemm_axi_burst.sv": "a243818f50eb0938cc35efad794e3c2fb64eb03731ae5204dc90a41772c51bbd",
+    "tb/test_axi_burst.py": "971e39031b609d98feaf6934e5a76d746be93607ecc6afa563a799bc68f414b9",
+    "tb/test_axi_read_queue.py": "bd122db319907b469390a834bcd4e763da990c8afdf3d0b63b35f164a98eec0b",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "scripts/test_axi_burst.py": "a610cb19b5e92dca811c8a0b35c925bb93bdaeebe62914f45f322857bf228fc2"
+  },
+  "saved_artifact_sha256_bytes": {
+    "read1/coverage.json": "795aaa5602650609901abbf3f44af608d6592096e1665bfb2828e5e162b39f96",
+    "read1/results.xml": "a9a5fda8d82b165cc53b3d8164576c73a8202b49b1c56e617ad6745d4da40676",
+    "read1/summary.json": "4dade1f9521cf64ffc7b528faa6e01f39bc3aa0502cc48c3348685495955ae6e",
+    "read4/coverage.json": "cf57d8c343ae638b990915d7c97a17dc63533e7559d8697ade0a42963a3acc84",
+    "read4/queue_coverage.json": "3086e954f24b5a7d2a254647bbb8fb4ba7954450031c1c66633c1d07ccf85f15",
+    "read4/results.xml": "c37f98325ef3c8d25f1082298f2be3d5a5334fb4b213e4deed79134c64542d67",
+    "read4/summary.json": "320a5985df95b0da3cb71cec61acea2210999ecbc5ab2a0f62ee1c0e186f84ad",
+    "summary.json": "39e2c5659d861d741c1cccd2f3d4786c8120ac546323473fcab086f538ffd84b"
+  },
+  "scope": "Portable behavioral simulation; no new board, routed timing or physical DDR performance claim"
+}

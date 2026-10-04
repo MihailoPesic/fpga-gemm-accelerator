@@ -1,0 +1,9 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1790948013" />
+    <testcase name="complete_memory_plan_and_repeated_runs" classname="test_ddr_diag" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_diag.py" lineno="169" time="3.3930022716522217" sim_time_ns="167210.0" ratio_time="49280.83939023629" />
+    <testcase name="response_errors_and_mismatch_details" classname="test_ddr_diag" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_diag.py" lineno="209" time="0.379199743270874" sim_time_ns="25210.0" ratio_time="66482.1125208192" />
+    <testcase name="final_read_word_must_pass_before_completion" classname="test_ddr_diag" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_diag.py" lineno="230" time="1.374744176864624" sim_time_ns="69749.99999999997" ratio_time="50736.71245444271" />
+    <testcase name="watchdog_and_calibration_preserve_pending_axi" classname="test_ddr_diag" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/test_ddr_diag.py" lineno="263" time="0.18381452560424805" sim_time_ns="13940.0" ratio_time="75837.31456573114" />
+  </testsuite>
+</testsuites>

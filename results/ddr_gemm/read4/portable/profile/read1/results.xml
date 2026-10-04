@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1791040121" />
+    <testcase name="compare_read_depth_workloads" classname="profile_read_dma" file="/mnt/c/Users/mihai/Documents/continium/accelerator nexys/tb/profile_read_dma.py" lineno="110" time="43.16465640068054" sim_time_ns="163950.0" ratio_time="3798.246381903671" />
+  </testsuite>
+</testsuites>

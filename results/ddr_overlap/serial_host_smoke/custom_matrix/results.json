@@ -1,0 +1,99 @@
+{
+  "result": "PASS",
+  "utc": "2026-10-04T08:56:18.769469+00:00",
+  "port": "COM11",
+  "baud": 115200,
+  "a": [
+    [
+      1,
+      -2,
+      3
+    ],
+    [
+      4,
+      5,
+      -6
+    ]
+  ],
+  "b": [
+    [
+      7,
+      8
+    ],
+    [
+      -9,
+      10
+    ],
+    [
+      11,
+      -12
+    ]
+  ],
+  "expected": [
+    [
+      58,
+      -48
+    ],
+    [
+      -83,
+      154
+    ]
+  ],
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df"
+  },
+  "scope": "Supplied-matrix Python API on previously qualified serial FPGA image; no overlap FPGA claim",
+  "identity": {
+    "id": 827148110,
+    "version": 256,
+    "geometry": 16785416,
+    "p": 8,
+    "t": 32,
+    "kmax": 256,
+    "build_id": 3579356483,
+    "core_hz": 100000000
+  },
+  "descriptor": {
+    "m": 2,
+    "n": 2,
+    "k": 3,
+    "a_base": 64,
+    "bt_base": 320,
+    "c_base": 576,
+    "a_stride": 64,
+    "bt_stride": 64,
+    "c_stride": 64,
+    "mode": 0,
+    "watchdog": 10000000
+  },
+  "c": [
+    [
+      58,
+      -48
+    ],
+    [
+      -83,
+      154
+    ]
+  ],
+  "counters": {
+    "job_cycles": 261,
+    "compute_cycles": 26,
+    "read_beats": 4,
+    "write_beats": 2,
+    "write_valid_bytes": 16,
+    "input_wait_cycles": 156,
+    "read_stall_cycles": 0,
+    "write_stall_cycles": 4
+  },
+  "compared_elements": 4,
+  "guard_bytes_checked": 752,
+  "transport": {
+    "retries": 0,
+    "rejected_frames": 0
+  },
+  "selected_bitstream_sha256": "ff63f9cf7b3d64a388967269b5b6fc9ef1c7c6bd850af5d1aa09591a7740f1e8"
+}

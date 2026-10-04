@@ -1,0 +1,100 @@
+[p4_t8]
+Runner exit: 0
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+790400.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790400.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+2575570.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2575570.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+2960530.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+2960530.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+3146450.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3146450.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+3167110.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+3175180.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+3175180.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+3271580.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+3271580.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+
+[p4_t32]
+Runner exit: 0
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+791350.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791350.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+3844840.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3844840.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+5496530.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5496530.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+5683470.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5683470.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+5704350.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+5712500.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+5712500.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+5808940.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+5808940.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+
+[p8_t8]
+Runner exit: 0
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+790460.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790460.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+2683010.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2683010.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+3066310.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+3066310.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+3252590.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3252590.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+3273360.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+3281580.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+3281580.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+3377520.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+3377520.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+
+[p8_t32]
+Runner exit: 0
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/6)
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:115: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:120: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:133: DeprecationWarning: Use `handle.set(Immediate(...))` or `handle.value = Immediate(...)` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/reset.py:59: DeprecationWarning: Use `signal.value_change` instead.
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:156: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:102: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+     0.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/axi_slave.py:266: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+791380.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791380.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/6)
+3939430.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3939430.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/6)
+5581000.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5581000.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/6)
+5767490.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5767490.00ns INFO     cocotb.regression                  running test_ddr_core.host_watchdog_threshold_and_progress (5/6)
+5788270.00ns WARNING  py.warnings                        /mnt/c/Users/mihai/Documents/continium/accelerator nexys/.venv/lib/python3.12/site-packages/cocotbext/axi/stream.py:195: DeprecationWarning: `task.kill()` is deprecated in favor of `task.cancel()`
+5796490.00ns INFO     cocotb.regression                  test_ddr_core.host_watchdog_threshold_and_progress passed
+5796490.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (6/6)
+5892730.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+5892730.00ns INFO     cocotb.regression                  ******************************************************************************************************************
+

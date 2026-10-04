@@ -1,0 +1,450 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Host-paced mixed-job repeatability with complete output and allocation checks; not continuous compute stress or full-memory qualification",
+  "original_run_directory": "build/gemm_gather4/repeatability_20261003T1200",
+  "observed_parent_exit_code": 0,
+  "requested_seconds": 1800.0,
+  "elapsed_seconds": 1999.2978696000064,
+  "utc_started": "2026-10-03T12:01:08.891586+00:00",
+  "utc_finished": "2026-10-03T12:34:28.189735+00:00",
+  "completed_iterations": 9,
+  "checked_counts": {
+    "completed_jobs": 432,
+    "compared_outputs": 446337,
+    "guard_bytes_checked": 6206652
+  },
+  "distinct_matrix_pairs": 7,
+  "build_id": 1217977191,
+  "bitstream_sha256": "55eafc4dba5053b12d8299165b6d2deddb2dea9e7fb76d4ec6b4b4403cf1b910",
+  "source_commit": "35f8af4a7a04f6e8ef1d55f676fcef19455364cc",
+  "source_dirty": true,
+  "source_sha256_utf8_lf": {
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/memory/gemm_dma_rows.sv": "61e80fb3ccf47370b2cf34efea37e8560bbf8bb3018969bbceff273e3d14fb74",
+    "rtl/memory/gemm_tile_dma.sv": "2e46a1b1ace8cbe31228ebdcf37bbc96ba7f48edea67580146c8cdfd384cf0ef",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/control/gemm_ddr_job.sv": "a0afb5046362f81261fed07b3e8cd543b386b4c59329042135a8e9eaa3aa11cc",
+    "rtl/control/gemm_ddr_registers.sv": "1b00024da8fbd7abca8798f99c396260df535cfd09a045685a54ed3278446f25",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_ddr_control.sv": "1eafe1d7027cc43d39116a802a9559a2190b5a46dea48057cd5ef4ee48c7e1ed",
+    "rtl/control/gemm_ddr_core.sv": "995d1635ac3cccf005e78dc53476333a4ae6c4c6a4173fa3417c808d9b7c5a82",
+    "accelerator nexys.srcs/sources_1/new/uart_rx.sv": "d163dc2262631c2e43fc106e5717b54d04fb5077811505db69d8007474a1f9a1",
+    "accelerator nexys.srcs/sources_1/new/uart_tx.sv": "c2179f6da3806fcf77640be63f85d0df85201e9ff9f4705097cb85ecc2d16daa",
+    "platform/nexys_a7/axi_ddr_platform.sv": "6112a83e811b4397e3b1a92474b08b92869aedfdd510970accfb0bfc937dc789",
+    "platform/nexys_a7/gemm_ddr_top.sv": "581b86ce2fe5527ee385e11510d1ac920592edfb44882ab04b8dbad534ba2429",
+    "scripts/build_ddr_gemm.py": "c616bb82f0d4b2203c8a88c8b050ab2c157c72b38680c2a79ad6a4f3cd77d370",
+    "scripts/build_ddr_gemm.tcl": "f474e60c4dc3a5591960891cca3c46b9fef179686e19c64af86e6efffb4bd7d2",
+    "scripts/build_ddr_diag.py": "4a0833dd55ff5cf796372fd41621d388efec816d8d8d21a7a9d58dd8b6540efa",
+    "scripts/create_axi_platform.tcl": "993bad33ed34459834fdb4497876ec08d5ce85d996d9477096e540b019310fb3",
+    "scripts/test_mig.py": "7350ea9be9f3ca0156489c058153c9bb3b0fc6a6a46209478deb05c2170db61f",
+    "tb/vendor/tb_ddr_gemm.sv": "cec431bb79b4e8b587d361042d9894332f179c3e17ec0c9558e9b8e20755e5d7",
+    "platform/nexys_a7/axi_ddr.xdc": "7b9e2d19422c86b64097b13db256b8c44acf02ed42621f90c298803aec9d8431",
+    "platform/nexys_a7/gemm_ddr.xdc": "af566dc6d42ad740c67ec1cc49d173bfbdcacf991a8e66d84d7036419654add7",
+    "accelerator nexys.srcs/sources_1/ip/mig_7series_0/mig_a.prj": "2a8eacf3f8786fe40a6d758c4c4bda61150c58f9a5c6676ae085b25c4fa1221c"
+  },
+  "host_source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "7e9a22a7496636316d871fab8322a60fb39b2073c79a9d0c0460606a2258a482",
+    "host/gemm/client.py": "f861ae6f998fd08275544c9db2dd9855b8271f15c3e75066c425cf8020d5b4ce",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/hw_test_ddr_gemm.py": "c31700e8cf588e7eefe6e11a0123c1d8e6a86d5b0cb5910bce1e32711ba6313c",
+    "scripts/program_ddr_gemm.py": "304c70b70c679fe141bbfaa2537a07aec676147d0747f103b82c86735f97f4a7"
+  },
+  "orchestration_sha256_bytes": "b157d61bcbb2930d48da4c8fc8880e5f4a5025d5eab170482456af8e82137de8",
+  "shared_verifier_sha256_bytes": "29ade2f85430950189a6b40774780ecb48a1a0ad830f087c4cd44a2c4b100076",
+  "case_plan_sha256": "37d065012515680a1ae3cb395694a6c1e79d9ec8b5a06149fddcbf38a145f902",
+  "selected_manifest_sha256_bytes": "a3da6555964de83af346ec424ebd3e8942f8fe5ad1f9838ce7354089bf2a060c",
+  "iterations": [
+    {
+      "number": 1,
+      "directory": "pass_01",
+      "elapsed_seconds": 220.97645839999313,
+      "utc_started": "2026-10-03T12:01:09.284180+00:00",
+      "utc_finished": "2026-10-03T12:04:50.259320+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "1b4d749ad0bd99d38d6752de5e6a0908919c19b47c825c179c17b5cbc2ec56a3"
+    },
+    {
+      "number": 2,
+      "directory": "pass_02",
+      "elapsed_seconds": 221.3849182999984,
+      "utc_started": "2026-10-03T12:04:51.819951+00:00",
+      "utc_finished": "2026-10-03T12:08:33.202814+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "5a107871e885badc50ad048ca44ee30ede9cb97babc8f6630a19f4c83039c65f"
+    },
+    {
+      "number": 3,
+      "directory": "pass_03",
+      "elapsed_seconds": 221.15206260001287,
+      "utc_started": "2026-10-03T12:08:33.691439+00:00",
+      "utc_finished": "2026-10-03T12:12:14.842033+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "feef5136a71914b6732cf1d30b9195eed0a4411073268b30d7d94f7e1ce2f507"
+    },
+    {
+      "number": 4,
+      "directory": "pass_04",
+      "elapsed_seconds": 221.67617099999916,
+      "utc_started": "2026-10-03T12:12:15.539011+00:00",
+      "utc_finished": "2026-10-03T12:15:57.212134+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "60917ea65fb693d2f49f29ca34e83ed992319e7b2678a640a356eb8a18c932da"
+    },
+    {
+      "number": 5,
+      "directory": "pass_05",
+      "elapsed_seconds": 221.4066354999959,
+      "utc_started": "2026-10-03T12:15:57.659693+00:00",
+      "utc_finished": "2026-10-03T12:19:39.065107+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "bd5a529af125b21d0098f73ff868167dcd5f8e42999b7f4291a5c10942e3de75"
+    },
+    {
+      "number": 6,
+      "directory": "pass_06",
+      "elapsed_seconds": 221.7358774000022,
+      "utc_started": "2026-10-03T12:19:39.546868+00:00",
+      "utc_finished": "2026-10-03T12:23:21.281090+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "17e07d78fedfeff4f04fe86819e602fd10b7cf57f921b787c1da2d482c741c1c"
+    },
+    {
+      "number": 7,
+      "directory": "pass_07",
+      "elapsed_seconds": 221.57543860000442,
+      "utc_started": "2026-10-03T12:23:21.732333+00:00",
+      "utc_finished": "2026-10-03T12:27:03.305145+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "5ddb24a7ba4c9b918e41efd71b47ea5ea7a6f376aebee8a1174a28b281da867d"
+    },
+    {
+      "number": 8,
+      "directory": "pass_08",
+      "elapsed_seconds": 221.9567394000187,
+      "utc_started": "2026-10-03T12:27:03.730519+00:00",
+      "utc_finished": "2026-10-03T12:30:45.685472+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "41f65a9b12297318f2166ea2e4190c629396a124ffd6a24a042ba657b7716edf"
+    },
+    {
+      "number": 9,
+      "directory": "pass_09",
+      "elapsed_seconds": 221.97682810001425,
+      "utc_started": "2026-10-03T12:30:46.132156+00:00",
+      "utc_finished": "2026-10-03T12:34:28.107860+00:00",
+      "checked_counts": {
+        "completed_jobs": 48,
+        "compared_outputs": 49593,
+        "guard_bytes_checked": 689628
+      },
+      "transport": {
+        "retries": 0,
+        "rejected_frames": 0,
+        "poisoned": false
+      },
+      "raw_results_sha256_bytes": "dd4e709f4e81b8774f7a10686a7ff99af65aa95c79c34e009df86a175bdee734"
+    }
+  ],
+  "cases": [
+    {
+      "case_index": 0,
+      "name": "signed_scalar",
+      "m": 1,
+      "n": 1,
+      "k": 1,
+      "repeats": 3,
+      "seed": 20261002,
+      "pattern": "all_minus128",
+      "first_job_id": 1,
+      "final_job_id": 3,
+      "completed_jobs": 27,
+      "job_cycles_min": 203,
+      "job_cycles_median": 204,
+      "job_cycles_max": 210
+    },
+    {
+      "case_index": 1,
+      "name": "signed_extremes",
+      "m": 1,
+      "n": 2,
+      "k": 256,
+      "repeats": 3,
+      "seed": 20261003,
+      "pattern": "minus128_by_minus128_and_plus127",
+      "first_job_id": 4,
+      "final_job_id": 6,
+      "completed_jobs": 27,
+      "job_cycles_min": 919,
+      "job_cycles_median": 924,
+      "job_cycles_max": 952
+    },
+    {
+      "case_index": 2,
+      "name": "odd_tail",
+      "m": 5,
+      "n": 3,
+      "k": 9,
+      "repeats": 3,
+      "seed": 20261004,
+      "pattern": "seeded_signed_int8",
+      "first_job_id": 7,
+      "final_job_id": 9,
+      "completed_jobs": 27,
+      "job_cycles_min": 835,
+      "job_cycles_median": 839,
+      "job_cycles_max": 855
+    },
+    {
+      "case_index": 3,
+      "name": "column_tile_boundary",
+      "m": 31,
+      "n": 33,
+      "k": 17,
+      "repeats": 3,
+      "seed": 20261005,
+      "pattern": "seeded_signed_int8",
+      "first_job_id": 10,
+      "final_job_id": 12,
+      "completed_jobs": 27,
+      "job_cycles_min": 13892,
+      "job_cycles_median": 13913,
+      "job_cycles_max": 13974
+    },
+    {
+      "case_index": 4,
+      "name": "multi_tile_kmax",
+      "m": 33,
+      "n": 35,
+      "k": 256,
+      "repeats": 3,
+      "seed": 20261006,
+      "pattern": "seeded_signed_int8",
+      "first_job_id": 13,
+      "final_job_id": 15,
+      "completed_jobs": 27,
+      "job_cycles_min": 54958,
+      "job_cycles_median": 55022,
+      "job_cycles_max": 55174
+    },
+    {
+      "case_index": 5,
+      "name": "asymmetric_k255",
+      "m": 65,
+      "n": 63,
+      "k": 255,
+      "repeats": 3,
+      "seed": 20261007,
+      "pattern": "seeded_signed_int8",
+      "first_job_id": 16,
+      "final_job_id": 18,
+      "completed_jobs": 27,
+      "job_cycles_min": 153599,
+      "job_cycles_median": 153760,
+      "job_cycles_max": 153965
+    },
+    {
+      "case_index": 6,
+      "name": "resident_dense",
+      "m": 32,
+      "n": 32,
+      "k": 256,
+      "repeats": 30,
+      "seed": 20261008,
+      "pattern": "seeded_signed_int8",
+      "first_job_id": 19,
+      "final_job_id": 48,
+      "completed_jobs": 270,
+      "job_cycles_min": 34020,
+      "job_cycles_median": 34100.0,
+      "job_cycles_max": 34210
+    }
+  ],
+  "aggregate_job_counters": {
+    "job_cycles": 15274881,
+    "compute_cycles": 7214238,
+    "read_beats": 956853,
+    "write_beats": 224991,
+    "write_valid_bytes": 1785348,
+    "input_wait_cycles": 6317970,
+    "read_stall_cycles": 0,
+    "write_stall_cycles": 32400
+  },
+  "summed_ddr_job_seconds": 0.15274881,
+  "transport": {
+    "retries": 0,
+    "rejected_frames": 0,
+    "poisoned": false
+  },
+  "qualification_reference": {
+    "public_directory": "results/ddr_gemm/gather4/board",
+    "manifest_sha256_bytes": "51729d9f2b6f22dbcffe20eda4a1b60f94c5d0b3ff8f4ecd0744460a0732d273",
+    "frozen_artifact_sha256_bytes": {
+      "build.json": "a3da6555964de83af346ec424ebd3e8942f8fe5ad1f9838ce7354089bf2a060c",
+      "inputs.json": "2692b63ca42ccc0b5dc2142baca674135ecb05b77c40069b86ad79ecf206bb6d",
+      "cold_start_confirmation.json": "54afb4d5763fc5ab579831bfeb0b8af7d631f0be8e5207f4f1e01b16f3560005",
+      "program.log": "8fa701f65f534e85afd74d2ed13f007661c3494c0b3bd840a3f9840c5857e5cb"
+    }
+  },
+  "startup_scope": "Continues the qualified gather4 powered/programmed session; inherited cold/program evidence is referenced, with no fresh power-cycle claim for each pass",
+  "session_scope": "Each child opens a new UART connection, identifies the same image and reloads inputs. Job IDs 1..48 repeat only between independently identified child sessions; no automatic reset or failed-START recovery is attempted",
+  "timing_scope": "Measured parent monotonic wall time includes UART transfers, software validation, guard checks, persistence and process overhead. Summed frozen JOB_CYCLES report actual DDR-resident job intervals separately",
+  "raw_copy_policy": "Parent summary and four records per child copied byte-for-byte. Duplicated per-case JSON/CSV were independently verified but remain local; combined records retain every job",
+  "raw_copy_provenance": {
+    "summary.json": "build/gemm_gather4/repeatability_20261003T1200/summary.json",
+    "pass_01/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_01/results.json",
+    "pass_01/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_01/results.csv",
+    "pass_01/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_01/summary.json",
+    "pass_01/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_01.txt",
+    "pass_02/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_02/results.json",
+    "pass_02/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_02/results.csv",
+    "pass_02/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_02/summary.json",
+    "pass_02/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_02.txt",
+    "pass_03/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_03/results.json",
+    "pass_03/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_03/results.csv",
+    "pass_03/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_03/summary.json",
+    "pass_03/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_03.txt",
+    "pass_04/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_04/results.json",
+    "pass_04/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_04/results.csv",
+    "pass_04/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_04/summary.json",
+    "pass_04/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_04.txt",
+    "pass_05/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_05/results.json",
+    "pass_05/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_05/results.csv",
+    "pass_05/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_05/summary.json",
+    "pass_05/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_05.txt",
+    "pass_06/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_06/results.json",
+    "pass_06/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_06/results.csv",
+    "pass_06/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_06/summary.json",
+    "pass_06/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_06.txt",
+    "pass_07/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_07/results.json",
+    "pass_07/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_07/results.csv",
+    "pass_07/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_07/summary.json",
+    "pass_07/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_07.txt",
+    "pass_08/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_08/results.json",
+    "pass_08/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_08/results.csv",
+    "pass_08/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_08/summary.json",
+    "pass_08/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_08.txt",
+    "pass_09/results.json": "build/gemm_gather4/repeatability_20261003T1200/pass_09/results.json",
+    "pass_09/results.csv": "build/gemm_gather4/repeatability_20261003T1200/pass_09/results.csv",
+    "pass_09/summary.json": "build/gemm_gather4/repeatability_20261003T1200/pass_09/summary.json",
+    "pass_09/console.txt": "build/gemm_gather4/repeatability_20261003T1200/pass_09.txt"
+  },
+  "saved_artifact_sha256_bytes": {
+    "summary.json": "ce7a2668b7e997a1c1ff24f701b23c14366af71944eb63342c6c0f293c577f3c",
+    "pass_01/results.json": "1b4d749ad0bd99d38d6752de5e6a0908919c19b47c825c179c17b5cbc2ec56a3",
+    "pass_01/results.csv": "182ca337704c85274e4a286c5e206d708cd1256f9f6b5cfab7f849448b6e2a78",
+    "pass_01/summary.json": "6e1ced82e585ab11119cdf30eb0a26ae516e871d2be339f233e64e9c8102a976",
+    "pass_01/console.txt": "010c906ee10624ad69fa7070af55d21591cf2d5c072a0a4ecdb78f2fbb66d15e",
+    "pass_02/results.json": "5a107871e885badc50ad048ca44ee30ede9cb97babc8f6630a19f4c83039c65f",
+    "pass_02/results.csv": "4624afd7280c37f556567c0f878f7921fd1cbac0cbd45407076d12009a4dde74",
+    "pass_02/summary.json": "c4bf2278144707e2273ba7e35bf3e5efc399003ffb7b3e2117fdebafc5895551",
+    "pass_02/console.txt": "4f8494526f19ccf6ca8135ba285d6c6b285dfef56e315b0244b95273c617348c",
+    "pass_03/results.json": "feef5136a71914b6732cf1d30b9195eed0a4411073268b30d7d94f7e1ce2f507",
+    "pass_03/results.csv": "52726063f2bb9b3b44efe493559f5d917850e7da38571f9aaaa3627a59b022d3",
+    "pass_03/summary.json": "6a55c624819ffe372d6baf68408c2a2788cb6a289e9705c1d80d13097dc10078",
+    "pass_03/console.txt": "648626d9abecdd16a9741f240e2f7fa3d7d182c77f2f11cbffbff183f0eb6858",
+    "pass_04/results.json": "60917ea65fb693d2f49f29ca34e83ed992319e7b2678a640a356eb8a18c932da",
+    "pass_04/results.csv": "ced290f815fec7df1e1f501bc0be2677f4d269d68789cfffe0f9b5de5739d0a9",
+    "pass_04/summary.json": "995dec0f9d712ee1de15735eab9ab5419ba3641f87a35ff4dcf2f04204e980b4",
+    "pass_04/console.txt": "8224a86508a0a172551d15685bdd6d39f4e2312f1fd81cd609ead75d2268e061",
+    "pass_05/results.json": "bd5a529af125b21d0098f73ff868167dcd5f8e42999b7f4291a5c10942e3de75",
+    "pass_05/results.csv": "fdb046acbf8d1abed7ac17586610c126987fdf9b05cd183610baf0fde857d300",
+    "pass_05/summary.json": "495ff4bac2b3554a0c93d1c745bbf2a8b3dc9c2701fbe0114ca5734831940c74",
+    "pass_05/console.txt": "e52266a6282ac82888d2639843dbeaca9432d2b8601bb08f3f8e52e1bb530991",
+    "pass_06/results.json": "17e07d78fedfeff4f04fe86819e602fd10b7cf57f921b787c1da2d482c741c1c",
+    "pass_06/results.csv": "c77f21cb8c985bb9b50800806a6ce84f099b3c0fb206c0f3fd5fffd763508790",
+    "pass_06/summary.json": "bd08a24750cc1b99c9419c746f01b28c264c29e7d274212eb9eaa8f4e3f216a0",
+    "pass_06/console.txt": "bbdff43fa92da89994261c21c32299eb19f58b6bdcd0710fd498250a49ad0a69",
+    "pass_07/results.json": "5ddb24a7ba4c9b918e41efd71b47ea5ea7a6f376aebee8a1174a28b281da867d",
+    "pass_07/results.csv": "35e5dd0a968d8b8f07da939f1efe0ec2166ae657b57f4230e97299a6d3db7f16",
+    "pass_07/summary.json": "57b42de68355d48d99e8418e507eb1e8313125266773d0251a391dcd7aff9d04",
+    "pass_07/console.txt": "73cae901da3c336e1842c6ed8d7346d0e4168e317640f010afff404297b17469",
+    "pass_08/results.json": "41f65a9b12297318f2166ea2e4190c629396a124ffd6a24a042ba657b7716edf",
+    "pass_08/results.csv": "e0377556bf4b95666b0952ff21bbb8700f8f9677dc35b58bcffd003621b074a6",
+    "pass_08/summary.json": "5aeec241a59089cfcafecc01869206e02a0fe36af0baa6edb31b00649d982528",
+    "pass_08/console.txt": "6f7165589724e3d414e14ba7d7f35428d186013639b02977d5e4f040960bd69c",
+    "pass_09/results.json": "dd4e709f4e81b8774f7a10686a7ff99af65aa95c79c34e009df86a175bdee734",
+    "pass_09/results.csv": "e9bdbf23cc1674a9429ca9bf1341874d39098d2b1866f60f00e70a0e6f6a1cdc",
+    "pass_09/summary.json": "ca62771e0503634b05094dfd7cfbc32ed650c59a90d0c83f72216633a168e72f",
+    "pass_09/console.txt": "3b54a9dacb6398276b44106a538d822bc16b00ec368933583a94046cd0cf99f5"
+  }
+}

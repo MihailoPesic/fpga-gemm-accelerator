@@ -1,0 +1,107 @@
+First setup path, excerpted from timing.txt lines 323..426.
+Original complete timing.txt byte SHA-256: 561481639025062f15b3bae77c0ee18e919ad80205715b93ea26b398c13dbf82
+
+Slack (VIOLATED) :        -0.727ns  (required time - arrival time)
+  Source:                 diagnostic/slot_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            diagnostic/seed_latched_reg[6]/CE
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@10.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        10.409ns  (logic 3.556ns (34.163%)  route 6.853ns (65.837%))
+  Logic Levels:           19  (CARRY4=6 LUT2=2 LUT3=1 LUT4=1 LUT5=3 LUT6=6)
+  Clock Path Skew:        -0.039ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.520ns = ( 8.480 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.918ns
+    Clock Pessimism Removal (CPR):    0.564ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.131ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.489     1.489 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.722    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.946    -4.224 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.661    -2.563    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.467 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=2658, routed)        1.549    -0.918    diagnostic/core_clk
+    SLICE_X32Y26         FDRE                                         r  diagnostic/slot_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y26         FDRE (Prop_fdre_C_Q)         0.419    -0.499 r  diagnostic/slot_reg[1]/Q
+                         net (fo=31, routed)          1.040     0.542    diagnostic/slot_reg_n_0_[1]
+    SLICE_X32Y27         LUT6 (Prop_lut6_I1_O)        0.299     0.841 r  diagnostic/expected[63]_i_8/O
+                         net (fo=1, routed)           0.417     1.258    diagnostic/expected[63]_i_8_n_0
+    SLICE_X32Y29         LUT6 (Prop_lut6_I0_O)        0.124     1.382 r  diagnostic/expected[63]_i_6/O
+                         net (fo=1, routed)           0.420     1.802    diagnostic/expected[63]_i_6_n_0
+    SLICE_X32Y28         LUT4 (Prop_lut4_I0_O)        0.124     1.926 r  diagnostic/expected[63]_i_5/O
+                         net (fo=3, routed)           0.503     2.429    diagnostic/expected[63]_i_5_n_0
+    SLICE_X32Y24         LUT2 (Prop_lut2_I1_O)        0.124     2.553 f  diagnostic/expected[55]_i_3/O
+                         net (fo=3, routed)           0.486     3.039    diagnostic/expected[55]_i_3_n_0
+    SLICE_X30Y24         LUT5 (Prop_lut5_I0_O)        0.124     3.163 f  diagnostic/expected[23]_i_2/O
+                         net (fo=17, routed)          0.329     3.492    diagnostic/expected[23]_i_2_n_0
+    SLICE_X31Y22         LUT6 (Prop_lut6_I5_O)        0.124     3.616 r  diagnostic/expected[7]_i_2/O
+                         net (fo=14, routed)          0.622     4.238    diagnostic/expected[7]_i_2_n_0
+    SLICE_X32Y21         LUT3 (Prop_lut3_I0_O)        0.124     4.362 r  diagnostic/first_fail_addr[27]_i_83/O
+                         net (fo=1, routed)           0.579     4.941    transfer/first_fail_addr_reg[27]_i_49
+    SLICE_X35Y21         LUT6 (Prop_lut6_I1_O)        0.124     5.065 r  transfer/first_fail_addr[27]_i_67/O
+                         net (fo=1, routed)           0.000     5.065    diagnostic/S[0]
+    SLICE_X35Y21         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     5.597 r  diagnostic/first_fail_addr_reg[27]_i_49/CO[3]
+                         net (fo=1, routed)           0.000     5.597    transfer/CO[0]
+    SLICE_X35Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.711 r  transfer/first_fail_addr_reg[27]_i_32/CO[3]
+                         net (fo=1, routed)           0.000     5.711    transfer/first_fail_addr_reg[27]_i_32_n_0
+    SLICE_X35Y23         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.825 r  transfer/first_fail_addr_reg[27]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.825    diagnostic/first_fail_addr_reg[27]_i_6[0]
+    SLICE_X35Y24         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.939 r  diagnostic/first_fail_addr_reg[27]_i_9/CO[3]
+                         net (fo=1, routed)           0.009     5.948    transfer/first_fail_addr_reg[27]_i_5[0]
+    SLICE_X35Y25         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     6.062 r  transfer/first_fail_addr_reg[27]_i_6/CO[3]
+                         net (fo=1, routed)           0.000     6.062    diagnostic/first_fail_addr[27]_i_4[0]
+    SLICE_X35Y26         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157     6.219 f  diagnostic/first_fail_addr_reg[27]_i_5/CO[1]
+                         net (fo=1, routed)           0.466     6.685    transfer/first_fail_addr_reg[18][0]
+    SLICE_X35Y27         LUT6 (Prop_lut6_I4_O)        0.329     7.014 r  transfer/first_fail_addr[27]_i_4/O
+                         net (fo=28, routed)          0.219     7.234    transfer/read_state_reg[2]_0
+    SLICE_X35Y27         LUT6 (Prop_lut6_I4_O)        0.124     7.358 r  transfer/error_code[8]_i_2/O
+                         net (fo=4, routed)           0.181     7.539    diagnostic/error_code_reg[8]_2
+    SLICE_X35Y27         LUT5 (Prop_lut5_I4_O)        0.124     7.663 f  diagnostic/error_code[8]_i_1/O
+                         net (fo=11, routed)          0.505     8.168    transfer/command_tag_reg[0]
+    SLICE_X34Y28         LUT5 (Prop_lut5_I2_O)        0.124     8.292 f  transfer/error_i_2/O
+                         net (fo=3, routed)           0.323     8.616    diagnostic/seed_latched_reg[0]_1
+    SLICE_X33Y28         LUT2 (Prop_lut2_I1_O)        0.124     8.740 r  diagnostic/seed_latched[31]_i_1/O
+                         net (fo=36, routed)          0.752     9.491    diagnostic/seed_latched[0]
+    SLICE_X33Y24         FDRE                                         r  diagnostic/seed_latched_reg[6]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  CLK100MHZ
+                         net (fo=0)                   0.000    10.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.418    11.418 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    12.580    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.204     5.376 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.581     6.957    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     7.048 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=2658, routed)        1.431     8.480    diagnostic/core_clk
+    SLICE_X33Y24         FDRE                                         r  diagnostic/seed_latched_reg[6]/C
+                         clock pessimism              0.564     9.043    <hidden>
+                         clock uncertainty           -0.074     8.969    <hidden>
+    SLICE_X33Y24         FDRE (Setup_fdre_C_CE)      -0.205     8.764    diagnostic/seed_latched_reg[6]
+  -------------------------------------------------------------------
+                         required time                          8.764    <hidden>
+                         arrival time                          -9.491    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -0.727    <hidden>
+

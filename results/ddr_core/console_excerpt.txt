@@ -1,0 +1,44 @@
+p4_t8
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/5)
+790400.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790400.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/5)
+2575570.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2575570.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/5)
+2960530.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+2960530.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/5)
+3146450.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3146450.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (5/5)
+3242850.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+p4_t32
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/5)
+791350.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791350.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/5)
+3843540.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3843540.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/5)
+5495230.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5495230.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/5)
+5682170.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5682170.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (5/5)
+5778610.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+p8_t8
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/5)
+790460.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+790460.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/5)
+2683010.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+2683010.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/5)
+3066230.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+3066230.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/5)
+3252510.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+3252510.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (5/5)
+3348450.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed
+p8_t32
+     0.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_packets_and_retries (1/5)
+791380.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_packets_and_retries passed
+791380.00ns INFO     cocotb.regression                  running test_ddr_core.complete_matrix_jobs_from_host_packets (2/5)
+3939430.00ns INFO     cocotb.regression                  test_ddr_core.complete_matrix_jobs_from_host_packets passed
+3939430.00ns INFO     cocotb.regression                  running test_ddr_core.busy_ownership_duplicate_start_and_final_b (3/5)
+5581000.00ns INFO     cocotb.regression                  test_ddr_core.busy_ownership_duplicate_start_and_final_b passed
+5581000.00ns INFO     cocotb.regression                  running test_ddr_core.host_memory_faults_and_hung_drain (4/5)
+5767490.00ns INFO     cocotb.regression                  test_ddr_core.host_memory_faults_and_hung_drain passed
+5767490.00ns INFO     cocotb.regression                  running test_ddr_core.calibration_loss_during_accepted_write (5/5)
+5863730.00ns INFO     cocotb.regression                  test_ddr_core.calibration_loss_during_accepted_write passed

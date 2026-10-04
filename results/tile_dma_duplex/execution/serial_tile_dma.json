@@ -1,0 +1,15 @@
+{
+  "suite": "serial_tile_dma",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_tile_dma.py",
+    "--only",
+    "p8_t32",
+    "--read-slots",
+    "4",
+    "--build-dir",
+    "build/duplex_regression_20261004/serial_tile_dma"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 66.86744117736816
+}

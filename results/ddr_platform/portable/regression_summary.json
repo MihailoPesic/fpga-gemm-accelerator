@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-02",
+  "result": "PASS",
+  "scope": "Portable simulation and Python tests only; no vendor DDR or physical-board pass is established by these files.",
+  "command": "make lint test mutation PYTHON=.venv/bin/python",
+  "exit_code": 0,
+  "tools": {
+    "platform": "Ubuntu/WSL",
+    "python_runner": "3.12.3",
+    "python_embedded_reported": [
+      "3.12.4"
+    ],
+    "simulator": "Icarus Verilog version 12.0 (stable) ()",
+    "cocotb": "2.0.1",
+    "cocotbext-axi": "0.1.28",
+    "cocotb-bus": "0.3.0",
+    "scapy": "2.7.0"
+  },
+  "cocotb_testcases": 26,
+  "host_unit_tests": {
+    "preview": 20,
+    "ddr_diagnostic": 8
+  },
+  "suites": [
+    {
+      "suite": "test",
+      "result": "PASS",
+      "testcases": 3,
+      "local_summary_sha256_bytes": "c61405bd51e180c28bf1531b6a968460dbce4bcd8f68d8a14decc844469366ec",
+      "local_xml_sha256_bytes": {
+        "build/test/p4/results.xml": "232dea94440c057104633ebdac9910cf9ac7d44e763701e5b7a06657cbd5392b",
+        "build/test/p8/results.xml": "927b55572a064ef6cf080bf0242b670b1f34e56cdea2dfb2d40bcb55ad0814f8",
+        "build/test/pe/results.xml": "b00b4c1e26faeeb7f314bcdd01b9be07e33331fb658f686585136276c4b5db87"
+      }
+    },
+    {
+      "suite": "test_memory",
+      "result": "PASS",
+      "testcases": 4,
+      "local_summary_sha256_bytes": "baccd60895cfde4f96352ba289919804e0b235a6759f651b82405213c37cd2b4",
+      "local_xml_sha256_bytes": {
+        "build/test_memory/p4_t32/results.xml": "736e3d790f17c365606068a1f06fad7f1412160ef3c82f7fc3af62ba7d4f3c82",
+        "build/test_memory/p4_t8/results.xml": "eeec54453231cd3e4e3959fbf95483291a37a44439e481a24f31976ed41ca1ff",
+        "build/test_memory/p8_t32/results.xml": "6acd05518a95c461521cab4a022fb27df49cf8d838430a6565d70f666028e7b1",
+        "build/test_memory/p8_t8/results.xml": "22ce5491199d7a885c17212c2a58bed7deb5f48e9345b35e59611cf017e5b927"
+      }
+    },
+    {
+      "suite": "test_tile",
+      "result": "PASS",
+      "testcases": 8,
+      "local_summary_sha256_bytes": "f72cac25c5f1df5eea65977183c60b755d7ed50c15b57d173d990d93d7d7ad5c",
+      "local_xml_sha256_bytes": {
+        "build/test_tile/p4_t32/gemm_result_banks/results.xml": "4ec74df3113cb2447852c3225e8b00a662d9ccdd6dcff80e1816667e66742a8f",
+        "build/test_tile/p4_t32/gemm_tile_engine/results.xml": "fa875dbbabd373fd509ac6c4ebb44e8a79f41a64a0ab492008222c4cea2c2b03",
+        "build/test_tile/p4_t8/gemm_result_banks/results.xml": "d72a5faac95d5c99c5ddcea54b5aad87f3690a1a241715f35bd77f5b64675b95",
+        "build/test_tile/p4_t8/gemm_tile_engine/results.xml": "cb606c8a8364d320bb0e6239d3e8cb99484e8a8b189341e742ec0d0cdf1408b1",
+        "build/test_tile/p8_t32/gemm_result_banks/results.xml": "4d5dd1235b1bae6165c13e4c681bcbc2c843712d6ad9202ca43d76f9b8f264bd",
+        "build/test_tile/p8_t32/gemm_tile_engine/results.xml": "bd0159b5ccc94c87f5b19b81ffd7c2dbe66f1c50b12df85eb15c1ac2aaa85aaa",
+        "build/test_tile/p8_t8/gemm_result_banks/results.xml": "2a9298d6355eddc79c1a387f82378517bfae824bd19a722ca9172b732abb63d8",
+        "build/test_tile/p8_t8/gemm_tile_engine/results.xml": "eed615a8f1b2ea4224cbf40fbaa26952884bd1675a0cc18fd12cc5849069dcc2"
+      }
+    },
+    {
+      "suite": "test_packet_transport",
+      "result": "PASS",
+      "testcases": 1,
+      "local_summary_sha256_bytes": "da76a3b0499eb2e3937eaf3fcaf955e728cfc8d559732ff68417beae30bb5609",
+      "local_xml_sha256_bytes": {
+        "build/test_packet_transport/results.xml": "e6fd2401bc63d17972a710b7761e51d9bed80fd9b52d63e863922f42585d28e8"
+      }
+    },
+    {
+      "suite": "test_preview_controller",
+      "result": "PASS",
+      "testcases": 1,
+      "local_summary_sha256_bytes": "3758e484e5610cfe958eac10d78fe48f05279d3f53ff2257fd43cf43120b4b7d",
+      "local_xml_sha256_bytes": {
+        "build/test_preview_controller/results.xml": "fb6579a39813cbf041458d8e75572f7ec85b872320d4ccb2f49161bfcc7c5f00"
+      }
+    },
+    {
+      "suite": "test_preview_uart",
+      "result": "PASS",
+      "testcases": 1,
+      "local_summary_sha256_bytes": "16666af021cbebe1f08900c00c41a49d9c29617d1ad1950440e3aea0cf3b9ed5",
+      "local_xml_sha256_bytes": {
+        "build/test_preview_uart/results.xml": "9694520390844ea9767ff9ad4715d700b894ec00b16831bd9b67dcb1d8cb4d58"
+      }
+    },
+    {
+      "suite": "test_axi_burst",
+      "result": "PASS",
+      "testcases": 4,
+      "local_summary_sha256_bytes": "87c0efd31d84875dfc8c5cbef895d42aab9372954aae3426293edd74335a14ea",
+      "local_xml_sha256_bytes": {
+        "build/test_axi_burst/results.xml": "c32892af357970129d2ff7b331a609e42005debde69bc05cd895f6da03250a91"
+      }
+    },
+    {
+      "suite": "test_ddr_diag",
+      "result": "PASS",
+      "testcases": 3,
+      "local_summary_sha256_bytes": "92926b558ab3732de3c1b74ecb72ca53fd7b0e77b04b625064b84f329b9d974f",
+      "local_xml_sha256_bytes": {
+        "build/test_ddr_diag/results.xml": "d4f9d50d3edea0f9cea0463be345f08085b8ad99efda244fa08cb672410ac3e2"
+      }
+    },
+    {
+      "suite": "test_ddr_diag_control",
+      "result": "PASS",
+      "testcases": 1,
+      "local_summary_sha256_bytes": "badb2ac4bb677f3c7978507fd9bd11174c8c960d85aa4b1fbdd32bf938345f01",
+      "local_xml_sha256_bytes": {
+        "build/test_ddr_diag_control/results.xml": "57277f111d53f80d0b9ddc48a1db1ebcb01ca8c5b244a1f318ad2ce2b11b8c4d"
+      }
+    }
+  ],
+  "mutations": {
+    "result": "CAUGHT",
+    "count": 3,
+    "scope": "compute core only; no DMA/ownership mutation claim",
+    "source": "build/mutations/1790942702045878824/summary.json",
+    "saved": "core_mutations.json"
+  },
+  "source_sha256_utf8_lf": {
+    "accelerator nexys.srcs/sources_1/new/uart_rx.sv": "d163dc2262631c2e43fc106e5717b54d04fb5077811505db69d8007474a1f9a1",
+    "accelerator nexys.srcs/sources_1/new/uart_tx.sv": "c2179f6da3806fcf77640be63f85d0df85201e9ff9f4705097cb85ecc2d16daa",
+    "requirements-test.txt": "c1634bed1288f02ac0b329b5e0f54cddd1b22fa74d5e30acad625ca37a7c96eb",
+    "rtl/control/gemm_ddr_diag.sv": "7017175632891c2796358af88f37f4837b9aaaf1b8d4769dfb36475c9ae4aec8",
+    "rtl/control/gemm_ddr_diag_control.sv": "8eb54276e4a980f96ce6820829592a7ecdda5478dbaee177f8094672468e9a7b",
+    "rtl/control/gemm_packet_transport.sv": "e67950f3f340c84667d0553967eca2a270e1116f43bc1335275b6af4f1c40bfe",
+    "rtl/control/gemm_preview_controller.sv": "6b9f6763b56e75bfcc64db97c522fc2ae417d4dbc06122af784a5999f31c7c60",
+    "rtl/control/gemm_preview_uart.sv": "613da57049ac188ac645f94fc5f87a9ae0d3063d168750d0aa221ac8a8bd6538",
+    "rtl/control/gemm_tile_engine.sv": "53ee9e9537f9c43007fffc298ebe59b4dee837d516ee817655fee76a418eb694",
+    "rtl/core/gemm_array.sv": "26b226bbccac4ab61ccec44a4ec5cb09fb5b82388e517956848ec4f271a2f9a7",
+    "rtl/core/gemm_microtile.sv": "4ea9f2a7fbd07eaaaeebfaa07fd28b42166ef0b5d97453210c45ac5df99dd8d3",
+    "rtl/core/gemm_pe.sv": "82e2944527d9e23bbc038cd16dd5753e95a2b9f9406106247a0a751bafde03b6",
+    "rtl/memory/gemm_axi_burst.sv": "1b49e3ef806eb5cf4b819f2d54e38bc677b02114bdabe7f816050f3437313804",
+    "rtl/memory/gemm_bram_microtile.sv": "bd5fc9e98e14d796577f052be188e3f7ff3947aa8240830c4ba1731ab1273a26",
+    "rtl/memory/gemm_operand_banks.sv": "a867c8e36e2518a9926724f9135b96fa7e836062aad2081b0af2422529e5a639",
+    "rtl/memory/gemm_result_banks.sv": "46017639ff429921ae98cd020a45b4c6794d816390392b45eefeef6030c0f805",
+    "scripts/test_axi_burst.py": "4e669b73c29be13300bf48689fd56f16e2999f437234d2e81851ba25ddb3565a",
+    "scripts/test_ddr_diag.py": "316d1c7b1e5a2db29711f4e3a186876f78104d32f415d18b86f88a2059121193",
+    "scripts/test_ddr_diag_control.py": "1f9cf007bcfc5eb4296ccc5cd944b3a5596128a3ec437b8500cc4dd5b209c7c7",
+    "scripts/test_memory.py": "663a9e413ecc09fc208d04a7262e4f858d1e889cf3e7e491096042e107aeefcb",
+    "scripts/test_packet_transport.py": "a4386f33114f1296c1d3b19f81cc75e3cf913358e1a86e92703ce93751870f21",
+    "scripts/test_preview_controller.py": "1743466ddb4996dc4fee2bcf5ed6803e5584b5cfcc28a975ab89a26d90e45e24",
+    "scripts/test_preview_uart.py": "974c65bd72c74c3b95e35d2bb0adfcf3b26083da29bc1d144603b262660a0142",
+    "scripts/test_tile.py": "c5bae26da2cafad893e6ea6cd4f29f712dc33cd3426a4efdeecc8e5de57d953b",
+    "tb/common.py": "f52d5736a601dc6b5b1f7ecd9494b245e890ef94511b55fb8a0bd074f88e3152",
+    "tb/sv/ddr_diag_harness.sv": "5f35bb8df99b7944536272f781d2f0ff1437e97f1d578fed970818937ab40296",
+    "tb/test_axi_burst.py": "6c529dc792f7bd864acdbb5a4f8fe0ef1a565e3bf124daaa27294c42875bb75b",
+    "tb/test_bram_microtile.py": "44498ef76948ae3cff19b55132e61d247983c25584d55f37b3348194690e1361",
+    "tb/test_ddr_diag.py": "62686a9fe54fcf34673e24dc2b4664a5f34024a1e9ae57163e3eb369a69c0239",
+    "tb/test_ddr_diag_control.py": "9f30495e00d23c6c53f3485bc3213f25c17ea12774df04f7dd3a47dda85f9c36",
+    "tb/test_packet_transport.py": "0c0dead10349b49cf9eeae225a95a4ccfbb6146469d8f6e5af3bb980ce08c72c",
+    "tb/test_preview_controller.py": "64819415fec29933e90ad207d53a076b53ee84e1c878d5e2b151fdff72088085",
+    "tb/test_preview_uart.py": "0b15d27c28d98c15d243f267617d25edd8788c93acdfdfbdc9e509feed8ff1d2",
+    "tb/test_result_banks.py": "d5bea4edcc61d97c9af373b209158e93924bf499e63ad2fa1e497dcaad65a252",
+    "tb/test_tile_engine.py": "20070deae3882be7fe5957a80603ce65334eff7209111180506a89196f9c838e"
+  },
+  "source_hash_note": "Hashes recorded by the completed test runners; each was checked against the current source during collection. This map does not claim that unittest independently recorded its input hashes.",
+  "console": {
+    "local_path": "build/platform_regression_console.txt",
+    "size_bytes": 84191,
+    "sha256_bytes": "ceda2d5e12bb2596621e594f62c0d8d6b2314e446f67d1efeef3d3de68277ce2",
+    "saved_excerpt": "pass_excerpt.txt",
+    "excerpt_selection": "Lines starting PASS:, CAUGHT, Ran, OK or Evidence:, plus cocotb TESTS= summary lines; original line numbers retained."
+  },
+  "evidence_sha256_bytes": {
+    "control/coverage.json": "058998e55096352a4776b82dfc2d8f78eda379132e8d111b96884f251cf93b38",
+    "control/results.xml": "57277f111d53f80d0b9ddc48a1db1ebcb01ca8c5b244a1f318ad2ce2b11b8c4d",
+    "control/summary.json": "badb2ac4bb677f3c7978507fd9bd11174c8c960d85aa4b1fbdd32bf938345f01",
+    "core_mutations.json": "a42834e7464dfdefca340cd021900da52e4a28a81b60a35dab52919175433e08",
+    "diagnostic/coverage.json": "d13b5cb97f7c5b0e81e24ea155291be761512136352a4617a806d844a7859dea",
+    "diagnostic/results.xml": "d4f9d50d3edea0f9cea0463be345f08085b8ad99efda244fa08cb672410ac3e2",
+    "diagnostic/summary.json": "92926b558ab3732de3c1b74ecb72ca53fd7b0e77b04b625064b84f329b9d974f",
+    "pass_excerpt.txt": "e26ff5f1395216e5ed8d32e8a338008e9148b24cc20e1f78e6925af18c2e4552"
+  }
+}

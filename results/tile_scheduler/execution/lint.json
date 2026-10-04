@@ -1,0 +1,9 @@
+{
+  "suite": "lint",
+  "command": [
+    ".venv/bin/python",
+    "scripts/lint.py"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 4.672024488449097
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "scope": "Bounded same-workload physical P8/T32 serial DDR GEMM revision comparison",
+  "comparison_limitation": "This is a same-workload physical revision comparison, not an isolated READ_SLOTS experiment. DMA, burst handling, host control and build sources changed between images; a same-source READ1 board image is needed to isolate read-depth effects.",
+  "read1_build_id": 30078492,
+  "read4_build_id": 3579356483,
+  "reference_artifact_sha256_bytes": {
+    "results/ddr_gemm/p8_serial/board/manifest.json": "c6e6acb9059a69271d414ad6de9827d2495ebc123710adee84499aa128ceb98a",
+    "results/ddr_gemm/read4/host_geometry/board/manifest.json": "89c8a05fa32bb678c57ca7d71ea8d2608254b40d38431a400a6d120ea713a3a2",
+    "results/ddr_gemm/p8_scaling/comparison.json": "c6d6131d13335809b1c0f2b35290f4936fdb2aece34c868020b564c52303978f",
+    "results/ddr_gemm/p8_serial/vendor/manifest.json": "ed9e17381ddbb0fba4f24577da1c85d247ac44068addc5ab02e4fb5d952eb68e",
+    "results/ddr_gemm/p8_serial/routed/manifest.json": "e762b6c5b396fbf16576dc2b67de3491f675caf196bdde1ce3bb2e77c1738566",
+    "results/ddr_gemm/p8_scaling/p4/manifest.json": "86c2b9f99fde2e216a75217cb5010f6797cfe0370130da447f9f24ea69ef1ead",
+    "results/ddr_gemm/read4/host_geometry/vendor/manifest.json": "d1aad67c1e233c72bb49897f135b9b1766a4398fbd92890ccfd69c10df7768f6",
+    "results/ddr_gemm/read4/host_geometry/routed/manifest.json": "4ca0f6526e6873624ddb24278031d80f575d9ac347ea883f56f3668f8cdcd650"
+  },
+  "saved_artifact_sha256_bytes": {
+    "comparison.json": "fad93aae271b1b99254d334d00ad0980c0a8097a1a5929077b5e645a400a6941",
+    "comparison.csv": "071a6df11afb920afe91e17e5f1a93459baed2ae7e36db8b04972be05cb4198b",
+    "README.md": "ff4a4e0e43d6d6739f92cd682f0fa28ca3fd5f7825b35ac85d564c76557f975e"
+  },
+  "curation": {
+    "script_sha256_bytes": "e9facd60421ceaeb68b2f9255832bef3c7a2a51bd1378595b0656ac281911f49",
+    "imported_helpers_sha256_bytes": {
+      "build/preserve_gather4_board.py": "29ade2f85430950189a6b40774780ecb48a1a0ad830f087c4cd44a2c4b100076",
+      "build/preserve_p8_board.py": "13bed8f0ea244393187c36b077bccbff0ca66c74841bf3c4ad248ba526697f72",
+      "build/preserve_p8_scaling_baseline.py": "46506844e51d1eceb6d2abb96481deed5192b78bf5a69570758af234f3cadbb2",
+      "build/preserve_read4_host_geometry_board.py": "be2824bfbefadba0e9dc67eb42ff5f3d2d9cc49f96a26d72db00a0a26f80ef99"
+    },
+    "recorded_utc": "2026-10-03T19:25:35.638863+00:00"
+  }
+}

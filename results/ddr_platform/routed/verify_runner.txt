@@ -1,0 +1,1 @@
+PASS: explicit verification; original build exit 1 retained; C:\Users\mihai\Documents\continium\accelerator nexys\build\ddr_diag_pipeline\build.json

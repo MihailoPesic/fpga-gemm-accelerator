@@ -1,0 +1,96 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Fri Oct  2 22:49:58 2026
+| Host         : mihinayoga running 64-bit major release  (build 9200)
+| Command      : report_timing -from [get_cells -hier -filter {IS_SEQUENTIAL == 1 && NAME =~ core/job/*}] -delay_type max -max_paths 12 -nworst 1 -file job_setup.txt
+| Design       : gemm_ddr_top
+| Device       : 7a50ti-csg324
+| Speed File   : -1L  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.319ns  (required time - arrival time)
+  Source:                 core/job/n_q_reg[9]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            core/job/compute_cycles_reg[2]/CE
+                            (rising edge-triggered cell FDRE clocked by clk_out1_axi_ddr_bd_clocks_0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk_out1_axi_ddr_bd_clocks_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk_out1_axi_ddr_bd_clocks_0 rise@10.000ns - clk_out1_axi_ddr_bd_clocks_0 rise@0.000ns)
+  Data Path Delay:        10.936ns  (logic 2.562ns (23.427%)  route 8.374ns (76.573%))
+  Logic Levels:           10  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=5)
+  Clock Path Skew:        -0.103ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.529ns = ( 8.471 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.933ns
+    Clock Pessimism Removal (CPR):    0.493ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.131ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                      0.000     0.000 r  <hidden>
+    E3                                                0.000     0.000 r  CLK100MHZ
+                         net (fo=0)                   0.000     0.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.489     1.489 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.722    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.946    -4.224 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.661    -2.563    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.467 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=14499, routed)       1.534    -0.933    core/job/core_clk
+    SLICE_X30Y72         FDRE                                         r  core/job/n_q_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y72         FDRE (Prop_fdre_C_Q)         0.478    -0.455 r  core/job/n_q_reg[9]/Q
+                         net (fo=8, routed)           0.990     0.535    core/job/n_q[9]
+    SLICE_X30Y69         LUT6 (Prop_lut6_I0_O)        0.295     0.830 r  core/job/j0[10]_i_17/O
+                         net (fo=1, routed)           0.589     1.419    core/job/j0[10]_i_17_n_0
+    SLICE_X29Y69         LUT6 (Prop_lut6_I0_O)        0.124     1.543 r  core/job/j0[10]_i_12/O
+                         net (fo=1, routed)           0.000     1.543    core/job/j0[10]_i_12_n_0
+    SLICE_X29Y69         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     1.944 r  core/job/j0_reg[10]_i_5/CO[3]
+                         net (fo=1, routed)           0.000     1.944    core/job/j0_reg[10]_i_5_n_0
+    SLICE_X29Y70         CARRY4 (Prop_carry4_CI_CO[0])
+                                                      0.271     2.215 r  core/job/j0_reg[10]_i_4/CO[0]
+                         net (fo=56, routed)          1.357     3.573    core/job/last_col_band
+    SLICE_X48Y76         LUT4 (Prop_lut4_I2_O)        0.373     3.946 f  core/job/job_cycles[63]_i_8/O
+                         net (fo=96, routed)          1.003     4.949    core/job/job_cycles[63]_i_8_n_0
+    SLICE_X46Y72         LUT6 (Prop_lut6_I3_O)        0.124     5.073 f  core/job/error_code[3]_i_4/O
+                         net (fo=4, routed)           0.581     5.654    core/job/error_code[3]_i_4_n_0
+    SLICE_X42Y72         LUT6 (Prop_lut6_I5_O)        0.124     5.778 r  core/job/done_i_3/O
+                         net (fo=1, routed)           0.640     6.418    core/job/done_i_3_n_0
+    SLICE_X36Y69         LUT6 (Prop_lut6_I2_O)        0.124     6.542 f  core/job/done_i_2/O
+                         net (fo=7, routed)           0.923     7.465    core/job/done_i_2_n_0
+    SLICE_X49Y73         LUT5 (Prop_lut5_I4_O)        0.124     7.589 r  core/job/job_cycles[63]_i_4/O
+                         net (fo=129, routed)         0.977     8.566    core/job/job_cycles[63]_i_4_n_0
+    SLICE_X53Y82         LUT3 (Prop_lut3_I1_O)        0.124     8.690 r  core/job/job_cycles[63]_i_1/O
+                         net (fo=512, routed)         1.313    10.003    core/job/job_cycles[63]_i_1_n_0
+    SLICE_X47Y71         FDRE                                         r  core/job/compute_cycles_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_out1_axi_ddr_bd_clocks_0 rise edge)
+                                                     10.000    10.000 r  <hidden>
+    E3                                                0.000    10.000 r  CLK100MHZ
+                         net (fo=0)                   0.000    10.000    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1
+    E3                   IBUF (Prop_ibuf_I_O)         1.418    11.418 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    12.580    platform/platform/axi_ddr_bd_i/clocks/inst/clk_in1_axi_ddr_bd_clocks_0
+    MMCME2_ADV_X1Y1      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.204     5.376 r  platform/platform/axi_ddr_bd_i/clocks/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.581     6.957    platform/platform/axi_ddr_bd_i/clocks/inst/clk_out1_axi_ddr_bd_clocks_0
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     7.048 r  platform/platform/axi_ddr_bd_i/clocks/inst/clkout1_buf/O
+                         net (fo=14499, routed)       1.423     8.471    core/job/core_clk
+    SLICE_X47Y71         FDRE                                         r  core/job/compute_cycles_reg[2]/C
+                         clock pessimism              0.493     8.964    <hidden>
+                         clock uncertainty           -0.074     8.889    <hidden>
+    SLICE_X47Y71         FDRE (Setup_fdre_C_CE)      -0.205     8.684    core/job/compute_cycles_reg[2]
+  -------------------------------------------------------------------
+                         required time                          8.684    <hidden>
+                         arrival time                         -10.003    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.319    <hidden>
+

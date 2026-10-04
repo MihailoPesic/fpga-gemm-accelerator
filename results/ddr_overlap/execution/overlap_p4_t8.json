@@ -1,0 +1,16 @@
+{
+  "suite": "overlap_p4_t8",
+  "command": [
+    ".venv/bin/python",
+    "scripts/test_ddr_core.py",
+    "--only",
+    "p4_t8",
+    "--build-dir",
+    "build/overlap_integration_20261004/overlap/p4_t8",
+    "--overlap",
+    "--suite",
+    "overlap"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 255.8804371356964
+}
