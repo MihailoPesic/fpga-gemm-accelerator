@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "kind": "controlled_1mbaud_grid_comparison",
+  "checked_counts": {
+    "completed_jobs": 1440,
+    "common_cases": 16,
+    "series": 48,
+    "samples_per_series": 30
+  },
+  "input_package_manifest_sha256_bytes": {
+    "t8": "f2bc2a683c72ab5314895275b5420c3bfdeb6a90792b765f649404d24f695402",
+    "t32": "26cf4d19844b3be157b1a6bec23e31a27722838f3ccc5608f959b7902006feb5"
+  },
+  "utc_curated": "2026-10-05T05:49:33.247791+00:00",
+  "hardware_accessed": false,
+  "saved_artifact_sha256_bytes": {
+    "collection_method.py": "a900d9d20b22f2ea5c18cd12484b9ec64c99d426437931ee50c578fa42d1d573",
+    "collect_benchmarks.py": "72bf921c4961a2528a317f84721193d3dc968bdf42c44ba23d95b28a84875885",
+    "console.txt.gz": "31e6dd269eb8d0ecbdffb36f2ff41153cda0a58af85a9eb8ceed60084c780d8f",
+    "curation_method.py": "f6d2ae26e47ebbe737142ce65161dac62c5569cfe92866d4b8e7c4b591dc9bc4",
+    "execution.json": "8d2b23ceeac63c68ec0fbee731c6b83af68c20768ed3c48a7d12de233300a59b",
+    "input_packages.json": "2c91e9dd0483184037da4366ccc0d971136f95a15031f1aa54695b6e40086b87",
+    "native_receipt.json": "b738ae8d0630da667b97e9e5b7fe3d30b02b0d5b3e301065305e4b92ae30ca31",
+    "README.md": "23a9bec5c27229ce363d2005220406ff1996d938add3d3aafe1c81b6766e9d69",
+    "requirements-benchmark.txt": "2d562c38a7c5982afea7ac8f1dc43c1f5653c34cf89bc6bc9b3bec20d4a46b83",
+    "verify.py": "7f9567cc74ab0ec23ab498d7448b654b21bc8255693849675e5655a0abf97f85",
+    "collector/comparison.csv": "1bb76019538b6c9cd4c2d8243f111dde5a05c2359c4a141680fbf37411ada16e",
+    "collector/comparison.json": "c14593f286eff3f3f213f1c87e671e6658ee62705ebe9cf02f26b9cde9e166eb",
+    "collector/manifest.json": "5b3c9e48afef3a6217cb1f5ac8962e0a126b421a9be51f372cf74d46d21e9c33",
+    "collector/tail_latency.pdf": "26d371b192ff7e3712f3e65e6a2f5baf37aec738493da0c673c734f46c28edd3",
+    "collector/tail_latency.png": "9c94479ded4b165be4c73de4da1bebcc482f86ef5eae858347c3a0f860770201",
+    "collector/transfer_volume.pdf": "05d244451061180ea765e0199014b531cd6d82f85608dd3c991099eb9ebc1de5",
+    "collector/transfer_volume.png": "9577544f880f601ef5e44244b721400a82ba228aa819b4b8b02cd7841fb2c9ec",
+    "collector/useful_gops.pdf": "1f23ff47b787a9902d00402f2decb4b33b7e0bfd16c4f5b9a55e93545a50adfe",
+    "collector/useful_gops.png": "394186f7b0027dc1709e657bc1ee6cfb34816f6d9b2e51a8e9761e7713f20574"
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "full_grid_complete": true,
+  "missing_case_indexes": [],
+  "input_provenance": [
+    {
+      "case_index": 0,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_00_32x32x16",
+      "seal_sha256_bytes": "28e21701b0db52b1ef6ed3874307c6c06af9e385d79e1f6a1d05e49fb0fb1c5f",
+      "results_sha256_bytes": "126218a00d135e4ef8c20066c4e349bcffb2545593bff65fc95f5c0a2ae8eb6e"
+    },
+    {
+      "case_index": 0,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_00_32x32x16",
+      "seal_sha256_bytes": "c8c7e6e5b50672b522f6b59b067a9417c79ca47df8783ac49fc7783365f33b04",
+      "results_sha256_bytes": "16e14175ba1f64ae59a8bd6a1e6336044b0ae1ce48c024b94614e2822ff6794b"
+    },
+    {
+      "case_index": 1,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_01_32x32x64",
+      "seal_sha256_bytes": "92422b4ca35427dccf197f02502759738a4e6f82c4dbf058a2c2ef82258ff892",
+      "results_sha256_bytes": "4fb1f435160994c190d492f2920c447fa6355710cd23a0095190e32706ff627e"
+    },
+    {
+      "case_index": 1,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_01_32x32x64",
+      "seal_sha256_bytes": "929b1170e37c72cd723a9167e91c6824562d62e1b318b81e19111c44466229a0",
+      "results_sha256_bytes": "18e8ca9395990325d3d0510ddd9b6481e7935b76542b69ae8f6ae9441812d9d0"
+    },
+    {
+      "case_index": 2,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_02_32x32x256",
+      "seal_sha256_bytes": "26fac34f95b3f1244c56769385b94c2b8a3698f305a0abb25a1f03eecef1e1e8",
+      "results_sha256_bytes": "5f6af2ec207d4465cf1b4947f1e62b45800489541640fbf015293b4e7c4a2bfa"
+    },
+    {
+      "case_index": 2,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_02_32x32x256",
+      "seal_sha256_bytes": "2a7db436fd1a448c2eb21557f04f6b5be1b78c822374d03ae71d85be658a0ef8",
+      "results_sha256_bytes": "5cda6b0951c7d34a13ef72c72c98effc94148eb590fb64c4c9e8ecc2130593d7"
+    },
+    {
+      "case_index": 3,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_03_64x64x16",
+      "seal_sha256_bytes": "3dfe24ea1a216b00351e9e00ac7637c54be31ed45ebd12f10501833a27bcf5a2",
+      "results_sha256_bytes": "11fdf64f55cb76271102b7352a89b20c6c4e618b98fbd384c26b00d4ea8c8766"
+    },
+    {
+      "case_index": 3,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_03_64x64x16",
+      "seal_sha256_bytes": "d131e263547710c8d2e7cd9bae32eda881594d60444da946d289796837d71fc0",
+      "results_sha256_bytes": "81b6b3f0c708aee9d60afad9323fdffbe0275ae18531052b6bdb0281f9bde40a"
+    },
+    {
+      "case_index": 4,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_04_64x64x64",
+      "seal_sha256_bytes": "c7e5aecdfb20ecfb2323866f2c9a8f7c774d9f731163aedb2af49b27daac2173",
+      "results_sha256_bytes": "f3ab5dfefaa7f2d49f87704172f05e6bcbcf24bafe2e835d3207e05d87edc6f4"
+    },
+    {
+      "case_index": 4,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_04_64x64x64",
+      "seal_sha256_bytes": "44650693b2bfbfed83d58abcda5fe9ec6c3377c06447ce4348b91760b9f8d4f9",
+      "results_sha256_bytes": "59b1e7d07be734a8d21e4b3790528d208e890f54bb6ebdbf14e05574a58b0cfc"
+    },
+    {
+      "case_index": 5,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_05_64x64x256",
+      "seal_sha256_bytes": "a30dca87d10f1b93151527a77ac11f4cdc8892e8dec6a02e102f684a686766fe",
+      "results_sha256_bytes": "9205b5cefc1fc7ff79ce8f37f816264c1ed39f8c9a294ab257aa4ef5c0aa0de8"
+    },
+    {
+      "case_index": 5,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_05_64x64x256",
+      "seal_sha256_bytes": "86f5f0071e130a6970e15f2b4fb1516e5e39cdf50b595146735705676872b355",
+      "results_sha256_bytes": "84cf98cac4b86c2e3af24efb775cd0151f73ef356816c98621f5f3ce17eeb8bd"
+    },
+    {
+      "case_index": 6,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_06_128x128x16",
+      "seal_sha256_bytes": "1eed959596b8e71d0e5bcd9b5a343987eabbfe719de880c09a451f881c024e52",
+      "results_sha256_bytes": "2b12d502f0a3b98c424f6c359781e6ba267622df25bbec114467017609e50258"
+    },
+    {
+      "case_index": 6,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_06_128x128x16",
+      "seal_sha256_bytes": "d60c0f855416f98fa8a9d753dc061493b8ab1c0304a7260b5dd74772a3794b25",
+      "results_sha256_bytes": "d6f6f41614d2d746ca9059665f4c7c693347425e731ae2dfce2dbf74160a8e60"
+    },
+    {
+      "case_index": 7,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_07_128x128x64",
+      "seal_sha256_bytes": "90de5d86bb5d841017ffc9ac4bcc0ae62c4cc5d717d9d2ec34928ca670e03508",
+      "results_sha256_bytes": "fff6bfc100f4fed437e78ca76e17a0df6c1248b8242fe1e65399790aebdf5b2f"
+    },
+    {
+      "case_index": 7,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_07_128x128x64",
+      "seal_sha256_bytes": "58926c64424a02e096ed31743d69d3891e17104fe9782f3dc85f0e51e622f3e3",
+      "results_sha256_bytes": "a4f1879792807bddaf53d2a4f48694f09b04d87508048be4467d576f0d51231d"
+    },
+    {
+      "case_index": 8,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_08_128x128x256",
+      "seal_sha256_bytes": "af3aec5c932af67694d63f5bdbf0a6848906e40b276c5e2c6ef4091ef56f9f5f",
+      "results_sha256_bytes": "bbb31c6955239d260e3b2232659cc13d66b782b46a60a6ea67c317bf74e457b3"
+    },
+    {
+      "case_index": 8,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_08_128x128x256",
+      "seal_sha256_bytes": "e9d6a70ef90c4697102b29b80f6942037cd67d087cfe41f30b092887af0c834b",
+      "results_sha256_bytes": "1a6d4786b3a839b370a3e2170b929c3d5986619d3e6952b33effc211d44b4099"
+    },
+    {
+      "case_index": 9,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_09_256x256x16",
+      "seal_sha256_bytes": "8c54c47b40ccf6e88cb62ae8b182702ec892cff16b303b51326573893283d27d",
+      "results_sha256_bytes": "113914811a7da8f162a09a419dfd703048b461834f41bfe1d1efd6c560d1bcdd"
+    },
+    {
+      "case_index": 9,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_09_256x256x16",
+      "seal_sha256_bytes": "8980dd82b20768a44bac6403e08f55adbfdee4fd867fa000c544e8053a32a47d",
+      "results_sha256_bytes": "379f47e29a0a39be92594386bf4fd5bd411dc01ef869849c9f5113cd34f23ae6"
+    },
+    {
+      "case_index": 10,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_10_256x256x64",
+      "seal_sha256_bytes": "558751348d8c330278340268dd9db64e329295afe5ba29a64abce67f0c74f0b5",
+      "results_sha256_bytes": "6483a5c86e05adb786b4f8507d71cfcd178e9792b497148dabcdf790a1ae682d"
+    },
+    {
+      "case_index": 10,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_10_256x256x64",
+      "seal_sha256_bytes": "f1191c3996f0201831cdf6f1075a266132e7197d2b9b8c1445003c2c13152ae3",
+      "results_sha256_bytes": "5e52b49b57629a41f3c08460f75102f4195bf8e8ba4d0911775915c322a11961"
+    },
+    {
+      "case_index": 11,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_11_256x256x256",
+      "seal_sha256_bytes": "82da779816a9aedda638c2d642c583e8eeff090d7e3b8a81d084252c263b28db",
+      "results_sha256_bytes": "64a67562008e231cb94960fceb0550f73dd4dd17203714a493e6c20571dd882d"
+    },
+    {
+      "case_index": 11,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_11_256x256x256",
+      "seal_sha256_bytes": "7089b6d629640e85275a6ac47f035781124cb295b16d3b2b4cbbf5af33ca8f07",
+      "results_sha256_bytes": "571e59c52578a496b21fe691c0fbe036f046eab16cfdbb60ee00a6bf04cf3bc2"
+    },
+    {
+      "case_index": 12,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_12_31x33x17",
+      "seal_sha256_bytes": "ab392cda1f75231a669c0432e629a14756b73cc5e91ca5f78c33362c417a80cb",
+      "results_sha256_bytes": "fd9785bedfd8ea79afa991db72e1e493e1d7ce4f5946b2e45a04825825c2fc0e"
+    },
+    {
+      "case_index": 12,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_12_31x33x17",
+      "seal_sha256_bytes": "477e085d29ec295f5075f60c152c3cbc91e743d055196939856e5da12a6366b4",
+      "results_sha256_bytes": "2bf926c55b3e2000d75e0420bdd9266c194210c48d104214055befccc2e9c5a2"
+    },
+    {
+      "case_index": 13,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_13_65x63x255",
+      "seal_sha256_bytes": "8bfbadbc567389c219712049319a2fed101d63494e9a17e89539fc1d843f6df6",
+      "results_sha256_bytes": "00b263ae0f74db5e7b611952092661425a3b67b2311a0212299cb87a240e6700"
+    },
+    {
+      "case_index": 13,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_13_65x63x255",
+      "seal_sha256_bytes": "5b457e39f67ab811e72a891583b880623b1eb6e70586c60405d2e5b86cb1fb2c",
+      "results_sha256_bytes": "55a985caccba34b1120fefd98682262361a7a007700ddbf47ab926fa05904a28"
+    },
+    {
+      "case_index": 14,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_14_1x64x256",
+      "seal_sha256_bytes": "224f614d31e37eaff2283c2eef7f9ddbb84a4b5a6b9bf6842c6d57a9ece23562",
+      "results_sha256_bytes": "e053cc4a586769d226a1043118386e6f533314b28cb49b39c7fe0456c3c417d1"
+    },
+    {
+      "case_index": 14,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_14_1x64x256",
+      "seal_sha256_bytes": "cd93aa477628f621aa1779d21afb7198b295b4c1adcd22d807d23cbc7a1c7c12",
+      "results_sha256_bytes": "91a32f12ee347ece22c63590b8a675bb3112f95a30f620d1edef7a61ba6d0e51"
+    },
+    {
+      "case_index": 15,
+      "series_build": "T8",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t8\\benchmark\\case_15_64x1x256",
+      "seal_sha256_bytes": "50a7dfc7a302837e767b70b12a6b36b3d9c159a2c8f3ce0c4f7ac22b9b96db93",
+      "results_sha256_bytes": "b34d6c1f7e62d1087d2a7aa58a2bb8f0ac55fe0f6ed03b57db2117d046b24a1d"
+    },
+    {
+      "case_index": 15,
+      "series_build": "T32",
+      "path": "C:\\Users\\mihai\\Documents\\continium\\accelerator nexys\\build\\release_controlled_comparison_execution\\inputs\\t32\\benchmark\\case_15_64x1x256",
+      "seal_sha256_bytes": "0c1771ee1e2a547ec41d76e22aaae781d9a2c0dea7e97477ab82e5fe9c9a1437",
+      "results_sha256_bytes": "d68422795f37750e5bb406b6914aca2f29f3ac332168325e0d557989447a33d2"
+    }
+  ],
+  "python": "3.13.0",
+  "matplotlib": "3.10.6",
+  "numpy": "2.3.3",
+  "saved_artifact_sha256_bytes": {
+    "comparison.csv": "1bb76019538b6c9cd4c2d8243f111dde5a05c2359c4a141680fbf37411ada16e",
+    "comparison.json": "c14593f286eff3f3f213f1c87e671e6658ee62705ebe9cf02f26b9cde9e166eb",
+    "tail_latency.pdf": "26d371b192ff7e3712f3e65e6a2f5baf37aec738493da0c673c734f46c28edd3",
+    "tail_latency.png": "9c94479ded4b165be4c73de4da1bebcc482f86ef5eae858347c3a0f860770201",
+    "transfer_volume.pdf": "05d244451061180ea765e0199014b531cd6d82f85608dd3c991099eb9ebc1de5",
+    "transfer_volume.png": "9577544f880f601ef5e44244b721400a82ba228aa819b4b8b02cd7841fb2c9ec",
+    "useful_gops.pdf": "1f23ff47b787a9902d00402f2decb4b33b7e0bfd16c4f5b9a55e93545a50adfe",
+    "useful_gops.png": "394186f7b0027dc1709e657bc1ee6cfb34816f6d9b2e51a8e9761e7713f20574"
+  }
+}

@@ -13,6 +13,8 @@ changed build setting; the images have separate timing and hardware identities.
 | [T32 maximum-size check](board/t32/maximum/README.md) | One 1024x1024x256 job per mode; all 2,097,152 outputs and complete allocation snapshots independently replayed; overlap 11.509020 useful GOPS |
 | [T32 complete benchmark grid](board/t32/benchmark/README.md) | 960 jobs across 16 shapes, 30 samples per mode; 15,981,960 outputs and full guarded allocations checked |
 | [T32 fresh sustained run](board/t32/endurance/README.md) | 592 mixed jobs and 550,634 outputs over 30.06 continuous host-paced minutes; both modes, zero retries |
+| [T8 serial baseline](board/t8/benchmark/README.md) | 480 jobs, 16 shapes and 30 samples per case; 7,990,980 outputs and complete guarded allocations checked |
+| [Controlled comparison](comparison/README.md) | 1,440 jobs and 48 matched series; useful-GOPS, transfer-volume and tail-latency plots; dense 5.720x overall cycle-median speedup |
 | [Stopped T32 endurance run and read-only recovery](board/t32/endurance_failed/README.md) | Original run failed after 381 validated jobs; host Modern Standby recorded; retained job's 64 outputs later checked separately without reset or START replay |
 
 The dense measurement includes DDR tile transfers and final result-write
@@ -21,7 +23,8 @@ USB-UART transfers and validation are recorded separately. It establishes
 physical operation at 1 Mbaud for this T32 workload. The maximum-size check
 adds complete comparisons in both modes, with one sample per mode. These
 records are supplemented by the complete T32 shape grid and a separate fresh
-30-minute mixed run. The T8 reuse baseline remains pending. Grid and endurance
+30-minute mixed run. The T8 serial baseline and controlled comparison also pass.
+Grid and endurance
 archives replay counters, metadata and provenance; raw per-job matrices and UART
 frames were not retained for independent numerical replay.
 

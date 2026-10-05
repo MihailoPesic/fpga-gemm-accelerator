@@ -25,6 +25,8 @@ image. [Testing](testing.md) gives reproduction commands.
 | 1 Mbaud maximum-size correctness | One 1024x1024x256 job per mode; 2,097,152 outputs and complete allocation snapshots; independent INT64 recomputation | [Maximum-size record](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md) |
 | 1 Mbaud T32 shape grid | 960 jobs across 16 shapes, 30 samples per mode; 15,981,960 outputs and complete allocations checked | [Full benchmark grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md) |
 | 1 Mbaud T32 repeatability | Fresh 30.06-minute host-paced run; 592 mixed jobs, 550,634 outputs, both modes and zero retries | [Sustained run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md) |
+| 1 Mbaud T8 serial baseline | 480 jobs, 16 matched shapes and 30 samples per case; 7,990,980 outputs and guarded allocations | [T8 board grid](../results/ddr_overlap/release_1mbaud/board/t8/benchmark/README.md) |
+| Controlled tiling/overlap | 1,440 jobs, 48 series; matching input/layout/sentinel signatures, independent counter and ratio checks, three plots | [Controlled comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md) |
 | 115200-baud checkpoint correctness | 48 jobs per mode, 30 matched benchmark pairs and a complete 1024x1024x256 MODE1 comparison; input/padding/guard checks | [Board plan and comparison](../results/ddr_overlap/timing_predicate/final_build/board/README.md), [maximum shape](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md) |
 | 115200-baud checkpoint repeatability | 368 mixed jobs, 184 per mode, 342,286 outputs and 5,319,624 input/padding/guard bytes checked over 30.52 continuous host-paced minutes | [Sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md) |
 
@@ -55,8 +57,8 @@ margin across boards and temperatures.
 The [clock-review addendum](../results/ddr_overlap/timing_predicate/final_build/clock_review_addendum.md)
 corrects one historical derived table count without changing the sealed reports.
 
-The remaining measured-release gates are the T8 baseline's physical qualification, the controlled
-T8-serial/T32-serial/T32-overlap grid, and final release identity. The original
+The T8 baseline and controlled T8-serial/T32-serial/T32-overlap grid now pass
+with exact source and image identities. The original
 specification also asks for a separately measured resident-array run and
 read-only/write-only/mixed DDR bandwidth. COMPUTE_CYCLES within a DDR job
 does not establish the former, and accepted traffic counters alone do not

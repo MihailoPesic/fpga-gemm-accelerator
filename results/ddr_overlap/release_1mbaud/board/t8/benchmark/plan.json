@@ -1,0 +1,188 @@
+{
+  "plan": {
+    "schema_version": 1,
+    "modes": [
+      0
+    ],
+    "samples": 30,
+    "minimum_continuous_seconds": 1800.0,
+    "seed": 20261004,
+    "oracle": "numpy",
+    "guard_bytes": 64,
+    "maximum_shape": [
+      1024,
+      1024,
+      256
+    ],
+    "mixed_shapes": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        5,
+        3,
+        9
+      ],
+      [
+        31,
+        33,
+        17
+      ],
+      [
+        33,
+        35,
+        256
+      ],
+      [
+        65,
+        63,
+        255
+      ],
+      [
+        1,
+        64,
+        256
+      ],
+      [
+        64,
+        1,
+        256
+      ],
+      [
+        32,
+        32,
+        256
+      ]
+    ],
+    "benchmark_cases": [
+      {
+        "index": 0,
+        "m": 32,
+        "n": 32,
+        "k": 16,
+        "seed": 20261004
+      },
+      {
+        "index": 1,
+        "m": 32,
+        "n": 32,
+        "k": 64,
+        "seed": 20270977
+      },
+      {
+        "index": 2,
+        "m": 32,
+        "n": 32,
+        "k": 256,
+        "seed": 20280950
+      },
+      {
+        "index": 3,
+        "m": 64,
+        "n": 64,
+        "k": 16,
+        "seed": 20290923
+      },
+      {
+        "index": 4,
+        "m": 64,
+        "n": 64,
+        "k": 64,
+        "seed": 20300896
+      },
+      {
+        "index": 5,
+        "m": 64,
+        "n": 64,
+        "k": 256,
+        "seed": 20310869
+      },
+      {
+        "index": 6,
+        "m": 128,
+        "n": 128,
+        "k": 16,
+        "seed": 20320842
+      },
+      {
+        "index": 7,
+        "m": 128,
+        "n": 128,
+        "k": 64,
+        "seed": 20330815
+      },
+      {
+        "index": 8,
+        "m": 128,
+        "n": 128,
+        "k": 256,
+        "seed": 20340788
+      },
+      {
+        "index": 9,
+        "m": 256,
+        "n": 256,
+        "k": 16,
+        "seed": 20350761
+      },
+      {
+        "index": 10,
+        "m": 256,
+        "n": 256,
+        "k": 64,
+        "seed": 20360734
+      },
+      {
+        "index": 11,
+        "m": 256,
+        "n": 256,
+        "k": 256,
+        "seed": 20370707
+      },
+      {
+        "index": 12,
+        "m": 31,
+        "n": 33,
+        "k": 17,
+        "seed": 20380680
+      },
+      {
+        "index": 13,
+        "m": 65,
+        "n": 63,
+        "k": 255,
+        "seed": 20390653
+      },
+      {
+        "index": 14,
+        "m": 1,
+        "n": 64,
+        "k": 256,
+        "seed": 20400626
+      },
+      {
+        "index": 15,
+        "m": 64,
+        "n": 1,
+        "k": 256,
+        "seed": 20410599
+      }
+    ],
+    "c_initialization": "Fresh full C allocation and guards for every job; both modes in a pair start with identical bytes",
+    "pair_order": "MODE order alternates for each benchmark sample",
+    "residency": "A/BT uploaded once per case; reconnect always reloads pending input sets"
+  },
+  "manifest_sha256_bytes": "ee3ff194b92e78fb0ed66948a64796bb7d19d2b6d100c987c060ac3ed4411969",
+  "build_id": 4007112977,
+  "bitstream_sha256": "21845beeb677bc8c0445231646cefb6e3633bdcf58a2d8c0566bcceaf44d6f37",
+  "host_source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/qualify_release.py": "fdfe9d020e3b89e565fbfb6e3246a0a93f4ba1184138c83a7c44d28dc5af7381",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  }
+}

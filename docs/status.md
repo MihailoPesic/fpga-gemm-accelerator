@@ -1,6 +1,6 @@
 # Project status
 
-Updated 2026-10-04. Target: [specification](specification.md), with
+Updated 2026-10-05. Target: [specification](specification.md), with
 [architecture](architecture.md) and [design decisions](decisions.md).
 
 The P8/T32 DDR-backed accelerator works on the Nexys A7-50T at 100 MHz.
@@ -29,6 +29,16 @@ zero transport retries. The [complete T32 benchmark grid](../results/ddr_overlap
 also passes: 16 shapes, 30 samples per mode, 960 jobs and 15,981,960 output
 comparisons. The recovered parent and child both exit zero; the reused dense
 and maximum-size units retain their original times and seals.
+
+The matched [T8 serial baseline](../results/ddr_overlap/release_1mbaud/board/t8/benchmark/README.md)
+passes 480 jobs and 7,990,980 output comparisons after a separate cold start.
+The [controlled comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+contains 16 shapes, 48 series and 30 samples per series. At 256x256x256,
+T8 serial takes median 1,698,969.5 cycles / 1.975 GOPS. T32 serial is 2.293x
+faster and T32 overlap adds 2.495x, giving a 5.720x ratio of cycle medians.
+Accepted input bytes fall 4x; input plus useful C bytes fall 3.4x. Larger tiles
+also change burst and tile-control overhead, so runtime gains are not attributed
+to operand reuse alone. Counters, plots and exact source/image identities are retained.
 
 The 115200-baud selectable image `0x2c680af7` retains its separate 156-job,
 maximum-shape and sustained-workload records below. Those checks do not qualify
@@ -193,18 +203,15 @@ The latter checks 368 jobs, 342,286 outputs and both modes with zero transport
 retries. It is a continuous host-paced repeatability check; no raw output-byte
 or UART replay is claimed for that run.
 
-## Remaining release work
+## Measured development release
 
-1. Qualify the T8 MODE0 baseline at 1 Mbaud. The T32 shape grid, maximum-size
-   checks and sustained workload now pass at this baud.
-   The [FIFO and reduced scheduler proofs](../results/buffer_formal/README.md)
-   now complement the bounded row-planner checks. Preserve fault/transport
-   regressions on the final source and recheck image identities after changes.
-2. Measure P8/T8 serial at the same clock and combine it with the completed
-   P8/T32 serial and overlap grid. Compare every output; retain raw counters,
-   source/bitstream identities and host/DDR measurement boundaries.
-3. Complete the benchmark plots, remaining coverage summary and demonstration
-   for the final release, retaining exact image identities and failure records.
+The 1 Mbaud T32 shape grid, both maximum-size modes, fresh sustained run,
+T8 serial baseline and controlled comparison are complete. The
+[verification summary](verification.md) and [FIFO/scheduler proofs](../results/buffer_formal/README.md)
+state coverage and proof boundaries. [The host API](host-gemm.md) supplies
+the deterministic demo and an example accepting user-provided matrices.
+All results remain bound to their recorded images; source changes require
+fresh qualification.
 
 The development contract remains VERSION=0x200. The original full v1 proposal
 also requires a separately measured resident-array run, isolated read-only,
@@ -223,6 +230,6 @@ warm-reset DDR timing issue remains open. Sparse diagnostic checks do not
 constitute full-memory or electrical-margin qualification. Simulator assertions
 and detected mutations are not a formal proof of the complete accelerator.
 
-The overlap release remains under development. Generated
+This is a measured development release, rather than full-v1 compliance. Generated
 Vivado projects, environments, waveforms and bitstreams stay under ignored
 `build/`; repository sources and scripts regenerate them.
