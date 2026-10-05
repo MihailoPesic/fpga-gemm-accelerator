@@ -159,8 +159,8 @@ only after every C write is acknowledged. Reading C is a separate command,
 so the FPGA does not automatically stream the whole result on completion.
 Inputs can stay in DDR2 for subsequent jobs during the same powered session.
 
-USB-UART limits movement between laptop and board. The supported physical
-build is 115200 baud, so host transfers can take much longer than FPGA
-compute. This project measures memory architecture and FPGA execution with
-on-board counters; it does not claim a USB end-to-end speedup over a laptop
-matrix library. The faster 1 Mbaud build remains a release gate.
+USB-UART limits movement between laptop and board. The current qualified
+image uses 1 Mbaud; earlier images use 115200 baud. Even at 1 Mbaud, host
+transfers can take much longer than FPGA compute. This project measures
+memory architecture and FPGA execution with on-board counters; it does not
+claim a USB end-to-end speedup over a laptop matrix library.
