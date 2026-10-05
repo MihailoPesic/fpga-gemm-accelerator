@@ -533,6 +533,29 @@ CI runs compute/interface checks and the four DDR integration geometries in
 separate jobs. The maximum-dimension tests retain complete output, guard and
 transaction checks; they are not replaced by a checksum to reduce runtime.
 
+## Physical tiling and overlap comparison
+
+The [completed 1 Mbaud comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+uses 16 shapes and 30 samples per configuration. Run each command only with
+its matching qualified image already programmed after a separate cold start;
+see [the board procedure](ddr-board.md). These commands do not program or reset
+the FPGA. Choose fresh output directories and keep the laptop awake.
+
+```text
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t8_1mbaud/build.json --phase benchmark --modes 0 --samples 30 --seed 20261004 --oracle numpy --output build/reproduce_t8_grid
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --phase benchmark --modes 0,1 --samples 30 --seed 20261004 --oracle numpy --output build/reproduce_t32_grid
+python scripts/collect_benchmarks.py --t8 build/reproduce_t8_grid --t32 build/reproduce_t32_grid --output build/reproduce_comparison
+```
+
+Install the pinned [benchmark dependencies](../requirements-benchmark.txt)
+for the collector and [host dependencies](../requirements-host.txt) for board
+access. The runner checks every output and complete guarded allocations before
+sealing a case; the collector requires matching source, input and layout
+identities. Error bars show minimum/maximum around each series median.
+The public archives retain standalone software-only validators and exact
+method snapshots. Their grid replay checks metadata and counters; it cannot
+reproduce numerical comparisons without per-job raw matrices.
+
 ## DMA row sequencing
 
 `make test-dma PYTHON=.venv/bin/python` tests both read depths of the row sequencer's

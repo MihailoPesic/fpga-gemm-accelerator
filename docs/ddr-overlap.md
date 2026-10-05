@@ -444,3 +444,50 @@ with half the byte strobes enabled. Their overlap median latencies are
 50.115 us and 60.290 us. Arithmetic count alone does not predict latency:
 row ends, tail strobes and response overhead affect the memory schedule.
 These observations do not establish the DDR device's bandwidth ceiling.
+
+## Controlled macrotile comparison
+
+The [completed comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+holds P=8, 100 MHz, signed INT8/INT32 arithmetic, four read slots, 1 Mbaud,
+core/host sources, mathematical inputs, layouts and C sentinels constant.
+Each of 16 shapes has 30 samples in three configurations: T8 serial (A),
+T32 serial (B), and T32 overlap (C). B and C share the same bitstream.
+
+```text
+256x256x256                         A: T8 serial  B: T32 serial  C: T32 overlap
+Job cycles, median                  1,698,969.5   741,063.5      297,001
+DDR-job time, median                16.989695 ms  7.410635 ms    2.970010 ms
+Useful GOPS, median                 1.974987      4.527875       11.297751
+Compute schedule cycles             285,696       285,696        285,696
+Accepted R beats                    524,288       131,072        131,072
+Accepted W beats                    32,768        32,768         32,768
+Useful C bytes                      262,144       262,144        262,144
+Input plus useful C bytes           4,456,448     1,310,720      1,310,720
+```
+
+Ratios of median cycles give 2.292610x for A/B, 2.495155x for B/C and
+5.720417x for A/C. These differ slightly from a median of paired ratios.
+Input traffic falls 4x and total accepted payload falls 3.4x. Output traffic
+and array schedules stay unchanged.
+
+Increasing T also changes burst and tile-control amortization. With this
+guarded layout, C_BASE=131392 is 320 bytes into a 4 KiB page. Independent
+address enumeration predicts 8,192 four-beat C bursts for T8, versus 1,984
+sixteen-beat and 128 eight-beat bursts for T32: 2,112 bursts total. The extra
+eight-beat bursts come from page-boundary splitting. Measured W-stall cycles
+fall from 16,384 to 4,224, matching this burst-count ratio. Command counts are
+analytical, since job counters record beats rather than every AW/B transaction.
+A/B therefore measures the combined effects of larger macrotiles; B/C measures
+scheduling on an identical image. Neither ratio is a host-inclusive speedup.
+
+Both routed builds use 16 RAMB36 and eight RAMB18 primitives, or 20 RAMB36
+equivalents. Logical operand/result storage grows from 8.5 KiB to 40 KiB,
+but the bank widths already determine the smaller build's physical primitives.
+T8 is a reuse baseline rather than a proportional physical-memory saving.
+
+![Accepted transfer volume across the matched shapes](../results/ddr_overlap/release_1mbaud/comparison/collector/transfer_volume.png)
+
+The logarithmic axis counts accepted input bytes plus useful C strobes.
+It excludes DDR command, refresh and physical burst overhead. Tail latency
+and complete distributions are retained alongside the
+[third plot](../results/ddr_overlap/release_1mbaud/comparison/collector/tail_latency.png).

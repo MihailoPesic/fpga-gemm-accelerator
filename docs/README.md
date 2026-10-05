@@ -15,6 +15,11 @@ Its [complete shape grid](../results/ddr_overlap/release_1mbaud/board/t32/benchm
 passes 960 jobs and 15,981,960 output comparisons across 16 shapes, with 30
 samples per mode. Its [fresh sustained run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md)
 passes 592 mixed jobs and 550,634 outputs over 30.06 host-paced minutes.
+The [T8 serial baseline](../results/ddr_overlap/release_1mbaud/board/t8/benchmark/README.md)
+passes the same 16 shapes with 480 jobs and 7,990,980 output comparisons.
+The [controlled comparison and plots](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+measure 2.293x from larger tiles and another 2.495x from overlap at 256x256x256,
+for a 5.720x ratio of median job cycles at unchanged clock and arithmetic.
 The [115200-baud maximum-shape check](../results/ddr_overlap/timing_predicate/final_build/maximum/README.md)
 also compares all 1,048,576 outputs on that image.
 Its [sustained run](../results/ddr_overlap/timing_predicate/final_build/endurance/README.md)

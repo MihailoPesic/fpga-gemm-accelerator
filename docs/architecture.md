@@ -79,6 +79,11 @@ cycles from 741,063.5 to 297,001 by hiding transfer/control work around those
 schedules. That counter comparison explains the observed speedup; it does
 not independently measure the DDR device's maximum bandwidth.
 See the [matched board measurements](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
+The [controlled T8/T32 comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+keeps the same 1,024 array launches while reducing input bytes fourfold.
+T32 serial is 2.293x faster than T8 serial for this shape; overlap adds 2.495x.
+Larger tiles also reduce burst and tile-control overhead. Both physical builds
+use 20 RAMB36 equivalents because the bank widths constrain primitive mapping.
 
 ## Checkpoint history
 

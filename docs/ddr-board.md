@@ -13,8 +13,10 @@ and [30 matched dense board pairs](../results/ddr_overlap/release_1mbaud/board/t
 All 3,932,160 results and full guarded allocations match. At 256x256x256,
 overlap measures a median 297,001 cycles / 11.298 useful GOPS, with 2.495x
 paired speedup over serial scheduling on the same image. UART transfer and
-validation time are separate. The new shape, sustained-workload and T8 baseline
-checks remain [release gates](status.md).
+validation time are separate. The [complete T32 shape grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md)
+and [fresh 30-minute sustained run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md)
+also pass. The [T8 serial baseline and controlled comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+now cover all 16 matched benchmark shapes. See [status](status.md) for full-v1 limits.
 
 The 115200-baud [P8/T32 checkpoint](../results/ddr_overlap/timing_predicate/final_build/routed/README.md)
 `0x2c680af7` passes vendor simulation and routed 100 MHz implementation gates.
@@ -43,8 +45,8 @@ with 49,593 outputs and full input/padding/guard checks. The dense 32x32x256
 case measures median 21,281.5 cycles, or 2.464 useful GOPS including DDR job
 transfers; UART movement is separate. The [controlled P4/P8 comparison](../results/ddr_gemm/p8_scaling/README.md)
 uses the same host and RTL sources, seven matrix pairs and 100 MHz clock.
-P4's dense median is 34,103 cycles, giving a 1.60x speedup. The full
-overlap release remains under development.
+P4's dense median is 34,103 cycles, giving a 1.60x speedup. The measured
+VERSION=0x200 release retains the full-v1 limitations recorded in status.
 
 ```text
 Laptop Python host
@@ -105,12 +107,14 @@ configuration identities is required before bitstream generation. Routing
 must pass setup, hold, pulse-width, bus-skew, clock, CDC and constraint checks.
 An old manifest cannot qualify changed inputs.
 
-Omit `--overlap` from both commands to build the original serial hierarchy.
+With `--overlap`, MODE=0/1 share one VERSION=0x200 image. Omit `--overlap`
+from both commands to build the original serial VERSION=0x100 hierarchy,
+which supports MODE=0 only.
 The implementation run includes post-route `AggressiveExplore` optimization
 before the final checkpoint, reports and bitstream gates. The intermediate
 route report remains available; setup/hold signoff uses the optimized result.
-Both modes then share one VERSION=0x200 image. Its build identity includes
-the Tcl flow, so changing optimization invalidates an earlier image seal.
+The build identity includes the Tcl flow, so changing optimization invalidates
+an earlier image seal.
 
 Batch simulation defaults to `--sim-debug off`. To inspect internal waveforms,
 use `--sim-debug typical --build-dir build/gemm_debug` for a separate generated
