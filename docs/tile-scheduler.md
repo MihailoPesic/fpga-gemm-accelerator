@@ -2,9 +2,11 @@
 
 `rtl/control/gemm_tile_scheduler.sv` schedules a validated matrix descriptor
 over the [duplex DMA](tile-dma.md#independent-load-and-store-contexts) and
-[concurrent local engine](tile-engine.md). It is an internal development
-module. The production UART/register path still uses `gemm_ddr_job` and
-rejects MODE=1.
+[concurrent local engine](tile-engine.md). The current selectable DDR build
+integrates this internal module under `gemm_ddr_overlap_job`, with UART,
+registers and MODE=0/1 support. The separate serial build uses
+`gemm_ddr_job` and rejects MODE=1. See [overlap integration](ddr-overlap.md)
+for the public job contract and qualified images.
 
 ## Interface boundary
 
@@ -151,6 +153,9 @@ Every configuration exercises different input/result IDs and simultaneous
 load/compute/store. Actual zero process exits, raw XML/coverage and unchanged
 source identities are preserved separately from earlier board evidence.
 
-This module does not yet provide production descriptor/register/UART
-integration, counters/watchdog, scoped formal proofs, vendor simulation,
-routed timing or board measurements for overlap. Those remain release gates.
+That standalone checkpoint establishes the scheduler boundary, rather than
+the complete public job contract. The current [integrated overlap build](ddr-overlap.md)
+adds descriptor/register/UART integration, counters and watchdog. Its
+[verification summary](verification.md) links the separate scoped proofs,
+vendor simulation, routed timing and board measurements; those results
+retain their own configurations and evidence boundaries.

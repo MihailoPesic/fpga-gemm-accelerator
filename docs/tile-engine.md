@@ -23,7 +23,9 @@ A START pulse is accepted when `start_ready` and all dimensions are legal.
 The engine snapshots dimensions and input/output buffer IDs, clears DONE and
 counters, and invalidates the selected result buffer. Other completed results
 remain valid. A new accepted START explicitly replaces the selected buffer's
-previous results. The production DDR core uses the default serial port contract.
+previous results. The serial DDR build uses the default serial port contract.
+The selectable DDR build sets `CONCURRENT_PORTS=1` and connects the engine
+to the [tagged scheduler](tile-scheduler.md).
 
 An invalid or busy START pulses `cmd_error` and has no memory effects. It does
 not clear DONE, counters or existing results. START has priority over simultaneous
@@ -36,8 +38,10 @@ job runs. The selected input and result buffers remain reserved throughout the
 whole job, including the gaps between microtile launches. A load may write only
 the other input buffer while busy. A result read may name only the other result
 buffer while busy; it must still refer to a completed result to return data.
-This option supplies local ports for future overlap scheduling; it does not
-implement a DDR scheduler or enable overlap in the production design.
+This option supplies the local concurrency used by the current selectable
+DDR build. The engine itself does not schedule external transfers;
+the [overlap controller](ddr-overlap.md), scheduler and duplex DMA provide
+whole-system ownership and load/compute/store scheduling.
 
 In this configuration an accepted START may coincide with a load into a
 different input buffer or a read from a different result buffer. Requests to

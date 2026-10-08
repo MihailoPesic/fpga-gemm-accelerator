@@ -20,8 +20,9 @@ rd_done_{valid,ready,status[15:0],tag[TAG_W-1:0]}
 wr_done_{valid,ready,status[15:0],tag[TAG_W-1:0]}
 ```
 
-`TAG_W` defaults to 16; `READ_SLOTS` defaults to 1. The existing GEMM and
-diagnostic callers retain that serial setting. Tags are opaque caller metadata. Addresses are bytes;
+`TAG_W` defaults to 16; `READ_SLOTS` defaults to 1. The diagnostic retains
+depth one; GEMM builds select one or four read slots. The current qualified
+P8/T32 image uses four. Tags are opaque caller metadata. Addresses are bytes;
 `beats` is the actual count, 1 through 16, not AXI LEN. Commands are captured
 only on valid/ready. A write accepts no further command until its held
 completion is consumed. A read accepts commands while a complete buffer slot
@@ -87,8 +88,10 @@ command credit; only the local DONE handshake does.
 prove that reads are idle. `local_idle` explicitly requires no read commands,
 buffered outputs or held completions and an idle write engine. The DDR core's
 ownership check uses this signal instead of interpreting command READY as idle.
-The row/tile DMA still issues serial reads; connecting its issue/retirement
-metadata to the queue is the next integration step.
+The row/tile DMA connects independent issue and retirement metadata to this
+queue when built with `READ_SLOTS=4`. Its ordered bank-delivery adapter
+retains the corresponding buffer, row and word context. See
+[row planning](dma-rows.md) and [tile DMA integration](tile-dma.md).
 
 ## AXI boundary
 
