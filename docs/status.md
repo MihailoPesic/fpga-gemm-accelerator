@@ -1,6 +1,6 @@
 # Project status
 
-Updated 2026-10-05. Target: [specification](specification.md), with
+Updated 2026-10-08. Target: [specification](specification.md), with
 [architecture](architecture.md) and [design decisions](decisions.md).
 
 The P8/T32 DDR-backed accelerator works on the Nexys A7-50T at 100 MHz.
@@ -12,6 +12,12 @@ cycles / 4.528 GOPS in serial mode; median paired speedup is 2.495x. Every
 DDR tile load, result write and final B response is inside the job interval.
 The host loads signed INT8 matrices, submits a job, reads every INT32 result
 and checks memory guards; UART movement and validation are timed separately.
+
+The [final CLI/API smoke test](../results/ddr_overlap/release_1mbaud/board/t32/host_demo/README.md)
+also passes after a new cold start: three odd-shape CLI jobs and the supplied
+matrix example in both modes, with all 53 outputs checked and zero retries.
+This confirms the documented usage on the T32 image; it is separate from
+the benchmark and repeatability records.
 
 The same image also passes [maximum-size jobs in both modes](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md):
 M=N=1024,K=256, with 2,097,152 outputs checked. Complete retained DDR snapshots

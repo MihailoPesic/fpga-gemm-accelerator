@@ -140,6 +140,8 @@ matching archived image and reload inputs using the [board procedure](docs/ddr-b
 The [Python API](docs/host-gemm.md#use-your-own-matrices) accepts your own A
 and B matrices and returns C. USB-UART is the loading/control link; on-board
 counters measure accelerator execution independently of slow host transfers.
+The [current-image demo record](results/ddr_overlap/release_1mbaud/board/t32/host_demo/README.md)
+checks this CLI and tests supplied matrices in both scheduling modes after a cold start.
 
 ## Build and verify
 

@@ -106,8 +106,8 @@ cycles for each job. Choose a fresh output directory for each saved demo;
 the CLI overwrites JSON/CSV in the selected directory. The local build archive
 must be present, and the board must report its matching P8 identity.
 
-The CLI saves JSON/CSV under ignored `build/gemm/results/`, including seed,
-identity, source hashes, manifest, raw counters, timings and failures.
+By default, the CLI saves JSON/CSV under ignored `build/gemm/results/`,
+including seed, identity, source hashes, manifest, raw counters, timings and failures.
 It returns nonzero on mismatches, timeouts or hardware errors. Without a
 manifest it checks UART identity but cannot verify a selected bitstream file.
 
@@ -147,10 +147,13 @@ finally:
 Pass `mode=0` to select serial scheduling on this same image. Resident matrices
 can be rerun by submitting a new job ID, with no intervening upload.
 
-This example was [checked on image `0x2c680af7`](../results/ddr_overlap/timing_predicate/final_build/host_api/record.json)
-in MODE=1: all four results matched, 752 input/padding/guard bytes were intact,
-zero transport retries, and JOB_CYCLES=264. The [earlier serial check](../results/ddr_overlap/serial_host_smoke/custom_matrix/README.md)
-retains its separate image and measurements.
+This example was [checked on the current image `0x9d4beb4d`](../results/ddr_overlap/release_1mbaud/board/t32/host_demo/README.md)
+in both modes after a fresh cold start on 2026-10-08. All four results matched
+and 752 input/padding/guard bytes were checked per job, with zero transport
+retries. MODE0 took 264 cycles; MODE1 took 265. This single microtile does not
+offer inter-tile overlap. The [previous selectable-image check](../results/ddr_overlap/timing_predicate/final_build/host_api/record.json)
+and [earlier serial check](../results/ddr_overlap/serial_host_smoke/custom_matrix/README.md)
+retain their separate identities and measurements.
 
 The host packs A and transposes B into BT, uploads them through memory
 commands, writes the descriptor and sends START. The FPGA works from DDR2
