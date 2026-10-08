@@ -9,9 +9,11 @@ a working board top. The [tile DMA adapter](tile-dma.md) connects the operand
 and result ports to AXI bursts. The [serial DDR controller](ddr-job.md)
 validates descriptors and sequences larger matrix jobs; the
 [packet subsystem](ddr-core.md) and [board wrapper](ddr-board.md) connect this
-path to UART and the [board platform](axi-platform.md). The saved physical
-GEMM baseline is build `0xed44f92e`; subsequent adapter changes require their
-own board qualification.
+path to UART and the [board platform](axi-platform.md). The current selectable
+DDR build integrates these banks under the [tagged scheduler](tile-scheduler.md)
+and [overlap job controller](ddr-overlap.md). Its image and qualification
+scope are recorded in [status](status.md); earlier physical baselines retain
+their separate evidence.
 
 ```
 64-bit load port -> A banks  ----> current/next words --+
@@ -54,11 +56,15 @@ priority over a load to the buffer being acquired.
 Loads to the active buffer are blocked from acceptance through final drain.
 Loads to the other buffer can proceed throughout compute. At completion the
 input buffer becomes writable again; result ownership belongs to the caller.
-This is the wrapper's capability, not evidence of whole-system overlap.
-`gemm_tile_engine` currently blocks its public load/read ports during a job.
-The BRAM preview and serial DDR controller both use buffer zero. A future
-scheduler must own both input and result sets before enabling concurrent
-load/compute/store.
+This is the wrapper's capability; whole-system overlap also needs ownership
+at the local-engine and scheduler boundaries. The default
+`gemm_tile_engine` configuration (`CONCURRENT_PORTS=0`) blocks public
+load/read ports during a job. The BRAM preview and serial DDR path use that
+configuration. The current selectable DDR build sets `CONCURRENT_PORTS=1`;
+its tagged scheduler owns separate input and result sets while load, compute
+and store overlap. See [local-engine ownership](tile-engine.md) and
+[overlap integration](ddr-overlap.md).
+
 Reset cancels the local operation and suppresses loads, feed and drain. This
 local reset contract is not an AXI transaction-abort mechanism.
 
