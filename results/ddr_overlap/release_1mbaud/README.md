@@ -13,6 +13,7 @@ changed build setting; the images have separate timing and hardware identities.
 | [T32 maximum-size check](board/t32/maximum/README.md) | One 1024x1024x256 job per mode; all 2,097,152 outputs and complete allocation snapshots independently replayed; overlap 11.509020 useful GOPS |
 | [T32 complete benchmark grid](board/t32/benchmark/README.md) | 960 jobs across 16 shapes, 30 samples per mode; 15,981,960 outputs and full guarded allocations checked |
 | [T32 fresh sustained run](board/t32/endurance/README.md) | 592 mixed jobs and 550,634 outputs over 30.06 continuous host-paced minutes; both modes, zero retries |
+| [T32 CLI/API demo](board/t32/host_demo/README.md) | Fresh cold-start programming; three CLI jobs and supplied matrices in both modes; 53 outputs, memory guards and zero retries |
 | [T8 serial baseline](board/t8/benchmark/README.md) | 480 jobs, 16 shapes and 30 samples per case; 7,990,980 outputs and complete guarded allocations checked |
 | [Controlled comparison](comparison/README.md) | 1,440 jobs and 48 matched series; useful-GOPS, transfer-volume and tail-latency plots; dense 5.720x overall cycle-median speedup |
 | [Stopped T32 endurance run and read-only recovery](board/t32/endurance_failed/README.md) | Original run failed after 381 validated jobs; host Modern Standby recorded; retained job's 64 outputs later checked separately without reset or START replay |

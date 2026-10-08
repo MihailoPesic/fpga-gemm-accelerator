@@ -1,0 +1,3 @@
+PASS job 1: 479 cycles, 0.056367 useful GOPS
+PASS job 2: 480 cycles, 0.056250 useful GOPS
+PASS job 3: 480 cycles, 0.056250 useful GOPS

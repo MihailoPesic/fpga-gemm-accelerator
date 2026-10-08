@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "stage": "cold_start_host_demo",
+  "actual_exit_code": 0,
+  "utc_started": "2026-10-08T20:47:48.292165+00:00",
+  "utc_finished": "2026-10-08T20:49:14.219448+00:00",
+  "utc_archived": "2026-10-08T20:52:51.267774+00:00",
+  "checkout_commit": "d55c9d47cc342eda19edc2857d951f28bf45db2f",
+  "build_id": 2638998349,
+  "bitstream_sha256_bytes": "d187f51bac37c3682641243f1db112579ad14c8ac45a1b3df52e704bf58c8327",
+  "source_sha256_utf8_lf": {
+    "host/gemm/__init__.py": "0c79bcae8988b56c29b06d79602eab132a295b2d18aa41b3991c39cef23d316a",
+    "host/gemm/__main__.py": "61a8b5f4ec3b1cc3a5cfa34c0dba573290bea067f71503db1f7147ae2ec0b4e7",
+    "host/gemm/client.py": "9ce195874259013b56e86b6522c44fb0bfa768f325341540dc3856e9a5bed600",
+    "host/preview/protocol.py": "c7ed1e64ea81a7c87276a4a7a99cca8e28b3e99308005121fe73a6f07ac208df",
+    "scripts/qualify_release.py": "fdfe9d020e3b89e565fbfb6e3246a0a93f4ba1184138c83a7c44d28dc5af7381",
+    "scripts/program_ddr_gemm.py": "7549fe9e3f8a0b045d8bf0a9d1ae7655d36fe20bb3ab56aa365ce165b42bc7e7"
+  },
+  "source_hashes_unchanged": true,
+  "cli_jobs": 3,
+  "api_jobs": 2,
+  "compared_elements": 53,
+  "guard_bytes_checked": 4972,
+  "warm_reset_qualified": false,
+  "scope": "Cold-start current-image CLI/API smoke test; five completed jobs, not a new benchmark or endurance run",
+  "replay_limits": "Saved API A/B/C permit independent integer replay; CLI matrices, raw UART frames and guard snapshots were not retained",
+  "saved_artifact_sha256_bytes": {
+    "build.json": "b3843b33f232829180a5263150d72f1898cf42d56cb1da24f0590914e373706a",
+    "cli/results.csv": "8f9e01fe50c30a1500ea524d64057f87848ba946f6e65c6520b37b759dc6e20a",
+    "cli/results.json": "a9139e18ef89c8f1d7c185c54ff34d62deac3aa2eda342e05a2573b4b07bc719",
+    "cli.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cli.stdout.txt": "79ef7769249b64892537be027471d8b77039bfdcf29146c3d41305f17b60617b",
+    "execution.json": "81d6bb5fc743de71f02fec1dc6dbf6f6e419647ddd2a613ff40fe9a0c93cc250",
+    "method.py": "39df9f799872073abd2cbd2bc6521b5f07454328432cfbb107814530ba42236a",
+    "native_receipt.json": "252046397f4f1af403182e1173a3fa6b9c6598516fb7be22e7fd39acb995e787",
+    "program.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "program.stdout.txt": "3e95893f35ca73b8da0e7780a8ed3ab252c6f1846f9ed8f59c4ee44d80818f7c",
+    "README.md": "0c253a8088287416ea0382e48361102658659dce4f2bd1641c7c5d7fca44a2ba",
+    "verify.py": "dfa3c80b802de21f9f18b2fe106bdb16cd03256e2e16a9c1ceb488366f518ac4"
+  }
+}
