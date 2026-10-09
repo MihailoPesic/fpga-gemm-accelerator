@@ -15,6 +15,11 @@ python3 -m venv .venv
 make lint test mutation PYTHON=.venv/bin/python
 ```
 
+Bare `make` prints the command guide without launching simulation or Vivado.
+`make test-release` includes GNU Make dry-run checks of build/demo manifest
+selection, quoted paths, overrides and legacy defaults. Those software checks
+never open a serial port or run Vivado.
+
 From PowerShell, after that environment exists in Ubuntu/WSL:
 
 ```powershell
@@ -97,8 +102,8 @@ These are simulation measurements, separate from the physical board results.
 
 ## Release board measurements
 
-`make test-release test-formal-traces` checks the measurement runner,
-comparison collector and formal trace decoder using software fixtures. These
+`make test-release test-formal-traces` checks project command routing, the
+measurement runner, comparison collector and formal trace decoder using software fixtures. These
 checks require neither the FPGA nor optional plotting packages and are included
 in the portable CI job. They do not establish accelerator correctness.
 
@@ -106,11 +111,16 @@ in the portable CI job. They do not establish accelerator correctness.
 It checks its bitstream, vendor simulation and routed reports before opening
 the serial port. It never resets or programs the FPGA. The required board
 startup sequence is in [ddr-board.md](ddr-board.md).
+The following commands use the fresh `build/gemm_current` image from that
+guide. Its matching simulation, bitstream and routed reports must be present;
+the generated archive is not included in a clean clone. To test the preserved
+image `0x9d4beb4d`, substitute its local
+`build/gemm_release_p8_t32_1mbaud/build.json` manifest throughout.
 
 ```text
-python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase maximum --modes both
-python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase endurance --modes both --resume
-python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --output build/release_checks --phase benchmark --modes both --resume
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_current/build.json --output build/release_checks --phase maximum --modes both
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_current/build.json --output build/release_checks --phase endurance --modes both --resume
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_current/build.json --output build/release_checks --phase benchmark --modes both --resume
 ```
 
 Modes, seed, oracle and sample count are part of the immutable result plan.
@@ -152,12 +162,15 @@ first mismatch, transport error or changed identity stops the run. The
 runner's software tests use a synthetic device and are not board evidence.
 
 The Make equivalents are `make bench` and `make hw-release`, with `PORT`,
-`MANIFEST`, `PYTHON` and a fresh `RELEASE_OUTPUT`; both use the same temporary
-sleep wrapper. `make demo` runs one small
-complete comparison. `make bitstream BOARD=nexys_a7_50t` runs both vendor
-simulation and implementation in `RELEASE_BUILD`; its defaults are P8/T32,
-four reads, selectable scheduling and 1 Mbaud. Set `VIVADO` explicitly when
-it is not on PATH. Programming remains a separate cold-start operation.
+native `PYTHON` and a fresh `RELEASE_OUTPUT`; both use the same temporary
+sleep wrapper. `make demo` runs one small complete comparison.
+`make bitstream BOARD=nexys_a7_50t` runs vendor simulation and implementation
+in `RELEASE_BUILD`, defaulting to `build/gemm_current`, P8/T32, four reads,
+selectable scheduling and 1 Mbaud. The current targets derive `MANIFEST` from
+`RELEASE_BUILD/build.json`; set `MANIFEST` explicitly for an archived image.
+Set `VIVADO` when it is not on PATH. Programming remains a separate cold-start
+operation; the [board guide](ddr-board.md#program-and-run-the-new-build) uses
+the same build directory for every stage.
 
 After both builds have completed the same cases, collect the controlled
 comparison with:
@@ -268,8 +281,10 @@ checks one primary clock on CLK100MHZ. Native RTL receives no GEMM modules.
 
 `-no-bitstream` additionally implements and writes reports; the default asks
 for a native baseline bitstream after timing and critical-violation checks.
-This remains the old protocol. The bounded serial GEMM board plan is implemented
-as `make hw-test PORT=COMx MANIFEST=build/gemm/build.json`; see the
+This remains the old protocol. The legacy **115200-baud** GEMM board plan is
+`make hw-test PORT=COMx LEGACY_MANIFEST=build/gemm/build.json`; it rejects
+the current 1 Mbaud image. An explicit command-line `MANIFEST` is also accepted
+for existing commands. See the
 [DDR GEMM board flow](ddr-board.md). The integrated `make bitstream`,
 `make bench` and `make hw-release` interfaces are described above. `make formal`
 runs the scoped row-planner, FIFO and reduced-scheduler checks described above.
@@ -543,13 +558,19 @@ the FPGA. Choose fresh output directories and keep the laptop awake.
 
 ```text
 python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t8_1mbaud/build.json --phase benchmark --modes 0 --samples 30 --seed 20261004 --oracle numpy --output build/reproduce_t8_grid
-python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --phase benchmark --modes 0,1 --samples 30 --seed 20261004 --oracle numpy --output build/reproduce_t32_grid
+python scripts/keep_awake.py -- python scripts/qualify_release.py --port COM11 --manifest build/gemm_release_p8_t32_1mbaud/build.json --phase benchmark --modes both --samples 30 --seed 20261004 --oracle numpy --output build/reproduce_t32_grid
 python scripts/collect_benchmarks.py --t8 build/reproduce_t8_grid --t32 build/reproduce_t32_grid --output build/reproduce_comparison
 ```
 
 Install the pinned [benchmark dependencies](../requirements-benchmark.txt)
 for the collector and [host dependencies](../requirements-host.txt) for board
-access. The runner checks every output and complete guarded allocations before
+access. These comparison commands select preserved local image archives.
+A clean clone must regenerate matching P8/T8 and P8/T32 builds in separate
+directories, with the same source, clock, read-depth and UART settings, then
+substitute their manifests. `make bitstream RELEASE_T=8 RELEASE_BUILD=build/gemm_t8`
+builds the T8 baseline; the default current build is T32. Each image requires
+its own cold-start programming before measurement.
+The runner checks every output and complete guarded allocations before
 sealing a case; the collector requires matching source, input and layout
 identities. Error bars show minimum/maximum around each series median.
 The public archives retain standalone software-only validators and exact
