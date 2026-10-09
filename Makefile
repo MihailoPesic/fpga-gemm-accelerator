@@ -1,12 +1,15 @@
+.DEFAULT_GOAL := help
+
 PYTHON ?= python3
 VIVADO ?= vivado
-MANIFEST ?= build/gemm/build.json
+MANIFEST ?= $(RELEASE_BUILD)/build.json
+LEGACY_MANIFEST ?= build/gemm/build.json
 PORT ?=
 GEMM_P ?= 4
 FORMAL_BUILD ?= build/formal_dma_rows
 FORMAL_BUFFERS_BUILD ?= build/formal_buffers
 BOARD ?= nexys_a7_50t
-RELEASE_BUILD ?= build/gemm_release
+RELEASE_BUILD ?= build/gemm_current
 RELEASE_P ?= 8
 RELEASE_T ?= 32
 RELEASE_BAUD ?= 1000000
@@ -33,6 +36,7 @@ demo:
 	$(if $(strip $(PORT)),,$(error Set PORT and MANIFEST for the already programmed qualified image))
 	"$(PYTHON)" -m host.gemm --port "$(PORT)" --manifest "$(MANIFEST)" --mode "$(RELEASE_MODE)" --m 5 --n 3 --k 9 --repeats 1 --retries 0 --output "$(RELEASE_OUTPUT)"
 test-release:
+	"$(PYTHON)" -m unittest discover -s tb -p test_project_commands.py
 	"$(PYTHON)" -m unittest discover -s tb -p test_qualify_release.py
 	"$(PYTHON)" -m unittest discover -s tb -p test_collect_benchmarks.py
 test-formal-traces:
@@ -120,8 +124,9 @@ sim-gemm-ddr:
 	"$(PYTHON)" scripts/build_ddr_gemm.py --stage sim --vivado "$(VIVADO)"
 ddr-gemm-bitstream:
 	"$(PYTHON)" scripts/build_ddr_gemm.py --stage bitstream --vivado "$(VIVADO)"
+hw-test: MANIFEST = $(LEGACY_MANIFEST)
 hw-test:
-	$(if $(strip $(PORT)),,$(error Set PORT and MANIFEST for the programmed serial DDR image))
+	$(if $(strip $(PORT)),,$(error Set PORT and LEGACY_MANIFEST for the programmed 115200-baud DDR image))
 	"$(PYTHON)" scripts/hw_test_ddr_gemm.py --p "$(GEMM_P)" --port "$(PORT)" --manifest "$(MANIFEST)"
 mutation:
 	"$(PYTHON)" scripts/mutation_test.py
@@ -139,15 +144,16 @@ synth-tile:
 preview-bitstream:
 	"$(PYTHON)" scripts/build_preview.py --vivado "$(VIVADO)"
 help:
-	@echo "Full system: bitstream BOARD=nexys_a7_50t RELEASE_BUILD=build/fresh_name (P8/T32, READ4, selectable modes, 1 Mbaud)."
-	@echo "Programmed image: demo, bench, hw-release PORT=... MANIFEST=... RELEASE_OUTPUT=build/fresh_results. These targets never reset or program the board."
+	@echo "Current build: bitstream BOARD=nexys_a7_50t (P8/T32, READ4, selectable modes, 1 Mbaud; build/gemm_current)."
+	@echo "Override RELEASE_BUILD for another fresh build directory; MANIFEST defaults to RELEASE_BUILD/build.json."
+	@echo "Programmed image: demo, bench, hw-release PORT=... RELEASE_OUTPUT=build/fresh_results. Set MANIFEST for an archived image. These targets never reset or program the board."
 	@echo "Release tooling: test-release test-formal-traces (software fixtures; no board or plotting dependencies)."
 	@echo "Checks: lint, test, test-memory, test-tile, test-tile-overlap, test-preview, test-axi, test-dma, test-tile-dma, test-tile-dma-duplex, test-tile-scheduler, test-ddr-job, test-ddr-registers, test-ddr-core, test-ddr-diag, mutation. See docs/testing.md."
 	@echo "Scoped formal checks: formal PYTHON=... FORMAL_BUILD=build/fresh_rows FORMAL_BUFFERS_BUILD=build/fresh_buffers (optional requirements-formal.txt; see formal/README.md)."
 	@echo "Vendor simulation: sim-vendor (Vivado and generated MIG required)."
 	@echo "Integrated DDR diagnostic: sim-ddr, then ddr-diag-bitstream (native Python and Vivado)."
 	@echo "Serial DDR GEMM: sim-gemm-ddr, then ddr-gemm-bitstream (native Python and Vivado)."
-	@echo "Serial board qualification: hw-test GEMM_P=4 or 8 PORT=... MANIFEST=... (qualified image required)."
+	@echo "Legacy 115200-baud qualification: hw-test GEMM_P=4 or 8 PORT=... LEGACY_MANIFEST=... (default build/gemm/build.json; explicit MANIFEST also accepted)."
 	@echo "Serial P4 cycle attribution: profile-ddr (behavioral AXI models; no physical DDR timing claim)."
 	@echo "P8 read-depth comparison: profile-read-dma (behavioral helper sequence; no board performance claim)."
 	@echo "Local concurrent-port defect checks: mutation-tile-overlap (isolated copies; no DDR overlap claim)."
