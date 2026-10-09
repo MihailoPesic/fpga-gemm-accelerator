@@ -1,455 +1,253 @@
 # Architecture
 
-The selectable DDR GEMM build runs complete matrix jobs on the board:
-framed UART commands load DDR inputs, the validated job controller and tagged
-scheduler coordinate DMA and local compute, and the host compares returned results. The same
-portable modules run against AXI RAM; SmartConnect and MIG provide the board
-memory boundary. The earlier BRAM preview and DDR diagnostic retain their
-separate evidence. See [status.md](status.md) for the dated checkpoint and
-[README.md](README.md) for the documentation index.
+The current board image is `0x9d4beb4d`: Nexys A7-50T, P8/T32,
+`READ_SLOTS=4`, `ENABLE_OVERLAP=1`, development VERSION `0x200`,
+100 MHz core and 1 Mbaud UART. It runs one matrix job at a time, with either
+serial MODE0 or overlapping MODE1 scheduling on the same image.
+The host supplies signed INT8 A/B and reads signed INT32 C.
 
-## Current system at a glance
+Board operation is qualified after cold power-up. Warm-reset DDR timing
+remains unresolved. [Status](status.md) records the remaining release limits;
+[measurements](measurements.md) separates measured results from targets.
+
+## Control and data paths
 
 ```text
-Laptop: Python A, B -> pack A and BT -> upload -> START -> wait -> read C
-                               USB-UART, 1 Mbaud
-                                      |
-                UART RX/TX -> COBS/CRC packet transport
-                                      |
-                     gemm_ddr_core, 100 MHz
-                   /                            \
-        registers and frozen counters     idle host memory commands
-                   |                            |
-        gemm_ddr_overlap_job                     |
-        descriptor validation / fatal state     |
-                   |                            |
-        gemm_tile_scheduler                     |
-        tile tags, buffer owners, load/run/store |
-           |                    |               |
-           |          gemm_tile_dma_duplex       |
-           |             operand reads / C writes
-           |                    |               |
-    gemm_tile_engine       host/DMA ownership mux+
-      two A/BT sets             |
-      two C sets          gemm_axi_burst
-      BRAM prefetch       four read slots / one writer
-           |                    |
-           |              64-bit AXI, 100 MHz
-           |                    |
-      8x8 systolic         SmartConnect
-      INT8 MAC array       width conversion + CDC
-           |                    |
-      C-bank drain         128-bit AXI, 50 MHz
-                                |
-                              MIG
-                                |
-                       DDR2, 16-bit / 200 MHz
+Python: pack / upload / configure / START / wait / read C / compare
+                              |
+                         USB-UART, 1 Mbaud
+                              |
+                   COBS / CRC32 / sequence replay
+                              |
+                    gemm_ddr_core, 100 MHz
+                     /                     \
+     registers + gemm_ddr_overlap_job    idle host memory commands
+                     |                         |
+           gemm_tile_scheduler                 |
+           tags + buffer owners                |
+             /               \                 |
+          compute          load/store          |
+             |                 |               |
+     gemm_tile_engine <-> gemm_tile_dma_duplex  |
+       A/BT/C banks         bank transfers      |
+                               |               |
+                               +-------+-------+
+                                       |
+                             host/DMA ownership mux
+                                       |
+                              gemm_axi_burst
+                         four read slots / one writer
+                                       |
+                             64-bit AXI, 100 MHz
+                                       |
+                     SmartConnect width conversion + CDC
+                                       |
+                             128-bit AXI, 50 MHz
+                                       |
+                                      MIG
+                                       |
+                             DDR2, x16 / 200 MHz
 ```
 
-The drawing separates control from the two data paths. DMA fills the A/BT
-banks and reads completed C banks; those bank ports sit inside the tile
-engine. Host memory commands share the burst engine only when no accelerator
-job owns it. UART packet validity and descriptor checks precede execution.
-The scheduler reserves a complete result set before launching compute;
-the result set remains owned until its writes receive successful B responses.
-
-For one full T32 macrotile at K=256, DMA loads 32 A rows and 32 BT rows:
-16,384 input bytes. Sixteen 8x8 launches reuse those inputs to produce 1,024
-INT32 results, which occupy 4,096 output bytes. Each launch retains the full
-reduction locally; DDR backpressure cannot interrupt its fixed PE schedule.
-Larger M/N shapes repeat this procedure, masking only the boundary tiles.
+The scheduler drives three independent operations: operand loading, local
+compute and result storage. Their data paths are:
 
 ```text
-MODE0:  load tile0 -> compute tile0 -> store tile0 -> load tile1 -> ...
-
-MODE1:  load tile0 -> load tile1 ---------> load tile2 -> ...
-                      compute tile0 -----> compute tile1 -> ...
-                                           store tile0 -> ...
+Load:    DDR2 -> MIG/SmartConnect -> AXI read buffers -> DMA -> A/BT banks
+Compute: A/BT banks -> prefetch -> lane skew -> 8x8 array -> drain -> C banks
+Store:   C banks -> DMA -> AXI write buffer -> SmartConnect/MIG -> DDR2
 ```
 
-This is an ownership sketch, not a cycle-exact waveform. The stages overlap
-only when their independent buffer sets and AXI channels can make progress.
-Two input sets and two result sets bound how far admission can run ahead.
-A blocked store may delay the next launch while an already launched microtile
-finishes normally. The detailed transitions are in [tile-scheduler.md](tile-scheduler.md).
+Host uploads and readback share the burst engine only while the accelerator
+is idle. Ownership cannot switch while external AXI obligations or buffered
+local data/completions remain. Packet checks precede command execution;
+descriptor validation precedes accepted START and DMA.
+The host polls status, downloads C and checks every useful result and memory
+guard. Polling does not drive the hardware schedule.
 
-At 256x256x256, the measured T32 serial and overlap runs each spend 285,696
-cycles in active microtile schedules. Overlap lowers median complete-job
-cycles from 741,063.5 to 297,001 by hiding transfer/control work around those
-schedules. That counter comparison explains the observed speedup; it does
-not independently measure the DDR device's maximum bandwidth.
-See the [matched board measurements](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md).
-The [controlled T8/T32 comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
-keeps the same 1,024 array launches while reducing input bytes fourfold.
-T32 serial is 2.293x faster than T8 serial for this shape; overlap adds 2.495x.
-Larger tiles also reduce burst and tile-control overhead. Both physical builds
-use 20 RAMB36 equivalents because the bank widths constrain primitive mapping.
+Project RTL implements compute, banks, DMA, scheduling, registers and packet
+handling. AMD SmartConnect and MIG supply bus width/clock conversion and the
+DDR controller/PHY. The [board wrapper](../platform/nexys_a7/gemm_ddr_top.sv)
+connects these through the [portable core](../rtl/control/gemm_ddr_core.sv).
 
-## Checkpoint history
-
-| Build | Working behavior | Evidence boundary |
-| --- | --- | --- |
-| BRAM preview | UART loads A/BT, P4/T32 computes C, host compares every result | 180 board jobs, 90,510 compared outputs; no DDR |
-| AXI DDR diagnostic | UART starts pattern/compare traffic through the custom burst engine, SmartConnect and MIG | Three board runs after cold power-up; no GEMM |
-| Row burst sequencer | Plans row addresses, burst splits and final-byte masks | Four standalone metadata tests; data movement is tested in the adapter below |
-| Serial tile DMA integration | Loads A/BT, runs the production GEMM engine and stores C through AXI RAM | 20 portable tests across four builds; 108 jobs and 11,039 compared outputs; no MIG or board timing |
-| Serial DDR job integration | Validates/snapshots descriptors and iterates external macrotiles through DMA/compute/store | 154 AXI RAM jobs, 86,322 checked outputs; register unit tests are separate |
-| Serial DDR packet subsystem | Framed commands upload A/BT, configure/run jobs and download C through shared host/DMA ownership | 24 tests, 28 jobs and 5,056 checked outputs across four builds; byte transport and AXI RAM |
-| Native DDR baseline | Historical UART bridge using MIG's native application port | Retained platform history; different protocol/address interface |
-| Serial DDR GEMM board | UART/register commands and shared host/DMA access connect the complete matrix path to MIG | P4 `0x4898db67` and P8 `0x01caf61c`, T32 at 100 MHz: each passes vendor/routed gates and 48 board jobs with 49,593 outputs checked; cold start only. Original P4 also passes the maximum-shape check |
-| Concurrent read DMA board | Four validated read buffers and ordered bank metadata feed the same serial macrotile schedule | P8/T32 `0xd558a543`: vendor, routed/reset review and all 48 board jobs pass; dense median 4.529 useful GOPS at 100 MHz |
-| Selectable overlap board | Independent DMA and two operand/result sets overlap load, compute and store under tagged ownership | P8/T32 `0x2c680af7`: 156 jobs, 344,946 compared outputs; 64x64x256 overlap median 8.345 GOPS and 1.837x paired speedup at 100 MHz |
-| 1 Mbaud selectable board | Same compute/memory architecture with a separately built UART setting | P8/T32 `0x9d4beb4d`: complete 960-job shape grid, both maximum-size modes and a fresh 592-job sustained run; dense overlap reaches 11.298 useful GOPS and 2.495x paired speedup |
-
-These are build configurations of one repository, selecting top modules and
-shared RTL. Generated Vivado projects live under `build/`; integration connects
-module interfaces rather than merging generated project directories. The
-[preview](../results/preview/README.md) and
-[DDR platform](../results/ddr_platform/README.md) have separate bitstream identities.
-
-## Existing compute core
+## Arithmetic, layout and reuse
 
 ```text
-Prepared A / BT vectors
+BT[j,k] = B[k,j]
+C[i,j]  = sum(A[i,k] * BT[j,k], k=0..K-1)
+
+A address  = A_BASE  + i*A_STRIDE  + k
+BT address = BT_BASE + j*BT_STRIDE + k
+C address  = C_BASE  + i*C_STRIDE  + 4*j
+```
+
+Each accepted job overwrites the useful C elements.
+M/N range from 1 to 1024 and K from 1 to 256. Bases and row strides are
+64-byte aligned. The three conservative allocations, including row padding,
+must be disjoint and fit inside the 128 MiB DDR window. Validation uses widened
+arithmetic before narrowing dimensions or issuing requests.
+Inputs are read for `round_up(K,8)` bytes per valid row; hardware masks k>=K.
+Padded rows/columns do not cause invalid row reads. C stores enable exactly
+the useful bytes, leaving output padding and guards unchanged.
+
+P=8 is the physical array dimension; T=32 is the local macrotile dimension.
+The scheduler visits row-major T-by-T output regions. Each region retains
+its full K reduction locally and launches only nonempty P-by-P microtiles.
+No external partial-sum storage is needed within the supported K range.
+
+For a full T32 macrotile at K=256, loading 32 A rows and 32 BT rows transfers
+16,384 input bytes. Sixteen 8x8 launches reuse them to produce 1,024 INT32
+results, or 4,096 output bytes. A travels right and B down through the array;
+each PE holds one output accumulator. This provides reuse inside the mesh
+and across microtile launches. BT packing makes reduction rows contiguous;
+lane skew is the separate timing operation that aligns their arrivals.
+
+## Banks and the fixed compute schedule
+
+Two A/BT sets and two C sets live in banked BRAM. Operand banks use 64-bit
+words so DMA deposits eight reduction elements per word; compute extracts
+one byte per bank per cycle. A and BT each have P banks. C drains P results
+into distinct banks in one cycle and returns adjacent INT32 pairs to the writer.
+
+```text
+Operand bank   = q mod P
+Operand word64 = buf*(T/P)*32 + floor(q/P)*32 + floor(k/8)
+Operand byte   = k mod 8
+
+C bank         = column mod P
+C word32       = buf*(T*T/P) + row*(T/P) + floor(column/P)
+```
+
+Here q is a local A row or BT output column; buf names the corresponding
+input or result set. These are separate namespaces.
+Current/next-word registers hide synchronous BRAM latency at eight-element
+boundaries. The destination microtile is reserved and prefetch completes
+before launch. DDR backpressure can delay a future launch, but cannot pause
+one already in flight.
+
+Each PE has a signed registered product followed by a signed INT32
+accumulator. With edge 0 as launch/clear:
+
+```text
+Pair k sampled at PE(r,c): edge 1 + k + r + c
+Product committed:        edge 2 + k + r + c
+Final row drain:          edge K + 3*P - 1
+```
+
+The operand wrapper adds prefetch and launch overhead; those core edges
+are not whole-job latency. [Compute](compute.md), [operand memory](memory.md)
+and [the local engine](tile-engine.md) define the exact signal, BRAM and
+result-read schedules. Reset clears valid/ownership state, not all BRAM data.
+
+## Buffer ownership and overlap
+
+```text
+Input set: FREE -> FILLING -> READY -> COMPUTING -> FREE
+Result:    FREE -> COMPUTING -> READY -> WRITING -> FREE
+```
+
+Input and result IDs are chosen independently and carry a tile tag and
+captured addresses/shape. A and BT must both finish loading before an input
+becomes READY. Compute selects the next ordered input and reserves a complete
+FREE result set. Input ownership spans every microtile that reuses its data.
+A result becomes READY after the local matrix operation completes and remains
+WRITING through its DMA terminal handshake, including a held completion
+after the final successful B response.
+
+MODE0 waits for the previous tile to retire before admitting the next.
+MODE1 loads a following tile and writes a completed predecessor when their
+independent buffers and memory channels permit:
+
+```text
+stage       tile t-1          tile t          tile t+1
+load                                          A/BT
+compute                       array
+store       C -> DDR
+```
+
+This is an ownership sketch, not equal-length or cycle-exact intervals.
+Two blocked results can prevent the next compute launch; they cannot force
+overwriting live C or interrupt an active microtile. Store progress depends
+on completed C and memory readiness, not on loading the next input.
+The [tagged scheduler](tile-scheduler.md) and
+[overlap job contract](ddr-overlap.md) specify admission, retirement and faults.
+
+## DMA, completion and faults
+
+The 64-bit AXI master uses one ID and INCR bursts of 1..16 eight-byte beats.
+Row planning splits at row end, 16 beats and the next 4 KiB boundary. Four in-order read
+slots reserve complete response storage and local routing metadata before AR.
+The engine validates a complete read burst before publishing its words to
+banks; credit remains owned through local delivery and terminal completion.
+The writer gathers a complete burst before
+offering AW/W and retains one outstanding write through B. Address and data
+channels handshake independently and hold stalled payloads stable.
+
+START acknowledges the validated job's acceptance, not its completion.
+Configuration and allocations are checked before acceptance. BUSY rejects
+another START or a concurrent host memory command rather than queuing work.
+
+| Boundary | Completion event |
+| --- | --- |
+| Microtile | Final scheduled drain row captured; not DDR completion. |
+| Local macrotile | All useful results captured in C banks; input may be released, C remains owned by the scheduler. |
+| Result store | Successful final B and the DMA terminal completion consumed. |
+| Public job DONE | All tiles retired, compute/DMA idle and local/external burst obligations drained. |
+
+JOB_CYCLES retains the timestamp difference from validated START acceptance
+to the final successful result B handshake. Public DONE can appear later
+while local completion propagates. Counters freeze before software observes
+DONE; host transfers are excluded. [Measurements](measurements.md) describes
+the performance scopes and [registers](ddr-registers.md) the software map.
+
+Memory response, protocol, watchdog and calibration-loss errors latch the
+first fatal code and RESET_REQUIRED. A fault wins over simultaneous success.
+New work stops, while accepted compute, bank and AXI obligations retain their
+owners and drain where possible. A stalled AXI VALID is never withdrawn to
+abort the job. A hung interface can leave BUSY asserted with ERROR visible;
+partially written C is invalid. CLEAR_STATUS cannot remove a fatal reset
+requirement. Reset must coordinate the core, conversion and memory platform.
+See [AXI transactions](axi-burst.md), [row planning](dma-rows.md),
+[tile DMA](tile-dma.md) and [the public fault contract](ddr-overlap.md).
+
+## Clocks, resets and physical boundary
+
+```text
+Board oscillator, 100 MHz
           |
-          v
-+------------------- gemm_microtile -------------------+
-| Start validation, K/shape snapshot, fixed schedule    |
-|                                                     |
-| Lane masks -> row/column delays -> gemm_array         |
-|                                       |             |
-|                              P x P gemm_pe instances |
-|                                       |             |
-|                              Completed row selection |
-+---------------------------------------|-------------+
-                                        v
-                              Result row + valid mask
-```
-
-P is 4 or 8; K is 1..256. Each PE retains one signed INT32 accumulator.
-Signed INT8 A operands move right and B operands move down through registered
-hops. The feeder delays lane q by q cycles so matching reduction indices meet.
-BT stores columns of B as rows: `BT[j,k] = B[k,j]`.
-Transposition makes the k dimension contiguous for both operands in memory;
-skew is a separate timing operation after those bytes have been fetched.
-A value is reused across PE columns and a B value across PE rows. Each PE's
-product register changes every clock, but only its registered valid product
-may update the accumulator on the following edge.
-
-```text
-C[i,j] = sum(A[i,k] * BT[j,k], k=0..K-1)
-
-Pair k sampled by PE(r,c):  edge 1 + k + r + c
-Product committed:         edge 2 + k + r + c
-Final drain:               edge K + 3*P - 1
-```
-
-The caller supplies K consecutive input vectors and accepts P scheduled result
-rows. There is no pause within an active microtile. The surrounding system
-must prepare operands and reserve result space before launch. The complete
-signal contract is in [compute.md](compute.md).
-Every hop and the schedule advance on each clock. A late DDR word therefore
-cannot simply delay one lane: the other operands would continue moving and
-the scheduled drain would still arrive. Local prefetch absorbs memory latency
-before launch; validity marks scheduled data, not permission to stall the mesh.
-
-## Existing operand wrapper
-
-`gemm_bram_microtile` adds two sets of A/BT operand banks and current/next-word
-prefetch around the core. Loads are 64 bits; compute consumes one byte per bank
-per clock through synchronous BRAM reads. P=4/8 and T=8/32 pass simulation and
-synthesize to block RAM with one DSP per PE. The computing buffer is protected
-against writes while the other buffer may be loaded. See [memory.md](memory.md)
-and the [integration evidence](../results/operand_memory/README.md).
-
-Buffer lifetime depends on the boundary. The wrapper blocks writes to the
-selected input set until a microtile finishes. The local engine holds those
-operands for the entire job because later microtiles reuse them, and blocks
-all public loads while busy in its default serial configuration. The opt-in
-`CONCURRENT_PORTS=1` interface permits other-buffer loads and result reads;
-its [portable verification](../results/tile_overlap_ports/README.md) covers
-independent input/output IDs and response ownership. The default DDR build
-selects serial ports; `ENABLE_OVERLAP=1` selects concurrent ports. A selected result set is invalidated at START;
-it becomes locally readable only after the final result row is written into
-C BRAM. That local validity does not release DDR-store ownership: the serial
-job controller preserves the result set until its last successful B response
-and DMA completion. Reset clears ownership state, not all BRAM contents.
-
-## Historical native-DDR baseline
-
-```text
-Python <-> USB-UART <-> uart_ddr_bridge <-> native MIG <-> DDR2
-```
-
-The UART and bridge run on MIG's 50 MHz user clock; memory data is 128 bits
-wide. The saved DDR clock is 200 MHz. This path supports PING and 16-byte memory
-reads/writes. It contains no GEMM job controller. Its protocol and host driver
-are retained for platform checks, not as the full GEMM protocol.
-The current integration path is the byte-addressed AXI platform below. Native
-`app_addr` values must not be copied into AXI descriptors.
-
-## Existing local matrix engine
-
-```text
-64-bit operand load -> A / BT banks -> prefetch -> P4/P8 compute
-                              ^                     |
-                         tile scheduler             v
-                              |                 C result banks
-                         cycle counters             |
-                                              64-bit result read
-```
-
-`gemm_tile_engine` runs all required microtiles for M,N up to T and K up to 256.
-Results are stored in banked BRAM with row/column tail masks. A single-outstanding
-read interface holds its response stable under backpressure. The serial engine
-blocks host memory access while a job is active in the default configuration
-and freezes counters at the final result write. The optional concurrent ports
-provide disjoint local accesses without changing that compute schedule.
-See [tile-engine.md](tile-engine.md).
-
-## UART-controlled BRAM preview
-
-```text
-Python <-> UART commands <-> Preview control and cycle counters
-                                     |
-                      +--------------+--------------+
-                      v                             v
-               A / BT BRAM                      C BRAM
-                      |                             ^
-                   Prefetch                         |
-                      +----> P4 compute core -------+
-```
-
-The implemented preview runs one active job with serial load/compute/readback.
-It uses synchronous 64-bit operand banks and banked 32-bit results. COBS/CRC
-validation and a last-request replay cache protect the command boundary.
-The Python host uploads complete inputs and checks every result. The preview
-has its own identity and [documented smaller limits](preview.md); it does not
-advertise DDR readiness.
-
-Packet decoding uses a shared RAM read port, captured header/trailer fields
-and registered CRC input. The response producer holds its payload until the
-transport has buffered it, avoiding a duplicate full-packet register bank.
-These control-path choices matter to resource use and routed timing even
-though UART throughput is much lower than the compute clock.
-
-The board wrapper uses the 100 MHz oscillator through IBUF/BUFG. UART input
-and the reset button each enter a three-flop synchronizer. Button assertion
-and release are sampled synchronously so BRAM control paths remain timed;
-register INIT values hold reset at configuration. This reset choice assumes
-a free-running clock and belongs to the BRAM preview. The DDR build uses the
-generated clock/reset network described below.
-
-## Working AXI DDR diagnostic
-
-```text
-Python <--> UART / shared packet transport <--> diagnostic register backend
-                                                        |
-                                                  START + seed
-                                                        v
-                                           pattern / compare controller
-                                                        |
-                                       local command / data / completion
-                                                        v
-                                            gemm_axi_burst, 64-bit
-                                                        |
-                    100 MHz core AXI <--> SmartConnect <--> 50 MHz AXI
-                                                                  |
-                                                           MIG, 128-bit
-                                                                  |
-                                                    DDR2, 16-bit pins
-                                                     200 MHz clock
-```
-
-The default `READ_SLOTS=1` [burst primitive](axi-burst.md) supports one outstanding read and one
-outstanding write independently. The current serial callers finish one burst
-before starting another. It buffers a whole read and checks response status,
-ID, beat count and RLAST before publishing any local data; a failed read burst
-publishes none of its words. It buffers a whole write before offering AW/W.
-Address and data handshakes are independent; write completion requires B.
-Faults stop new work while preserving asserted VALID signals and pending obligations. The primitive
-neither knows matrix dimensions nor splits row transfers.
-
-The optional four-slot read configuration now passes its
-[primitive regression](../results/axi/read_queue/README.md). Allocation and
-ordered local completion share a slot ring; accepted ARs have a separate
-response-owner FIFO. Complete buffers remain reserved through DONE, and
-read protocol faults suppress later unvalidated data. The diagnostic retains
-`READ_SLOTS=1`. GEMM builds select one or four slots; the P8/T32 four-read serial
-image has vendor, routed and board qualification. The integrated overlap path
-shares this read queue with its independent writer.
-
-[SmartConnect and MIG](axi-platform.md) supply width conversion, clock-domain
-crossing and physical DDR control. Custom control stays at 100 MHz; MIG's
-128-bit AXI interface runs at 50 MHz. These are two sides of one memory path,
-not independent memory channels. Calibration crosses back through a three-flop
-single-bit synchronizer. Reset coordination includes the master, conversion and
-MIG; resetting only the master cannot cancel an issued transaction.
-
-The actual clock and reset structure is:
-
-```text
-E3 oscillator, 100 MHz
-          |
-       Clock Wizard (CPU reset does not reset this wizard)
-          +-- core/system 100 MHz --> custom RTL + SmartConnect core side
-          |                      \-> MIG sys_clk_i
+      Clock Wizard (CPU reset does not reset this wizard)
+          +-- core/system 100 MHz -> custom RTL + SmartConnect core side
+          |                       -> MIG sys_clk_i
           +-- reference 200 MHz ---> MIG clk_ref_i
                                       |
-                                  MIG internal clocks
+                                 MIG internal clocks
                                       +--> DDR2 clock, 200 MHz
                                       +--> ui_clk, 50 MHz
-                                             |--> MIG AXI + SmartConnect UI side
+                                             MIG AXI + SmartConnect UI side
 
-CPU_RESETN AND Clock Wizard locked --> MIG sys_rst (active low)
-MIG ui_clk_sync_rst --> reset_core, clocked at 100 MHz --> core_rst
-                   \-> reset_ui, clocked at 50 MHz ---> MIG/bridge AXI reset
-MIG calibration (UI domain) --> three synchronizer flops --> core ddr_ready
+CPU_RESETN AND Clock Wizard locked -> MIG sys_rst (active low)
+MIG ui_clk_sync_rst -> reset_core @ 100 MHz -> core_rst
+                   -> reset_ui @ 50 MHz ---> MIG/bridge AXI reset
+MIG calibration -> three-flop single-bit synchronizer -> core ddr_ready
 ```
 
-The generated per-domain `proc_sys_reset` blocks also observe clock lock and
-release reset synchronously on their own clocks. The wrapper gates DDR_READY
-with `!core_rst`; calibration is readiness, not an AXI reset substitute.
-The reset graph explains why a button event affects more than the custom RTL:
-it restarts MIG's clock/memory initialization while the external DDR device
-may remain powered. See the
-[generator](../scripts/create_axi_platform.tcl) and
-[wrapper](../platform/nexys_a7/axi_ddr_platform.sv).
+Vendor per-domain reset blocks observe lock and release resets synchronously
+on their own clocks. The wrapper gates DDR_READY with `!core_rst`.
+SmartConnect owns the AXI payload CDC; the calibration status crosses
+separately. Calibration returning after a recorded loss does not clear the
+fatal state. A reset button event restarts memory initialization while DDR
+may remain powered, which is why it is not equivalent to cold power-up.
 
-The [diagnostic controller](ddr-diagnostic.md) initializes 16 selected slots,
-checks their address-dependent patterns, performs masked overlays and checks
-again. Each read word, expected value and address are registered before
-comparison. A pending comparison blocks completion, including the final word.
-Three physical runs passed, each with 1,024 read and 648 write beats. This checks
-4,096 selected bytes including DDR-window edges; it is not a full memory sweep,
-bandwidth measurement or DDR-backed GEMM.
+The [platform generator](../scripts/create_axi_platform.tcl) and
+[wrapper](../platform/nexys_a7/axi_ddr_platform.sv) preserve the clock/reset
+network and DDR pin configuration. [Platform configuration](axi-platform.md)
+and [memory compatibility](ddr-memory-compatibility.md) distinguish the MIG
+preset/model from the incompletely identified physical device suffix.
+The [current routed record](../results/ddr_overlap/release_1mbaud/t32/README.md)
+contains timing, CDC, constraints and the worst control path. Passing those
+reports does not qualify warm reset or establish electrical margin.
 
-The diagnostic passes routed setup/hold at +0.642/+0.027 ns at 100 MHz. Its
-[board record](../results/ddr_platform/board/summary.json) uses cold power-up.
-An abrupt warm-reset simulation still fails DDR2 clock/CKE timing qualification,
-even though calibration and data comparisons recover. These are separate claims.
-
-## Serial DDR-backed GEMM
-
-```text
-Python <-> UART transport <-> Registers / scheduler
-
-DDR2 <-> AXI MIG <-> Vendor width/clock conversion <-> AXI DMA
-                                                       |
-                  +------------------------------------+---------+
-                  v                                              ^
-          A / BT local banks                             C local banks
-                  |                                              ^
-               Prefetch                                          |
-                  +----------> P4/P8 compute ---------------------+
-```
-
-The platform, burst primitive, local banks and compute engine in this diagram
-exist. The [row sequencer](dma-rows.md) plans addresses, burst splits and byte
-masks. Its one/four-read regression checks 792 descriptor
-cases and 9,257 commands. The [tile DMA adapter](tile-dma.md) adds actual bank delivery and
-result collection without another whole-burst data buffer. A held operand
-word supports simultaneous bank delivery and replacement; C uses one
-synchronous pair read at a time into the burst engine's write buffer.
-
-The [current portable integration regression](../results/ddr_gemm/read4/README.md) loads,
-computes and stores 216 complete matrices against AXI RAM, comparing 21,938
-outputs across all four P/T builds and both read depths. It checks output padding, byte strobes,
-page splits and fatal drain behavior. A store completion includes B; a local
-result-read error zero-masks the remaining unoffered beats while draining
-the accepted command. The affected C matrix is invalid. The adapter retains
-already offered bank requests and data through faults.
-
-The [serial job controller](ddr-job.md) now validates complete DDR allocation
-ranges, snapshots descriptors and iterates external macrotiles. The
-[P8/T32 job regression](../results/ddr_gemm/read4/portable/job/record.json) adds
-78 complete matrix jobs with 87,946 compared results across both read depths. Its executed shapes and
-source identities are saved; workload generation shares a random stream with
-stall injection, so counts across RTL revisions are not a fixed-workload
-performance comparison. The
-[register block](ddr-registers.md) exposes
-configuration and frozen counters through a single-outstanding local bus.
-Its unit tests model the job ports; they do not establish UART integration.
-
-The [packet subsystem](ddr-core.md) now connects the real register and job
-interfaces to the shared transport. Host MEM_READ/MEM_WRITE owns the burst
-engine only while the job engine is idle. Ownership persists through terminal
-completion and fault drain, including an accepted write still being collected
-before any AXI request. Job counters explicitly exclude host traffic.
-The [current complete-path test](../results/ddr_gemm/read4/host_geometry/core/record.json) adds 64 jobs and 10,232
-checked outputs across both depths and all four P/T builds through packet upload/configure/START/poll/download. This is
-byte-level transport against AXI RAM, not UART pin or vendor DDR verification.
-Its 80 tests include page-boundary burst schedules and calibration loss at
-host read/write completion. Immediate
-fault detection governs memory ownership; registered first-error state governs
-the wide reply buffer, with success suppressed on a faulting completion edge.
-The [host API](host-gemm.md) has separate Windows/Linux unit evidence.
-
-The serial controller visits T-by-T macrotiles over M,N up to 1024 while
-retaining the full K <= 256 reduction locally. It uses buffer set zero and
-loads A/BT, computes and stores one tile before moving on. Two input and two
-result buffer sets exist, but that alone does not implement overlap: their filling, ready,
-computing and writing states must prevent reuse until all consumers finish.
-A result set cannot be freed before its last successful write response.
-The [board wrapper](ddr-board.md) connects the serial path to MIG. The current
-four-cycle C-gather path has complete portable, vendor, routed and physical
-qualification for both P4 `0x4898db67` and P8 `0x01caf61c`.
-The [matched board comparison](../results/ddr_gemm/p8_scaling/README.md)
-holds source code, matrix bytes and clock fixed while changing P.
-The source revision adds selectable four-read DMA, with separate issue and
-ordered metadata retirement. It overlaps DDR reception with bank delivery.
-Build `0xd558a543`
-has [four-read board qualification](../results/ddr_gemm/read4/host_geometry/board/README.md):
-48 jobs, 49,593 outputs and all guards checked. Its dense median is 11,576.5
-cycles (4.529 useful GOPS) at 100 MHz; active compute and traffic match the
-saved one-read P8 checkpoint.
-See [specification.md](specification.md).
-
-The selectable [duplex tile DMA](tile-dma.md#independent-load-and-store-contexts)
-adds separate operand-load and result-store operation contexts over the same
-burst engine. With concurrent bank ports, a prepared input set can compute
-while another is filled and a completed result set is stored. Completion and
-descriptor ownership are independent in the two DMA directions; a shared
-first-error latch stops admission while retaining accepted obligations.
-The wrapper does not assign tile identities or buffer lifetimes. The internal
-[tagged scheduler](tile-scheduler.md) supplies those owners and independent
-load, compute and store cursors. It reserves a whole result set before launch,
-retains it through successful store completion and supports both serial and
-overlap schedules. The `ENABLE_OVERLAP=0` build uses the original serial adapter.
-`ENABLE_OVERLAP=1` connects the duplex path and scheduler to the real packet
-and register interfaces through `gemm_ddr_overlap_job`. This shell validates
-and snapshots descriptors, acknowledges actual START acceptance, excludes
-host memory access and implements the watchdog, first fatal error and frozen
-job counters. VERSION=0x200 exposes MODE=0/1 on this path. The unchanged
-VERSION=0x100 path rejects MODE=1. See [ddr-overlap.md](ddr-overlap.md)
-for the complete ownership and counter contract. Its own vendor, routed and
-[board gates](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
-pass for image `0x2c680af7`; 30 matched pairs at 64x64x256 measure 8.345 useful
-GOPS with overlap and a 1.837x median paired speedup over serial mode.
-
-## Completion boundaries
-
-| Boundary | DONE event | What its cycle count excludes |
-| --- | --- | --- |
-| Local GEMM / BRAM preview | Final result row captured in C banks | Host upload/readback and all DDR traffic |
-| DDR diagnostic | Final checked read and terminal completion, after prior writes | UART/host polling; this is not a GEMM count |
-| Tile DMA operation | Final local read delivery or final AXI B, then held operation response | Separate compute operation and host transport |
-| DDR job controllers | All useful C writes acknowledged successfully and pending obligations drained; cycle endpoint is the final actual B handshake | Descriptor validation before accepted START and host packing/upload/download |
-
-For the local engine:
-
-```text
-job_cycles = ceil(M/P) * ceil(N/P) * (K + 3*P + 3)
-```
-
-The DDR job adds transfer and scheduling costs. Its independent counters and
-final-B timestamp are checked in portable simulation. The
-[physical baseline](../results/ddr_gemm/board/README.md), build `0xed44f92e`,
-measured median 34,637 cycles for 32x32x256 at 100 MHz across 30 resident jobs:
-1.514 useful GOPS including DDR tile transfers and final write acknowledgement.
-UART packing, upload and download are outside that counter. These measurements
-belong to that saved bitstream. The one-read P4/P8 checkpoint has its own
-[physical scaling measurements](../results/ddr_gemm/p8_scaling/README.md):
-dense median latency is 34,103 / 21,281.5 cycles, giving 1.60x DDR-job speedup.
-The arithmetic ceiling, local-job timing and complete DDR-job timing describe
-different boundaries.
+For use and reproduction, follow the [host API](host-gemm.md),
+[board procedure](ddr-board.md) and [verification map](verification.md).
+Earlier interfaces and separately qualified images are indexed in
+[development history](history.md).

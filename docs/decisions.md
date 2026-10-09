@@ -54,7 +54,7 @@ is in [results/core](../results/core/README.md); current integration status is i
    The implemented preview ends at its last local C write, and the memory
    diagnostic has its own checked-read completion. Their counters are not
    substitutes for the full DDR GEMM measurement; see
-   [completion boundaries](architecture.md#completion-boundaries).
+   [completion boundaries](architecture.md#dma-completion-and-faults).
 9. **Performance comparisons.** T8 to T32 changes input reuse and result burst
    shape. Byte counts isolate transfer-volume savings; explain both effects
    when attributing runtime improvements. Preserve the same P/clock/shape.
