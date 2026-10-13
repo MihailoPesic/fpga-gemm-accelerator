@@ -7,6 +7,8 @@ returned results over USB-UART. SmartConnect and MIG supply the vendor
 width/clock conversion and DDR controller; the compute, DMA and control RTL
 are in this repository.
 
+[Watch the FPGA demo](https://youtu.be/NxxY2GaKiKQ).
+
 At 100 MHz, a 256x256x256 job takes **2.97001 ms / 11.298 useful GOPS**
 (median of 30 runs). This includes DDR tile loads, result writes and the final
 write acknowledgement. Host packing, UART transfers and validation are timed
