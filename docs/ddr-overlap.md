@@ -12,8 +12,8 @@ with `ENABLE_OVERLAP=1`. It reports development VERSION `0x00000200` and accepts
 MODE=0 for serial scheduling or MODE=1 for overlap. The default
 `ENABLE_OVERLAP=0` retains the original serial controller, VERSION `0x00000100`
 and MODE=0 only. The
-[qualified serial image](../results/ddr_gemm/read4/host_geometry/board/README.md)
-retains its own evidence. The current [selectable image](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
+[qualified serial image](../results/README.md#archived-intermediate-runs)
+retains its own evidence. The current [selectable image](../results/README.md#archived-intermediate-runs)
 is independently checked in both modes on the board.
 Neither development identity advertises the full v1 release in
 [specification.md](specification.md).
@@ -302,13 +302,13 @@ final B through the integrated core. It runs alongside the existing packet
 compatibility cases. [Scheduler tests](../tb/test_tile_scheduler.py) separately
 exercise independent buffer IDs and simultaneous load/compute/store.
 
-The [saved overlap record](../results/ddr_overlap/README.md) identifies actual
+The [saved overlap record](../results/README.md#archived-intermediate-runs) identifies actual
 completed checks and their exact source/build identities. Portable RAM results,
 vendor DDR simulation, routed timing and physical measurements are separate
 evidence. Full v1 acceptance also requires its remaining coverage, scoped formal
 checks and sustained/max-size board tests.
 
-The [first full route](../results/ddr_overlap/initial_timing/README.md) exposed
+The [first full route](../results/implementation/README.md#key-engineering-observations) exposed
 a fault-code path into thousands of control enables. The current scheduler
 exports scalar `detected_fault` separately from `detected_fault_code`; the job
 shell uses the scalar for admission, stopping and counter snapshots. Error
@@ -329,7 +329,7 @@ Build `0x2c680af7` uses P8/T32, four reads outstanding and a 100 MHz core.
 After both 48-job qualification plans passed, it ran 30 matched pairs at
 M=N=64,K=256. Pair order alternates; both modes receive identical A/BT bytes
 and a newly initialized C allocation. Every output and complete allocation
-is checked after every job. The [raw record](../results/ddr_overlap/timing_predicate/final_build/board/README.md)
+is checked after every job. The [raw record](../results/README.md#archived-intermediate-runs)
 preserves the distribution, byte snapshots, UART trace and exact image identity.
 
 ```text
@@ -370,7 +370,7 @@ warm reset or the full benchmark grid.
 
 The separately routed P8/T32 image `0x9d4beb4d` runs the same MODE0/1
 architecture at 100 MHz and uses 1 Mbaud for host transport. Its
-[dense record](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+[dense record](../results/board/README.md#dense-256x256x256-comparison)
 checks 30 matched pairs at M=N=K=256, with identical operands and fresh C
 sentinels for each sample. All 3,932,160 outputs and complete allocations pass.
 
@@ -398,7 +398,7 @@ it is not an isolated read/write bandwidth test or a DDR maximum. Read-channel
 stall counters measure held R beats, not the delay between AR and the first R.
 These distinctions matter when interpreting short-K workloads and tails.
 
-The same image's [maximum-size checks](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md)
+The same image's [maximum-size checks](../results/board/README.md#maximum-dimensions-1024x1024x256)
 complete one 1024x1024x256 job per mode. Overlap takes 46.64784 ms / 11.509020
 GOPS; all 2,097,152 outputs across both modes are independently recomputed
 from the retained DDR input bytes. These are single samples, separate from
@@ -406,7 +406,7 @@ the 30-pair dense distribution. Warm reset remains unqualified.
 
 ## Shape grid and the remaining bottleneck
 
-The [complete T32 grid](../results/ddr_overlap/release_1mbaud/board/t32/benchmark/README.md)
+The [complete T32 grid](../results/board/README.md#full-shape-grid)
 contains 30 samples per mode for 16 shapes. All 960 jobs compare every output
 and complete guarded allocations. The following medians use the same image
 and 100 MHz clock; cycle ratios compare the two series medians.
@@ -447,7 +447,7 @@ These observations do not establish the DDR device's bandwidth ceiling.
 
 ## Controlled macrotile comparison
 
-The [completed comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+The [completed comparison](../results/comparison/README.md)
 holds P=8, 100 MHz, signed INT8/INT32 arithmetic, four read slots, 1 Mbaud,
 core/host sources, mathematical inputs, layouts and C sentinels constant.
 Each of 16 shapes has 30 samples in three configurations: T8 serial (A),
@@ -485,9 +485,9 @@ equivalents. Logical operand/result storage grows from 8.5 KiB to 40 KiB,
 but the bank widths already determine the smaller build's physical primitives.
 T8 is a reuse baseline rather than a proportional physical-memory saving.
 
-![Accepted transfer volume across the matched shapes](../results/ddr_overlap/release_1mbaud/comparison/collector/transfer_volume.png)
+![Accepted transfer volume across the matched shapes](../results/comparison/transfer_volume.png)
 
 The logarithmic axis counts accepted input bytes plus useful C strobes.
 It excludes DDR command, refresh and physical burst overhead. Tail latency
 and complete distributions are retained alongside the
-[third plot](../results/ddr_overlap/release_1mbaud/comparison/collector/tail_latency.png).
+[third plot](../results/comparison/tail_latency.png).

@@ -1,6 +1,5 @@
 # Normalize line endings: LF in the repo, LF in the working tree.
-# Vivado, XSim and the Xilinx toolchain all read LF fine on Windows, so there
-# is no reason to let CRLF into the history.
+# Vivado, XSim and the Xilinx toolchain all read LF fine on Windows.
 * text=auto eol=lf
 
 # Source
@@ -17,74 +16,12 @@
 *.mem    text
 *.coe    text
 
-# IP configuration - text, but the XML is machine-written. Keep it tracked so
-# IP is reproducible; do not hand-edit.
+# IP configuration - machine-written XML; keep tracked for reproducibility.
 *.xci    text
 *.bd     text
 *.prj    text
 
-# Keep selected tool evidence in Git, but collapse generated output in GitHub
-# diffs. RTL, test code, report summaries and manifests remain normal diffs.
-# Preserve every archived evidence byte, including source snapshots, methods
-# and summaries included in SHA-256 seals. Repository RTL and docs use LF.
-results/** -text !eol -whitespace
-results/**/*.txt -text !eol
-results/**/*.json -text !eol
-results/**/*.xml -text !eol
-results/**/*.csv -text !eol
-results/**/*.tsv -text !eol linguist-generated=true
-results/dma_rows/formal/*.log -text !eol linguist-generated=true
-results/dma_rows/formal/*.vcd -text !eol linguist-generated=true
-results/dma_rows/formal/*.ys -text !eol linguist-generated=true
-results/buffer_formal/*.vcd -text !eol linguist-generated=true
-results/buffer_formal/*.ys -text !eol linguist-generated=true
-results/buffer_formal/inputs/** -text !eol linguist-generated=true
-results/buffer_formal/linux/** -text !eol
-results/buffer_formal/linux/*.vcd linguist-generated=true
-results/buffer_formal/linux/*.ys linguist-generated=true
-results/buffer_formal/linux/inputs/** linguist-generated=true
-results/dma_rows/formal/linux/** -text !eol
-results/dma_rows/formal/linux/*.vcd linguist-generated=true
-results/dma_rows/formal/linux/*.ys linguist-generated=true
-results/**/*.gz binary
-results/ddr_overlap/timing_predicate/final_build/routed/review/* -text !eol
-results/ddr_overlap/timing_predicate/final_build/board/matched_benchmark/method.py -text !eol
-results/ddr_overlap/timing_predicate/final_build/board/matched_benchmark/uart_verifier.py -text !eol
-results/ddr_overlap/timing_predicate/final_build/host_api/method.py -text !eol
-results/ddr_overlap/timing_predicate/final_build/maximum/method.py -text !eol
-results/ddr_overlap/timing_predicate/final_build/endurance/method.py -text !eol
-results/**/*.txt linguist-generated=true -whitespace
-results/**/*.xml linguist-generated=true
-# Archived methods, snapshots and validators are evidence; canonical RTL,
-# host, tests, scripts and formal sources retain normal GitHub treatment.
-results/**/*.py linguist-generated=true
-results/**/*.sv linguist-generated=true
-results/**/*.v linguist-generated=true
-results/**/*.tcl linguist-generated=true
-results/**/*.sh linguist-generated=true
-results/**/*_coverage.json linguist-generated=true
-results/**/coverage.json linguist-generated=true
-results/**/results.json linguist-generated=true
-results/**/results.csv linguist-generated=true
-results/**/hardware/results.json linguist-generated=true
-results/**/hardware/results.csv linguist-generated=true
-results/**/board/results.json linguist-generated=true
-results/**/board/results.csv linguist-generated=true
-*.xci linguist-generated=true
-*.xpr linguist-generated=true
-platform/nexys_a7/reference/** linguist-vendored=true
-
-# Windows-only scripts must keep CRLF or cmd.exe misparses them
-*.bat    text eol=crlf
-*.cmd    text eol=crlf
-
-# Binary - never diff or merge these
-*.bit    binary
-*.bin    binary
-*.dcp    binary
-*.xsa    binary
-*.mcs    binary
-*.wdb    binary
-*.png    binary
-*.jpg    binary
-*.pdf    binary
+# Curated measurement artifacts and reports (excluded from GitHub language stats).
+results/** linguist-generated=true
+results/**/*.png binary
+results/**/*.pdf binary

@@ -7,7 +7,7 @@ from the preview. ID `0x314d474e` identifies the GEMM interface. Version
 selectable serial/overlap jobs. Both remain separate from the full v1 target.
 
 The library and CLI run on the qualified P4/P8 serial images and current
-[1 Mbaud selectable P8 image](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+[1 Mbaud selectable P8 image](../results/board/README.md#dense-256x256x256-comparison)
 `0x9d4beb4d`. Thirty matched pairs measure overlap at 11.298 useful GOPS for
 256x256x256. Earlier images retain their original identities. The preview
 and diagnostic bitstreams use different interfaces.
@@ -147,12 +147,12 @@ finally:
 Pass `mode=0` to select serial scheduling on this same image. Resident matrices
 can be rerun by submitting a new job ID, with no intervening upload.
 
-This example was [checked on the current image `0x9d4beb4d`](../results/ddr_overlap/release_1mbaud/board/t32/host_demo/README.md)
+This example was [checked on the current image `0x9d4beb4d`](../results/board/README.md#cli-and-python-api-smoke-test)
 in both modes after a fresh cold start on 2026-10-08. All four results matched
 and 752 input/padding/guard bytes were checked per job, with zero transport
 retries. MODE0 took 264 cycles; MODE1 took 265. This single microtile does not
-offer inter-tile overlap. The [previous selectable-image check](../results/ddr_overlap/timing_predicate/final_build/host_api/record.json)
-and [earlier serial check](../results/ddr_overlap/serial_host_smoke/custom_matrix/README.md)
+offer inter-tile overlap. The [previous selectable-image check](../results/README.md#archived-intermediate-runs)
+and [earlier serial check](../results/README.md#archived-intermediate-runs)
 retain their separate identities and measurements.
 
 The host packs A and transposes B into BT, uploads them through memory

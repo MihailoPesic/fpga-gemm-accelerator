@@ -7,7 +7,7 @@ layout, packet protocol and register semantics are shared with the AXI RAM
 regression. `ENABLE_OVERLAP=1` selects VERSION=0x200 and MODE=0/1; the
 original serial hierarchy retains VERSION=0x100 and MODE=0 only.
 
-The measured [1 Mbaud P8/T32 image](../results/ddr_overlap/release_1mbaud/README.md)
+The measured [1 Mbaud P8/T32 image](../results/README.md)
 `0x9d4beb4d` passes vendor simulation, routed 100 MHz checks, both scheduling
 modes, the full shape grid and cold-start board repeatability tests.
 [Status](status.md) records the results and remaining full-v1 limits.

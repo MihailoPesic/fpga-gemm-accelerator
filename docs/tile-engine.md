@@ -106,7 +106,7 @@ loading/readback. These are BRAM-preview counters; the DDR release uses its
 separate final-write-response completion contract.
 
 For P4,T32 and M=N=32,K=256, the expected job count is 17,344 cycles.
-Simulation and the [September 30 board run](../results/preview/README.md)
+Simulation and the [September 30 board run](../results/README.md#archived-intermediate-runs)
 match that prediction. At 100 MHz this is 173.44 us of BRAM-local execution;
 host upload and readback are separate measurements.
 
@@ -124,7 +124,7 @@ continues, checks mixed input/output IDs, whole-job exclusion, START priority,
 pending/stalled responses and reset. Every computed value and completed result
 matrix is compared with Python integer dot products. `make mutation-tile-overlap`
 requires three deliberately broken private ownership implementations to fail
-their expected assertions. The [saved record](../results/tile_overlap_ports/README.md)
+their expected assertions. The [saved record](../results/verification/README.md#injected-rtl-defect-detection)
 also includes fresh default-serial and P8 packet-core regressions.
 
 `make synth-tile` routes the T32 engines with registered neighboring logic at

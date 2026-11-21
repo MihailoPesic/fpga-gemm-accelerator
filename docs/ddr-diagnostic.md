@@ -4,7 +4,7 @@
 platform. It checks 4,096 selected bytes inside the 128 MiB window. It does
 not run GEMM or sweep the whole DDR device.
 
-The [October 2 board checkpoint](../results/ddr_platform/board/summary.json)
+The [October 2 board checkpoint](../results/README.md#archived-intermediate-runs)
 passes three seeded runs after one cold power-up. Its local image is
 `build/ddr_diag_pipeline/gemm_ddr_diag.bit`, with the matching manifest at
 `build/ddr_diag_pipeline/build.json` and BUILD_ID `0xc63e39aa`.
@@ -42,7 +42,7 @@ It initiates diagnostics internally; UART transport is tested separately.
 The bitstream stage requires matching source and generated-platform hashes,
 and writes `build.json` only after its implementation checks succeed. Inspect
 the stage console logs and the timing, CDC, route, DRC and utilization reports
-in the same directory. The [saved evidence](../results/ddr_platform/README.md)
+in the same directory. The [saved evidence](../results/README.md#archived-intermediate-runs)
 distinguishes portable tests, vendor simulation, routed implementation and
 physical-board qualification.
 
@@ -88,7 +88,7 @@ Warm-reset timing is not yet qualified, as described below.
 The exploratory warm-reset test recovered calibration and completed all data
 comparisons, but the DDR2 model reported clock and CKE timing violations while
 MIG's PLL was reset and restarted. That run is recorded as **FAIL** in
-[the reset evidence](../results/ddr_platform/reset_probe/summary.json).
+[the reset evidence](../results/README.md#archived-intermediate-runs).
 The model has no external reset pin; manually resetting its state would not
 represent the board and is not used. The normal simulation gate covers initial
 calibration, memory traffic and decode errors, not a timing-clean warm reset.

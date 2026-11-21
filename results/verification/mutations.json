@@ -1,0 +1,107 @@
+{
+  "summary": {
+    "total_mutants": 8,
+    "caught": 8,
+    "simulator": "Icarus Verilog 12.0 + cocotb 2.0.1"
+  },
+  "suites": [
+    {
+      "suite": "compute_core",
+      "runner": "scripts/mutation_test.py",
+      "mutants": [
+        {
+          "name": "unsigned_multiply",
+          "file": "rtl/core/gemm_pe.sv",
+          "status": "CAUGHT",
+          "caught_by": [
+            "arithmetic_and_pipeline"
+          ],
+          "original": "product <= a * b;",
+          "mutated": "product <= $unsigned(a) * $unsigned(b);"
+        },
+        {
+          "name": "product_survives_clear",
+          "file": "rtl/core/gemm_pe.sv",
+          "status": "CAUGHT",
+          "caught_by": [
+            "arithmetic_and_pipeline"
+          ],
+          "original": "product_valid <= !clear && a_valid && b_valid;",
+          "mutated": "product_valid <= a_valid && b_valid;"
+        },
+        {
+          "name": "early_drain",
+          "file": "rtl/core/gemm_microtile.sv",
+          "status": "CAUGHT",
+          "caught_by": [
+            "microtile_contract"
+          ],
+          "original": "9'(2*P-2)",
+          "mutated": "9'(2*P-3)"
+        }
+      ]
+    },
+    {
+      "suite": "axi_read_queue_stop",
+      "runner": "scripts/mutation_read_queue.py",
+      "mutants": [
+        {
+          "name": "pending_reads_ignore_external_stop",
+          "file": "rtl/memory/gemm_axi_burst.sv",
+          "status": "DETECTED",
+          "caught_by": [
+            "external_cancel_preserves_held_ar_and_cancels_pending"
+          ],
+          "original": "(fatal || fault_now || stop_reads)",
+          "mutated": "(fatal || fault_now)"
+        },
+        {
+          "name": "external_stop_arrives_one_edge_late",
+          "file": "rtl/memory/gemm_axi_burst.sv",
+          "status": "DETECTED",
+          "caught_by": [
+            "external_cancel_preserves_held_ar_and_cancels_pending"
+          ],
+          "original": "wire stop_reads = rd_cancel || read_cancelled;",
+          "mutated": "wire stop_reads = read_cancelled;"
+        }
+      ]
+    },
+    {
+      "suite": "tile_engine_concurrent_ports",
+      "runner": "scripts/mutation_tile_overlap.py",
+      "mutants": [
+        {
+          "name": "response_owner_uses_live_request",
+          "file": "rtl/control/gemm_tile_engine.sv",
+          "status": "DETECTED",
+          "caught_by": [
+            "start_response_ownership"
+          ],
+          "original": "output_buf != read_buf_q",
+          "mutated": "output_buf != read_buf"
+        },
+        {
+          "name": "active_result_reads_allowed",
+          "file": "rtl/control/gemm_tile_engine.sv",
+          "status": "DETECTED",
+          "caught_by": [
+            "disjoint_load_compute_read"
+          ],
+          "original": "!rst && (!busy || read_buf != output_q) &&",
+          "mutated": "!rst &&"
+        },
+        {
+          "name": "response_owner_released_early",
+          "file": "rtl/control/gemm_tile_engine.sv",
+          "status": "DETECTED",
+          "caught_by": [
+            "start_response_ownership"
+          ],
+          "original": "wire read_owned = read_pending || response_valid;",
+          "mutated": "wire read_owned = read_pending || (response_valid && !response_ready);"
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ SmartConnect/MIG path; behavioral AXI RAM supplies memory in portable tests.
 
 The default serial configuration reports ID `0x314d474e` and version `0x00000100`.
 It accepts MODE=0 only. Matching P4/T32 and P8/T32 board images have
-[separate physical results](../results/ddr_gemm/p8_scaling/README.md); the full v1
+[separate physical results](../results/README.md#archived-intermediate-runs); the full v1
 overlap contract remains under development. `ENABLE_OVERLAP=1` selects the
 [validated overlap path](ddr-overlap.md), version `0x00000200`, with MODE=0/1.
 It replaces the serial job controller and DMA with the validated shell,
@@ -156,7 +156,7 @@ separate from these protocol guarantees.
 `make test-ddr-core PYTHON=.venv/bin/python` runs host-library unit tests and
 the complete packet/AXI RAM subsystem. Results, coverage and source identities
 are generated under ignored `build/test_ddr_core/`.
-The [C gather regression](../results/ddr_gemm/gather4/regression/README.md)
+The [C gather regression](../results/README.md#archived-intermediate-runs)
 passes 24 subsystem tests across P4/T8, P4/T32, P8/T8 and P8/T32: 28 complete
 jobs, 5,056 compared outputs and 3,652 command/response pairs. It includes
 96 invalid memory commands, 16 malformed frames, eight duplicate replays and
@@ -224,7 +224,7 @@ Every output, complete input allocation, C padding and allocation guard is
 checked in both models. These simulations quantify this RTL under stated
 memory responses; they do not measure MIG latency or physical DDR bandwidth.
 
-The current [P4/T32 board comparison](../results/ddr_gemm/gather4/board/README.md)
+The current [P4/T32 board comparison](../results/README.md#archived-intermediate-runs)
 checks the revised result-gathering path independently. For dense 32x32x256,
 the 30-run median is 34,082 job cycles, with 17,088 active schedule cycles in
 every run. Useful utilization includes the entire DDR job:
@@ -249,7 +249,7 @@ array scaling and transfer concurrency; it does not predict their speedup.
 
 ## Physical array scaling
 
-The [P4/P8 comparison](../results/ddr_gemm/p8_scaling/README.md) uses the same
+The [P4/P8 comparison](../results/README.md#archived-intermediate-runs) uses the same
 28 build sources, six host sources, signed matrix bytes, layouts and 100 MHz
 clock. Both serial images pass 48 jobs with every output and allocation guard
 checked. Dense results use 30 observations per image:
@@ -290,8 +290,8 @@ A single 32x32 dense tile has no successor tile to overlap.
 
 ## Physical memory revision
 
-Build `0xd558a543` passes [48 board jobs](../results/ddr_gemm/read4/host_geometry/board/README.md)
-at P8/T32 and 100 MHz. The [revision comparison](../results/ddr_gemm/read4/board_comparison/README.md)
+Build `0xd558a543` passes [48 board jobs](../results/README.md#archived-intermediate-runs)
+at P8/T32 and 100 MHz. The [revision comparison](../results/README.md#archived-intermediate-runs)
 retains the matched workloads, distributions and source changes. Every output,
 input allocation, C padding and guard is
 checked; zero transport retries or rejected frames occur. The dense 30-run

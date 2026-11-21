@@ -147,7 +147,7 @@ boundaries. The maximum descriptor test checks only admitted tile-count
 width and then faults before issuing memory work; it is not a completed
 1024x1024x256 comparison or proof of terminal tag rollover.
 
-The [saved checkpoint](../results/tile_scheduler/README.md) passes all eight
+The [saved checkpoint](../results/README.md#archived-intermediate-runs) passes all eight
 P/T/read-depth configurations: 24 tests, 112 complete jobs and 71,632 outputs.
 Every configuration exercises different input/result IDs and simultaneous
 load/compute/store. Actual zero process exits, raw XML/coverage and unchanged

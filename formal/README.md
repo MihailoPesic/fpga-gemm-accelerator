@@ -52,6 +52,6 @@ existential examples, not a liveness proof. The final witness sample observes
 the last committed transition, so its input offers are not counted as another
 executed edge.
 
-Saved evidence: [row planner](../results/dma_rows/formal/README.md) and
-[queue/scheduler](../results/buffer_formal/README.md). Trace-validator unit
+Saved evidence: [row planner](../results/formal/README.md#dma-row-planner-checks) and
+[queue/scheduler](../results/formal/README.md#read-fifo-and-scheduler-proofs). Trace-validator unit
 tests are software checks, not additional RTL proofs.

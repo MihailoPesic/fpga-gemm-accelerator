@@ -10,8 +10,7 @@ T32 serial and overlap use the same bitstream with MODE=0 and MODE=1.
 
 M=N=K=256, signed INT8 inputs and INT32 outputs. Each series contains 30
 completed jobs. Values below come from the retained
-[comparison JSON](../results/ddr_overlap/release_1mbaud/comparison/collector/comparison.json)
-and [CSV](../results/ddr_overlap/release_1mbaud/comparison/collector/comparison.csv).
+[comparison CSV](../results/comparison/comparison.csv).
 
 | Configuration | Median cycles | Median latency (ms) | Useful GOPS |
 | --- | ---: | ---: | ---: |
@@ -21,7 +20,7 @@ and [CSV](../results/ddr_overlap/release_1mbaud/comparison/collector/comparison.
 
 The ratio of cycle medians is 2.293x for T8 serial to T32 serial and 2.495x
 for T32 serial to overlap: 5.720x overall. The separate same-image
-[dense record](../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
+[dense record](../results/board/README.md#dense-256x256x256-comparison)
 also reports a median paired MODE0/MODE1 speedup of 2.495x. Paired speedups
 and ratios of series medians are different statistics, even when their
 rounded values agree.
@@ -64,11 +63,11 @@ and 960 T32 serial/overlap jobs. It includes square sizes 32..256 at
 K=16/64/256, plus `(31,33,17)`, `(65,63,255)`, `(1,64,256)` and `(64,1,256)`.
 Error bars show minimum/maximum around each series median.
 
-![Useful throughput by shape and reduction length](../results/ddr_overlap/release_1mbaud/comparison/collector/useful_gops.png)
+![Useful throughput by shape and reduction length](../results/comparison/useful_gops.png)
 
-- [Throughput PDF](../results/ddr_overlap/release_1mbaud/comparison/collector/useful_gops.pdf)
-- [Transfer volume PNG](../results/ddr_overlap/release_1mbaud/comparison/collector/transfer_volume.png) / [PDF](../results/ddr_overlap/release_1mbaud/comparison/collector/transfer_volume.pdf)
-- [Tail latency PNG](../results/ddr_overlap/release_1mbaud/comparison/collector/tail_latency.png) / [PDF](../results/ddr_overlap/release_1mbaud/comparison/collector/tail_latency.pdf)
+- [Throughput PDF](../results/comparison/useful_gops.pdf)
+- [Transfer volume PNG](../results/comparison/transfer_volume.png) / [PDF](../results/comparison/transfer_volume.pdf)
+- [Tail latency PNG](../results/comparison/tail_latency.png) / [PDF](../results/comparison/tail_latency.pdf)
 
 ## Evidence and limits
 
@@ -76,11 +75,11 @@ Every board job compares all useful results and guarded A/BT/C allocations.
 The grid archives retain counters, input digests, configuration, method and
 execution records. They do not retain raw matrices for independent replay
 of every live numerical comparison. The separate
-[maximum-size record](../results/ddr_overlap/release_1mbaud/board/t32/maximum/README.md)
+[maximum-size record](../results/board/README.md#maximum-dimensions-1024x1024x256)
 retains complete memory snapshots and independently replays both jobs at
 1024x1024x256; it is one sample per mode, not a latency distribution.
 
-The [30-minute run](../results/ddr_overlap/release_1mbaud/board/t32/endurance/README.md)
+The [30-minute run](../results/board/README.md#30-minute-endurance-run)
 is a host-paced repeatability test. It is not continuous peak-rate compute
 stress or a lifetime reliability claim. A stopped earlier run and its
 read-only recovery remain recorded separately.
@@ -88,7 +87,7 @@ read-only recovery remain recorded separately.
 All measurements use cold power-up. Warm-reset DDR timing, independently
 measured resident-array throughput and isolated DDR read/write/mixed bandwidth
 remain [open](status.md). Routed timing and warnings are retained in the
-[implementation records](../results/ddr_overlap/release_1mbaud/README.md).
+[implementation records](../results/README.md).
 Reproduction commands are in [testing.md](testing.md#physical-tiling-and-overlap-comparison);
 original data and standalone validators remain in the
-[comparison archive](../results/ddr_overlap/release_1mbaud/comparison/README.md).
+[comparison archive](../results/comparison/README.md).

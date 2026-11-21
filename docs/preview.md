@@ -18,7 +18,7 @@ DDR controller, DMA, overlap, watchdog, or DDR completion semantics. It is a
 separate build of the same repository and shared compute RTL. The original
 native-DDR project remains available for platform work.
 
-The [September 30 board results](../results/preview/README.md) establish
+The [September 30 board results](../results/README.md#archived-intermediate-runs) establish
 correct outputs and 100 MHz routed timing for this P4/T32 build at 115200 baud.
 A 32x32x256 job takes 17,344 local-engine cycles (173.44 us, 3.02 useful GOPS).
 That measurement starts after upload and excludes UART and host work.

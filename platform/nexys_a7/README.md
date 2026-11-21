@@ -3,11 +3,11 @@
 The 1 Mbaud selectable DDR2 GEMM image `0x9d4beb4d` passes 30 matched
 serial/overlap pairs, with all 3,932,160 useful outputs checked. At
 256x256x256 it measures 11.298 useful GOPS with overlap and a 2.495x paired
-speedup over serial mode. Its [board record](../../results/ddr_overlap/release_1mbaud/board/t32/dense/README.md)
-and [routed implementation](../../results/ddr_overlap/release_1mbaud/t32/README.md)
+speedup over serial mode. Its [board record](../../results/board/README.md#dense-256x256x256-comparison)
+and [routed implementation](../../results/implementation/README.md)
 retain the exact image and source identities. Earlier checkpoints are saved
-in the [DDR GEMM evidence](../../results/ddr_gemm/README.md) and the
-[115200-baud selectable record](../../results/ddr_overlap/timing_predicate/final_build/board/README.md).
+in the [DDR GEMM evidence](../../results/README.md#archived-intermediate-runs) and the
+[115200-baud selectable record](../../results/README.md#archived-intermediate-runs).
 The new T32 route passes 100 MHz with +0.017/+0.017 ns setup/hold slack;
 its narrow control-path margin and high slice occupancy remain documented.
 
@@ -15,7 +15,7 @@ The GEMM BRAM preview uses `gemm_preview_top.sv` and `preview.xdc`, with no MIG
 or clock-wizard dependency. Build it with `python scripts/build_preview.py`;
 see the [preview interface and board workflow](../../docs/preview.md).
 The September 30 preview bitstream passes routed timing at 100 MHz and full
-GEMM output comparisons on the board; see the [saved evidence](../../results/preview/README.md).
+GEMM output comparisons on the board; see the [saved evidence](../../results/README.md#archived-intermediate-runs).
 
 The historical native-DDR baseline is the tracked GUI project and `.srcs` tree at the
 repository root. [manifest.json](manifest.json) records the saved memory
@@ -47,18 +47,18 @@ and masked writes, and completes 1,024 read beats and 648 write beats.
 
 See the [platform configuration](../../docs/axi-platform.md),
 [diagnostic build and board workflow](../../docs/ddr-diagnostic.md) and
-[saved verification evidence](../../results/ddr_platform/README.md).
+[saved verification evidence](../../results/README.md#archived-intermediate-runs).
 These results cover the bounded diagnostic. The
 [tile DMA path](../../docs/tile-dma.md) is tested separately against AXI RAM;
 its serial descriptor controller and registers are verified separately. The
 [packet subsystem](../../docs/ddr-core.md) now connects those modules with
 framed host commands and shared memory ownership against AXI RAM.
-The [complete UART/GEMM vendor test](../../results/ddr_gemm/vendor/summary.json)
+The [complete UART/GEMM vendor test](../../results/README.md#archived-intermediate-runs)
 now passes two jobs with all 16 outputs compared. The matching production
 bitstream passes setup/hold at +0.097/+0.014 ns, and
-[DDR GEMM board qualification](../../results/ddr_gemm/board/README.md) passes
+[DDR GEMM board qualification](../../results/README.md#archived-intermediate-runs) passes
 48 jobs with all 49,593 outputs checked after fresh power-up. The complete
-image has its own [implementation identity](../../results/ddr_gemm/routed/README.md).
+image has its own [implementation identity](../../results/README.md#archived-intermediate-runs).
 Warm-reset clock/CKE behavior remains unqualified,
 and the diagnostic is neither a full memory sweep nor a bandwidth measurement.
 
@@ -111,8 +111,8 @@ GEMM board record linked above.
 On September 30, the saved July bitstream was programmed on the detected
 `xc7a50t`. Clock-lock/calibration/heartbeat LEDs were observed on the board, and the
 native host test passed through COM11: ping, one word, eight adjacent words
-and seven scattered words. See the [record](../../results/native_board/2026-09-30.json)
-and [output](../../results/native_board/2026-09-30.txt). This retests the historical
+and seven scattered words. See the [record](../../results/README.md#archived-intermediate-runs)
+and [output](../../results/README.md#archived-intermediate-runs). This retests the historical
 bitstream; it does not validate the later source repairs.
 
 With Python installed on Windows, create a local host environment and run the

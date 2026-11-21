@@ -188,13 +188,13 @@ Simulation-only assertions check stable
 master/local payloads under stalls, full-write buffering and buffer bounds;
 they are not a formal proof.
 
-The [current read-queue regression](../results/ddr_gemm/read4/portable/axi/record.json)
+The [current read-queue regression](../results/README.md#archived-intermediate-runs)
 passes four tests at depth one and sixteen at depth four. Queue cases cover
 all burst lengths and occupancies, ordered invalid commands, ring wrap,
 simultaneous handshakes, faults at every queue position, repeated opaque tags,
 stable held completion and retained missing-response obligations. External
 cancellation tests preserve held AR and validated data/DONE, cancel pending
 addresses and leave concurrent write collection unchanged. The
-[earlier primitive checkpoint](../results/axi/read_queue/README.md) retains
+[earlier primitive checkpoint](../results/verification/README.md#core-and-interface-coverage) retains
 its original source identity. These are portable tests; routed fit, timing
 and board performance require separate qualification.

@@ -15,7 +15,7 @@ interface. The [packet subsystem](ddr-core.md) adds framed commands and idle
 host-memory arbitration. [Platform integration](ddr-board.md) has separate
 vendor, routed and physical evidence for P4/T32 and P8/T32. The current
 four-cycle C gathering passes each image's 48-job board suite; their
-[controlled comparison](../results/ddr_gemm/p8_scaling/README.md) preserves
+[controlled comparison](../results/README.md#archived-intermediate-runs) preserves
 the same sources, workloads and transfer counts.
 
 ## Data flow and tile order
@@ -202,12 +202,12 @@ see [reset qualification](ddr-diagnostic.md#reset-qualification-remains-open).
 `make test-ddr-job PYTHON=.venv/bin/python` connects the production controller,
 DMA adapter, burst engine, banks and compute engine to behavioral AXI RAM.
 The oracle uses mathematical matrices and Python integer dot products.
-The [C gather regression](../results/ddr_gemm/gather4/regression/README.md)
+The [C gather regression](../results/README.md#archived-intermediate-runs)
 passes 16 job-controller tests across all four P/T builds: 154 jobs, 86,322
 compared outputs, 124 invalid descriptors and 1,017 macrotiles. Exact executed
 shapes and source fingerprints are saved; shared random stimulus means changed
 RTL latency can change later seeded cases. The
-[pipeline regression](../results/ddr_job/pipeline/README.md) and
-[original checkpoint](../results/ddr_job/README.md) retain their earlier evidence.
+[pipeline regression](../results/README.md#archived-intermediate-runs) and
+[original checkpoint](../results/README.md#archived-intermediate-runs) retain their earlier evidence.
 This portable check is separate from vendor integration, routed timing,
 physical DDR GEMM and the overlap/concurrent-read release.

@@ -78,5 +78,5 @@ and host-memory arbitration against AXI RAM. The
 [board integration](ddr-board.md) has separate vendor, routed and physical
 evidence for the original serial checkpoint. Those gates must be repeated
 for the changed C-gather adapter before extending its hardware claim.
-The [saved unit result](../results/ddr_registers/README.md) passes 16 tests
+The [saved unit result](../results/README.md#archived-intermediate-runs) passes 16 tests
 with unchanged source fingerprints.

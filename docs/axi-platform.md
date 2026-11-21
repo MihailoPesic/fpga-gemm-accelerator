@@ -5,15 +5,15 @@ native-DDR project. The standalone flow generates the DDR controller and runs
 its vendor-model simulation. The separate [DDR diagnostic](ddr-diagnostic.md)
 adds the board wrapper, SmartConnect, coordinated reset and custom memory
 test. The [serial GEMM wrapper](ddr-board.md) now connects the matrix
-subsystem to this platform. Its [complete qualification](../results/ddr_gemm/README.md)
+subsystem to this platform. Its [complete qualification](../results/README.md#archived-intermediate-runs)
 passes vendor simulation, routed timing and 48 cold-start board jobs.
 
 The integrated diagnostic passes routed timing at 100 MHz and three seeded
 cold-start checks on the physical Nexys A7-50T. The
-[board evidence](../results/ddr_platform/board/summary.json) records the image,
+[board evidence](../results/README.md#archived-intermediate-runs) records the image,
 counters and power-up sequence. It validates the selected memory-test pattern;
 warm reset remains open. The matrix wrapper has separate
-[board measurements](../results/ddr_gemm/board/README.md).
+[board measurements](../results/README.md#archived-intermediate-runs).
 
 ```text
 Implemented vendor simulation:

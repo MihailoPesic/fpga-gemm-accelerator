@@ -2,7 +2,7 @@
 
 The [technical specification](specification.md) defines the project target.
 These decisions clarify its implementation contracts. Saved compute evidence
-is in [results/core](../results/core/README.md); current integration status is in
+is in [results/core](../results/verification/README.md); current integration status is in
 [status.md](status.md). Changes to these decisions require matching tests.
 
 1. **Platform baseline.** Target xc7a50ticsg324-1L. Preserve the working
@@ -73,7 +73,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     DDR bandwidth and overhead must be measured. Configuration and evidence:
     [axi-platform.md](axi-platform.md),
     [generator](../scripts/create_axi_platform.tcl),
-    [vendor pass](../results/ddr_platform/vendor_pipeline/summary.json).
+    [vendor pass](../results/README.md#archived-intermediate-runs).
 11. **Reset ownership and startup qualification.** The board clock wizard
     supplies core/system and reference clocks; MIG's user-clock reset feeds
     reset controllers for the core and UI domains. Calibration crosses into
@@ -88,8 +88,8 @@ is in [results/core](../results/core/README.md); current integration status is i
     currently qualified procedure. See the
     [wrapper](../platform/nexys_a7/axi_ddr_platform.sv),
     [reset contract](ddr-diagnostic.md#reset-qualification-remains-open),
-    [failed reset probe](../results/ddr_platform/reset_probe/summary.json) and
-    [physical check](../results/ddr_platform/board/summary.json).
+    [failed reset probe](../results/README.md#archived-intermediate-runs) and
+    [physical check](../results/README.md#archived-intermediate-runs).
 12. **Register the diagnostic comparison.** The first full DDR diagnostic
     missed 100 MHz setup by 0.727 ns. Its worst path crossed address/pattern
     generation and error control to a register enable. Capture received data,
@@ -102,9 +102,9 @@ is in [results/core](../results/core/README.md); current integration status is i
     These are observed full-build results, not a promise that arbitrary
     pipelining improves timing. See
     [controller](../rtl/control/gemm_ddr_diag.sv),
-    [original timing failure](../results/ddr_platform/timing_probe/summary.json),
-    [comparison regression](../results/ddr_platform/pipeline_check/summary.json)
-    and [routed result](../results/ddr_platform/routed/summary.json).
+    [original timing failure](../results/README.md#archived-intermediate-runs),
+    [comparison regression](../results/README.md#archived-intermediate-runs)
+    and [routed result](../results/README.md#archived-intermediate-runs).
 13. **Serial row planning before full DMA.** Keep the first row sequencer
     command-only, with one burst awaiting completion. Advancing at command
     acceptance would release work before its data arrived or its write was
@@ -117,7 +117,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     validation. This isolates address and completion errors before introducing
     bank routing, overlap or concurrent reads. The
     [row contract](dma-rows.md) and
-    [portable evidence](../results/dma_rows/README.md) cover this boundary;
+    [portable evidence](../results/README.md#archived-intermediate-runs) cover this boundary;
     they do not establish an integrated DMA or physical transfer result.
 
 14. **Reuse the burst buffers for bank transfers.** The tile DMA adapter
@@ -139,7 +139,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     engine and DMA adapter with buffer zero, retaining the full K dimension.
     MODE must be zero in this checkpoint; overlap requires a later ownership
     scheduler. Invalid descriptors produce no memory requests. See
-    [ddr-job.md](ddr-job.md) and [its regression](../results/ddr_job/README.md).
+    [ddr-job.md](ddr-job.md) and [its regression](../results/README.md#archived-intermediate-runs).
 16. **Preserve the completion and first-fault timestamps.** Validated START
     establishes the job timestamp. Record the actual final successful AXI B
     handshake even if the adapter's terminal notification is delayed, and
@@ -148,7 +148,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     fault snapshot or produce success. After calibration has first succeeded,
     its loss latches a fatal reset requirement even while idle. Startup before
     the first calibration remains NOT_READY. The serial board implementation
-    has [separate measured results](../results/ddr_gemm/board/README.md).
+    has [separate measured results](../results/README.md#archived-intermediate-runs).
 17. **Capture BUSY at local command acceptance.** A START received during a
     job must return BUSY even if that job finishes before register decoding.
     Capture the busy state alongside the local request and also check the
@@ -167,7 +167,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     freeing live ownership or withdrawing AXI VALID. Gate job traffic/progress
     monitors with the owner so host transfers cannot enter job counters.
     See [ddr-core.md](ddr-core.md) and
-    [complete packet evidence](../results/ddr_core/README.md).
+    [complete packet evidence](../results/README.md#archived-intermediate-runs).
 19. **Version the serial DDR checkpoint separately.** Report ID `0x314d474e`
     and VERSION `0x00000100` for the serial command subsystem. MODE remains zero
     and full v1 overlap/concurrency compliance is not advertised. The host checks
@@ -200,7 +200,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     reset, and run the extracted-function regression after reference changes.
     Retain the original failure and require a new complete integration pass;
     a corrected reference does not qualify unexamined hardware outputs. See
-    [the failure evidence](../results/ddr_gemm/vendor_oracle_failure/README.md)
+    [the failure evidence](../results/README.md#archived-intermediate-runs)
     and [testing workflow](testing.md).
 
 22. **Attribute transfer cycles before changing the schedule.** Partition
@@ -239,7 +239,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     before inter-tile overlap, which cannot improve a one-macrotile case.
     Keep all small-shape distributions visible: a larger array can increase
     scalar latency through its longer scheduled fill/drain. See
-    [the physical comparison](../results/ddr_gemm/p8_scaling/README.md).
+    [the physical comparison](../results/README.md#archived-intermediate-runs).
 
 25. **Reserve read metadata before issuing concurrent commands.** In the
     four-read build, command acceptance reserves one metadata entry and one
@@ -262,7 +262,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     edge. Suppress success on a simultaneous completion/fault edge and retain
     calibration checking until the packet completion decision. Verify these
     boundaries under response backpressure before repeating vendor and routed
-    qualification. See [the failed route](../results/ddr_gemm/read4/initial_timing/README.md).
+    qualification. See [the failed route](../results/README.md#archived-intermediate-runs).
 
 27. **Register host burst geometry before command admission.** The registered
     error-response revision reduced failing setup endpoints from 882 to 14,
@@ -285,7 +285,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     on the response-consume edge. Verify arithmetic and the existing schedule
     before integrating DMA concurrency. The production scheduler still rejects
     overlap until independent operation contexts and tagged tile ownership
-    are implemented. See [the local-port evidence](../results/tile_overlap_ports/README.md).
+    are implemented. See [the local-port evidence](../results/verification/README.md#injected-rtl-defect-detection).
 
 29. **Separate DMA operation contexts before overlapping macrotiles.** Reuse
     the tested tile adapter twice, with a fixed operand reader and C writer.
@@ -334,7 +334,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     for admission, stopping and snapshots. Keep priority and normalized codes
     in the error payload, with no added clock cycle. Assert scalar/payload
     equivalence in simulation and rerun the physical gate. See the
-    [failed route and source identity](../results/ddr_overlap/initial_timing/README.md).
+    [failed route and source identity](../results/implementation/README.md#key-engineering-observations).
 
 33. **Include required physical optimization in the reproducible build.**
     Scalar fault detection removes the original control bottleneck, but its
@@ -346,7 +346,7 @@ is in [results/core](../results/core/README.md); current integration status is i
     CDC, routing and constraint gates on the optimized design; do not change
     clocks or introduce timing exceptions to clear a violation. The Tcl flow
     is part of the source identity and requires fresh vendor/image qualification.
-    See the [measured probe](../results/ddr_overlap/timing_predicate/postroute_physopt/README.md).
+    See the [measured probe](../results/implementation/README.md#key-engineering-observations).
 
 34. **Require uninterrupted host qualification.** A host READ_REG timeout during
     Windows Modern Standby stops the test; elapsed sleep time cannot extend an

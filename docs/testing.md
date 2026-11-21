@@ -90,7 +90,7 @@ arithmetic/readback, ownership on START, response stalls and reset. Results
 go to `build/test_tile_overlap/`; choose a fresh `--build-dir` to retain runs.
 `make mutation-tile-overlap PYTHON=.venv/bin/python` runs three broken private
 copies and requires their expected assertion failures. Compile/tool failures
-do not count as detected defects. See [the saved evidence](../results/tile_overlap_ports/README.md).
+do not count as detected defects. See [the saved evidence](../results/verification/README.md#injected-rtl-defect-detection).
 
 The profiler checks complete outputs and guards, reconciles its event trace
 with all frozen counters, and checks sensitivity to known per-burst delays.
@@ -136,7 +136,7 @@ still interrupt qualification; keep the laptop awake for the whole run.
 On other platforms the wrapper simply executes the command.
 See Microsoft's [execution-state API](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate).
 
-The [first 1 Mbaud T32 endurance attempt](../results/ddr_overlap/release_1mbaud/board/t32/endurance_failed/README.md)
+The [first 1 Mbaud T32 endurance attempt](../results/board/README.md#30-minute-endurance-run)
 stopped with a READ_REG timeout after
 381 complete jobs. Windows recorded Modern Standby and a later keyboard wake
 during the pending job. A read-only reconnect found the same image, completed
@@ -208,13 +208,13 @@ With make available, the same runner is exposed as
 for every run; the runner refuses to overwrite evidence. Installation is an
 explicit setup step. The runner checks package/binary versions and source
 snapshots, then saves actual tool exits, query scripts, logs and witness models.
-The [native FIFO/scheduler record](../results/buffer_formal/README.md) and its
-[Linux reproduction](../results/buffer_formal/linux/README.md) retain actual
+The [native FIFO/scheduler record](../results/formal/README.md#read-fifo-and-scheduler-proofs) and its
+[Linux reproduction](../results/formal/README.md#read-fifo-and-scheduler-proofs) retain actual
 successful exits, source snapshots and decoded witnesses on both platforms.
-The [Linux row-planner run](../results/dma_rows/formal/linux/README.md) separately
+The [Linux row-planner run](../results/formal/README.md#dma-row-planner-checks) separately
 reproduces its nine queries and seven decoded witnesses.
 
-The [saved DMA row-planner result](../results/dma_rows/formal/README.md)
+The [saved DMA row-planner result](../results/formal/README.md#dma-row-planner-checks)
 passes 18 assertions for READ_SLOTS=1/4 through 20 SAT timeframes, including
 initial synchronous reset, for a fixed four-row descriptor at a 4 KiB boundary.
 It checks stalled offers and DONE, command credits, no DONE with accepted
@@ -228,7 +228,7 @@ FIFO ordering, scheduler ownership or the full accelerator. The result records
 the initial-state assumptions and the local queued-read withdrawal exception;
 AXI VALID obligations remain a separate contract.
 
-The [FIFO and scheduler record](../results/buffer_formal/README.md) extends
+The [FIFO and scheduler record](../results/formal/README.md#read-fifo-and-scheduler-proofs) extends
 that scope without changing production RTL. The four-entry read metadata FIFO
 at T8/T32 passes 37 assertions under one-beat ordered descriptors: an eight-frame
 reset-based base and a separate reset-low induction step. The reduced P4/T8
@@ -258,8 +258,8 @@ Out-of-context port-routing warnings are expected for those excluded pins.
 This is a core feasibility check, not full GEMM or board timing closure.
 
 The first unregistered-boundary attempt failed at the drain-control/output
-path under a 2 ns external-delay budget; its source and report are preserved
-in `results/core/initial_timing/`. The revised controller registers drain state
+path under a 2 ns external-delay budget; that milestone is summarized in
+[history.md](history.md) and [results/README.md](../results/README.md#archived-intermediate-runs). The revised controller registers drain state
 without changing the external cycle contract. A later I/O minimum-delay model
 also exposed the mismatch between ideal external arrival times and routed
 clock insertion delay. The final registered harness measures the intended
@@ -361,7 +361,7 @@ all internal register/BRAM/DSP paths must be timed. The script attempts
 [post-route hold fixing](https://docs.amd.com/r/en-US/ug835-vivado-tcl-commands/phys_opt_design)
 if needed and fails when negative setup or hold slack remains.
 See [tile-engine.md](tile-engine.md) for the interfaces and counter definitions.
-The [saved September 30 results](../results/tile_engine/README.md) distinguish
+The [saved September 30 results](../results/README.md#archived-intermediate-runs) distinguish
 the earlier estimated external-clock failure from the routed-clock checks.
 Simulation success does not satisfy the physical timing gate.
 
@@ -397,7 +397,7 @@ input, compares every output and saves JSON/CSV. `--repeats 30` repeats each
 case with inputs resident in BRAM; every repetition is checked. Core cycle
 throughput is reported separately from host-inclusive time.
 
-The [saved September 30 preview run](../results/preview/README.md) passed all
+The [saved September 30 preview run](../results/README.md#archived-intermediate-runs) passed all
 180 board jobs and 90,510 output comparisons at 115200 baud. This records six
 cases repeated 30 times, not 180 distinct random matrices or a 30-minute
 endurance test. All per-job counters and host timings are retained in JSON/CSV.
@@ -424,7 +424,7 @@ the run. The default runner elaborates `READ_SLOTS=1` and `4` separately under
 `python scripts/test_axi_burst.py --read-slots 4` selects only the queue build.
 Queue-specific tests check four ARs before any R, retained slot credit through
 DONE, ordered invalid commands, wraparound, simultaneous handshakes and
-protocol-fault draining. [Saved primitive evidence](../results/axi/read_queue/README.md)
+protocol-fault draining. [Saved primitive evidence](../results/verification/README.md#core-and-interface-coverage)
 has a separate source identity from the original serial implementation.
 The GEMM build selects `--read-slots 1` (default) or `--read-slots 4`.
 External cancellation cases retain held AR/data/DONE, cancel never-offered
@@ -444,7 +444,7 @@ CI. The [platform workflow](axi-platform.md) explains the generated project,
 configuration checks, calibration/traffic monitor and limits. It verifies the
 MIG example and DDR2 model, not the custom burst engine through a bridge or a
 physical board. Source hashes, generated-IP hashes and traffic counts are saved
-under `build/axi_mig/`; selected evidence is in [results/axi](../results/axi/README.md).
+under `build/axi_mig/`; selected evidence is in [results/axi](../results/verification/README.md#vendor-ddr2-simulation).
 
 ## Integrated DDR diagnostic
 
@@ -462,7 +462,7 @@ This test connects the custom 64-bit burst engine through SmartConnect to
 MIG and its generated DDR2 model. It covers startup and data movement; the
 separate warm-reset qualification currently fails the memory-model timing
 checks. See the [diagnostic workflow](ddr-diagnostic.md) and
-[saved evidence](../results/ddr_platform/README.md) before programming the board.
+[saved evidence](../results/README.md#archived-intermediate-runs) before programming the board.
 
 ## Serial DDR job integration
 
@@ -510,7 +510,7 @@ check rejection of stale source/configuration/generated inputs, incomplete
 simulation markers and failing physical reports without requiring Vivado.
 Programmer tests likewise mock Vivado and ensure altered bitstreams,
 simulation/configuration identities or routed reports cannot reach programming.
-The [saved build-flow checks](../results/ddr_gemm/README.md) record both native
+The [saved build-flow checks](../results/README.md#archived-intermediate-runs) record both native
 Windows and Linux results.
 
 `make test-ddr-registers PYTHON=.venv/bin/python` tests the local register map
@@ -550,7 +550,7 @@ transaction checks; they are not replaced by a checksum to reduce runtime.
 
 ## Physical tiling and overlap comparison
 
-The [completed 1 Mbaud comparison](../results/ddr_overlap/release_1mbaud/comparison/README.md)
+The [completed 1 Mbaud comparison](../results/comparison/README.md)
 uses 16 shapes and 30 samples per configuration. Run each command only with
 its matching qualified image already programmed after a separate cold start;
 see [the board procedure](ddr-board.md). These commands do not program or reset

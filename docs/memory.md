@@ -105,5 +105,5 @@ prefetch phase and during computation/drain, and 50 seeded random jobs per build
 `make synth-memory` checks BRAM inference and P squared DSP usage with Vivado.
 It is synthesis only; it does not establish timing closure for this wrapper
 or for a future board design. Logs are generated under `build/synth_memory/`.
-Saved [September 30 results](../results/operand_memory/README.md) contain
+Saved [September 30 results](../results/README.md#archived-intermediate-runs) contain
 the source hashes, coverage and synthesis reports.

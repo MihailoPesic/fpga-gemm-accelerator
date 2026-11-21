@@ -243,7 +243,7 @@ The [platform generator](../scripts/create_axi_platform.tcl) and
 network and DDR pin configuration. [Platform configuration](axi-platform.md)
 and [memory compatibility](ddr-memory-compatibility.md) distinguish the MIG
 preset/model from the incompletely identified physical device suffix.
-The [current routed record](../results/ddr_overlap/release_1mbaud/t32/README.md)
+The [current routed record](../results/implementation/README.md)
 contains timing, CDC, constraints and the worst control path. Passing those
 reports does not qualify warm reset or establish electrical margin.
 

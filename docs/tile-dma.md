@@ -105,7 +105,7 @@ state: after a fault, remaining words use zero byte strobes. Already offered
 C requests and responses retain their original handshake obligations.
 The [cycle profiler](ddr-core.md#cycle-attribution) records these boundaries
 alongside memory response delays and reconciles them with job counters.
-The [original profile](../results/ddr_gemm/profile/README.md) records the
+The [original profile](../results/README.md#archived-intermediate-runs) records the
 previous five-cycle cadence under its original source hashes. Its board
 identity does not qualify this changed adapter.
 
@@ -176,15 +176,15 @@ adapter alone cannot cancel a memory transaction.
 
 `make test-tile-dma PYTHON=.venv/bin/python` runs the portable integration
 fixture with the real engine, banks, row sequencer and burst primitive.
-The [current one/four-read regression](../results/ddr_gemm/read4/portable/tile/record.json) passes 56 tests across P4/P8 and T8/T32:
+The [current one/four-read regression](../results/README.md#archived-intermediate-runs) passes 56 tests across P4/P8 and T8/T32:
 216 complete jobs, 21,938 output comparisons and 128 invalid requests.
 Cases check read credits, ring metadata, held bank/DONE ownership and queued
 fault draining. Write tests inject faults exactly
 on write-command and nonfinal data-word acceptance, checking held C requests,
 response backpressure, zero-strobe suffixes and the final B obligation.
-The [C gather regression](../results/ddr_gemm/gather4/regression/README.md),
-[pipeline regression](../results/tile_dma/pipeline/README.md) and
-[original checkpoint](../results/tile_dma/README.md) retain their earlier
+The [C gather regression](../results/README.md#archived-intermediate-runs),
+[pipeline regression](../results/README.md#archived-intermediate-runs) and
+[original checkpoint](../results/README.md#archived-intermediate-runs) retain their earlier
 source identities and results.
 The memory side is a behavioral AXI RAM. This fixture does not contain MIG,
 UART job control, external macrotile iteration or overlap, and it does not
@@ -281,7 +281,7 @@ address/page splits, descriptor snapshots, independent completions and
 cross-direction fault draining. Test-only gates stall local interfaces;
 AXI channel pauses are independent.
 
-The [saved checkpoint](../results/tile_dma_duplex/README.md) passes 40 duplex
+The [saved checkpoint](../results/README.md#archived-intermediate-runs) passes 40 duplex
 tests across all eight configurations, with 48 fully checked stored matrices
 and 12,728 outputs. Seven serial DMA and ten serial packet/core compatibility
 tests pass separately. Raw summaries, coverage, XML, tool versions and

@@ -134,10 +134,10 @@ The [focused test suite](../tb/test_dma_rows.py) passes 10 tests across read
 depths one and four, including Icarus `-Wall` compilation. Run it with
 `python scripts/test_dma_rows.py`; the [runner](../scripts/test_dma_rows.py)
 records source hashes and rejects a result if those files change during the
-run. [Current results](../results/ddr_gemm/read4/regression/rows/README.md)
+run. [Current results](../results/README.md#archived-intermediate-runs)
 identify the queued planner revision; the
-[pipeline results](../results/dma_rows/pipeline/README.md) and
-[original evidence](../results/dma_rows/README.md) retain earlier source hashes.
+[pipeline results](../results/README.md#archived-intermediate-runs) and
+[original evidence](../results/README.md#archived-intermediate-runs) retain earlier source hashes.
 
 The independent Python oracle enumerates every row word and its useful bytes,
 groups addresses by 4 KiB page, then partitions each group into at most 16
@@ -163,7 +163,7 @@ sequencer's local contract. Earlier integration results retain their original
 source fingerprints; they do not qualify the changed validation pipeline.
 Integration and physical timing qualification are separate gates.
 
-The [bounded SAT record](../results/dma_rows/formal/README.md) adds 18 assertions
+The [bounded SAT record](../results/formal/README.md#dma-row-planner-checks) adds 18 assertions
 at read depths one and four through 20 timeframes, including initial reset,
 for a fixed four-row descriptor. It checks stalled payloads, credit bounds,
 burst metadata and absence of DONE while accepted commands remain outstanding.

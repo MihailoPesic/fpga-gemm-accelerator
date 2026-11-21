@@ -13,8 +13,8 @@ the cold-start restriction and remaining full-v1 requirements.
 | [Architecture](architecture.md) | How operands, results and control move through the current system; buffer ownership, clocks and completion. |
 | [Measurements](measurements.md) | What changed between T8 serial, T32 serial and T32 overlap; measured throughput, traffic and limitations. |
 | [Verification](verification.md) | Which arithmetic, interface and system checks support the claims, and their scope. |
-| [Current implementation reports](../results/ddr_overlap/release_1mbaud/t32/README.md) | Routed timing, resources, clocks, CDC and the worst control path; this static archive has its original pre-board scope. |
-| [Current board evidence index](../results/ddr_overlap/release_1mbaud/README.md) | The later physical measurements, maximum-size checks, sustained run and CLI/API demo for the same image. |
+| [Current implementation reports](../results/implementation/README.md) | Routed timing, resources, clocks, CDC and the worst control path; this static archive has its original pre-board scope. |
+| [Current board evidence index](../results/README.md) | The later physical measurements, maximum-size checks, sustained run and CLI/API demo for the same image. |
 | [Host API](host-gemm.md), [build and test](testing.md), [board workflow](ddr-board.md) | How to use supplied matrices, reproduce checks and build/program the FPGA. |
 
 ## Module contracts

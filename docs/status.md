@@ -31,7 +31,7 @@ and [overlap contract](ddr-overlap.md) describe the implemented behavior.
 | Implementation | Setup/hold +0.017/+0.017 ns; 17,026 LUTs, 20,882 FFs, 75 DSPs, 20 RAMB36 equivalents |
 
 [Measurements](measurements.md) explains the controlled result and its scope.
-The [current evidence index](../results/ddr_overlap/release_1mbaud/README.md)
+The [current evidence index](../results/README.md)
 links each original record, source/image identity and validator. Portable
 tests, vendor simulation, formal checks and board measurements have distinct
 boundaries in the [verification overview](verification.md).
@@ -40,7 +40,7 @@ The first T32 endurance attempt stopped after 381 validated jobs around a
 recorded Windows Modern Standby interval. A read-only reconnect checked the
 pending job and guards; it did not turn that failed run into a pass. The
 replacement run starts from zero elapsed time. Both records remain in the
-[evidence index](../results/ddr_overlap/release_1mbaud/README.md).
+[evidence index](../results/README.md).
 
 <a id="next-gates"></a>
 
