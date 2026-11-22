@@ -2,7 +2,7 @@
 
 The [technical specification](specification.md) defines the project target.
 These decisions clarify its implementation contracts. Saved compute evidence
-is in [results/core](../results/verification/README.md); current integration status is in
+is in [the verification summary](../results/verification/README.md); current integration status is in
 [status.md](status.md). Changes to these decisions require matching tests.
 
 1. **Platform baseline.** Target xc7a50ticsg324-1L. Preserve the working

@@ -444,7 +444,7 @@ CI. The [platform workflow](axi-platform.md) explains the generated project,
 configuration checks, calibration/traffic monitor and limits. It verifies the
 MIG example and DDR2 model, not the custom burst engine through a bridge or a
 physical board. Source hashes, generated-IP hashes and traffic counts are saved
-under `build/axi_mig/`; selected evidence is in [results/axi](../results/verification/README.md#vendor-ddr2-simulation).
+under `build/axi_mig/`; selected evidence is in [the vendor MIG summary](../results/verification/README.md#vendor-ddr2-simulation).
 
 ## Integrated DDR diagnostic
 
